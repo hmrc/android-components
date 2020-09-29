@@ -1,0 +1,50 @@
+task androidSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'source'
+}
+
+publishing {
+    publications {
+        mavenAar(MavenPublication) {
+            from components.android
+            artifact androidSourcesJar
+
+            pom {
+                name = project.name
+                description = project.description
+                url = 'https://github.com/hmrc/android-components'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/hmrc/android-components.git'
+                    developerConnection = 'scm:git:git@github.com:hmrc/android-components.git'
+                    url = 'https://github.com/hmrc/android-components'
+                }
+            }
+        }
+    }
+}
+
+bintray {
+    user = System.getenv("BITRISEIO_BINTRAY_USER")
+    key = System.getenv("BITRISEIO_BINTRAY_KEY")
+
+    publications = ['mavenAar']
+    publish = true
+
+    pkg {
+        repo = 'mobile-releases'
+        name = project.name
+        desc = project.description
+        userOrg = 'hmrc'
+        licenses = ['Apache-2.0']
+        version {
+            name = project.version
+            released = new Date()
+        }
+    }
+}

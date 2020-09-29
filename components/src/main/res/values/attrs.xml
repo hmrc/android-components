@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="text" format="string" />
+    <attr name="textColor" format="reference" />
+    <attr name="title" format="string" />
+    <attr name="subtitle" format="string" />
+    <attr name="icon" format="reference" />
+    <attr name="iconTintColor" format="reference" />
+    <attr name="accessibilityMessage" format="string" />
+    <attr name="buttonAccessibilityMessage" format="string" />
+    <attr name="childPadding" format="boolean" />
+    <attr name="buttonTextGravity" format="integer">
+        <flag name="start" value="8388611" />
+        <flag name="end" value="8388613" />
+        <flag name="center_vertical" value="16" />
+        <flag name="center_horizontal" value="1" />
+    </attr>
+    <attr format="reference" name="materialTextButtonStyle" />
+    <attr format="reference" name="materialIconButtonStyle" />
+
+    <declare-styleable name="InsetTextView">
+        <attr name="text" />
+    </declare-styleable>
+
+    <declare-styleable name="TextInputView">
+        <attr name="text" />
+        <attr name="overrideHintContentDescription" format="string" />
+        <attr name="hintText" format="string" />
+        <attr name="errorText" format="string" />
+        <attr name="counterMaxLength" format="integer" />
+        <attr name="counterEnabled" format="boolean" />
+        <attr name="android:imeOptions" />
+        <attr name="android:inputType" />
+        <attr name="android:maxLength" />
+        <attr name="android:maxLines" />
+    </declare-styleable>
+
+    <declare-styleable name="CurrencyInputView">
+        <attr name="decimalsEnabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandingRowView">
+        <attr name="title" />
+        <attr name="titleContentDescription" format="string" />
+        <attr name="subtitle" />
+        <attr name="subtitleContentDescription" format="string" />
+        <attr name="icon" />
+        <attr name="clickTogglesExpansion" format="boolean" />
+        <attr name="expanded" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="IconButtonView">
+        <attr name="title" />
+        <attr name="icon" />
+        <attr name="accessibilityMessage" />
+    </declare-styleable>
+
+    <declare-styleable name="TitleBodyView">
+        <attr name="title" />
+        <attr name="body" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="MultiColumnRowView">
+        <attr name="text1" format="string" />
+        <attr name="text2" format="string" />
+        <attr name="text3" format="string" />
+        <attr name="text1ContentDescription" format="string" />
+        <attr name="text2ContentDescription" format="string" />
+        <attr name="text3ContentDescription" format="string" />
+        <attr name="text1IsSelectable" format="boolean" />
+        <attr name="text2IsSelectable" format="boolean" />
+        <attr name="text3IsSelectable" format="boolean" />
+        <attr name="textStyle" format="reference" />
+        <attr name="textStyle2" format="reference" />
+        <attr name="textStyle3" format="reference" />
+        <attr name="text1Heading" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SwitchRowView">
+        <attr name="title" />
+        <attr name="body" />
+        <attr name="showBody" format="boolean" />
+        <attr name="checked" format="boolean" />
+        <attr name="titleStyle" format="reference" />
+        <attr name="switchContentDescription" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="DynamicCardView">
+        <attr name="childPadding" />
+    </declare-styleable>
+
+    <declare-styleable name="HeadlineCardView">
+        <attr name="title" />
+        <attr name="titleContentDescription" />
+        <attr name="headline" format="string" />
+        <attr name="headlineContentDescription" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="PrimaryCardView">
+        <attr name="title" />
+    </declare-styleable>
+
+    <declare-styleable name="InsetView">
+        <attr name="childPadding" />
+    </declare-styleable>
+
+    <declare-styleable name="StatusView">
+        <attr name="title" />
+        <attr name="body" />
+        <attr name="bodyContentDesc" format="string" />
+        <attr name="textColor" />
+        <attr name="icon" />
+        <attr name="iconTintColor" />
+        <attr name="primaryButtonText" format="string" />
+        <attr name="secondaryButtonText" format="string" />
+        <attr name="infoText" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="StatusCardView">
+        <attr name="title" />
+        <attr name="body" />
+        <attr name="bodyContentDesc" />
+        <attr name="icon" />
+        <attr name="iconTintColor" />
+    </declare-styleable>
+
+    <declare-styleable name="SummaryRowView">
+        <attr name="title" />
+        <attr name="accessibilityMessage" />
+        <attr name="titleTextAppearance" format="reference" />
+        <attr name="titleMaxLines" format="integer" />
+        <attr name="rowStyle" format="reference" />
+        <attr name="readerTrait" format="integer">
+            <flag name="info" value="1" />
+            <flag name="simple" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="WarningView">
+        <attr name="text" />
+        <attr name="textColor" />
+        <attr name="icon" />
+        <attr name="iconTintColor" />
+    </declare-styleable>
+
+    <declare-styleable name="SelectRowView">
+        <attr name="text" />
+        <attr name="button" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SelectRowGroup">
+        <attr name="selectedRow" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="InformationMessageCardView">
+        <attr name="headline" />
+        <attr name="headlineIcon" format="reference" />
+        <attr name="title" />
+        <attr name="body" />
+        <attr name="type" format="enum">
+            <enum name="warning" value="0" />
+            <enum name="info" value="1" />
+            <enum name="urgent" value="2" />
+            <enum name="notice" value="3" />
+        </attr>
+    </declare-styleable>
+
+</resources>

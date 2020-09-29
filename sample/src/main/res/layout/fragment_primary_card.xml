@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2018 HM Revenue & Customs
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/SampleScrollView">
+
+    <LinearLayout style="@style/SampleSectionContainer">
+
+        <TextView style="@style/PlaceholderText" />
+
+        <uk.gov.hmrc.components.organism.primary.PrimaryCardView
+            android:id="@+id/primary_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:title="@string/title_body_cta_placeholder_title">
+
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_body_cta_placeholder_body" />
+
+        </uk.gov.hmrc.components.organism.primary.PrimaryCardView>
+
+        <TextView style="@style/ExampleText" />
+
+        <uk.gov.hmrc.components.organism.primary.PrimaryCardView
+            android:id="@+id/primary_example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:title="@string/title_body_cta_example_title">
+
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_body_cta_example_body" />
+
+        </uk.gov.hmrc.components.organism.primary.PrimaryCardView>
+
+        <uk.gov.hmrc.components.organism.primary.PrimaryCardView
+            android:id="@+id/primary_example_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:title="@string/longer_text">
+
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/hmrc_spacing_16"
+                android:text="@string/longest_text" />
+
+            <uk.gov.hmrc.components.molecule.inset.InsetTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/longer_text" />
+
+        </uk.gov.hmrc.components.organism.primary.PrimaryCardView>
+
+        <uk.gov.hmrc.components.organism.primary.PrimaryCardView
+            android:id="@+id/primary_example_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:title="@string/title_body_cta_example_title">
+
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/hmrc_spacing_16"
+                android:text="@string/title_body_cta_example_body" />
+
+            <uk.gov.hmrc.components.atom.button.PrimaryButton
+                android:id="@+id/primary_example_3_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_body_cta_example_button" />
+
+        </uk.gov.hmrc.components.organism.primary.PrimaryCardView>
+
+        <uk.gov.hmrc.components.organism.primary.PrimaryCardView
+            android:id="@+id/primary_example_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:title="@string/longer_text">
+
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/hmrc_spacing_16"
+                android:paddingStart="@dimen/hmrc_spacing_16"
+                android:paddingEnd="@dimen/hmrc_spacing_16"
+                android:text="@string/longest_text" />
+
+            <uk.gov.hmrc.components.atom.button.SecondaryButton
+                android:id="@+id/primary_example_4_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="@string/long_text" />
+
+        </uk.gov.hmrc.components.organism.primary.PrimaryCardView>
+
+        <uk.gov.hmrc.components.organism.primary.PrimaryCardView
+            android:id="@+id/primary_example_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:title="@string/longer_text"
+            app:childPadding="false">
+
+            <uk.gov.hmrc.components.atom.button.IconButton
+                android:id="@+id/primary_example_5_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="@string/long_text"
+                app:icon="@drawable/ic_info" />
+
+        </uk.gov.hmrc.components.organism.primary.PrimaryCardView>
+
+    </LinearLayout>
+
+</ScrollView>

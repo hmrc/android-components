@@ -1,0 +1,118 @@
+/*
+ * Copyright 2020 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package uk.gov.hmrc.components.sample.organisms
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import uk.gov.hmrc.components.molecule.item.MultiColumnRowView
+import uk.gov.hmrc.components.sample.R
+import uk.gov.hmrc.components.sample.autoCleared
+import uk.gov.hmrc.components.sample.base.BaseComponentsFragment
+import uk.gov.hmrc.components.sample.base.ToolbarState
+import uk.gov.hmrc.components.sample.databinding.FragmentSummaryRowBinding
+
+class SummaryRowFragment : BaseComponentsFragment() {
+
+    private var binding: FragmentSummaryRowBinding by autoCleared()
+
+    override fun provideToolbar() = ToolbarState(true, R.string.organisms_summary_row, true)
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentSummaryRowBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val placeholderRow = MultiColumnRowView(context!!)
+        placeholderRow.setText(
+            getString(R.string.summary_row_placeholder_row1_text1),
+            getString(R.string.summary_row_placeholder_row1_text2),
+            getString(R.string.summary_row_placeholder_row1_text3))
+        binding.summaryRowPlaceholder.apply {
+            setRows(arrayListOf(placeholderRow))
+            setOnClickListener { onCtaPressed() }
+        }
+
+        val example1aRow1 = MultiColumnRowView(context!!)
+        example1aRow1.setText(
+            getString(R.string.summary_row_example_1a_row1_text1),
+            getString(R.string.summary_row_example_1a_row1_text2))
+        val example1aRow2 = MultiColumnRowView(context!!)
+        example1aRow2.setText(
+            getString(R.string.summary_row_example_1a_row2_text1),
+            getString(R.string.summary_row_example_1a_row2_text2))
+        val example1aRow3 = MultiColumnRowView(context!!)
+        example1aRow3.setText(
+            getString(R.string.summary_row_example_1a_row3_text1),
+            getString(R.string.summary_row_example_1a_row3_text2))
+        binding.summaryRowExample1a.apply {
+            setRows(arrayListOf(example1aRow1, example1aRow2, example1aRow3))
+            setOnClickListener { onCtaPressed() }
+            setChevronContentDescription(getString(R.string.summary_row_example_1a_accessibility_message))
+            setTitleTextAppearance(R.style.Text_Info)
+        }
+
+        val example1bRow1 = MultiColumnRowView(context!!)
+        example1bRow1.setText(
+            getString(R.string.summary_row_example_1b_row1_text1),
+            getString(R.string.summary_row_example_1b_row1_text2))
+        val example1bRow2 = MultiColumnRowView(context!!)
+        example1bRow2.setText(
+            getString(R.string.summary_row_example_1b_row2_text1),
+            getString(R.string.summary_row_example_1b_row2_text2))
+        binding.summaryRowExample1b.apply {
+            setRows(arrayListOf(example1bRow1, example1bRow2))
+            setOnClickListener { onCtaPressed() }
+        }
+
+        val example2Row1 = MultiColumnRowView(context!!)
+        example2Row1.setText(getString(R.string.summary_row_example_2_row1_text1))
+        binding.summaryRowExample2.apply {
+            setRows(arrayListOf(example2Row1))
+            setOnClickListener { onCtaPressed() }
+            setButtonAccessibilityMessage(getString(R.string.summary_row_example_2_accessibility_title), getString(R.string.summary_row_example_2_accessibility_action))
+        }
+
+        val example3Row1 = MultiColumnRowView(context!!)
+        example3Row1.setText(getString(R.string.longest_text))
+        binding.summaryRowExample3.apply {
+            setRows(arrayListOf(example3Row1))
+            setOnClickListener { onCtaPressed() }
+        }
+
+        val example4Row1 = MultiColumnRowView(context!!)
+        example4Row1.setText(getString(R.string.long_text), getString(R.string.long_text))
+        binding.summaryRowExample4.setRows(arrayListOf(example4Row1))
+
+        val example5Row1 = MultiColumnRowView(context!!)
+        example5Row1.setText(getString(R.string.long_text), getString(R.string.long_text), getString(R.string.long_text))
+        val example5Row2 = MultiColumnRowView(context!!)
+        example5Row2.setText(getString(R.string.long_text))
+        binding.summaryRowExample5.apply {
+            setRows(arrayListOf(example5Row1, example5Row2))
+            setOnClickListener { onCtaPressed() }
+        }
+    }
+
+    private fun onCtaPressed() {
+        Toast.makeText(activity, getString(R.string.cta_pressed), Toast.LENGTH_SHORT).show()
+    }
+}

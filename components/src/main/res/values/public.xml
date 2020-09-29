@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Colors -->
+    <public name="hmrc_black" type="color" />
+    <public name="hmrc_white" type="color" />
+    <public name="hmrc_always_black" type="color" />
+    <public name="hmrc_always_white" type="color" />
+    <public name="hmrc_green_1" type="color" />
+    <public name="hmrc_green_2" type="color" />
+    <public name="hmrc_blue" type="color" />
+    <public name="hmrc_teal" type="color" />
+    <public name="hmrc_red" type="color" />
+    <public name="hmrc_grey_1" type="color" />
+    <public name="hmrc_grey_2" type="color" />
+    <public name="hmrc_grey_3" type="color" />
+    <public name="hmrc_pink" type="color" />
+    <public name="hmrc_yellow" type="color" />
+    <public name="hmrc_white_background" type="color" />
+    <public name="hmrc_card_background" type="color" />
+    <public name="hmrc_divider" type="color" />
+    <public name="hmrc_dark_text" type="color" />
+
+    <!-- Styles -->
+    <public name="MaterialTextButtonNoInset" type="style" />
+    <public name="MaterialTextIconButtonNoInset" type="style" />
+    <public name="Card" type="style" />
+    <public name="Text.Body" type="style" />
+    <public name="Text.H3" type="style" />
+    <public name="Text.H4" type="style" />
+    <public name="Text.H5" type="style" />
+    <public name="Text.Bold" type="style" />
+    <public name="Text.Link" type="style" />
+    <public name="Text.Info" type="style" />
+    <public name="Text.Error" type="style" />
+    <public name="Divider" type="style" />
+
+    <!-- Dimens -->
+    <public name="hmrc_spacing_4" type="dimen" />
+    <public name="hmrc_spacing_8" type="dimen" />
+    <public name="hmrc_spacing_16" type="dimen" />
+    <public name="hmrc_spacing_24" type="dimen" />
+    <public name="hmrc_spacing_32" type="dimen" />
+    <public name="hmrc_spacing_48" type="dimen" />
+
+    <!-- Drawable -->
+    <public name="components_ripple_background" type="drawable" />
+
+</resources>

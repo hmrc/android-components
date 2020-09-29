@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2018 HM Revenue & Customs
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+
+    <!-- Spacing -->
+    <dimen name="hmrc_spacing_4">4dp</dimen>
+    <dimen name="hmrc_spacing_8">8dp</dimen>
+    <dimen name="hmrc_spacing_16">16dp</dimen>
+    <dimen name="hmrc_spacing_24">24dp</dimen>
+    <dimen name="hmrc_spacing_32">32dp</dimen>
+    <dimen name="hmrc_spacing_48">48dp</dimen>
+
+    <!-- Images -->
+    <dimen name="icon_height">100dp</dimen>
+
+    <!-- Text -->
+    <dimen name="text_body">16sp</dimen>
+    <dimen name="text_button">16sp</dimen>
+    <dimen name="text_heading_3">48sp</dimen>
+    <dimen name="text_heading_4">30sp</dimen>
+    <dimen name="text_heading_5">20sp</dimen>
+    <dimen name="text_heading_6">16sp</dimen>
+    <dimen name="text_navigation_drawer">14sp</dimen>
+    <dimen name="text_navigation_bar">10sp</dimen>
+    <dimen name="text_bullet_point">3sp</dimen>
+
+    <!-- Buttons -->
+    <dimen name="button_min_height">60dp</dimen>
+
+    <!-- Notification card -->
+    <dimen name="notification_card_icon_size">38dp</dimen>
+
+    <!-- Icon title description -->
+    <dimen name="icon_title_description_icon_size">90dp</dimen>
+
+    <!-- Icon button -->
+    <dimen name="icon_button_image_size">24dp</dimen>
+
+    <!-- Inset -->
+    <dimen name="inset_divider_size">4dp</dimen>
+
+    <!-- Divider -->
+    <dimen name="divider_height">1dp</dimen>
+
+    <!-- Warning -->
+    <dimen name="warning_icon_size">36dp</dimen>
+
+</resources>

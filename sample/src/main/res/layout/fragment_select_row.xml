@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright 2018 HM Revenue & Customs
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/SampleScrollView">
+
+    <LinearLayout style="@style/SampleSectionContainer">
+
+        <TextView style="@style/PlaceholderText" />
+
+        <FrameLayout style="@style/PlaceholderContainer">
+
+            <uk.gov.hmrc.components.molecule.selectrow.SelectRowGroup
+                android:id="@+id/placeholder_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:text="(Body) Description" />
+
+            </uk.gov.hmrc.components.molecule.selectrow.SelectRowGroup>
+
+        </FrameLayout>
+
+        <TextView style="@style/ExampleText" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.molecule.selectrow.SelectRowGroup
+                android:id="@+id/select_row_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:selectedRow="@id/select_row_1">
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:text="First row" />
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:text="Second row" />
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:text="Show an error" />
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:text="@string/longer_text" />
+
+            </uk.gov.hmrc.components.molecule.selectrow.SelectRowGroup>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.molecule.selectrow.SelectRowGroup
+                android:id="@+id/select_row_tick_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_tick_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:button="@drawable/components_select_row_tick"
+                    app:text="First row" />
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_tick_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:button="@drawable/components_select_row_tick"
+                    app:text="Second row" />
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_tick_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:button="@drawable/components_select_row_tick"
+                    app:text="Third row" />
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_tick_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:button="@drawable/components_select_row_tick"
+                    app:text="Fourth row" />
+
+            </uk.gov.hmrc.components.molecule.selectrow.SelectRowGroup>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>

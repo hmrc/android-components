@@ -1,0 +1,1 @@
+-keep class uk.gov.hmrc.components.** { *; }

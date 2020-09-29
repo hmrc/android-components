@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.textfield.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/TextInput"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:prefixTextAppearance="@style/Text.Body"
+    app:prefixTextColor="@color/hmrc_dark_text"
+    app:errorEnabled="true"
+    app:endIconMode="clear_text"
+    app:endIconTint="@color/hmrc_black"
+    app:endIconDrawable="@drawable/components_ic_clear"
+    tools:hint="@string/text_input_example_hint">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:tag="edit_text"
+        tools:text="@string/text_input_example_text" />
+
+</com.google.android.material.textfield.TextInputLayout>

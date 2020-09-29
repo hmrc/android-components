@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2018 HM Revenue & Customs
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/SampleScrollView">
+
+    <LinearLayout style="@style/SampleSectionContainer">
+
+        <TextView style="@style/PlaceholderText" />
+
+        <uk.gov.hmrc.components.organism.information.InformationMessageCardView
+            android:id="@+id/info_message_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:headline="@string/info_message_placeholder_headline"
+            app:headlineIcon="@drawable/ic_info"
+            app:type="urgent"
+            app:title="@string/info_message_placeholder_title"
+            app:body="@string/info_message_placeholder_body" />
+
+        <TextView style="@style/ExampleText" />
+
+        <uk.gov.hmrc.components.organism.information.InformationMessageCardView
+            android:id="@+id/info_message_example_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:type="info"
+            app:headline="@string/info_message_example_1_headline"
+            app:headlineIcon="@drawable/ic_info"
+            app:title="@string/info_message_example_1_title"
+            app:body="@string/info_message_example_1_body" />
+
+        <uk.gov.hmrc.components.organism.information.InformationMessageCardView
+            android:id="@+id/info_message_example_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:type="warning"
+            app:headline="@string/info_message_example_2_headline"
+            app:headlineIcon="@drawable/components_ic_warning" />
+
+        <uk.gov.hmrc.components.organism.information.InformationMessageCardView
+            android:id="@+id/info_message_example_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:type="notice"
+            app:headline="@string/info_message_example_3_headline"
+            app:headlineIcon="@drawable/components_ic_warning" />
+
+
+    </LinearLayout>
+
+</ScrollView>
+

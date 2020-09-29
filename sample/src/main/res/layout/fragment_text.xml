@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2018 HM Revenue & Customs
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/hmrc_spacing_16"
+        tools:context=".MainActivity">
+
+        <uk.gov.hmrc.components.atom.heading.Heading3
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/text_heading3" />
+
+        <TextView
+            style="@style/Text.H3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:gravity="start"
+            android:text="@string/text_h3" />
+
+        <uk.gov.hmrc.components.atom.heading.Heading4
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:gravity="start"
+            android:text="@string/text_heading4" />
+
+        <TextView
+            style="@style/Text.H4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:gravity="start"
+            android:text="@string/text_h4" />
+
+        <uk.gov.hmrc.components.atom.heading.Heading5
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:gravity="start"
+            android:text="@string/text_heading5" />
+
+        <TextView
+            style="@style/Text.H5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:gravity="start"
+            android:text="@string/text_h5" />
+
+        <TextView
+            style="@style/Text.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:gravity="start"
+            android:text="@string/text_bold" />
+
+        <TextView
+            style="@style/Text.Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:gravity="start"
+            android:text="@string/text_body" />
+
+        <TextView
+            style="@style/Text.Info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:gravity="start"
+            android:text="@string/text_info" />
+
+        <TextView
+            android:id="@+id/link"
+            style="@style/Text.Link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:gravity="start"
+            tools:text="Link text" />
+
+        <TextView
+            style="@style/Text.Error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:gravity="start"
+            android:text="@string/text_error" />
+
+        <uk.gov.hmrc.components.atom.bullet.BulletedTextView
+            style="@style/Text.Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:text="@string/text_bullet_1" />
+
+        <uk.gov.hmrc.components.atom.bullet.BulletedTextView
+            style="@style/Text.Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:text="@string/text_bullet_2" />
+
+    </LinearLayout>
+
+</ScrollView>

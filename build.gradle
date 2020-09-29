@@ -1,0 +1,63 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        kotlin_version = '1.4.0'
+    }
+
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://hmrc.bintray.com/mobile-releases"
+            content {
+                includeGroup("uk.gov.hmrc.gradle")
+            }
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "uk.gov.hmrc.gradle:spotless:0.1.0"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+ext {
+    // SDK and tools
+    min_sdk_version = 21
+    target_sdk_version = 28
+    compile_sdk_version = 28
+
+    // App dependencies
+    android_x_app_compat_version = '1.0.2'
+    android_x_annotation_version = '1.0.2'
+    android_x_recyclerview_version = '1.0.0'
+    android_x_constraint_layout_version = '1.1.3'
+    material_version = '1.2.1'
+    lifecycleVersion = '2.1.0'
+
+    junit_version = '4.12'
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://dl.bintray.com/ngcandroid/NGCAndroid"
+        }
+    }
+}
+
+subprojects {
+    tasks.withType(Javadoc).all { enabled = false }
+    group = 'uk.gov.hmrc.components'
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

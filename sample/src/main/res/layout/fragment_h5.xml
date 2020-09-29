@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright 2018 HM Revenue & Customs
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/SampleScrollView">
+
+    <LinearLayout style="@style/SampleSectionContainer">
+
+        <TextView style="@style/PlaceholderText" />
+
+        <FrameLayout style="@style/PlaceholderContainer">
+
+            <uk.gov.hmrc.components.molecule.titleBodyView.H5TitleBodyView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:body="@string/h5_placeholder_body"
+                app:title="@string/h5_placeholder_title" />
+
+        </FrameLayout>
+
+        <TextView style="@style/ExampleText" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.molecule.titleBodyView.H5TitleBodyView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/hmrc_spacing_16"
+                app:body="@string/h5_example_body"
+                app:title="@string/h5_example_title" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.molecule.titleBodyView.H5TitleBodyView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/hmrc_spacing_16"
+                app:body="@string/longest_text"
+                app:title="@string/longer_text" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>
