@@ -688,3 +688,11 @@ Optionally, buttons can be added to the headline section using `addHeadlineButto
 # Components Test
 
 The test library includes custom `ViewMatchers` and `ViewActions` for easier testing of HMRC components using espresso.
+
+# Contributing
+
+## Releasing
+
+In order to release the library, you need to provide a Github personal access token with `repo` scope via a `GITHUB_TOKEN` environment variable - you can create a new token on [Github](https://github.com/settings/tokens/new).
+
+To release the library, run `bundle exec fastlane tag_release` and choose to bump either the major, minor or patch when prompted. This will create a new tag, update the changelog and trigger the `publish` workflow on Bitrise.
