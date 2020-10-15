@@ -47,9 +47,9 @@ class IconButtonTest : ScreenshotTest {
     fun testIconButtonClickListener() {
         var wasClicked = false
         scenario.onActivity { activity ->
-           activity.findViewById<IconButton>(testR.id.icon_button_warning).setOnClickListener {
-               wasClicked = true
-           }
+            activity.findViewById<IconButton>(testR.id.icon_button_warning).setOnClickListener {
+                wasClicked = true
+            }
         }
 
         onView(withId(testR.id.icon_button_warning)).perform(click())
