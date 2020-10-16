@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        kotlin_version = '1.4.0'
+        kotlin_version = '1.4.10'
     }
 
     repositories {
@@ -25,6 +25,10 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+}
+
+plugins {
+    id 'io.gitlab.arturbosch.detekt' version '1.0.0'
 }
 
 ext {
@@ -61,10 +65,4 @@ subprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-configurations.all {
-    resolutionStrategy {
-        force "androidx.test:monitor:${rootProject.androidxTestRunner}"
-    }
 }

@@ -1,1 +1,2 @@
+include ':screenshots'
 include ':components', ':sample', ':components-test'

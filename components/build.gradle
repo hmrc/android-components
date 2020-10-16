@@ -1,7 +1,7 @@
 plugins {
     id 'digital.wup.android-maven-publish' version '3.6.2'
     id 'com.jfrog.bintray'
-    id 'io.gitlab.arturbosch.detekt' version '1.0.0'
+
     id 'com.gladed.androidgitversion' version '0.4.9'
 }
 
@@ -10,7 +10,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'uk.gov.hmrc.spotless'
 apply plugin: 'io.gitlab.arturbosch.detekt'
-apply plugin: 'shot'
 
 detekt {
     config = files("../detekt/config.yml")
@@ -31,7 +30,6 @@ android {
         versionName version
         testInstrumentationRunner "com.karumi.shot.ShotTestRunner"
         consumerProguardFiles 'consumer-proguard-rules.pro'
-        testApplicationId "uk.gov.hmrc.components.test"
     }
 
     buildTypes {
@@ -65,11 +63,6 @@ dependencies {
 
     testImplementation "junit:junit:$junit_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    androidTestImplementation 'junit:junit:4.13'
-    androidTestImplementation "androidx.test:runner:1.3.0"
-    androidTestImplementation 'androidx.test:core-ktx:1.3.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
 
 
