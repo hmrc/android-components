@@ -16,14 +16,12 @@
 package uk.gov.hmrc.components.screenshots.atom.bullet
 
 import android.view.View
-import android.widget.LinearLayout
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.launchActivity
 import com.karumi.shot.ScreenshotTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import uk.gov.hmrc.components.atom.bullet.BulletedTextView
 import uk.gov.hmrc.components.screenshots.R
 import uk.gov.hmrc.components.screenshots.capture
 import uk.gov.hmrc.components.screenshots.rules.FontScale
@@ -63,5 +61,4 @@ class BulletedTextViewTest : ScreenshotTest {
     fun bulletedTextViewFontScaleScreenshots() {
         capture(rootView, isFontScaled = true)
     }
-
 }

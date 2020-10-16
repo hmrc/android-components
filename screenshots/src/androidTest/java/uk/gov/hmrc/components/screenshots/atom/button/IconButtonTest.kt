@@ -16,7 +16,6 @@
 package uk.gov.hmrc.components.screenshots.atom.button
 
 import android.view.View
-import android.widget.LinearLayout
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.launchActivity
 import androidx.test.espresso.Espresso.onView
@@ -81,5 +80,4 @@ class IconButtonTest : ScreenshotTest {
     fun iconButtonFontScaleScreenshots() {
         capture(rootView, isFontScaled = true)
     }
-
 }
