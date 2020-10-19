@@ -29,85 +29,91 @@ platform :android do
   end
 
   desc "Takes a release tag and updates changelog"
-    lane :tag_release do
+  lane :tag_release do
 
-      UI.user_error!("You need to provide a Github Personal token via a `GITHUB_TOKEN` environment variable - you can create a new token on Github https://github.com/settings/tokens/new") unless !ENV["GITHUB_TOKEN"].nil?
+    UI.user_error!("You need to provide a Github Personal token via a `GITHUB_TOKEN` environment variable - you can create a new token on Github https://github.com/settings/tokens/new") unless !ENV["GITHUB_TOKEN"].nil?
 
-      # ensure repo is clean and on master
-      ensure_git_status_clean
-      ensure_git_branch
+    # ensure repo is clean and on master
+    ensure_git_status_clean
+    ensure_git_branch
 
-      # pull latest changes and fetch tags
-      git_pull
+    # pull latest changes and fetch tags
+    git_pull
 
-      # get current version
-      current_tag = last_git_tag
-      version = Semantic::Version.new(current_tag)
+    # get current version
+    current_tag = last_git_tag
+    version = Semantic::Version.new(current_tag)
 
-      # prompt for bump type
-      bump_type = UI.select(
-        "Current version is #{current_tag}. What would you like to bump?",
-        ["major", "minor", "patch"]
-      )
+    # prompt for bump type
+    bump_type = UI.select(
+      "Current version is #{current_tag}. What would you like to bump?",
+      ["major", "minor", "patch"]
+    )
 
-      # increment version
-      case bump_type
-      when "major"
-        tag = version.increment!(:major)
-      when "minor"
-        tag = version.increment!(:minor)
-      else
-        tag = version.increment!(:patch)
-      end
-
-      # update changelog
-      stamp_changelog(section_identifier: tag.to_string)
-      git_commit(path: "./CHANGELOG.md", message: "Update CHANGELOG.md")
-      push_to_git_remote
-
-      # take tag and push to remote
-      add_git_tag(tag: tag.to_string)
-      push_git_tags
-
-      # update releases on Github
-      changelog = read_changelog(
-        section_identifier: "[#{tag}]",
-        excluded_markdown_elements: []
-      )
-      set_github_release(
-        repository_name: "hmrc/android-components",
-        api_token: ENV["GITHUB_TOKEN"],
-        name: tag.to_string,
-        tag_name: tag.to_string,
-        description: changelog
-      )
+    # increment version
+    case bump_type
+    when "major"
+      tag = version.increment!(:major)
+    when "minor"
+      tag = version.increment!(:minor)
+    else
+      tag = version.increment!(:patch)
     end
 
 
-    desc "Publishes components library"
-    lane :publish do
-      ensure_git_status_clean
+    sh("git", "checkout", "-b", "tag/#{tag.to_string}")
+    
+    # update changelog
+    stamp_changelog(section_identifier: tag.to_string)
+    git_commit(path: "/CHANGELOG.md", message: "Update CHANGELOG.md and tagging release")
 
-      check
+    push_to_git_remote
 
-      # build the app and upload to Bintray
-      gradle(task: 'components:clean')
-      gradle(task: 'components:build')
-      gradle(task: 'components:bintrayUpload')
-    end
+    sh("gh", "pr", "create", "--title", "Release #{tag.to_string}", "--body", "") 
 
-    desc "Publishes components test library"
-    lane :publish_test do
-      # ensure repo is clean and on master
-      ensure_git_status_clean
-      ensure_git_branch
+    # take tag and push to remote
+    add_git_tag(tag: tag.to_string)
+    push_git_tags
 
-      check
+    # update releases on Github
+    changelog = read_changelog(
+      section_identifier: "[#{tag}]", 
+      excluded_markdown_elements: []
+    )
+    set_github_release(
+      repository_name: "hmrc/android-components",
+      api_token: ENV["GITHUB_TOKEN"],
+      name: tag.to_string,
+      tag_name: tag.to_string,
+      description: changelog
+    )
+  end
 
-      # build the app and upload to Bintray
-      gradle(task: 'components-test:clean')
-      gradle(task: 'components-test:build')
-      gradle(task: 'components-test:bintrayUpload')
-    end
+
+  desc "Publishes components library"
+  lane :publish do
+    ensure_git_status_clean
+
+    check
+
+    # build the app and upload to Bintray
+    gradle(task: 'components:clean')
+    gradle(task: 'components:build')
+    gradle(task: 'components:bintrayUpload')
+  end
+
+  desc "Publishes components test library"
+  lane :publish_test do
+    # ensure repo is clean and on master
+    ensure_git_status_clean
+    ensure_git_branch
+
+    check
+
+    # build the app and upload to Bintray
+    gradle(task: 'components-test:clean')
+    gradle(task: 'components-test:build')
+    gradle(task: 'components-test:bintrayUpload')
+  end
 end
 
