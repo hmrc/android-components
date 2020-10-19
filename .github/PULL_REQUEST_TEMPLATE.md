@@ -1,6 +1,7 @@
 # 📝 Description
-  
-  https://github.com/hmrc/android-components/issues/?
+
+Github Issue
+https://github.com/hmrc/android-components/issues/?
   
 - [ ] Updated CHANGELOG
 - [ ] Updated README
