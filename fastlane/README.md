@@ -12,7 +12,7 @@ Install _fastlane_ using
 ```
 [sudo] gem install fastlane -NV
 ```
-or alternatively using `brew cask install fastlane`
+or alternatively using `brew install fastlane`
 
 # Available Actions
 ## Android
@@ -41,6 +41,16 @@ Publishes components library
 fastlane android publish_test
 ```
 Publishes components test library
+### android connectedCheck
+```
+fastlane android connectedCheck
+```
+Starts an emulator and runs all device checks
+### android screenshot_diff
+```
+fastlane android screenshot_diff
+```
+Runs the screenshot tests
 
 ----
 

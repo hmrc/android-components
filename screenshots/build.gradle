@@ -37,6 +37,10 @@ android {
     }
 }
 
+shot {
+    runInstrumentation = false
+}
+
 dependencies {
     implementation project(':components')
 
