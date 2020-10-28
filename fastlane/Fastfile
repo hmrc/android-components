@@ -124,7 +124,7 @@ platform :android do
 
 
         if options[:pathToScreenShots]
-        sh 'cd pathToScreenShots'
+        sh 'cd ' + options[:pathToScreenShots]
         sh 'ls'
           filePrefix = options[:filePrefix]
           sh 'mkdir ' + images
