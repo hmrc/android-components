@@ -125,13 +125,10 @@ platform :android do
         if options[:pathToScreenShots]
           filePrefix = options[:filePrefix]
           sh 'mkdir ' + images
-          Dir.chdir("..") do
-            sh 'ls'
-          end
+
           Dir.chdir(options[:pathToScreenShots]) do
-                      sh 'ls'
+             sh 'unzip Nexus6P-27-en-portrait_artifacts_sdcard_screenshots_uk.gov.hmrc.components.screenshots.test_screenshots-default_screenshot_bundle.zip -d ' + images
           end
-          sh 'for file in ' + options[:pathToScreenShots] + '/' + filePrefix + '* ; do mv -v "$file" "' + images + '${file#*' + filePrefix + '}"; done'
         else
           gradle(task: "debugDownloadScreenshots")
         end
