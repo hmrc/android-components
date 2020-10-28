@@ -125,6 +125,9 @@ platform :android do
         if options[:pathToScreenShots]
           filePrefix = options[:filePrefix]
           sh 'mkdir ' + images
+          sh 'ls'
+          sh 'cd ' + options[:pathToScreenShots]
+          sh 'ls'
           sh 'for file in ' + options[:pathToScreenShots] + '/' + filePrefix + '* ; do mv -v "$file" "' + images + '${file#*' + filePrefix + '}"; done'
         else
           gradle(task: "debugDownloadScreenshots")
