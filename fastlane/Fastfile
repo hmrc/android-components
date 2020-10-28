@@ -122,12 +122,7 @@ platform :android do
       lane :screenshot_diff do |options|
         images = '../screenshots/screenshots/debug/screenshots-default/'
 
-
         if options[:pathToScreenShots]
-        path = options[:pathToScreenShots]
-        path[0] = ''
-        sh 'cd ' + path
-        sh 'ls'
           filePrefix = options[:filePrefix]
           sh 'mkdir ' + images
           sh 'for file in ' + options[:pathToScreenShots] + '/' + filePrefix + '* ; do mv -v "$file" "' + images + '${file#*' + filePrefix + '}"; done'
