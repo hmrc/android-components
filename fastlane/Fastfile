@@ -120,7 +120,7 @@ platform :android do
 
     desc "Runs the screenshot tests"
       lane :screenshot_diff do |options|
-        images = '../screenshots/screenshots/debug/'
+        images = '../screenshots/screenshots/debug/screenshots-default/'
 
         if options[:pathToScreenShots]
           filePrefix = options[:filePrefix]
@@ -129,6 +129,7 @@ platform :android do
         else
           gradle(task: "debugDownloadScreenshots")
         end
+
         gradle(task: "executeScreenshotTests")
       end
 end
