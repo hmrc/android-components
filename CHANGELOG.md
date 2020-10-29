@@ -15,6 +15,7 @@ Allowed headings:
 -->
 
 ## [Unreleased]
+- Adding `fastlane` release process
 
 ## [3.4.6] - 2020-09-10
 
