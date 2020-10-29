@@ -124,7 +124,7 @@ platform :android do
 
         if options[:pathToScreenShots]
           filePrefix = options[:filePrefix]
-          sh 'mkdir ' + images
+          sh 'mkdir ../' + images
 
           Dir.chdir(options[:pathToScreenShots]) do
              sh 'unzip Nexus6P-27-en-portrait_artifacts_sdcard_screenshots_uk.gov.hmrc.components.screenshots.test_screenshots-default_screenshot_bundle.zip -d $BITRISE_SOURCE_DIR' + images
