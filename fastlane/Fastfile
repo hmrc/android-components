@@ -120,14 +120,14 @@ platform :android do
 
     desc "Runs the screenshot tests"
       lane :screenshot_diff do |options|
-        images = '../screenshots/screenshots/debug/screenshots-default/'
+        images = 'screenshots/screenshots/debug/screenshots-default/'
 
         if options[:pathToScreenShots]
           filePrefix = options[:filePrefix]
           sh 'mkdir ' + images
 
           Dir.chdir(options[:pathToScreenShots]) do
-             sh 'unzip Nexus6P-27-en-portrait_artifacts_sdcard_screenshots_uk.gov.hmrc.components.screenshots.test_screenshots-default_screenshot_bundle.zip -d ' + images
+             sh 'unzip Nexus6P-27-en-portrait_artifacts_sdcard_screenshots_uk.gov.hmrc.components.screenshots.test_screenshots-default_screenshot_bundle.zip -d $BITRISE_SOURCE_DIR' + images
           end
         else
           gradle(task: "debugDownloadScreenshots")
