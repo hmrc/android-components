@@ -15,7 +15,10 @@ Allowed headings:
 -->
 
 ## [Unreleased]
-- Adding `fastlane` release process
+
+### Added
+* `fastlane` release process
+* screenshot tests
 
 ## [3.4.6] - 2020-09-10
 

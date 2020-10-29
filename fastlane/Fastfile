@@ -116,6 +116,14 @@ platform :android do
       gradle(task: 'components-test:bintrayUpload')
     end
 
+    desc "Starts an emulator and records new screenshots"
+    lane :screenshot_record do
+      automated_test_emulator_run(
+        AVD_setup_path: "fastlane/avd_setup/Nexus6P.json",
+        shell_task: "./gradlew clean connectedAndroidTest && ./gradlew debugDownloadScreenshots && ./gradlew executeScreenshotTests -Precord"
+      )
+    end
+
     desc "Starts an emulator and runs all device checks"
     lane :connectedCheck do
       automated_test_emulator_run(
@@ -124,7 +132,7 @@ platform :android do
       )
     end
 
-    desc "Runs the screenshot tests"
+    desc "Runs the screenshot comparison"
     lane :screenshot_diff do |options|
       images = '/screenshots/screenshots/debug/screenshots-default/'
 

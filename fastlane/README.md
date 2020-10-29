@@ -41,6 +41,11 @@ Publishes components library
 fastlane android publish_test
 ```
 Publishes components test library
+### android screenshot_record
+```
+fastlane android screenshot_record
+```
+Starts an emulator and records new screenshots
 ### android connectedCheck
 ```
 fastlane android connectedCheck
