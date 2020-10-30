@@ -51,6 +51,17 @@ project.afterEvaluate {
                 }
             }
         }
+
+
+    }
+
+    task unzipBundle(type: Copy) {
+
+        def zipFile = file(screenShotsVerificationBaseDir)
+        def outputDir = file(screenShotsVerificationBaseDir)
+
+        from zipTree(zipFile)
+        into outputDir
     }
     //This ensures that the screenshots are recorded when running on Firebase test lab
     project.tasks.connectedDebugAndroidTest.finalizedBy project.tasks.executeScreenshotTests
