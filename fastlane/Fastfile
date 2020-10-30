@@ -133,7 +133,8 @@ platform :android do
     end
 
     desc "Runs the screenshot comparison"
-    lane :screenshot_diff do
-      sh './gradlew copyVerificationFiles executeScreenshotTests -PrunInstrumentation=false'
+    lane :screenshot_diff do |options|
+      gradle(task: "copyVerificationFiles")
+      gradle(task: "executeScreenshotTests", properties: {"runInstrumentation" => "false"})
      end
 end
