@@ -41,6 +41,7 @@ project.afterEvaluate {
                     f.name.contains("_screenshots-default_")
                 }.each { foundFile ->
             def nameWithoutPrefix = foundFile.name.split("_screenshots-default_")[1]
+            println("copy from ${foundFile.path} to ${screenShotsVerificationBaseDir}")
 
             copy {
                 from "${foundFile.path}"
