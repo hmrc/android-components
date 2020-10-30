@@ -136,9 +136,6 @@ platform :android do
     lane :screenshot_diff do |options|
       gradle(task: "copyVerificationFiles")
       gradle(task: "unzipBundle")
-      Dir.chdir("/bitrise/src/screenshots/screenshots/debug/screenshots-default/") do
-               sh 'ls'
-            end
       gradle(task: "executeScreenshotTests", properties: {"runInstrumentation" => "false"})
      end
 end
