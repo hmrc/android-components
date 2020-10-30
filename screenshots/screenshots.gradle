@@ -1,12 +1,4 @@
 apply plugin: 'shot'
-/*
-
- * `./gradlew executeScreenshotTests -Precord` - Executes snapshots recording at folder  `"${projectDir}/screenshots/`
- * `./gradlew executeScreenshotTests` - Verifies if the current screens against the previous snapshots at folder  `"${projectDir}/screenshots/` using the current connected device
- * `./gradlew copyVerificationFiles executeScreenshotTests -PrunInstrumentation=false` - Verifies if the current screens against the previous snapshots at folder  `"${projectDir}/screenshots/` without using the current connected device.
- In that case the current screenshots(that may be generated on a remote device) must be copied to the folder `"${projectDir}/screenshots/screenshots-default`
-
-*/
 
 ext {
     localProp = new Properties()
@@ -41,7 +33,6 @@ project.afterEvaluate {
                     f.name.contains("_screenshots-default_")
                 }.each { foundFile ->
             def nameWithoutPrefix = foundFile.name.split("_screenshots-default_")[1]
-            println("copy from ${foundFile.path} to ${screenShotsVerificationBaseDir}")
 
             copy {
                 from "${foundFile.path}"
@@ -51,8 +42,6 @@ project.afterEvaluate {
                 }
             }
         }
-
-
     }
 
     task unzipBundle(type: Copy) {
@@ -63,8 +52,6 @@ project.afterEvaluate {
         from zipTree(zipFile)
         into outputDir
     }
-    //This ensures that the screenshots are recorded when running on Firebase test lab
-    project.tasks.connectedDebugAndroidTest.finalizedBy project.tasks.executeScreenshotTests
 }
 
 private def getArgument(prop, defaultValue) {
