@@ -5,6 +5,7 @@ plugins {
     id 'uk.gov.hmrc.spotless'
     id 'io.gitlab.arturbosch.detekt'
 }
+apply from: "./screenshots.gradle"
 
 android {
     compileSdkVersion 29
@@ -35,10 +36,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-}
-
-shot {
-    runInstrumentation = false
 }
 
 dependencies {

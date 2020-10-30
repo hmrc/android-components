@@ -1,0 +1,63 @@
+apply plugin: 'shot'
+/*
+
+ * `./gradlew executeScreenshotTests -Precord` - Executes snapshots recording at folder  `"${projectDir}/screenshots/`
+ * `./gradlew executeScreenshotTests` - Verifies if the current screens against the previous snapshots at folder  `"${projectDir}/screenshots/` using the current connected device
+ * `./gradlew copyVerificationFiles executeScreenshotTests -PrunInstrumentation=false` - Verifies if the current screens against the previous snapshots at folder  `"${projectDir}/screenshots/` without using the current connected device.
+ In that case the current screenshots(that may be generated on a remote device) must be copied to the folder `"${projectDir}/screenshots/screenshots-default`
+
+*/
+
+ext {
+    localProp = new Properties()
+    fileName = 'local.properties'
+    if (project.rootProject.file(fileName).exists()) {
+        localProp.load(new FileInputStream(rootProject.file(fileName)))
+    }
+    screenShotsRecordedBaseDir =
+            System.env.VDTESTING_DOWNLOADED_FILES_DIR != null ?
+                    "${System.env.VDTESTING_DOWNLOADED_FILES_DIR}" :
+                    getArgument("screenShotsRecordedBaseDir", "${project.buildDir}/reports/shot/record/images/recorded")
+    screenShotsVerificationBaseDir =
+            System.env.SCREENSHOTS_VERIFICATION_BASE_DIR != null ?
+                    System.env.SCREENSHOTS_VERIFICATION_BASE_DIR :
+                    getArgument("screenShotsVerificationBaseDir", "${projectDir}/screenshots/screenshots-default")
+}
+
+shot {
+    runInstrumentation = Boolean.valueOf(getArgument("runInstrumentation", "true"))
+}
+
+project.afterEvaluate {
+
+    task copyVerificationFiles() {
+        doFirst {
+            println("screenShotsRecordedBaseDir=${screenShotsRecordedBaseDir}")
+            println("screenShotsVerificationBaseDir=${screenShotsVerificationBaseDir}")
+        }
+
+        fileTree(dir: "${screenShotsRecordedBaseDir}")
+                .filter { f ->
+                    f.name.contains("_screenshots-default_")
+                }.each { foundFile ->
+            def nameWithoutPrefix = foundFile.name.split("_screenshots-default_")[1]
+
+            copy {
+                from "${foundFile.path}"
+                into "${screenShotsVerificationBaseDir}"
+                rename { String fileName ->
+                    fileName.replace(foundFile.name, nameWithoutPrefix)
+                }
+            }
+        }
+    }
+    //This ensures that the screenshots are recorded when running on Firebase test lab
+    project.tasks.connectedDebugAndroidTest.finalizedBy project.tasks.executeScreenshotTests
+}
+
+private def getArgument(prop, defaultValue) {
+    def r = project.hasProperty(prop) ? project.getProperties().get(prop) : defaultValue
+    println("${prop}=${r}")
+    return r
+}
+

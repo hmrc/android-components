@@ -55,7 +55,7 @@ Starts an emulator and runs all device checks
 ```
 fastlane android screenshot_diff
 ```
-Runs the screenshot tests
+Runs the screenshot comparison
 
 ----
 

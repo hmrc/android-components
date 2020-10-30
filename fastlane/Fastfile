@@ -120,7 +120,7 @@ platform :android do
     lane :screenshot_record do
       automated_test_emulator_run(
         AVD_setup_path: "fastlane/avd_setup/Nexus6P.json",
-        shell_task: "./gradlew clean connectedAndroidTest && ./gradlew debugDownloadScreenshots && ./gradlew executeScreenshotTests -Precord"
+        shell_task: "./gradlew clean executeScreenshotTests -Precord"
       )
     end
 
@@ -128,26 +128,12 @@ platform :android do
     lane :connectedCheck do
       automated_test_emulator_run(
         AVD_setup_path: "fastlane/avd_setup/Nexus6P.json",
-        shell_task: "./gradlew clean connectedCheck && fastlane screenshot_diff"
+        shell_task: "./gradlew clean executeScreenshotTests"
       )
     end
 
     desc "Runs the screenshot comparison"
-    lane :screenshot_diff do |options|
-      images = '/screenshots/screenshots/debug/screenshots-default/'
-
-      if options[:pathToScreenShots]
-        filePrefix = options[:filePrefix]
-        sh 'mkdir ..' + images
-
-        Dir.chdir(options[:pathToScreenShots]) do
-           sh 'unzip Nexus6P-27-en-portrait_artifacts_sdcard_screenshots_uk.gov.hmrc.components.screenshots.test_screenshots-default_screenshot_bundle.zip -d ' + ENV["BITRISE_SOURCE_DIR"] + images
-        end
-      else
-        gradle(task: "debugDownloadScreenshots")
-      end
-
-      gradle(task: "executeScreenshotTests")
+    lane :screenshot_diff do
+      sh './gradlew copyVerificationFiles executeScreenshotTests -PrunInstrumentation=false'
      end
 end
-
