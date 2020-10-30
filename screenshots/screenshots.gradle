@@ -57,7 +57,7 @@ project.afterEvaluate {
 
     task unzipBundle(type: Copy) {
 
-        def zipFile = file(screenShotsVerificationBaseDir)
+        def zipFile = file("${screenShotsVerificationBaseDir}bundle.zip")
         def outputDir = file(screenShotsVerificationBaseDir)
 
         from zipTree(zipFile)
