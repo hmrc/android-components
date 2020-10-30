@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/hmrc_spacing_16"
-        android:text="fail This is a bulleted text view" />
+        android:text="This is a bulleted text view" />
 
     <uk.gov.hmrc.components.atom.bullet.BulletedTextView
         android:id="@+id/bulleted_text_2"
