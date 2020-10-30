@@ -28,7 +28,6 @@ android {
         targetSdkVersion target_sdk_version
         versionCode 1
         versionName version
-        testInstrumentationRunner "com.karumi.shot.ShotTestRunner"
         consumerProguardFiles 'consumer-proguard-rules.pro'
     }
 
@@ -43,15 +42,6 @@ android {
         lintConfig file('../lint/config.xml')
         warningsAsErrors true
         abortOnError true
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 
