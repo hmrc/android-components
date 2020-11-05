@@ -16,7 +16,7 @@ Allowed headings:
 
 ## [Unreleased]
 
-* Added `Theme.Components.ActionBar` style to allow consuming aps to use action bar style
+* Added `Theme.Components.ActionBar` style to allow consuming apps to use action bar style
 * Added `fastlane` release process
 
 ## [3.4.6] - 2020-09-10
