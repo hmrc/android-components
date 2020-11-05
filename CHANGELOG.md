@@ -15,7 +15,9 @@ Allowed headings:
 -->
 
 ## [Unreleased]
-- Adding `fastlane` release process
+
+* Added `Theme.Components.ActionBar` style to allow consuming aps to use action bar style
+* Added `fastlane` release process
 
 ## [3.4.6] - 2020-09-10
 
