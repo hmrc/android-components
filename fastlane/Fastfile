@@ -65,7 +65,7 @@ platform :android do
     
     # update changelog
     stamp_changelog(section_identifier: tag.to_string)
-    git_commit(path: "/CHANGELOG.md", message: "Update CHANGELOG.md and tagging release")
+    git_commit(path: "./CHANGELOG.md", message: "Update CHANGELOG.md and tagging release")
 
     push_to_git_remote
 
