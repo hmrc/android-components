@@ -16,8 +16,8 @@
         <flag name="center_vertical" value="16" />
         <flag name="center_horizontal" value="1" />
     </attr>
-    <attr format="reference" name="materialTextButtonStyle" />
-    <attr format="reference" name="materialIconButtonStyle" />
+    <attr name="materialTextButtonStyle" format="reference" />
+    <attr name="materialIconButtonStyle" format="reference" />
 
     <declare-styleable name="InsetTextView">
         <attr name="text" />
@@ -135,6 +135,11 @@
             <flag name="info" value="1" />
             <flag name="simple" value="2" />
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="MenuPanelRowView">
+        <attr name="title" />
+        <attr name="body" />
     </declare-styleable>
 
     <declare-styleable name="WarningView">
