@@ -654,6 +654,25 @@ If you need padding on your dividers, you can set `android:dividerPadding="@dime
 
 Optionally, buttons can be added to the headline section using `addHeadlineButtons(buttons: List<SecondaryButton>)` or to the content section with `addContentButtons(buttons: List<Button>)`.
 
+### Menu Panel Row View
+
+```xml
+<uk.gov.hmrc.components.organism.menu.MenuPanelRowView
+    android:id="@+id/menu_placeholder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/hmrc_spacing_16"
+    android:layout_marginStart="@dimen/hmrc_spacing_16"
+    android:layout_marginEnd="@dimen/hmrc_spacing_16"
+    android:layout_marginBottom="@dimen/hmrc_spacing_8"
+    app:body="@string/menu_panel_placeholder_body"
+    app:title="@string/menu_panel_placeholder_title" />
+```
+
+Optionally, a choice of notification can be added to the right side of the title with `setNotification(body: String? = null)` method.
+Providing a body will show a notification with text inside a rounded square, otherwise it'll be a blank circle notification.
+The notification can also be remove by using `removeNotification()` method.
+
 ## Colours
 
 | Name | Light | Dark | Usage |

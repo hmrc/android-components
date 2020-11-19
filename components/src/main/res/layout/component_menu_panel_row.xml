@@ -88,6 +88,4 @@
             android:tint="@color/hmrc_black"
             android:visibility="visible" />
 
-<!--    </com.google.android.material.card.MaterialCardView>-->
-
 </merge>
