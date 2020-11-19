@@ -17,13 +17,6 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/hmrc_spacing_16"
-        android:layout_marginEnd="@dimen/hmrc_spacing_16"
-        android:backgroundTint="@color/hmrc_grey_3">
-
     <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
@@ -95,6 +88,6 @@
             android:tint="@color/hmrc_black"
             android:visibility="visible" />
 
-    </com.google.android.material.card.MaterialCardView>
+<!--    </com.google.android.material.card.MaterialCardView>-->
 
 </merge>

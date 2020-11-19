@@ -19,18 +19,17 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.RelativeLayout
+import androidx.core.content.ContextCompat
+import com.google.android.material.card.MaterialCardView
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.base.PaddedComponent
 import uk.gov.hmrc.components.databinding.ComponentMenuPanelRowBinding
-import uk.gov.hmrc.components.extensions.addRipple
 import uk.gov.hmrc.components.extensions.setMargins
 
 class MenuPanelRowView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : RelativeLayout(context, attrs, defStyleAttr), PaddedComponent {
+    attrs: AttributeSet? = null
+) : MaterialCardView(context, attrs), PaddedComponent {
 
     private val binding: ComponentMenuPanelRowBinding =
             ComponentMenuPanelRowBinding.inflate(LayoutInflater.from(context), this)
@@ -45,7 +44,7 @@ class MenuPanelRowView @JvmOverloads constructor(
             setBody(body)
             typedArray.recycle()
         }
-        binding.layout.addRipple()
+        setBackgroundColor(ContextCompat.getColor(context, R.color.hmrc_grey_3))
     }
 
     fun setTitle(title: CharSequence?) {
