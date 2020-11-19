@@ -45,7 +45,7 @@ class MenuPanelRowView @JvmOverloads constructor(
             setBody(body)
             typedArray.recycle()
         }
-        addRipple()
+        binding.layout.addRipple()
     }
 
     fun setTitle(title: CharSequence?) {
@@ -60,9 +60,9 @@ class MenuPanelRowView @JvmOverloads constructor(
         binding.notification.apply {
             if (body != null) {
                 text = body
-                background = context.getDrawable(R.drawable.components_round_square)
+                background = context.getDrawable(R.drawable.components_menu_panel_round_square_notification)
             } else {
-                background = context.getDrawable(R.drawable.components_round_circle)
+                background = context.getDrawable(R.drawable.components_menu_pane_circle_notification)
                 layoutParams.width = 0
             }
             visibility = View.VISIBLE
