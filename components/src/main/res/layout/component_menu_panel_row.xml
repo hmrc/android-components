@@ -17,12 +17,18 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/hmrc_spacing_16"
+        android:layout_marginEnd="@dimen/hmrc_spacing_16"
+        android:backgroundTint="@color/hmrc_grey_3">
+
     <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toStartOf="@id/image_chevron"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,29 +42,29 @@
                 android:layout_height="wrap_content"
                 android:focusable="true"
                 android:gravity="start"
+                android:paddingStart="@dimen/hmrc_spacing_16"
+                android:paddingTop="@dimen/hmrc_spacing_24"
+                android:paddingEnd="@dimen/hmrc_spacing_8"
+                android:paddingBottom="@dimen/hmrc_spacing_24"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toStartOf="@id/notification"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:paddingStart="@dimen/hmrc_spacing_16"
-                android:paddingTop="@dimen/hmrc_spacing_24"
-                android:paddingEnd="@dimen/hmrc_spacing_8"
-                android:paddingBottom="@dimen/hmrc_spacing_24" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/notification"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
-                android:textColor="@color/hmrc_white"
+                style="@style/Text.Bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/hmrc_spacing_24"
                 android:focusable="true"
                 android:gravity="center"
+                android:textColor="@color/hmrc_white"
                 android:visibility="gone"
+                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="@dimen/hmrc_spacing_24"
-                app:layout_constraintDimensionRatio="1:1" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -75,17 +81,20 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/image_chevron"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="@dimen/hmrc_spacing_8"
-        android:contentDescription="@string/accessibility_button_activate"
-        android:focusable="true"
-        android:src="@drawable/components_ic_chevron_right"
-        android:tint="@color/hmrc_black"
-        android:visibility="visible" />
+        <ImageView
+            android:id="@+id/image_chevron"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="end"
+            android:layout_marginStart="@dimen/hmrc_spacing_8"
+            android:contentDescription="@string/accessibility_button_activate"
+            android:focusable="true"
+            android:src="@drawable/components_ic_chevron_right"
+            android:tint="@color/hmrc_black"
+            android:visibility="visible" />
+
+    </com.google.android.material.card.MaterialCardView>
 
 </merge>

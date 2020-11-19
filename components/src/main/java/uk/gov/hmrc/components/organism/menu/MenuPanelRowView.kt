@@ -58,11 +58,11 @@ class MenuPanelRowView @JvmOverloads constructor(
 
     fun setNotification(body: String? = null) {
         binding.notification.apply {
-            body?.let {
+            if (body != null) {
                 text = body
-                background = context.getDrawable(R.drawable.components_menu_panel_long_notification)
-            } ?: run {
-                background = context.getDrawable(R.drawable.components_menu_panel_dot_notification)
+                background = context.getDrawable(R.drawable.components_round_square)
+            } else {
+                background = context.getDrawable(R.drawable.components_round_circle)
                 layoutParams.width = 0
             }
             visibility = View.VISIBLE

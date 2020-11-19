@@ -22,61 +22,33 @@
 
         <TextView style="@style/PlaceholderText" />
 
-        <FrameLayout style="@style/PlaceholderContainer">
-
             <uk.gov.hmrc.components.organism.menu.MenuPanelRowView
                 android:id="@+id/menu_placeholder"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/hmrc_spacing_16"
+                android:layout_marginBottom="@dimen/hmrc_spacing_8"
                 app:body="@string/menu_panel_placeholder_body"
                 app:title="@string/menu_panel_placeholder_title" />
 
-        </FrameLayout>
-
         <TextView style="@style/ExampleText" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/hmrc_spacing_16"
-            android:layout_marginTop="@dimen/hmrc_spacing_16"
-            android:layout_marginEnd="@dimen/hmrc_spacing_16"
-            android:layout_marginBottom="@dimen/hmrc_spacing_8"
-            android:backgroundTint="@color/hmrc_grey_3">
 
             <uk.gov.hmrc.components.organism.menu.MenuPanelRowView
                 android:id="@+id/menu_example_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/hmrc_spacing_16"
+                android:layout_marginBottom="@dimen/hmrc_spacing_8"
                 app:body="@string/menu_panel_example_1_body"
                 app:title="@string/menu_panel_example_1_title" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/hmrc_spacing_16"
-            android:layout_marginEnd="@dimen/hmrc_spacing_16"
-            android:layout_marginBottom="@dimen/hmrc_spacing_8"
-            android:backgroundTint="@color/hmrc_grey_3">
 
             <uk.gov.hmrc.components.organism.menu.MenuPanelRowView
                 android:id="@+id/menu_example_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/hmrc_spacing_8"
                 app:body="@string/menu_panel_example_2_body"
                 app:title="@string/menu_panel_example_2_title" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/hmrc_spacing_16"
-            android:layout_marginEnd="@dimen/hmrc_spacing_16"
-            android:layout_marginBottom="@dimen/hmrc_spacing_8"
-            android:backgroundTint="@color/hmrc_grey_3">
 
             <uk.gov.hmrc.components.organism.menu.MenuPanelRowView
                 android:id="@+id/menu_example_3"
@@ -84,8 +56,6 @@
                 android:layout_height="match_parent"
                 app:body="@string/menu_panel_example_3_body"
                 app:title="@string/menu_panel_example_3_title" />
-
-        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 
