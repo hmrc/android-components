@@ -25,7 +25,7 @@ The latest release can be found [here](https://github.com/hmrc/android-component
 
 ## Theming
 
-Changing your app theme to inherit from `Theme.Components` is the recommended approach:
+Changing your app theme to inherit from `Theme.Components` or `Theme.Components.ActionBar` is the recommended approach:
 
 ```xml
 <style name="Theme.MyApp" parent="@style/Theme.Components">
