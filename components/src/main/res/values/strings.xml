@@ -20,6 +20,12 @@
     <string name="text_input_example_text">I need some help with my help to save account. For some reason my account is blocked and I am not sure why. Please help.</string>
 
     <string name="button_content_description">%s, button</string>
+    <string name="menu_panel_button_no_notification_content_description">%s, button. Double tap to activate; %s</string>
+    <string name="menu_panel_button_circle_notification_content_description">%s, new item, button. Double tap to activate; %s</string>
+    <string name="menu_panel_button_one_notification_content_description">%s, %s new item, button. Double tap to activate; %s</string>
+    <string name="menu_panel_button_multiple_notifications_content_description">%s, %s new items, button. Double tap to activate; %s</string>
+    <string name="menu_panel_button_over_ninety_nine_notifications_content_description">%s, 99+ new items, button. Double tap to activate; %s</string>
+    <string name="menu_panel_button_over_ninety_nine_notifications_text">99+</string>
 
     <string name="accessibility_expand">expand</string>
     <string name="accessibility_expanded">expanded</string>

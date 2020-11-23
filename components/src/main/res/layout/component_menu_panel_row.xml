@@ -22,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:focusable="true"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,7 +34,7 @@
                 style="@style/Text.Menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:focusable="true"
+                android:importantForAccessibility="no"
                 android:gravity="start"
                 android:paddingStart="@dimen/hmrc_spacing_16"
                 android:paddingTop="@dimen/hmrc_spacing_24"
@@ -50,8 +51,8 @@
                 style="@style/Text.Bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
                 android:layout_marginTop="@dimen/hmrc_spacing_24"
-                android:focusable="true"
                 android:gravity="center"
                 android:textColor="@color/hmrc_white"
                 android:visibility="gone"
@@ -66,7 +67,7 @@
             style="@style/Text.Body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusable="true"
+            android:importantForAccessibility="no"
             android:gravity="start"
             android:paddingStart="@dimen/hmrc_spacing_16"
             android:paddingEnd="@dimen/hmrc_spacing_16"
@@ -82,8 +83,7 @@
             android:layout_centerVertical="true"
             android:layout_gravity="end"
             android:layout_marginStart="@dimen/hmrc_spacing_8"
-            android:contentDescription="@string/accessibility_button_activate"
-            android:focusable="true"
+            android:importantForAccessibility="no"
             android:src="@drawable/components_ic_chevron_right"
             android:tint="@color/hmrc_black"
             android:visibility="visible" />

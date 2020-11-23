@@ -27,8 +27,8 @@ import uk.gov.hmrc.components.databinding.ComponentMenuPanelRowBinding
 import uk.gov.hmrc.components.extensions.setMargins
 
 class MenuPanelRowView @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null
+        context: Context,
+        attrs: AttributeSet? = null
 ) : MaterialCardView(context, attrs), PaddedComponent {
 
     private val binding: ComponentMenuPanelRowBinding =
@@ -42,27 +42,74 @@ class MenuPanelRowView @JvmOverloads constructor(
 
             setTitle(title)
             setBody(body)
+            binding.layout.contentDescription =
+                    context.getString(R.string.menu_panel_button_no_notification_content_description, title, body)
             typedArray.recycle()
         }
         setBackgroundColor(ContextCompat.getColor(context, R.color.hmrc_grey_3))
+    }
+
+    private fun updateContentDescription(notificationCount: Int) {
+        val title = getTitle()
+        val body = getBody()
+        binding.layout.apply {
+            contentDescription = when (notificationCount) {
+                0 -> {
+                    context.getString(R.string.menu_panel_button_circle_notification_content_description,
+                            title,
+                            body)
+                }
+                1 -> {
+                    context.getString(R.string.menu_panel_button_one_notification_content_description,
+                            title,
+                            notificationCount.toString(),
+                            body)
+                }
+                in 2..99 -> {
+                    context.getString(R.string.menu_panel_button_multiple_notifications_content_description,
+                            title,
+                            notificationCount.toString(),
+                            body)
+                }
+                else -> {
+                    context.getString(R.string.menu_panel_button_over_ninety_nine_notifications_content_description,
+                            title,
+                            body)
+                }
+            }
+        }
     }
 
     fun setTitle(title: CharSequence?) {
         binding.textTitle.text = title
     }
 
+    fun getTitle(): CharSequence? {
+        return binding.textTitle.text
+    }
+
     fun setBody(body: CharSequence?) {
         binding.textBody.text = body
     }
 
-    fun setNotification(body: String? = null) {
+    fun getBody(): CharSequence? {
+        return binding.textBody.text
+    }
+
+    fun setNotification(notificationCount: Int = 0) {
         binding.notification.apply {
-            if (body != null) {
-                text = body
+            if (notificationCount > 0) {
+                text = if (notificationCount > 99) {
+                    context.getString(R.string.menu_panel_button_over_ninety_nine_notifications_text)
+                } else {
+                    notificationCount.toString()
+                }
                 background = context.getDrawable(R.drawable.components_menu_panel_round_square_notification)
+                updateContentDescription(notificationCount)
             } else {
                 background = context.getDrawable(R.drawable.components_menu_pane_circle_notification)
                 layoutParams.width = 0
+                updateContentDescription(0)
             }
             visibility = View.VISIBLE
         }
