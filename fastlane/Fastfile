@@ -110,32 +110,32 @@ platform :android do
 
     check
 
-      # build the app and upload to Bintray
-      gradle(task: 'components-test:clean')
-      gradle(task: 'components-test:build')
-      gradle(task: 'components-test:bintrayUpload')
-    end
+    # build the app and upload to Bintray
+    gradle(task: 'components-test:clean')
+    gradle(task: 'components-test:build')
+    gradle(task: 'components-test:bintrayUpload')
+  end
 
-    desc "Starts an emulator and records new screenshots"
-    lane :screenshot_record do
-      automated_test_emulator_run(
-        AVD_setup_path: "fastlane/avd_setup/Nexus6P.json",
-        shell_task: "./gradlew clean executeScreenshotTests -Precord"
-      )
-    end
+  desc "Starts an emulator and records new screenshots"
+  lane :screenshot_record do
+    automated_test_emulator_run(
+      AVD_setup_path: "fastlane/avd_setup/Nexus6P.json",
+      shell_task: "./gradlew clean executeScreenshotTests -Precord"
+    )
+  end
 
-    desc "Starts an emulator and runs all device checks"
-    lane :connectedCheck do
-      automated_test_emulator_run(
-        AVD_setup_path: "fastlane/avd_setup/Nexus6P.json",
-        shell_task: "./gradlew clean executeScreenshotTests"
-      )
-    end
+  desc "Starts an emulator and runs all device checks"
+  lane :connectedCheck do
+    automated_test_emulator_run(
+      AVD_setup_path: "fastlane/avd_setup/Nexus6P.json",
+      shell_task: "./gradlew clean executeScreenshotTests"
+    )
+  end
 
-    desc "Runs the screenshot comparison"
-    lane :screenshot_diff do |options|
-      gradle(task: "copyVerificationFiles")
-      gradle(task: "unzipBundle")
-      gradle(task: "executeScreenshotTests", properties: {"runInstrumentation" => "false"})
-     end
+  desc "Runs the screenshot comparison"
+  lane :screenshot_diff do |options|
+    gradle(task: "copyVerificationFiles")
+    gradle(task: "unzipBundle")
+    gradle(task: "executeScreenshotTests", properties: {"runInstrumentation" => "false"})
+  end
 end

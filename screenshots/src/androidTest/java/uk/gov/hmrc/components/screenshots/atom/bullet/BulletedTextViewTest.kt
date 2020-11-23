@@ -32,7 +32,7 @@ import uk.gov.hmrc.components.screenshots.rules.NightModeRule
 class BulletedTextViewTest : ScreenshotTest {
 
     @get:Rule
-    val darkModeRule = NightModeRule()
+    val nightModeRule = NightModeRule()
     @get:Rule
     val fontScaleRule = FontScaleRule()
 

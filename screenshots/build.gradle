@@ -12,12 +12,11 @@ android {
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion target_sdk_version
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "com.karumi.shot.ShotTestRunner"
-        consumerProguardFiles "consumer-rules.pro"
         testApplicationId "uk.gov.hmrc.components.screenshots.test"
 
     }
@@ -25,7 +24,6 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {

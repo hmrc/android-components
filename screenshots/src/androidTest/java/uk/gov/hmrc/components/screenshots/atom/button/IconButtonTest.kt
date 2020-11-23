@@ -37,7 +37,7 @@ import uk.gov.hmrc.components.screenshots.rules.NightModeRule
 class IconButtonTest : ScreenshotTest {
 
     @get:Rule
-    val darkModeRule = NightModeRule()
+    val nightModeRule = NightModeRule()
     @get:Rule
     val fontScaleRule = FontScaleRule()
 
