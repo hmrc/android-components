@@ -62,14 +62,14 @@ platform :android do
 
 
     sh("git", "checkout", "-b", "tag/#{tag.to_string}")
-    
+
     # update changelog
     stamp_changelog(section_identifier: tag.to_string)
     git_commit(path: "./CHANGELOG.md", message: "Update CHANGELOG.md and tagging release")
 
     push_to_git_remote
 
-    sh("gh", "pr", "create", "--title", "Release #{tag.to_string}", "--body", "") 
+    sh("gh", "pr", "create", "--title", "Release #{tag.to_string}", "--body", "")
 
     # take tag and push to remote
     add_git_tag(tag: tag.to_string)
@@ -77,7 +77,7 @@ platform :android do
 
     # update releases on Github
     changelog = read_changelog(
-      section_identifier: "[#{tag}]", 
+      section_identifier: "[#{tag}]",
       excluded_markdown_elements: []
     )
     set_github_release(
@@ -115,5 +115,27 @@ platform :android do
     gradle(task: 'components-test:build')
     gradle(task: 'components-test:bintrayUpload')
   end
-end
 
+  desc "Starts an emulator and records new screenshots"
+  lane :screenshot_record do
+    automated_test_emulator_run(
+      AVD_setup_path: "fastlane/avd_setup/Nexus6P.json",
+      shell_task: "./gradlew clean executeScreenshotTests -Precord"
+    )
+  end
+
+  desc "Starts an emulator and runs all device checks"
+  lane :connectedCheck do
+    automated_test_emulator_run(
+      AVD_setup_path: "fastlane/avd_setup/Nexus6P.json",
+      shell_task: "./gradlew clean executeScreenshotTests"
+    )
+  end
+
+  desc "Runs the screenshot comparison"
+  lane :screenshot_diff do |options|
+    gradle(task: "copyVerificationFiles")
+    gradle(task: "unzipBundle")
+    gradle(task: "executeScreenshotTests", properties: {"runInstrumentation" => "false"})
+  end
+end
