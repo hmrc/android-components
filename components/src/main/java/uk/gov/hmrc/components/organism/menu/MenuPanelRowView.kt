@@ -22,14 +22,12 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.google.android.material.card.MaterialCardView
 import uk.gov.hmrc.components.R
-import uk.gov.hmrc.components.base.PaddedComponent
 import uk.gov.hmrc.components.databinding.ComponentMenuPanelRowBinding
-import uk.gov.hmrc.components.extensions.setMargins
 
 class MenuPanelRowView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
-) : MaterialCardView(context, attrs), PaddedComponent {
+) : MaterialCardView(context, attrs) {
 
     private val binding: ComponentMenuPanelRowBinding =
             ComponentMenuPanelRowBinding.inflate(LayoutInflater.from(context), this)
@@ -122,14 +120,6 @@ class MenuPanelRowView @JvmOverloads constructor(
     fun hideNotification() {
         binding.notification.visibility = View.GONE
         setDefaultContentDescription(getTitle(), getBody())
-    }
-
-    override fun removeChildPadding() {
-        val defaultPadding = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_24)
-        val leftRightPadding = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
-
-        binding.textTitle.setMargins(leftRightPadding, defaultPadding, leftRightPadding, defaultPadding)
-        binding.textBody.setMargins(leftRightPadding, 0, leftRightPadding, defaultPadding)
     }
 
     companion object {

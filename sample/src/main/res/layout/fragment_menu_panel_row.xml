@@ -16,7 +16,9 @@
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/SampleScrollView">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hmrc_white_background">
 
     <LinearLayout style="@style/SampleSectionContainer">
 
@@ -26,8 +28,8 @@
                 android:id="@+id/menu_placeholder"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/hmrc_spacing_16"
                 android:layout_marginStart="@dimen/hmrc_spacing_16"
+                android:layout_marginTop="@dimen/hmrc_spacing_16"
                 android:layout_marginEnd="@dimen/hmrc_spacing_16"
                 android:layout_marginBottom="@dimen/hmrc_spacing_8"
                 app:body="@string/menu_panel_placeholder_body"
@@ -39,8 +41,8 @@
                 android:id="@+id/menu_example_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/hmrc_spacing_16"
                 android:layout_marginStart="@dimen/hmrc_spacing_16"
+                android:layout_marginTop="@dimen/hmrc_spacing_16"
                 android:layout_marginEnd="@dimen/hmrc_spacing_16"
                 android:layout_marginBottom="@dimen/hmrc_spacing_8"
                 app:body="@string/menu_panel_example_1_body"
@@ -82,8 +84,8 @@
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/hmrc_spacing_16"
             android:layout_marginEnd="@dimen/hmrc_spacing_16"
-            app:body="@string/menu_panel_example_5_body"
-            app:title="@string/menu_panel_example_5_title" />
+            app:body="@string/longest_text"
+            app:title="@string/long_text" />
 
     </LinearLayout>
 

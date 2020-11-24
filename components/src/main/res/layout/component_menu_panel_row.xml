@@ -34,8 +34,8 @@
                 style="@style/Text.Menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:importantForAccessibility="no"
                 android:gravity="start"
+                android:importantForAccessibility="no"
                 android:paddingStart="@dimen/hmrc_spacing_16"
                 android:paddingTop="@dimen/hmrc_spacing_24"
                 android:paddingEnd="@dimen/hmrc_spacing_8"
@@ -51,10 +51,10 @@
                 style="@style/Text.Bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:importantForAccessibility="no"
-                android:layout_marginEnd="@dimen/hmrc_spacing_16"
                 android:layout_marginTop="@dimen/hmrc_spacing_24"
+                android:layout_marginEnd="@dimen/hmrc_spacing_16"
                 android:gravity="center"
+                android:importantForAccessibility="no"
                 android:textColor="@color/hmrc_white"
                 android:visibility="gone"
                 app:layout_constraintDimensionRatio="1:1"
@@ -68,25 +68,25 @@
             style="@style/Text.Body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:importantForAccessibility="no"
             android:gravity="start"
+            android:importantForAccessibility="no"
             android:paddingStart="@dimen/hmrc_spacing_16"
             android:paddingEnd="@dimen/hmrc_spacing_16"
             android:paddingBottom="@dimen/hmrc_spacing_24" />
 
     </LinearLayout>
 
-        <ImageView
-            android:id="@+id/image_chevron"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="end"
-            android:layout_marginStart="@dimen/hmrc_spacing_8"
-            android:importantForAccessibility="no"
-            android:src="@drawable/components_ic_chevron_right"
-            android:tint="@color/hmrc_black"
-            android:visibility="visible" />
+    <ImageView
+        android:id="@+id/image_chevron"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="end"
+        android:layout_marginStart="@dimen/hmrc_spacing_8"
+        android:importantForAccessibility="no"
+        android:src="@drawable/components_ic_chevron_right"
+        android:tint="@color/hmrc_black"
+        android:visibility="visible" />
 
 </merge>

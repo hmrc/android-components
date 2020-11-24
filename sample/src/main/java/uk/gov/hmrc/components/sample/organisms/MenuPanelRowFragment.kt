@@ -20,7 +20,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
 import uk.gov.hmrc.components.sample.base.BaseComponentsFragment
@@ -35,7 +34,6 @@ class MenuPanelRowFragment : BaseComponentsFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentMenuPanelRowBinding.inflate(inflater, container, false)
-        binding.root.setBackgroundColor(ContextCompat.getColor(context!!, R.color.hmrc_white_background))
         return binding.root
     }
 
