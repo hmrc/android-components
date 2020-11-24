@@ -19,11 +19,13 @@ Allowed headings:
 ### Added
 
 * `MenuPanelRowView` component
+* screenshot tests
 
 ## [3.4.9] - 2020-11-06
 
-* Added `Theme.Components.ActionBar` style to allow consuming apps to use action bar style
-* Added `fastlane` release process
+### Added
+* `Theme.Components.ActionBar` style to allow consuming apps to use action bar style
+* `fastlane` release process
 
 ## [3.4.6] - 2020-09-10
 

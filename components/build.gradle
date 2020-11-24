@@ -1,7 +1,7 @@
 plugins {
     id 'digital.wup.android-maven-publish' version '3.6.2'
     id 'com.jfrog.bintray'
-    id 'io.gitlab.arturbosch.detekt' version '1.0.0'
+
     id 'com.gladed.androidgitversion' version '0.4.9'
 }
 
@@ -28,7 +28,6 @@ android {
         targetSdkVersion target_sdk_version
         versionCode 1
         versionName version
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-proguard-rules.pro'
     }
 
