@@ -27,8 +27,8 @@ import uk.gov.hmrc.components.databinding.ComponentMenuPanelRowBinding
 import uk.gov.hmrc.components.extensions.setMargins
 
 class MenuPanelRowView @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null
+    context: Context,
+    attrs: AttributeSet? = null
 ) : MaterialCardView(context, attrs), PaddedComponent {
 
     private val binding: ComponentMenuPanelRowBinding =
@@ -65,7 +65,7 @@ class MenuPanelRowView @JvmOverloads constructor(
                             notificationCount.toString(),
                             body)
                 }
-                in 2..99 -> {
+                in 2..MAXIMUM_NOTIFICATION_COUNT -> {
                     context.getString(R.string.menu_panel_button_multiple_notifications_content_description,
                             title,
                             notificationCount.toString(),
@@ -99,7 +99,7 @@ class MenuPanelRowView @JvmOverloads constructor(
     fun setNotification(notificationCount: Int = 0) {
         binding.notification.apply {
             if (notificationCount > 0) {
-                text = if (notificationCount > 99) {
+                text = if (notificationCount > MAXIMUM_NOTIFICATION_COUNT) {
                     context.getString(R.string.menu_panel_button_over_ninety_nine_notifications_text)
                 } else {
                     notificationCount.toString()
@@ -125,5 +125,9 @@ class MenuPanelRowView @JvmOverloads constructor(
 
         binding.textTitle.setMargins(leftRightPadding, defaultPadding, leftRightPadding, defaultPadding)
         binding.textBody.setMargins(leftRightPadding, 0, leftRightPadding, defaultPadding)
+    }
+
+    companion object {
+        const val MAXIMUM_NOTIFICATION_COUNT = 99
     }
 }
