@@ -669,9 +669,9 @@ Optionally, buttons can be added to the headline section using `addHeadlineButto
     app:title="@string/menu_panel_placeholder_title" />
 ```
 
-Optionally, a choice of notification can be added to the right side of the title with `setNotification(notificationCount: Int = 0)` method.
-Providing a `notificationCount` will show a notification with a number inside a rounded square, otherwise it'll be a blank circle notification.
-The notification can also be removed by using `removeNotification()` method.
+Optionally, a choice of notification can be added to the right side of the title with `showNotification(notificationCount: Int = 0)`.
+Providing a `notificationCount` greater than 0, will show a notification with a number inside a rounded square, otherwise it'll be a blank circle notification.
+The notification can also be removed by using `hideNotification()`.
 
 ## Colours
 

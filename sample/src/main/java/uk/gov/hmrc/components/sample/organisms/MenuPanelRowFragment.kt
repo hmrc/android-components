@@ -47,11 +47,19 @@ class MenuPanelRowFragment : BaseComponentsFragment() {
             menuExample1.setOnClickListener { onCtaPressed() }
             menuExample2.apply {
                 setOnClickListener { onCtaPressed() }
-                setNotification(2)
+                showNotification(2)
             }
             menuExample3.apply {
                 setOnClickListener { onCtaPressed() }
-                setNotification()
+                showNotification()
+            }
+            menuExample4.apply {
+                setOnClickListener { onCtaPressed() }
+                showNotification(100)
+            }
+            menuExample5.apply {
+                setOnClickListener { onCtaPressed() }
+                showNotification()
             }
         }
     }

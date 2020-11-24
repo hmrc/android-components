@@ -355,5 +355,9 @@
     <string name="menu_panel_example_2_body">Messages and letters from HMRC</string>
     <string name="menu_panel_example_3_title">Help to Save account</string>
     <string name="menu_panel_example_3_body">A savings account with bonuses designed to help you start saving</string>
+    <string name="menu_panel_example_4_title">News</string>
+    <string name="menu_panel_example_4_body">News and current tax related information from HMRC</string>
+    <string name="menu_panel_example_5_title">Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Title</string>
+    <string name="menu_panel_example_5_body">Really Really Really Really Really Really Really Really Really Long Body</string>
 
 </resources>

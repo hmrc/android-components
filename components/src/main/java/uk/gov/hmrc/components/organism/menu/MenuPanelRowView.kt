@@ -42,18 +42,22 @@ class MenuPanelRowView @JvmOverloads constructor(
 
             setTitle(title)
             setBody(body)
-            binding.layout.contentDescription =
-                    context.getString(R.string.menu_panel_button_no_notification_content_description, title, body)
+            setDefaultContentDescription(title, body)
             typedArray.recycle()
         }
         setBackgroundColor(ContextCompat.getColor(context, R.color.hmrc_grey_3))
     }
 
-    private fun updateContentDescription(notificationCount: Int) {
+    private fun setDefaultContentDescription(title: CharSequence, body: CharSequence) {
+        binding.layout.contentDescription =
+                context.getString(R.string.menu_panel_button_no_notification_content_description, title, body)
+    }
+
+    private fun setNotificationContentDescription(countToDisplay: Int) {
         val title = getTitle()
         val body = getBody()
         binding.layout.apply {
-            contentDescription = when (notificationCount) {
+            contentDescription = when (countToDisplay) {
                 0 -> {
                     context.getString(R.string.menu_panel_button_circle_notification_content_description,
                             title,
@@ -62,41 +66,41 @@ class MenuPanelRowView @JvmOverloads constructor(
                 1 -> {
                     context.getString(R.string.menu_panel_button_one_notification_content_description,
                             title,
-                            notificationCount.toString(),
-                            body)
-                }
-                in 2..MAXIMUM_NOTIFICATION_COUNT -> {
-                    context.getString(R.string.menu_panel_button_multiple_notifications_content_description,
-                            title,
-                            notificationCount.toString(),
+                            countToDisplay.toString(),
                             body)
                 }
                 else -> {
-                    context.getString(R.string.menu_panel_button_over_ninety_nine_notifications_content_description,
+                    val quantity = if (countToDisplay in 2..MAXIMUM_NOTIFICATION_COUNT) {
+                        countToDisplay.toString()
+                    } else {
+                        context.getString(R.string.menu_panel_button_over_ninety_nine_notifications_text)
+                    }
+                    context.getString(R.string.menu_panel_button_multiple_notifications_content_description,
                             title,
+                            quantity,
                             body)
                 }
             }
         }
     }
 
-    fun setTitle(title: CharSequence?) {
+    fun setTitle(title: CharSequence) {
         binding.textTitle.text = title
     }
 
-    fun getTitle(): CharSequence? {
+    fun getTitle(): CharSequence {
         return binding.textTitle.text
     }
 
-    fun setBody(body: CharSequence?) {
+    fun setBody(body: CharSequence) {
         binding.textBody.text = body
     }
 
-    fun getBody(): CharSequence? {
+    fun getBody(): CharSequence {
         return binding.textBody.text
     }
 
-    fun setNotification(notificationCount: Int = 0) {
+    fun showNotification(notificationCount: Int = 0) {
         binding.notification.apply {
             if (notificationCount > 0) {
                 text = if (notificationCount > MAXIMUM_NOTIFICATION_COUNT) {
@@ -105,18 +109,19 @@ class MenuPanelRowView @JvmOverloads constructor(
                     notificationCount.toString()
                 }
                 background = context.getDrawable(R.drawable.components_menu_panel_round_square_notification)
-                updateContentDescription(notificationCount)
+                setNotificationContentDescription(notificationCount)
             } else {
                 background = context.getDrawable(R.drawable.components_menu_pane_circle_notification)
                 layoutParams.width = 0
-                updateContentDescription(0)
+                setNotificationContentDescription(0)
             }
             visibility = View.VISIBLE
         }
     }
 
-    fun removeNotification() {
+    fun hideNotification() {
         binding.notification.visibility = View.GONE
+        setDefaultContentDescription(getTitle(), getBody())
     }
 
     override fun removeChildPadding() {
