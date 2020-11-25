@@ -30,7 +30,7 @@ class MenuPanelRowView @JvmOverloads constructor(
 ) : MaterialCardView(context, attrs) {
 
     private val binding: ComponentMenuPanelRowBinding =
-            ComponentMenuPanelRowBinding.inflate(LayoutInflater.from(context), this)
+            ComponentMenuPanelRowBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
         attrs?.let {
