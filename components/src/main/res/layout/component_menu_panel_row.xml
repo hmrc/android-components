@@ -71,7 +71,7 @@
             android:gravity="start"
             android:importantForAccessibility="no"
             android:paddingStart="@dimen/hmrc_spacing_16"
-            android:paddingEnd="@dimen/hmrc_spacing_16"
+            android:paddingEnd="@dimen/hmrc_spacing_48"
             android:paddingBottom="@dimen/hmrc_spacing_24" />
 
     </LinearLayout>
@@ -84,6 +84,7 @@
         android:layout_centerVertical="true"
         android:layout_gravity="end"
         android:layout_marginStart="@dimen/hmrc_spacing_8"
+        android:layout_marginEnd="@dimen/hmrc_spacing_16"
         android:importantForAccessibility="no"
         android:src="@drawable/components_ic_chevron_right"
         android:tint="@color/hmrc_black"
