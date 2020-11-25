@@ -19,6 +19,13 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.constraintlayout.widget.ConstraintSet.BASELINE
+import androidx.constraintlayout.widget.ConstraintSet.BOTTOM
+import androidx.constraintlayout.widget.ConstraintSet.END
+import androidx.constraintlayout.widget.ConstraintSet.PARENT_ID
+import androidx.constraintlayout.widget.ConstraintSet.START
+import androidx.constraintlayout.widget.ConstraintSet.TOP
 import androidx.core.content.ContextCompat
 import com.google.android.material.card.MaterialCardView
 import uk.gov.hmrc.components.R
@@ -32,6 +39,9 @@ class MenuPanelRowView @JvmOverloads constructor(
     private val binding: ComponentMenuPanelRowBinding =
             ComponentMenuPanelRowBinding.inflate(LayoutInflater.from(context), this, true)
 
+    private val isLargeText: Boolean
+        get() = resources.configuration.fontScale > MAX_SINGLE_LINE_FONT_SCALE
+
     init {
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.MenuPanelRowView, 0, 0)
@@ -41,6 +51,7 @@ class MenuPanelRowView @JvmOverloads constructor(
             setTitle(title)
             setBody(body)
             setDefaultContentDescription(title, body)
+            if (isLargeText) adjustLayoutForBigText()
             typedArray.recycle()
         }
         setBackgroundColor(ContextCompat.getColor(context, R.color.hmrc_grey_3))
@@ -122,7 +133,24 @@ class MenuPanelRowView @JvmOverloads constructor(
         setDefaultContentDescription(getTitle(), getBody())
     }
 
+    private fun adjustLayoutForBigText() {
+        ConstraintSet().apply {
+            clone(binding.layout)
+            clear(R.id.text_title, END)
+            connect(R.id.text_title, END, R.id.image_chevron, START)
+            clear(R.id.text_body, TOP)
+            connect(R.id.text_body, TOP, R.id.notification, BOTTOM)
+            clear(R.id.notification, BASELINE)
+            clear(R.id.notification, END)
+            clear(R.id.notification, START)
+            connect(R.id.notification, START, PARENT_ID, START)
+            connect(R.id.notification, TOP, R.id.text_title, BOTTOM)
+            applyTo(binding.layout)
+        }
+    }
+
     companion object {
         const val MAXIMUM_NOTIFICATION_COUNT = 99
+        private const val MAX_SINGLE_LINE_FONT_SCALE = 1.1
     }
 }

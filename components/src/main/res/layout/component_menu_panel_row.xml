@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
      Copyright 2020 HM Revenue & Customs
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -22,19 +23,20 @@
     android:paddingTop="@dimen/hmrc_spacing_24"
     android:paddingBottom="@dimen/hmrc_spacing_24">
 
-    <ImageView
-        android:id="@+id/image_chevron"
+    <TextView
+        android:id="@+id/text_title"
+        style="@style/Text.Menu"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginEnd="@dimen/hmrc_spacing_16"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/hmrc_spacing_8"
         android:importantForAccessibility="no"
-        android:paddingStart="@dimen/hmrc_spacing_8"
-        android:src="@drawable/components_ic_chevron_right"
-        android:tint="@color/hmrc_black"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toStartOf="@id/notification"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="title" />
 
     <TextView
         android:id="@+id/notification"
@@ -54,21 +56,6 @@
         tools:visibility="visible" />
 
     <TextView
-        android:id="@+id/text_title"
-        style="@style/Text.Menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/hmrc_spacing_8"
-        android:importantForAccessibility="no"
-        app:layout_constrainedWidth="true"
-        app:layout_constraintEnd_toStartOf="@id/notification"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="title" />
-
-    <TextView
         android:id="@+id/text_body"
         style="@style/Text.Body"
         android:layout_width="0dp"
@@ -79,5 +66,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_title"
         tools:text="body" />
+
+    <ImageView
+        android:id="@+id/image_chevron"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/hmrc_spacing_16"
+        android:importantForAccessibility="no"
+        android:paddingStart="@dimen/hmrc_spacing_8"
+        android:src="@drawable/components_ic_chevron_right"
+        android:tint="@color/hmrc_black"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
