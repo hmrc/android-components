@@ -21,7 +21,8 @@
     android:focusable="true"
     android:paddingStart="@dimen/hmrc_spacing_16"
     android:paddingTop="@dimen/hmrc_spacing_24"
-    android:paddingBottom="@dimen/hmrc_spacing_24">
+    android:paddingBottom="@dimen/hmrc_spacing_24"
+    tools:ignore="RtlSymmetry">
 
     <TextView
         android:id="@+id/text_title"
