@@ -51,9 +51,9 @@ class MenuPanelRowView @JvmOverloads constructor(
             setTitle(title)
             setBody(body)
             setDefaultContentDescription(title, body)
-            if (isLargeText) adjustLayoutForBigText()
             typedArray.recycle()
         }
+        if (isLargeText) adjustLayoutForBigText()
         setBackgroundColor(ContextCompat.getColor(context, R.color.hmrc_grey_3))
     }
 
@@ -134,17 +134,18 @@ class MenuPanelRowView @JvmOverloads constructor(
     }
 
     private fun adjustLayoutForBigText() {
+        val defaultMargin = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_8)
         ConstraintSet().apply {
             clone(binding.layout)
             clear(R.id.text_title, END)
             connect(R.id.text_title, END, R.id.image_chevron, START)
             clear(R.id.text_body, TOP)
-            connect(R.id.text_body, TOP, R.id.notification, BOTTOM)
+            connect(R.id.text_body, TOP, R.id.notification, BOTTOM, defaultMargin)
             clear(R.id.notification, BASELINE)
             clear(R.id.notification, END)
             clear(R.id.notification, START)
             connect(R.id.notification, START, PARENT_ID, START)
-            connect(R.id.notification, TOP, R.id.text_title, BOTTOM)
+            connect(R.id.notification, TOP, R.id.text_title, BOTTOM, defaultMargin)
             applyTo(binding.layout)
         }
     }
