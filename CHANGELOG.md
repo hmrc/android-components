@@ -19,6 +19,9 @@ Allowed headings:
 ### Added
 * screenshot tests
 
+### Changed
+* Made `InformationMessageCardView` headline background colours customisable
+
 ## [3.4.9] - 2020-11-06
 
 ### Added

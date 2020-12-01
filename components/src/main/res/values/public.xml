@@ -20,6 +20,10 @@
     <public name="hmrc_card_background" type="color" />
     <public name="hmrc_divider" type="color" />
     <public name="hmrc_dark_text" type="color" />
+    <public name="hmrc_information_message_warning_headline_background" />
+    <public name="hmrc_information_message_info_headline_background" />
+    <public name="hmrc_information_message_urgent_headline_background" />
+    <public name="hmrc_information_message_notice_headline_background" />
 
     <!-- Styles -->
     <public name="MaterialTextButtonNoInset" type="style" />
