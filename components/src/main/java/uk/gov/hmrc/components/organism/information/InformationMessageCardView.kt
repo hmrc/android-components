@@ -135,9 +135,9 @@ class InformationMessageCardView @JvmOverloads constructor(
     }
 
     enum class Type(val headlineBackgroundColor: Int, val headlineTint: Int) {
-        WARNING(R.color.hmrc_yellow, R.color.hmrc_always_black),
-        INFO(R.color.hmrc_blue, R.color.hmrc_white),
-        URGENT(R.color.hmrc_red, R.color.hmrc_white),
-        NOTICE(R.color.hmrc_black, R.color.hmrc_white)
+        WARNING(R.color.hmrc_information_message_warning_headline_background, R.color.hmrc_always_black),
+        INFO(R.color.hmrc_information_message_info_headline_background, R.color.hmrc_white),
+        URGENT(R.color.hmrc_information_message_urgent_headline_background, R.color.hmrc_white),
+        NOTICE(R.color.hmrc_information_message_notice_headline_background, R.color.hmrc_white)
     }
 }
