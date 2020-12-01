@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.4.10] - 2020-12-01
+
 ### Added
 * screenshot tests
 
