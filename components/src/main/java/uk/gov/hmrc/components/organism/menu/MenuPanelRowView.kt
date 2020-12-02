@@ -33,8 +33,8 @@ import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentMenuPanelRowBinding
 
 class MenuPanelRowView @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null
+    context: Context,
+    attrs: AttributeSet? = null
 ) : MaterialCardView(context, attrs) {
 
     private val binding: ComponentMenuPanelRowBinding =
