@@ -19,6 +19,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.constraintlayout.widget.ConstraintSet.BASELINE
 import androidx.constraintlayout.widget.ConstraintSet.BOTTOM
@@ -32,8 +33,8 @@ import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentMenuPanelRowBinding
 
 class MenuPanelRowView @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null
+        context: Context,
+        attrs: AttributeSet? = null
 ) : MaterialCardView(context, attrs) {
 
     private val binding: ComponentMenuPanelRowBinding =
@@ -79,14 +80,9 @@ class MenuPanelRowView @JvmOverloads constructor(
                             body)
                 }
                 else -> {
-                    val quantity = if (countToDisplay in 2..MAXIMUM_NOTIFICATION_COUNT) {
-                        countToDisplay.toString()
-                    } else {
-                        context.getString(R.string.menu_panel_button_over_ninety_nine_notifications_text)
-                    }
                     context.getString(R.string.menu_panel_button_multiple_notifications_content_description,
                             title,
-                            quantity,
+                            countToDisplay.toString(),
                             body)
                 }
             }
@@ -118,10 +114,11 @@ class MenuPanelRowView @JvmOverloads constructor(
                     notificationCount.toString()
                 }
                 background = context.getDrawable(R.drawable.components_menu_panel_round_square_notification)
+                (this.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio = "2:1"
                 setNotificationContentDescription(notificationCount)
             } else {
                 background = context.getDrawable(R.drawable.components_menu_pane_circle_notification)
-                layoutParams.width = 0
+                (this.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio = "1:1"
                 setNotificationContentDescription(0)
             }
             visibility = View.VISIBLE
