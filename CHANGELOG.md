@@ -16,11 +16,14 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Added
+
+* `MenuPanelRowView` component
+
 ## [3.4.10] - 2020-12-01
 
 ### Added
 
-* `MenuPanelRowView` component
 * screenshot tests
 
 ### Changed
