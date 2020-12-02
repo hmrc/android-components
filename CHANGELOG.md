@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.5.0] - 2020-12-02
+
 ### Added
 
 * `MenuPanelRowView` component
