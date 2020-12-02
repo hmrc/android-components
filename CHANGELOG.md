@@ -19,6 +19,8 @@ Allowed headings:
 ## [3.4.10] - 2020-12-01
 
 ### Added
+
+* `MenuPanelRowView` component
 * screenshot tests
 
 ### Changed

@@ -91,6 +91,10 @@
         <item name="android:textColor">@color/hmrc_error_text</item>
     </style>
 
+    <style name="Text.Menu" parent="Text.H5">
+        <item name="android:textColor">@color/hmrc_blue</item>
+    </style>
+
     <style name="Text.Button" parent="@style/TextAppearance.MaterialComponents.Button">
         <item name="android:textSize">@dimen/text_body</item>
         <item name="android:letterSpacing">0.03125</item>

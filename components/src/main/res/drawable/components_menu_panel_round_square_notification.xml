@@ -1,0 +1,12 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="@color/hmrc_red" />
+
+    <size
+        android:width="@dimen/hmrc_spacing_48"
+        android:height="@dimen/hmrc_spacing_24" />
+
+    <corners android:radius="@dimen/hmrc_spacing_32" />
+
+</shape>
