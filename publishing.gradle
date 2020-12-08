@@ -40,8 +40,9 @@ bintray {
         repo = 'mobile-releases'
         name = project.name
         desc = project.description
-        userOrg = 'hmrc'
+        userOrg = 'hmrc-mobile'
         licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/hmrc/android-components'
         version {
             name = project.version
             released = new Date()
