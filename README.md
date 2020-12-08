@@ -9,7 +9,7 @@ First add Bintray to the list of repositories in `build.gradle`:
 ```xml
 repositories {
     maven {
-        url "https://hmrc.bintray.com/mobile-releases"
+        url "https://dl.bintray.com/hmrc-mobile/mobile-releases"
     }
 }
 ```

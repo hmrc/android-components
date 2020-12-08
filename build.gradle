@@ -8,7 +8,7 @@ buildscript {
         google()
         jcenter()
         maven {
-            url "https://hmrc.bintray.com/mobile-releases"
+            url "https://dl.bintray.com/hmrc-mobile/mobile-releases"
             content {
                 includeGroup("uk.gov.hmrc.gradle")
             }
@@ -18,7 +18,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "uk.gov.hmrc.gradle:spotless:0.1.0"
+        classpath "uk.gov.hmrc.gradle:spotless:0.1.4"
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
         classpath 'com.karumi:shot:5.2.1'
 
@@ -52,9 +52,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            url "https://dl.bintray.com/ngcandroid/NGCAndroid"
-        }
     }
 }
 
