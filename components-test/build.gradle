@@ -12,7 +12,7 @@ detekt {
     config = files("../detekt/config.yml")
 }
 
-version = '0.9'
+version = '1.0.0'
 android {
     viewBinding {
         enabled = true
