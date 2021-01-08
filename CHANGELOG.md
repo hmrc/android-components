@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.6.0] - 2020-12-08
+### Changed
+* Move to new Bintray reposiotry organisation `https://dl.bintray.com/hmrc-mobile/mobile-releases`
+
 ## [3.5.0] - 2020-12-02
 
 ### Added
