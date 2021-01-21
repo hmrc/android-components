@@ -18,7 +18,8 @@ Allowed headings:
 
 ### Changed
 
-* `InformationMessageCardView` functions for adding headline (`addHeadlineButtons()`) and content (`addContentButtons()`) buttons now clear existing buttons before adding new ones.
+* Renamed `InformationMessageCardView` functions: `addHeadlineButtons()` -> `setHeadlineButtons()`, `addContentButtons()` -> `setContentButtons()`
+* `setHeadlineButtons()` and `setContentButtons()` now clear existing buttons before adding new ones.
 
 ## [3.6.0] - 2020-12-08
 ### Changed
