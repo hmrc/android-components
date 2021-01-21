@@ -91,6 +91,8 @@ class InformationMessageCardView @JvmOverloads constructor(
     }
 
     fun addHeadlineButtons(buttons: List<SecondaryButton>) {
+        binding.headlineButtonsContainer.removeAllViews()
+
         val spacing8 = context.resources.getDimensionPixelSize(R.dimen.hmrc_spacing_8)
         val spacing16 = context.resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
 
@@ -105,6 +107,8 @@ class InformationMessageCardView @JvmOverloads constructor(
     }
 
     fun addContentButtons(buttons: List<Button>) {
+        binding.buttonsContainer.removeAllViews()
+
         val spacing8 = context.resources.getDimensionPixelSize(R.dimen.hmrc_spacing_8)
         val spacing16 = context.resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
 
