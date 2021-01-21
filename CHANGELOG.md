@@ -16,6 +16,11 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* Renamed `InformationMessageCardView` functions: `addHeadlineButtons()` -> `setHeadlineButtons()`, `addContentButtons()` -> `setContentButtons()`
+* `setHeadlineButtons()` and `setContentButtons()` now clear existing buttons before adding new ones.
+
 ## [3.6.0] - 2020-12-08
 ### Changed
 * Move to new Bintray reposiotry organisation `https://dl.bintray.com/hmrc-mobile/mobile-releases`

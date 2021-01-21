@@ -652,7 +652,7 @@ If you need padding on your dividers, you can set `android:dividerPadding="@dime
     app:body="@string/info_message_placeholder_body" />
 ```
 
-Optionally, buttons can be added to the headline section using `addHeadlineButtons(buttons: List<SecondaryButton>)` or to the content section with `addContentButtons(buttons: List<Button>)`.
+Optionally, buttons can be added to the headline section using `setHeadlineButtons(buttons: List<SecondaryButton>)` or to the content section with `setContentButtons(buttons: List<Button>)`.
 
 ### Menu Panel Row View
 

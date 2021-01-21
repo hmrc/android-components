@@ -42,22 +42,22 @@ class InformationMessageCardFragment : BaseComponentsFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.infoMessagePlaceholder.apply {
-            addHeadlineButtons(listOf(
+            setHeadlineButtons(listOf(
                 SecondaryButton(requireContext()).apply { setText(R.string.info_message_placeholder_headline_button) }
             ))
 
-            addContentButtons(listOf(
+            setContentButtons(listOf(
                 PrimaryButton(requireContext()).apply { setText(R.string.info_message_placeholder_content_button_primary) },
                 SecondaryButton(requireContext()).apply { setText(R.string.info_message_placeholder_content_button_secondary) }
             ))
         }
 
-        binding.infoMessageExample1.addContentButtons(listOf(
+        binding.infoMessageExample1.setContentButtons(listOf(
             PrimaryButton(requireContext()).apply { setText(R.string.info_message_example_1_button_primary) },
             SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_1_button_secondary) }
         ))
 
-        binding.infoMessageExample2.addHeadlineButtons(listOf(
+        binding.infoMessageExample2.setHeadlineButtons(listOf(
             SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_2_button) }
         ))
     }
