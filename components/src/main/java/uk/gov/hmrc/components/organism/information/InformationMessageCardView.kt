@@ -90,7 +90,7 @@ class InformationMessageCardView @JvmOverloads constructor(
         binding.contentBody.visibility = if (body != null) View.VISIBLE else View.GONE
     }
 
-    fun addHeadlineButtons(buttons: List<SecondaryButton>) {
+    fun setHeadlineButtons(buttons: List<SecondaryButton>) {
         binding.headlineButtonsContainer.removeAllViews()
 
         val spacing8 = context.resources.getDimensionPixelSize(R.dimen.hmrc_spacing_8)
@@ -106,7 +106,7 @@ class InformationMessageCardView @JvmOverloads constructor(
         binding.viewBottomPadding.visibility = View.GONE
     }
 
-    fun addContentButtons(buttons: List<Button>) {
+    fun setContentButtons(buttons: List<Button>) {
         binding.buttonsContainer.removeAllViews()
 
         val spacing8 = context.resources.getDimensionPixelSize(R.dimen.hmrc_spacing_8)
