@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.7.0] - 2021-01-21
+
 ### Changed
 
 * Renamed `InformationMessageCardView` functions: `addHeadlineButtons()` -> `setHeadlineButtons()`, `addContentButtons()` -> `setContentButtons()`
