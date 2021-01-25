@@ -118,7 +118,7 @@
         <attr name="textStyle2" format="reference" />
         <!-- Text style for the third piece of text. -->
         <attr name="textStyle3" format="reference" />
-        <!-- Whether or not the first piece of text should be rendered as a heading. -->
+        <!-- Whether or not the first piece of text should be an accessibility heading. -->
         <attr name="text1Heading" format="boolean" />
     </declare-styleable>
 
