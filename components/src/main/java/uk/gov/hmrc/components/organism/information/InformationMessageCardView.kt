@@ -56,8 +56,8 @@ class InformationMessageCardView @JvmOverloads constructor(
                 .obtainStyledAttributes(attributeSet, R.styleable.InformationMessageCardView, 0, 0)
             setHeadline(typedArray.getString(R.styleable.InformationMessageCardView_headline))
             setHeadlineIcon(typedArray.getResourceId(R.styleable.InformationMessageCardView_headlineIcon, NO_ICON))
-            setTitle(typedArray.getString(R.styleable.InformationMessageCardView_title))
-            setBody(typedArray.getString(R.styleable.InformationMessageCardView_body))
+            setContentTitle(typedArray.getString(R.styleable.InformationMessageCardView_contentTitle))
+            setContentBody(typedArray.getString(R.styleable.InformationMessageCardView_contentBody))
             val typeOrdinal = typedArray.getInt(R.styleable.InformationMessageCardView_type, -1)
             if (typeOrdinal != -1) {
                 type = Type.values()[typeOrdinal]
@@ -80,14 +80,24 @@ class InformationMessageCardView @JvmOverloads constructor(
         binding.warningView.setIcon(resId)
     }
 
-    fun setTitle(title: CharSequence?) {
+    fun setContentTitle(title: CharSequence?) {
         binding.contentTitle.text = title
-        binding.contentTitle.visibility = if (title != null) View.VISIBLE else View.GONE
+        binding.contentTitle.visibility = if (!title.isNullOrEmpty()) View.VISIBLE else View.GONE
+        if (!title.isNullOrEmpty() &&
+            binding.contentBody.text.isNullOrEmpty() &&
+            binding.buttonsContainer.childCount == 0) {
+            binding.viewBottomPadding.visibility = View.VISIBLE
+        }
+        updateContentContainerVisibility()
     }
 
-    fun setBody(body: CharSequence?) {
+    fun setContentBody(body: CharSequence?) {
         binding.contentBody.text = body
-        binding.contentBody.visibility = if (body != null) View.VISIBLE else View.GONE
+        binding.contentBody.visibility = if (!body.isNullOrEmpty()) View.VISIBLE else View.GONE
+        if (!body.isNullOrEmpty() && binding.buttonsContainer.childCount == 0) {
+            binding.viewBottomPadding.visibility = View.VISIBLE
+        }
+        updateContentContainerVisibility()
     }
 
     fun setHeadlineButtons(buttons: List<SecondaryButton>) {
@@ -103,7 +113,6 @@ class InformationMessageCardView @JvmOverloads constructor(
             it.gravity = Gravity.CENTER
             binding.headlineButtonsContainer.addView(it)
         }
-        binding.viewBottomPadding.visibility = View.GONE
     }
 
     fun setContentButtons(buttons: List<Button>) {
@@ -126,7 +135,6 @@ class InformationMessageCardView @JvmOverloads constructor(
             }
             binding.buttonsContainer.addView(button)
         }
-
         binding.viewBottomPadding.visibility = View.GONE
         updateContentContainerVisibility()
     }

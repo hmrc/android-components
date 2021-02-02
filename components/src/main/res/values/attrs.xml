@@ -253,9 +253,9 @@
         <!-- Icon to display next to the headline text. -->
         <attr name="headlineIcon" format="reference" />
         <!-- Title to display below the headline. -->
-        <attr name="title" />
+        <attr name="contentTitle" format="string" />
         <!-- Body text to display below the title. -->
-        <attr name="body" />
+        <attr name="contentBody" format="string" />
         <!-- Type of message -->
         <attr name="type" format="enum">
             <!-- Warning message -->
