@@ -648,8 +648,8 @@ If you need padding on your dividers, you can set `android:dividerPadding="@dime
     app:headline="@string/info_message_placeholder_headline"
     app:headlineIcon="@drawable/ic_info"
     app:type="urgent"
-    app:title="@string/info_message_placeholder_title"
-    app:body="@string/info_message_placeholder_body" />
+    app:contentTitle="@string/info_message_placeholder_title"
+    app:contentBody="@string/info_message_placeholder_body" />
 ```
 
 Optionally, buttons can be added to the headline section using `setHeadlineButtons(buttons: List<SecondaryButton>)` or to the content section with `setContentButtons(buttons: List<Button>)`.
