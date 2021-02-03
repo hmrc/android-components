@@ -19,12 +19,7 @@ Allowed headings:
 ### Changed
 
 * Updated the color of all text hints from black to grey 1
-* Renamed `InformationMessageCardView` functions: `setTitle()` -> `setContentTitle()`, `setBody()` -> `setContentBody()`
-* Renamed `InformationMessageCardView` attributes: `title` -> `contentTitle`, `body` -> `contentBody`
-
-### Fixed
-
-* Adding content title or body text to `InformationMessageCardView` now calls `updateContentContainerVisibility()` to ensure the correct visibility is shown when used with databinding or updated manually.
+* Removed content area from `InformationMessageCardView`
 
 ## [3.7.0] - 2021-01-21
 
