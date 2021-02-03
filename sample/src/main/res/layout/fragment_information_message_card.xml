@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2018 HM Revenue & Customs
+     Copyright 2021 HM Revenue & Customs
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -29,9 +29,7 @@
             android:layout_margin="@dimen/hmrc_spacing_16"
             app:headline="@string/info_message_placeholder_headline"
             app:headlineIcon="@drawable/ic_info"
-            app:type="urgent"
-            app:contentTitle="@string/info_message_placeholder_title"
-            app:contentBody="@string/info_message_placeholder_body" />
+            app:type="urgent" />
 
         <TextView style="@style/ExampleText" />
 
@@ -42,9 +40,7 @@
             android:layout_margin="@dimen/hmrc_spacing_16"
             app:type="info"
             app:headline="@string/info_message_example_1_headline"
-            app:headlineIcon="@drawable/ic_info"
-            app:contentTitle="@string/info_message_example_1_title"
-            app:contentBody="@string/info_message_example_1_body" />
+            app:headlineIcon="@drawable/ic_info" />
 
         <uk.gov.hmrc.components.organism.information.InformationMessageCardView
             android:id="@+id/info_message_example_2"
@@ -63,7 +59,6 @@
             app:type="notice"
             app:headline="@string/info_message_example_3_headline"
             app:headlineIcon="@drawable/components_ic_warning" />
-
 
     </LinearLayout>
 

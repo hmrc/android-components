@@ -22,74 +22,25 @@
         android:id="@+id/root_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:importantForAccessibility="no"
+        tools:background="@color/hmrc_blue">
 
-        <LinearLayout
-            android:id="@+id/warning_container"
+        <uk.gov.hmrc.components.molecule.warning.WarningView
+            android:id="@+id/warning_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_4"
+            app:iconTintColor="@android:color/transparent"
+            tools:text="Do not update your working hours if you or your partner are working less because of coronavirus (COVID-19)" />
+
+        <LinearLayout
+            android:id="@+id/headline_buttons_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/hmrc_spacing_16"
             android:orientation="vertical"
-            android:importantForAccessibility="no"
-            tools:background="@color/hmrc_blue">
-
-            <uk.gov.hmrc.components.molecule.warning.WarningView
-                android:id="@+id/warning_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/hmrc_spacing_4"
-                app:iconTintColor="@android:color/transparent"
-                tools:text="Do not update your working hours if you or your partner are working less because of coronavirus (COVID-19)" />
-
-            <LinearLayout
-                android:id="@+id/headline_buttons_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/hmrc_spacing_16"
-                android:orientation="vertical"
-                android:visibility="gone" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/content_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/content_title"
-                style="@style/Text.Bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/hmrc_spacing_16"
-                android:layout_marginTop="@dimen/hmrc_spacing_8"
-                android:layout_marginEnd="@dimen/hmrc_spacing_16"
-                tools:text="We are treating this as a temporary exceptional change. Your Working Tax Credit will not go down because you are working less." />
-
-            <TextView
-                android:id="@+id/content_body"
-                style="@style/Text.Body"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/hmrc_spacing_16"
-                android:layout_marginTop="@dimen/hmrc_spacing_8"
-                android:layout_marginEnd="@dimen/hmrc_spacing_16"
-                tools:text="You can still report other changes in income, childcare and increased hours as normal.\n\nSearch COVID-19 on gov.uk for the latest advice." />
-
-            <LinearLayout
-                android:id="@+id/buttons_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="visible" />
-
-            <View
-                android:id="@+id/view_bottom_padding"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/hmrc_spacing_16"
-                android:visibility="gone" />
-
-        </LinearLayout>
+            android:visibility="gone" />
 
     </LinearLayout>
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,8 +23,6 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.google.android.material.card.MaterialCardView
 import uk.gov.hmrc.components.R
-import uk.gov.hmrc.components.atom.button.Button
-import uk.gov.hmrc.components.atom.button.PrimaryButton
 import uk.gov.hmrc.components.atom.button.SecondaryButton
 import uk.gov.hmrc.components.databinding.ComponentInformationMessageCardBinding
 import uk.gov.hmrc.components.extensions.setMargins
@@ -44,7 +42,7 @@ class InformationMessageCardView @JvmOverloads constructor(
             type?.let {
                 binding.warningView.setTextColor(it.headlineTint)
                 binding.warningView.setIconTintColor(it.headlineTint)
-                binding.warningContainer.setBackgroundColor(ContextCompat.getColor(context, it.headlineBackgroundColor))
+                binding.rootLayout.setBackgroundColor(ContextCompat.getColor(context, it.headlineBackgroundColor))
                 binding.rootLayout.visibility = View.VISIBLE
             }
         }
@@ -56,8 +54,6 @@ class InformationMessageCardView @JvmOverloads constructor(
                 .obtainStyledAttributes(attributeSet, R.styleable.InformationMessageCardView, 0, 0)
             setHeadline(typedArray.getString(R.styleable.InformationMessageCardView_headline))
             setHeadlineIcon(typedArray.getResourceId(R.styleable.InformationMessageCardView_headlineIcon, NO_ICON))
-            setContentTitle(typedArray.getString(R.styleable.InformationMessageCardView_contentTitle))
-            setContentBody(typedArray.getString(R.styleable.InformationMessageCardView_contentBody))
             val typeOrdinal = typedArray.getInt(R.styleable.InformationMessageCardView_type, -1)
             if (typeOrdinal != -1) {
                 type = Type.values()[typeOrdinal]
@@ -69,7 +65,6 @@ class InformationMessageCardView @JvmOverloads constructor(
         }
 
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
-        updateContentContainerVisibility()
     }
 
     fun setHeadline(headline: CharSequence?) {
@@ -78,26 +73,6 @@ class InformationMessageCardView @JvmOverloads constructor(
 
     fun setHeadlineIcon(resId: Int) {
         binding.warningView.setIcon(resId)
-    }
-
-    fun setContentTitle(title: CharSequence?) {
-        binding.contentTitle.text = title
-        binding.contentTitle.visibility = if (!title.isNullOrEmpty()) View.VISIBLE else View.GONE
-        if (!title.isNullOrEmpty() &&
-            binding.contentBody.text.isNullOrEmpty() &&
-            binding.buttonsContainer.childCount == 0) {
-            binding.viewBottomPadding.visibility = View.VISIBLE
-        }
-        updateContentContainerVisibility()
-    }
-
-    fun setContentBody(body: CharSequence?) {
-        binding.contentBody.text = body
-        binding.contentBody.visibility = if (!body.isNullOrEmpty()) View.VISIBLE else View.GONE
-        if (!body.isNullOrEmpty() && binding.buttonsContainer.childCount == 0) {
-            binding.viewBottomPadding.visibility = View.VISIBLE
-        }
-        updateContentContainerVisibility()
     }
 
     fun setHeadlineButtons(buttons: List<SecondaryButton>) {
@@ -113,37 +88,6 @@ class InformationMessageCardView @JvmOverloads constructor(
             it.gravity = Gravity.CENTER
             binding.headlineButtonsContainer.addView(it)
         }
-    }
-
-    fun setContentButtons(buttons: List<Button>) {
-        binding.buttonsContainer.removeAllViews()
-
-        val spacing8 = context.resources.getDimensionPixelSize(R.dimen.hmrc_spacing_8)
-        val spacing16 = context.resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
-
-        buttons.forEachIndexed { index, button ->
-            when (button) {
-                is PrimaryButton -> {
-                    val topMargin = if (index == 0) spacing8 else 0
-                    val nextButton = buttons.getOrNull(index + 1)
-                    val bottomMargin = if (nextButton is SecondaryButton) 0 else spacing8
-                    button.setMargins(spacing16, topMargin, spacing16, bottomMargin)
-                }
-                is SecondaryButton -> {
-                    button.gravity = Gravity.CENTER_VERTICAL or Gravity.START
-                }
-            }
-            binding.buttonsContainer.addView(button)
-        }
-        binding.viewBottomPadding.visibility = View.GONE
-        updateContentContainerVisibility()
-    }
-
-    private fun updateContentContainerVisibility() {
-        val shouldShowContent = !binding.contentTitle.text.isNullOrEmpty() ||
-            !binding.contentBody.text.isNullOrEmpty() ||
-            binding.buttonsContainer.childCount > 0
-        binding.contentContainer.visibility = if (shouldShowContent) View.VISIBLE else View.GONE
     }
 
     enum class Type(val headlineBackgroundColor: Int, val headlineTint: Int) {
