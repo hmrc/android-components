@@ -17,13 +17,10 @@ package uk.gov.hmrc.components.test.organism.information
 
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.test.espresso.matcher.BoundedMatcher
-import kotlin.reflect.KClass
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import uk.gov.hmrc.components.R
-import uk.gov.hmrc.components.atom.button.Button
 import uk.gov.hmrc.components.atom.button.SecondaryButton
 import uk.gov.hmrc.components.molecule.warning.WarningView
 import uk.gov.hmrc.components.organism.information.InformationMessageCardView
@@ -50,43 +47,6 @@ object InformationMessageCardViewMatchers {
 
             override fun matchesSafely(item: InformationMessageCardView?): Boolean {
                 return item?.findViewById<WarningView>(R.id.warning_view)?.getText() == headline
-            }
-        }
-    }
-
-    fun hasTitle(title: String): Matcher<View> {
-        return object : BoundedMatcher<View, InformationMessageCardView>(InformationMessageCardView::class.java) {
-            override fun describeTo(description: Description?) {
-                description?.appendText("Title = $title")
-            }
-
-            override fun matchesSafely(item: InformationMessageCardView?): Boolean {
-                return item?.findViewById<TextView>(R.id.content_title)?.text == title
-            }
-        }
-    }
-
-    fun hasBody(body: String): Matcher<View> {
-        return object : BoundedMatcher<View, InformationMessageCardView>(InformationMessageCardView::class.java) {
-            override fun describeTo(description: Description?) {
-                description?.appendText("Body = $body")
-            }
-
-            override fun matchesSafely(item: InformationMessageCardView?): Boolean {
-                return item?.findViewById<TextView>(R.id.content_body)?.text == body
-            }
-        }
-    }
-
-    fun hasContentButton(position: Int, text: String, kClass: KClass<*>): Matcher<View> {
-        return object : BoundedMatcher<View, InformationMessageCardView>(InformationMessageCardView::class.java) {
-            override fun describeTo(description: Description?) {
-                description?.appendText("Content button = $position $text")
-            }
-
-            override fun matchesSafely(item: InformationMessageCardView?): Boolean {
-                val button = (item?.findViewById<LinearLayout>(R.id.buttons_container)?.getChildAt(position) as? Button)
-                return button?.text == text && button::class == kClass
             }
         }
     }
