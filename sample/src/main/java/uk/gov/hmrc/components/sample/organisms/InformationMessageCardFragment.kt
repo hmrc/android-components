@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import uk.gov.hmrc.components.atom.button.PrimaryButton
 import uk.gov.hmrc.components.atom.button.SecondaryButton
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
@@ -33,7 +32,7 @@ class InformationMessageCardFragment : BaseComponentsFragment() {
 
     override fun provideToolbar() = ToolbarState(true, R.string.organisms_info_message_card, true)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentInformationMessageCardBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -41,21 +40,9 @@ class InformationMessageCardFragment : BaseComponentsFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.infoMessagePlaceholder.apply {
-            setHeadlineButtons(listOf(
+        binding.infoMessagePlaceholder.setHeadlineButtons(listOf(
                 SecondaryButton(requireContext()).apply { setText(R.string.info_message_placeholder_headline_button) }
             ))
-
-            setContentButtons(listOf(
-                PrimaryButton(requireContext()).apply { setText(R.string.info_message_placeholder_content_button_primary) },
-                SecondaryButton(requireContext()).apply { setText(R.string.info_message_placeholder_content_button_secondary) }
-            ))
-        }
-
-        binding.infoMessageExample1.setContentButtons(listOf(
-            PrimaryButton(requireContext()).apply { setText(R.string.info_message_example_1_button_primary) },
-            SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_1_button_secondary) }
-        ))
 
         binding.infoMessageExample2.setHeadlineButtons(listOf(
             SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_2_button) }

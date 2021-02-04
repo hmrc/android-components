@@ -19,6 +19,7 @@ Allowed headings:
 ### Changed
 
 * Updated the color of all text hints from black to grey 1
+* Removed content area from `InformationMessageCardView`
 
 ## [3.7.0] - 2021-01-21
 

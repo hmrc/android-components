@@ -647,12 +647,10 @@ If you need padding on your dividers, you can set `android:dividerPadding="@dime
     android:layout_margin="@dimen/hmrc_spacing_16"
     app:headline="@string/info_message_placeholder_headline"
     app:headlineIcon="@drawable/ic_info"
-    app:type="urgent"
-    app:title="@string/info_message_placeholder_title"
-    app:body="@string/info_message_placeholder_body" />
+    app:type="urgent" />
 ```
 
-Optionally, buttons can be added to the headline section using `setHeadlineButtons(buttons: List<SecondaryButton>)` or to the content section with `setContentButtons(buttons: List<Button>)`.
+Optionally, buttons can be added to the headline section using `setHeadlineButtons(buttons: List<SecondaryButton>)`.
 
 ### Menu Panel Row View
 
