@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.8.0] - 2021-02-04
+
 ### Changed
 
 * Updated the color of all text hints from black to grey 1
