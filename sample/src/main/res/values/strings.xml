@@ -334,6 +334,7 @@
     <string name="info_message_placeholder_headline">Headline</string>
     <string name="info_message_placeholder_headline_button">Headline button</string>
     <string name="info_message_example_1_headline">Info message</string>
+    <string name="info_message_example_1_headline_content_description">Info message content description</string>
     <string name="info_message_example_1_button_primary">A primary action</string>
     <string name="info_message_example_1_button_secondary">A secondary action</string>
     <string name="info_message_example_2_headline">Warning message</string>

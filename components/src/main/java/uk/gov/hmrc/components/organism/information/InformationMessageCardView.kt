@@ -48,11 +48,11 @@ class InformationMessageCardView @JvmOverloads constructor(
         }
 
     init {
-
         attrs?.let { attributeSet ->
             val typedArray = context.theme
                 .obtainStyledAttributes(attributeSet, R.styleable.InformationMessageCardView, 0, 0)
             setHeadline(typedArray.getString(R.styleable.InformationMessageCardView_headline))
+            setHeadlineContentDescription(typedArray.getString(R.styleable.InformationMessageCardView_headlineContentDescription))
             setHeadlineIcon(typedArray.getResourceId(R.styleable.InformationMessageCardView_headlineIcon, NO_ICON))
             val typeOrdinal = typedArray.getInt(R.styleable.InformationMessageCardView_type, -1)
             if (typeOrdinal != -1) {
@@ -69,6 +69,10 @@ class InformationMessageCardView @JvmOverloads constructor(
 
     fun setHeadline(headline: CharSequence?) {
         binding.warningView.setText(headline)
+    }
+
+    fun setHeadlineContentDescription(contentDesc: String) {
+        binding.warningView.updateContentDescription(contentDesc)
     }
 
     fun setHeadlineIcon(resId: Int) {
