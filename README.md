@@ -646,6 +646,7 @@ If you need padding on your dividers, you can set `android:dividerPadding="@dime
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/hmrc_spacing_16"
     app:headline="@string/info_message_placeholder_headline"
+    app:headlineContentDescription="@string/headlineContentDescription"
     app:headlineIcon="@drawable/ic_info"
     app:type="urgent" />
 ```

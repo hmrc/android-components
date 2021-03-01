@@ -340,6 +340,7 @@
     <string name="info_message_example_2_headline">Warning message</string>
     <string name="info_message_example_2_button">Do something</string>
     <string name="info_message_example_3_headline">Notice message</string>
+    <string name="info_message_example_3_headline_content_description">Notice message content description</string>
 
     <!--  Menu Panel Row View  -->
     <string name="menu_panel_placeholder_title">Title</string>

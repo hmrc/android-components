@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Added
+
+* Added ability for `InformationMessageCardView` to add a custom content description to headline
+
 ## [3.8.0] - 2021-02-04
 
 ### Changed
