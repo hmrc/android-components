@@ -44,6 +44,9 @@ class InformationMessageCardFragment : BaseComponentsFragment() {
                 SecondaryButton(requireContext()).apply { setText(R.string.info_message_placeholder_headline_button) }
             ))
 
+        binding.infoMessageExample1
+            .setHeadlineContentDescription(getString(R.string.info_message_example_1_headline_content_description))
+
         binding.infoMessageExample2.setHeadlineButtons(listOf(
             SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_2_button) }
         ))

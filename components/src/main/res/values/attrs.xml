@@ -250,6 +250,8 @@
     <declare-styleable name="InformationMessageCardView">
         <!-- Headline to display at top of card. -->
         <attr name="headline" />
+        <!-- Headline content description. -->
+        <attr name="headlineContentDescription" />
         <!-- Icon to display next to the headline text. -->
         <attr name="headlineIcon" format="reference" />
         <!-- Type of message -->
