@@ -5,46 +5,22 @@ task androidSourcesJar(type: Jar) {
 
 publishing {
     publications {
-        mavenAar(MavenPublication) {
-            from components.android
-            artifact androidSourcesJar
-
-            pom {
-                name = project.name
-                description = project.description
-                url = 'https://github.com/hmrc/android-components'
-                licenses {
-                    license {
-                        name = 'The Apache License, Version 2.0'
-                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                scm {
-                    connection = 'scm:git:https://github.com/hmrc/android-components.git'
-                    developerConnection = 'scm:git:git@github.com:hmrc/android-components.git'
-                    url = 'https://github.com/hmrc/android-components'
-                }
-            }
+        components(MavenPublication) {
+            groupId "uk.gov.hmrc"
+            artifactId "android-${project.name}"
+            version project.version
+            artifact("build/outputs/aar/${project.name}-release.aar")
         }
     }
-}
+    repositories {
+        maven {
+            name = "GitHubPackages"
 
-bintray {
-    user = System.getenv("BITRISEIO_BINTRAY_USER")
-    key = System.getenv("BITRISEIO_BINTRAY_KEY")
-
-    publications = ['mavenAar']
-    publish = true
-
-    pkg {
-        repo = 'mobile-releases'
-        name = project.name
-        desc = project.description
-        userOrg = 'hmrc'
-        licenses = ['Apache-2.0']
-        version {
-            name = project.version
-            released = new Date()
+            url = uri("https://maven.pkg.github.com/hmrc/android-components")
+            credentials {
+                username = System.getenv("GITHUB_USER_NAME")
+                password = System.getenv("GITHUB_TOKEN")
+            }
         }
     }
 }
