@@ -92,7 +92,7 @@ platform :android do
 
   desc "Publishes components library"
   lane :publish do
-    ensure_git_status_clean
+    # ensure_git_status_clean
 
     check
 
@@ -105,8 +105,8 @@ platform :android do
   desc "Publishes components test library"
   lane :publish_test do
     # ensure repo is clean and on master
-    ensure_git_status_clean
-    ensure_git_branch
+    # ensure_git_status_clean
+    # ensure_git_branch
 
     check
 
