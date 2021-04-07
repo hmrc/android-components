@@ -15,6 +15,7 @@ Allowed headings:
 -->
 
 ## [Unreleased]
+- Changed to Github packages for artefact storage.
 
 ## [3.9.0] - 2021-03-01
 
