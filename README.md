@@ -4,19 +4,23 @@ Build applications using components with the HMRC look and feel.
 
 # Getting Started
 
-First add Bintray to the list of repositories in `build.gradle`:
+Add the Github Package repository to your top-level `build.gradle`, along with a Github username and access token (no permissions required).
 
-```xml
+```groovy
 repositories {
-    maven {
-        url "https://dl.bintray.com/hmrc-mobile/mobile-releases"
+  maven {
+    url = "https://maven.pkg.github.com/hmrc/android-components"
+    credentials {
+      username = System.getenv("GITHUB_USER_NAME")
+      password = System.getenv("GITHUB_TOKEN")
     }
+  }
 }
 ```
 
 Then add the following to your list of dependencies:
 
-```xml
+```groovy
 implementation 'uk.gov.hmrc.components:components:{version}'
 androidTestImplementation 'uk.gov.hmrc.components:components-test:{version}'
 ```

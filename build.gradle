@@ -8,9 +8,10 @@ buildscript {
         google()
         jcenter()
         maven {
-            url "https://dl.bintray.com/hmrc-mobile/mobile-releases"
-            content {
-                includeGroup("uk.gov.hmrc.gradle")
+            url = uri("https://maven.pkg.github.com/hmrc/mobile-gradle-plugins")
+            credentials {
+                username = System.getenv("GITHUB_USER_NAME")
+                password = System.getenv("GITHUB_TOKEN")
             }
         }
     }
@@ -18,8 +19,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "uk.gov.hmrc.gradle:spotless:0.1.4"
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+        classpath "uk.gov.hmrc.gradle:spotless:1.0.0"
         classpath 'com.karumi:shot:5.2.1'
 
         // NOTE: Do not place your application dependencies here; they belong

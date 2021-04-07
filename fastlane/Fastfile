@@ -96,10 +96,10 @@ platform :android do
 
     check
 
-    # build the app and upload to Bintray
+    # build the app and upload to Github Packages
     gradle(task: 'components:clean')
     gradle(task: 'components:build')
-    gradle(task: 'components:bintrayUpload')
+    gradle(task: 'components:publishComponentsPublicationToGitHubPackagesRepository')
   end
 
   desc "Publishes components test library"
@@ -110,10 +110,10 @@ platform :android do
 
     check
 
-    # build the app and upload to Bintray
+    # build the app and upload to Github Packages
     gradle(task: 'components-test:clean')
     gradle(task: 'components-test:build')
-    gradle(task: 'components-test:bintrayUpload')
+    gradle(task: 'components-test:publishComponentsPublicationToGitHubPackagesRepository')
   end
 
   desc "Starts an emulator and records new screenshots"
