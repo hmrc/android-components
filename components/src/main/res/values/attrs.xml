@@ -1,34 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- Text to display. -->
     <attr name="text" format="string" />
+    <!-- Text color. -->
     <attr name="textColor" format="reference" />
+    <!-- Title to display. -->
     <attr name="title" format="string" />
+    <!-- Subtitle to display. -->
     <attr name="subtitle" format="string" />
+    <!-- Icon to display. -->
     <attr name="icon" format="reference" />
+    <!-- Icon tint color. -->
     <attr name="iconTintColor" format="reference" />
+    <!-- Accessibility message to read. -->
     <attr name="accessibilityMessage" format="string" />
+    <!-- Accessibility message to read for button. -->
     <attr name="buttonAccessibilityMessage" format="string" />
+    <!-- Whether or not the child element should have padding. -->
     <attr name="childPadding" format="boolean" />
+    <!-- Gravity for the button text. -->
     <attr name="buttonTextGravity" format="integer">
         <flag name="start" value="8388611" />
         <flag name="end" value="8388613" />
         <flag name="center_vertical" value="16" />
         <flag name="center_horizontal" value="1" />
     </attr>
-    <attr format="reference" name="materialTextButtonStyle" />
-    <attr format="reference" name="materialIconButtonStyle" />
+    <!-- Material text button style. -->
+    <attr name="materialTextButtonStyle" format="reference" />
+    <!-- Material icon button style. -->
+    <attr name="materialIconButtonStyle" format="reference" />
 
     <declare-styleable name="InsetTextView">
+        <!-- Text to display. -->
         <attr name="text" />
     </declare-styleable>
 
     <declare-styleable name="TextInputView">
+        <!-- Text to display. -->
         <attr name="text" />
+        <!-- Hint content description. -->
         <attr name="overrideHintContentDescription" format="string" />
+        <!-- Hint text. -->
         <attr name="hintText" format="string" />
+        <!-- Error text. -->
         <attr name="errorText" format="string" />
+        <!-- Max length of the text field. Shown at the bottom right of the text if counterEnable is true. -->
         <attr name="counterMaxLength" format="integer" />
+        <!-- Whether or not to show a character counter at the bottom right of the text field. -->
         <attr name="counterEnabled" format="boolean" />
         <attr name="android:imeOptions" />
         <attr name="android:inputType" />
@@ -37,131 +55,214 @@
     </declare-styleable>
 
     <declare-styleable name="CurrencyInputView">
+        <!-- Whether or not decimals can be used -->
         <attr name="decimalsEnabled" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="ExpandingRowView">
+        <!-- Title to display. -->
         <attr name="title" />
+        <!-- Title content description. -->
         <attr name="titleContentDescription" format="string" />
+        <!-- Subtitle to display. -->
         <attr name="subtitle" />
+        <!-- Subtitle content description. -->
         <attr name="subtitleContentDescription" format="string" />
+        <!-- Icon to show at the start of the expanding row. -->
         <attr name="icon" />
+        <!-- Whether or not a click anywhere toggles expansion. If true then anywhere can be clicked to toggle expansion. If false then the header must be clicked to toggle expansion. -->
         <attr name="clickTogglesExpansion" format="boolean" />
+        <!-- Whether or not the view should begin as expanded -->
         <attr name="expanded" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="IconButtonView">
+        <!-- Title to display. -->
         <attr name="title" />
+        <!-- Icon to display. -->
         <attr name="icon" />
+        <!-- Accessibility message to read. -->
         <attr name="accessibilityMessage" />
     </declare-styleable>
 
     <declare-styleable name="TitleBodyView">
+        <!-- Title to display. -->
         <attr name="title" />
+        <!-- Body text to display. -->
         <attr name="body" format="string" />
     </declare-styleable>
 
+    <!-- Hello. -->
     <declare-styleable name="MultiColumnRowView">
+        <!-- First piece of text to display. -->
         <attr name="text1" format="string" />
+        <!-- Second piece of text to display. -->
         <attr name="text2" format="string" />
+        <!-- Third piece of text to display. -->
         <attr name="text3" format="string" />
+        <!-- First piece of text content description. -->
         <attr name="text1ContentDescription" format="string" />
+        <!-- Second piece of text content description. -->
         <attr name="text2ContentDescription" format="string" />
+        <!-- Third piece of text content description. -->
         <attr name="text3ContentDescription" format="string" />
+        <!-- Whether or not the first piece of text is selectable. -->
         <attr name="text1IsSelectable" format="boolean" />
+        <!-- Whether or not the second piece of text is selectable. -->
         <attr name="text2IsSelectable" format="boolean" />
+        <!-- Whether or not the third piece of text is selectable. -->
         <attr name="text3IsSelectable" format="boolean" />
+        <!-- Text style for the first piece of text. -->
         <attr name="textStyle" format="reference" />
+        <!-- Text style for the second piece of text. -->
         <attr name="textStyle2" format="reference" />
+        <!-- Text style for the third piece of text. -->
         <attr name="textStyle3" format="reference" />
+        <!-- Whether or not the first piece of text should be an accessibility heading. -->
         <attr name="text1Heading" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="SwitchRowView">
+        <!-- Title to display. -->
         <attr name="title" />
+        <!-- Body text to display below the title. -->
         <attr name="body" />
+        <!-- Whether or not the body should be shown. -->
         <attr name="showBody" format="boolean" />
+        <!-- Whether or not the switch should begin as checked. -->
         <attr name="checked" format="boolean" />
+        <!-- Text style of the title. -->
         <attr name="titleStyle" format="reference" />
+        <!-- Content description for the switch. -->
         <attr name="switchContentDescription" format="string" />
     </declare-styleable>
 
     <declare-styleable name="DynamicCardView">
+        <!-- Whether or not the child element should have padding. -->
         <attr name="childPadding" />
     </declare-styleable>
 
     <declare-styleable name="HeadlineCardView">
+        <!-- Title to display. This is smaller than the headline. -->
         <attr name="title" />
+        <!-- Title content description -->
         <attr name="titleContentDescription" />
+        <!-- Headline to display. This is larger than the title. -->
         <attr name="headline" format="string" />
+        <!-- Headline content description -->
         <attr name="headlineContentDescription" format="string" />
     </declare-styleable>
 
     <declare-styleable name="PrimaryCardView">
+        <!-- Title to display. -->
         <attr name="title" />
     </declare-styleable>
 
     <declare-styleable name="InsetView">
+        <!-- Whether or not the child element should have padding. -->
         <attr name="childPadding" />
     </declare-styleable>
 
     <declare-styleable name="StatusView">
+        <!-- Title to display. -->
         <attr name="title" />
+        <!-- Body to display below the title. -->
         <attr name="body" />
+        <!-- Body content description. -->
         <attr name="bodyContentDesc" format="string" />
+        <!-- Text color of all text. -->
         <attr name="textColor" />
+        <!-- Icon to be displayed at the top of the view. -->
         <attr name="icon" />
+        <!-- Icon tint color. -->
         <attr name="iconTintColor" />
+        <!-- Primary button text. -->
         <attr name="primaryButtonText" format="string" />
+        <!-- Secondary button text. -->
         <attr name="secondaryButtonText" format="string" />
+        <!-- Info text shown at the bottom of the view. -->
         <attr name="infoText" format="string" />
     </declare-styleable>
 
     <declare-styleable name="StatusCardView">
+        <!-- Title to display. -->
         <attr name="title" />
+        <!-- Body to display below the title. -->
         <attr name="body" />
+        <!-- Body content description. -->
         <attr name="bodyContentDesc" />
+        <!-- Icon to be displayed at the top of the view. -->
         <attr name="icon" />
+        <!-- Icon tint color. -->
         <attr name="iconTintColor" />
     </declare-styleable>
 
     <declare-styleable name="SummaryRowView">
+        <!-- Title to display. -->
         <attr name="title" />
+        <!-- Accessibility message to read. -->
         <attr name="accessibilityMessage" />
+        <!-- Title text appearance. -->
         <attr name="titleTextAppearance" format="reference" />
+        <!-- Title max lines. -->
         <attr name="titleMaxLines" format="integer" />
+        <!-- Style to apply to the row -->
         <attr name="rowStyle" format="reference" />
+        <!-- Reader trait -->
         <attr name="readerTrait" format="integer">
+            <!-- Allow child views to be focused and read -->
             <flag name="info" value="1" />
+            <!-- Do not allow child views to be focused and read -->
             <flag name="simple" value="2" />
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="MenuPanelRowView">
+        <!-- Title to display. -->
+        <attr name="title" />
+        <!-- Body to display below the title. -->
+        <attr name="body" />
+    </declare-styleable>
+
     <declare-styleable name="WarningView">
+        <!-- Text to display. -->
         <attr name="text" />
+        <!-- Text color. -->
         <attr name="textColor" />
+        <!-- Icon shown at the start of the view. -->
         <attr name="icon" />
+        <!-- Icon tint color. -->
         <attr name="iconTintColor" />
     </declare-styleable>
 
     <declare-styleable name="SelectRowView">
+        <!-- Text to display. -->
         <attr name="text" />
+        <!-- Radio button drawable -->
         <attr name="button" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="SelectRowGroup">
+        <!-- Initial selected row resource id -->
         <attr name="selectedRow" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="InformationMessageCardView">
+        <!-- Headline to display at top of card. -->
         <attr name="headline" />
+        <!-- Headline content description. -->
+        <attr name="headlineContentDescription" />
+        <!-- Icon to display next to the headline text. -->
         <attr name="headlineIcon" format="reference" />
-        <attr name="title" />
-        <attr name="body" />
+        <!-- Type of message -->
         <attr name="type" format="enum">
+            <!-- Warning message -->
             <enum name="warning" value="0" />
+            <!-- Info message -->
             <enum name="info" value="1" />
+            <!-- Urgent message -->
             <enum name="urgent" value="2" />
+            <!-- Notice message -->
             <enum name="notice" value="3" />
         </attr>
     </declare-styleable>

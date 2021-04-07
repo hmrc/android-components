@@ -24,6 +24,14 @@
         <item name="materialCardViewStyle">@style/Widget.Components.CardView</item>
     </style>
 
+    <style name="Theme.Components.ActionBar" parent="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorError">@color/hmrc_red</item>
+        <item name="textAppearanceButton">@style/Text.Button</item>
+        <item name="materialTextButtonStyle">@style/MaterialTextButtonNoInset</item>
+        <item name="materialIconButtonStyle">@style/MaterialTextIconButtonNoInset</item>
+        <item name="materialCardViewStyle">@style/Widget.Components.CardView</item>
+    </style>
+
     <style name="MaterialTextButtonNoInset" parent="@style/Widget.MaterialComponents.Button.TextButton">
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
@@ -83,6 +91,10 @@
         <item name="android:textColor">@color/hmrc_error_text</item>
     </style>
 
+    <style name="Text.Menu" parent="Text.H5">
+        <item name="android:textColor">@color/hmrc_blue</item>
+    </style>
+
     <style name="Text.Button" parent="@style/TextAppearance.MaterialComponents.Button">
         <item name="android:textSize">@dimen/text_body</item>
         <item name="android:letterSpacing">0.03125</item>
@@ -93,7 +105,7 @@
 
     <style name="TextInput" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:gravity">top|start</item>
-        <item name="android:textColorHint">@color/hmrc_dark_text</item>
+        <item name="android:textColorHint">@color/hmrc_grey_1</item>
         <item name="boxCornerRadiusBottomEnd">0dp</item>
         <item name="boxCornerRadiusBottomStart">0dp</item>
         <item name="boxCornerRadiusTopEnd">0dp</item>

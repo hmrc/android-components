@@ -45,4 +45,23 @@ object TextInputViewActions {
             }
         }
     }
+
+    fun clearText(): ViewAction {
+        return object : ViewAction {
+            override fun getDescription(): String {
+                return "Failed to clear text"
+            }
+
+            override fun getConstraints(): Matcher<View> {
+                return allOf(
+                    withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE),
+                    isAssignableFrom(TextInputView::class.java)
+                )
+            }
+
+            override fun perform(uiController: UiController?, view: View?) {
+                (view as TextInputView).setText(null)
+            }
+        }
+    }
 }

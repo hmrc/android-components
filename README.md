@@ -29,7 +29,7 @@ The latest release can be found [here](https://github.com/hmrc/android-component
 
 ## Theming
 
-Changing your app theme to inherit from `Theme.Components` is the recommended approach:
+Changing your app theme to inherit from `Theme.Components` or `Theme.Components.ActionBar` is the recommended approach:
 
 ```xml
 <style name="Theme.MyApp" parent="@style/Theme.Components">
@@ -650,13 +650,31 @@ If you need padding on your dividers, you can set `android:dividerPadding="@dime
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/hmrc_spacing_16"
     app:headline="@string/info_message_placeholder_headline"
+    app:headlineContentDescription="@string/headlineContentDescription"
     app:headlineIcon="@drawable/ic_info"
-    app:type="urgent"
-    app:title="@string/info_message_placeholder_title"
-    app:body="@string/info_message_placeholder_body" />
+    app:type="urgent" />
 ```
 
-Optionally, buttons can be added to the headline section using `addHeadlineButtons(buttons: List<SecondaryButton>)` or to the content section with `addContentButtons(buttons: List<Button>)`.
+Optionally, buttons can be added to the headline section using `setHeadlineButtons(buttons: List<SecondaryButton>)`.
+
+### Menu Panel Row View
+
+```xml
+<uk.gov.hmrc.components.organism.menu.MenuPanelRowView
+    android:id="@+id/menu_placeholder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/hmrc_spacing_16"
+    android:layout_marginStart="@dimen/hmrc_spacing_16"
+    android:layout_marginEnd="@dimen/hmrc_spacing_16"
+    android:layout_marginBottom="@dimen/hmrc_spacing_8"
+    app:body="@string/menu_panel_placeholder_body"
+    app:title="@string/menu_panel_placeholder_title" />
+```
+
+Optionally, a choice of notification can be added to the right side of the title with `showNotification(notificationCount: Int = 0)`.
+Providing a `notificationCount` greater than 0, will show a notification with a number inside a rounded square, otherwise it'll be a blank circle notification.
+The notification can also be removed by using `hideNotification()`.
 
 ## Colours
 

@@ -67,6 +67,10 @@ class WarningView @JvmOverloads constructor(
 
     fun setText(@StringRes id: Int) = setText(context.getString(id))
 
+    fun updateContentDescription(textContentDescription: String) {
+        contentDescription = textContentDescription
+    }
+
     fun setTextColor(@ColorRes textColor: Int) {
         binding.text.setTextColor(ContextCompat.getColor(context, textColor))
     }

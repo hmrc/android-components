@@ -94,6 +94,7 @@
     <string name="organisms_icon_button_card">Icon Button Card View</string>
     <string name="organisms_summary_row">Summary Row View</string>
     <string name="organisms_separated_view_container">Separated View Container</string>
+    <string name="organisms_menu_panel_row">Menu Panel Row View</string>
 
     <!-- Separated view container -->
     <string name="separated_view_container_placeholder_text_1">Item 1</string>
@@ -331,18 +332,26 @@
 
     <!-- Information Message -->
     <string name="info_message_placeholder_headline">Headline</string>
-    <string name="info_message_placeholder_title">Title</string>
-    <string name="info_message_placeholder_body">Body</string>
     <string name="info_message_placeholder_headline_button">Headline button</string>
-    <string name="info_message_placeholder_content_button_primary">Content primary button</string>
-    <string name="info_message_placeholder_content_button_secondary">Content secondary button</string>
     <string name="info_message_example_1_headline">Info message</string>
-    <string name="info_message_example_1_title">Notice this must be followed</string>
-    <string name="info_message_example_1_body">Some content here regarding the information which the above message is referring too</string>
+    <string name="info_message_example_1_headline_content_description">Info message content description</string>
     <string name="info_message_example_1_button_primary">A primary action</string>
     <string name="info_message_example_1_button_secondary">A secondary action</string>
     <string name="info_message_example_2_headline">Warning message</string>
     <string name="info_message_example_2_button">Do something</string>
     <string name="info_message_example_3_headline">Notice message</string>
+    <string name="info_message_example_3_headline_content_description">Notice message content description</string>
+
+    <!--  Menu Panel Row View  -->
+    <string name="menu_panel_placeholder_title">Title</string>
+    <string name="menu_panel_placeholder_body">Body</string>
+    <string name="menu_panel_example_1_title">Pay As You Earn (PAYE)</string>
+    <string name="menu_panel_example_1_body">Check your tax codes and Income Tax from PAYE income sources</string>
+    <string name="menu_panel_example_2_title">Messages</string>
+    <string name="menu_panel_example_2_body">Messages and letters from HMRC</string>
+    <string name="menu_panel_example_3_title">Help to Save account</string>
+    <string name="menu_panel_example_3_body">A savings account with bonuses designed to help you start saving</string>
+    <string name="menu_panel_example_4_title">News</string>
+    <string name="menu_panel_example_4_body">News and current tax related information from HMRC</string>
 
 </resources>

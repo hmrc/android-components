@@ -1,1 +1,1 @@
-include ':components', ':sample', ':components-test'
+include ':components', ':sample', ':components-test', ':screenshots'

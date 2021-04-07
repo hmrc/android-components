@@ -15,7 +15,51 @@ Allowed headings:
 -->
 
 ## [Unreleased]
-- Adding `fastlane` release process
+
+## [3.9.0] - 2021-03-01
+
+### Added
+
+* Added ability for `InformationMessageCardView` to add a custom content description to headline
+
+## [3.8.0] - 2021-02-04
+
+### Changed
+
+* Updated the color of all text hints from black to grey 1
+* Removed content area from `InformationMessageCardView`
+
+## [3.7.0] - 2021-01-21
+
+### Changed
+
+* Renamed `InformationMessageCardView` functions: `addHeadlineButtons()` -> `setHeadlineButtons()`, `addContentButtons()` -> `setContentButtons()`
+* `setHeadlineButtons()` and `setContentButtons()` now clear existing buttons before adding new ones.
+
+## [3.6.0] - 2020-12-08
+### Changed
+* Move to new Bintray reposiotry organisation `https://dl.bintray.com/hmrc-mobile/mobile-releases`
+
+## [3.5.0] - 2020-12-02
+
+### Added
+
+* `MenuPanelRowView` component
+
+## [3.4.10] - 2020-12-01
+
+### Added
+
+* screenshot tests
+
+### Changed
+* Made `InformationMessageCardView` headline background colours customisable
+
+## [3.4.9] - 2020-11-06
+
+### Added
+* `Theme.Components.ActionBar` style to allow consuming apps to use action bar style
+* `fastlane` release process
 
 ## [3.4.6] - 2020-09-10
 
