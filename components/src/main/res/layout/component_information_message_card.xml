@@ -42,7 +42,7 @@
             android:gravity="center_vertical"
             android:paddingBottom="@dimen/hmrc_spacing_8"
             android:paddingHorizontal="@dimen/hmrc_spacing_16"
-            android:visibility="visible"
+            android:visibility="gone"
             tools:text="This is where we can have a short bit of copy about this thing." />
 
         <LinearLayout
