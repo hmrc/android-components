@@ -29,6 +29,7 @@
             android:layout_margin="@dimen/hmrc_spacing_16"
             app:headline="@string/info_message_placeholder_headline"
             app:headlineIcon="@drawable/ic_info"
+            app:body="@string/info_message_placeholder_headline"
             app:type="urgent" />
 
         <TextView style="@style/ExampleText" />
@@ -56,9 +57,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/hmrc_spacing_16"
-            app:type="notice"
+            app:type="info"
             app:headline="@string/info_message_example_3_headline"
             app:headlineContentDescription="@string/info_message_example_3_headline_content_description"
+            app:headlineIcon="@drawable/ic_info"
+            app:body="@string/info_message_example_3_body" />
+
+        <uk.gov.hmrc.components.organism.information.InformationMessageCardView
+            android:id="@+id/info_message_example_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:type="notice"
+            app:headline="@string/info_message_example_4_headline"
+            app:headlineContentDescription="@string/info_message_example_4_headline_content_description"
             app:headlineIcon="@drawable/components_ic_warning" />
 
     </LinearLayout>

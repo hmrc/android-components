@@ -332,6 +332,7 @@
 
     <!-- Information Message -->
     <string name="info_message_placeholder_headline">Headline</string>
+    <string name="info_message_placeholder_body">Body</string>
     <string name="info_message_placeholder_headline_button">Headline button</string>
     <string name="info_message_example_1_headline">Info message</string>
     <string name="info_message_example_1_headline_content_description">Info message content description</string>
@@ -339,8 +340,12 @@
     <string name="info_message_example_1_button_secondary">A secondary action</string>
     <string name="info_message_example_2_headline">Warning message</string>
     <string name="info_message_example_2_button">Do something</string>
-    <string name="info_message_example_3_headline">Notice message</string>
-    <string name="info_message_example_3_headline_content_description">Notice message content description</string>
+    <string name="info_message_example_3_headline">Info message</string>
+    <string name="info_message_example_3_headline_content_description">Info message content description</string>
+    <string name="info_message_example_3_body">This is where we can have a short bit of copy about this thing.</string>
+    <string name="info_message_example_3_button">Do something</string>
+    <string name="info_message_example_4_headline">Notice message</string>
+    <string name="info_message_example_4_headline_content_description">Notice message content description</string>
 
     <!--  Menu Panel Row View  -->
     <string name="menu_panel_placeholder_title">Title</string>
