@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Added
+
+* Added body text for `InformationMessageCardView`
+
 ## [3.10.0] - 2021-04-07
 - Changed to Github packages for artefact storage.
 
