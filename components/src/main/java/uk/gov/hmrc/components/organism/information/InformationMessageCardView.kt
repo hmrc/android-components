@@ -42,6 +42,7 @@ class InformationMessageCardView @JvmOverloads constructor(
             type?.let {
                 binding.warningView.setTextColor(it.headlineTint)
                 binding.warningView.setIconTintColor(it.headlineTint)
+                binding.body.setTextColor(ContextCompat.getColor(context, it.headlineTint))
                 binding.rootLayout.setBackgroundColor(ContextCompat.getColor(context, it.headlineBackgroundColor))
                 binding.rootLayout.visibility = View.VISIBLE
             }
@@ -56,6 +57,7 @@ class InformationMessageCardView @JvmOverloads constructor(
                 setHeadlineContentDescription(it)
             }
             setHeadlineIcon(typedArray.getResourceId(R.styleable.InformationMessageCardView_headlineIcon, NO_ICON))
+            setBody(typedArray.getString(R.styleable.InformationMessageCardView_body))
             val typeOrdinal = typedArray.getInt(R.styleable.InformationMessageCardView_type, -1)
             if (typeOrdinal != -1) {
                 type = Type.values()[typeOrdinal]
@@ -79,6 +81,15 @@ class InformationMessageCardView @JvmOverloads constructor(
 
     fun setHeadlineIcon(resId: Int) {
         binding.warningView.setIcon(resId)
+    }
+
+    fun setBody(bodyText: String?) {
+        if (bodyText.isNullOrBlank()) {
+            binding.body.visibility = View.GONE
+        } else {
+            binding.body.visibility = View.VISIBLE
+            binding.body.text = bodyText
+        }
     }
 
     fun setHeadlineButtons(buttons: List<SecondaryButton>) {

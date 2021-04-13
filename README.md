@@ -652,6 +652,7 @@ If you need padding on your dividers, you can set `android:dividerPadding="@dime
     app:headline="@string/info_message_placeholder_headline"
     app:headlineContentDescription="@string/headlineContentDescription"
     app:headlineIcon="@drawable/ic_info"
+    app:body="@string/info_message_placeholder_headline"
     app:type="urgent" />
 ```
 

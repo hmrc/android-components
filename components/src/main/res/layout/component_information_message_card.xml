@@ -34,6 +34,17 @@
             app:iconTintColor="@android:color/transparent"
             tools:text="Do not update your working hours if you or your partner are working less because of coronavirus (COVID-19)" />
 
+        <TextView
+            android:id="@+id/body"
+            style="@style/Text.Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="@dimen/hmrc_spacing_8"
+            android:paddingHorizontal="@dimen/hmrc_spacing_16"
+            android:visibility="gone"
+            tools:text="This is where we can have a short bit of copy about this thing." />
+
         <LinearLayout
             android:id="@+id/headline_buttons_container"
             android:layout_width="match_parent"
