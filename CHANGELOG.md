@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.11.0] - 2021-04-13
+
 ### Added
 
 * Added body text for `InformationMessageCardView`
