@@ -104,4 +104,5 @@ flavor.xml
 # fastlane specific
 fastlane/report.xml
 fastlane/Preview.html
+fastlane/.env
 .bundle/
