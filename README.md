@@ -724,14 +724,19 @@ In order to release the library, you need to provide a Github personal access to
 
 You can create a new token on [GitHub](https://github.com/settings/tokens/new)
  
-You must set an environment variable called `GITHUB_TOKEN` with the value being the Github personal access token.
+You must set the following environment variables:
+* `GITHUB_USER_NAME` - your GitHub user name
+* `GITHUB_TOKEN` - this is the value of your GitHub personal access token
 
 #### \[Recommended Approach\] If you plan on releasing via Android Studio
 
 Add the following line to `~/.bash_profile`:
+`export GITHUB_USER_NAME="insert_user_name_here"`
 `export GITHUB_TOKEN="insert_token_here"`
 
-Where `insert_token_here` is replaced with your GitHub personal access token.
+Where:
+* `insert_user_name_here` is replaced with your GitHub user name
+* `insert_token_here` is replaced with your GitHub personal access token
 
 Then run `source ~/.bash_profile` and restart Android Studio.
 
@@ -740,15 +745,18 @@ Then run `source ~/.bash_profile` and restart Android Studio.
 ##### If you plan on releasing via command line (zshrc)
 
 Add the following line to `~/.zshrc`:
+`export GITHUB_USER_NAME="insert_user_name_here"`
 `export GITHUB_TOKEN="insert_token_here"`
 
-Where `insert_token_here` is replaced with your GitHub personal access token.
+Where:
+* `insert_user_name_here` is replaced with your GitHub user name
+* `insert_token_here` is replaced with your GitHub personal access token
 
 Then run `source ~/.zshrc` to reload the file.
 
 ##### Adding .env file in the fastlane folder
 
-You can also set the `GITHUB_TOKEN` environment variable by adding a `.env` file to the `fastlane` folder.
+You can also set the `GITHUB_USER_NAME` and `GITHUB_TOKEN` environment variables by adding a `.env` file to the `fastlane` folder.
 
 `fastlane/.env` is ignored in the `.gitignore` to allow this option.
 
@@ -760,11 +768,14 @@ More details can be found in the [fastlane docs](https://docs.fastlane.tools/adv
 
 ##### Setting the environment variable directly in the `fastlane/Fastfile`
 
-You can add the following line to `fastlane/Fastfile`:
+You can add the following lines to `fastlane/Fastfile`:
 
+`GITHUB_USER_NAME="insert_user_name_here"`
 `GITHUB_TOKEN="insert_token_here"`
 
-Where `insert_token_here` is replaced with your GitHub personal access token.
+Where:
+* `insert_user_name_here` is replaced with your GitHub user name
+* `insert_token_here` is replaced with your GitHub personal access token
 
 **This method is not recommended because the fastlane lane requires git to have no unstaged changes. Doing this will create unstaged changes, breaking the fastlane lane when it runs!**
 
