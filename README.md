@@ -799,4 +799,6 @@ This will create a new tag, update the changelog and trigger the `publish` workf
 
 Then you need to:
 * Check Bitrise to verify that the `publish` workflow was triggered
-* Check GitHub to see the PR and request reviews from the relevant people
+* Check GitHub to see the PR and request reviews from the relevant people. Once approved, merge to bring the main branch up to date with the latest release. 
+
+Note: the PR does not need to merged for the release to happen
