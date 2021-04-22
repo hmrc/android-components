@@ -714,11 +714,11 @@ The test library includes custom `ViewMatchers` and `ViewActions` for easier tes
 
 # Contributing
 
-## Releasing
+## Building
 
 ### Setup - Github personal access token
 
-In order to release the library, you need to provide a Github personal access token with the following scope:
+In order to build the library, you need to provide a Github personal access token with the following scope:
 - `read:packages`
 - `repo`
 
@@ -779,6 +779,8 @@ Where:
 
 **This method is not recommended because the fastlane lane requires git to have no unstaged changes. Doing this will create unstaged changes, breaking the fastlane lane when it runs!**
 
+## Releasing
+
 ### Setup - GitHub CLI
 
 As part of the release process, [GitHub's CLI tool](https://github.com/cli/cli) is used. To have the entire process work smoothly you should have it set up on your machine.
@@ -789,7 +791,7 @@ Please follow the [installation instructions](https://github.com/cli/cli#install
 
 **If you do not have GitHub's CLI set up on your machine, you will need to create the PR manually**
 
-### Running
+### Releasing
 
 To release the library, run `bundle exec fastlane tag_release` and choose to bump either the major, minor or patch when prompted.
 
