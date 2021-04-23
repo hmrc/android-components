@@ -1,4 +1,4 @@
-# HMRC Components Library for Android [![Build Status](https://app.bitrise.io/app/08593f02ad3e13fe/status.svg?token=BYIJbA6f__HFQ0q3B85V4w&branch=master)](https://app.bitrise.io/app/08593f02ad3e13fe)
+# HMRC Components Library for Android [![Build Status](https://app.bitrise.io/app/08593f02ad3e13fe/status.svg?token=BYIJbA6f__HFQ0q3B85V4w&branch=master)](https://app.bitrise.io/app/08593f02ad3e13fe) ![Latest release](https://img.shields.io/github/v/tag/hmrc/android-components)
 
 Build applications using components with the HMRC look and feel.
 
@@ -714,8 +714,91 @@ The test library includes custom `ViewMatchers` and `ViewActions` for easier tes
 
 # Contributing
 
+## Building
+
+### Setup - Github personal access token
+
+In order to build the library, you need to provide a Github personal access token with the following scope:
+- `read:packages`
+- `repo`
+
+You can create a new token on [GitHub](https://github.com/settings/tokens/new)
+ 
+You must set the following environment variables:
+* `GITHUB_USER_NAME` - your GitHub user name
+* `GITHUB_TOKEN` - this is the value of your GitHub personal access token
+
+#### \[Recommended Approach\] If you plan on releasing via Android Studio
+
+Add the following line to `~/.bash_profile`:
+`export GITHUB_USER_NAME="insert_user_name_here"`
+`export GITHUB_TOKEN="insert_token_here"`
+
+Where:
+* `insert_user_name_here` is replaced with your GitHub user name
+* `insert_token_here` is replaced with your GitHub personal access token
+
+Then run `source ~/.bash_profile` and restart Android Studio.
+
+#### Alternative approaches
+
+##### If you plan on releasing via command line (zshrc)
+
+Add the following line to `~/.zshrc`:
+`export GITHUB_USER_NAME="insert_user_name_here"`
+`export GITHUB_TOKEN="insert_token_here"`
+
+Where:
+* `insert_user_name_here` is replaced with your GitHub user name
+* `insert_token_here` is replaced with your GitHub personal access token
+
+Then run `source ~/.zshrc` to reload the file.
+
+##### Adding .env file in the fastlane folder
+
+You can also set the `GITHUB_USER_NAME` and `GITHUB_TOKEN` environment variables by adding a `.env` file to the `fastlane` folder.
+
+`fastlane/.env` is ignored in the `.gitignore` to allow this option.
+
+More details can be found in the [fastlane docs](https://docs.fastlane.tools/advanced/other/#environment-variables).
+
+##### Passing environment variable via CLI to fastlane
+
+[Documentation can be found here](https://docs.fastlane.tools/actions/environment_variable/#cli)
+
+##### Setting the environment variable directly in the `fastlane/Fastfile`
+
+You can add the following lines to `fastlane/Fastfile`:
+
+`GITHUB_USER_NAME="insert_user_name_here"`
+`GITHUB_TOKEN="insert_token_here"`
+
+Where:
+* `insert_user_name_here` is replaced with your GitHub user name
+* `insert_token_here` is replaced with your GitHub personal access token
+
+**This method is not recommended because the fastlane lane requires git to have no unstaged changes. Doing this will create unstaged changes, breaking the fastlane lane when it runs!**
+
 ## Releasing
 
-In order to release the library, you need to provide a Github personal access token with `repo` scope via a `GITHUB_TOKEN` environment variable - you can create a new token on [Github](https://github.com/settings/tokens/new).
+### Setup - GitHub CLI
 
-To release the library, run `bundle exec fastlane tag_release` and choose to bump either the major, minor or patch when prompted. This will create a new tag, update the changelog and trigger the `publish` workflow on Bitrise.
+As part of the release process, [GitHub's CLI tool](https://github.com/cli/cli) is used. To have the entire process work smoothly you should have it set up on your machine.
+
+Please follow the [installation instructions](https://github.com/cli/cli#installation) to get it set up.
+
+[GitHub's CLI tool](https://github.com/cli/cli) is used to automatically create a pull request as part of the release process.
+
+**If you do not have GitHub's CLI set up on your machine, you will need to create the PR manually**
+
+### Releasing
+
+To release the library, run `bundle exec fastlane tag_release` and choose to bump either the major, minor or patch when prompted.
+
+This will create a new tag, update the changelog and trigger the `publish` workflow on Bitrise.
+
+Then you need to:
+* Check Bitrise to verify that the `publish` workflow was triggered
+* Check GitHub to see the PR and request reviews from the relevant people. Once approved, merge to bring the main branch up to date with the latest release. 
+
+Note: the PR does not need to merged for the release to happen
