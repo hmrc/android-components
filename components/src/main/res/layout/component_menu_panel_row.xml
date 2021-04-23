@@ -18,6 +18,7 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/components_ripple_background"
     android:focusable="true"
     android:paddingStart="@dimen/hmrc_spacing_16"
     android:paddingTop="@dimen/hmrc_spacing_24"
