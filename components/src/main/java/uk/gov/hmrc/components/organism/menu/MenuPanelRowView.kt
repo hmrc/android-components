@@ -56,6 +56,7 @@ class MenuPanelRowView @JvmOverloads constructor(
         }
         if (isLargeText) adjustLayoutForBigText()
         setBackgroundColor(ContextCompat.getColor(context, R.color.hmrc_grey_3))
+        setRippleColorResource(R.color.hmrc_secondary_button_ripple)
     }
 
     private fun setDefaultContentDescription(title: CharSequence, body: CharSequence) {
