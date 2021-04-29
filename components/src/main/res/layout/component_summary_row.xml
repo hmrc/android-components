@@ -15,7 +15,8 @@
      limitations under the License.
 -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:id="@+id/layout_summary_content"
@@ -53,5 +54,5 @@
         android:focusable="true"
         android:contentDescription="@string/accessibility_button_activate"
         android:src="@drawable/components_ic_chevron_right"
-        android:tint="@color/hmrc_black" />
+        app:tint="@color/hmrc_black" />
 </merge>
