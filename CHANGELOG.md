@@ -19,6 +19,15 @@ Allowed headings:
 ### Changed
 
 * Updated `MenuPanelRowView` touch state colour
+* Upgrade target and compile sdk versions to 30
+* Upgrade Gradle plugin to 4.1.3
+* Upgrade Kotlin version to 1.4.20
+* Upgrade Karumi shot version to 5.10.3
+* Upgrade android x annotation version to 1.2.0
+* Upgrade constraint layout version to 2.0.4
+* Upgrade material version to 1.3.0
+* Upgrade junit version to 4.13
+* Upgrade dependencies used in sample app: app compat to 1.2.0, recyclerview to 1.2.0
 
 ## [3.11.0] - 2021-04-13
 
