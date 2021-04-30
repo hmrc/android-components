@@ -134,8 +134,13 @@ open class TextInputView @JvmOverloads constructor(
         binding.root.errorContentDescription = errorContentDescription ?: errorText
     }
 
-    fun setErrorText(@StringRes error: Int?) {
-        binding.root.error = if (error == null) null else context.getString(error)
+    fun setErrorText(@StringRes error: Int?, @StringRes errorContentDescription: Int? = null) {
+        setError(
+            errorText = if (error == null) null else context.getString(error),
+            errorContentDescription = if (errorContentDescription == null) {
+                null
+            } else context.getString(errorContentDescription)
+        )
     }
 
     fun setCounterMaxLength(maxLength: Int) {
