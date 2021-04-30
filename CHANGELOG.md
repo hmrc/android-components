@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.12.0] - 2021-04-30
+
 ### Changed
 
 * Updated `MenuPanelRowView` touch state colour
