@@ -129,12 +129,18 @@ open class TextInputView @JvmOverloads constructor(
 
     fun getError() = binding.root.error
 
-    fun setError(errorText: CharSequence?) {
+    fun setError(errorText: CharSequence?, errorContentDescription: CharSequence? = null) {
         binding.root.error = errorText
+        binding.root.errorContentDescription = errorContentDescription ?: errorText
     }
 
-    fun setErrorText(@StringRes error: Int?) {
-        binding.root.error = if (error == null) null else context.getString(error)
+    fun setErrorText(@StringRes error: Int?, @StringRes errorContentDescription: Int? = null) {
+        setError(
+            errorText = if (error == null) null else context.getString(error),
+            errorContentDescription = if (errorContentDescription == null) {
+                null
+            } else context.getString(errorContentDescription)
+        )
     }
 
     fun setCounterMaxLength(maxLength: Int) {

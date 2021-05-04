@@ -296,6 +296,8 @@ multi_column_row.setText1AsHeading(true)
  - Custom content description
  - Max length limits
  - Character counters
+ - Error messages
+ - Error message content descriptions
 
 ### Currency Input View
 
