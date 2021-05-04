@@ -31,8 +31,15 @@ platform :android do
   desc "Takes a release tag and updates changelog"
   lane :tag_release do
 
+    begin
+      sh("gh --version")
+    rescue => exception
+      UI.error exception
+      UI.user_error!("Github CLI must be installed. See https://github.com/cli/cli")
+    end
+
     UI.user_error!("You need to provide a Github Personal token via a `GITHUB_TOKEN` environment variable - you can create a new token on Github https://github.com/settings/tokens/new") unless !ENV["GITHUB_TOKEN"].nil?
-    UI.user_error!("You need to provide the Bitrise token via a `BITRISE_TOKEN` environment variable") unless !ENV["BITRISE_TOKEN"].nil?
+    UI.user_error!("You need to provide the Bitrise token via a `BITRISE_TOKEN` environment variable - See the Bitrise docs for help https://devcenter.bitrise.io/api/authentication.") unless !ENV["BITRISE_TOKEN"].nil?
     UI.user_error!("You need to provide the Bitrise app slug for this repo via a `ANDROID_COMPONENTS_APP_SLUG` environment variable") unless !ENV["ANDROID_COMPONENTS_APP_SLUG"].nil?
     UI.user_error!("You need to provide the Bitrise release workflow ID this repo via a `ANDROID_COMPONENTS_RELEASE_WORKFLOW_ID` environment variable") unless !ENV["ANDROID_COMPONENTS_RELEASE_WORKFLOW_ID"].nil?
 
