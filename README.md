@@ -799,6 +799,7 @@ This will create a new tag, update the changelog and trigger the `publish` workf
 
 Then you need to:
 * Have a valid Bitrise access token saved in your path under the variable name `BITRISE_TOKEN`. See [Bitrise docs](https://devcenter.bitrise.io/api/authentication).
+* Two environment variables, `ANDROID_COMPONENTS_APP_SLUG` & `ANDROID_COMPONENTS_RELEASE_WORKFLOW_ID` will also need to be included in your bash/ZSH profile. Speak with [Chris](https://github.com/chrisob55) to obtain these values.
 * Check Bitrise to verify that the `publish` workflow was triggered
 * Check GitHub to see the PR and request reviews from the relevant people. Once approved, merge to bring the main branch up to date with the latest release. 
 
