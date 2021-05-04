@@ -171,10 +171,16 @@ open class TextInputView @JvmOverloads constructor(
 
     private fun updateTextInputViewContentDescription() {
         val customHint = hintContentDescription ?: binding.root.hint
+
         val error = if (binding.root.errorContentDescription.isNullOrEmpty()) {
             ""
         } else ", ${binding.root.errorContentDescription}"
-        val counter = if (binding.root.isCounterEnabled) ", ${binding.root.counterMaxLength}" else ""
+
+        val counter = if (binding.root.isCounterEnabled) {
+            val currentChars = if (getText().isNullOrEmpty()) "0" else getText()?.length.toString()
+            val maxLength = binding.root.counterMaxLength.toString()
+            ", ${context.getString(R.string.accessibility_counter_state, currentChars, maxLength)}"
+        } else ""
 
         val newContentDescription = "$customHint$error$counter"
 
