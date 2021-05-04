@@ -22,7 +22,7 @@ Allowed headings:
 * Upgrade target and compile sdk versions to 30
 * Upgrade Gradle plugin to 4.1.3
 * Upgrade Kotlin version to 1.4.20
-* Upgrade Karumi shot version to 5.10.3
+* Upgrade Karumi shot version to 5.7.0
 * Upgrade android x annotation version to 1.2.0
 * Upgrade constraint layout version to 2.0.4
 * Upgrade material version to 1.3.0
