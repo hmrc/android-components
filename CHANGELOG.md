@@ -18,6 +18,7 @@ Allowed headings:
 
 ### Changed
 
+* Added ability to set error content descriptions on `TextInputView`
 * Upgrade target and compile sdk versions to 30
 * Upgrade Gradle plugin to 4.1.3
 * Upgrade Kotlin version to 1.4.20
