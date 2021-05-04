@@ -798,6 +798,7 @@ To release the library, run `bundle exec fastlane tag_release` and choose to bum
 This will create a new tag, update the changelog and trigger the `publish` workflow on Bitrise.
 
 Then you need to:
+* Have a valid Bitrise access token saved in your path under the variable name `BITRISE_TOKEN`. See [Bitrise docs](https://devcenter.bitrise.io/api/authentication).
 * Check Bitrise to verify that the `publish` workflow was triggered
 * Check GitHub to see the PR and request reviews from the relevant people. Once approved, merge to bring the main branch up to date with the latest release. 
 
