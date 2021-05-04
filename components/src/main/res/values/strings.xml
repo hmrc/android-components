@@ -37,6 +37,7 @@
     <string name="accessibility_radio_button">radio button</string>
     <string name="accessibility_list_position">%1d of %2d</string>
     <string name="accessibility_tab_position">tab %1d of %2d</string>
+    <string name="accessibility_error_prefix">Error: %s</string>
 
     <string name="currency_input_prefix">£</string>
 </resources>

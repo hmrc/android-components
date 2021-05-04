@@ -39,7 +39,7 @@
         <!-- Text to display. -->
         <attr name="text" />
         <!-- Hint content description. -->
-        <attr name="overrideHintContentDescription" format="string" />
+        <attr name="hintContentDescription" format="string" />
         <!-- Hint text. -->
         <attr name="hintText" format="string" />
         <!-- Error text. -->

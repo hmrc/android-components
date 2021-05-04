@@ -52,14 +52,16 @@ open class TextInputView @JvmOverloads constructor(
             binding.root.id = value
         }
 
+    private var hintContentDescription: String? = null
+
     init {
 
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.TextInputView, 0, 0)
 
             val textString = typedArray.getString(R.styleable.TextInputView_text) ?: ""
-            val overrideHintContentDescription = typedArray.getString(
-                R.styleable.TextInputView_overrideHintContentDescription)
+            val hintTextContentDescription = typedArray.getString(
+                R.styleable.TextInputView_hintContentDescription)
             val hintText = typedArray.getString(R.styleable.TextInputView_hintText) ?: ""
             val errorText = typedArray.getString(R.styleable.TextInputView_errorText) ?: ""
             val counterMaxLength = typedArray.getInt(R.styleable.TextInputView_counterMaxLength, NO_MAX_LENGTH)
@@ -70,8 +72,7 @@ open class TextInputView @JvmOverloads constructor(
             val maxLength = typedArray.getInt(R.styleable.TextInputView_android_maxLength, -1)
 
             setText(textString)
-            overrideHintContentDescription(overrideHintContentDescription)
-            setHint(hintText)
+            setHint(hintText, hintTextContentDescription)
             setError(errorText)
             setCounterMaxLength(counterMaxLength)
             setCounterEnabled(counterEnabled)
@@ -108,30 +109,19 @@ open class TextInputView @JvmOverloads constructor(
 
     fun getText(): String? = getEditText().text?.toString()
 
-    fun overrideHintContentDescription(contentDescription: CharSequence?) {
-        contentDescription ?: return
-
-        binding.root.apply {
-            setTextInputAccessibilityDelegate(object : TextInputLayout.AccessibilityDelegate(this) {
-                override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfoCompat) {
-                    super.onInitializeAccessibilityNodeInfo(host, info)
-                    val before = info.text.toString()
-                    val after = before.replace(hint.toString(), contentDescription.toString())
-                    info.text = after
-                }
-            })
-        }
-    }
-
-    fun setHint(hint: CharSequence) {
+    fun setHint(hint: CharSequence, contentDescription: CharSequence? = null) {
         binding.root.hint = hint
+        hintContentDescription = (contentDescription ?: hint).toString()
+        updateTextInputViewContentDescription()
     }
 
     fun getError() = binding.root.error
 
     fun setError(errorText: CharSequence?, errorContentDescription: CharSequence? = null) {
         binding.root.error = errorText
-        binding.root.errorContentDescription = errorContentDescription ?: errorText
+        binding.root.errorContentDescription = errorContentDescription ?:
+                if (errorText.isNullOrEmpty()) "" else context.getString(R.string.accessibility_error_prefix, errorText)
+        updateTextInputViewContentDescription()
     }
 
     fun setErrorText(@StringRes error: Int?, @StringRes errorContentDescription: Int? = null) {
@@ -145,10 +135,12 @@ open class TextInputView @JvmOverloads constructor(
 
     fun setCounterMaxLength(maxLength: Int) {
         binding.root.counterMaxLength = maxLength
+        updateTextInputViewContentDescription()
     }
 
     fun setCounterEnabled(enabled: Boolean) {
         binding.root.isCounterEnabled = enabled
+        updateTextInputViewContentDescription()
     }
 
     fun setPrefixText(prefixText: CharSequence?) {
@@ -176,6 +168,27 @@ open class TextInputView @JvmOverloads constructor(
     }
 
     fun getEditText(): TextInputEditText = binding.root.findViewWithTag("edit_text")
+
+    private fun updateTextInputViewContentDescription() {
+        val customHint = hintContentDescription ?: binding.root.hint
+        val error = if (binding.root.errorContentDescription.isNullOrEmpty()) {
+            ""
+        } else ", ${binding.root.errorContentDescription}"
+        val counter = if (binding.root.isCounterEnabled) ", ${binding.root.counterMaxLength}" else ""
+
+        val newContentDescription = "$customHint$error$counter"
+
+        binding.root.apply {
+            setTextInputAccessibilityDelegate(object : TextInputLayout.AccessibilityDelegate(this) {
+                override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfoCompat) {
+                    super.onInitializeAccessibilityNodeInfo(host, info)
+                    val before = info.text.toString()
+                    val after = before.replace(hint.toString(), newContentDescription)
+                    info.text = after
+                }
+            })
+        }
+    }
 
     companion object {
         private const val STATE_TEXT = "STATE_TEXT"

@@ -285,7 +285,7 @@ multi_column_row.setText1AsHeading(true)
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:text="@string/text"
-    app:overrideHintContentDescription="@string/content_description"
+    app:hintContentDescription="@string/content_description"
     app:counterEnabled="true"
     app:counterMaxLength="@integer/max_length"
     app:hintText="@string/hint_text" />

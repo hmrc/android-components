@@ -57,7 +57,7 @@
                     android:layout_marginStart="@dimen/hmrc_spacing_16"
                     android:layout_marginTop="@dimen/hmrc_spacing_16"
                     android:layout_marginEnd="@dimen/hmrc_spacing_16"
-                    app:overrideHintContentDescription="@string/text_input_example_1_content_description"
+                    app:hintContentDescription="@string/text_input_example_1_content_description"
                     app:hintText="@string/text_input_example_1_hint" />
 
                 <uk.gov.hmrc.components.molecule.input.TextInputView
