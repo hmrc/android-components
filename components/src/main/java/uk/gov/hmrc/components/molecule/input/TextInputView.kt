@@ -16,6 +16,7 @@
 package uk.gov.hmrc.components.molecule.input
 
 import android.content.Context
+import android.os.Build.VERSION
 import android.os.Bundle
 import android.os.Parcelable
 import android.text.InputFilter
@@ -60,8 +61,7 @@ open class TextInputView @JvmOverloads constructor(
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.TextInputView, 0, 0)
 
             val textString = typedArray.getString(R.styleable.TextInputView_text) ?: ""
-            val hintTextContentDescription = typedArray.getString(
-                R.styleable.TextInputView_hintContentDescription)
+            val hintTextContentDescription = typedArray.getString(R.styleable.TextInputView_hintContentDescription)
             val hintText = typedArray.getString(R.styleable.TextInputView_hintText) ?: ""
             val errorText = typedArray.getString(R.styleable.TextInputView_errorText) ?: ""
             val counterMaxLength = typedArray.getInt(R.styleable.TextInputView_counterMaxLength, NO_MAX_LENGTH)
@@ -188,9 +188,20 @@ open class TextInputView @JvmOverloads constructor(
             setTextInputAccessibilityDelegate(object : TextInputLayout.AccessibilityDelegate(this) {
                 override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfoCompat) {
                     super.onInitializeAccessibilityNodeInfo(host, info)
-                    val before = info.text.toString()
-                    val after = before.replace(hint.toString(), newContentDescription)
-                    info.text = after
+                    val showingText = !editText?.text.isNullOrEmpty()
+                    if (VERSION.SDK_INT >= 26) {
+                        if (showingText) {
+                            info.hintText = newContentDescription
+                        } else {
+                            info.text = newContentDescription
+                        }
+                    } else {
+                        // Due to a TalkBack bug, setHintText has no effect in APIs < 26 so we append the hint to
+                        // the text announcement. The resulting announcement is the same as in APIs >= 26.
+                        info.text = if (showingText) {
+                            editText?.text.toString() + ", " + newContentDescription
+                        } else newContentDescription
+                    }
                 }
             })
         }
