@@ -16,9 +16,13 @@ Allowed headings:
 
 ## [Unreleased]
 
-### Changed
+### Added
 
 * Added ability to set error content descriptions on `TextInputView`
+
+### Changed
+
+* Improved content description for `TextInputView` to announce the error and counter status along with the hint on talkback.
 * Upgrade target and compile sdk versions to 30
 * Upgrade Gradle plugin to 4.1.3
 * Upgrade Kotlin version to 1.4.20

@@ -17,6 +17,7 @@ package uk.gov.hmrc.components.molecule.input
 
 import android.content.Context
 import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES.O
 import android.os.Bundle
 import android.os.Parcelable
 import android.text.InputFilter
@@ -119,8 +120,9 @@ open class TextInputView @JvmOverloads constructor(
 
     fun setError(errorText: CharSequence?, errorContentDescription: CharSequence? = null) {
         binding.root.error = errorText
-        binding.root.errorContentDescription = errorContentDescription ?:
-                if (errorText.isNullOrEmpty()) "" else context.getString(R.string.accessibility_error_prefix, errorText)
+        binding.root.errorContentDescription = errorContentDescription ?: if (!errorText.isNullOrEmpty()) {
+            context.getString(R.string.accessibility_error_prefix, errorText)
+        } else ""
         updateTextInputViewContentDescription()
     }
 
@@ -172,9 +174,8 @@ open class TextInputView @JvmOverloads constructor(
     private fun updateTextInputViewContentDescription() {
         val customHint = hintContentDescription ?: binding.root.hint
 
-        val error = if (binding.root.errorContentDescription.isNullOrEmpty()) {
-            ""
-        } else ", ${binding.root.errorContentDescription}"
+        val errorContentDescription = binding.root.errorContentDescription
+        val error = if (errorContentDescription.isNullOrEmpty()) "" else ", $errorContentDescription"
 
         val counter = if (binding.root.isCounterEnabled) {
             val currentChars = if (getText().isNullOrEmpty()) "0" else getText()?.length.toString()
@@ -189,7 +190,7 @@ open class TextInputView @JvmOverloads constructor(
                 override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfoCompat) {
                     super.onInitializeAccessibilityNodeInfo(host, info)
                     val showingText = !editText?.text.isNullOrEmpty()
-                    if (VERSION.SDK_INT >= 26) {
+                    if (VERSION.SDK_INT >= O) {
                         if (showingText) {
                             info.hintText = newContentDescription
                         } else {
