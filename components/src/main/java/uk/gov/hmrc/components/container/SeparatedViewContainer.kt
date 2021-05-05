@@ -18,6 +18,7 @@ package uk.gov.hmrc.components.container
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import uk.gov.hmrc.components.R
 
 class SeparatedViewContainer @JvmOverloads constructor (
@@ -30,7 +31,7 @@ class SeparatedViewContainer @JvmOverloads constructor (
     init {
         if (dividerDrawable == null) {
             // Default divider drawable
-            dividerDrawable = context.getDrawable(R.drawable.components_divider)
+            dividerDrawable = ContextCompat.getDrawable(context, R.drawable.components_divider)
         }
 
         if (showDividers == SHOW_DIVIDER_NONE) {

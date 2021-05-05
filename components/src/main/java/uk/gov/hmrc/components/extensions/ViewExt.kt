@@ -17,6 +17,7 @@ package uk.gov.hmrc.components.extensions
 
 import android.view.View
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
@@ -49,5 +50,5 @@ fun View.setMargins(left: Int, top: Int, right: Int, bottom: Int) {
 }
 
 fun View.addRipple() {
-    this.background = context.getDrawable(R.drawable.components_ripple_background)
+    this.background = ContextCompat.getDrawable(context, R.drawable.components_ripple_background)
 }

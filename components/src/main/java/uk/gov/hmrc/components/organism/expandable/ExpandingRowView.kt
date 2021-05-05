@@ -22,6 +22,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentExpandingRowBinding
 import uk.gov.hmrc.components.extensions.setAccessibilityMessage
@@ -129,7 +130,7 @@ class ExpandingRowView @JvmOverloads constructor(
         } else {
             binding.expandableIcon.apply {
                 visibility = View.VISIBLE
-                setImageDrawable(context.getDrawable(icon))
+                setImageDrawable(ContextCompat.getDrawable(context, icon))
             }
         }
     }

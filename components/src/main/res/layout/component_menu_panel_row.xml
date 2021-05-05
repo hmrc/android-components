@@ -76,8 +76,8 @@
         android:importantForAccessibility="no"
         android:paddingStart="@dimen/hmrc_spacing_8"
         android:src="@drawable/components_ic_chevron_right"
-        android:tint="@color/hmrc_black"
         android:visibility="visible"
+        app:tint="@color/hmrc_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
