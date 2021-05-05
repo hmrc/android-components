@@ -114,11 +114,12 @@ class MenuPanelRowView @JvmOverloads constructor(
                 } else {
                     notificationCount.toString()
                 }
-                background = context.getDrawable(R.drawable.components_menu_panel_round_square_notification)
+                background = ContextCompat
+                    .getDrawable(context, R.drawable.components_menu_panel_round_square_notification)
                 (this.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio = "2:1"
                 setNotificationContentDescription(notificationCount)
             } else {
-                background = context.getDrawable(R.drawable.components_menu_pane_circle_notification)
+                background = ContextCompat.getDrawable(context, R.drawable.components_menu_pane_circle_notification)
                 (this.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio = "1:1"
                 setNotificationContentDescription(0)
             }

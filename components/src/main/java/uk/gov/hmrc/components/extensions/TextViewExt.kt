@@ -109,7 +109,7 @@ fun TextView.setClickableUrl(
         val matcher: Matcher = it.matcher(text)
         if (matcher.find()) {
             val matched = matcher.group(0)
-            setHandler(matched)
+            matched?.let { setHandler(it) }
             return
         }
     }
