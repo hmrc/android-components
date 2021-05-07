@@ -177,21 +177,25 @@ open class TextInputView @JvmOverloads constructor(
                 override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfoCompat) {
                     super.onInitializeAccessibilityNodeInfo(host, info)
 
-                    val customHint = hintContentDescription ?: binding.root.hint
+                    val customHint = hintContentDescription ?: hint
 
-                    val errorContentDescription = binding.root.errorContentDescription
+                    val errorContentDescription = errorContentDescription
                     val error = if (errorContentDescription.isNullOrEmpty()) "" else ", $errorContentDescription"
 
-                    val counter = if (binding.root.isCounterEnabled) {
+                    val counter = if (isCounterEnabled) {
                         val currentChars = if (getText().isNullOrEmpty()) 0 else getText()!!.length
-                        val maxLength = binding.root.counterMaxLength
-                        val limitExceeded = if (currentChars > maxLength) "Character limit exceeded " else ""
+                        val maxLength = counterMaxLength
+
+                        val limitExceededText = if (currentChars > maxLength) {
+                            context.getString(R.string.accessibility_counter_limit_exceeded)
+                        } else ""
+
                         val counterText = context.getString(
                             R.string.accessibility_counter_state,
                             currentChars.toString(),
                             maxLength.toString())
 
-                        ", $limitExceeded$counterText"
+                        ", $limitExceededText$counterText"
                     } else ""
 
                     val newContentDescription = "$customHint$error$counter"

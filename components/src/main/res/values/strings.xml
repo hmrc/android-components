@@ -39,6 +39,7 @@
     <string name="accessibility_tab_position">tab %1d of %2d</string>
     <string name="accessibility_error_prefix">Error: %s</string>
     <string name="accessibility_counter_state">%1$s characters of %2$s used</string>
+    <string name="accessibility_counter_limit_exceeded">Character limit exceeded </string>
 
     <string name="currency_input_prefix">£</string>
 </resources>
