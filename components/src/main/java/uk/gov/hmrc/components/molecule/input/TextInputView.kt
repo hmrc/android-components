@@ -172,24 +172,31 @@ open class TextInputView @JvmOverloads constructor(
     fun getEditText(): TextInputEditText = binding.root.findViewWithTag("edit_text")
 
     private fun updateTextInputViewContentDescription() {
-        val customHint = hintContentDescription ?: binding.root.hint
-
-        val errorContentDescription = binding.root.errorContentDescription
-        val error = if (errorContentDescription.isNullOrEmpty()) "" else ", $errorContentDescription"
-
-        val counter = if (binding.root.isCounterEnabled) {
-            val currentChars = if (getText().isNullOrEmpty()) "0" else getText()?.length.toString()
-            val maxLength = binding.root.counterMaxLength.toString()
-            ", ${context.getString(R.string.accessibility_counter_state, currentChars, maxLength)}"
-        } else ""
-
-        val newContentDescription = "$customHint$error$counter"
-
         binding.root.apply {
             setTextInputAccessibilityDelegate(object : TextInputLayout.AccessibilityDelegate(this) {
                 override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfoCompat) {
                     super.onInitializeAccessibilityNodeInfo(host, info)
-                    val showingText = !editText?.text.isNullOrEmpty()
+
+                    val customHint = hintContentDescription ?: binding.root.hint
+
+                    val errorContentDescription = binding.root.errorContentDescription
+                    val error = if (errorContentDescription.isNullOrEmpty()) "" else ", $errorContentDescription"
+
+                    val counter = if (binding.root.isCounterEnabled) {
+                        val currentChars = if (getText().isNullOrEmpty()) 0 else getText()!!.length
+                        val maxLength = binding.root.counterMaxLength
+                        val limitExceeded = if (currentChars > maxLength) "Character limit exceeded " else ""
+                        val counterText = context.getString(
+                            R.string.accessibility_counter_state,
+                            currentChars.toString(),
+                            maxLength.toString())
+
+                        ", $limitExceeded$counterText"
+                    } else ""
+
+                    val newContentDescription = "$customHint$error$counter"
+
+                    val showingText = !getText().isNullOrEmpty()
                     if (VERSION.SDK_INT >= O) {
                         if (showingText) {
                             info.hintText = newContentDescription
@@ -200,7 +207,7 @@ open class TextInputView @JvmOverloads constructor(
                         // Due to a TalkBack bug, setHintText has no effect in APIs < 26 so we append the hint to
                         // the text announcement. The resulting announcement is the same as in APIs >= 26.
                         info.text = if (showingText) {
-                            editText?.text.toString() + ", " + newContentDescription
+                            getText() + ", " + newContentDescription
                         } else newContentDescription
                     }
                 }
