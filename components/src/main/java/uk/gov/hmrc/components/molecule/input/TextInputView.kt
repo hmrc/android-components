@@ -187,7 +187,7 @@ open class TextInputView @JvmOverloads constructor(
                         val maxLength = counterMaxLength
 
                         val limitExceededText = if (currentChars > maxLength) {
-                            context.getString(R.string.accessibility_counter_limit_exceeded)
+                            "${context.getString(R.string.accessibility_counter_limit_exceeded)} "
                         } else ""
 
                         val counterText = context.getString(
