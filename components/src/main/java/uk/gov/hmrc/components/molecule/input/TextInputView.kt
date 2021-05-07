@@ -122,7 +122,7 @@ open class TextInputView @JvmOverloads constructor(
         binding.root.error = errorText
         binding.root.errorContentDescription = errorContentDescription ?: if (!errorText.isNullOrEmpty()) {
             context.getString(R.string.accessibility_error_prefix, errorText)
-        } else ""
+        } else null
         updateTextInputViewContentDescription()
     }
 
@@ -179,7 +179,6 @@ open class TextInputView @JvmOverloads constructor(
 
                     val customHint = hintContentDescription ?: hint
 
-                    val errorContentDescription = errorContentDescription
                     val error = if (errorContentDescription.isNullOrEmpty()) "" else ", $errorContentDescription"
 
                     val counter = if (isCounterEnabled) {
