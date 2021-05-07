@@ -30,7 +30,6 @@
                 android:layout_marginStart="@dimen/hmrc_spacing_16"
                 android:layout_marginTop="@dimen/hmrc_spacing_16"
                 android:layout_marginEnd="@dimen/hmrc_spacing_16"
-                app:contentDescription="@string/text_input_placeholder_hint"
                 app:counterEnabled="true"
                 app:counterMaxLength="@integer/text_input_placeholder_max_length"
                 app:hintText="@string/text_input_placeholder_hint" />
@@ -57,7 +56,9 @@
                     android:layout_marginStart="@dimen/hmrc_spacing_16"
                     android:layout_marginTop="@dimen/hmrc_spacing_16"
                     android:layout_marginEnd="@dimen/hmrc_spacing_16"
-                    app:overrideHintContentDescription="@string/text_input_example_1_content_description"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="@integer/text_input_placeholder_max_length"
+                    app:hintContentDescription="@string/text_input_example_1_content_description"
                     app:hintText="@string/text_input_example_1_hint" />
 
                 <uk.gov.hmrc.components.molecule.input.TextInputView
