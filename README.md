@@ -721,8 +721,10 @@ The test library includes custom `ViewMatchers` and `ViewActions` for easier tes
 ### Setup - Github personal access token
 
 In order to build the library, you need to provide a Github personal access token with the following scope:
-- `read:packages`
 - `repo`
+- `read:packages`
+- `read:org`
+- `read:discussion`
 
 You can create a new token on [GitHub](https://github.com/settings/tokens/new)
  
