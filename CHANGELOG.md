@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.13.0] - 2021-05-10
+
 ### Added
 
 * Added ability to set error content descriptions on `TextInputView`
