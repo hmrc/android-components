@@ -278,6 +278,19 @@ multi_column_row.setTextStyle(R.style.Text_Bold)
 multi_column_row.setText1AsHeading(true)
 ```
 
+If you need to, you can add a click listener to each column and provide a custom click content description:
+```kotlin
+multi_column_row.setText1ClickAction(
+    { Toast.makeText(context, "text 1 custom action invoked", LENGTH_LONG).show() }, "do custom action"
+)
+multi_column_row.setText2ClickAction(
+    { Toast.makeText(context, "text 2 custom action invoked", LENGTH_LONG).show() }, "do custom action"
+)
+multi_column_row.setText3ClickAction(
+    { Toast.makeText(context, "text 3 custom action invoked", LENGTH_LONG).show() }, "do custom action"
+)
+```
+
 ### Text Input View
 
 ```xml

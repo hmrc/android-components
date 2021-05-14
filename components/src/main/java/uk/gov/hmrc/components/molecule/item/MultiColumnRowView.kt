@@ -23,6 +23,7 @@ import android.widget.LinearLayout
 import androidx.annotation.StyleRes
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentMultiColumnRowBinding
+import uk.gov.hmrc.components.extensions.setAccessibilityMessage
 import uk.gov.hmrc.components.extensions.setAsAccessibilityHeading
 import uk.gov.hmrc.components.extensions.setStyle
 
@@ -59,7 +60,7 @@ class MultiColumnRowView @JvmOverloads constructor(
             val text1Heading = typedArray.getBoolean(R.styleable.MultiColumnRowView_text1Heading, false)
 
             setText(text1, text2, text3)
-            setTextContentDesription(text1ContentDescription, text2ContentDescription, text3ContentDescription)
+            setTextContentDescription(text1ContentDescription, text2ContentDescription, text3ContentDescription)
             setTextIsSelectable(text1IsSelectable, text2IsSelectable, text3IsSelectable)
             setTextStyle(textStyle, textStyle2, textStyle3)
             setText1AsHeading(text1Heading)
@@ -143,22 +144,22 @@ class MultiColumnRowView @JvmOverloads constructor(
         setText(binding.rowText1.text, binding.rowText2.text, text3)
     }
 
-    fun setTextContentDesription(desc1: CharSequence?, desc2: CharSequence?, desc3: CharSequence?) {
+    fun setTextContentDescription(desc1: CharSequence?, desc2: CharSequence?, desc3: CharSequence?) {
         desc1?.let { binding.rowText1.contentDescription = it }
         desc2?.let { binding.rowText2.contentDescription = it }
         desc3?.let { binding.rowText3.contentDescription = it }
     }
 
     fun setText1ContentDescription(desc1: CharSequence?) {
-        setTextContentDesription(desc1, binding.rowText2.contentDescription, binding.rowText3.contentDescription)
+        setTextContentDescription(desc1, binding.rowText2.contentDescription, binding.rowText3.contentDescription)
     }
 
     fun setText2ContentDescription(desc2: CharSequence?) {
-        setTextContentDesription(binding.rowText1.contentDescription, desc2, binding.rowText3.contentDescription)
+        setTextContentDescription(binding.rowText1.contentDescription, desc2, binding.rowText3.contentDescription)
     }
 
     fun setText3ContentDescription(desc3: CharSequence?) {
-        setTextContentDesription(binding.rowText1.contentDescription, binding.rowText2.contentDescription, desc3)
+        setTextContentDescription(binding.rowText1.contentDescription, binding.rowText2.contentDescription, desc3)
     }
 
     fun setTextIsSelectable(
@@ -170,6 +171,27 @@ class MultiColumnRowView @JvmOverloads constructor(
             rowText1.setTextIsSelectable(text1IsSelectable)
             rowText2.setTextIsSelectable(text2IsSelectable)
             rowText3.setTextIsSelectable(text3IsSelectable)
+        }
+    }
+
+    fun setText1ClickAction(listener: OnClickListener, clickDescription: CharSequence? = null) {
+        binding.rowText1.apply {
+            setOnClickListener(listener)
+            clickDescription?.let { setAccessibilityMessage(it) }
+        }
+    }
+
+    fun setText2ClickAction(listener: OnClickListener, clickDescription: CharSequence? = null) {
+        binding.rowText2.apply {
+            setOnClickListener(listener)
+            clickDescription?.let { setAccessibilityMessage(it) }
+        }
+    }
+
+    fun setText3ClickAction(listener: OnClickListener, clickDescription: CharSequence? = null) {
+        binding.rowText3.apply {
+            setOnClickListener(listener)
+            clickDescription?.let { setAccessibilityMessage(it) }
         }
     }
 
