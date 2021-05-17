@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.14.0] - 2021-05-17
+
 ### Added
 
 * Added new methods to set click listeners and custom click content descriptions to each text view inside `MultiColumnRowView`:
