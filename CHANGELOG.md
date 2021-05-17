@@ -28,6 +28,10 @@ Allowed headings:
 * Fixed typo in method name inside `MultiColumnRowView`:
 	`setTextContentDescription(desc1: CharSequence?, desc2: CharSequence?, desc3: CharSequence?)`
 
+### Removed
+
+* Removed `setTextIsSelectable` method and xml attributes `text1IsSelectable`, `text2IsSelectable` and `text3IsSelectable` from `MultiColumnRowView`
+
 ## [3.13.0] - 2021-05-10
 
 ### Added

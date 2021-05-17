@@ -51,9 +51,6 @@ class MultiColumnRowView @JvmOverloads constructor(
             val text1ContentDescription = typedArray.getString(R.styleable.MultiColumnRowView_text1ContentDescription)
             val text2ContentDescription = typedArray.getString(R.styleable.MultiColumnRowView_text2ContentDescription)
             val text3ContentDescription = typedArray.getString(R.styleable.MultiColumnRowView_text3ContentDescription)
-            val text1IsSelectable = typedArray.getBoolean(R.styleable.MultiColumnRowView_text1IsSelectable, false)
-            val text2IsSelectable = typedArray.getBoolean(R.styleable.MultiColumnRowView_text2IsSelectable, false)
-            val text3IsSelectable = typedArray.getBoolean(R.styleable.MultiColumnRowView_text3IsSelectable, false)
             val textStyle = typedArray.getResourceId(R.styleable.MultiColumnRowView_textStyle, R.style.Text_Body)
             val textStyle2 = typedArray.getResourceId(R.styleable.MultiColumnRowView_textStyle2, textStyle)
             val textStyle3 = typedArray.getResourceId(R.styleable.MultiColumnRowView_textStyle3, textStyle)
@@ -61,7 +58,6 @@ class MultiColumnRowView @JvmOverloads constructor(
 
             setText(text1, text2, text3)
             setTextContentDescription(text1ContentDescription, text2ContentDescription, text3ContentDescription)
-            setTextIsSelectable(text1IsSelectable, text2IsSelectable, text3IsSelectable)
             setTextStyle(textStyle, textStyle2, textStyle3)
             setText1AsHeading(text1Heading)
 
@@ -160,18 +156,6 @@ class MultiColumnRowView @JvmOverloads constructor(
 
     fun setText3ContentDescription(desc3: CharSequence?) {
         setTextContentDescription(binding.rowText1.contentDescription, binding.rowText2.contentDescription, desc3)
-    }
-
-    fun setTextIsSelectable(
-        text1IsSelectable: Boolean = binding.rowText1.isTextSelectable,
-        text2IsSelectable: Boolean = binding.rowText2.isTextSelectable,
-        text3IsSelectable: Boolean = binding.rowText3.isTextSelectable
-    ) {
-        binding.apply {
-            rowText1.setTextIsSelectable(text1IsSelectable)
-            rowText2.setTextIsSelectable(text2IsSelectable)
-            rowText3.setTextIsSelectable(text3IsSelectable)
-        }
     }
 
     fun setText1ClickAction(clickDescription: CharSequence? = null, listener: OnClickListener) {

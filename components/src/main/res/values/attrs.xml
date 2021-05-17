@@ -106,12 +106,6 @@
         <attr name="text2ContentDescription" format="string" />
         <!-- Third piece of text content description. -->
         <attr name="text3ContentDescription" format="string" />
-        <!-- Whether or not the first piece of text is selectable. -->
-        <attr name="text1IsSelectable" format="boolean" />
-        <!-- Whether or not the second piece of text is selectable. -->
-        <attr name="text2IsSelectable" format="boolean" />
-        <!-- Whether or not the third piece of text is selectable. -->
-        <attr name="text3IsSelectable" format="boolean" />
         <!-- Text style for the first piece of text. -->
         <attr name="textStyle" format="reference" />
         <!-- Text style for the second piece of text. -->
