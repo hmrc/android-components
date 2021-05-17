@@ -260,9 +260,6 @@ the xml text attribute
     app:text1ContentDescription="@string/text1_desc"
     app:text2ContentDescription="@string/text2_desc"
     app:text3ContentDescription="@string/text3_desc"
-    app:text1IsSelectable="false"
-    app:text2IsSelectable="true"
-    app:text3IsSelectable="true"
     app:textStyle="@style/Text.Body"
     app:textStyle2="@style/Text.Body"
     app:textStyle3="@style/Text.Bold"
@@ -276,6 +273,17 @@ The text style and heading can also be configured programmatically:
 ```kotlin
 multi_column_row.setTextStyle(R.style.Text_Bold)
 multi_column_row.setText1AsHeading(true)
+```
+
+If you need to, you can add a click listener to each column and provide a custom click content description:
+```kotlin
+multi_column_row.setText1ClickAction("custom click content description") {
+    // click listener
+}
+multi_column_row.setText2ClickAction { Toast.makeText(context, "text 2 clicked", LENGTH_LONG).show() }
+multi_column_row.setText3ClickAction("do custom action") {
+    Toast.makeText(context, "text 3 custom action invoked", LENGTH_LONG).show()
+}
 ```
 
 ### Text Input View

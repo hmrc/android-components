@@ -16,6 +16,22 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Added
+
+* Added new methods to set click listeners and custom click content descriptions to each text view inside `MultiColumnRowView`:
+	`setText1ClickAction(clickDescription: CharSequence? = null, listener: OnClickListener)`,
+	`setText2ClickAction(clickDescription: CharSequence? = null, listener: OnClickListener)`,
+	`setText3ClickAction(clickDescription: CharSequence? = null, listener: OnClickListener)`
+
+### Changed
+
+* Fixed typo in method name inside `MultiColumnRowView`:
+	`setTextContentDescription(desc1: CharSequence?, desc2: CharSequence?, desc3: CharSequence?)`
+
+### Removed
+
+* Removed `setTextIsSelectable` method and xml attributes `text1IsSelectable`, `text2IsSelectable` and `text3IsSelectable` from `MultiColumnRowView`
+
 ## [3.13.0] - 2021-05-10
 
 ### Added

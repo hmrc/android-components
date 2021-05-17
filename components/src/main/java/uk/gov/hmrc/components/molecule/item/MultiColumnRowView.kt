@@ -23,6 +23,7 @@ import android.widget.LinearLayout
 import androidx.annotation.StyleRes
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentMultiColumnRowBinding
+import uk.gov.hmrc.components.extensions.setAccessibilityMessage
 import uk.gov.hmrc.components.extensions.setAsAccessibilityHeading
 import uk.gov.hmrc.components.extensions.setStyle
 
@@ -50,17 +51,13 @@ class MultiColumnRowView @JvmOverloads constructor(
             val text1ContentDescription = typedArray.getString(R.styleable.MultiColumnRowView_text1ContentDescription)
             val text2ContentDescription = typedArray.getString(R.styleable.MultiColumnRowView_text2ContentDescription)
             val text3ContentDescription = typedArray.getString(R.styleable.MultiColumnRowView_text3ContentDescription)
-            val text1IsSelectable = typedArray.getBoolean(R.styleable.MultiColumnRowView_text1IsSelectable, false)
-            val text2IsSelectable = typedArray.getBoolean(R.styleable.MultiColumnRowView_text2IsSelectable, false)
-            val text3IsSelectable = typedArray.getBoolean(R.styleable.MultiColumnRowView_text3IsSelectable, false)
             val textStyle = typedArray.getResourceId(R.styleable.MultiColumnRowView_textStyle, R.style.Text_Body)
             val textStyle2 = typedArray.getResourceId(R.styleable.MultiColumnRowView_textStyle2, textStyle)
             val textStyle3 = typedArray.getResourceId(R.styleable.MultiColumnRowView_textStyle3, textStyle)
             val text1Heading = typedArray.getBoolean(R.styleable.MultiColumnRowView_text1Heading, false)
 
             setText(text1, text2, text3)
-            setTextContentDesription(text1ContentDescription, text2ContentDescription, text3ContentDescription)
-            setTextIsSelectable(text1IsSelectable, text2IsSelectable, text3IsSelectable)
+            setTextContentDescription(text1ContentDescription, text2ContentDescription, text3ContentDescription)
             setTextStyle(textStyle, textStyle2, textStyle3)
             setText1AsHeading(text1Heading)
 
@@ -143,33 +140,42 @@ class MultiColumnRowView @JvmOverloads constructor(
         setText(binding.rowText1.text, binding.rowText2.text, text3)
     }
 
-    fun setTextContentDesription(desc1: CharSequence?, desc2: CharSequence?, desc3: CharSequence?) {
+    fun setTextContentDescription(desc1: CharSequence?, desc2: CharSequence?, desc3: CharSequence?) {
         desc1?.let { binding.rowText1.contentDescription = it }
         desc2?.let { binding.rowText2.contentDescription = it }
         desc3?.let { binding.rowText3.contentDescription = it }
     }
 
     fun setText1ContentDescription(desc1: CharSequence?) {
-        setTextContentDesription(desc1, binding.rowText2.contentDescription, binding.rowText3.contentDescription)
+        setTextContentDescription(desc1, binding.rowText2.contentDescription, binding.rowText3.contentDescription)
     }
 
     fun setText2ContentDescription(desc2: CharSequence?) {
-        setTextContentDesription(binding.rowText1.contentDescription, desc2, binding.rowText3.contentDescription)
+        setTextContentDescription(binding.rowText1.contentDescription, desc2, binding.rowText3.contentDescription)
     }
 
     fun setText3ContentDescription(desc3: CharSequence?) {
-        setTextContentDesription(binding.rowText1.contentDescription, binding.rowText2.contentDescription, desc3)
+        setTextContentDescription(binding.rowText1.contentDescription, binding.rowText2.contentDescription, desc3)
     }
 
-    fun setTextIsSelectable(
-        text1IsSelectable: Boolean = binding.rowText1.isTextSelectable,
-        text2IsSelectable: Boolean = binding.rowText2.isTextSelectable,
-        text3IsSelectable: Boolean = binding.rowText3.isTextSelectable
-    ) {
-        binding.apply {
-            rowText1.setTextIsSelectable(text1IsSelectable)
-            rowText2.setTextIsSelectable(text2IsSelectable)
-            rowText3.setTextIsSelectable(text3IsSelectable)
+    fun setText1ClickAction(clickDescription: CharSequence? = null, listener: OnClickListener) {
+        binding.rowText1.apply {
+            setOnClickListener(listener)
+            clickDescription?.let { setAccessibilityMessage(it) }
+        }
+    }
+
+    fun setText2ClickAction(clickDescription: CharSequence? = null, listener: OnClickListener) {
+        binding.rowText2.apply {
+            setOnClickListener(listener)
+            clickDescription?.let { setAccessibilityMessage(it) }
+        }
+    }
+
+    fun setText3ClickAction(clickDescription: CharSequence? = null, listener: OnClickListener) {
+        binding.rowText3.apply {
+            setOnClickListener(listener)
+            clickDescription?.let { setAccessibilityMessage(it) }
         }
     }
 

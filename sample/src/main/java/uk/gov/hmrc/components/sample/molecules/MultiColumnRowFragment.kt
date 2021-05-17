@@ -19,6 +19,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
 import uk.gov.hmrc.components.sample.base.BaseComponentsFragment
@@ -31,8 +33,18 @@ class MultiColumnRowFragment : BaseComponentsFragment() {
 
     override fun provideToolbar() = ToolbarState(true, R.string.molecules_multi_column_row, true)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentMultiColumnRowBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.multiColumnRowPlaceholder.apply {
+            setText2ClickAction { Toast.makeText(context, "text 2 clicked", LENGTH_LONG).show() }
+            setText3ClickAction("do custom action") {
+                Toast.makeText(context, "text 3 custom action invoked", LENGTH_LONG).show()
+            }
+        }
     }
 }
