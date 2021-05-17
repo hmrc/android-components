@@ -174,21 +174,21 @@ class MultiColumnRowView @JvmOverloads constructor(
         }
     }
 
-    fun setText1ClickAction(listener: OnClickListener, clickDescription: CharSequence? = null) {
+    fun setText1ClickAction(clickDescription: CharSequence? = null, listener: OnClickListener) {
         binding.rowText1.apply {
             setOnClickListener(listener)
             clickDescription?.let { setAccessibilityMessage(it) }
         }
     }
 
-    fun setText2ClickAction(listener: OnClickListener, clickDescription: CharSequence? = null) {
+    fun setText2ClickAction(clickDescription: CharSequence? = null, listener: OnClickListener) {
         binding.rowText2.apply {
             setOnClickListener(listener)
             clickDescription?.let { setAccessibilityMessage(it) }
         }
     }
 
-    fun setText3ClickAction(listener: OnClickListener, clickDescription: CharSequence? = null) {
+    fun setText3ClickAction(clickDescription: CharSequence? = null, listener: OnClickListener) {
         binding.rowText3.apply {
             setOnClickListener(listener)
             clickDescription?.let { setAccessibilityMessage(it) }

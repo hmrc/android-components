@@ -41,10 +41,10 @@ class MultiColumnRowFragment : BaseComponentsFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.multiColumnRowPlaceholder.apply {
-            setText2ClickAction({ Toast.makeText(context, "text 2 clicked", LENGTH_LONG).show() })
-            setText3ClickAction(
-                { Toast.makeText(context, "text 3 custom action invoked", LENGTH_LONG).show() }, "do custom action"
-            )
+            setText2ClickAction { Toast.makeText(context, "text 2 clicked", LENGTH_LONG).show() }
+            setText3ClickAction("do custom action") {
+                Toast.makeText(context, "text 3 custom action invoked", LENGTH_LONG).show()
+            }
         }
     }
 }
