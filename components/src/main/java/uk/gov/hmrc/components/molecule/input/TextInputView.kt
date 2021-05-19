@@ -174,6 +174,8 @@ open class TextInputView @JvmOverloads constructor(
     private fun updateTextInputViewContentDescription() {
         binding.root.apply {
             setTextInputAccessibilityDelegate(object : TextInputLayout.AccessibilityDelegate(this) {
+                private var wasAlreadyShowingError = false
+
                 override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfoCompat) {
                     super.onInitializeAccessibilityNodeInfo(host, info)
 
@@ -181,18 +183,17 @@ open class TextInputView @JvmOverloads constructor(
 
                     val error = if (errorContentDescription.isNullOrEmpty()) "" else ", $errorContentDescription"
 
-                    val counter = if (isCounterEnabled) {
-                        val currentChars = if (getText().isNullOrEmpty()) 0 else getText()!!.length
-                        val maxLength = counterMaxLength
+                    val currentChars = if (getText().isNullOrEmpty()) 0 else getText()!!.length
 
-                        val limitExceededText = if (currentChars > maxLength) {
+                    val counter = if (isCounterEnabled) {
+                        val limitExceededText = if (currentChars > counterMaxLength) {
                             "${context.getString(R.string.accessibility_counter_limit_exceeded)} "
                         } else ""
 
                         val counterText = context.getString(
                             R.string.accessibility_counter_state,
                             currentChars.toString(),
-                            maxLength.toString())
+                            counterMaxLength.toString())
 
                         ", $limitExceededText$counterText"
                     } else ""
@@ -212,6 +213,14 @@ open class TextInputView @JvmOverloads constructor(
                         info.text = if (showingText) {
                             getText() + ", " + newContentDescription
                         } else newContentDescription
+                    }
+
+                    info.error = if (currentChars > (counterMaxLength + 1) || wasAlreadyShowingError) {
+                        wasAlreadyShowingError = true
+                        errorContentDescription
+                    } else {
+                        wasAlreadyShowingError = false
+                        null
                     }
                 }
             })
