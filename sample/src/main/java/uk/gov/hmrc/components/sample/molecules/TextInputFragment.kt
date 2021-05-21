@@ -21,6 +21,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import uk.gov.hmrc.components.molecule.input.TextInputView
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
@@ -41,7 +42,18 @@ class TextInputFragment : BaseComponentsFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setListeners(binding.textInputExample1, getString(R.string.text_input_example_1_error))
+
+        binding.textInputExample1.getEditText().doOnTextChanged { text, _, _, _ ->
+            val newText = text?.toString().orEmpty()
+            val errorText = "this is an error"
+
+            binding.textInputExample1.apply {
+                if (newText.length > 5) {
+                    if (errorText != getError()) setError(errorText)
+                } else setError("")
+            }
+        }
+
         setListeners(binding.textInputExample2, getString(R.string.text_input_example_2_error))
         setListeners(binding.textInputExample3, getString(R.string.text_input_example_3_error))
     }

@@ -57,7 +57,7 @@
                     android:layout_marginTop="@dimen/hmrc_spacing_16"
                     android:layout_marginEnd="@dimen/hmrc_spacing_16"
                     app:counterEnabled="true"
-                    app:counterMaxLength="@integer/text_input_placeholder_max_length"
+                    app:counterMaxLength="5"
                     app:hintContentDescription="@string/text_input_example_1_content_description"
                     app:hintText="@string/text_input_example_1_hint" />
 

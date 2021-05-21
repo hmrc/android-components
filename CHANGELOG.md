@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* Improved content description for `TextInputView` to prevent duplicating error announcements when counter is exceeded.
+
 ## [3.14.0] - 2021-05-17
 
 ### Added
