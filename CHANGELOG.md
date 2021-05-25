@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* Improved announcement of errors for `TextInputView`
+ 
 ## [3.14.1] - 2021-05-21
 
 ### Changed
