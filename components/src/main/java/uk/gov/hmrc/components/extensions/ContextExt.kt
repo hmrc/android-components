@@ -15,9 +15,18 @@
  */
 package uk.gov.hmrc.components.extensions
 
+import android.accessibilityservice.AccessibilityServiceInfo
 import android.content.Context
 import android.view.accessibility.AccessibilityManager
+import androidx.core.content.getSystemService
 
 fun Context.isAccessibilityEnabled(): Boolean {
     return (getSystemService(Context.ACCESSIBILITY_SERVICE) as? AccessibilityManager)?.isEnabled ?: false
+}
+
+fun Context.isScreenReaderEnabled(): Boolean {
+    return getSystemService<AccessibilityManager>()?.let {
+        val runningServices = it.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_SPOKEN)
+        runningServices.isNotEmpty()
+    } ?: false
 }
