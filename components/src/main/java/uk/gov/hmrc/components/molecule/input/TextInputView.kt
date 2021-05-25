@@ -119,6 +119,7 @@ open class TextInputView @JvmOverloads constructor(
     fun getError() = binding.root.error
 
     fun setError(errorText: CharSequence?, errorContentDescription: CharSequence? = null) {
+        binding.root.isErrorEnabled = !errorText.isNullOrEmpty()
         binding.root.error = errorText
         binding.root.errorContentDescription = errorContentDescription ?: if (!errorText.isNullOrEmpty()) {
             context.getString(R.string.accessibility_error_prefix, errorText)
