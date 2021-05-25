@@ -37,7 +37,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$android_x_recyclerview_version"
     implementation "androidx.constraintlayout:constraintlayout:$android_x_constraint_layout_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
-    implementation "androidx.core:core-ktx:1.1.0"
+    implementation "androidx.core:core-ktx:$core_ktx_version"
 
     // Material
     implementation "com.google.android.material:material:$material_version"
