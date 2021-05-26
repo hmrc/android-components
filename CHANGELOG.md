@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.14.2] - 2021-05-26
+
 ### Added
 
 * Added `isScreenReaderEnabled()` extension for `Context` in `ContextExt.kt`
