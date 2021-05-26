@@ -16,6 +16,15 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Added
+
+* Added `isScreenReaderEnabled()` extension for `Context` in `ContextExt.kt`
+* Added `dpToPx()` extension for `Float` in `FloatExtensions.kt`
+
+### Changed
+
+* Improved announcement of errors for `TextInputView`
+ 
 ## [3.14.1] - 2021-05-21
 
 ### Changed

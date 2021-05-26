@@ -27,10 +27,13 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.StringRes
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
+import androidx.core.view.updatePadding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentTextInputBinding
+import uk.gov.hmrc.components.extensions.dpToPx
+import uk.gov.hmrc.components.extensions.isScreenReaderEnabled
 
 open class TextInputView @JvmOverloads constructor(
     context: Context,
@@ -74,9 +77,9 @@ open class TextInputView @JvmOverloads constructor(
 
             setText(textString)
             setHint(hintText, hintTextContentDescription)
-            setError(errorText)
             setCounterMaxLength(counterMaxLength)
             setCounterEnabled(counterEnabled)
+            setError(errorText) // This must be set below setCounterEnabled() as we use the counterEnabled state
             setImeOptions(imeOptions)
             setInputType(inputType)
             setMaxLength(maxLength)
@@ -119,8 +122,26 @@ open class TextInputView @JvmOverloads constructor(
     fun getError() = binding.root.error
 
     fun setError(errorText: CharSequence?, errorContentDescription: CharSequence? = null) {
+        val hasErrorText = !errorText.isNullOrEmpty()
+        if (context.isScreenReaderEnabled()) {
+            // Fix for issue where it announces errorContentDescription as error is cleared
+            binding.root.isErrorEnabled = hasErrorText
+
+            val errorDisabled = !binding.root.isErrorEnabled
+            val counterEnabled = binding.root.isCounterEnabled
+            val bottomPadding: Int = when {
+                errorDisabled && counterEnabled -> {
+                    COUNTER_BOTTOM_PADDING.dpToPx().toInt()
+                }
+                errorDisabled && !counterEnabled -> {
+                    context.resources.getDimension(R.dimen.hmrc_spacing_24).toInt()
+                }
+                else -> 0
+            }
+            binding.root.updatePadding(bottom = bottomPadding)
+        }
         binding.root.error = errorText
-        binding.root.errorContentDescription = errorContentDescription ?: if (!errorText.isNullOrEmpty()) {
+        binding.root.errorContentDescription = errorContentDescription ?: if (hasErrorText) {
             context.getString(R.string.accessibility_error_prefix, errorText)
         } else null
         updateTextInputViewContentDescription()
@@ -228,14 +249,10 @@ open class TextInputView @JvmOverloads constructor(
     }
 
     companion object {
-        private const val STATE_TEXT = "STATE_TEXT"
         private const val STATE_SUPER = "STATE_SUPER"
         private const val STATE_EDIT_TEXT_ID = "STATE_EDIT_TEXT_ID"
         private const val STATE_LAYOUT_ID = "STATE_LAYOUT_ID"
         const val NO_MAX_LENGTH = 0
-        const val DRAWABLE_LEFT = 0
-        const val DRAWABLE_TOP = 1
-        const val DRAWABLE_RIGHT = 2
-        const val DRAWABLE_BOTTOM = 3
+        const val COUNTER_BOTTOM_PADDING = 6f
     }
 }
