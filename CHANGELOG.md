@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* Improved keyboard navigation for `TextInputView`
+
 ## [3.14.2] - 2021-05-26
 
 ### Added
