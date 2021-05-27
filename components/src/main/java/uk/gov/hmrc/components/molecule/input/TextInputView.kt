@@ -28,6 +28,7 @@ import android.widget.FrameLayout
 import androidx.annotation.StringRes
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import androidx.core.view.updatePadding
+import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import uk.gov.hmrc.components.R
@@ -89,6 +90,20 @@ open class TextInputView @JvmOverloads constructor(
         }
         editTextId = View.generateViewId()
         layoutId = View.generateViewId()
+
+        setupEndIcon()
+    }
+
+    private fun setupEndIcon() {
+        binding.root.setEndIconOnClickListener {
+            setText(null)
+        }
+
+        binding.root.isEndIconVisible = !getText().isNullOrBlank()
+
+        getEditText().doOnTextChanged { text, _, _, _ ->
+            binding.root.isEndIconVisible = !text.isNullOrBlank()
+        }
     }
 
     override fun onSaveInstanceState(): Parcelable? {

@@ -10,9 +10,11 @@
     app:prefixTextAppearance="@style/Text.Body"
     app:prefixTextColor="@color/hmrc_dark_text"
     app:errorEnabled="true"
-    app:endIconMode="clear_text"
+    app:endIconMode="custom"
     app:endIconTint="@color/hmrc_black"
+    app:endIconCheckable="false"
     app:endIconDrawable="@drawable/components_ic_clear"
+    app:endIconContentDescription="@string/text_input_clear_button_content_description"
     tools:hint="@string/text_input_example_hint">
 
     <com.google.android.material.textfield.TextInputEditText
