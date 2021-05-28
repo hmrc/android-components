@@ -75,7 +75,6 @@
         <attr name="body" format="string" />
     </declare-styleable>
 
-    <!-- Hello. -->
     <declare-styleable name="MultiColumnRowView">
         <!-- First piece of text to display. -->
         <attr name="text1" format="string" />
@@ -123,7 +122,7 @@
         <!-- Title to display. This is smaller than the headline. -->
         <attr name="title" />
         <!-- Title content description -->
-        <attr name="titleContentDescription" />
+        <attr name="titleContentDescription" format="string" />
         <!-- Headline to display. This is larger than the title. -->
         <attr name="headline" format="string" />
         <!-- Headline content description -->

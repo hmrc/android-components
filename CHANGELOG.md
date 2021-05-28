@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Removed
+
+* Removed the `ExpandingRowView` component
+
 ## [3.14.3] - 2021-05-27
 
 ### Changed
