@@ -59,23 +59,6 @@
         <attr name="decimalsEnabled" format="boolean" />
     </declare-styleable>
 
-    <declare-styleable name="ExpandingRowView">
-        <!-- Title to display. -->
-        <attr name="title" />
-        <!-- Title content description. -->
-        <attr name="titleContentDescription" format="string" />
-        <!-- Subtitle to display. -->
-        <attr name="subtitle" />
-        <!-- Subtitle content description. -->
-        <attr name="subtitleContentDescription" format="string" />
-        <!-- Icon to show at the start of the expanding row. -->
-        <attr name="icon" />
-        <!-- Whether or not a click anywhere toggles expansion. If true then anywhere can be clicked to toggle expansion. If false then the header must be clicked to toggle expansion. -->
-        <attr name="clickTogglesExpansion" format="boolean" />
-        <!-- Whether or not the view should begin as expanded -->
-        <attr name="expanded" format="boolean" />
-    </declare-styleable>
-
     <declare-styleable name="IconButtonView">
         <!-- Title to display. -->
         <attr name="title" />
@@ -92,7 +75,6 @@
         <attr name="body" format="string" />
     </declare-styleable>
 
-    <!-- Hello. -->
     <declare-styleable name="MultiColumnRowView">
         <!-- First piece of text to display. -->
         <attr name="text1" format="string" />
@@ -140,7 +122,7 @@
         <!-- Title to display. This is smaller than the headline. -->
         <attr name="title" />
         <!-- Title content description -->
-        <attr name="titleContentDescription" />
+        <attr name="titleContentDescription" format="string" />
         <!-- Headline to display. This is larger than the title. -->
         <attr name="headline" format="string" />
         <!-- Headline content description -->

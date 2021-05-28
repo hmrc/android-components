@@ -89,7 +89,6 @@
     <string name="organisms_headline_card">Headline Card View</string>
     <string name="organisms_primary_card">Primary Card View</string>
     <string name="organisms_info_message_card">Information Message Card View</string>
-    <string name="organisms_expanding_row">Expanding Row View</string>
     <string name="organisms_status_card">Status Card View</string>
     <string name="organisms_icon_button_card">Icon Button Card View</string>
     <string name="organisms_summary_row">Summary Row View</string>
@@ -133,27 +132,6 @@
     <string name="status_card_example_4_body">It appears as if you are not connected to the internet. Check your connection and try again.</string>
     <string name="status_card_example_4_button">Try again</string>
     <string name="status_card_example_4_info">DDC3ABB2&#8211;E830&#8211;4B68&#8211;8AA4&#8211;1923579B9879</string>
-
-    <!-- ExpandingRowView -->
-    <string name="expandable_placeholder_title">Title</string>
-    <string name="expandable_placeholder_subtitle">Subtitle</string>
-    <string name="expandable_placeholder_content_text">Description text</string>
-
-    <string name="expandable_example_title">What Is Pay As You Earn?</string>
-    <string name="expandable_example_content_text">Your employer or pension provider takes off Income Tax before they
-		pay you. This is called Pay As You Earn (PAYE). The amount of tax you pay depends on your income, how much of it
-		is tax-free, and your tax code.
-	</string>
-
-    <string name="expandable_example_2_title">How to set up a regular payment</string>
-    <string name="expandable_example_2_description_text">You’ll never forget to save if you set up a regular payment, called a standing order, with your bank.</string>
-    <string name="expandable_example_2_bold_description_text">Standing order details for your bank</string>
-    <string name="expandable_example_2_content_text">Account no: 10028471\nSort code: 60 80 77\nPayment reference: 4321876345290</string>
-
-    <string name="expandable_example_3_title">23 May 2019</string>
-    <string name="expandable_example_3_subtitle">£171.84</string>
-    <string name="expandable_example_3_subtitle_description">£171 and 84 pence</string>
-    <string name="expandable_example_3_content_text">Child Tax Credit\nWeekly payment</string>
     
     <!-- Multi column row -->
     <string name="multi_column_row_placeholder_text1">Text 1</string>

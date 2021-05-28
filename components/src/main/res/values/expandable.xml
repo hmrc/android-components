@@ -1,7 +1,0 @@
-<resources>
-
-    <string name="expandable_pathmorph_path">M 1,-4 L 1,4 L -1,4 L -1,-4 Z</string>
-
-    <integer name="expandable_animation_duration">500</integer>
-
-</resources>
