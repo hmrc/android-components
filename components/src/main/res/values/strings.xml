@@ -26,10 +26,6 @@
     <string name="menu_panel_button_multiple_notifications_content_description">%s, %s new items, button. Double tap to activate. %s</string>
     <string name="menu_panel_button_over_ninety_nine_notifications_text">99+</string>
 
-    <string name="accessibility_expand">expand</string>
-    <string name="accessibility_expanded">expanded</string>
-    <string name="accessibility_collapse">collapse</string>
-    <string name="accessibility_collapsed">collapsed</string>
     <string name="accessibility_button_activate">button. Double tap to activate</string>
     <string name="accessibility_warning">warning; %s</string>
     <string name="accessibility_ticked">ticked</string>

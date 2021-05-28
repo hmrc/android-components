@@ -59,23 +59,6 @@
         <attr name="decimalsEnabled" format="boolean" />
     </declare-styleable>
 
-    <declare-styleable name="ExpandingRowView">
-        <!-- Title to display. -->
-        <attr name="title" />
-        <!-- Title content description. -->
-        <attr name="titleContentDescription" format="string" />
-        <!-- Subtitle to display. -->
-        <attr name="subtitle" />
-        <!-- Subtitle content description. -->
-        <attr name="subtitleContentDescription" format="string" />
-        <!-- Icon to show at the start of the expanding row. -->
-        <attr name="icon" />
-        <!-- Whether or not a click anywhere toggles expansion. If true then anywhere can be clicked to toggle expansion. If false then the header must be clicked to toggle expansion. -->
-        <attr name="clickTogglesExpansion" format="boolean" />
-        <!-- Whether or not the view should begin as expanded -->
-        <attr name="expanded" format="boolean" />
-    </declare-styleable>
-
     <declare-styleable name="IconButtonView">
         <!-- Title to display. -->
         <attr name="title" />

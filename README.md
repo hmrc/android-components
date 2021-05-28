@@ -515,41 +515,6 @@ If you want to explicitly state the padding for the child views (eg. for seconda
 
 If you want to explicitly state the padding for the child views (eg. for secondary buttons) then use the `removeDefaultChildPadding()` method to remove any default padding from the children, or in xml set `app:childPadding="false"`.
 
-### Expanding Row View
-
-```xml
-<uk.gov.hmrc.components.organism.expandable.ExpandingRowView
-    android:id="@+id/expandable"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:title="Title"
-    app:subtitle="Subtitle"
-    app:icon="@drawable/ic_icon"
-    app:clickTogglesExpansion="false"
-    app:expanded="false">
-
-    <!-- Content to expand or collapse -->
-
-</uk.gov.hmrc.components.organism.expandable.ExpandingRowView>
-```
-
-You can then add an expansion listener to detect when the expansion state (expanded or collapsed) changes via:
-```kotlin
-expandable.addExpansionListener {
-    Toast.makeText(context!!, if (it) "Expanded" else "Collapsed", Toast.LENGTH_SHORT).show()
-}
-```
-
-You may also remove any previously set listener via:
-```kotlin
-expandable.removeExpansionListener(listener)
-```
-
-or remove all listeners via:
-```kotlin
-expandable.clearExpansionListeners()
-```
-
 ### Icon Button Card View
 
 ```xml

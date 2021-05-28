@@ -28,7 +28,6 @@ class OrganismsFragment : ComponentListFragment() {
         return listOf(
                 ComponentListItem(getString(R.string.organisms_headline_card)) { selectFragment(HeadlineCardFragment()) },
                 ComponentListItem(getString(R.string.organisms_primary_card)) { selectFragment(PrimaryCardFragment()) },
-                ComponentListItem(getString(R.string.organisms_expanding_row)) { selectFragment(ExpandingRowFragment()) },
                 ComponentListItem(getString(R.string.organisms_status_card)) { selectFragment(StatusCardFragment()) },
                 ComponentListItem(getString(R.string.organisms_icon_button_card)) { selectFragment(IconButtonCardFragment()) },
                 ComponentListItem(getString(R.string.organisms_summary_row)) { selectFragment(SummaryRowFragment()) },
