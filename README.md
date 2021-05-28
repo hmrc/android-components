@@ -758,6 +758,8 @@ Where:
 
 ## Releasing
 
+### Components library
+
 ### Setup - GitHub CLI
 
 As part of the release process, [GitHub's CLI tool](https://github.com/cli/cli) is used. To have the entire process work smoothly you should have it set up on your machine.
@@ -781,3 +783,9 @@ Then you need to:
 * Check GitHub to see the PR and request reviews from the relevant people. Once approved, merge to bring the main branch up to date with the latest release. 
 
 Note: the PR does not need to merged for the release to happen
+
+
+### Components Test library
+
+1. Increment the version number in `components-test/build.gradle`, then commit & push these changes.
+2. Go to [Bitrise](https://app.bitrise.io/app/08593f02ad3e13fe) and start a build using master branch and the `publish_test_library` workflow
