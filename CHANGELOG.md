@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+* Updated `hmrc_yellow`
+
 ## [3.15.0] - 2021-05-28
 
 ### Removed
