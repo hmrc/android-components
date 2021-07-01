@@ -51,7 +51,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/hmrc_spacing_16"
             android:gravity="start|center_vertical"
-            tools:text="Yellow (#FFFFDD00)" />
+            tools:text="Yellow (#FFBF47)" />
 
     </LinearLayout>
 

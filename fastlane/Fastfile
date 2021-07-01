@@ -102,6 +102,38 @@ platform :android do
     sh("cd .. && sh release.sh '#{tag.to_string}'")
   end
 
+  desc "Starts the release workflow on CI"
+  lane :release_test_version do
+
+    begin
+      sh("gh --version")
+    rescue => exception
+      UI.error exception
+      UI.user_error!("Github CLI must be installed. See https://github.com/cli/cli")
+    end
+
+    UI.user_error!("You need to provide a Github Personal token via a `GITHUB_TOKEN` environment variable - you can create a new token on Github https://github.com/settings/tokens/new") unless !ENV["GITHUB_TOKEN"].nil?
+    UI.user_error!("You need to provide the Bitrise token via a `BITRISE_TOKEN` environment variable - See the Bitrise docs for help https://devcenter.bitrise.io/api/authentication.") unless !ENV["BITRISE_TOKEN"].nil?
+    UI.user_error!("You need to provide the Bitrise app slug for this repo via a `ANDROID_COMPONENTS_APP_SLUG` environment variable") unless !ENV["ANDROID_COMPONENTS_APP_SLUG"].nil?
+    UI.user_error!("You need to provide the Bitrise release workflow ID this repo via a `ANDROID_COMPONENTS_TEST_RELEASE_WORKFLOW_ID` environment variable") unless !ENV["ANDROID_COMPONENTS_TEST_RELEASE_WORKFLOW_ID"].nil?
+
+    # check that the version has been bumped
+    if UI.confirm("Have you updated the version in components-test/build.gradle?")
+      UI.success "Nice work"
+    else
+      UI.user_error!("Please updated the version in components-test/build.gradle before publishing")
+    end
+
+    # ensure repo is clean and on master
+    ensure_git_status_clean
+    ensure_git_branch
+
+    # pull latest changes and fetch tags
+    git_pull
+
+    # start release process on CI
+    sh("cd .. && sh release_test_version.sh")
+  end
 
   desc "Publishes components library"
   lane :publish do

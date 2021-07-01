@@ -12,7 +12,7 @@ Install _fastlane_ using
 ```
 [sudo] gem install fastlane -NV
 ```
-or alternatively using `brew cask install fastlane`
+or alternatively using `brew install fastlane`
 
 # Available Actions
 ## Android
@@ -31,6 +31,11 @@ Runs all checks
 fastlane android tag_release
 ```
 Takes a release tag and updates changelog
+### android release_test_version
+```
+fastlane android release_test_version
+```
+Starts the release workflow on CI
 ### android publish
 ```
 fastlane android publish
