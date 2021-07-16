@@ -96,6 +96,7 @@
         <attr name="textStyle3" format="reference" />
         <!-- Whether or not the first piece of text should be an accessibility heading. -->
         <attr name="text1Heading" format="boolean" />
+        <attr name="isTextFocusable" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="SwitchRowView">

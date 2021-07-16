@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Added
+
+* Exposed the `setTextFocusable(focusable: Boolean)` for use in `MultiColumnRow` and provided `isTextFocusable` for setting this in xml.
+
 ## [3.15.1] - 2021-07-01Z
 
 * Updated `hmrc_yellow`
