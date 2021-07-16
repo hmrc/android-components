@@ -180,6 +180,25 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/hmrc_spacing_16"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:layout_marginEnd="@dimen/hmrc_spacing_16"
+            android:contentDescription="card content description">
+
+            <uk.gov.hmrc.components.molecule.item.MultiColumnRowView
+                android:id="@+id/multi_column_row_example_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/hmrc_spacing_16"
+                app:text1="@string/multi_column_row_placeholder_text1"
+                app:text2="@string/multi_column_row_placeholder_text2"
+                app:isTextFocusable="false" />
+
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
 
 </ScrollView>

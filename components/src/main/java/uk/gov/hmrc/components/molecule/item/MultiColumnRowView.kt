@@ -55,11 +55,13 @@ class MultiColumnRowView @JvmOverloads constructor(
             val textStyle2 = typedArray.getResourceId(R.styleable.MultiColumnRowView_textStyle2, textStyle)
             val textStyle3 = typedArray.getResourceId(R.styleable.MultiColumnRowView_textStyle3, textStyle)
             val text1Heading = typedArray.getBoolean(R.styleable.MultiColumnRowView_text1Heading, false)
+            val isTextFocusable = typedArray.getBoolean(R.styleable.MultiColumnRowView_isTextFocusable, true)
 
             setText(text1, text2, text3)
             setTextContentDescription(text1ContentDescription, text2ContentDescription, text3ContentDescription)
             setTextStyle(textStyle, textStyle2, textStyle3)
             setText1AsHeading(text1Heading)
+            setTextFocusable(isTextFocusable)
 
             typedArray.recycle()
         }
@@ -191,7 +193,7 @@ class MultiColumnRowView @JvmOverloads constructor(
         binding.rowText1.setAsAccessibilityHeading(isHeading)
     }
 
-    internal fun setTextFocusable(focusable: Boolean) {
+    fun setTextFocusable(focusable: Boolean) {
         binding.apply {
             rowText1.isFocusable = focusable
             rowText2.isFocusable = focusable
