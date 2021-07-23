@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Added
+
+* Added `setOnClickListener(clickHandler: () -> Unit)` and `setChevronContentDescription(description: CharSequence)` methods to `HeadlineCardView`.
+
 ## [3.16.0] - 2021-07-16
 
 ### Added
