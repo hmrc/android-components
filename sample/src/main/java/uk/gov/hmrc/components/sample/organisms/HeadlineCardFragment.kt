@@ -40,6 +40,11 @@ class HeadlineCardFragment : BaseComponentsFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            headlinePlaceholder.setOnClickListener { onCtaPressed() }
+            headlineExample.apply {
+                setOnClickListener { onCtaPressed() }
+                setChevronContentDescription(getString(R.string.headline_example_chevron_content_description))
+            }
             headlineExample3Button.setOnClickListener { onCtaPressed() }
             headlineExample4Button.setOnClickListener { onCtaPressed() }
             headlineExample5Button.setOnClickListener { onCtaPressed() }

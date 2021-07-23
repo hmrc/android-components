@@ -18,7 +18,9 @@ package uk.gov.hmrc.components.organism.headline
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.LinearLayout
+import androidx.core.view.children
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.base.DynamicCardView
 import uk.gov.hmrc.components.base.PaddedComponent
@@ -32,7 +34,7 @@ open class HeadlineCardView @JvmOverloads constructor(
 
     private val binding: ComponentHeadlineCardBinding =
             ComponentHeadlineCardBinding.inflate(LayoutInflater.from(context), this, true)
-    override val childContainer: LinearLayout = binding.layout
+    override val childContainer: LinearLayout = binding.headlineLayout
 
     init {
         attrs?.let { it ->
@@ -67,6 +69,24 @@ open class HeadlineCardView @JvmOverloads constructor(
 
     fun setTitleContentDescription(desc: String?) {
         desc?.let { binding.title.contentDescription = it }
+    }
+
+    fun setOnClickListener(clickHandler: () -> Unit) {
+        setRippleColorResource(R.color.hmrc_secondary_button_ripple)
+        super.setOnClickListener {
+            clickHandler.invoke()
+        }
+        ensureChildViewsAreFocusable()
+        binding.imageChevron.visibility = View.VISIBLE
+    }
+
+    // This method can be used as an accessibility aid for informing talkback users of the result of tapping the view.
+    fun setChevronContentDescription(description: CharSequence) {
+        binding.imageChevron.contentDescription = description
+    }
+
+    private fun ensureChildViewsAreFocusable() {
+        childContainer.children.forEach { childView -> childView.isFocusable = true }
     }
 
     override fun removeChildPadding() {
