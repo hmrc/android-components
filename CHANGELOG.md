@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.16.0] - 2021-07-16
+
 ### Added
 
 * Exposed the `setTextFocusable(focusable: Boolean)` for use in `MultiColumnRow` and provided `isTextFocusable` for setting this in xml.
