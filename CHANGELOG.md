@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+* Updated `hmrc_grey_1` colour to match the GOV palette 
+
 ## [3.17.0] - 2021-07-26
 
 ### Added
