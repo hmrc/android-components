@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.18.0] - 2021-10-22
+
 * Added Java 11 support
 
 ## [3.17.1] - 2021-08-13
