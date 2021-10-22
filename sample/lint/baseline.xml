@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.0.1" type="baseline" client="gradle" name="AGP (7.0.1)" variant="all" version="7.0.1">
+
+    <issue
+        id="ResourceType"
+        message="Expected resource of type string"
+        errorLine1="                    root.context.getString(item.color).toUpperCase())"
+        errorLine2="                                           ~~~~~~~~~~">
+        <location
+            file="src/main/java/uk/gov/hmrc/components/sample/colors/ColorListFragment.kt"
+            line="50"
+            column="44" />
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="                    root.context.getString(item.color).toUpperCase())"
+        errorLine2="                                                       ~~~~~~~~~~~">
+        <location
+            file="src/main/java/uk/gov/hmrc/components/sample/colors/ColorListFragment.kt"
+            line="50"
+            column="56" />
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="This attribute is not supported in images generated from this vector icon for API &lt; 24; check generated icon to make sure it looks acceptable"
+        errorLine1=" android:autoMirrored=&quot;true&quot;"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/ic_coins.xml"
+            line="4"
+            column="2" />
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="This attribute is not supported in images generated from this vector icon for API &lt; 24; check generated icon to make sure it looks acceptable"
+        errorLine1=" android:autoMirrored=&quot;true&quot;"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/ic_maintenance.xml"
+            line="19"
+            column="2" />
+    </issue>
+
+    <issue
+        id="IntentFilterExportedReceiver"
+        message="When using intent filters, please specify `android:exported` as well"
+        errorLine1="  &lt;activity"
+        errorLine2="   ~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="27"
+            column="4" />
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        message="On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute `android:fullBackupContent` to specify an `@xml` resource which configures which files to backup, or just set `android:fullBackupOnly=true`. More info: https://developer.android.com/guide/topics/data/autobackup"
+        errorLine1="  android:allowBackup=&quot;true&quot;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="21"
+            column="3" />
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/hmrc_page_background` with a theme that also paints a background (inferred theme is `@style/SampleTheme`)"
+        errorLine1="    android:background=&quot;@color/hmrc_page_background&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_main.xml"
+            line="23"
+            column="5" />
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/hmrc_white_background` with a theme that also paints a background (inferred theme is `@style/SampleTheme`)"
+        errorLine1="    android:background=&quot;@color/hmrc_white_background&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_menu_panel_row.xml"
+            line="21"
+            column="5" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.card_example_height` appears to be unused"
+        errorLine1=" &lt;dimen name=&quot;card_example_height&quot;>100dp&lt;/dimen>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="19"
+            column="9" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.shuttering_default_title` appears to be unused"
+        errorLine1="    &lt;string name=&quot;shuttering_default_title&quot;>Service unavailable&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="36"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.shuttering_default_description` appears to be unused"
+        errorLine1="    &lt;string name=&quot;shuttering_default_description&quot;>You’ll be able to use the Help to Save service later.&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="37"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.status_card_default_title` appears to be unused"
+        errorLine1="    &lt;string name=&quot;status_card_default_title&quot;>Join Help To Save&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="40"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.status_card_default_description` appears to be unused"
+        errorLine1="    &lt;string name=&quot;status_card_default_description&quot;>Be rewarded for taking care of your money!&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="41"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.full_screen_notification_default_title` appears to be unused"
+        errorLine1="    &lt;string name=&quot;full_screen_notification_default_title&quot;>It is time to save!&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="44"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.full_screen_notification_default_description` appears to be unused"
+        errorLine1="    &lt;string name=&quot;full_screen_notification_default_description&quot;>Make a deposit in your help to save account to keep your"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="45"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.atoms_attributed_strings` appears to be unused"
+        errorLine1="    &lt;string name=&quot;atoms_attributed_strings&quot;>Attributed Strings&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="70"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.title_body_cta_placeholder_button` appears to be unused"
+        errorLine1="    &lt;string name=&quot;title_body_cta_placeholder_button&quot;>Button&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="107"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.icon_button_example_2_title` appears to be unused"
+        errorLine1="    &lt;string name=&quot;icon_button_example_2_title&quot;>How has my gross pay been calculated?&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="213"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.heading_title` appears to be unused"
+        errorLine1="    &lt;string name=&quot;heading_title&quot;>Title&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="216"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.headline_placeholder_button` appears to be unused"
+        errorLine1="    &lt;string name=&quot;headline_placeholder_button&quot;>Button&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="222"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.text_input_example_1_error` appears to be unused"
+        errorLine1="    &lt;string name=&quot;text_input_example_1_error&quot;>Tell us what you need help with&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="261"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.heading_placeholder_singular` appears to be unused"
+        errorLine1="    &lt;string name=&quot;heading_placeholder_singular&quot;>Placeholder:&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="278"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.heading_example_singular` appears to be unused"
+        errorLine1="    &lt;string name=&quot;heading_example_singular&quot;>Example:&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="280"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.info_message_placeholder_body` appears to be unused"
+        errorLine1="    &lt;string name=&quot;info_message_placeholder_body&quot;>Body&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="314"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.info_message_example_1_button_primary` appears to be unused"
+        errorLine1="    &lt;string name=&quot;info_message_example_1_button_primary&quot;>A primary action&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="318"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.info_message_example_1_button_secondary` appears to be unused"
+        errorLine1="    &lt;string name=&quot;info_message_example_1_button_secondary&quot;>A secondary action&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="319"
+            column="13" />
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/checked_tile.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/checked_tile.png" />
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;card content description&quot;, should use `@string` resource"
+        errorLine1="            android:contentDescription=&quot;card content description&quot;>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_multi_column_row.xml"
+            line="189"
+            column="13" />
+    </issue>
+
+</issues>

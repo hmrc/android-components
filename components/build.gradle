@@ -10,7 +10,8 @@ apply plugin: 'uk.gov.hmrc.spotless'
 apply plugin: 'io.gitlab.arturbosch.detekt'
 
 detekt {
-    config = files("../detekt/config.yml")
+    config = files("detekt/config.yml")
+    baseline = file("detekt/baseline.xml")
 }
 
 version = androidGitVersion.name()
@@ -37,9 +38,14 @@ android {
     }
 
     lintOptions {
-        lintConfig file('../lint/config.xml')
+        lintConfig file('lint/config.xml')
+        baseline file("lint/baseline.xml")
         warningsAsErrors true
         abortOnError true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 

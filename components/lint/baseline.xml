@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.0.1" type="baseline" client="gradle" name="AGP (7.0.1)" variant="all" version="7.0.1">
+
+    <issue
+        id="ResourceType"
+        message="Expected resource of type string">
+        <location
+            file="src/main/java/uk/gov/hmrc/components/sample/colors/ColorListFragment.kt"
+            line="51" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.hmrc_page_background` appears to be unused"
+        errorLine1="    &lt;color name=&quot;hmrc_page_background&quot;>@color/hmrc_grey_3&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="42"
+            column="12" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.components_ic_pound_sign` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/components_ic_pound_sign.xml"
+            line="2"
+            column="1" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.components_select_row_tick` appears to be unused"
+        errorLine1="&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/components_select_row_tick.xml"
+            line="1"
+            column="1" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.components_select_row_tick_checked` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/components_select_row_tick_checked.xml"
+            line="1"
+            column="1" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.components_select_row_tick_unchecked` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/components_select_row_tick_unchecked.xml"
+            line="1"
+            column="1" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.text_button` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;text_button&quot;>16sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="32"
+            column="12" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.text_navigation_bar` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;text_navigation_bar&quot;>10sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="37"
+            column="12" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.notification_card_icon_size` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;notification_card_icon_size&quot;>38dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="44"
+            column="12" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.icon_title_description_icon_size` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;icon_title_description_icon_size&quot;>90dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="47"
+            column="12" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.Theme_Components` appears to be unused"
+        errorLine1="    &lt;style name=&quot;Theme.Components&quot; parent=&quot;@style/Theme.MaterialComponents.DayNight.NoActionBar&quot;>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/styles.xml"
+            line="19"
+            column="12" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.Theme_Components_ActionBar` appears to be unused"
+        errorLine1="    &lt;style name=&quot;Theme.Components.ActionBar&quot; parent=&quot;@style/Theme.MaterialComponents.DayNight.DarkActionBar&quot;>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/styles.xml"
+            line="27"
+            column="12" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.Widget_Components_CardView` appears to be unused"
+        errorLine1="    &lt;style name=&quot;Widget.Components.CardView&quot; parent=&quot;Widget.MaterialComponents.CardView&quot;>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/styles.xml"
+            line="45"
+            column="12" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.ShapeAppearance_Components_CardView` appears to be unused"
+        errorLine1="    &lt;style name=&quot;ShapeAppearance.Components.CardView&quot; parent=&quot;ShapeAppearance.MaterialComponents.MediumComponent&quot;>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/styles.xml"
+            line="49"
+            column="12" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.Text_Button` appears to be unused"
+        errorLine1="    &lt;style name=&quot;Text.Button&quot; parent=&quot;@style/TextAppearance.MaterialComponents.Button&quot;>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/styles.xml"
+            line="98"
+            column="12" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.TabBar` appears to be unused"
+        errorLine1="    &lt;style name=&quot;TabBar&quot;>"
+        errorLine2="           ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/styles.xml"
+            line="142"
+            column="12" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.TabBar_Dark` appears to be unused"
+        errorLine1="    &lt;style name=&quot;TabBar.Dark&quot;>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/styles.xml"
+            line="154"
+            column="12" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.TabTextAppearance` appears to be unused"
+        errorLine1="    &lt;style name=&quot;TabTextAppearance&quot; parent=&quot;TextAppearance.Design.Tab&quot;>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/styles.xml"
+            line="162"
+            column="12" />
+    </issue>
+
+</issues>

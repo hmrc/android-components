@@ -15,7 +15,6 @@
  */
 package uk.gov.hmrc.components.sample.colors
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.ColorRes
@@ -41,7 +40,6 @@ class ColorAdapter(val items: List<ColorListItem>) : RecyclerView.Adapter<ColorA
 
     override fun getItemCount() = items.size
 
-    @SuppressLint("ResourceType")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.binding.apply {

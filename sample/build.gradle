@@ -2,6 +2,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'uk.gov.hmrc.spotless'
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+detekt {
+    config = files("detekt/config.yml")
+    baseline = file("detekt/baseline.xml")
+}
 
 android {
     viewBinding {
@@ -23,8 +29,15 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    lintOptions {
+        lintConfig file('lint/config.xml')
+        baseline file("lint/baseline.xml")
+        warningsAsErrors true
+        abortOnError true
     }
 }
 

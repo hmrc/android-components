@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+* Added Java 11 support
+
 ## [3.17.1] - 2021-08-13
 
 * Updated `hmrc_grey_1` colour to match the GOV palette 

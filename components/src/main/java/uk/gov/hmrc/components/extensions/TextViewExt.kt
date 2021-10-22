@@ -117,7 +117,6 @@ fun TextView.setClickableUrl(
     this.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         Html.fromHtml(text.toString(), Html.FROM_HTML_MODE_LEGACY)
     } else {
-        @Suppress("DEPRECATION")
         Html.fromHtml(text.toString())
     }
 
@@ -151,10 +150,5 @@ class URLSpanNoUnderline(
 }
 
 fun TextView.setStyle(@StyleRes style: Int) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        setTextAppearance(style)
-    } else {
-        @Suppress("DEPRECATION")
-        setTextAppearance(context, style)
-    }
+    setTextAppearance(style)
 }
