@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <Blacklist></Blacklist>
+  <Whitelist>
+    <ID>EmptyFunctionBlock:CurrencyInputFragment.kt$CurrencyInputFragment.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:TextInputFragment.kt$TextInputFragment.&lt;no name provided&gt;${}</ID>
+    <ID>LongMethod:SummaryRowFragment.kt$SummaryRowFragment$onViewCreated</ID>
+    <ID>MagicNumber:MenuPanelRowFragment.kt$MenuPanelRowFragment$100</ID>
+    <ID>MagicNumber:TextInputFragment.kt$TextInputFragment$5</ID>
+    <ID>MaxLineLength:BaseComponentsFragment.kt$BaseComponentsFragment$activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.fragment_container, fragment)?.addToBackStack("")?.commit()</ID>
+    <ID>MaxLineLength:BaseComponentsFragment.kt$ToolbarState$data</ID>
+    <ID>MaxLineLength:MainActivity.kt$BottomNavigationItemModel</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$BottomNavigationItemModel(getString(R.string.title_atoms), R.drawable.ic_atoms) { showFragment(AtomsFragment()) }</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$BottomNavigationItemModel(getString(R.string.title_colors), R.drawable.ic_colors) { showFragment(ColorsFragment()) }</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$BottomNavigationItemModel(getString(R.string.title_molecules), R.drawable.ic_molecules) { showFragment(MoleculesFragment()) }</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$BottomNavigationItemModel(getString(R.string.title_organisms), R.drawable.ic_organisms) { showFragment(OrganismsFragment()) }</ID>
+    <ID>MaxLineLength:MoleculesFragment.kt$MoleculesFragment$ComponentListItem(getString(R.string.molecules_multi_column_row)) { selectFragment(MultiColumnRowFragment()) }</ID>
+    <ID>MaxLineLength:MoleculesFragment.kt$MoleculesFragment$ComponentListItem(getString(R.string.organisms_currency_input)) { selectFragment(CurrencyInputFragment()) }</ID>
+    <ID>MaxLineLength:OrganismsFragment.kt$OrganismsFragment$ComponentListItem(getString(R.string.organisms_headline_card)) { selectFragment(HeadlineCardFragment()) }</ID>
+    <ID>MaxLineLength:OrganismsFragment.kt$OrganismsFragment$ComponentListItem(getString(R.string.organisms_icon_button_card)) { selectFragment(IconButtonCardFragment()) }</ID>
+    <ID>MaxLineLength:OrganismsFragment.kt$OrganismsFragment$ComponentListItem(getString(R.string.organisms_info_message_card)) { selectFragment(InformationMessageCardFragment()) }</ID>
+    <ID>MaxLineLength:OrganismsFragment.kt$OrganismsFragment$ComponentListItem(getString(R.string.organisms_menu_panel_row)) { selectFragment(MenuPanelRowFragment()) }</ID>
+    <ID>MaxLineLength:OrganismsFragment.kt$OrganismsFragment$ComponentListItem(getString(R.string.organisms_separated_view_container)) { selectFragment(SeparatedViewContainerFragment()) }</ID>
+    <ID>MaxLineLength:SummaryRowFragment.kt$SummaryRowFragment$example5Row1.setText(getString(R.string.long_text), getString(R.string.long_text), getString(R.string.long_text))</ID>
+    <ID>MaxLineLength:SummaryRowFragment.kt$SummaryRowFragment$setButtonAccessibilityMessage(getString(R.string.summary_row_example_2_accessibility_title), getString(R.string.summary_row_example_2_accessibility_action))</ID>
+    <ID>MaxLineLength:SwitchRowFragment.kt$SwitchRowFragment$switchRowPlaceholder.setBody(getString(if (it) R.string.switch_row_placeholder_body_on else R.string.switch_row_placeholder_body_off))</ID>
+  </Whitelist>
+</SmellBaseline>
