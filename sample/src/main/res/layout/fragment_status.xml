@@ -18,7 +18,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/SampleScrollView">
 
-    <LinearLayout style="@style/SampleSectionContainer">
+    <LinearLayout
+        android:id="@+id/content_layout"
+        style="@style/SampleSectionContainer">
 
         <TextView style="@style/PlaceholderText" />
 

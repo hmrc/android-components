@@ -15,12 +15,8 @@
  */
 package uk.gov.hmrc.components.sample.organisms
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.swipeUp
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import org.junit.Test
 import uk.gov.hmrc.components.sample.BaseActivityTest
-import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.rules.FontScale
 import uk.gov.hmrc.components.sample.rules.NightMode
 
@@ -40,12 +36,11 @@ class SeparatedViewContainerTest : BaseActivityTest() {
     @Test
     @FontScale(scale = 2f)
     fun fontScaleScreenshots() {
-        onView(withId(R.id.component_list))
-            .perform(swipeUp())
-        fontScaleScreenshots(IDENTIFIER)
+        fontScaleScreenshots(POSITION)
     }
 
     companion object {
+        const val POSITION = 5
         const val IDENTIFIER = "Separated View Container"
     }
 }

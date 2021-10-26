@@ -40,12 +40,11 @@ class MenuPanelRowViewTest : BaseActivityTest() {
     @Test
     @FontScale(scale = 2f)
     fun fontScaleScreenshots() {
-        onView(withId(R.id.component_list))
-            .perform(swipeUp())
-        fontScaleScreenshots(IDENTIFIER)
+        fontScaleScreenshots(POSITION)
     }
 
     companion object {
+        const val POSITION = 7
         const val IDENTIFIER = "Menu Panel Row View"
     }
 }

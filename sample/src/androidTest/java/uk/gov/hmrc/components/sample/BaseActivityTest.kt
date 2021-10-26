@@ -20,12 +20,19 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.launchActivity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
+import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.karumi.shot.ScreenshotTest
+import org.hamcrest.CoreMatchers.allOf
 import org.junit.Before
 import org.junit.Rule
+import uk.gov.hmrc.components.sample.base.ComponentAdapter
 import uk.gov.hmrc.components.sample.rules.FontScaleRule
 import uk.gov.hmrc.components.sample.rules.NightModeRule
+
 
 open class BaseActivityTest : ScreenshotTest {
 
@@ -67,8 +74,52 @@ open class BaseActivityTest : ScreenshotTest {
         )
     }
 
+    open fun screenshots(position: Int) {
+        tap(position)
+        capture(
+            R.id.content_layout
+        )
+    }
+
+    open fun nightModeScreenshots(position: Int) {
+        tap(position)
+        capture(
+            R.id.content_layout,
+            isNightMode = true
+        )
+    }
+
+    open fun fontScaleScreenshots(position: Int) {
+        tap(position)
+        capture(
+            R.id.content_layout,
+            isFontScaled = true
+        )
+    }
+
     private fun tap(identifier: String) {
-        onView(withText(identifier))
-            .perform(click())
+        onView(
+            withText(identifier)
+        ).perform(click())
+    }
+
+    private fun tap(position: Int) {
+        onView(withId(R.id.component_list))
+            .perform(
+                actionOnItemAtPosition<ComponentAdapter.ViewHolder>(
+                    position,
+                    click()
+                )
+            )
+    }
+
+    open fun tapTab(identifier: String) {
+        onView(
+            allOf(
+                withText(identifier),
+                isDescendantOfA(withId(R.id.bottom_navigation)),
+                isDisplayed()
+            )
+        ).perform(click())
     }
 }

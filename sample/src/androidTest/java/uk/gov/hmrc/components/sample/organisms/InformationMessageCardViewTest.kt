@@ -40,12 +40,11 @@ class InformationMessageCardViewTest : BaseActivityTest() {
     @Test
     @FontScale(scale = 2f)
     fun fontScaleScreenshots() {
-        onView(withId(R.id.component_list))
-            .perform(swipeUp())
-        fontScaleScreenshots(IDENTIFIER)
+        fontScaleScreenshots(POSITION)
     }
 
     companion object {
+        const val POSITION = 6
         const val IDENTIFIER = "Information Message Card View"
     }
 }

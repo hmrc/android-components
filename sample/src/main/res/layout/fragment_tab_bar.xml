@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright 2018 HM Revenue & Customs
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,13 +14,14 @@
      limitations under the License.
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/SampleScrollView"
-    android:id="@+id/scroll_view">
+    android:id="@+id/scroll_view"
+    style="@style/SampleScrollView">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/content_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:paddingTop="@dimen/hmrc_spacing_16">
 
         <TextView style="@style/ExampleText" />
