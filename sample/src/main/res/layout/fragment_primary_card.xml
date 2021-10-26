@@ -18,7 +18,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/SampleScrollView">
 
-    <LinearLayout style="@style/SampleSectionContainer">
+    <LinearLayout
+        android:id="@+id/content_layout"
+        style="@style/SampleSectionContainer">
 
         <TextView style="@style/PlaceholderText" />
 
@@ -108,8 +110,8 @@
                 style="@style/Text.Body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/hmrc_spacing_16"
                 android:paddingStart="@dimen/hmrc_spacing_16"
+                android:paddingTop="@dimen/hmrc_spacing_16"
                 android:paddingEnd="@dimen/hmrc_spacing_16"
                 android:text="@string/longest_text" />
 
@@ -127,8 +129,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/hmrc_spacing_16"
-            app:title="@string/longer_text"
-            app:childPadding="false">
+            app:childPadding="false"
+            app:title="@string/longer_text">
 
             <uk.gov.hmrc.components.atom.button.IconButton
                 android:id="@+id/primary_example_5_button"

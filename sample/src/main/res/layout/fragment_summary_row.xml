@@ -18,7 +18,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/SampleScrollView">
 
-    <LinearLayout style="@style/SampleSectionContainer">
+    <LinearLayout
+        android:id="@+id/content_layout"
+        style="@style/SampleSectionContainer">
 
         <TextView style="@style/PlaceholderText" />
 
@@ -43,9 +45,9 @@
             <uk.gov.hmrc.components.container.SeparatedViewContainer
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:showDividers="middle"
                 android:dividerPadding="@dimen/hmrc_spacing_16"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:showDividers="middle">
 
                 <uk.gov.hmrc.components.organism.summary.SummaryRowView
                     android:id="@+id/summary_row_example_1a"
@@ -94,9 +96,9 @@
             <uk.gov.hmrc.components.container.SeparatedViewContainer
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:showDividers="middle"
                 android:dividerPadding="@dimen/hmrc_spacing_16"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:showDividers="middle">
 
                 <uk.gov.hmrc.components.organism.summary.SummaryRowView
                     android:id="@+id/summary_row_example_3"

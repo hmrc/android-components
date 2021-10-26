@@ -18,7 +18,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/SampleScrollView">
 
-    <LinearLayout style="@style/SampleSectionContainer">
+    <LinearLayout
+        android:id="@+id/content_layout"
+        style="@style/SampleSectionContainer">
 
         <TextView style="@style/PlaceholderText" />
 
@@ -149,8 +151,8 @@
                 android:id="@+id/headline_example_5_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:icon="@drawable/ic_info"
-                android:text="@string/headline_example_icon_button" />
+                android:text="@string/headline_example_icon_button"
+                app:icon="@drawable/ic_info" />
 
         </uk.gov.hmrc.components.organism.headline.HeadlineCardView>
 
