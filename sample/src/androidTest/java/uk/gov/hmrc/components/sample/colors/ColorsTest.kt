@@ -13,34 +13,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.components.sample.organisms
+package uk.gov.hmrc.components.sample.colors
 
 import org.junit.Test
 import uk.gov.hmrc.components.sample.BaseActivityTest
+import uk.gov.hmrc.components.sample.R
+import uk.gov.hmrc.components.sample.capture
 import uk.gov.hmrc.components.sample.rules.FontScale
 import uk.gov.hmrc.components.sample.rules.NightMode
 
-class MenuPanelRowViewTest : BaseActivityTest() {
+class ColorsTest : BaseActivityTest() {
 
     @Test
     fun screenshots() {
-        screenshots(IDENTIFIER)
+        tapTab(TAB_IDENTIFIER)
+        capture(
+            R.id.content_layout
+        )
     }
 
     @Test
     @NightMode
     fun nightModeScreenshots() {
-        nightModeScreenshots(IDENTIFIER)
+        tapTab(TAB_IDENTIFIER)
+        capture(
+            R.id.content_layout,
+            isNightMode = true
+        )
     }
 
     @Test
     @FontScale(scale = 2f)
     fun fontScaleScreenshots() {
-        fontScaleScreenshots(POSITION)
+        tapTab(TAB_IDENTIFIER)
+        capture(
+            R.id.content_layout,
+            isFontScaled = true
+        )
     }
 
     companion object {
-        const val POSITION = 7
-        const val IDENTIFIER = "Menu Panel Row View"
+        const val TAB_IDENTIFIER = "Colors"
     }
 }

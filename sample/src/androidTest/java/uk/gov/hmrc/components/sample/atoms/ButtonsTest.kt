@@ -13,34 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.components.sample.organisms
+package uk.gov.hmrc.components.sample.atoms
 
 import org.junit.Test
 import uk.gov.hmrc.components.sample.BaseActivityTest
 import uk.gov.hmrc.components.sample.rules.FontScale
 import uk.gov.hmrc.components.sample.rules.NightMode
 
-class MenuPanelRowViewTest : BaseActivityTest() {
+class ButtonsTest : BaseActivityTest() {
 
     @Test
     fun screenshots() {
+        tapTab(TAB_IDENTIFIER)
         screenshots(IDENTIFIER)
     }
 
     @Test
     @NightMode
     fun nightModeScreenshots() {
+        tapTab(TAB_IDENTIFIER)
         nightModeScreenshots(IDENTIFIER)
     }
 
     @Test
     @FontScale(scale = 2f)
     fun fontScaleScreenshots() {
-        fontScaleScreenshots(POSITION)
+        tapTab(TAB_IDENTIFIER)
+        fontScaleScreenshots(IDENTIFIER)
     }
 
     companion object {
-        const val POSITION = 7
-        const val IDENTIFIER = "Menu Panel Row View"
+        const val IDENTIFIER = "Buttons"
+        const val TAB_IDENTIFIER = "Atoms"
     }
 }

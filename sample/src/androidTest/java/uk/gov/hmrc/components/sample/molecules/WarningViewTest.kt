@@ -15,11 +15,7 @@
  */
 package uk.gov.hmrc.components.sample.molecules
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.swipeUp
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import org.junit.Test
-import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.BaseActivityTest
 import uk.gov.hmrc.components.sample.rules.FontScale
 import uk.gov.hmrc.components.sample.rules.NightMode

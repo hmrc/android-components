@@ -19,6 +19,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/content_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/hmrc_spacing_16"
