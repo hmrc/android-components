@@ -33,7 +33,6 @@ import uk.gov.hmrc.components.sample.base.ComponentAdapter
 import uk.gov.hmrc.components.sample.rules.FontScaleRule
 import uk.gov.hmrc.components.sample.rules.NightModeRule
 
-
 open class BaseActivityTest : ScreenshotTest {
 
     @get:Rule
