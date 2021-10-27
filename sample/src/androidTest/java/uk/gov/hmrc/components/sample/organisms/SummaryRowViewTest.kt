@@ -24,22 +24,22 @@ class SummaryRowViewTest : BaseActivityTest() {
 
     @Test
     fun screenshots() {
-        screenshots(IDENTIFIER)
+        screenshots(POSITION)
     }
 
     @Test
     @NightMode
     fun nightModeScreenshots() {
-        nightModeScreenshots(IDENTIFIER)
+        nightModeScreenshots(POSITION)
     }
 
     @Test
     @FontScale(scale = 2f)
     fun fontScaleScreenshots() {
-        fontScaleScreenshots(IDENTIFIER)
+        fontScaleScreenshots(POSITION)
     }
 
     companion object {
-        const val IDENTIFIER = "Summary Row View"
+        const val POSITION = 4
     }
 }

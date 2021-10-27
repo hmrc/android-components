@@ -24,13 +24,13 @@ class MenuPanelRowViewTest : BaseActivityTest() {
 
     @Test
     fun screenshots() {
-        screenshots(IDENTIFIER)
+        screenshots(POSITION)
     }
 
     @Test
     @NightMode
     fun nightModeScreenshots() {
-        nightModeScreenshots(IDENTIFIER)
+        nightModeScreenshots(POSITION)
     }
 
     @Test
