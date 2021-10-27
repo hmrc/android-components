@@ -9,7 +9,7 @@ ext {
     screenShotsRecordedBaseDir =
             System.env.VDTESTING_DOWNLOADED_FILES_DIR != null ?
                     "${System.env.VDTESTING_DOWNLOADED_FILES_DIR}" :
-                    getArgument("screenShotsRecordedBaseDir", "${project.buildDir}/reports/shot/record/images/recorded")
+                    getArgument("screenShotsRecordedBaseDir", "${project.buildDir}/reports/shot/verification/images")
     screenShotsVerificationBaseDir =
             System.env.SCREENSHOTS_VERIFICATION_BASE_DIR != null ?
                     System.env.SCREENSHOTS_VERIFICATION_BASE_DIR :
@@ -17,7 +17,9 @@ ext {
 }
 
 shot {
+    tolerance = 0.05
     runInstrumentation = Boolean.valueOf(getArgument("runInstrumentation", "true"))
+    showOnlyFailingTestsInReports = true
 }
 
 project.afterEvaluate {
@@ -28,20 +30,22 @@ project.afterEvaluate {
             println("screenShotsVerificationBaseDir=${screenShotsVerificationBaseDir}")
         }
 
-        fileTree(dir: "${screenShotsRecordedBaseDir}")
-                .filter { f ->
-                    f.name.contains("_screenshots-default_")
-                }.each { foundFile ->
-            def nameWithoutPrefix = foundFile.name.split("_screenshots-default_")[1]
-
-            copy {
-                from "${foundFile.path}"
-                into "${screenShotsVerificationBaseDir}"
-                rename { String fileName ->
-                    fileName.replace(foundFile.name, nameWithoutPrefix)
-                }
-            }
-        }
+//        fileTree(dir: "${screenShotsRecordedBaseDir}")
+//                .filter { f ->
+//                    println("&&&&&&&&&&&")
+//                    println(f.name)
+//                    !f.name.contains("diff_")
+//                }.each { foundFile ->
+////            def nameWithoutPrefix = foundFile.name.split("_screenshots-default_")[1]
+////            println(foundFile.name)
+//            copy {
+//                from "${foundFile.path}"
+//                into "${screenShotsVerificationBaseDir}"
+////                rename { String fileName ->
+////                    fileName.replace(foundFile.name, nameWithoutPrefix)
+////                }
+//            }
+//        }
     }
 
     task unzipBundle(type: Copy) {
