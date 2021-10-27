@@ -13,7 +13,7 @@ ext {
     screenShotsVerificationBaseDir =
             System.env.SCREENSHOTS_VERIFICATION_BASE_DIR != null ?
                     System.env.SCREENSHOTS_VERIFICATION_BASE_DIR :
-                    getArgument("screenShotsVerificationBaseDir", "${projectDir}/sample/screenshots/debug/screenshots-default")
+                    getArgument("screenShotsVerificationBaseDir", "${projectDir}/screenshots/debug/screenshots-default")
 }
 
 shot {
