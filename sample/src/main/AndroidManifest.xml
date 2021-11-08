@@ -16,7 +16,8 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="uk.gov.hmrc.components.sample">
+    package="uk.gov.hmrc.components.sample"
+    android:sharedUserId="uk.gov.hmrc.components.sample.uid">
 
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -33,7 +34,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/SampleTheme"
-        tools:ignore="AllowBackup">
+        tools:ignore="AllowBackup"
+        android:requestLegacyExternalStorage="true">
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
