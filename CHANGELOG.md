@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+* Updated `StatusCardView` to improve support for vectors than are more than 100dp wide
+
 ## [3.18.0] - 2021-10-22
 
 * Added Java 11 support
