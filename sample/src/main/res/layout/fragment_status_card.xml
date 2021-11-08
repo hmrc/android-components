@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/hmrc_spacing_16"
             app:body="@string/status_card_placeholder_body"
-            app:icon="@drawable/ic_maintenance"
+            app:icon="@drawable/ic_pay_by_bank"
             app:iconTintColor="@color/hmrc_grey_1"
             app:title="@string/status_card_placeholder_title" />
 
