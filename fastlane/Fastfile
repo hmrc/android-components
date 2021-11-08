@@ -178,10 +178,7 @@ platform :android do
   end
 
   desc "Runs the screenshot comparison"
-  lane :screenshot_diff do |options|
-    automated_test_emulator_run(
-      AVD_setup_path: "fastlane/avd_setup/Nexus6P.json",
-      shell_task: "./gradlew clean executeScreenshotTests"
-    )
+  lane :screenshot_diff do
+    shell_task: "./gradlew clean executeScreenshotTests"
   end
 end
