@@ -50,14 +50,14 @@ open class BaseActivityTest : ScreenshotTest {
         scenario.onActivity { rootView = it.findViewById(R.id.container) }
     }
 
-    open fun screenshots(identifier: String) {
+    fun screenshots(identifier: String) {
         tap(identifier)
         capture(
             R.id.content_layout
         )
     }
 
-    open fun nightModeScreenshots(identifier: String) {
+    fun nightModeScreenshots(identifier: String) {
         tap(identifier)
         capture(
             R.id.content_layout,
@@ -65,7 +65,7 @@ open class BaseActivityTest : ScreenshotTest {
         )
     }
 
-    open fun fontScaleScreenshots(identifier: String) {
+    fun fontScaleScreenshots(identifier: String) {
         tap(identifier)
         capture(
             R.id.content_layout,
@@ -73,14 +73,14 @@ open class BaseActivityTest : ScreenshotTest {
         )
     }
 
-    open fun screenshots(position: Int) {
+    fun screenshots(position: Int) {
         tap(position)
         capture(
             R.id.content_layout
         )
     }
 
-    open fun nightModeScreenshots(position: Int) {
+    fun nightModeScreenshots(position: Int) {
         tap(position)
         capture(
             R.id.content_layout,
@@ -88,7 +88,7 @@ open class BaseActivityTest : ScreenshotTest {
         )
     }
 
-    open fun fontScaleScreenshots(position: Int) {
+    fun fontScaleScreenshots(position: Int) {
         tap(position)
         capture(
             R.id.content_layout,
