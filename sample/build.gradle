@@ -4,33 +4,46 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'uk.gov.hmrc.spotless'
 apply plugin: 'io.gitlab.arturbosch.detekt'
 
+apply from: "./screenshots.gradle"
+
 detekt {
     config = files("detekt/config.yml")
     baseline = file("detekt/baseline.xml")
 }
 
 android {
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion build_tools_version
+
     viewBinding {
         enabled = true
     }
-    compileSdkVersion compile_sdk_version
+
     defaultConfig {
         applicationId "uk.gov.hmrc.components.sample"
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        testInstrumentationRunner "com.karumi.shot.ShotTestRunner"
+        testApplicationId "uk.gov.hmrc.components.sample.test"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = '11'
     }
 
     lintOptions {
@@ -38,6 +51,14 @@ android {
         baseline file("lint/baseline.xml")
         warningsAsErrors true
         abortOnError true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*'
+    }
+
+    testOptions {
+        animationsDisabled true
     }
 }
 
@@ -57,4 +78,11 @@ dependencies {
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$android_x_espresso_contrib_version"
+    androidTestImplementation "androidx.test.ext:junit:$android_x_junit_version"
+    androidTestImplementation "androidx.test:runner:$android_x_runner_version"
+    androidTestImplementation "androidx.test:core-ktx:$core_ktx_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$android_x_espresso_core_version"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:$android_x_uiautomator_version"
 }

@@ -15,12 +15,14 @@
      limitations under the License.
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_view"
     style="@style/SampleScrollView">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/content_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:paddingTop="@dimen/hmrc_spacing_16">
 
         <TextView style="@style/ExampleText" />

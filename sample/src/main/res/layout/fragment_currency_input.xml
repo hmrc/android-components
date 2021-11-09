@@ -18,7 +18,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/SampleScrollView">
 
-    <LinearLayout style="@style/SampleSectionContainer">
+    <LinearLayout
+        android:id="@+id/content_layout"
+        style="@style/SampleSectionContainer">
 
         <TextView style="@style/PlaceholderText" />
 
@@ -65,8 +67,8 @@
                     android:layout_marginStart="@dimen/hmrc_spacing_16"
                     android:layout_marginTop="@dimen/hmrc_spacing_16"
                     android:layout_marginEnd="@dimen/hmrc_spacing_16"
-                    app:decimalsEnabled="false"
                     android:contentDescription="@string/currency_input_example_2_hint"
+                    app:decimalsEnabled="false"
                     app:hintText="@string/currency_input_example_2_hint" />
 
                 <uk.gov.hmrc.components.molecule.input.CurrencyInputView

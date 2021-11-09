@@ -18,7 +18,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/SampleScrollView">
 
-    <LinearLayout style="@style/SampleSectionContainer">
+    <LinearLayout
+        android:id="@+id/content_layout"
+        style="@style/SampleSectionContainer">
 
         <TextView style="@style/PlaceholderText" />
 
@@ -47,8 +49,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/hmrc_spacing_16"
-                android:showDividers="beginning|middle|end"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end">
 
                 <TextView
                     style="@style/Text.H5"
@@ -94,16 +96,16 @@
                     android:id="@+id/switch_row_example_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:checked="false"
                     app:body="@string/switch_row_example_1_body"
+                    app:checked="false"
                     app:title="@string/switch_row_example_1_title" />
 
                 <uk.gov.hmrc.components.molecule.item.SwitchRowView
                     android:id="@+id/switch_row_example_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:checked="true"
                     app:body="@string/switch_row_example_2_body"
+                    app:checked="true"
                     app:title="@string/switch_row_example_2_title" />
 
             </uk.gov.hmrc.components.container.SeparatedViewContainer>
@@ -121,8 +123,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/hmrc_spacing_16"
-                android:showDividers="beginning"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:showDividers="beginning">
 
                 <TextView
                     style="@style/Text.H5"
@@ -160,8 +162,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/hmrc_spacing_16"
-                android:showDividers="middle"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:showDividers="middle">
 
                 <TextView
                     style="@style/Text.H5"
@@ -199,8 +201,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/hmrc_spacing_16"
-                android:showDividers="end"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:showDividers="end">
 
                 <TextView
                     style="@style/Text.H5"

@@ -24,6 +24,7 @@
     android:layout_marginBottom="@dimen/hmrc_spacing_16">
 
     <LinearLayout
+        android:id="@+id/content_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
