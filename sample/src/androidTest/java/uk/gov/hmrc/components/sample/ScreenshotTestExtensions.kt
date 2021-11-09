@@ -87,7 +87,6 @@ private val RecyclerView.contentHeight: Int
         val recyclerWidth = width
         InstrumentationRegistry.getInstrumentation()
             .runOnMainSync {
-
                 for (i in 0 until size) {
                     val holder = adapter.createViewHolder(
                         this,
