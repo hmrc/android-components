@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
 }
 
+apply plugin: 'uk.gov.hmrc.spotless'
 apply plugin: 'io.gitlab.arturbosch.detekt'
 
 detekt {
