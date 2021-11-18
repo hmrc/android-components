@@ -12,12 +12,12 @@ detekt {
 }
 
 android {
-    compileSdk 30
+    compileSdk 31
 
     defaultConfig {
         applicationId "uk.gov.hmrc.components.sample.compose"
         minSdk 23
-        targetSdk 30
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -68,6 +68,8 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.navigation:navigation-compose:2.4.0-beta02"
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$android_x_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$android_x_espresso_core_version"
