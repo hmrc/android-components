@@ -41,6 +41,11 @@ class SummaryRowFragment : BaseComponentsFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupPlaceholderRow()
+        setupExampleRows()
+    }
+
+    private fun setupPlaceholderRow() {
         val placeholderRow = MultiColumnRowView(context!!)
         placeholderRow.setText(
             getString(R.string.summary_row_placeholder_row1_text1),
@@ -50,7 +55,9 @@ class SummaryRowFragment : BaseComponentsFragment() {
             setRows(arrayListOf(placeholderRow))
             setOnClickListener { onCtaPressed() }
         }
+    }
 
+    private fun setupExampleRows() {
         val example1aRow1 = MultiColumnRowView(context!!)
         example1aRow1.setText(
             getString(R.string.summary_row_example_1a_row1_text1),

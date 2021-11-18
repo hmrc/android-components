@@ -3,6 +3,13 @@ plugins {
     id 'kotlin-android'
 }
 
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+detekt {
+    config = files("detekt/config.yml")
+    buildUponDefaultConfig = true
+}
+
 android {
     compileSdk 30
 
