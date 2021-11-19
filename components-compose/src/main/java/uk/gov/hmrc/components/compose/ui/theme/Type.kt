@@ -1,4 +1,4 @@
-package uk.gov.hmrc.components.sample.compose.ui.theme
+package uk.gov.hmrc.components.compose.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
