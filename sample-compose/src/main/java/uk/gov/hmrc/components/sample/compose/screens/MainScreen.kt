@@ -2,6 +2,7 @@ package uk.gov.hmrc.components.sample.compose.screens
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -20,6 +21,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.sample.compose.R
 
 @Composable
@@ -48,12 +50,19 @@ fun MainScreen() {
 
 @Composable
 fun ComponentsBottomNavigation(navController: NavHostController, navigationItems: List<NavigationScreen>) {
-    BottomNavigation {
+    BottomNavigation(backgroundColor = HmrcTheme.colors.hmrcWhiteBackground) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
         navigationItems.forEach { screen ->
             BottomNavigationItem(
-                icon = { Icon(painter = painterResource(id = screen.icon), contentDescription = null) },
+                unselectedContentColor = HmrcTheme.colors.hmrcGrey1,
+                selectedContentColor = HmrcTheme.colors.hmrcBlue,
+                icon = {
+                    Icon(
+                        painter = painterResource(id = screen.icon),
+                        contentDescription = null,
+                    )
+                },
                 label = { Text(stringResource(screen.resourceId)) },
                 selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
                 onClick = {
