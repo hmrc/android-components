@@ -37,8 +37,8 @@ plugins {
 ext {
     // SDK and tools
     min_sdk_version = 23
-    target_sdk_version = 30
-    compile_sdk_version = 30
+    target_sdk_version = 31
+    compile_sdk_version = 31
     build_tools_version = "30.0.3"
 
     // App dependencies
