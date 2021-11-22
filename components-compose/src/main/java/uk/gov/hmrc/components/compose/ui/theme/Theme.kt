@@ -151,6 +151,9 @@ class HmrcColors(
     var isDark by mutableStateOf(isDark)
         private set
 
+    val hmrcAlwaysBlack: Color = HmrcBlack
+    val hmrcAlwaysWhite: Color = HmrcWhite
+
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite

@@ -32,7 +32,7 @@ fun ComponentsTopBar(navController: NavHostController) {
     val title = navBackStackEntry?.arguments?.getInt(NAV_ARG_TOP_APP_BAR_TITLE)
     TopAppBar(
         title = { Text(text = title?.let { stringResource(id = title) } ?: "") },
-        backgroundColor = HmrcTheme.colors.hmrcBlack,
-        contentColor = HmrcTheme.colors.hmrcWhite
+        backgroundColor = HmrcTheme.colors.hmrcAlwaysBlack,
+        contentColor = HmrcTheme.colors.hmrcAlwaysWhite
     )
 }
