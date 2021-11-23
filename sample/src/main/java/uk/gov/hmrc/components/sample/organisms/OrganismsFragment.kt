@@ -26,14 +26,14 @@ class OrganismsFragment : ComponentListFragment() {
 
     override fun provideItems(): List<ComponentListItem> {
         return listOf(
-                ComponentListItem(getString(R.string.organisms_headline_card)) { selectFragment(HeadlineCardFragment()) },
-                ComponentListItem(getString(R.string.organisms_primary_card)) { selectFragment(PrimaryCardFragment()) },
-                ComponentListItem(getString(R.string.organisms_status_card)) { selectFragment(StatusCardFragment()) },
-                ComponentListItem(getString(R.string.organisms_icon_button_card)) { selectFragment(IconButtonCardFragment()) },
-                ComponentListItem(getString(R.string.organisms_summary_row)) { selectFragment(SummaryRowFragment()) },
-                ComponentListItem(getString(R.string.organisms_separated_view_container)) { selectFragment(SeparatedViewContainerFragment()) },
-                ComponentListItem(getString(R.string.organisms_info_message_card)) { selectFragment(InformationMessageCardFragment()) },
-                ComponentListItem(getString(R.string.organisms_menu_panel_row)) { selectFragment(MenuPanelRowFragment()) }
+            ComponentListItem(getString(R.string.organisms_headline_card)) { selectFragment(HeadlineCardFragment()) },
+            ComponentListItem(getString(R.string.organisms_primary_card)) { selectFragment(PrimaryCardFragment()) },
+            ComponentListItem(getString(R.string.organisms_status_card)) { selectFragment(StatusCardFragment()) },
+            ComponentListItem(getString(R.string.organisms_icon_button_card)) { selectFragment(IconButtonCardFragment()) },
+            ComponentListItem(getString(R.string.organisms_summary_row)) { selectFragment(SummaryRowFragment()) },
+            ComponentListItem(getString(R.string.organisms_separated_view_container)) { selectFragment(SeparatedViewContainerFragment()) },
+            ComponentListItem(getString(R.string.organisms_info_message_card)) { selectFragment(InformationMessageCardFragment()) },
+            ComponentListItem(getString(R.string.organisms_menu_panel_row)) { selectFragment(MenuPanelRowFragment()) }
         )
     }
 }

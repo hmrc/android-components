@@ -45,9 +45,11 @@ class ColorAdapter(val items: List<ColorListItem>) : RecyclerView.Adapter<ColorA
         holder.binding.apply {
             colorSwatch.setBackgroundColor(ContextCompat.getColor(root.context, item.color))
 
-            val colorNameWithHex = root.context.getString(R.string.color_name_with_hex,
-                    item.title,
-                    root.context.getString(item.color).toUpperCase())
+            val colorNameWithHex = root.context.getString(
+                R.string.color_name_with_hex,
+                item.title,
+                root.context.getString(item.color).toUpperCase()
+            )
             colorName.text = colorNameWithHex
         }
     }

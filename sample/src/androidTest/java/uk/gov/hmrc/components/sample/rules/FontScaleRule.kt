@@ -38,10 +38,12 @@ class FontScaleRule : TestRule {
 
             if (!Settings.System.canWrite(targetContext)) {
                 // we need to enable access to Settings first
-                targetContext.startActivity(Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS).apply {
-                    data = "package:${targetContext.packageName}".toUri()
-                    flags = FLAG_ACTIVITY_NEW_TASK
-                })
+                targetContext.startActivity(
+                    Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS).apply {
+                        data = "package:${targetContext.packageName}".toUri()
+                        flags = FLAG_ACTIVITY_NEW_TASK
+                    }
+                )
 
                 UiDevice.getInstance(instrumentation)
                     .run {

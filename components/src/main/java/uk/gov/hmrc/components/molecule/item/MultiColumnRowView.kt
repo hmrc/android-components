@@ -35,7 +35,7 @@ class MultiColumnRowView @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyle, defStyleRes) {
 
     private val binding: ComponentMultiColumnRowBinding =
-            ComponentMultiColumnRowBinding.inflate(LayoutInflater.from(context), this)
+        ComponentMultiColumnRowBinding.inflate(LayoutInflater.from(context), this)
 
     // show columns as rows if font size is scaled
     private val isMultiRow: Boolean
@@ -105,9 +105,9 @@ class MultiColumnRowView @JvmOverloads constructor(
         val text1Weight = if (isText2Visible && !isText3Visible) 2.0f else 1.0f
 
         return LayoutParams(
-                getTextLayoutWidth(),
-                LayoutParams.WRAP_CONTENT,
-                text1Weight
+            getTextLayoutWidth(),
+            LayoutParams.WRAP_CONTENT,
+            text1Weight
         )
     }
 
@@ -116,9 +116,9 @@ class MultiColumnRowView @JvmOverloads constructor(
         val textLayoutHeight = if (isVisible) LayoutParams.WRAP_CONTENT else 0
 
         return LayoutParams(
-                getTextLayoutWidth(),
-                textLayoutHeight,
-                textWeight
+            getTextLayoutWidth(),
+            textLayoutHeight,
+            textWeight
         )
     }
 

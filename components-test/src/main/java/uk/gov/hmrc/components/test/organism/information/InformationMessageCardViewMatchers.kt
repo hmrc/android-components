@@ -58,8 +58,10 @@ object InformationMessageCardViewMatchers {
             }
 
             override fun matchesSafely(item: InformationMessageCardView?): Boolean {
-                val button = (item?.findViewById<LinearLayout>(R.id.headline_buttons_container)
-                    ?.getChildAt(position) as? SecondaryButton)
+                val button = (
+                    item?.findViewById<LinearLayout>(R.id.headline_buttons_container)
+                        ?.getChildAt(position) as? SecondaryButton
+                    )
                 return button?.text == text
             }
         }

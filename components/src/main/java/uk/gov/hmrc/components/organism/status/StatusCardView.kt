@@ -34,7 +34,7 @@ open class StatusCardView @JvmOverloads constructor(
 ) : DynamicCardView(context, attrs), PaddedComponent {
 
     private val binding: ComponentStatusCardBinding =
-            ComponentStatusCardBinding.inflate(LayoutInflater.from(context), this, true)
+        ComponentStatusCardBinding.inflate(LayoutInflater.from(context), this, true)
     override val childContainer: LinearLayout = binding.layout
 
     init {

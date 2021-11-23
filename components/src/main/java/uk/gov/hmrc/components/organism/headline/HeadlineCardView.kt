@@ -33,7 +33,7 @@ open class HeadlineCardView @JvmOverloads constructor(
 ) : DynamicCardView(context, attrs), PaddedComponent {
 
     private val binding: ComponentHeadlineCardBinding =
-            ComponentHeadlineCardBinding.inflate(LayoutInflater.from(context), this, true)
+        ComponentHeadlineCardBinding.inflate(LayoutInflater.from(context), this, true)
     override val childContainer: LinearLayout = binding.headlineLayout
 
     init {
@@ -41,7 +41,7 @@ open class HeadlineCardView @JvmOverloads constructor(
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.HeadlineCardView, 0, 0)
             val headline = typedArray.getString(R.styleable.HeadlineCardView_headline)
             val headlineContentDescription = typedArray.getString(
-                    R.styleable.HeadlineCardView_headlineContentDescription
+                R.styleable.HeadlineCardView_headlineContentDescription
             )
             val title = typedArray.getString(R.styleable.HeadlineCardView_title)
             val titleContentDescription = typedArray.getString(R.styleable.HeadlineCardView_titleContentDescription)

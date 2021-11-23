@@ -29,7 +29,7 @@ abstract class TitleBodyView @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     protected val binding: ComponentTitleBodyBinding =
-            ComponentTitleBodyBinding.inflate(LayoutInflater.from(context), this)
+        ComponentTitleBodyBinding.inflate(LayoutInflater.from(context), this)
 
     init {
         attrs?.let {

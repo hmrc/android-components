@@ -33,7 +33,7 @@ class SwitchRowView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyle) {
 
     private val binding: ComponentSwitchViewRowBinding =
-            ComponentSwitchViewRowBinding.inflate(LayoutInflater.from(context), this)
+        ComponentSwitchViewRowBinding.inflate(LayoutInflater.from(context), this)
 
     init {
         attrs?.let {

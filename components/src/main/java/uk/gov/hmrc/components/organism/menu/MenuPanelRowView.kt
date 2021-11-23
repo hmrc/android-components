@@ -38,7 +38,7 @@ class MenuPanelRowView @JvmOverloads constructor(
 ) : MaterialCardView(context, attrs) {
 
     private val binding: ComponentMenuPanelRowBinding =
-            ComponentMenuPanelRowBinding.inflate(LayoutInflater.from(context), this, true)
+        ComponentMenuPanelRowBinding.inflate(LayoutInflater.from(context), this, true)
 
     private val isLargeText: Boolean
         get() = resources.configuration.fontScale > MAX_SINGLE_LINE_FONT_SCALE
@@ -61,7 +61,7 @@ class MenuPanelRowView @JvmOverloads constructor(
 
     private fun setDefaultContentDescription(title: CharSequence, body: CharSequence) {
         binding.layout.contentDescription =
-                context.getString(R.string.menu_panel_button_no_notification_content_description, title, body)
+            context.getString(R.string.menu_panel_button_no_notification_content_description, title, body)
     }
 
     private fun setNotificationContentDescription(countToDisplay: Int) {
@@ -70,21 +70,27 @@ class MenuPanelRowView @JvmOverloads constructor(
         binding.layout.apply {
             contentDescription = when (countToDisplay) {
                 0 -> {
-                    context.getString(R.string.menu_panel_button_circle_notification_content_description,
-                            title,
-                            body)
+                    context.getString(
+                        R.string.menu_panel_button_circle_notification_content_description,
+                        title,
+                        body
+                    )
                 }
                 1 -> {
-                    context.getString(R.string.menu_panel_button_one_notification_content_description,
-                            title,
-                            countToDisplay.toString(),
-                            body)
+                    context.getString(
+                        R.string.menu_panel_button_one_notification_content_description,
+                        title,
+                        countToDisplay.toString(),
+                        body
+                    )
                 }
                 else -> {
-                    context.getString(R.string.menu_panel_button_multiple_notifications_content_description,
-                            title,
-                            countToDisplay.toString(),
-                            body)
+                    context.getString(
+                        R.string.menu_panel_button_multiple_notifications_content_description,
+                        title,
+                        countToDisplay.toString(),
+                        body
+                    )
                 }
             }
         }

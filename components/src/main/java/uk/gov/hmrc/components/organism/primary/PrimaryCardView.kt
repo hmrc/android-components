@@ -31,7 +31,7 @@ open class PrimaryCardView @JvmOverloads constructor(
 ) : DynamicCardView(context, attrs), PaddedComponent {
 
     private val binding: ComponentPrimaryCardBinding =
-            ComponentPrimaryCardBinding.inflate(LayoutInflater.from(context), this, true)
+        ComponentPrimaryCardBinding.inflate(LayoutInflater.from(context), this, true)
     override val childContainer: LinearLayout = binding.layout
 
     init {
