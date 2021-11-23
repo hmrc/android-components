@@ -16,6 +16,19 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* Updated the following:
+	- targetSdk/compileSdk -> 31
+	- kotlin version -> 1.5.31
+	- hmrc spotless plugin -> 1.1.1
+	- detekt -> 1.18.1
+	- AndroidX app compat -> 1.3.1
+	- Core ktx -> 1.7.0
+	- junit -> 4.13.2
+	- AndroidX junit -> 1.1.3
+	- AndroidX espresso core -> 3.4.0
+
 ## [3.19.0] - 2021-11-08
 
 * Updated `StatusCardView` to improve support for vectors than are more than 100dp wide

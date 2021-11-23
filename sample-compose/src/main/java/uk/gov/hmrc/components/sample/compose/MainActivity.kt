@@ -30,7 +30,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             HmrcTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(color = HmrcTheme.colors.hmrcWhiteBackground) {
                     MainScreen()
                 }

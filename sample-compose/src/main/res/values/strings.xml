@@ -42,9 +42,7 @@
 
     <!-- Full Screen Notification Sample -->
     <string name="full_screen_notification_default_title">It is time to save!</string>
-    <string name="full_screen_notification_default_description">Make a deposit in your help to save account to keep your
-		payment streak going
-	</string>
+    <string name="full_screen_notification_default_description">Make a deposit in your help to save account to keep your payment streak going</string>
 
     <!-- Color Sample -->
     <string name="color_name_with_hex">%s (%s)</string>
@@ -224,9 +222,7 @@
     <string name="headline_example_title">Your PAYE income tax estimate</string>
     <string name="headline_example_headline">£12,345</string>
     <string name="headline_example_headline_description">This is a description of the headline</string>
-    <string name="headline_example_body">This is the income tax we think you will have paid by the end of this
-		tax year.
-	</string>
+    <string name="headline_example_body">This is the income tax we think you will have paid by the end of this tax year.</string>
     <string name="headline_example_button">View tax estimate</string>
     <string name="headline_example_icon_button">How is this calculated?</string>
     <string name="headline_example_chevron_content_description">Income tax estimate. Button. Double tap to view these details in your web browser.</string>
@@ -241,9 +237,7 @@
     <string name="h5_placeholder_title">Title</string>
     <string name="h5_placeholder_body">Body</string>
     <string name="h5_example_title">You don\'t have any money in this account.</string>
-    <string name="h5_example_body">Your closing balance of £240 was transferred to your UK bank account on 28
-		February 2020.
-	</string>
+    <string name="h5_example_body">Your closing balance of £240 was transferred to your UK bank account on 28 February 2020.</string>
 
     <!-- Bold -->
     <string name="bold_placeholder_title">Title</string>
