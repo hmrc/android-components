@@ -19,15 +19,15 @@ Allowed headings:
 ### Changed
 
 * Updated the following:
-	- targetSdk/compileSdk -> 31
-	- kotlin version -> 1.5.31
-	- hmrc spotless plugin -> 1.1.1
-	- detekt -> 1.18.1
-	- AndroidX app compat -> 1.3.1
-	- Core ktx -> 1.7.0
-	- junit -> 4.13.2
-	- AndroidX junit -> 1.1.3
-	- AndroidX espresso core -> 3.4.0
+	- targetSdk/compileSdk: 30 -> 31
+	- kotlin version: 1.5.20 -> 1.5.31
+	- hmrc spotless plugin: 1.0.0 -> 1.1.1
+	- detekt: 1.6.0 -> 1.18.1
+	- AndroidX app compat: 1.2.0 -> 1.4.0
+	- Core ktx: 1.3.0 -> 1.7.0
+	- junit: 4.13 -> 4.13.2
+	- AndroidX junit: 1.1.2 -> 1.1.3
+	- AndroidX espresso core: 3.3.0 -> 3.4.0
 
 ## [3.19.0] - 2021-11-08
 
