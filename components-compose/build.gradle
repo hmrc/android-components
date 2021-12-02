@@ -1,3 +1,6 @@
+import uk.gov.hmrc.components.buildsrc.ComposeDependencies.Libs
+import uk.gov.hmrc.components.buildsrc.ComposeDependencies.Versions
+
 plugins {
     id 'maven-publish'
 }
@@ -14,11 +17,11 @@ detekt {
 }
 
 android {
-    compileSdk compile_sdk_version
+    compileSdk Versions.compileSdk
 
     defaultConfig {
-        minSdk min_sdk_version
-        targetSdk target_sdk_version
+        minSdk Versions.minSdk
+        targetSdk Versions.targetSdk
         versionCode 1
         versionName "1.0"
 
@@ -45,25 +48,21 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion Versions.compose
     }
 }
 
 dependencies {
+    implementation Libs.androidX_coreKtx
+    implementation Libs.androidX_compose_ui
+    implementation Libs.androidX_compose_tooling
+    implementation Libs.androidX_compose_foundation
+    implementation Libs.androidX_compose_material
 
-    implementation "androidx.core:core-ktx:$core_ktx_version"
-    implementation "androidx.compose.ui:ui:$compose_version"
-    // Tooling support (Previews, etc.)
-    implementation "androidx.compose.ui:ui-tooling:$compose_version"
-    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-    implementation "androidx.compose.foundation:foundation:$compose_version"
-    // Material Design
-    implementation "androidx.compose.material:material:$compose_version"
-
-    testImplementation "junit:junit:$junit_version"
+    testImplementation Libs.junit
 
     // UI Tests
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    androidTestImplementation "androidx.test.ext:junit:$android_x_junit_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$android_x_espresso_core_version"
+    androidTestImplementation Libs.androidX_compose_uiTest
+    androidTestImplementation Libs.androidX_test_ext_junit
+    androidTestImplementation Libs.androidX_test_espressoCore
 }

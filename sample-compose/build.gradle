@@ -1,3 +1,6 @@
+import uk.gov.hmrc.components.buildsrc.ComposeDependencies.Libs
+import uk.gov.hmrc.components.buildsrc.ComposeDependencies.Versions
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -12,12 +15,12 @@ detekt {
 }
 
 android {
-    compileSdk compile_sdk_version
+    compileSdk Versions.compileSdk
 
     defaultConfig {
         applicationId "uk.gov.hmrc.components.sample.compose"
-        minSdk min_sdk_version
-        targetSdk target_sdk_version
+        minSdk Versions.minSdk
+        targetSdk Versions.targetSdk
         versionCode 1
         versionName "1.0"
 
@@ -49,8 +52,8 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.21'
+        kotlinCompilerExtensionVersion Versions.compose
+        kotlinCompilerVersion Versions.kotlinComposeCompiler
     }
 
     packagingOptions {
@@ -63,21 +66,21 @@ android {
 dependencies {
     implementation project(path: ':components-compose')
 
-    implementation "androidx.core:core-ktx:$core_ktx_version"
-    implementation "androidx.appcompat:appcompat:$android_x_app_compat_version"
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$android_x_lifecycle_runtime_ktx"
-    implementation "androidx.activity:activity-compose:$android_x_activity_compose"
-    implementation "com.google.android.material:material:$compose_material_version"
-    implementation "androidx.navigation:navigation-compose:$android_x_navigation_compose"
+    implementation Libs.androidX_coreKtx
+    implementation Libs.androidX_appCompat
+    implementation Libs.androidX_compose_ui
+    implementation Libs.androidX_compose_material
+    implementation Libs.androidX_compose_tooling
+    implementation Libs.androidX_lifecycle_runtimeKtx
+    implementation Libs.androidX_activity_activityCompose
+    implementation Libs.material
+    implementation Libs.androidX_navigation_navigationCompose
 
-    testImplementation "junit:junit:$junit_version"
+    testImplementation Libs.junit
 
-    androidTestImplementation "androidx.test.ext:junit:$android_x_junit_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$android_x_espresso_core_version"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    androidTestImplementation Libs.androidX_test_ext_junit
+    androidTestImplementation Libs.androidX_test_espressoCore
+    androidTestImplementation Libs.androidX_compose_uiTest
 
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation Libs.androidX_compose_tooling
 }
