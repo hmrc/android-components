@@ -32,7 +32,7 @@ open class InsetView @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyle, defStyleRes), PaddedComponent {
 
     private val binding: ComponentInsetBinding =
-            ComponentInsetBinding.inflate(LayoutInflater.from(context), this)
+        ComponentInsetBinding.inflate(LayoutInflater.from(context), this)
 
     init {
         attrs?.let { it ->

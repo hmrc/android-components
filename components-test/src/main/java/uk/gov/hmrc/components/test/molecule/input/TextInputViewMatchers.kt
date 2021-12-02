@@ -41,7 +41,7 @@ object TextInputViewMatchers {
         return object : BoundedMatcher<View, TextInputView>(TextInputView::class.java) {
             override fun describeTo(description: Description?) {
                 description?.appendText(
-                        "Error text = ${InstrumentationRegistry.getInstrumentation().targetContext.getString(resId)}"
+                    "Error text = ${InstrumentationRegistry.getInstrumentation().targetContext.getString(resId)}"
                 )
             }
 

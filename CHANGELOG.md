@@ -16,6 +16,13 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* Refactored dependencies and updated the following:
+	- kotlin version: 1.5.20 -> 1.5.31
+	- hmrc spotless plugin: 1.0.0 -> 1.1.1
+	- detekt: 1.6.0 -> 1.18.1
+
 ## [3.19.0] - 2021-11-08
 
 * Updated `StatusCardView` to improve support for vectors than are more than 100dp wide

@@ -21,7 +21,7 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import uk.gov.hmrc.components.R
 
-class SeparatedViewContainer @JvmOverloads constructor (
+class SeparatedViewContainer @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,

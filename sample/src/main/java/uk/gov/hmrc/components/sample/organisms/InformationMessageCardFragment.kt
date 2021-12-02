@@ -40,19 +40,25 @@ class InformationMessageCardFragment : BaseComponentsFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.infoMessagePlaceholder.setHeadlineButtons(listOf(
+        binding.infoMessagePlaceholder.setHeadlineButtons(
+            listOf(
                 SecondaryButton(requireContext()).apply { setText(R.string.info_message_placeholder_headline_button) }
-            ))
+            )
+        )
 
         binding.infoMessageExample1
             .setHeadlineContentDescription(getString(R.string.info_message_example_1_headline_content_description))
 
-        binding.infoMessageExample2.setHeadlineButtons(listOf(
-            SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_2_button) }
-        ))
+        binding.infoMessageExample2.setHeadlineButtons(
+            listOf(
+                SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_2_button) }
+            )
+        )
 
-        binding.infoMessageExample3.setHeadlineButtons(listOf(
-            SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_3_button) }
-        ))
+        binding.infoMessageExample3.setHeadlineButtons(
+            listOf(
+                SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_3_button) }
+            )
+        )
     }
 }

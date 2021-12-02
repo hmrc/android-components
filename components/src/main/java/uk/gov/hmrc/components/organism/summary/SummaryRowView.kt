@@ -36,7 +36,7 @@ class SummaryRowView @JvmOverloads constructor(
 ) : RelativeLayout(context, attrs, defStyleAttr) {
 
     private val binding: ComponentSummaryRowBinding =
-            ComponentSummaryRowBinding.inflate(LayoutInflater.from(context), this)
+        ComponentSummaryRowBinding.inflate(LayoutInflater.from(context), this)
 
     var readerTrait = READER_TRAIT_INFO
         set(value) {
@@ -52,9 +52,9 @@ class SummaryRowView @JvmOverloads constructor(
         set(value) {
             field = value
             (0..binding.rowContainer.childCount)
-                    .map { binding.rowContainer.getChildAt(it) }
-                    .filterIsInstance<MultiColumnRowView>()
-                    .forEach { it.setTextStyle(rowStyle) }
+                .map { binding.rowContainer.getChildAt(it) }
+                .filterIsInstance<MultiColumnRowView>()
+                .forEach { it.setTextStyle(rowStyle) }
         }
 
     init {
@@ -62,8 +62,8 @@ class SummaryRowView @JvmOverloads constructor(
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.SummaryRowView, 0, 0)
             val titleText = typedArray.getString(R.styleable.SummaryRowView_title)
             val titleTextAppearance = typedArray.getResourceId(
-                    R.styleable.SummaryRowView_titleTextAppearance,
-                    R.style.Text_Bold
+                R.styleable.SummaryRowView_titleTextAppearance,
+                R.style.Text_Bold
             )
             val titleMaxLines = typedArray.getInt(R.styleable.SummaryRowView_titleMaxLines, -1)
             val accessibilityMessage = typedArray.getString(R.styleable.SummaryRowView_accessibilityMessage)

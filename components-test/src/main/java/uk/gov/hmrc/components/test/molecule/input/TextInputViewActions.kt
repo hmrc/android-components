@@ -35,8 +35,8 @@ object TextInputViewActions {
 
             override fun getConstraints(): Matcher<View> {
                 return allOf(
-                        withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE),
-                        isAssignableFrom(TextInputView::class.java)
+                    withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE),
+                    isAssignableFrom(TextInputView::class.java)
                 )
             }
 

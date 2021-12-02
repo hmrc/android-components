@@ -31,9 +31,9 @@ import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.StyleRes
 import androidx.core.content.ContextCompat
+import uk.gov.hmrc.components.R
 import java.util.regex.Matcher
 import java.util.regex.Pattern
-import uk.gov.hmrc.components.R
 
 class CustomLinkMovementMethod(private val clickHandler: (String) -> Unit = {}) : LinkMovementMethod() {
 
@@ -90,14 +90,17 @@ fun TextView.setClickableUrl(
     val setHandler: (String) -> Unit = { matched ->
         val startIndex = text.indexOf(matched)
         val customSpannable = SpannableString(text)
-        customSpannable.setSpan(object : ClickableSpan() {
-            override fun onClick(view: View) = clickHandler.invoke(matched)
+        customSpannable.setSpan(
+            object : ClickableSpan() {
+                override fun onClick(view: View) = clickHandler.invoke(matched)
 
-            override fun updateDrawState(ds: TextPaint) {
-                ds.isUnderlineText = false
-                ds.color = linkColor
-            }
-        }, startIndex, startIndex + matched.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                override fun updateDrawState(ds: TextPaint) {
+                    ds.isUnderlineText = false
+                    ds.color = linkColor
+                }
+            },
+            startIndex, startIndex + matched.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
         this.text = customSpannable
 
         if (context.isAccessibilityEnabled()) {

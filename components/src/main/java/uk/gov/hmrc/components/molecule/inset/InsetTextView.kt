@@ -29,7 +29,7 @@ class InsetTextView @JvmOverloads constructor(
 ) : InsetView(context, attrs, defStyle, defStyleRes) {
 
     private val binding: ComponentInsetTextBinding =
-            ComponentInsetTextBinding.inflate(LayoutInflater.from(context), this)
+        ComponentInsetTextBinding.inflate(LayoutInflater.from(context), this)
 
     init {
         attrs?.let {

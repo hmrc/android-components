@@ -24,16 +24,19 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import uk.gov.hmrc.components.R
 
 fun View.setAccessibilityMessage(message: CharSequence) {
-    ViewCompat.setAccessibilityDelegate(this, object : AccessibilityDelegateCompat() {
-        override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfoCompat) {
-            super.onInitializeAccessibilityNodeInfo(host, info)
-            val customClick = AccessibilityNodeInfoCompat.AccessibilityActionCompat(
+    ViewCompat.setAccessibilityDelegate(
+        this,
+        object : AccessibilityDelegateCompat() {
+            override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfoCompat) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                val customClick = AccessibilityNodeInfoCompat.AccessibilityActionCompat(
                     AccessibilityNodeInfoCompat.ACTION_CLICK,
                     message
-            )
-            info.addAction(customClick)
+                )
+                info.addAction(customClick)
+            }
         }
-    })
+    )
 }
 
 fun View.setAsAccessibilityHeading(isHeading: Boolean = true) {
@@ -42,8 +45,8 @@ fun View.setAsAccessibilityHeading(isHeading: Boolean = true) {
 
 fun View.setMargins(left: Int, top: Int, right: Int, bottom: Int) {
     this.layoutParams = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
+        LinearLayout.LayoutParams.MATCH_PARENT,
+        LinearLayout.LayoutParams.WRAP_CONTENT
     ).apply {
         setMargins(left, top, right, bottom)
     }

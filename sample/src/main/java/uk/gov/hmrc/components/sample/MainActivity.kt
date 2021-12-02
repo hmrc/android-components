@@ -85,10 +85,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun provideBottomNavigationItems(): List<BottomNavigationItemModel> {
         return listOf(
-                BottomNavigationItemModel(getString(R.string.title_organisms), R.drawable.ic_organisms) { showFragment(OrganismsFragment()) },
-                BottomNavigationItemModel(getString(R.string.title_molecules), R.drawable.ic_molecules) { showFragment(MoleculesFragment()) },
-                BottomNavigationItemModel(getString(R.string.title_atoms), R.drawable.ic_atoms) { showFragment(AtomsFragment()) },
-                BottomNavigationItemModel(getString(R.string.title_colors), R.drawable.ic_colors) { showFragment(ColorsFragment()) }
+            BottomNavigationItemModel(getString(R.string.title_organisms), R.drawable.ic_organisms) { showFragment(OrganismsFragment()) },
+            BottomNavigationItemModel(getString(R.string.title_molecules), R.drawable.ic_molecules) { showFragment(MoleculesFragment()) },
+            BottomNavigationItemModel(getString(R.string.title_atoms), R.drawable.ic_atoms) { showFragment(AtomsFragment()) },
+            BottomNavigationItemModel(getString(R.string.title_colors), R.drawable.ic_colors) { showFragment(ColorsFragment()) }
         )
     }
 

@@ -41,28 +41,40 @@ class SummaryRowFragment : BaseComponentsFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val placeholderRow = MultiColumnRowView(context!!)
+        setupPlaceholderRow()
+        setupExampleRows()
+    }
+
+    private fun setupPlaceholderRow() {
+        val placeholderRow = MultiColumnRowView(requireContext())
         placeholderRow.setText(
             getString(R.string.summary_row_placeholder_row1_text1),
             getString(R.string.summary_row_placeholder_row1_text2),
-            getString(R.string.summary_row_placeholder_row1_text3))
+            getString(R.string.summary_row_placeholder_row1_text3)
+        )
         binding.summaryRowPlaceholder.apply {
             setRows(arrayListOf(placeholderRow))
             setOnClickListener { onCtaPressed() }
         }
+    }
 
-        val example1aRow1 = MultiColumnRowView(context!!)
+    @Suppress("LongMethod")
+    private fun setupExampleRows() {
+        val example1aRow1 = MultiColumnRowView(requireContext())
         example1aRow1.setText(
             getString(R.string.summary_row_example_1a_row1_text1),
-            getString(R.string.summary_row_example_1a_row1_text2))
-        val example1aRow2 = MultiColumnRowView(context!!)
+            getString(R.string.summary_row_example_1a_row1_text2)
+        )
+        val example1aRow2 = MultiColumnRowView(requireContext())
         example1aRow2.setText(
             getString(R.string.summary_row_example_1a_row2_text1),
-            getString(R.string.summary_row_example_1a_row2_text2))
-        val example1aRow3 = MultiColumnRowView(context!!)
+            getString(R.string.summary_row_example_1a_row2_text2)
+        )
+        val example1aRow3 = MultiColumnRowView(requireContext())
         example1aRow3.setText(
             getString(R.string.summary_row_example_1a_row3_text1),
-            getString(R.string.summary_row_example_1a_row3_text2))
+            getString(R.string.summary_row_example_1a_row3_text2)
+        )
         binding.summaryRowExample1a.apply {
             setRows(arrayListOf(example1aRow1, example1aRow2, example1aRow3))
             setOnClickListener { onCtaPressed() }
@@ -70,41 +82,47 @@ class SummaryRowFragment : BaseComponentsFragment() {
             setTitleTextAppearance(R.style.Text_Info)
         }
 
-        val example1bRow1 = MultiColumnRowView(context!!)
+        val example1bRow1 = MultiColumnRowView(requireContext())
         example1bRow1.setText(
             getString(R.string.summary_row_example_1b_row1_text1),
-            getString(R.string.summary_row_example_1b_row1_text2))
-        val example1bRow2 = MultiColumnRowView(context!!)
+            getString(R.string.summary_row_example_1b_row1_text2)
+        )
+        val example1bRow2 = MultiColumnRowView(requireContext())
         example1bRow2.setText(
             getString(R.string.summary_row_example_1b_row2_text1),
-            getString(R.string.summary_row_example_1b_row2_text2))
+            getString(R.string.summary_row_example_1b_row2_text2)
+        )
         binding.summaryRowExample1b.apply {
             setRows(arrayListOf(example1bRow1, example1bRow2))
             setOnClickListener { onCtaPressed() }
         }
 
-        val example2Row1 = MultiColumnRowView(context!!)
+        val example2Row1 = MultiColumnRowView(requireContext())
         example2Row1.setText(getString(R.string.summary_row_example_2_row1_text1))
         binding.summaryRowExample2.apply {
             setRows(arrayListOf(example2Row1))
             setOnClickListener { onCtaPressed() }
-            setButtonAccessibilityMessage(getString(R.string.summary_row_example_2_accessibility_title), getString(R.string.summary_row_example_2_accessibility_action))
+            setButtonAccessibilityMessage(
+                getString(R.string.summary_row_example_2_accessibility_title),
+                getString(R.string.summary_row_example_2_accessibility_action)
+            )
         }
 
-        val example3Row1 = MultiColumnRowView(context!!)
+        val example3Row1 = MultiColumnRowView(requireContext())
         example3Row1.setText(getString(R.string.longest_text))
         binding.summaryRowExample3.apply {
             setRows(arrayListOf(example3Row1))
             setOnClickListener { onCtaPressed() }
         }
 
-        val example4Row1 = MultiColumnRowView(context!!)
+        val example4Row1 = MultiColumnRowView(requireContext())
         example4Row1.setText(getString(R.string.long_text), getString(R.string.long_text))
         binding.summaryRowExample4.setRows(arrayListOf(example4Row1))
 
-        val example5Row1 = MultiColumnRowView(context!!)
-        example5Row1.setText(getString(R.string.long_text), getString(R.string.long_text), getString(R.string.long_text))
-        val example5Row2 = MultiColumnRowView(context!!)
+        val example5Row1 = MultiColumnRowView(requireContext())
+        example5Row1
+            .setText(getString(R.string.long_text), getString(R.string.long_text), getString(R.string.long_text))
+        val example5Row2 = MultiColumnRowView(requireContext())
         example5Row2.setText(getString(R.string.long_text))
         binding.summaryRowExample5.apply {
             setRows(arrayListOf(example5Row1, example5Row2))

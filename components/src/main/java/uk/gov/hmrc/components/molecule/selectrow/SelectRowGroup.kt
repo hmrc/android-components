@@ -36,7 +36,7 @@ class SelectRowGroup @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyle, defStyleRes) {
 
     private val binding: ComponentSelectRowGroupBinding =
-            ComponentSelectRowGroupBinding.inflate(LayoutInflater.from(context), this)
+        ComponentSelectRowGroupBinding.inflate(LayoutInflater.from(context), this)
 
     private val rows = mutableListOf<SelectRowView>()
     private var rowSelectedListener: OnRowSelectedListener? = null
@@ -122,18 +122,18 @@ class SelectRowGroup @JvmOverloads constructor(
 
     private fun initRows() {
         (0..binding.selectRowOptions.childCount)
-                .map { binding.selectRowOptions.getChildAt(it) }
-                .filterIsInstance<SelectRowView>()
-                .forEach { child ->
-            child.findViewById<RadioButton>(R.id.select_row_radio_button).apply {
-                setOnCheckedChangeListener { _, isChecked ->
-                    if (isChecked) selectedRow = child.id
-                    child.updateContentDescription()
+            .map { binding.selectRowOptions.getChildAt(it) }
+            .filterIsInstance<SelectRowView>()
+            .forEach { child ->
+                child.findViewById<RadioButton>(R.id.select_row_radio_button).apply {
+                    setOnCheckedChangeListener { _, isChecked ->
+                        if (isChecked) selectedRow = child.id
+                        child.updateContentDescription()
+                    }
+                    rows.add(child)
+                    isChecked = child.id == initialSelectedRow
                 }
-                rows.add(child)
-                isChecked = child.id == initialSelectedRow
             }
-        }
     }
 
     companion object {

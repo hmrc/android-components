@@ -24,21 +24,21 @@ class ColorsFragment : ColorListFragment() {
 
     override fun provideItems(): List<ColorListItem> {
         return listOf(
-                ColorListItem(getString(R.string.colors_black), R.color.hmrc_black),
-                ColorListItem(getString(R.string.colors_white), R.color.hmrc_white),
-                ColorListItem(getString(R.string.colors_green_1), R.color.hmrc_green_1),
-                ColorListItem(getString(R.string.colors_green_2), R.color.hmrc_green_2),
-                ColorListItem(getString(R.string.colors_blue), R.color.hmrc_blue),
-                ColorListItem(getString(R.string.colors_teal), R.color.hmrc_teal),
-                ColorListItem(getString(R.string.colors_red), R.color.hmrc_red),
-                ColorListItem(getString(R.string.colors_grey_1), R.color.hmrc_grey_1),
-                ColorListItem(getString(R.string.colors_grey_2), R.color.hmrc_grey_2),
-                ColorListItem(getString(R.string.colors_grey_3), R.color.hmrc_grey_3),
-                ColorListItem(getString(R.string.colors_pink), R.color.hmrc_pink),
-                ColorListItem(getString(R.string.colors_yellow), R.color.hmrc_yellow),
-                ColorListItem(getString(R.string.colors_white_background), R.color.hmrc_white_background),
-                ColorListItem(getString(R.string.colors_always_black), R.color.hmrc_always_black),
-                ColorListItem(getString(R.string.colors_always_white), R.color.hmrc_always_white)
+            ColorListItem(getString(R.string.colors_black), R.color.hmrc_black),
+            ColorListItem(getString(R.string.colors_white), R.color.hmrc_white),
+            ColorListItem(getString(R.string.colors_green_1), R.color.hmrc_green_1),
+            ColorListItem(getString(R.string.colors_green_2), R.color.hmrc_green_2),
+            ColorListItem(getString(R.string.colors_blue), R.color.hmrc_blue),
+            ColorListItem(getString(R.string.colors_teal), R.color.hmrc_teal),
+            ColorListItem(getString(R.string.colors_red), R.color.hmrc_red),
+            ColorListItem(getString(R.string.colors_grey_1), R.color.hmrc_grey_1),
+            ColorListItem(getString(R.string.colors_grey_2), R.color.hmrc_grey_2),
+            ColorListItem(getString(R.string.colors_grey_3), R.color.hmrc_grey_3),
+            ColorListItem(getString(R.string.colors_pink), R.color.hmrc_pink),
+            ColorListItem(getString(R.string.colors_yellow), R.color.hmrc_yellow),
+            ColorListItem(getString(R.string.colors_white_background), R.color.hmrc_white_background),
+            ColorListItem(getString(R.string.colors_always_black), R.color.hmrc_always_black),
+            ColorListItem(getString(R.string.colors_always_white), R.color.hmrc_always_white)
         )
     }
 }

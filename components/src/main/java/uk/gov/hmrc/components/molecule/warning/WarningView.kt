@@ -35,7 +35,7 @@ class WarningView @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyle, defStyleRes) {
 
     private val binding: ComponentWarningBinding =
-            ComponentWarningBinding.inflate(LayoutInflater.from(context), this)
+        ComponentWarningBinding.inflate(LayoutInflater.from(context), this)
 
     init {
         attrs?.let {
@@ -87,8 +87,8 @@ class WarningView @JvmOverloads constructor(
     fun setIconTintColor(@ColorRes iconTint: Int) {
         if (iconTint != NO_ICON_TINT) {
             binding.icon.setColorFilter(
-                    ContextCompat.getColor(context, iconTint),
-                    android.graphics.PorterDuff.Mode.SRC_IN
+                ContextCompat.getColor(context, iconTint),
+                android.graphics.PorterDuff.Mode.SRC_IN
             )
         }
     }

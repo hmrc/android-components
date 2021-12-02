@@ -33,7 +33,7 @@ class SelectRowView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyle) {
 
     private val binding: ComponentSelectRowBinding =
-            ComponentSelectRowBinding.inflate(LayoutInflater.from(context), this)
+        ComponentSelectRowBinding.inflate(LayoutInflater.from(context), this)
 
     private val globalLayoutListener = object : ViewTreeObserver.OnGlobalLayoutListener {
         override fun onGlobalLayout() {
@@ -46,10 +46,10 @@ class SelectRowView @JvmOverloads constructor(
     init {
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(
-                    it,
-                    R.styleable.SelectRowView,
-                    0,
-                    0
+                it,
+                R.styleable.SelectRowView,
+                0,
+                0
             )
             val text = typedArray.getString(R.styleable.SelectRowView_text)
             val button = typedArray.getDrawable(R.styleable.SelectRowView_button)
@@ -60,15 +60,18 @@ class SelectRowView @JvmOverloads constructor(
             typedArray.recycle()
         }
 
-        setPadding(resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16),
-                resources.getDimensionPixelSize(R.dimen.hmrc_spacing_4),
-                resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16),
-                resources.getDimensionPixelSize(R.dimen.hmrc_spacing_4))
+        setPadding(
+            resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16),
+            resources.getDimensionPixelSize(R.dimen.hmrc_spacing_4),
+            resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16),
+            resources.getDimensionPixelSize(R.dimen.hmrc_spacing_4)
+        )
 
         setOnClickListener {
             binding.selectRowRadioButton.isChecked = true
             announceForAccessibility(
-                    "${context.getString(R.string.accessibility_ticked)}, ${binding.selectRowBody.text}")
+                "${context.getString(R.string.accessibility_ticked)}, ${binding.selectRowBody.text}"
+            )
         }
 
         addRipple()
@@ -95,20 +98,20 @@ class SelectRowView @JvmOverloads constructor(
         }
 
         val positionDescription = context.getString(
-                R.string.accessibility_list_position,
-                positionInGroup,
-                selectRowOptions.childCount
+            R.string.accessibility_list_position,
+            positionInGroup,
+            selectRowOptions.childCount
         )
         val tickedState = context.getString(
-                if (binding.selectRowRadioButton.isChecked) {
-                    R.string.accessibility_ticked
-                } else {
-                    R.string.accessibility_not_ticked
-                }
+            if (binding.selectRowRadioButton.isChecked) {
+                R.string.accessibility_ticked
+            } else {
+                R.string.accessibility_not_ticked
+            }
         )
         contentDescription = "$tickedState," +
-                " ${binding.selectRowBody.text}," +
-                " ${context.getString(R.string.accessibility_radio_button)}." +
-                " $positionDescription"
+            " ${binding.selectRowBody.text}," +
+            " ${context.getString(R.string.accessibility_radio_button)}." +
+            " $positionDescription"
     }
 }

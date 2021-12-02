@@ -26,9 +26,9 @@ class AtomsFragment : ComponentListFragment() {
 
     override fun provideItems(): List<ComponentListItem> {
         return listOf(
-                ComponentListItem(getString(R.string.atoms_text)) { selectFragment(TextFragment()) },
-                ComponentListItem(getString(R.string.atoms_buttons)) { selectFragment(ButtonsFragment()) },
-                ComponentListItem(getString(R.string.atoms_divider)) { selectFragment(DividerFragment()) }
+            ComponentListItem(getString(R.string.atoms_text)) { selectFragment(TextFragment()) },
+            ComponentListItem(getString(R.string.atoms_buttons)) { selectFragment(ButtonsFragment()) },
+            ComponentListItem(getString(R.string.atoms_divider)) { selectFragment(DividerFragment()) }
         )
     }
 }

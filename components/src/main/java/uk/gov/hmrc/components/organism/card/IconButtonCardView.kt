@@ -30,7 +30,7 @@ class IconButtonCardView @JvmOverloads constructor(
 ) : MaterialCardView(context, attrs) {
 
     private val binding: ComponentIconButtonCardBinding =
-            ComponentIconButtonCardBinding.inflate(LayoutInflater.from(context), this)
+        ComponentIconButtonCardBinding.inflate(LayoutInflater.from(context), this)
 
     init {
         attrs?.let { attributeSet ->

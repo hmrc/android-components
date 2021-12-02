@@ -44,7 +44,7 @@ open class TextInputView @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyle, defStyleRes) {
 
     private val binding: ComponentTextInputBinding =
-            ComponentTextInputBinding.inflate(LayoutInflater.from(context), this, true)
+        ComponentTextInputBinding.inflate(LayoutInflater.from(context), this, true)
 
     private var editTextId = -1
         set(value) {
@@ -229,7 +229,8 @@ open class TextInputView @JvmOverloads constructor(
                         val counterText = context.getString(
                             R.string.accessibility_counter_state,
                             currentChars.toString(),
-                            counterMaxLength.toString())
+                            counterMaxLength.toString()
+                        )
 
                         ", $limitExceededText$counterText"
                     } else ""

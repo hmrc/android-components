@@ -1,3 +1,6 @@
+import uk.gov.hmrc.components.buildsrc.Dependencies.Libs
+import uk.gov.hmrc.components.buildsrc.Dependencies.Versions
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -12,8 +15,8 @@ detekt {
 }
 
 android {
-    compileSdkVersion compile_sdk_version
-    buildToolsVersion build_tools_version
+    compileSdkVersion Versions.compileSdk
+    buildToolsVersion Versions.buildTools
 
     viewBinding {
         enabled = true
@@ -21,8 +24,8 @@ android {
 
     defaultConfig {
         applicationId "uk.gov.hmrc.components.sample"
-        minSdkVersion min_sdk_version
-        targetSdkVersion target_sdk_version
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
         versionCode 1
         versionName "1.0"
 
@@ -67,22 +70,22 @@ dependencies {
     implementation project(":components")
 
     // AndroidX
-    implementation "androidx.appcompat:appcompat:$android_x_app_compat_version"
-    implementation "androidx.recyclerview:recyclerview:$android_x_recyclerview_version"
-    implementation "androidx.constraintlayout:constraintlayout:$android_x_constraint_layout_version"
-    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
-    implementation "androidx.core:core-ktx:$core_ktx_version"
+    implementation Libs.androidX_appcompat
+    implementation Libs.androidX_recyclerview
+    implementation Libs.androidX_constraintlayout
+    implementation Libs.androidX_lifecycle
+    implementation Libs.androidX_core_ktx
 
     // Material
-    implementation "com.google.android.material:material:$material_version"
+    implementation Libs.material
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation Libs.kotlin_stdlib
 
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:$android_x_espresso_contrib_version"
-    androidTestImplementation "androidx.test.ext:junit:$android_x_junit_version"
-    androidTestImplementation "androidx.test:runner:$android_x_runner_version"
-    androidTestImplementation "androidx.test:core-ktx:$core_ktx_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$android_x_espresso_core_version"
-    androidTestImplementation "androidx.test.uiautomator:uiautomator:$android_x_uiautomator_version"
+    androidTestImplementation Libs.androidX_test_espressoContrib
+    androidTestImplementation Libs.androidX_test_ext_junit
+    androidTestImplementation Libs.androidX_test_runner
+    androidTestImplementation Libs.androidX_test_core_ktx
+    androidTestImplementation Libs.androidX_test_espressoCore
+    androidTestImplementation Libs.androidX_test_uiautomator
 }
