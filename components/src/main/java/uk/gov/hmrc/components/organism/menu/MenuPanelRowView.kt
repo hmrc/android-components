@@ -19,6 +19,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.constraintlayout.widget.ConstraintSet.BASELINE
@@ -43,6 +44,8 @@ class MenuPanelRowView @JvmOverloads constructor(
     private val isLargeText: Boolean
         get() = resources.configuration.fontScale > MAX_SINGLE_LINE_FONT_SCALE
 
+    private var menuPanelNotification: Notification = Notification.None
+
     init {
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.MenuPanelRowView, 0, 0)
@@ -51,7 +54,6 @@ class MenuPanelRowView @JvmOverloads constructor(
 
             setTitle(title)
             setBody(body)
-            setDefaultContentDescription(title, body)
             typedArray.recycle()
         }
         if (isLargeText) adjustLayoutForBigText()
@@ -59,45 +61,51 @@ class MenuPanelRowView @JvmOverloads constructor(
         setRippleColorResource(R.color.hmrc_secondary_button_ripple)
     }
 
-    private fun setDefaultContentDescription(title: CharSequence, body: CharSequence) {
-        binding.layout.contentDescription =
-            context.getString(R.string.menu_panel_button_no_notification_content_description, title, body)
-    }
-
-    private fun setNotificationContentDescription(countToDisplay: Int) {
+    @Suppress("ComplexMethod")
+    private fun updateMenuPanelContentDescription() {
         val title = getTitle()
         val body = getBody()
+        val notification = menuPanelNotification
         binding.layout.apply {
-            contentDescription = when (countToDisplay) {
-                0 -> {
+            contentDescription = when {
+                notification is Notification.Count && notification.count == 0 -> {
                     context.getString(
                         R.string.menu_panel_button_circle_notification_content_description,
                         title,
                         body
                     )
                 }
-                1 -> {
+                notification is Notification.Count && notification.count == 1 -> {
                     context.getString(
                         R.string.menu_panel_button_one_notification_content_description,
                         title,
-                        countToDisplay.toString(),
+                        notification.count.toString(),
                         body
                     )
                 }
-                else -> {
+                notification is Notification.Count && notification.count > 1 -> {
                     context.getString(
                         R.string.menu_panel_button_multiple_notifications_content_description,
                         title,
-                        countToDisplay.toString(),
+                        notification.count.toString(),
                         body
                     )
                 }
+                notification is Notification.New -> {
+                    context.getString(
+                        R.string.menu_panel_button_new_notification_content_description,
+                        title,
+                        body
+                    )
+                }
+                else -> context.getString(R.string.menu_panel_button_no_notification_content_description, title, body)
             }
         }
     }
 
     fun setTitle(title: CharSequence) {
         binding.textTitle.text = title
+        updateMenuPanelContentDescription()
     }
 
     fun getTitle(): CharSequence {
@@ -106,36 +114,52 @@ class MenuPanelRowView @JvmOverloads constructor(
 
     fun setBody(body: CharSequence) {
         binding.textBody.text = body
+        updateMenuPanelContentDescription()
     }
 
     fun getBody(): CharSequence {
         return binding.textBody.text
     }
 
-    fun showNotification(notificationCount: Int = 0) {
+    fun showNotification(notificationType: Notification = Notification.Count()) {
+        menuPanelNotification = notificationType
         binding.notification.apply {
-            if (notificationCount > 0) {
-                text = if (notificationCount > MAXIMUM_NOTIFICATION_COUNT) {
-                    context.getString(R.string.menu_panel_button_over_ninety_nine_notifications_text)
-                } else {
-                    notificationCount.toString()
+            text = when (notificationType) {
+                is Notification.New -> context.getString(R.string.menu_panel_button_new_notification)
+                is Notification.Count -> {
+                    when {
+                        notificationType.count > MAXIMUM_NOTIFICATION_COUNT -> {
+                            context.getString(R.string.menu_panel_button_over_ninety_nine_notifications_text)
+                        }
+                        notificationType.count > 0 -> notificationType.count.toString()
+                        else -> null
+                    }
                 }
-                background = ContextCompat
-                    .getDrawable(context, R.drawable.components_menu_panel_round_square_notification)
-                (this.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio = "2:1"
-                setNotificationContentDescription(notificationCount)
-            } else {
+                is Notification.None -> null
+            }
+            setNotificationBackground(this)
+            updateMenuPanelContentDescription()
+            visibility = View.VISIBLE
+        }
+    }
+
+    private fun setNotificationBackground(notificationView: TextView) {
+        val notification = menuPanelNotification
+        notificationView.apply {
+            if (notification is Notification.Count && notification.count == 0) {
                 background = ContextCompat.getDrawable(context, R.drawable.components_menu_pane_circle_notification)
                 (this.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio = "1:1"
-                setNotificationContentDescription(0)
+            } else {
+                background =
+                    ContextCompat.getDrawable(context, R.drawable.components_menu_panel_round_square_notification)
+                (this.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio = "2:1"
             }
-            visibility = View.VISIBLE
         }
     }
 
     fun hideNotification() {
         binding.notification.visibility = View.GONE
-        setDefaultContentDescription(getTitle(), getBody())
+        updateMenuPanelContentDescription()
     }
 
     private fun adjustLayoutForBigText() {
@@ -153,6 +177,12 @@ class MenuPanelRowView @JvmOverloads constructor(
             connect(R.id.notification, TOP, R.id.text_title, BOTTOM, defaultMargin)
             applyTo(binding.layout)
         }
+    }
+
+    sealed class Notification {
+        data class Count(val count: Int = 0) : Notification()
+        object New : Notification()
+        object None : Notification()
     }
 
     companion object {

@@ -18,6 +18,12 @@ Allowed headings:
 
 ### Changed
 
+* Updated `MenuPanelRowView` notifications to add support for 'New' badge.
+To show the notification you now need to provide the type of notification as a parameter: `showNotification(notificationType: Notification)`
+Notification types: `Count(val count: Int = 0)`, `New`, `None`.
+Default for panel is `None` and this does not need to be set.
+Default of `Count` just shows a dot, and a count value does not need to be provided, this is the default state of `showNotification()`.
+
 * Refactored dependencies and updated the following:
 	- kotlin version: 1.5.20 -> 1.5.31
 	- hmrc spotless plugin: 1.0.0 -> 1.1.1

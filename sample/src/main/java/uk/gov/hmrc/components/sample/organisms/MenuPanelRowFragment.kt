@@ -20,6 +20,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import uk.gov.hmrc.components.organism.menu.MenuPanelRowView
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
 import uk.gov.hmrc.components.sample.base.BaseComponentsFragment
@@ -45,7 +46,7 @@ class MenuPanelRowFragment : BaseComponentsFragment() {
             menuExample1.setOnClickListener { onCtaPressed() }
             menuExample2.apply {
                 setOnClickListener { onCtaPressed() }
-                showNotification(2)
+                showNotification(MenuPanelRowView.Notification.Count(2))
             }
             menuExample3.apply {
                 setOnClickListener { onCtaPressed() }
@@ -53,11 +54,11 @@ class MenuPanelRowFragment : BaseComponentsFragment() {
             }
             menuExample4.apply {
                 setOnClickListener { onCtaPressed() }
-                showNotification(100)
+                showNotification(MenuPanelRowView.Notification.Count(100))
             }
             menuExample5.apply {
                 setOnClickListener { onCtaPressed() }
-                showNotification()
+                showNotification(MenuPanelRowView.Notification.New)
             }
         }
     }
