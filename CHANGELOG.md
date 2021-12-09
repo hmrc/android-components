@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [3.20.0] - 2021-12-09
+
 ### Changed
 
 * Updated `MenuPanelRowView` notifications to add support for 'New' badge.
