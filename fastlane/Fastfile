@@ -43,9 +43,11 @@ platform :android do
     UI.user_error!("You need to provide the Bitrise app slug for this repo via a `ANDROID_COMPONENTS_APP_SLUG` environment variable") unless !ENV["ANDROID_COMPONENTS_APP_SLUG"].nil?
     UI.user_error!("You need to provide the Bitrise release workflow ID this repo via a `ANDROID_COMPONENTS_RELEASE_WORKFLOW_ID` environment variable") unless !ENV["ANDROID_COMPONENTS_RELEASE_WORKFLOW_ID"].nil?
 
-    # ensure repo is clean and on master
+    # ensure repo is clean and on main
     ensure_git_status_clean
-    ensure_git_branch
+    ensure_git_branch(
+      branch: 'main'
+    )
 
     # pull latest changes and fetch tags
     git_pull
@@ -124,9 +126,11 @@ platform :android do
       UI.user_error!("Please updated the version in components-test/build.gradle before publishing")
     end
 
-    # ensure repo is clean and on master
+    # ensure repo is clean and on main
     ensure_git_status_clean
-    ensure_git_branch
+    ensure_git_branch(
+      branch: 'main'
+    )
 
     # pull latest changes and fetch tags
     git_pull
@@ -149,9 +153,11 @@ platform :android do
 
   desc "Publishes components test library"
   lane :publish_test do
-    # ensure repo is clean and on master
+    # ensure repo is clean and on main
     ensure_git_status_clean
-    ensure_git_branch
+    ensure_git_branch(
+      branch: 'main'
+    )
 
     check
 
