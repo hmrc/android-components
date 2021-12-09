@@ -6,7 +6,7 @@ curl --location --request POST "https://api.bitrise.io/v0.1/apps/$ANDROID_COMPON
 --header 'Content-Type: application/json' \
 --data-raw '{
   "build_params": {
-    "tag": "master",
+    "tag": "main",
     "workflow_id": "'$ANDROID_COMPONENTS_TEST_RELEASE_WORKFLOW_ID'"
   },
   "hook_info": {
