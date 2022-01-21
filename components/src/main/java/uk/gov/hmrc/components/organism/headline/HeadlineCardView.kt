@@ -21,7 +21,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import androidx.core.view.children
-import androidx.core.view.marginBottom
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.base.DynamicCardView
 import uk.gov.hmrc.components.base.PaddedComponent
