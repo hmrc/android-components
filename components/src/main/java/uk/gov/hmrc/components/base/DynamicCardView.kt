@@ -52,6 +52,7 @@ abstract class DynamicCardView @JvmOverloads constructor(
                 val parent = (child?.parent as ViewGroup)
                 parent.removeView(child)
                 childContainer.addView(child, getLinearLayoutParams(child))
+                (parent as? PaddedComponent)?.adjustPaddingForChildren()
                 if (!childPadding) {
                     (parent as? PaddedComponent)?.removeChildPadding()
                 }
