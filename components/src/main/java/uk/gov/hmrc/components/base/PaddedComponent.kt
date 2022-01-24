@@ -16,5 +16,6 @@
 package uk.gov.hmrc.components.base
 
 interface PaddedComponent {
+    fun adjustPaddingForChildren() {}
     fun removeChildPadding()
 }

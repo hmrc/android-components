@@ -180,6 +180,14 @@
 
         </uk.gov.hmrc.components.organism.headline.HeadlineCardView>
 
+        <uk.gov.hmrc.components.organism.headline.HeadlineCardView
+            android:id="@+id/headline_example_7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:headline="@string/headline_example_7_headline"
+            app:title="@string/headline_example_7_title" />
+
     </LinearLayout>
 
 </ScrollView>

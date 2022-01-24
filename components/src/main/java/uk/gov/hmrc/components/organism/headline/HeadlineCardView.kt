@@ -36,6 +36,9 @@ open class HeadlineCardView @JvmOverloads constructor(
         ComponentHeadlineCardBinding.inflate(LayoutInflater.from(context), this, true)
     override val childContainer: LinearLayout = binding.headlineLayout
 
+    private val defaultOuterPadding = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
+    private val defaultInnerVerticalPadding = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_24)
+
     init {
         attrs?.let { it ->
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.HeadlineCardView, 0, 0)
@@ -89,9 +92,12 @@ open class HeadlineCardView @JvmOverloads constructor(
         childContainer.children.forEach { childView -> childView.isFocusable = true }
     }
 
+    override fun adjustPaddingForChildren() {
+        // needs to be called before `removeChildPadding()`
+        binding.headline.setMargins(0, 0, 0, defaultInnerVerticalPadding)
+    }
+
     override fun removeChildPadding() {
-        val defaultOuterPadding = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
-        val defaultInnerVerticalPadding = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_24)
         // Remove all but top padding on the layout
         childContainer.setPadding(0, defaultOuterPadding, 0, 0)
         binding.apply {

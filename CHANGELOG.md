@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* Updated padding on `HeadlineCardView` so that if there are no children added then the bottom padding is the same as a normal card (16dp). If children are added, this padding is increased back to 24dp automatically.
+
 ## [3.20.0] - 2021-12-09
 
 ### Changed

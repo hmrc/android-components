@@ -42,7 +42,6 @@
             style="@style/Text.H3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/hmrc_spacing_24"
             android:gravity="start"
             android:focusable="true"
             tools:text="Headline" />
