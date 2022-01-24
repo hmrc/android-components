@@ -44,17 +44,18 @@ class WarningView @JvmOverloads constructor(
             val textColor = typedArray.getResourceId(R.styleable.WarningView_textColor, R.color.hmrc_black)
             val icon = typedArray.getResourceId(R.styleable.WarningView_icon, R.drawable.components_ic_warning)
             val iconTint = typedArray.getResourceId(R.styleable.WarningView_iconTintColor, R.color.hmrc_black)
+            val noPadding = typedArray.getBoolean(R.styleable.WarningView_noPadding, false)
 
             setText(text)
             setTextColor(textColor)
             setIcon(icon)
             setIconTintColor(iconTint)
+            if (!noPadding) {
+                // Component has default padding of 8dp
+                resources.getDimensionPixelSize(R.dimen.hmrc_spacing_8).let { setPadding(it, it, it, it) }
+            }
 
             typedArray.recycle()
-        }
-
-        resources.getDimensionPixelSize(R.dimen.hmrc_spacing_8).let {
-            setPadding(it, it, it, it)
         }
     }
 

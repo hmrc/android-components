@@ -310,6 +310,7 @@
     <!-- Warning -->
     <string name="warning_example_1_text">You must renew your tax credits by 31 July 2019</string>
     <string name="warning_example_2_text">We are currently working out your payments as your child is changing their education or training. This should be done by 7 September 2019.</string>
+    <string name="warning_example_3_text">No padding!</string>
 
     <!-- Information Message -->
     <string name="info_message_placeholder_headline">Headline</string>

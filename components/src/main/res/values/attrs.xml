@@ -210,6 +210,8 @@
         <attr name="icon" />
         <!-- Icon tint color. -->
         <attr name="iconTintColor" />
+        <!-- Remove the default padding from the component -->
+        <attr name="noPadding" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="SelectRowView">
