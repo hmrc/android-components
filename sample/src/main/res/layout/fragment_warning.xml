@@ -93,7 +93,7 @@
                 app:iconTintColor="@color/hmrc_red"
                 app:text="@string/warning_example_3_text"
                 app:textColor="@color/hmrc_red"
-                app:noPadding="true" />
+                app:defaultPadding="false" />
 
         </com.google.android.material.card.MaterialCardView>
 

@@ -18,7 +18,7 @@ Allowed headings:
 
 ### Added
 
-* `WarningView` has new attribute `noPadding` which removes the default padding from the component when set to true. When not set, component has `8dp` padding.
+* `WarningView` has new attribute `defaultPadding` which removes the default padding from the component when set to false. When not set, component has `8dp` padding.
 
 ### Changed
 
