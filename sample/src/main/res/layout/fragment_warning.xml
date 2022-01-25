@@ -79,6 +79,24 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.molecule.warning.WarningView
+                android:id="@+id/warning_example_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/hmrc_white"
+                app:icon="@drawable/components_ic_warning"
+                app:iconTintColor="@color/hmrc_red"
+                app:text="@string/warning_example_3_text"
+                app:textColor="@color/hmrc_red"
+                app:defaultPadding="false" />
+
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
 
 </ScrollView>
