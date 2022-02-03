@@ -100,6 +100,7 @@ class InformationMessageCardView @JvmOverloads constructor(
 
         binding.headlineButtonsContainer.visibility = if (buttons.isNotEmpty()) View.VISIBLE else View.GONE
         buttons.forEach {
+            it.minHeight = 0
             it.setMargins(spacing16, spacing8, spacing16, 0)
             it.backgroundTintList = ContextCompat.getColorStateList(context, R.color.hmrc_white)
             it.gravity = Gravity.CENTER
