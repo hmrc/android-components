@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* Updated `InformationMessageCardView` buttons so that the button `minHeight` is reset from the default 60dp to 0dp. This means that buttons now only occupy the vertical space that they need and no more.
+
 ## [3.21.0] - 2022-01-25
 
 ### Added
