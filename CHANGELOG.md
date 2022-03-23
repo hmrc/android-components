@@ -16,6 +16,12 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.0.0] - 2022-03-23
+
+### Changed
+
+* Updated `InformationMessageCardView` button so it has the ability to set the button to outline style using `isOutlineButton`.
+
 ## [3.22.0] - 2022-02-03
 
 ### Changed
