@@ -45,7 +45,11 @@ class InformationMessageCardFragment : BaseComponentsFragment() {
         binding.infoMessagePlaceholder.apply {
             setHeadlineButtons(
                 listOf(
-                    ActionButton(SecondaryButton(requireContext()).apply { setText(R.string.info_message_placeholder_headline_button) })
+                    ActionButton(
+                        SecondaryButton(requireContext()).apply {
+                            setText(R.string.info_message_placeholder_headline_button)
+                        }
+                    )
                 )
             )
         }
@@ -56,8 +60,16 @@ class InformationMessageCardFragment : BaseComponentsFragment() {
         binding.infoMessageExample2.apply {
             setHeadlineButtons(
                 listOf(
-                    ActionButton(SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_2_button) }),
-                    OutlineButton(SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_2_button) })
+                    ActionButton(
+                        SecondaryButton(requireContext()).apply {
+                            setText(R.string.info_message_example_2_button)
+                        }
+                    ),
+                    OutlineButton(
+                        SecondaryButton(requireContext()).apply {
+                            setText(R.string.info_message_example_2_button)
+                        }
+                    )
                 )
             )
         }
@@ -65,8 +77,16 @@ class InformationMessageCardFragment : BaseComponentsFragment() {
         binding.infoMessageExample3.apply {
             setHeadlineButtons(
                 listOf(
-                    ActionButton(SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_3_button) }),
-                    OutlineButton(SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_3_button) })
+                    ActionButton(
+                        SecondaryButton(requireContext()).apply {
+                            setText(R.string.info_message_example_3_button)
+                        }
+                    ),
+                    OutlineButton(
+                        SecondaryButton(requireContext()).apply {
+                            setText(R.string.info_message_example_3_button)
+                        }
+                    )
                 )
             )
         }
