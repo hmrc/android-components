@@ -92,7 +92,7 @@ class InformationMessageCardView @JvmOverloads constructor(
         }
     }
 
-    fun setHeadlineButtons(buttons: List<SecondaryButton>) {
+    fun setHeadlineButtons(buttons: List<InformationMessageButton>) {
         binding.headlineButtonsContainer.removeAllViews()
 
         val spacing8 = context.resources.getDimensionPixelSize(R.dimen.hmrc_spacing_8)
@@ -100,11 +100,21 @@ class InformationMessageCardView @JvmOverloads constructor(
 
         binding.headlineButtonsContainer.visibility = if (buttons.isNotEmpty()) View.VISIBLE else View.GONE
         buttons.forEach {
-            it.minHeight = 0
-            it.setMargins(spacing16, spacing8, spacing16, 0)
-            it.backgroundTintList = ContextCompat.getColorStateList(context, R.color.hmrc_white)
-            it.gravity = Gravity.CENTER
-            binding.headlineButtonsContainer.addView(it)
+            it.button.apply {
+                minHeight = 0
+                setMargins(spacing16, spacing8, spacing16, 0)
+                gravity = Gravity.CENTER
+            }
+            if (it.isOutlineButton) {
+                it.button.apply {
+                    strokeWidth = OUTLINE_STROKE_WIDTH
+                    strokeColor = ContextCompat.getColorStateList(context, type!!.headlineTint)
+                    setTextColor(ContextCompat.getColorStateList(context, type!!.headlineTint))
+                }
+            } else {
+                it.button.backgroundTintList = ContextCompat.getColorStateList(context, R.color.hmrc_white)
+            }
+            binding.headlineButtonsContainer.addView(it.button)
         }
     }
 
@@ -114,4 +124,13 @@ class InformationMessageCardView @JvmOverloads constructor(
         URGENT(R.color.hmrc_information_message_urgent_headline_background, R.color.hmrc_white),
         NOTICE(R.color.hmrc_information_message_notice_headline_background, R.color.hmrc_white)
     }
+
+    companion object {
+        private const val OUTLINE_STROKE_WIDTH = 4
+    }
+}
+
+sealed class InformationMessageButton(val button: SecondaryButton, val isOutlineButton: Boolean = false) {
+    data class ActionButton(val actionButton: SecondaryButton) : InformationMessageButton(actionButton, false)
+    data class OutlineButton(val outlineButton: SecondaryButton) : InformationMessageButton(outlineButton, true)
 }
