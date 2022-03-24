@@ -118,11 +118,6 @@ class InformationMessageCardView @JvmOverloads constructor(
         }
     }
 
-    data class InformationMessageButton(
-        val button: SecondaryButton,
-        val isOutlineButton: Boolean = false
-    )
-
     enum class Type(val headlineBackgroundColor: Int, val headlineTint: Int) {
         WARNING(R.color.hmrc_information_message_warning_headline_background, R.color.hmrc_always_black),
         INFO(R.color.hmrc_information_message_info_headline_background, R.color.hmrc_white),
@@ -133,4 +128,9 @@ class InformationMessageCardView @JvmOverloads constructor(
     companion object {
         private const val OUTLINE_STROKE_WIDTH = 4
     }
+}
+
+sealed class InformationMessageButton(val button: SecondaryButton, val isOutlineButton: Boolean = false) {
+    data class ActionButton(val actionButton: SecondaryButton) : InformationMessageButton(actionButton, false)
+    data class OutlineButton(val outlineButton: SecondaryButton) : InformationMessageButton(outlineButton, true)
 }

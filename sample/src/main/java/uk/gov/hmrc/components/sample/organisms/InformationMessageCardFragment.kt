@@ -20,7 +20,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import uk.gov.hmrc.components.atom.button.SecondaryButton
-import uk.gov.hmrc.components.organism.information.InformationMessageCardView.InformationMessageButton
+import uk.gov.hmrc.components.organism.information.InformationMessageButton.ActionButton
+import uk.gov.hmrc.components.organism.information.InformationMessageButton.OutlineButton
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
 import uk.gov.hmrc.components.sample.base.BaseComponentsFragment
@@ -44,9 +45,7 @@ class InformationMessageCardFragment : BaseComponentsFragment() {
         binding.infoMessagePlaceholder.apply {
             setHeadlineButtons(
                 listOf(
-                    InformationMessageButton(
-                        SecondaryButton(requireContext()).apply { setText(R.string.info_message_placeholder_headline_button) }
-                    )
+                    ActionButton(SecondaryButton(requireContext()).apply { setText(R.string.info_message_placeholder_headline_button) })
                 )
             )
         }
@@ -57,14 +56,8 @@ class InformationMessageCardFragment : BaseComponentsFragment() {
         binding.infoMessageExample2.apply {
             setHeadlineButtons(
                 listOf(
-                    InformationMessageButton(
-                        SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_2_button) },
-                        false
-                    ),
-                    InformationMessageButton(
-                        SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_2_button) },
-                        true
-                    )
+                    ActionButton(SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_2_button) }),
+                    OutlineButton(SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_2_button) })
                 )
             )
         }
@@ -72,14 +65,8 @@ class InformationMessageCardFragment : BaseComponentsFragment() {
         binding.infoMessageExample3.apply {
             setHeadlineButtons(
                 listOf(
-                    InformationMessageButton(
-                        SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_3_button) },
-                        false
-                    ),
-                    InformationMessageButton(
-                        SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_3_button) },
-                        true
-                    )
+                    ActionButton(SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_3_button) }),
+                    OutlineButton(SecondaryButton(requireContext()).apply { setText(R.string.info_message_example_3_button) })
                 )
             )
         }
