@@ -28,24 +28,31 @@ class TabBarView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : TabLayout(context, attrs, defStyleAttr) {
 
+    private var initialHeight: Int? = null
+
     private val parentLayoutListener = object : ViewTreeObserver.OnGlobalLayoutListener {
         override fun onGlobalLayout() {
             (parent as View).viewTreeObserver.removeOnGlobalLayoutListener(this)
+            tabMode = MODE_AUTO // set temporarily to auto to prevent long text auto-resizing to fit smaller views
             val screenWidth = (parent as View).width
             measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
             val tabsWidth = measuredWidth
 
             if (screenWidth > tabsWidth) {
-                tabMode = MODE_FIXED
+                tabMode = MODE_FIXED // need MODE_FIXED because MODE_AUTO centers and we want to fill the space
                 tabGravity = GRAVITY_FILL
             } else {
                 tabMode = MODE_SCROLLABLE
             }
 
             resources.configuration.fontScale.takeIf { it != 1.0f }?.let {
-                layoutParams.height = (height * it).toInt()
-                requestLayout()
+                if (initialHeight == null) initialHeight = height
+                // need to use initial height so it doesn't keep growing when toggled
+                layoutParams.height = (initialHeight!! * it).toInt()
             }
+
+            // re-select selected tab incase longer text has pushed it sideways off screen and need to scroll
+            getTabAt(selectedTabPosition)?.select()
         }
     }
 
