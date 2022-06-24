@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.0.1] - 2022-06-24
+
 ### Changed
 
 * Updated `TabBarView` to fix bugs when the component is used with large text or long, dynamic tab titles.
