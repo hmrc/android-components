@@ -44,6 +44,7 @@
 
     <style name="Widget.Components.CardView" parent="Widget.MaterialComponents.CardView">
         <item name="shapeAppearance">@style/ShapeAppearance.Components.CardView</item>
+        <item name="cardBackgroundColor">@color/hmrc_white_background</item>
     </style>
 
     <style name="ShapeAppearance.Components.CardView" parent="ShapeAppearance.MaterialComponents.MediumComponent">

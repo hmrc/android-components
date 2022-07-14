@@ -16,6 +16,16 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* Updated `materialCardViewStyle` to ensure all cards use the HMRC dark mode supported background color (`hmrc_white_background`)
+
+## [4.0.1] - 2022-06-24
+
+### Changed
+
+* Updated `TabBarView` to fix bugs when the component is used with large text or long, dynamic tab titles.
+
 ## [4.0.0] - 2022-03-25
 
 ### Changed
