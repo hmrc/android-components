@@ -18,8 +18,8 @@ Allowed headings:
 
 ### Changed
 
-* Updated hmrc_secondary_button.ripple.xml to use high contrast alpha from Material Design.
-* Added `hmrc_secondary_button.ripple` to public colour.
+* Updated hmrc_secondary_button_ripple.xml to use high contrast alpha from Material Design.
+* Added `hmrc_secondary_button_ripple` to public colour.
 
 ## [4.1.0] - 2022-07-06
 
