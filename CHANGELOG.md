@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.1.0] - 2022-07-06
+
 ### Changed
 
 * Updated `materialCardViewStyle` to ensure all cards use the HMRC dark mode supported background color (`hmrc_white_background`)
