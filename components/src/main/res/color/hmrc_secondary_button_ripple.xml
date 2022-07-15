@@ -19,10 +19,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="PrivateResource">
 
-    <item android:alpha="@dimen/mtrl_low_ripple_pressed_alpha" android:color="@color/hmrc_blue" android:state_pressed="true" />
-    <item android:alpha="@dimen/mtrl_low_ripple_focused_alpha" android:color="@color/hmrc_blue" android:state_focused="true" android:state_hovered="true" />
-    <item android:alpha="@dimen/mtrl_low_ripple_focused_alpha" android:color="@color/hmrc_blue" android:state_focused="true" />
-    <item android:alpha="@dimen/mtrl_low_ripple_hovered_alpha" android:color="@color/hmrc_blue" android:state_hovered="true" />
-    <item android:alpha="@dimen/mtrl_low_ripple_default_alpha" android:color="@color/hmrc_blue" />
+    <item android:alpha="@dimen/mtrl_high_ripple_pressed_alpha" android:color="@color/hmrc_blue" android:state_pressed="true" />
+    <item android:alpha="@dimen/mtrl_high_ripple_focused_alpha" android:color="@color/hmrc_blue" android:state_focused="true" android:state_hovered="true" />
+    <item android:alpha="@dimen/mtrl_high_ripple_focused_alpha" android:color="@color/hmrc_blue" android:state_focused="true" />
+    <item android:alpha="@dimen/mtrl_high_ripple_hovered_alpha" android:color="@color/hmrc_blue" android:state_hovered="true" />
+    <item android:alpha="@dimen/mtrl_high_ripple_default_alpha" android:color="@color/hmrc_blue" />
 
 </selector>
