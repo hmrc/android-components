@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.2.0] - 2022-07-15
+
 ### Changed
 
 * Updated hmrc_secondary_button_ripple.xml to use high contrast alpha from Material Design.
