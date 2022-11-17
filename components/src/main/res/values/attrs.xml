@@ -248,4 +248,9 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="DonutChartView">
+        <attr name="color1" format="color" />
+        <attr name="color2" format="color" />
+    </declare-styleable>
+
 </resources>

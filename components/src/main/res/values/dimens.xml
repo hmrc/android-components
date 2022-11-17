@@ -58,4 +58,7 @@
     <!-- Warning -->
     <dimen name="warning_icon_size">36dp</dimen>
 
+    <!-- Donut -->
+    <dimen name="donut_width">16dp</dimen>
+
 </resources>
