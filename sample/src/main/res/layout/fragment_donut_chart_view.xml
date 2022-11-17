@@ -29,9 +29,7 @@
              <uk.gov.hmrc.components.molecule.donut.DonutChartView
                  android:id="@+id/donut_placeholder"
                  android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 app:color1="@color/hmrc_red"
-                 app:color2="@color/hmrc_blue" />
+                 android:layout_height="wrap_content" />
 
         </FrameLayout>
 
@@ -48,8 +46,8 @@
                 android:id="@+id/donut_example_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:color1="@color/hmrc_red"
-                app:color2="@color/hmrc_blue" />
+                app:color1="@color/hmrc_pink"
+                app:color2="@color/hmrc_yellow" />
 
         </com.google.android.material.card.MaterialCardView>
 

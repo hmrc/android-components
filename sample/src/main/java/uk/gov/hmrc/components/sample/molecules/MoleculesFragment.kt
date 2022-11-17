@@ -39,7 +39,9 @@ class MoleculesFragment : ComponentListFragment() {
             ComponentListItem(getString(R.string.molecules_warning)) { selectFragment(WarningViewFragment()) },
             ComponentListItem(getString(R.string.molecules_tab_bar)) { selectFragment(TabBarFragment()) },
             ComponentListItem(getString(R.string.molecules_select_row)) { selectFragment(SelectRowFragment()) },
-            ComponentListItem(getString(R.string.molecules_donut_chart_view)) { selectFragment(DonutChartViewFragment()) }
+            ComponentListItem(getString(R.string.molecules_donut_chart_view)) {
+                selectFragment(DonutChartViewFragment())
+            }
         )
     }
 }
