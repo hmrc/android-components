@@ -25,25 +25,25 @@ class DonutChartViewTest : BaseActivityTest() {
     @Test
     fun screenshots() {
         tapTab(TAB_IDENTIFIER)
-        screenshots(IDENTIFIER)
+        screenshots(POSITION)
     }
 
     @Test
     @NightMode
     fun nightModeScreenshots() {
         tapTab(TAB_IDENTIFIER)
-        nightModeScreenshots(IDENTIFIER)
+        nightModeScreenshots(POSITION)
     }
 
     @Test
     @FontScale(scale = 2f)
     fun fontScaleScreenshots() {
         tapTab(TAB_IDENTIFIER)
-        fontScaleScreenshots(IDENTIFIER)
+        fontScaleScreenshots(POSITION)
     }
 
     companion object {
-        const val IDENTIFIER = "Donut Chart View"
+        const val POSITION = 13
         const val TAB_IDENTIFIER = "Molecules"
     }
 }

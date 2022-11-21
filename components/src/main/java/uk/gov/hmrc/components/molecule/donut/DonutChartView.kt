@@ -56,11 +56,11 @@ class DonutChartView @JvmOverloads constructor(
             try {
                 color1 = getColor(
                     R.styleable.DonutChartView_color1,
-                    ContextCompat.getColor(context, R.color.donut_chart_color_1)
+                    ContextCompat.getColor(context, R.color.hmrc_donut_chart_color_1)
                 )
                 color2 = getColor(
                     R.styleable.DonutChartView_color2,
-                    ContextCompat.getColor(context, R.color.donut_chart_color_2)
+                    ContextCompat.getColor(context, R.color.hmrc_donut_chart_color_2)
                 )
             } finally {
                 recycle()
