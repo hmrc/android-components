@@ -16,7 +16,7 @@ Allowed headings:
 
 ## [Unreleased]
 
-## [4.3.0] - 2022-07-15
+## [4.3.0] - 2022-11-21
 
 ### Additions
 
