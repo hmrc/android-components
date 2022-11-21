@@ -16,6 +16,12 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.3.0] - 2022-07-15
+
+### Additions
+
+* Added `DonutChartView` component.
+
 ## [4.2.0] - 2022-07-15
 
 ### Changed
