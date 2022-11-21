@@ -40,5 +40,6 @@ class DonutChartViewFragment : BaseComponentsFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.donutPlaceholder.startAnimation(34f, 66f, false)
         binding.donutExample1.startAnimation(20f, 80f, true)
+        binding.donutExample2.startAnimation(10f, 200f, true)
     }
 }
