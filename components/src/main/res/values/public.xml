@@ -25,6 +25,8 @@
     <public name="hmrc_information_message_urgent_headline_background" />
     <public name="hmrc_information_message_notice_headline_background" />
     <public name="hmrc_secondary_button_ripple" type="color" />
+    <public name="hmrc_donut_chart_color_1" type="color" />
+    <public name="hmrc_donut_chart_color_2" type="color" />
 
     <!-- Styles -->
     <public name="MaterialTextButtonNoInset" type="style" />

@@ -48,4 +48,7 @@
     <color name="hmrc_information_message_urgent_headline_background">@color/hmrc_red</color>
     <color name="hmrc_information_message_notice_headline_background">@color/hmrc_black</color>
 
+    <color name="hmrc_donut_chart_color_1">@color/hmrc_teal</color>
+    <color name="hmrc_donut_chart_color_2">#003078</color>
+
 </resources>

@@ -77,6 +77,7 @@
     <string name="molecules_inset">Inset View</string>
     <string name="molecules_inset_text">Inset Text View</string>
     <string name="molecules_multi_column_row">Multi Column Row View</string>
+    <string name="molecules_donut_chart_view">Donut Chart View</string>
     <string name="molecules_switch_row">Switch Row View</string>
     <string name="molecules_status">Status View</string>
     <string name="molecules_warning">Warning View</string>
