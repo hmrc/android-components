@@ -74,6 +74,7 @@
     <string name="molecules_h4">H4 Title Body View</string>
     <string name="molecules_h5">H5 Title Body View</string>
     <string name="molecules_bold">Bold Title Body View</string>
+    <string name="molecules_editable_list_view">Editable List View</string>
     <string name="molecules_inset">Inset View</string>
     <string name="molecules_inset_text">Inset Text View</string>
     <string name="molecules_multi_column_row">Multi Column Row View</string>
@@ -95,6 +96,7 @@
     <string name="organisms_summary_row">Summary Row View</string>
     <string name="organisms_separated_view_container">Separated View Container</string>
     <string name="organisms_menu_panel_row">Menu Panel Row View</string>
+    <string name="organisms_editable_list_view">Editable List View</string>
 
     <!-- Separated view container -->
     <string name="separated_view_container_placeholder_text_1">Item 1</string>
@@ -341,5 +343,8 @@
     <string name="menu_panel_example_3_body">A savings account with bonuses designed to help you start saving</string>
     <string name="menu_panel_example_4_title">News</string>
     <string name="menu_panel_example_4_body">News and current tax related information from HMRC</string>
+    <!-- Edit Button Text -->
+    <string name="edit_button_update_or_remove">Update or remove benefits</string>
+    <string name="edit_button_finish">Finish updating benefits</string>
 
 </resources>
