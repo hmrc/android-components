@@ -41,4 +41,9 @@
 
     <string name="currency_input_prefix">£</string>
     <string name="text_input_clear_button_content_description">Clear text</string>
+
+    <!-- Edit Button Text -->
+    <string name="edit">Edit</string>
+    <string name="edit_button_update_or_remove">Update or remove benefits</string>
+    <string name="edit_button_finish">Finish updating benefits</string>
 </resources>

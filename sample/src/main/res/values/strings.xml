@@ -343,8 +343,5 @@
     <string name="menu_panel_example_3_body">A savings account with bonuses designed to help you start saving</string>
     <string name="menu_panel_example_4_title">News</string>
     <string name="menu_panel_example_4_body">News and current tax related information from HMRC</string>
-    <!-- Edit Button Text -->
-    <string name="edit_button_update_or_remove">Update or remove benefits</string>
-    <string name="edit_button_finish">Finish updating benefits</string>
 
 </resources>

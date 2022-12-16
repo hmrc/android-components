@@ -1,37 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraint_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/SampleScrollView">
 
     <LinearLayout
-        android:id="@+id/company_benefits_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:id="@+id/content_layout"
+        style="@style/SampleSectionContainer">
 
-        <uk.gov.hmrc.components.atom.heading.Heading5
-            android:id="@+id/cbHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your company benefits"
-            tools:ignore="HardcodedText" />
+        <uk.gov.hmrc.components.atom.heading.Heading5 style="@style/PlaceholderText" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            tools:listitem="@layout/editable_list_view_item" />
-
-        <uk.gov.hmrc.components.atom.button.PrimaryButton
-            android:id="@+id/edit_benefits_button"
+        <uk.gov.hmrc.components.organism.primary.PrimaryCardView
+            android:id="@+id/headline_placeholder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/edit_button_update_or_remove" />
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            app:headline="@string/headline_placeholder_headline"
+            app:title="Your Company Benefits">
+
+            <uk.gov.hmrc.components.organism.editable.EditableListView
+                android:id="@+id/editable_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </uk.gov.hmrc.components.organism.primary.PrimaryCardView>
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

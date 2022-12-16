@@ -5,7 +5,7 @@
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@+id/start"
-        motion:duration="100">
+        motion:duration="1000">
 
         <KeyFrameSet>
 
@@ -46,8 +46,8 @@
 
         <Constraint
             android:id="@+id/editButton"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="8dp"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +77,7 @@
         <Constraint
             android:id="@+id/editButton"
             android:layout_width="0dp"
-            android:layout_height="64dp"
+            android:layout_height="40dp"
             android:layout_marginStart="8dp"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"

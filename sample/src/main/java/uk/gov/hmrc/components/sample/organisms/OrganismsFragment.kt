@@ -19,7 +19,6 @@ import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.base.ComponentListFragment
 import uk.gov.hmrc.components.sample.base.ComponentListItem
 import uk.gov.hmrc.components.sample.base.ToolbarState
-import uk.gov.hmrc.components.sample.organisms.editablelistview.EditableListViewFragment
 
 class OrganismsFragment : ComponentListFragment() {
 
@@ -35,9 +34,11 @@ class OrganismsFragment : ComponentListFragment() {
             ComponentListItem(getString(R.string.organisms_separated_view_container)) { selectFragment(SeparatedViewContainerFragment()) },
             ComponentListItem(getString(R.string.organisms_info_message_card)) { selectFragment(InformationMessageCardFragment()) },
             ComponentListItem(getString(R.string.organisms_menu_panel_row)) { selectFragment(MenuPanelRowFragment()) },
-            ComponentListItem(getString(R.string.organisms_editable_list_view)) { selectFragment(
-                EditableListViewFragment()
-            ) }
+            ComponentListItem(getString(R.string.organisms_editable_list_view)) {
+                selectFragment(
+                    EditableListViewFragment()
+                )
+            }
         )
     }
 }
