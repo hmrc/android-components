@@ -253,4 +253,15 @@
         <attr name="color2" format="color" />
     </declare-styleable>
 
+    <declare-styleable name="EditableListView">
+        <!-- Title to display. -->
+        <attr name="title" />
+        <!-- button Title to display. -->
+        <attr name="buttontitle" />
+        <!-- Button Text to display. -->
+        <attr name="editButtonText" />
+        <!-- Icon to display. -->
+        <attr name="icon" />
+    </declare-styleable>
+
 </resources>

@@ -8,22 +8,51 @@
         android:id="@+id/content_layout"
         style="@style/SampleSectionContainer">
 
-        <uk.gov.hmrc.components.atom.heading.Heading5 style="@style/PlaceholderText" />
+        <TextView style="@style/PlaceholderText" />
 
-        <uk.gov.hmrc.components.organism.primary.PrimaryCardView
-            android:id="@+id/headline_placeholder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/hmrc_spacing_16"
-            app:headline="@string/headline_placeholder_headline"
-            app:title="Your Company Benefits">
+        <FrameLayout style="@style/PlaceholderContainer">
 
             <uk.gov.hmrc.components.organism.editable.EditableListView
                 android:id="@+id/editable_list_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                app:editButtonText="@string/editable_list_placeholder_button_title"
+                app:title="@string/editable_list_placeholder_title" />
+        </FrameLayout>
 
-        </uk.gov.hmrc.components.organism.primary.PrimaryCardView>
+        <TextView style="@style/ExampleText" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/hmrc_spacing_16"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:layout_marginEnd="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.organism.editable.EditableListView
+                android:id="@+id/editable_list_example_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:editButtonText="@string/editable_list_example_1_button_title"
+                app:title="@string/editable_list_example_1_title" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/hmrc_spacing_16"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:layout_marginEnd="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.organism.editable.EditableListView
+                android:id="@+id/editable_list_example_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:editButtonText="@string/editable_list_example_1_button_title"
+                app:title="@string/long_text" />
+
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 </ScrollView>

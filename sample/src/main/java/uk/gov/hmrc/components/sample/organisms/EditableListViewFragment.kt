@@ -40,19 +40,34 @@ class EditableListViewFragment : BaseComponentsFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentEditableListViewBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
 
-        editableItem.apply {
-            add(EditableListView.EditableItem(name = "Medical", value = "£1000"))
-            add(EditableListView.EditableItem(name = "Car benefit", value = "£600"))
-        }
+        val editableItem = arrayListOf<EditableListView.EditableItem>(
+            EditableListViewModel(name = "Column 1", value = "Column 2"),
+            EditableListViewModel(name = "Column 1", value = "Column 2")
+        )
+
+        val editableItem1 = arrayListOf<EditableListView.EditableItem>(
+            EditableListViewModel(name = "Medical", value = "£1000"),
+            EditableListViewModel(name = "Car Benefit", value = "£600"),
+            EditableListViewModel(name = "Insurance", value = "£300000"),
+            EditableListViewModel(name = "Tax Benefits", value = "£55500")
+        )
+
+        val editableItem2 = arrayListOf<EditableListView.EditableItem>(
+            EditableListViewModel(name = "Lorem ipsum dolor sit amet", value = "78695743008"),
+            EditableListViewModel(name = "Lorem ipsum dolor sit amet", value = "46970783733332")
+        )
 
         binding.editableListView.setData(editableItem)
+        binding.editableListExample1.setData(editableItem1)
+        binding.editableListExample2.setData(editableItem2)
     }
+
+    data class EditableListViewModel(override var name: String, override var value: String) :
+        EditableListView.EditableItem
 }

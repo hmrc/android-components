@@ -22,6 +22,7 @@ import uk.gov.hmrc.components.databinding.EditableListItemBinding
 
 class EditableListViewAdapter(
     private val values: List<EditableListView.EditableItem>,
+    var buttonText: String,
     private val onClickListener: OnItemClickListener,
 ) : RecyclerView.Adapter<EditableListViewAdapter.ViewHolder>() {
 
@@ -54,9 +55,10 @@ class EditableListViewAdapter(
             onClickListener: OnItemClickListener
 
         ) = with(binding) {
-            benefitName.text = result.name
-            benefitAmount.text = result.value
-            editButton.setOnClickListener {
+            columnOne.text = result.name
+            columnTwo.text = result.value
+            iconButton.text = buttonText
+            iconButton.setOnClickListener {
                 onClickListener(adapterPosition)
             }
 

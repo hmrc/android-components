@@ -21,7 +21,6 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentEditableListViewBinding
-import uk.gov.hmrc.components.extensions.setAccessibilityMessage
 
 open class EditableListView @JvmOverloads constructor(
     context: Context,
@@ -31,38 +30,41 @@ open class EditableListView @JvmOverloads constructor(
     private val binding: ComponentEditableListViewBinding =
         ComponentEditableListViewBinding.inflate(LayoutInflater.from(context), this, true)
 
-    data class EditableItem(var name: String, var value: String)
-
-    lateinit var editableListViewAdapter: EditableListViewAdapter
-    var editableItem = ArrayList<EditableItem>()
-    var itemPosition: Int? = null
-    var clicked = false
+    private lateinit var editableListViewAdapter: EditableListViewAdapter
+    private var editableItem = ArrayList<EditableItem>()
+    private var itemPosition: Int? = null
+    private var editMode = true
+    private var editButtonText: String =
+        context.getString(R.string.editable_list_placeholder_button_title)
 
     init {
+        attrs?.let {
+            val typedArray =
+                context.theme.obtainStyledAttributes(it, R.styleable.EditableListView, 0, 0)
+            val title = typedArray.getString(R.styleable.EditableListView_title) ?: ""
+            editButtonText = typedArray.getString(R.styleable.EditableListView_editButtonText) ?: ""
 
-        binding.secondaryButton.apply {
+            setTitle(title)
+            setEditButtontext(editButtonText)
+            typedArray.recycle()
+        }
 
-            setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_edit, 0, 0, 0)
-            text = context.getString(R.string.edit_button_update_or_remove)
-
-            setOnClickListener {
+        binding.iconButton.setOnClickListener {
+            if (::editableListViewAdapter.isInitialized) {
                 editableListViewAdapter.isEditEnable = !editableListViewAdapter.isEditEnable
-                if (clicked) {
-                    clicked = false
-                    announceForAccessibility("Edit buttons now hidden")
-
-                    setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_edit, 0, 0, 0)
-                    text = context.getString(R.string.edit_button_update_or_remove)
-                    setAccessibilityMessage("edit your company benefits")
-                } else {
-                    clicked = true
-                    announceForAccessibility("Edit buttons now visible")
-
-                    setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_tick, 0, 0, 0)
-                    text = context.getString(R.string.edit_button_finish)
-                    setAccessibilityMessage("finish editing your company benefits")
-                }
             }
+            setEditModeUI(!editMode)
+        }
+    }
+
+    private fun setEditModeUI(isInEditMode: Boolean) {
+        this.editMode = isInEditMode
+        binding.iconButton.apply {
+            setIconResource(if (isInEditMode) R.drawable.ic_edit else R.drawable.ic_tick)
+            text =
+                if (isInEditMode) context.getString(R.string.edit_button_update_or_remove) else context.getString(
+                    R.string.edit_button_finish
+                )
         }
     }
 
@@ -70,12 +72,28 @@ open class EditableListView @JvmOverloads constructor(
         this.editableItem = editableItem
 
         editableListViewAdapter =
-            EditableListViewAdapter(editableItem) { position ->
+            EditableListViewAdapter(editableItem, editButtonText) { position ->
                 itemPosition = position
             }
 
         binding.listItem.apply {
             adapter = editableListViewAdapter
         }
+    }
+
+    fun setEditButtontext(title: String) {
+        editButtonText = title
+        if (::editableListViewAdapter.isInitialized) {
+            editableListViewAdapter.buttonText = title
+        }
+    }
+
+    fun setTitle(title: CharSequence?) {
+        binding.title.text = title
+    }
+
+    interface EditableItem {
+        var name: String
+        var value: String
     }
 }

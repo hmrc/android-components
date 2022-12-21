@@ -12,12 +12,12 @@
             <KeyAttribute
                 android:alpha="0"
                 motion:framePosition="0"
-                motion:motionTarget="@id/editButton" />
+                motion:motionTarget="@id/icon_button" />
 
             <KeyAttribute
                 android:alpha="1"
                 motion:framePosition="100"
-                motion:motionTarget="@id/editButton" />
+                motion:motionTarget="@id/icon_button" />
 
         </KeyFrameSet>
 
@@ -26,29 +26,27 @@
     <ConstraintSet android:id="@+id/start">
 
         <Constraint
-            android:id="@+id/benefit_name"
+            android:id="@+id/column_one"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintBottom_toBottomOf="@id/icon_button"
+            motion:layout_constraintEnd_toStartOf="@id/column_two"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/benefitAmount"
-            android:layout_width="0dp"
+            android:id="@+id/column_two"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintBottom_toBottomOf="@id/icon_button"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toEndOf="@id/benefit_name"
+            motion:layout_constraintStart_toEndOf="@id/column_one"
             motion:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/editButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
+            android:id="@+id/icon_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
@@ -56,29 +54,27 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/benefit_name"
+            android:id="@+id/column_one"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintBottom_toBottomOf="@id/icon_button"
+            motion:layout_constraintEnd_toStartOf="@id/column_two"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/benefitAmount"
-            android:layout_width="0dp"
+            android:id="@+id/column_two"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toStartOf="@id/editButton"
-            motion:layout_constraintStart_toEndOf="@id/benefit_name"
+            motion:layout_constraintBottom_toBottomOf="@id/icon_button"
+            motion:layout_constraintEnd_toStartOf="@id/icon_button"
+            motion:layout_constraintStart_toEndOf="@id/column_one"
             motion:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/editButton"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
+            android:id="@+id/icon_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
