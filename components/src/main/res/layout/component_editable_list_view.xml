@@ -8,6 +8,8 @@
 
     <uk.gov.hmrc.components.atom.heading.Heading5
         android:id="@+id/title"
+        android:layout_marginBottom="@dimen/hmrc_spacing_8"
+        android:paddingHorizontal="@dimen/hmrc_spacing_16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
@@ -16,10 +18,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_item"
+        android:paddingHorizontal="@dimen/hmrc_spacing_16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/editable_list_item" />
+        tools:listitem="@layout/editable_list_items" />
 
     <uk.gov.hmrc.components.atom.button.IconButton
         android:id="@+id/icon_button"

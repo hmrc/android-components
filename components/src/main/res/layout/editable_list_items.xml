@@ -16,6 +16,12 @@
         android:layout_height="wrap_content"
         android:gravity="start" />
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:background="@drawable/components_divider"
+        android:layout_height="1dp" />
+
     <TextView
         android:id="@+id/column_two"
         style="@style/Text.Body"

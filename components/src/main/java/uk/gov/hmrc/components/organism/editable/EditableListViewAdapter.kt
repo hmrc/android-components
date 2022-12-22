@@ -18,13 +18,10 @@ package uk.gov.hmrc.components.organism.editable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import uk.gov.hmrc.components.databinding.EditableListItemBinding
+import uk.gov.hmrc.components.databinding.EditableListItemsBinding
 
 class EditableListViewAdapter(
     private val values: List<EditableListView.EditableItem>,
-    var buttonText: String,
-    var buttonContentDescription: String,
-    private val onClickListener: OnItemClickListener,
 ) : RecyclerView.Adapter<EditableListViewAdapter.ViewHolder>() {
 
     var isEditEnable: Boolean = false
@@ -35,7 +32,7 @@ class EditableListViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
-            EditableListItemBinding.inflate(
+            EditableListItemsBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -45,23 +42,22 @@ class EditableListViewAdapter(
     override fun getItemCount() = values.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(values[position], onClickListener)
+        holder.bind(values[position])
     }
 
-    inner class ViewHolder(private val binding: EditableListItemBinding) :
+    inner class ViewHolder(private val binding: EditableListItemsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
-            result: EditableListView.EditableItem,
-            onClickListener: OnItemClickListener
+            result: EditableListView.EditableItem
 
         ) = with(binding) {
             columnOne.text = result.name
             columnTwo.text = result.value
-            iconButton.text = buttonText
-            iconButton.contentDescription = buttonContentDescription
+            iconButton.text = result.buttonText
+            iconButton.contentDescription = result.buttonContentDescription
             iconButton.setOnClickListener {
-                onClickListener(adapterPosition)
+                result.onClickListener(adapterPosition)
             }
 
             if (isEditEnable) {
@@ -72,4 +68,3 @@ class EditableListViewAdapter(
         }
     }
 }
-typealias OnItemClickListener = (position: Int) -> Unit

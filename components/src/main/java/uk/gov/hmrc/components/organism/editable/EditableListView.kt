@@ -33,11 +33,8 @@ open class EditableListView @JvmOverloads constructor(
         ComponentEditableListViewBinding.inflate(LayoutInflater.from(context), this, true)
 
     private lateinit var editableListViewAdapter: EditableListViewAdapter
-    private var editableItem = ArrayList<EditableItem>()
-    private var itemPosition: Int? = null
+    private var editableItems = ArrayList<EditableItem>()
     private var editMode = false
-    private var editButtonText: String = ""
-    private var editButtonContentDescription: String = ""
     private var buttonText: Pair<String, String> = Pair("", "")
     private var buttonAccessibility: Pair<String, String> = Pair("", "")
     private var buttonIcon: Pair<Int, Int> = Pair(0, 0)
@@ -47,10 +44,6 @@ open class EditableListView @JvmOverloads constructor(
             val typedArray =
                 context.theme.obtainStyledAttributes(it, R.styleable.EditableListView, 0, 0)
             val title = typedArray.getString(R.styleable.EditableListView_title) ?: ""
-            editButtonText = typedArray.getString(R.styleable.EditableListView_editbuttontext) ?: ""
-            editButtonContentDescription =
-                typedArray.getString(R.styleable.EditableListView_editbuttoncontentdescription)
-                    ?: ""
             setEditbuttonData(
                 typedArray.getString(R.styleable.EditableListView_buttonstarteditingtext) ?: "",
                 typedArray.getString(R.styleable.EditableListView_buttonfinisheditingtext) ?: ""
@@ -71,8 +64,6 @@ open class EditableListView @JvmOverloads constructor(
                 typedArray.getString(R.styleable.EditableListView_endeditingaccessibility) ?: ""
             )
             setTitle(title)
-            setEditButtontext(editButtonText)
-            setEditButtonContentDescription(editButtonContentDescription)
             typedArray.recycle()
         }
 
@@ -121,33 +112,13 @@ open class EditableListView @JvmOverloads constructor(
     }
 
     fun setData(editableItem: ArrayList<EditableItem>) {
-        this.editableItem = editableItem
+        this.editableItems = editableItem
 
         editableListViewAdapter =
-            EditableListViewAdapter(
-                editableItem,
-                editButtonText,
-                editButtonContentDescription
-            ) { position ->
-                itemPosition = position
-            }
+            EditableListViewAdapter(editableItem)
 
         binding.listItem.apply {
             adapter = editableListViewAdapter
-        }
-    }
-
-    fun setEditButtontext(title: String) {
-        editButtonText = title
-        if (::editableListViewAdapter.isInitialized) {
-            editableListViewAdapter.buttonText = title
-        }
-    }
-
-    fun setEditButtonContentDescription(description: String) {
-        editButtonContentDescription = description
-        if (::editableListViewAdapter.isInitialized) {
-            editableListViewAdapter.buttonContentDescription = description
         }
     }
 
@@ -158,6 +129,9 @@ open class EditableListView @JvmOverloads constructor(
     interface EditableItem {
         var name: String
         var value: String
+        var buttonText: String
+        var buttonContentDescription: String
+        val onClickListener: (Int) -> Unit
     }
 
     companion object {

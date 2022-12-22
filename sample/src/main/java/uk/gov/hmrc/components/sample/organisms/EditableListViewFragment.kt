@@ -29,9 +29,6 @@ import uk.gov.hmrc.components.sample.databinding.FragmentEditableListViewBinding
 class EditableListViewFragment : BaseComponentsFragment() {
 
     private var binding: FragmentEditableListViewBinding by autoCleared()
-
-    val editableItem = arrayListOf<EditableListView.EditableItem>()
-
     override fun provideToolbar() = ToolbarState(true, R.string.molecules_editable_list_view, true)
 
     override fun onCreateView(
@@ -45,70 +42,69 @@ class EditableListViewFragment : BaseComponentsFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val editableItem = arrayListOf<EditableListView.EditableItem>(
-            EditableListViewModel(name = "Column 1", value = "Column 2"),
-            EditableListViewModel(name = "Column 1", value = "Column 2")
+            EditableListViewModel(
+                "Column 1", "Column 2", "Column 3", "dummy text"
+            ) {},
+            EditableListViewModel(
+                "Column 1", "Column 2", "Column 3", "dummy text"
+            ) {}
         )
-
         val editableItem1 = arrayListOf<EditableListView.EditableItem>(
-            EditableListViewModel(name = "Medical", value = "£1000"),
-            EditableListViewModel(name = "Car Benefit", value = "£600"),
-            EditableListViewModel(name = "Insurance", value = "£300000"),
-            EditableListViewModel(name = "Tax Benefits", value = "£55500")
+            EditableListViewModel(
+                "Medical", "£1000",
+                "Edit", "Edit Medical"
+            ) {},
+            EditableListViewModel(
+                "Car Benefit", "£600", "Edit", "Edit Car Benefit"
+            ) {},
+            EditableListViewModel(
+                "Insurance", "£300000", "Edit", "Edit Insurance"
+            ) {},
+            EditableListViewModel(
+                "Tax Benefits", "£55500", "Edit",
+                "Edit Tax Benefits"
+            ) {}
         )
-
         val editableItem2 = arrayListOf<EditableListView.EditableItem>(
-            EditableListViewModel(name = "Lorem ipsum dolor", value = "78695743008"),
-            EditableListViewModel(name = "Lorem ipsum dolor", value = "46970783733332")
-        )
-
-        binding.apply {
-            editableListView.setData(editableItem)
-            editableListExample1.setData(editableItem1)
-            editableListExample2.setData(editableItem2)
-
-            editableListView.setTitle("Title")
-            editableListExample1.setTitle("Your Company Benefits")
-            editableListExample2.setTitle("Lorem ipsum dolor sit amet, id cum ullum deseruisse solet.")
-
-            editableListView.setEditButtontext("Column 3")
-            editableListExample1.setEditButtontext("Edit")
-            editableListExample2.setEditButtontext("Lorem ipsum")
-
-            editableListView.setEditButtonContentDescription("dummy text")
-            editableListExample1.setEditButtonContentDescription("Edit medical benefit")
-            editableListExample2.setEditButtonContentDescription("Lorem ipsum dolor")
-
-            editableListView.setEditbuttonData("(Link) Button Text", "(Link) Button Text")
-            editableListExample1.setEditbuttonData(
-                "Update or remove benefits",
-                "Finish updating benefits"
-            )
-            editableListExample2.setEditbuttonData(
-                "Lorem ipsum dolor sit amet",
+            EditableListViewModel(
+                "Lorem ipsum dolor", "78695743008", "Lorem ipsum",
                 "Lorem ipsum dolor"
-            )
-
-            editableListView.setEditbuttonIconData(
-                R.drawable.ic_help_outline,
-                R.drawable.ic_help_outline
-            )
-            editableListExample1.setEditbuttonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
-            editableListExample2.setEditbuttonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
-
-            editableListView.setEditButtonAccessibility("Accessibility Text", "Accessibility Text")
-            editableListExample1.setEditButtonAccessibility(
-                "edit your company benefits",
-                "Finish updating benefits"
-            )
-            editableListExample2.setEditButtonAccessibility(
-                "Lorem ipsum dolor sit amet",
-                "Lorem ipsum dolor sit amet"
-            )
+            ) {},
+            EditableListViewModel(
+                "Lorem ipsum dolor", "46970783733", "Lorem ipsum", "Lorem ipsum dolor"
+            ) {}
+        )
+        binding.apply {
+            editableListView.apply {
+                setData(editableItem)
+                setTitle("Title")
+                setEditbuttonData("(Link) Button Text", "(Link) Button Text")
+                setEditbuttonIconData(R.drawable.ic_help_outline, R.drawable.ic_help_outline)
+                setEditButtonAccessibility("Accessibility Text", "Accessibility Text")
+            }
+            editableListExample1.apply {
+                setData(editableItem1)
+                setTitle("Your Company Benefits")
+                setEditbuttonData("Update or remove benefits", "Finish updating benefits")
+                setEditbuttonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
+                setEditButtonAccessibility("edit your company benefits", "Finish updating benefits")
+            }
+            editableListExample2.apply {
+                setData(editableItem2)
+                setTitle("Lorem ipsum dolor sit amet, id cum ullum deseruisse solet.")
+                setEditbuttonData("Lorem ipsum dolor sit amet", "Lorem ipsum dolor")
+                setEditbuttonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
+                setEditButtonAccessibility("Lorem ipsum", "Lorem ipsum")
+            }
         }
     }
 
-    data class EditableListViewModel(override var name: String, override var value: String) :
-        EditableListView.EditableItem
+    data class EditableListViewModel(
+        override var name: String,
+        override var value: String,
+        override var buttonText: String,
+        override var buttonContentDescription: String,
+        override val onClickListener: (Int) -> Unit
+    ) : EditableListView.EditableItem
 }
