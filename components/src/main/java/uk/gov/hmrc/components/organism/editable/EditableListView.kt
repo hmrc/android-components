@@ -92,10 +92,10 @@ open class EditableListView @JvmOverloads constructor(
     }
 
     fun setEditbuttonIconData(
-        @DrawableRes statingEditingIcon: Int,
+        @DrawableRes startingEditingIcon: Int,
         @DrawableRes endEditingIcon: Int
     ) {
-        buttonIcon = Pair(statingEditingIcon, endEditingIcon)
+        buttonIcon = Pair(startingEditingIcon, endEditingIcon)
         binding.iconButton.apply {
             setIconResource(if (isInEditMode) buttonIcon.first else buttonIcon.second)
         }
