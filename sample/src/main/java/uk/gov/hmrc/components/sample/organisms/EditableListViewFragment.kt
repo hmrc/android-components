@@ -59,13 +59,54 @@ class EditableListViewFragment : BaseComponentsFragment() {
         )
 
         val editableItem2 = arrayListOf<EditableListView.EditableItem>(
-            EditableListViewModel(name = "Lorem ipsum dolor sit amet", value = "78695743008"),
-            EditableListViewModel(name = "Lorem ipsum dolor sit amet", value = "46970783733332")
+            EditableListViewModel(name = "Lorem ipsum dolor", value = "78695743008"),
+            EditableListViewModel(name = "Lorem ipsum dolor", value = "46970783733332")
         )
 
-        binding.editableListView.setData(editableItem)
-        binding.editableListExample1.setData(editableItem1)
-        binding.editableListExample2.setData(editableItem2)
+        binding.apply {
+            editableListView.setData(editableItem)
+            editableListExample1.setData(editableItem1)
+            editableListExample2.setData(editableItem2)
+
+            editableListView.setTitle("Title")
+            editableListExample1.setTitle("Your Company Benefits")
+            editableListExample2.setTitle("Lorem ipsum dolor sit amet, id cum ullum deseruisse solet.")
+
+            editableListView.setEditButtontext("Column 3")
+            editableListExample1.setEditButtontext("Edit")
+            editableListExample2.setEditButtontext("Lorem ipsum")
+
+            editableListView.setEditButtonContentDescription("dummy text")
+            editableListExample1.setEditButtonContentDescription("Edit medical benefit")
+            editableListExample2.setEditButtonContentDescription("Lorem ipsum dolor")
+
+            editableListView.setEditbuttonData("(Link) Button Text", "(Link) Button Text")
+            editableListExample1.setEditbuttonData(
+                "Update or remove benefits",
+                "Finish updating benefits"
+            )
+            editableListExample2.setEditbuttonData(
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor"
+            )
+
+            editableListView.setEditbuttonIconData(
+                R.drawable.ic_help_outline,
+                R.drawable.ic_help_outline
+            )
+            editableListExample1.setEditbuttonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
+            editableListExample2.setEditbuttonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
+
+            editableListView.setEditButtonAccessibility("Accessibility Text", "Accessibility Text")
+            editableListExample1.setEditButtonAccessibility(
+                "edit your company benefits",
+                "Finish updating benefits"
+            )
+            editableListExample2.setEditButtonAccessibility(
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor sit amet"
+            )
+        }
     }
 
     data class EditableListViewModel(override var name: String, override var value: String) :

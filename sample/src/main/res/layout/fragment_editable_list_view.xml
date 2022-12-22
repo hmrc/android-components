@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/SampleScrollView">
 
     <LinearLayout
@@ -15,9 +14,7 @@
             <uk.gov.hmrc.components.organism.editable.EditableListView
                 android:id="@+id/editable_list_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:editButtonText="@string/editable_list_placeholder_button_title"
-                app:title="@string/editable_list_placeholder_title" />
+                android:layout_height="match_parent" />
         </FrameLayout>
 
         <TextView style="@style/ExampleText" />
@@ -32,9 +29,7 @@
             <uk.gov.hmrc.components.organism.editable.EditableListView
                 android:id="@+id/editable_list_example_1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:editButtonText="@string/editable_list_example_1_button_title"
-                app:title="@string/editable_list_example_1_title" />
+                android:layout_height="match_parent" />
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -48,9 +43,7 @@
             <uk.gov.hmrc.components.organism.editable.EditableListView
                 android:id="@+id/editable_list_example_2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:editButtonText="@string/editable_list_example_1_button_title"
-                app:title="@string/long_text" />
+                android:layout_height="match_parent" />
 
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>

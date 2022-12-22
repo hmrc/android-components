@@ -258,10 +258,22 @@
         <attr name="title" />
         <!-- button Title to display. -->
         <attr name="buttontitle" />
-        <!-- Button Text to display. -->
-        <attr name="editButtonText" />
-        <!-- Icon to display. -->
-        <attr name="icon" />
+        <!-- Button Start Editing Text to Display-->
+        <attr name="buttonstarteditingtext" />
+        <!-- Button Finished Editing Text to Display-->
+        <attr name="buttonfinisheditingtext" />
+        <!-- Button Start Editing Icon to Display-->
+        <attr name="buttonstarteditingicon" />
+        <!-- Button Finished Editing Icon to Display -->
+        <attr name="buttonfinisheditingicon" />
+        <!-- Stating Editing Accessibility message to read. -->
+        <attr name="statingeditingaccessibility" />
+        <!-- End Editing Accessibility message to read. -->
+        <attr name="endeditingaccessibility" />
+        <!-- edit button content description -->
+        <attr name="editbuttoncontentdescription" />
+        <!-- Edit Button Text to Display-->
+        <attr name="editbuttontext" />
     </declare-styleable>
 
 </resources>

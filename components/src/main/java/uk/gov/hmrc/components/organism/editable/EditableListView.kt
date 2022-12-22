@@ -18,9 +18,11 @@ package uk.gov.hmrc.components.organism.editable
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentEditableListViewBinding
+import uk.gov.hmrc.components.extensions.setAccessibilityMessage
 
 open class EditableListView @JvmOverloads constructor(
     context: Context,
@@ -33,19 +35,44 @@ open class EditableListView @JvmOverloads constructor(
     private lateinit var editableListViewAdapter: EditableListViewAdapter
     private var editableItem = ArrayList<EditableItem>()
     private var itemPosition: Int? = null
-    private var editMode = true
-    private var editButtonText: String =
-        context.getString(R.string.editable_list_placeholder_button_title)
+    private var editMode = false
+    private var editButtonText: String = ""
+    private var editButtonContentDescription: String = ""
+    private var buttonText: Pair<String, String> = Pair("", "")
+    private var buttonAccessibility: Pair<String, String> = Pair("", "")
+    private var buttonIcon: Pair<Int, Int> = Pair(0, 0)
 
     init {
         attrs?.let {
             val typedArray =
                 context.theme.obtainStyledAttributes(it, R.styleable.EditableListView, 0, 0)
             val title = typedArray.getString(R.styleable.EditableListView_title) ?: ""
-            editButtonText = typedArray.getString(R.styleable.EditableListView_editButtonText) ?: ""
-
+            editButtonText = typedArray.getString(R.styleable.EditableListView_editbuttontext) ?: ""
+            editButtonContentDescription =
+                typedArray.getString(R.styleable.EditableListView_editbuttoncontentdescription)
+                    ?: ""
+            setEditbuttonData(
+                typedArray.getString(R.styleable.EditableListView_buttonstarteditingtext) ?: "",
+                typedArray.getString(R.styleable.EditableListView_buttonfinisheditingtext) ?: ""
+            )
+            setEditbuttonIconData(
+                typedArray.getResourceId(
+                    R.styleable.EditableListView_buttonstarteditingicon,
+                    NO_ICON
+                ),
+                typedArray.getResourceId(
+                    R.styleable.EditableListView_buttonfinisheditingicon,
+                    NO_ICON
+                )
+            )
+            setEditButtonAccessibility(
+                typedArray.getString(R.styleable.EditableListView_statingeditingaccessibility)
+                    ?: "",
+                typedArray.getString(R.styleable.EditableListView_endeditingaccessibility) ?: ""
+            )
             setTitle(title)
             setEditButtontext(editButtonText)
+            setEditButtonContentDescription(editButtonContentDescription)
             typedArray.recycle()
         }
 
@@ -60,11 +87,36 @@ open class EditableListView @JvmOverloads constructor(
     private fun setEditModeUI(isInEditMode: Boolean) {
         this.editMode = isInEditMode
         binding.iconButton.apply {
-            setIconResource(if (isInEditMode) R.drawable.ic_edit else R.drawable.ic_tick)
-            text =
-                if (isInEditMode) context.getString(R.string.edit_button_update_or_remove) else context.getString(
-                    R.string.edit_button_finish
-                )
+            setIconResource(if (isInEditMode) buttonIcon.first else buttonIcon.second)
+            setAccessibilityMessage(if (isInEditMode) buttonAccessibility.first else buttonAccessibility.second)
+            text = if (isInEditMode) buttonText.first else buttonText.second
+        }
+    }
+
+    fun setEditbuttonData(statingEditingText: String, endEditingText: String) {
+        buttonText = Pair(statingEditingText, endEditingText)
+        binding.iconButton.apply {
+            text = if (editMode) buttonText.first else buttonText.second
+        }
+    }
+
+    fun setEditbuttonIconData(
+        @DrawableRes statingEditingIcon: Int,
+        @DrawableRes endEditingIcon: Int
+    ) {
+        buttonIcon = Pair(statingEditingIcon, endEditingIcon)
+        binding.iconButton.apply {
+            setIconResource(if (isInEditMode) buttonIcon.first else buttonIcon.second)
+        }
+    }
+
+    fun setEditButtonAccessibility(
+        statingEditingAccessibility: String,
+        endEditingAccessibility: String
+    ) {
+        buttonAccessibility = Pair(statingEditingAccessibility, endEditingAccessibility)
+        binding.iconButton.apply {
+            setAccessibilityMessage(if (isInEditMode) buttonAccessibility.first else buttonAccessibility.second)
         }
     }
 
@@ -72,7 +124,11 @@ open class EditableListView @JvmOverloads constructor(
         this.editableItem = editableItem
 
         editableListViewAdapter =
-            EditableListViewAdapter(editableItem, editButtonText) { position ->
+            EditableListViewAdapter(
+                editableItem,
+                editButtonText,
+                editButtonContentDescription
+            ) { position ->
                 itemPosition = position
             }
 
@@ -88,6 +144,13 @@ open class EditableListView @JvmOverloads constructor(
         }
     }
 
+    fun setEditButtonContentDescription(description: String) {
+        editButtonContentDescription = description
+        if (::editableListViewAdapter.isInitialized) {
+            editableListViewAdapter.buttonContentDescription = description
+        }
+    }
+
     fun setTitle(title: CharSequence?) {
         binding.title.text = title
     }
@@ -95,5 +158,9 @@ open class EditableListView @JvmOverloads constructor(
     interface EditableItem {
         var name: String
         var value: String
+    }
+
+    companion object {
+        const val NO_ICON: Int = 0
     }
 }
