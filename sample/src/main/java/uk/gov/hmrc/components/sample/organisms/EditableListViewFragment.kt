@@ -19,6 +19,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import uk.gov.hmrc.components.organism.editable.EditableListView
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
@@ -45,59 +46,63 @@ class EditableListViewFragment : BaseComponentsFragment() {
         val editableItem = arrayListOf<EditableListView.EditableItem>(
             EditableListViewModel(
                 "Column 1", "Column 2", "Column 3", "dummy text"
-            ) {},
+            ) { onCtaPressed() },
             EditableListViewModel(
                 "Column 1", "Column 2", "Column 3", "dummy text"
-            ) {}
+            ) { onCtaPressed() }
         )
         val editableItem1 = arrayListOf<EditableListView.EditableItem>(
             EditableListViewModel(
                 "Medical", "£1000",
                 "Edit", "Edit Medical"
-            ) {},
+            ) { onCtaPressed() },
             EditableListViewModel(
                 "Car Benefit", "£600", "Edit", "Edit Car Benefit"
-            ) {},
+            ) { onCtaPressed() },
             EditableListViewModel(
                 "Insurance", "£300000", "Edit", "Edit Insurance"
-            ) {},
+            ) { onCtaPressed() },
             EditableListViewModel(
                 "Tax Benefits", "£55500", "Edit",
                 "Edit Tax Benefits"
-            ) {}
+            ) { onCtaPressed() }
         )
         val editableItem2 = arrayListOf<EditableListView.EditableItem>(
             EditableListViewModel(
                 "Lorem ipsum dolor", "78695743008", "Lorem ipsum",
                 "Lorem ipsum dolor"
-            ) {},
+            ) { onCtaPressed() },
             EditableListViewModel(
                 "Lorem ipsum dolor", "46970783733", "Lorem ipsum", "Lorem ipsum dolor"
-            ) {}
+            ) { onCtaPressed() }
         )
         binding.apply {
             editableListView.apply {
                 setData(editableItem)
                 setTitle("Title")
-                setEditbuttonData("(Link) Button Text", "(Link) Button Text")
-                setEditbuttonIconData(R.drawable.ic_help_outline, R.drawable.ic_help_outline)
-                setEditButtonAccessibility("Accessibility Text", "Accessibility Text")
+                setButtonData("(Link) Button Text", "(Link) Button Text")
+                setButtonIconData(R.drawable.ic_help_outline, R.drawable.ic_help_outline)
+                setButtonAccessibility("Accessibility Text", "Accessibility Text")
             }
             editableListExample1.apply {
                 setData(editableItem1)
                 setTitle("Your Company Benefits")
-                setEditbuttonData("Update or remove benefits", "Finish updating benefits")
-                setEditbuttonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
-                setEditButtonAccessibility("edit your company benefits", "Finish updating benefits")
+                setButtonData("Update or remove benefits", "Finish updating benefits")
+                setButtonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
+                setButtonAccessibility("Edit buttons now hidden", "Edit buttons now visible")
             }
             editableListExample2.apply {
                 setData(editableItem2)
                 setTitle("Lorem ipsum dolor sit amet, id cum ullum deseruisse solet.")
-                setEditbuttonData("Lorem ipsum dolor sit amet", "Lorem ipsum dolor")
-                setEditbuttonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
-                setEditButtonAccessibility("Lorem ipsum", "Lorem ipsum")
+                setButtonData("Lorem ipsum dolor sit amet", "Lorem ipsum dolor")
+                setButtonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
+                setButtonAccessibility("Lorem ipsum", "Lorem ipsum")
             }
         }
+    }
+
+    private fun onCtaPressed() {
+        Toast.makeText(activity, getString(R.string.cta_pressed), Toast.LENGTH_SHORT).show()
     }
 
     data class EditableListViewModel(

@@ -22,7 +22,6 @@ import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentEditableListViewBinding
-import uk.gov.hmrc.components.extensions.setAccessibilityMessage
 
 open class EditableListView @JvmOverloads constructor(
     context: Context,
@@ -32,23 +31,23 @@ open class EditableListView @JvmOverloads constructor(
     private val binding: ComponentEditableListViewBinding =
         ComponentEditableListViewBinding.inflate(LayoutInflater.from(context), this, true)
 
-    private lateinit var editableListViewAdapter: EditableListViewAdapter
-    private var editableItems = ArrayList<EditableItem>()
-    private var editMode = false
     private var buttonText: Pair<String, String> = Pair("", "")
     private var buttonAccessibility: Pair<String, String> = Pair("", "")
     private var buttonIcon: Pair<Int, Int> = Pair(0, 0)
+    private lateinit var editableListViewAdapter: EditableListViewAdapter
+    private var editableItems = ArrayList<EditableItem>()
+    private var editMode = false
 
     init {
         attrs?.let {
             val typedArray =
                 context.theme.obtainStyledAttributes(it, R.styleable.EditableListView, 0, 0)
             val title = typedArray.getString(R.styleable.EditableListView_title) ?: ""
-            setEditbuttonData(
+            setButtonData(
                 typedArray.getString(R.styleable.EditableListView_buttonstarteditingtext) ?: "",
                 typedArray.getString(R.styleable.EditableListView_buttonfinisheditingtext) ?: ""
             )
-            setEditbuttonIconData(
+            setButtonIconData(
                 typedArray.getResourceId(
                     R.styleable.EditableListView_buttonstarteditingicon,
                     NO_ICON
@@ -58,7 +57,7 @@ open class EditableListView @JvmOverloads constructor(
                     NO_ICON
                 )
             )
-            setEditButtonAccessibility(
+            setButtonAccessibility(
                 typedArray.getString(R.styleable.EditableListView_statingeditingaccessibility)
                     ?: "",
                 typedArray.getString(R.styleable.EditableListView_endeditingaccessibility) ?: ""
@@ -78,36 +77,36 @@ open class EditableListView @JvmOverloads constructor(
     private fun setEditModeUI(isInEditMode: Boolean) {
         this.editMode = isInEditMode
         binding.iconButton.apply {
-            setIconResource(if (isInEditMode) buttonIcon.first else buttonIcon.second)
-            setAccessibilityMessage(if (isInEditMode) buttonAccessibility.first else buttonAccessibility.second)
-            text = if (isInEditMode) buttonText.first else buttonText.second
+            setIconResource(if (isInEditMode) buttonIcon.second else buttonIcon.first)
+            announceForAccessibility(if (isInEditMode) buttonAccessibility.second else buttonAccessibility.first)
+            text = if (editMode) buttonText.second else buttonText.first
         }
     }
 
-    fun setEditbuttonData(statingEditingText: String, endEditingText: String) {
-        buttonText = Pair(statingEditingText, endEditingText)
+    fun setButtonData(startEditingText: String, endEditingText: String) {
+        buttonText = Pair(startEditingText, endEditingText)
         binding.iconButton.apply {
-            text = if (editMode) buttonText.first else buttonText.second
+            text = if (editMode) buttonText.second else buttonText.first
         }
     }
 
-    fun setEditbuttonIconData(
+    fun setButtonIconData(
         @DrawableRes startEditingIcon: Int,
         @DrawableRes endEditingIcon: Int
     ) {
         buttonIcon = Pair(startEditingIcon, endEditingIcon)
         binding.iconButton.apply {
-            setIconResource(if (isInEditMode) buttonIcon.first else buttonIcon.second)
+            setIconResource(if (isInEditMode) buttonIcon.second else buttonIcon.first)
         }
     }
 
-    fun setEditButtonAccessibility(
-        statingEditingAccessibility: String,
+    fun setButtonAccessibility(
+        startEditingAccessibility: String,
         endEditingAccessibility: String
     ) {
-        buttonAccessibility = Pair(statingEditingAccessibility, endEditingAccessibility)
+        buttonAccessibility = Pair(startEditingAccessibility, endEditingAccessibility)
         binding.iconButton.apply {
-            setAccessibilityMessage(if (isInEditMode) buttonAccessibility.first else buttonAccessibility.second)
+            announceForAccessibility(if (isInEditMode) buttonAccessibility.second else buttonAccessibility.first)
         }
     }
 
