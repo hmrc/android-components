@@ -141,6 +141,7 @@
 
     <string name="multi_column_row_example_text_1">Estimated annual income</string>
     <string name="multi_column_row_example_text_2">£24,000</string>
+    <string name="multi_column_row_example_text_1_2_content_description">Estimated annual income is £24,000</string>
     <string name="multi_column_row_example_text_3">£31,865</string>
     <string name="multi_column_row_example_text_4">20%</string>
     <string name="multi_column_row_example_text_5">£6,373</string>
