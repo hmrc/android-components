@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Additions
+
+* Added ability to give a whole row content description on `MultiColumnRow`s.
+
 ## [4.3.0] - 2022-11-25
 
 ### Additions
