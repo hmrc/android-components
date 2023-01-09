@@ -90,15 +90,17 @@ class SelectRowGroup @JvmOverloads constructor(
     }
 
     fun setError(error: String) {
-        val errorContentDescription = if (error.isNotEmpty()) {
-            context.getString(R.string.accessibility_error_prefix, error)
-        } else error
-
         binding.selectRowError.apply {
             text = error
-            contentDescription = errorContentDescription
-            if (error.isNotEmpty()) announceForAccessibility(errorContentDescription)
-            visibility = if (error.isNotEmpty()) View.VISIBLE else View.GONE
+            if (error.isNotEmpty()) {
+                val errorContentDescription = context.getString(R.string.accessibility_error_prefix, error)
+                contentDescription = errorContentDescription
+                announceForAccessibility(errorContentDescription)
+                visibility = View.VISIBLE
+            } else {
+                contentDescription = error
+                visibility = View.GONE
+            }
         }
     }
 
