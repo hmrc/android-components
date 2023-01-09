@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.3.2] - 2023-01-09
+
 ### Changed
 
 * When an error is displayed on a `SelectRowGroup` component, then the error content description will have the prefix "Error:"
