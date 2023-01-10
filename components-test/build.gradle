@@ -6,7 +6,6 @@ plugins {
 }
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'uk.gov.hmrc.spotless'
 apply plugin: 'io.gitlab.arturbosch.detekt'
 
@@ -27,8 +26,6 @@ android {
     defaultConfig {
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
-        versionCode 1
-        versionName version
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -40,13 +37,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
-    lintOptions {
-        lintConfig file('lint/config.xml')
-        baseline file("lint/baseline.xml")
-        warningsAsErrors true
+    lint {
         abortOnError true
+        baseline file('lint/baseline.xml')
+        lintConfig file('lint/config.xml')
+        warningsAsErrors true
     }
+    namespace 'uk.gov.hmrc.components.test'
+
 
 }
 

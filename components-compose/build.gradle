@@ -7,7 +7,6 @@ plugins {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'uk.gov.hmrc.spotless'
 apply plugin: 'io.gitlab.arturbosch.detekt'
 
@@ -22,8 +21,6 @@ android {
     defaultConfig {
         minSdk Versions.minSdk
         targetSdk Versions.targetSdk
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -50,6 +47,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion Versions.compose
     }
+    namespace 'uk.gov.hmrc.components.compose'
 }
 
 dependencies {
