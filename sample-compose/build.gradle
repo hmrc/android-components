@@ -44,7 +44,6 @@ android {
 
     kotlinOptions {
         jvmTarget = '11'
-        useIR = true
     }
 
     buildFeatures {
@@ -52,7 +51,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion Versions.compose
+        kotlinCompilerExtensionVersion Versions.kotlinCompilerExtensionVersion
         kotlinCompilerVersion Versions.kotlinComposeCompiler
     }
 

@@ -45,12 +45,14 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion Versions.compose
+        kotlinCompilerExtensionVersion Versions.kotlinCompilerExtensionVersion
     }
     namespace 'uk.gov.hmrc.components.compose'
 }
 
 dependencies {
+    implementation platform(Libs.compose_bom)
+
     implementation Libs.androidX_coreKtx
     implementation Libs.androidX_compose_ui
     implementation Libs.androidX_compose_tooling
