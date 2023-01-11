@@ -118,9 +118,9 @@ fun TextView.setClickableUrl(
     }
 
     this.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        Html.fromHtml(text.toString(), Html.FROM_HTML_MODE_LEGACY)
+        Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY)
     } else {
-        Html.fromHtml(text.toString())
+        Html.fromHtml(text)
     }
 
     val spannable = SpannableString(getText())

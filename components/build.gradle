@@ -56,7 +56,6 @@ dependencies {
     implementation Libs.androidX_annotation
     implementation Libs.androidX_constraintlayout
     implementation Libs.androidX_core_ktx
-    implementation Libs.kotlin_stdlib
 
     testImplementation Libs.junit
 }

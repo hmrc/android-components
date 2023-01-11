@@ -83,9 +83,6 @@ dependencies {
     // Material
     implementation Libs.material
 
-    // Kotlin
-    implementation Libs.kotlin_stdlib
-
     androidTestImplementation Libs.androidX_test_espressoContrib
     androidTestImplementation Libs.androidX_test_ext_junit
     androidTestImplementation Libs.androidX_test_runner
