@@ -67,9 +67,9 @@ dependencies {
 
     implementation Libs.androidX_coreKtx
     implementation Libs.androidX_appCompat
-    implementation Libs.androidX_compose_ui
-    implementation Libs.androidX_compose_material
-    implementation Libs.androidX_compose_tooling
+    implementation Libs.compose_ui
+    implementation Libs.compose_material
+    implementation Libs.compose_tooling
     implementation Libs.androidX_lifecycle_runtimeKtx
     implementation Libs.androidX_activity_activityCompose
     implementation Libs.material
@@ -79,7 +79,7 @@ dependencies {
 
     androidTestImplementation Libs.androidX_test_ext_junit
     androidTestImplementation Libs.androidX_test_espressoCore
-    androidTestImplementation Libs.androidX_compose_uiTest
+    androidTestImplementation Libs.compose_uiTest
 
-    debugImplementation Libs.androidX_compose_tooling
+    debugImplementation Libs.compose_tooling
 }
