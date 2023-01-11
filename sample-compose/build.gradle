@@ -64,8 +64,8 @@ android {
 
 dependencies {
     implementation project(path: ':components-compose')
-    implementation(platform(Libs.compose_bom))
-    androidTestImplementation(platform(Libs.compose_bom))
+    implementation platform(Libs.compose_bom)
+    androidTestImplementation platform(Libs.compose_bom)
 
     implementation Libs.androidX_coreKtx
     implementation Libs.androidX_appCompat

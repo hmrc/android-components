@@ -51,8 +51,8 @@ android {
 }
 
 dependencies {
-    implementation(platform(Libs.compose_bom))
-    androidTestImplementation(platform(Libs.compose_bom))
+    implementation platform(Libs.compose_bom)
+    androidTestImplementation platform(Libs.compose_bom)
 
     implementation Libs.androidX_coreKtx
     implementation Libs.compose_ui
