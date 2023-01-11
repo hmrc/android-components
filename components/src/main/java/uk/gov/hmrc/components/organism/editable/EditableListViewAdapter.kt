@@ -16,7 +16,11 @@
 package uk.gov.hmrc.components.organism.editable
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.AccessibilityDelegateCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import androidx.recyclerview.widget.RecyclerView
 import uk.gov.hmrc.components.databinding.EditableListItemsBinding
 
@@ -42,20 +46,25 @@ class EditableListViewAdapter(
     override fun getItemCount() = values.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(values[position])
+        holder.bind(values[position], position + 1)
     }
 
     inner class ViewHolder(private val binding: EditableListItemsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
-            result: EditableListView.EditableItem
-
+            result: EditableListView.EditableItem,
+            position: Int
         ) = with(binding) {
             columnOne.text = result.name
             columnTwo.text = result.value
             iconButton.text = result.buttonText
-            iconButton.contentDescription = result.buttonContentDescription
+            itemView.contentDescription =
+                if (isEditEnable) "${result.name} ${result.valueContentDescription}" +
+                    "${result.buttonContentDescription} Item $position of $itemCount" else {
+                    "${result.name} ${result.valueContentDescription}${result.buttonContentDescription} " +
+                        "Item $position of $itemCount"
+                }
             iconButton.setOnClickListener {
                 result.onClickListener(adapterPosition)
             }
@@ -65,6 +74,21 @@ class EditableListViewAdapter(
             } else {
                 motionLayout.transitionToStart()
             }
+
+            itemView.isClickable = isEditEnable
+            itemView.isFocusable = isEditEnable
+            ViewCompat.setAccessibilityDelegate(
+                itemView,
+                object : AccessibilityDelegateCompat() {
+                    override fun onInitializeAccessibilityNodeInfo(
+                        host: View,
+                        info: AccessibilityNodeInfoCompat
+                    ) {
+                        super.onInitializeAccessibilityNodeInfo(host, info)
+                        info.roleDescription = if (isEditEnable) "button" else "tap to activate"
+                    }
+                }
+            )
         }
     }
 }

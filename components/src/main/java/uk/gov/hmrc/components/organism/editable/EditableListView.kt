@@ -16,10 +16,17 @@
 package uk.gov.hmrc.components.organism.editable
 
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
+import android.view.accessibility.AccessibilityEvent
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.AccessibilityDelegateCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentEditableListViewBinding
 
@@ -37,6 +44,7 @@ open class EditableListView @JvmOverloads constructor(
     private lateinit var editableListViewAdapter: EditableListViewAdapter
     private var editableItems = ArrayList<EditableItem>()
     private var editMode = false
+    private var millSec = "1800"
 
     init {
         attrs?.let {
@@ -66,6 +74,20 @@ open class EditableListView @JvmOverloads constructor(
             typedArray.recycle()
         }
 
+        ViewCompat.setAccessibilityDelegate(
+            binding.iconButton,
+            object : AccessibilityDelegateCompat() {
+                override fun onInitializeAccessibilityNodeInfo(
+                    host: View?,
+                    info: AccessibilityNodeInfoCompat?
+                ) {
+                    info?.setTraversalAfter(binding.title)
+                    info?.setTraversalAfter(binding.iconButton)
+                    super.onInitializeAccessibilityNodeInfo(host, info)
+                }
+            }
+        )
+
         binding.iconButton.setOnClickListener {
             if (::editableListViewAdapter.isInitialized) {
                 editableListViewAdapter.isEditEnable = !editableListViewAdapter.isEditEnable
@@ -76,6 +98,13 @@ open class EditableListView @JvmOverloads constructor(
 
     private fun setEditModeUI(isInEditMode: Boolean) {
         this.editMode = isInEditMode
+        if (this.editMode) {
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.title.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+            }, millSec.toLong())
+        } else {
+            binding.iconButton.accessibilityTraversalAfter = nextFocusForwardId
+        }
         binding.iconButton.apply {
             setIconResource(if (isInEditMode) buttonIcon.second else buttonIcon.first)
             announceForAccessibility(if (isInEditMode) buttonAccessibility.second else buttonAccessibility.first)
@@ -130,6 +159,7 @@ open class EditableListView @JvmOverloads constructor(
         var value: String
         var buttonText: String
         var buttonContentDescription: String
+        var valueContentDescription: String
         val onClickListener: (Int) -> Unit
     }
 
