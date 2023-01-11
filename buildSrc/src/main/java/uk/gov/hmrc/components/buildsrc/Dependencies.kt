@@ -20,12 +20,11 @@ class Dependencies {
         const val minSdk = 23
         const val targetSdk = 33
         const val compileSdk = 33
-        const val buildTools = "30.0.3"
-        const val kotlin = "1.5.31"
+        const val buildTools = "33.0.1"
     }
 
     object Libs {
-        const val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+        const val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0"
 
         const val androidX_annotation = "androidx.annotation:annotation:1.2.0"
         const val androidX_appcompat = "androidx.appcompat:appcompat:1.2.0"

@@ -52,7 +52,6 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion Versions.kotlinCompilerExtensionVersion
-        kotlinCompilerVersion Versions.kotlinComposeCompiler
     }
 
     packagingOptions {
