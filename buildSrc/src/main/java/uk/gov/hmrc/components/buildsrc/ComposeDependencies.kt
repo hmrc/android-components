@@ -29,6 +29,7 @@ class ComposeDependencies {
         const val compose_material = "androidx.compose.material:material"
         const val compose_tooling = "androidx.compose.ui:ui-tooling"
         const val compose_ui = "androidx.compose.ui:ui"
+        const val compose_uiTest = "androidx.compose.ui:ui-test-junit4"
 
         const val material = "com.google.android.material:material:1.7.0"
 

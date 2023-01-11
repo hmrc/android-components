@@ -64,6 +64,8 @@ android {
 
 dependencies {
     implementation project(path: ':components-compose')
+    implementation(platform(Libs.compose_bom))
+    androidTestImplementation(platform(Libs.compose_bom))
 
     implementation Libs.androidX_coreKtx
     implementation Libs.androidX_appCompat
@@ -79,6 +81,7 @@ dependencies {
 
     androidTestImplementation Libs.androidX_test_ext_junit
     androidTestImplementation Libs.androidX_test_espressoCore
+    androidTestImplementation Libs.compose_uiTest
 
     debugImplementation Libs.compose_tooling
 }
