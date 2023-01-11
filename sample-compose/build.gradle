@@ -79,7 +79,6 @@ dependencies {
 
     androidTestImplementation Libs.androidX_test_ext_junit
     androidTestImplementation Libs.androidX_test_espressoCore
-    androidTestImplementation Libs.compose_uiTest
 
     debugImplementation Libs.compose_tooling
 }
