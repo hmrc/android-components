@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Additions
+
+* `DonutChartView` now supports three segments. 
+
 ## [4.3.2] - 2023-01-09
 
 ### Changed
