@@ -27,8 +27,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
+import androidx.core.view.size
+import kotlinx.android.synthetic.main.component_editable_list_view.view.icon_button
+import kotlinx.android.synthetic.main.component_editable_list_view.view.title
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentEditableListViewBinding
+
 
 open class EditableListView @JvmOverloads constructor(
     context: Context,
@@ -74,6 +78,12 @@ open class EditableListView @JvmOverloads constructor(
             typedArray.recycle()
         }
 
+        //binding.title.onFocusChangeListener = OnFocusChangeListener { view, hasFocus ->
+        // if (hasFocus) {
+
+        //}
+        //  }
+
         ViewCompat.setAccessibilityDelegate(
             binding.iconButton,
             object : AccessibilityDelegateCompat() {
@@ -81,7 +91,6 @@ open class EditableListView @JvmOverloads constructor(
                     host: View?,
                     info: AccessibilityNodeInfoCompat?
                 ) {
-                    info?.setTraversalAfter(binding.title)
                     info?.setTraversalAfter(binding.iconButton)
                     super.onInitializeAccessibilityNodeInfo(host, info)
                 }
@@ -89,6 +98,23 @@ open class EditableListView @JvmOverloads constructor(
         )
 
         binding.iconButton.setOnClickListener {
+//            with(binding) {
+//                //title.accessibilityTraversalAfter = binding.iconButton.id
+//                title.setAccessibleFocusAfter(it)
+//                listItems.setAccessibleFocusAfter(title)
+//                listItems.setAccessibleFocusAfter(it)
+//                importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
+//
+//            }
+            if (!this.editMode) {
+                binding.title.setAccessibleFocusAfter(it)
+                binding.listItems.setAccessibleFocusAfter(title)
+                binding.iconButton.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+                binding.iconButton.accessibilityTraversalBefore = binding.iconButton.id
+            } else {
+                binding.iconButton.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+                binding.iconButton.accessibilityTraversalBefore = binding.iconButton.id
+            }
             if (::editableListViewAdapter.isInitialized) {
                 editableListViewAdapter.isEditEnable = !editableListViewAdapter.isEditEnable
             }
@@ -98,13 +124,6 @@ open class EditableListView @JvmOverloads constructor(
 
     private fun setEditModeUI(isInEditMode: Boolean) {
         this.editMode = isInEditMode
-        if (this.editMode) {
-            Handler(Looper.getMainLooper()).postDelayed({
-                binding.title.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
-            }, millSec.toLong())
-        } else {
-            binding.iconButton.accessibilityTraversalAfter = nextFocusForwardId
-        }
         binding.iconButton.apply {
             setIconResource(if (isInEditMode) buttonIcon.second else buttonIcon.first)
             announceForAccessibility(if (isInEditMode) buttonAccessibility.second else buttonAccessibility.first)
@@ -141,10 +160,7 @@ open class EditableListView @JvmOverloads constructor(
 
     fun setData(editableItem: ArrayList<EditableItem>) {
         this.editableItems = editableItem
-
-        editableListViewAdapter =
-            EditableListViewAdapter(editableItem)
-
+        editableListViewAdapter = EditableListViewAdapter(editableItem)
         binding.listItems.apply {
             adapter = editableListViewAdapter
         }
@@ -166,4 +182,20 @@ open class EditableListView @JvmOverloads constructor(
     companion object {
         const val NO_ICON: Int = 0
     }
+}
+
+fun View.setAccessibleFocusAfter(otherView: View) {
+    ViewCompat.setAccessibilityDelegate(
+        this,
+        object : AccessibilityDelegateCompat() {
+            override fun onInitializeAccessibilityNodeInfo(
+                host: View?,
+                info: AccessibilityNodeInfoCompat?
+            ) {
+                //info?.setTraversalBefore(binding.listItems)
+                info?.setTraversalAfter(otherView)
+                super.onInitializeAccessibilityNodeInfo(host, info)
+            }
+        }
+    )
 }
