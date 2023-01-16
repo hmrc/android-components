@@ -16,23 +16,20 @@
 package uk.gov.hmrc.components.organism.editable
 
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.accessibility.AccessibilityEvent
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
-import androidx.core.view.size
-import kotlinx.android.synthetic.main.component_editable_list_view.view.icon_button
-import kotlinx.android.synthetic.main.component_editable_list_view.view.title
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentEditableListViewBinding
-
+import kotlin.random.Random
 
 open class EditableListView @JvmOverloads constructor(
     context: Context,
@@ -48,7 +45,6 @@ open class EditableListView @JvmOverloads constructor(
     private lateinit var editableListViewAdapter: EditableListViewAdapter
     private var editableItems = ArrayList<EditableItem>()
     private var editMode = false
-    private var millSec = "1800"
 
     init {
         attrs?.let {
@@ -77,56 +73,28 @@ open class EditableListView @JvmOverloads constructor(
             setTitle(title)
             typedArray.recycle()
         }
-
-        //binding.title.onFocusChangeListener = OnFocusChangeListener { view, hasFocus ->
-        // if (hasFocus) {
-
-        //}
-        //  }
-
-        ViewCompat.setAccessibilityDelegate(
-            binding.iconButton,
-            object : AccessibilityDelegateCompat() {
-                override fun onInitializeAccessibilityNodeInfo(
-                    host: View?,
-                    info: AccessibilityNodeInfoCompat?
-                ) {
-                    info?.setTraversalAfter(binding.iconButton)
-                    super.onInitializeAccessibilityNodeInfo(host, info)
-                }
-            }
-        )
-
+        binding.title.id = Random.nextInt()
         binding.iconButton.setOnClickListener {
-//            with(binding) {
-//                //title.accessibilityTraversalAfter = binding.iconButton.id
-//                title.setAccessibleFocusAfter(it)
-//                listItems.setAccessibleFocusAfter(title)
-//                listItems.setAccessibleFocusAfter(it)
-//                importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
-//
-//            }
-            if (!this.editMode) {
-                binding.title.setAccessibleFocusAfter(it)
-                binding.listItems.setAccessibleFocusAfter(title)
-                binding.iconButton.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
-                binding.iconButton.accessibilityTraversalBefore = binding.iconButton.id
-            } else {
-                binding.iconButton.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
-                binding.iconButton.accessibilityTraversalBefore = binding.iconButton.id
-            }
             if (::editableListViewAdapter.isInitialized) {
                 editableListViewAdapter.isEditEnable = !editableListViewAdapter.isEditEnable
             }
             setEditModeUI(!editMode)
         }
+        binding.root.setfocusListener()
     }
 
     private fun setEditModeUI(isInEditMode: Boolean) {
         this.editMode = isInEditMode
+        with(binding) {
+            if (isInEditMode) {
+                iconButton.accessibilityTraversalBefore = title.id
+            } else {
+                iconButton.accessibilityTraversalBefore = nextFocusForwardId
+            }
+        }
         binding.iconButton.apply {
-            setIconResource(if (isInEditMode) buttonIcon.second else buttonIcon.first)
-            announceForAccessibility(if (isInEditMode) buttonAccessibility.second else buttonAccessibility.first)
+            setIconResource(if (editMode) buttonIcon.second else buttonIcon.first)
+            announceForAccessibility(if (editMode) buttonAccessibility.second else buttonAccessibility.first)
             text = if (editMode) buttonText.second else buttonText.first
         }
     }
@@ -144,7 +112,7 @@ open class EditableListView @JvmOverloads constructor(
     ) {
         buttonIcon = Pair(startEditingIcon, endEditingIcon)
         binding.iconButton.apply {
-            setIconResource(if (isInEditMode) buttonIcon.second else buttonIcon.first)
+            setIconResource(if (editMode) buttonIcon.second else buttonIcon.first)
         }
     }
 
@@ -154,7 +122,7 @@ open class EditableListView @JvmOverloads constructor(
     ) {
         buttonAccessibility = Pair(startEditingAccessibility, endEditingAccessibility)
         binding.iconButton.apply {
-            announceForAccessibility(if (isInEditMode) buttonAccessibility.second else buttonAccessibility.first)
+            announceForAccessibility(if (editMode) buttonAccessibility.second else buttonAccessibility.first)
         }
     }
 
@@ -163,6 +131,8 @@ open class EditableListView @JvmOverloads constructor(
         editableListViewAdapter = EditableListViewAdapter(editableItem)
         binding.listItems.apply {
             adapter = editableListViewAdapter
+            val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            addItemDecoration(DividerItemDecoration(context, layoutManager.orientation))
         }
     }
 
@@ -174,28 +144,34 @@ open class EditableListView @JvmOverloads constructor(
         var name: String
         var value: String
         var buttonText: String
-        var buttonContentDescription: String
         var valueContentDescription: String
         val onClickListener: (Int) -> Unit
+    }
+
+    private fun View.setfocusListener() {
+        ViewCompat.setAccessibilityDelegate(
+            this,
+            object : AccessibilityDelegateCompat() {
+                override fun onRequestSendAccessibilityEvent(
+                    viewGroup: ViewGroup?,
+                    child: View?,
+                    event: AccessibilityEvent
+                ): Boolean {
+                    if (event.eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED &&
+                        child!!.id == binding.title.id) {
+                        if (editMode) {
+                            binding.iconButton.accessibilityTraversalBefore = nextFocusForwardId
+                        } else {
+                            binding.iconButton.accessibilityTraversalBefore = nextFocusForwardId
+                        }
+                    }
+                    return super.onRequestSendAccessibilityEvent(viewGroup, child, event)
+                }
+            }
+        )
     }
 
     companion object {
         const val NO_ICON: Int = 0
     }
-}
-
-fun View.setAccessibleFocusAfter(otherView: View) {
-    ViewCompat.setAccessibilityDelegate(
-        this,
-        object : AccessibilityDelegateCompat() {
-            override fun onInitializeAccessibilityNodeInfo(
-                host: View?,
-                info: AccessibilityNodeInfoCompat?
-            ) {
-                //info?.setTraversalBefore(binding.listItems)
-                info?.setTraversalAfter(otherView)
-                super.onInitializeAccessibilityNodeInfo(host, info)
-            }
-        }
-    )
 }

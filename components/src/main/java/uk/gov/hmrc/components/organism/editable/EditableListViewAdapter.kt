@@ -15,15 +15,8 @@
  */
 package uk.gov.hmrc.components.organism.editable
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.view.accessibility.AccessibilityEvent
-import android.view.accessibility.AccessibilityNodeInfo
-import androidx.core.view.AccessibilityDelegateCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import androidx.recyclerview.widget.RecyclerView
 import uk.gov.hmrc.components.databinding.EditableListItemsBinding
 
@@ -60,8 +53,8 @@ class EditableListViewAdapter(
             columnTwo.text = result.value
             iconButton.text = result.buttonText
             itemView.contentDescription =
-                if (isEditEnable) "${result.name} ${result.valueContentDescription} ${result.buttonText}" +
-                    "${result.buttonContentDescription} Item $position of $itemCount" else {
+                if (isEditEnable) "${result.name} ${result.valueContentDescription} " +
+                        "Tap to ${result.buttonText}${result.name}Item $position of $itemCount" else {
                     "${result.name} ${result.valueContentDescription} Item $position of $itemCount"
                 }
             iconButton.setOnClickListener {
@@ -73,30 +66,6 @@ class EditableListViewAdapter(
             } else {
                 motionLayout.transitionToStart()
             }
-
-//            itemView.accessibilityDelegate = object : View.AccessibilityDelegate() {
-//                override fun performAccessibilityAction(host: View?, action: Int, args: Bundle?): Boolean {
-//                    if (action == AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS) {
-//                        // Sends an accessibility event of accessibility focus type.
-//                        host?.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED)
-//                    }
-//                    return super.performAccessibilityAction(host, action, args)
-//                }
-//            }
-
-            itemView.isClickable = isEditEnable
-            itemView.isFocusable = isEditEnable
-            ViewCompat.setAccessibilityDelegate(
-                itemView, object : AccessibilityDelegateCompat() {
-                    override fun onInitializeAccessibilityNodeInfo(
-                        host: View,
-                        info: AccessibilityNodeInfoCompat
-                    ) {
-                        super.onInitializeAccessibilityNodeInfo(host, info)
-                        info.roleDescription = if (isEditEnable) "tap to activate" else ""
-                    }
-                }
-            )
         }
     }
 }

@@ -45,35 +45,32 @@ class EditableListViewFragment : BaseComponentsFragment() {
         super.onViewCreated(view, savedInstanceState)
         val editableItem = arrayListOf<EditableListView.EditableItem>(
             EditableListViewModel(
-                "Column 1", "Column 2", "Column 3", "dummy text ", "Column 2"
+                "Column 1", "Column 2", "Column 3", "Column 2"
             ) { onCtaPressed() },
             EditableListViewModel(
-                "Column 1", "Column 2", "Column 3", "dummy text ", "Column 2"
+                "Column 1", "Column 2", "Column 3", "Column 2"
             ) { onCtaPressed() }
         )
         val editableItem1 = arrayListOf<EditableListView.EditableItem>(
             EditableListViewModel(
-                "Medical", "£1000",
-                "Edit ", "Edit Medical", "1000 pounds"
+                "Medical", "£1000", "Edit ", "1000 pounds"
             ) { onCtaPressed() },
             EditableListViewModel(
-                "Car Benefit", "£600", "Edit ", "Edit Car Benefit", "600 pounds"
+                "Car Benefit", "£600", "Edit ", "600 pounds"
             ) { onCtaPressed() },
             EditableListViewModel(
-                "Insurance", "£300000", "Edit ", "Edit Insurance", "30000 pounds"
+                "Insurance", "£300000", "Edit ", "30000 pounds"
             ) { onCtaPressed() },
             EditableListViewModel(
-                "Tax Benefits", "£55500", "Edit ",
-                "Edit Tax Benefits", "55500 pounds"
+                "Tax Benefits", "£55500", "Edit ", "55500 pounds"
             ) { onCtaPressed() }
         )
         val editableItem2 = arrayListOf<EditableListView.EditableItem>(
             EditableListViewModel(
-                "Lorem ipsum dolor", "78695743008", "Lorem ipsum ",
-                "Lorem ipsum dolor", "78695743008 pounds"
+                "Lorem ipsum dolor", "78695743008", "Lorem ipsum ", "78695743008 pounds"
             ) { onCtaPressed() },
             EditableListViewModel(
-                "Lorem ipsum dolor", "46970783733", "Lorem ipsum ", "Lorem ipsum dolor", "46970783733 pounds"
+                "Lorem ipsum dolor", "46970783733", "Lorem ipsum ", "46970783733 pounds"
             ) { onCtaPressed() }
         )
         binding.apply {
@@ -109,7 +106,6 @@ class EditableListViewFragment : BaseComponentsFragment() {
         override var name: String,
         override var value: String,
         override var buttonText: String,
-        override var buttonContentDescription: String,
         override var valueContentDescription: String,
         override val onClickListener: (Int) -> Unit
     ) : EditableListView.EditableItem
