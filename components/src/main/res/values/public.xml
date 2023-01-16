@@ -27,6 +27,7 @@
     <public name="hmrc_secondary_button_ripple" type="color" />
     <public name="hmrc_donut_chart_color_1" type="color" />
     <public name="hmrc_donut_chart_color_2" type="color" />
+    <public name="hmrc_donut_chart_color_3" type="color" />
 
     <!-- Styles -->
     <public name="MaterialTextButtonNoInset" type="style" />
