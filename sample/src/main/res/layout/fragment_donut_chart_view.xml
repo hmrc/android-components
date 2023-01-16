@@ -38,12 +38,25 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/hmrc_spacing_16"
-            android:layout_marginTop="@dimen/hmrc_spacing_16"
-            android:layout_marginEnd="@dimen/hmrc_spacing_16">
+            android:layout_marginHorizontal="@dimen/hmrc_spacing_16"
+            android:layout_marginTop="@dimen/hmrc_spacing_16">
 
             <uk.gov.hmrc.components.molecule.donut.DonutChartView
                 android:id="@+id/donut_example_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="75dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/hmrc_spacing_16"
+            android:layout_marginTop="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.molecule.donut.DonutChartView
+                android:id="@+id/donut_example_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:color1="@color/hmrc_pink"
@@ -54,15 +67,17 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/hmrc_spacing_16"
-            android:layout_marginTop="@dimen/hmrc_spacing_16"
-            android:layout_marginEnd="@dimen/hmrc_spacing_16">
+            android:layout_marginHorizontal="@dimen/hmrc_spacing_16"
+            android:layout_marginTop="@dimen/hmrc_spacing_16">
 
             <uk.gov.hmrc.components.molecule.donut.DonutChartView
-                android:id="@+id/donut_example_2"
+                android:id="@+id/donut_example_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="100dp" />
+                android:layout_margin="100dp"
+                app:color1="@color/hmrc_pink"
+                app:color2="@color/hmrc_yellow"
+                app:color3="@color/hmrc_green_1" />
 
         </com.google.android.material.card.MaterialCardView>
 
