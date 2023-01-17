@@ -52,23 +52,20 @@ open class EditableListView @JvmOverloads constructor(
                 context.theme.obtainStyledAttributes(it, R.styleable.EditableListView, 0, 0)
             val title = typedArray.getString(R.styleable.EditableListView_title) ?: ""
             setButtonData(
-                typedArray.getString(R.styleable.EditableListView_buttonstarteditingtext) ?: "",
-                typedArray.getString(R.styleable.EditableListView_buttonfinisheditingtext) ?: ""
+                typedArray.getString(R.styleable.EditableListView_buttonStartEditingText) ?: "",
+                typedArray.getString(R.styleable.EditableListView_buttonFinishEditingText) ?: ""
             )
             setButtonIconData(
                 typedArray.getResourceId(
-                    R.styleable.EditableListView_buttonstarteditingicon,
-                    NO_ICON
+                    R.styleable.EditableListView_buttonStartEditingIcon, NO_ICON
                 ),
                 typedArray.getResourceId(
-                    R.styleable.EditableListView_buttonfinisheditingicon,
-                    NO_ICON
+                    R.styleable.EditableListView_buttonFinishEditingIcon, NO_ICON
                 )
             )
             setButtonAccessibility(
-                typedArray.getString(R.styleable.EditableListView_statingeditingaccessibility)
-                    ?: "",
-                typedArray.getString(R.styleable.EditableListView_endeditingaccessibility) ?: ""
+                typedArray.getString(R.styleable.EditableListView_startEditingAccessibility) ?: "",
+                typedArray.getString(R.styleable.EditableListView_endEditingAccessibility) ?: ""
             )
             setTitle(title)
             typedArray.recycle()
@@ -80,19 +77,17 @@ open class EditableListView @JvmOverloads constructor(
             }
             setEditModeUI(!editMode)
         }
-        binding.root.setfocusListener()
+        setFocusListener()
     }
 
     private fun setEditModeUI(isInEditMode: Boolean) {
         this.editMode = isInEditMode
-        with(binding) {
-            if (isInEditMode) {
-                iconButton.accessibilityTraversalBefore = title.id
-            } else {
-                iconButton.accessibilityTraversalBefore = nextFocusForwardId
-            }
-        }
         binding.iconButton.apply {
+            if (isInEditMode) {
+                accessibilityTraversalBefore = binding.title.id
+            } else {
+                accessibilityTraversalBefore = nextFocusForwardId
+            }
             setIconResource(if (editMode) buttonIcon.second else buttonIcon.first)
             announceForAccessibility(if (editMode) buttonAccessibility.second else buttonAccessibility.first)
             text = if (editMode) buttonText.second else buttonText.first
@@ -148,23 +143,25 @@ open class EditableListView @JvmOverloads constructor(
         val onClickListener: (Int) -> Unit
     }
 
-    private fun View.setfocusListener() {
+    private fun setFocusListener() {
         ViewCompat.setAccessibilityDelegate(
-            this,
+            binding.root,
             object : AccessibilityDelegateCompat() {
                 override fun onRequestSendAccessibilityEvent(
                     viewGroup: ViewGroup?,
                     child: View?,
                     event: AccessibilityEvent
                 ): Boolean {
-                    if (event.eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED &&
-                        child!!.id == binding.title.id) {
-                        if (editMode) {
+                    if (event.eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED)
+                        if (child?.id == binding.title.id) {
                             binding.iconButton.accessibilityTraversalBefore = nextFocusForwardId
-                        } else {
-                            binding.iconButton.accessibilityTraversalBefore = nextFocusForwardId
+                        } else if (child?.id == binding.iconButton.id) {
+                            if (editMode) {
+                                binding.iconButton.accessibilityTraversalBefore = binding.title.id
+                            } else {
+                                binding.iconButton.accessibilityTraversalBefore = nextFocusForwardId
+                            }
                         }
-                    }
                     return super.onRequestSendAccessibilityEvent(viewGroup, child, event)
                 }
             }

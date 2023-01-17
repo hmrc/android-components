@@ -54,7 +54,7 @@ class EditableListViewAdapter(
             iconButton.text = result.buttonText
             itemView.contentDescription =
                 if (isEditEnable) "${result.name} ${result.valueContentDescription} " +
-                        "Tap to ${result.buttonText}${result.name}Item $position of $itemCount" else {
+                    "Tap to ${result.buttonText}${result.name}Item $position of $itemCount" else {
                     "${result.name} ${result.valueContentDescription} Item $position of $itemCount"
                 }
             iconButton.setOnClickListener {

@@ -101,12 +101,4 @@ class EditableListViewFragment : BaseComponentsFragment() {
     private fun onCtaPressed() {
         Toast.makeText(activity, getString(R.string.cta_pressed), Toast.LENGTH_SHORT).show()
     }
-
-    data class EditableListViewModel(
-        override var name: String,
-        override var value: String,
-        override var buttonText: String,
-        override var valueContentDescription: String,
-        override val onClickListener: (Int) -> Unit
-    ) : EditableListView.EditableItem
 }
