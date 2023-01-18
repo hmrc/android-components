@@ -56,12 +56,8 @@ open class EditableListView @JvmOverloads constructor(
                 typedArray.getString(R.styleable.EditableListView_buttonFinishEditingText) ?: ""
             )
             setButtonIconData(
-                typedArray.getResourceId(
-                    R.styleable.EditableListView_buttonStartEditingIcon, NO_ICON
-                ),
-                typedArray.getResourceId(
-                    R.styleable.EditableListView_buttonFinishEditingIcon, NO_ICON
-                )
+                typedArray.getResourceId(R.styleable.EditableListView_buttonStartEditingIcon, NO_ICON),
+                typedArray.getResourceId(R.styleable.EditableListView_buttonFinishEditingIcon, NO_ICON)
             )
             setButtonAccessibility(
                 typedArray.getString(R.styleable.EditableListView_startEditingAccessibility) ?: "",
@@ -109,10 +105,6 @@ open class EditableListView @JvmOverloads constructor(
         endEditingAccessibility: String
     ) {
         buttonAccessibility = Pair(startEditingAccessibility, endEditingAccessibility)
-        binding.iconButton.announceForAccessibility(
-            if (editMode) buttonAccessibility.second
-            else buttonAccessibility.first
-        )
     }
 
     fun setData(editableItem: ArrayList<EditableItem>) {
