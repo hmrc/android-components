@@ -53,24 +53,24 @@ class EditableListViewFragment : BaseComponentsFragment() {
         )
         val editableItem1 = arrayListOf<EditableListView.EditableItem>(
             EditableListViewModel(
-                "Medical", "£1000", "Edit ", "1000 pounds"
+                "Medical", "£1000", "Edit", "1000 pounds"
             ) { onCtaPressed() },
             EditableListViewModel(
-                "Car Benefit", "£600", "Edit ", "600 pounds"
+                "Car Benefit", "£600", "Edit", "600 pounds"
             ) { onCtaPressed() },
             EditableListViewModel(
-                "Insurance", "£300000", "Edit ", "30000 pounds"
+                "Insurance", "£300000", "Edit", "30000 pounds"
             ) { onCtaPressed() },
             EditableListViewModel(
-                "Tax Benefits", "£55500", "Edit ", "55500 pounds"
+                "Tax Benefits", "£55500", "Edit", "55500 pounds"
             ) { onCtaPressed() }
         )
         val editableItem2 = arrayListOf<EditableListView.EditableItem>(
             EditableListViewModel(
-                "Lorem ipsum dolor", "78695743008", "Lorem ipsum ", "78695743008 pounds"
+                "Lorem ipsum dolor", "78695743008", "Lorem ipsum", "78695743008 pounds"
             ) { onCtaPressed() },
             EditableListViewModel(
-                "Lorem ipsum dolor", "46970783733", "Lorem ipsum ", "46970783733 pounds"
+                "Lorem ipsum dolor", "46970783733", "Lorem ipsum", "46970783733 pounds"
             ) { onCtaPressed() }
         )
         binding.apply {

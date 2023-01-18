@@ -21,8 +21,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.accessibility.AccessibilityEvent
+import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -34,7 +34,7 @@ import kotlin.random.Random
 open class EditableListView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-) : ConstraintLayout(context, attrs) {
+) : LinearLayout(context, attrs) {
 
     private val binding: ComponentEditableListViewBinding =
         ComponentEditableListViewBinding.inflate(LayoutInflater.from(context), this, true)
@@ -83,22 +83,17 @@ open class EditableListView @JvmOverloads constructor(
     private fun setEditModeUI(isInEditMode: Boolean) {
         this.editMode = isInEditMode
         binding.iconButton.apply {
-            if (isInEditMode) {
-                accessibilityTraversalBefore = binding.title.id
-            } else {
-                accessibilityTraversalBefore = nextFocusForwardId
-            }
-            setIconResource(if (editMode) buttonIcon.second else buttonIcon.first)
-            announceForAccessibility(if (editMode) buttonAccessibility.second else buttonAccessibility.first)
-            text = if (editMode) buttonText.second else buttonText.first
+            accessibilityTraversalBefore =
+                if (isInEditMode) binding.title.id else nextFocusForwardId
+            setIconResource(if (isInEditMode) buttonIcon.second else buttonIcon.first)
+            announceForAccessibility(if (isInEditMode) buttonAccessibility.second else buttonAccessibility.first)
+            text = if (isInEditMode) buttonText.second else buttonText.first
         }
     }
 
     fun setButtonData(startEditingText: String, endEditingText: String) {
         buttonText = Pair(startEditingText, endEditingText)
-        binding.iconButton.apply {
-            text = if (editMode) buttonText.second else buttonText.first
-        }
+        binding.iconButton.text = if (editMode) endEditingText else startEditingText
     }
 
     fun setButtonIconData(
@@ -106,9 +101,7 @@ open class EditableListView @JvmOverloads constructor(
         @DrawableRes endEditingIcon: Int
     ) {
         buttonIcon = Pair(startEditingIcon, endEditingIcon)
-        binding.iconButton.apply {
-            setIconResource(if (editMode) buttonIcon.second else buttonIcon.first)
-        }
+        binding.iconButton.setIconResource(if (editMode) buttonIcon.second else buttonIcon.first)
     }
 
     fun setButtonAccessibility(
@@ -116,9 +109,10 @@ open class EditableListView @JvmOverloads constructor(
         endEditingAccessibility: String
     ) {
         buttonAccessibility = Pair(startEditingAccessibility, endEditingAccessibility)
-        binding.iconButton.apply {
-            announceForAccessibility(if (editMode) buttonAccessibility.second else buttonAccessibility.first)
-        }
+        binding.iconButton.announceForAccessibility(
+            if (editMode) buttonAccessibility.second
+            else buttonAccessibility.first
+        )
     }
 
     fun setData(editableItem: ArrayList<EditableItem>) {
@@ -152,16 +146,11 @@ open class EditableListView @JvmOverloads constructor(
                     child: View?,
                     event: AccessibilityEvent
                 ): Boolean {
-                    if (event.eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED)
+                    if (event.eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
                         if (child?.id == binding.title.id) {
                             binding.iconButton.accessibilityTraversalBefore = nextFocusForwardId
-                        } else if (child?.id == binding.iconButton.id) {
-                            if (editMode) {
-                                binding.iconButton.accessibilityTraversalBefore = binding.title.id
-                            } else {
-                                binding.iconButton.accessibilityTraversalBefore = nextFocusForwardId
-                            }
                         }
+                    }
                     return super.onRequestSendAccessibilityEvent(viewGroup, child, event)
                 }
             }
