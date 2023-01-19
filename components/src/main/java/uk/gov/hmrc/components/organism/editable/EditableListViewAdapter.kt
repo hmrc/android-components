@@ -17,6 +17,7 @@ package uk.gov.hmrc.components.organism.editable
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import uk.gov.hmrc.components.databinding.EditableListItemsBinding
 
@@ -42,7 +43,7 @@ class EditableListViewAdapter(
     override fun getItemCount() = values.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(values[position], position + 1)
+        holder.bind(values[position], position)
     }
 
     inner class ViewHolder(private val binding: EditableListItemsBinding) :
@@ -52,12 +53,14 @@ class EditableListViewAdapter(
             columnOne.text = result.name
             columnTwo.text = result.value
             iconButton.text = result.buttonText
+            val positionLabel = position + 1
+            divider.isVisible = positionLabel < itemCount
             itemView.contentDescription =
                 if (isEditEnable) {
                     "${result.name}: ${result.valueContentDescription}. Tap to ${result.buttonText}." +
-                        "Item $position of $itemCount."
+                        "Item $positionLabel of $itemCount."
                 } else {
-                    "${result.name}: ${result.valueContentDescription}. Item $position of $itemCount."
+                    "${result.name}: ${result.valueContentDescription}. Item $positionLabel of $itemCount."
                 }
             iconButton.setOnClickListener {
                 result.onClickListener(adapterPosition)

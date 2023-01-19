@@ -35,4 +35,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/components_divider"
+        android:importantForAccessibility="no"
+        android:visibility="gone" />
+
 </androidx.constraintlayout.motion.widget.MotionLayout>

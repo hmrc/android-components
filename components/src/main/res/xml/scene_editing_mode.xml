@@ -50,6 +50,24 @@
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:barrierDirection="bottom"
+            motion:constraint_referenced_ids="column_one,column_two,icon_button" />
+
+        <Constraint
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/barrier"
+            motion:visibilityMode="ignore" />
+
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
@@ -78,6 +96,24 @@
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:barrierDirection="bottom"
+            motion:constraint_referenced_ids="column_one,column_two,icon_button" />
+
+        <Constraint
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/barrier"
+            motion:visibilityMode="ignore" />
+
     </ConstraintSet>
 
 </MotionScene>

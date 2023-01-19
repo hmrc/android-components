@@ -25,7 +25,6 @@ import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
-import androidx.recyclerview.widget.DividerItemDecoration
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentEditableListViewBinding
 import kotlin.random.Random
@@ -111,8 +110,6 @@ open class EditableListView @JvmOverloads constructor(
         editableListViewAdapter = EditableListViewAdapter(editableItem)
         binding.listItems.apply {
             adapter = editableListViewAdapter
-            val decoration = DividerItemDecoration(context, VERTICAL, false)
-            addItemDecoration(decoration)
         }
     }
 
