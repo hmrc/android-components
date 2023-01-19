@@ -98,7 +98,7 @@
             motion:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier"
+            android:id="@id/barrier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             motion:barrierDirection="bottom"

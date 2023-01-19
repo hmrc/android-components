@@ -26,6 +26,7 @@ class EditableListViewAdapter(
 ) : RecyclerView.Adapter<EditableListViewAdapter.ViewHolder>() {
 
     var isEditEnable: Boolean = false
+        @Suppress("NotifyDataSetChanged")
         set(value) {
             field = value
             notifyDataSetChanged()
