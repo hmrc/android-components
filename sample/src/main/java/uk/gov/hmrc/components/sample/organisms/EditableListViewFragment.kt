@@ -45,10 +45,10 @@ class EditableListViewFragment : BaseComponentsFragment() {
         super.onViewCreated(view, savedInstanceState)
         val editableItem = arrayListOf<EditableListView.EditableItem>(
             EditableListViewModel(
-                "Column 1", "Column 2", "Column 3", "Column 2"
+                "Column 1", "Column 2", "Column 3"
             ) { onCtaPressed() },
             EditableListViewModel(
-                "Column 1", "Column 2", "Column 3", "Column 2"
+                "Column 1", "Column 2", "Column 3"
             ) { onCtaPressed() }
         )
         val editableItem1 = arrayListOf<EditableListView.EditableItem>(
@@ -59,7 +59,7 @@ class EditableListViewFragment : BaseComponentsFragment() {
                 "Car Benefit", "£600", "Edit", "600 pounds"
             ) { onCtaPressed() },
             EditableListViewModel(
-                "Insurance", "£300000", "Edit", "30000 pounds"
+                "Insurance", "£300000", "Edit", "300000 pounds"
             ) { onCtaPressed() },
             EditableListViewModel(
                 "Tax Benefits", "£55500", "Edit", "55500 pounds"

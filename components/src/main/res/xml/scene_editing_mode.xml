@@ -36,7 +36,7 @@
 
         <Constraint
             android:id="@+id/column_two"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             motion:layout_constraintBottom_toBottomOf="@id/icon_button"
             motion:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +47,7 @@
             android:id="@+id/icon_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            motion:layout_constraintWidth_max="120dp"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
@@ -82,7 +83,7 @@
 
         <Constraint
             android:id="@+id/column_two"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             motion:layout_constraintBottom_toBottomOf="@id/icon_button"
             motion:layout_constraintEnd_toStartOf="@id/icon_button"
@@ -93,6 +94,7 @@
             android:id="@+id/icon_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            motion:layout_constraintWidth_max="120dp"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />

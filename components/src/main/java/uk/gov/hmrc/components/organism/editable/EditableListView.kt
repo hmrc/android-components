@@ -121,7 +121,7 @@ open class EditableListView @JvmOverloads constructor(
         var name: String
         var value: String
         var buttonText: String
-        var valueContentDescription: String
+        var valueContentDescription: String?
         val onClickListener: (Int) -> Unit
     }
 

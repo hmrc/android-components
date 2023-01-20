@@ -21,6 +21,6 @@ data class EditableListViewModel(
     override var name: String,
     override var value: String,
     override var buttonText: String,
-    override var valueContentDescription: String,
+    override var valueContentDescription: String? = null,
     override val onClickListener: (Int) -> Unit
 ) : EditableListView.EditableItem
