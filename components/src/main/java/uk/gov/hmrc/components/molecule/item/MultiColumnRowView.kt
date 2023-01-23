@@ -41,6 +41,8 @@ class MultiColumnRowView @JvmOverloads constructor(
     private val isMultiRow: Boolean
         get() = resources.configuration.fontScale > MAX_SINGLE_LINE_FONT_SCALE
 
+    var hasCustomWholeRowDescription: Boolean = false
+
     init {
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.MultiColumnRowView, 0, 0)
@@ -199,6 +201,12 @@ class MultiColumnRowView @JvmOverloads constructor(
             rowText2.isFocusable = focusable
             rowText3.isFocusable = focusable
         }
+    }
+
+    fun setWholeRowContentDescription(desc1: CharSequence?) {
+        hasCustomWholeRowDescription = true
+        setTextFocusable(false)
+        contentDescription = desc1
     }
 
     companion object {

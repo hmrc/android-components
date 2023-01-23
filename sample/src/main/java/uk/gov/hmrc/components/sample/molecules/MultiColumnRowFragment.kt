@@ -46,5 +46,9 @@ class MultiColumnRowFragment : BaseComponentsFragment() {
                 Toast.makeText(context, "text 3 custom action invoked", LENGTH_LONG).show()
             }
         }
+
+        binding.multiColumnRowExample3.apply {
+            setWholeRowContentDescription(getString(R.string.multi_column_row_example_text_1_2_content_description))
+        }
     }
 }

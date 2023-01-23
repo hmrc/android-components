@@ -115,9 +115,10 @@ class SummaryRowView @JvmOverloads constructor(
             row.setTextStyle(rowStyle)
             row.setPadding(0, resources.getDimensionPixelOffset(R.dimen.hmrc_spacing_8), 0, 0)
 
-            when (readerTrait) {
-                READER_TRAIT_INFO -> row.setTextFocusable(true)
-                READER_TRAIT_SIMPLE -> row.setTextFocusable(false)
+            when {
+                row.hasCustomWholeRowDescription -> row.isFocusable = true
+                readerTrait == READER_TRAIT_INFO -> row.setTextFocusable(true)
+                readerTrait == READER_TRAIT_SIMPLE -> row.setTextFocusable(false)
             }
 
             binding.rowContainer.addView(row)

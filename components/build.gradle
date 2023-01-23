@@ -41,6 +41,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+    lint {
+        abortOnError true
+        baseline file('lint/baseline.xml')
+        lintConfig file('lint/config.xml')
+        warningsAsErrors true
+    }
+    namespace 'uk.gov.hmrc.components'
 }
 
 
