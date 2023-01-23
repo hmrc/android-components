@@ -74,8 +74,7 @@ class EditableListViewAdapter(
             }
         }
 
-        fun valueAccessibility(editableItem: EditableListView.EditableItem): String {
-            return editableItem.valueContentDescription?: editableItem.value
-        }
+        private fun valueAccessibility(editableItem: EditableListView.EditableItem): String =
+            editableItem.valueContentDescription ?: editableItem.value
     }
 }

@@ -23,6 +23,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -86,8 +87,8 @@ fun ComponentsBottomNavigation(navController: NavHostController) {
 }
 
 @Composable
-fun ComponentsNavGraph(navController: NavHostController) {
-    NavHost(navController, startDestination = NavigationScreen.Organisms.route) {
+fun ComponentsNavGraph(navController: NavHostController, modifier: Modifier) {
+    NavHost(navController, startDestination = NavigationScreen.Organisms.route, modifier) {
         composable(
             NavigationScreen.Organisms.route,
             arguments = listOf(

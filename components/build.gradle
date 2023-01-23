@@ -8,7 +8,6 @@ plugins {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'uk.gov.hmrc.spotless'
 apply plugin: 'io.gitlab.arturbosch.detekt'
 
@@ -28,8 +27,6 @@ android {
     defaultConfig {
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
-        versionCode 1
-        versionName version
         consumerProguardFiles 'consumer-proguard-rules.pro'
     }
 
@@ -40,12 +37,6 @@ android {
         }
     }
 
-    lintOptions {
-        lintConfig file('lint/config.xml')
-        baseline file("lint/baseline.xml")
-        warningsAsErrors true
-        abortOnError true
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
@@ -58,7 +49,6 @@ dependencies {
     implementation Libs.androidX_annotation
     implementation Libs.androidX_constraintlayout
     implementation Libs.androidX_core_ktx
-    implementation Libs.kotlin_stdlib
 
     testImplementation Libs.junit
 }
