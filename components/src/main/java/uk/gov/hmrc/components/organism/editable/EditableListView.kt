@@ -130,12 +130,12 @@ open class EditableListView @JvmOverloads constructor(
             binding.root,
             object : AccessibilityDelegateCompat() {
                 override fun onRequestSendAccessibilityEvent(
-                    viewGroup: ViewGroup?,
-                    child: View?,
+                    viewGroup: ViewGroup,
+                    child: View,
                     event: AccessibilityEvent
                 ): Boolean {
                     if (event.eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
-                        if (child?.id == binding.title.id) {
+                        if (child.id == binding.title.id) {
                             binding.iconButton.accessibilityTraversalBefore = nextFocusForwardId
                         }
                     }
