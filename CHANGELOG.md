@@ -20,6 +20,31 @@ Allowed headings:
 
 * `DonutChartView` now supports three segments.
 
+### Changed
+
+The following libraries were updated:
+
+* `com.android.tools.build:gradle:`: `7.0.3` -> `7.3.1`
+* `org.jetbrains.kotlin:kotlin-gradle-plugin:`: `1.5.31` -> `1.7.20`
+* `targetSdk`: `30` -> `33`
+* `compileSdk`: `30` -> `33`
+* `buildTools`: `30.0.3` -> `33.0.1`
+
+* `androidx.annotation:annotation:`: `1.2.0` -> `1.5.0`
+* `androidx.appcompat:appcompat:`: `1.2.0` -> `1.5.1`
+* `androidx.recyclerview:recyclerview:`: `1.2.0` -> `1.2.1`
+* `androidx.constraintlayout:constraintlayout:`: `2.0.4` -> `2.1.4`
+* `androidx.lifecycle:lifecycle-common-java8:2.3.1`: removed
+* `androidx.lifecycle:lifecycle-compiler:2.5.1`: added
+* `androidx.core:core-ktx:`: `1.3.0` -> `1.9.0`
+* `androidx.test:core-ktx:`: `1.3.0` -> `1.5.0`
+* `androidx.test.ext:junit-ktx:`: `1.1.2` -> `1.1.5`
+* `androidx.test.espresso:espresso-core:`: `3.3.0` -> `3.5.1`
+* `androidx.test.espresso:espresso-contrib:`: `3.3.0` -> `3.5.1`
+* `androidx.test:runner:`: `1.3.0` -> `1.5.2`
+* `com.google.android.material:material:`: `1.3.0` -> `1.7.0`
+* `junit:junit:`: `4.13` -> `4.13.2`
+
 ## [4.3.2] - 2023-01-09
 
 ### Changed

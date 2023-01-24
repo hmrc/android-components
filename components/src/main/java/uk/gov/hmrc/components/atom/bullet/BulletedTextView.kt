@@ -21,6 +21,8 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.BulletSpan
 import android.util.AttributeSet
+import androidx.core.text.getSpans
+import androidx.core.text.toSpannable
 import com.google.android.material.textview.MaterialTextView
 import uk.gov.hmrc.components.R
 
@@ -31,15 +33,19 @@ class BulletedTextView @JvmOverloads constructor(
 
     override fun setText(text: CharSequence?, type: BufferType?) {
         val newText = text ?: ""
-        val gapWidth = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
-        val bulletSpan = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            BulletSpan(gapWidth, currentTextColor, resources.getDimensionPixelSize(R.dimen.text_bullet_point))
+        if (newText.toSpannable().getSpans<BulletSpan>().isEmpty()) {
+            val gapWidth = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
+            val bulletSpan = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                BulletSpan(gapWidth, currentTextColor, resources.getDimensionPixelSize(R.dimen.text_bullet_point))
+            } else {
+                BulletSpan(gapWidth)
+            }
+            val spannable = SpannableString(newText).apply {
+                setSpan(bulletSpan, 0, newText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            }
+            super.setText(spannable, type)
         } else {
-            BulletSpan(gapWidth)
+            super.setText(newText, type)
         }
-        val spannable = SpannableString(newText).apply {
-            setSpan(bulletSpan, 0, newText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        }
-        super.setText(spannable, type)
     }
 }
