@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <uk.gov.hmrc.components.atom.heading.Heading5
+        android:id="@+id/title"
+        android:layout_marginBottom="@dimen/hmrc_spacing_8"
+        android:paddingHorizontal="@dimen/hmrc_spacing_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        tools:text="Title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_items"
+        android:paddingHorizontal="@dimen/hmrc_spacing_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/editable_list_items" />
+
+    <uk.gov.hmrc.components.atom.button.IconButton
+        android:id="@+id/icon_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

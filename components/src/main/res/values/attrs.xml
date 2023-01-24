@@ -29,6 +29,18 @@
     <attr name="materialTextButtonStyle" format="reference" />
     <!-- Material icon button style. -->
     <attr name="materialIconButtonStyle" format="reference" />
+    <!-- Button Start Editing Text to Display-->
+    <attr name="buttonStartEditingText" />
+    <!-- Button Finished Editing Text to Display-->
+    <attr name="buttonFinishEditingText" />
+    <!-- Button Start Editing Icon to Display-->
+    <attr name="buttonStartEditingIcon" />
+    <!-- Button Finished Editing Icon to Display -->
+    <attr name="buttonFinishEditingIcon" />
+    <!-- Start Editing Accessibility message to read. -->
+    <attr name="startEditingAccessibility" />
+    <!-- End Editing Accessibility message to read. -->
+    <attr name="endEditingAccessibility" />
 
     <declare-styleable name="InsetTextView">
         <!-- Text to display. -->
@@ -252,6 +264,24 @@
         <attr name="color1" format="color" />
         <attr name="color2" format="color" />
         <attr name="color3" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="EditableListView">
+        <!-- Title to display. -->
+        <attr name="title" />
+        <!-- Button Start Editing Text to Display-->
+        <attr name="buttonStartEditingText" />
+        <!-- Button Finished Editing Text to Display-->
+        <attr name="buttonFinishEditingText" />
+        <!-- Button Start Editing Icon to Display-->
+        <attr name="buttonStartEditingIcon" />
+        <!-- Button Finished Editing Icon to Display -->
+        <attr name="buttonFinishEditingIcon" />
+        <!-- Start Editing Accessibility message to read. -->
+        <attr name="startEditingAccessibility" />
+        <!-- End Editing Accessibility message to read. -->
+        <attr name="endEditingAccessibility" />
+
     </declare-styleable>
 
 </resources>

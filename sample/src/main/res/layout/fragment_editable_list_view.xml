@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/SampleScrollView">
+
+    <LinearLayout
+        android:id="@+id/content_layout"
+        style="@style/SampleSectionContainer">
+
+        <TextView style="@style/PlaceholderText" />
+
+        <FrameLayout style="@style/PlaceholderContainer">
+
+            <uk.gov.hmrc.components.organism.editable.EditableListView
+                android:id="@+id/editable_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <TextView style="@style/ExampleText" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/hmrc_spacing_16"
+            android:paddingTop="@dimen/hmrc_spacing_16"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:layout_marginEnd="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.organism.editable.EditableListView
+                android:id="@+id/editable_list_example_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/hmrc_spacing_16"
+            android:paddingTop="@dimen/hmrc_spacing_16"
+            android:layout_marginTop="@dimen/hmrc_spacing_16"
+            android:layout_marginEnd="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.organism.editable.EditableListView
+                android:id="@+id/editable_list_example_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
