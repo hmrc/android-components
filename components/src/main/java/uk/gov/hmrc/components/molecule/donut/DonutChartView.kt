@@ -17,6 +17,8 @@ package uk.gov.hmrc.components.molecule.donut
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.DashPathEffect
 import android.graphics.Paint
 import android.graphics.RectF
 import android.provider.Settings
@@ -38,12 +40,16 @@ class DonutChartView @JvmOverloads constructor(
     private val color2: Int
     private val color3: Int
 
-    private val color1Paint: Paint
-    private val color2Paint: Paint
-    private val color3Paint: Paint
+    private val stripes1: Boolean
+    private val stripes2: Boolean
+    private val stripes3: Boolean
+
+    private lateinit var color1Paint: Paint
+    private lateinit var color2Paint: Paint
+    private lateinit var color3Paint: Paint
 
     private val donutWidth = context.resources.getDimension(R.dimen.donut_width)
-    private var rect: RectF? = null
+    private lateinit var rect: RectF
     private val startAngle: Float = LEFT_OF_CIRCLE
     private var value1SweepAngle: Float = 0f
     private var value2SweepAngle: Float = 0f
@@ -64,13 +70,29 @@ class DonutChartView @JvmOverloads constructor(
                     R.styleable.DonutChartView_color3,
                     ContextCompat.getColor(context, R.color.hmrc_donut_chart_color_3)
                 )
+                stripes1 = getBoolean(
+                    R.styleable.DonutChartView_stripes1,
+                    false
+                )
+                stripes2 = getBoolean(
+                    R.styleable.DonutChartView_stripes2,
+                    false
+                )
+                stripes3 = getBoolean(
+                    R.styleable.DonutChartView_stripes3,
+                    false
+                )
             } finally {
                 recycle()
             }
+        }
+    }
 
-            color1Paint = donutPaintWithColour(color1)
-            color2Paint = donutPaintWithColour(color2)
-            color3Paint = donutPaintWithColour(color3)
+    private fun stripesOrPlain(stripes: Boolean, color: Int): Paint {
+        return if (stripes) {
+            donutPaintWithStripes(color)
+        } else {
+            donutPaintWithColour(color)
         }
     }
 
@@ -78,6 +100,27 @@ class DonutChartView @JvmOverloads constructor(
         style = Paint.Style.STROKE
         strokeWidth = donutWidth
         color = paintColor
+    }
+
+    private fun donutPaintWithStripes(paintColor1: Int): Paint {
+        val width = rect.width()
+        val height = rect.height()
+        val diameter = min(width, height)
+        val radius = diameter / 2F
+
+        val circumference: Float = (2F * Math.PI * radius).toFloat()
+        val dashPlusGapSize = (circumference / NUM_OF_DASHES)
+        val intervals = floatArrayOf(dashPlusGapSize * INTERVAL_GAP, dashPlusGapSize * INTERVAL_GAP)
+
+        val path = DashPathEffect(intervals, 0F)
+
+        val paint2 = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            style = Paint.Style.STROKE
+            strokeWidth = donutWidth
+            color = paintColor1
+            pathEffect = path
+        }
+        return paint2
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -101,10 +144,21 @@ class DonutChartView @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas?) {
+        color1Paint = stripesOrPlain(stripes1, color1)
+        color2Paint = stripesOrPlain(stripes2, color2)
+        color3Paint = stripesOrPlain(stripes3, color3)
+
+        val white = stripesOrPlain(false, Color.WHITE)
+
         canvas?.apply {
-            drawArc(rect!!, startAngle, value1SweepAngle, false, color1Paint)
-            drawArc(rect!!, startAngle, value2SweepAngle, false, color2Paint)
-            drawArc(rect!!, startAngle, value3SweepAngle, false, color3Paint)
+            drawArc(rect, startAngle, value1SweepAngle, false, white)
+            drawArc(rect, startAngle, value1SweepAngle, false, color1Paint)
+
+            drawArc(rect, startAngle, value2SweepAngle, false, white)
+            drawArc(rect, startAngle, value2SweepAngle, false, color2Paint)
+
+            drawArc(rect, startAngle, value3SweepAngle, false, white)
+            drawArc(rect, startAngle, value3SweepAngle, false, color3Paint)
         }
     }
 
@@ -182,13 +236,15 @@ class DonutChartView @JvmOverloads constructor(
     }
 
     companion object {
-        private const val VALUE_1_ANIMATION_DURATION = 600L
-        private const val VALUE_2_ANIMATION_DURATION = 300L
-        private const val VALUE_3_ANIMATION_DURATION = 300L
+        private const val VALUE_1_ANIMATION_DURATION = 1200L
+        private const val VALUE_2_ANIMATION_DURATION = 600L
+        private const val VALUE_3_ANIMATION_DURATION = 600L
         private const val NO_ANIMATION_DURATION = 0L
         private const val LEFT_OF_CIRCLE = 270f
         private const val ONE_HUNDRED_PERCENT = 100f
         private const val FULL_CIRCLE_ANGLE_IN_WHOLE_NUMBER = 360
         private const val FULL_CIRCLE_ANGLE_IN_DECIMALS_NUMBER = 3.6
+        private const val NUM_OF_DASHES = 80f
+        private const val INTERVAL_GAP = 0.5f
     }
 }

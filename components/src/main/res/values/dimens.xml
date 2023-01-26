@@ -17,6 +17,7 @@
 <resources>
 
     <!-- Spacing -->
+    <dimen name="hmrc_spacing_0">0dp</dimen>
     <dimen name="hmrc_spacing_4">4dp</dimen>
     <dimen name="hmrc_spacing_8">8dp</dimen>
     <dimen name="hmrc_spacing_16">16dp</dimen>
@@ -59,6 +60,6 @@
     <dimen name="warning_icon_size">36dp</dimen>
 
     <!-- Donut -->
-    <dimen name="donut_width">16dp</dimen>
+    <dimen name="donut_width">30dp</dimen>
 
 </resources>
