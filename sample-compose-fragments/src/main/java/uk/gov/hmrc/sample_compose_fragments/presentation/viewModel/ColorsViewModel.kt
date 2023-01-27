@@ -8,15 +8,15 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import uk.gov.hmrc.sample_compose_fragments.domain.model.ColorItems
+import uk.gov.hmrc.sample_compose_fragments.domain.model.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
 import javax.inject.Inject
 
 @HiltViewModel
 class ColorsViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
-    private val _items = MutableStateFlow(listOf<ColorItems>())
-    val items: StateFlow<List<ColorItems>> get() = _items
+    private val _items = MutableStateFlow(listOf<ColorItem>())
+    val items: StateFlow<List<ColorItem>> get() = _items
 
     init {
         getFakeData()

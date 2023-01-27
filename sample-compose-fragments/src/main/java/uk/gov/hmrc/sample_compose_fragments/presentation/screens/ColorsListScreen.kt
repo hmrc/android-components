@@ -18,7 +18,9 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -29,11 +31,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -48,7 +48,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
 import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey3
 import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
-import uk.gov.hmrc.sample_compose_fragments.domain.model.ColorItems
+import uk.gov.hmrc.sample_compose_fragments.domain.model.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.presentation.navigation.NavigationScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
@@ -75,7 +75,7 @@ fun DisplayList(viewModel: ColorsViewModel) {
 }
 
 @Composable
-fun ListItem(item: ColorItems) {
+fun ListItem(item: ColorItem) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -89,18 +89,15 @@ fun ListItem(item: ColorItems) {
         ), shape = RoundedCornerShape(0)
     ) {
         Row(
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(12.dp)
         ) {
-            OutlinedButton(
+            Box(
                 modifier = Modifier
-                    .heightIn(min = 48.dp)
-                    .widthIn(min = 40.dp),
-                shape = RoundedCornerShape(0),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = item.color
-                ), border = BorderStroke(1.dp, HmrcBlack),
-                onClick = { }
-            ) {}
+                    .heightIn(min = 40.dp)
+                    .widthIn(min = 40.dp)
+                    .border(BorderStroke(1.dp, HmrcBlack))
+                    .background(item.color),
+            )
             Text(
                 textAlign = TextAlign.Center,
                 modifier = Modifier
