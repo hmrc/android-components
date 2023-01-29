@@ -17,7 +17,6 @@
 <resources>
 
     <!-- Spacing -->
-    <dimen name="hmrc_spacing_0">0dp</dimen>
     <dimen name="hmrc_spacing_4">4dp</dimen>
     <dimen name="hmrc_spacing_8">8dp</dimen>
     <dimen name="hmrc_spacing_16">16dp</dimen>

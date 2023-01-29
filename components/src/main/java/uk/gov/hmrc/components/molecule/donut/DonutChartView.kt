@@ -24,6 +24,7 @@ import android.graphics.RectF
 import android.provider.Settings
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.AccelerateInterpolator
 import android.view.animation.Animation
 import android.view.animation.Transformation
 import androidx.core.content.ContextCompat
@@ -191,14 +192,17 @@ class DonutChartView @JvmOverloads constructor(
                     setOnAnimationEnd {
                         Value3ArcAnimation(value3Spread).apply {
                             duration = (value3Duration * animationScale).toLong()
+                            interpolator = AccelerateInterpolator()
                             startAnimation(this)
                         }
                     }
                     duration = (value2Duration * animationScale).toLong()
+                    interpolator = AccelerateInterpolator()
                     startAnimation(this)
                 }
             }
             duration = (value1Duration * animationScale).toLong()
+            interpolator = AccelerateInterpolator()
             startAnimation(this)
         }
     }

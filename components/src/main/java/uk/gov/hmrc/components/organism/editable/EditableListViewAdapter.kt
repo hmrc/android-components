@@ -19,8 +19,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.resources.MaterialResources.getDimensionPixelSize
-import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.EditableListItemsBinding
 
 class EditableListViewAdapter(
@@ -53,14 +51,9 @@ class EditableListViewAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(result: EditableListView.EditableItem, position: Int) = with(binding) {
-            val spacing16 = root.resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
-            val spacing4 = root.resources.getDimensionPixelSize(R.dimen.hmrc_spacing_4)
-            val spacing0 = root.resources.getDimensionPixelSize(R.dimen.hmrc_spacing_0)
-
             columnOne.text = result.name
             columnTwo.text = result.value
             iconButton.text = result.buttonText
-            iconButton.setPadding(spacing16, spacing4, spacing0, spacing4)
             val positionLabel = position + 1
 
             divider.isVisible = positionLabel < itemCount

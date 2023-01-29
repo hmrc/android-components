@@ -11,8 +11,8 @@
     <TextView
         android:id="@+id/column_one"
         style="@style/Text.Body"
-        android:layout_marginHorizontal="@dimen/hmrc_spacing_16"
         android:importantForAccessibility="no"
+        android:paddingHorizontal="@dimen/hmrc_spacing_16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start" />
@@ -20,8 +20,8 @@
     <TextView
         android:id="@+id/column_two"
         style="@style/Text.Body"
-        android:layout_marginHorizontal="@dimen/hmrc_spacing_16"
         android:importantForAccessibility="no"
+        android:paddingHorizontal="@dimen/hmrc_spacing_16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical|end" />
