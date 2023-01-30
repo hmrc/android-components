@@ -31,15 +31,14 @@
         android:minWidth="0dp"
         android:minHeight="0dp"
         android:importantForAccessibility="no"
-        android:paddingHorizontal="0dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical|end" />
+        android:layout_height="wrap_content" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:paddingHorizontal="@dimen/hmrc_spacing_16"
         android:background="@drawable/components_divider"
         android:importantForAccessibility="no"
         android:visibility="gone" />

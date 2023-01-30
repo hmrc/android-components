@@ -80,7 +80,6 @@ class EditableListViewFragment : BaseComponentsFragment() {
                 setButtonData("(Link) Button Text", "(Link) Button Text")
                 setButtonIconData(R.drawable.ic_help_outline, R.drawable.ic_help_outline)
                 setButtonAccessibility("Accessibility Text", "Accessibility Text")
-                setPadding(0, 0, 0, 0)
             }
             editableListExample1.apply {
                 setData(editableItem1)
@@ -88,7 +87,6 @@ class EditableListViewFragment : BaseComponentsFragment() {
                 setButtonData("Update or remove benefits", "Finish updating benefits")
                 setButtonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
                 setButtonAccessibility("Edit buttons now hidden", "Edit buttons now visible")
-                setPadding(0, 0, 0, 0)
             }
             editableListExample2.apply {
                 setData(editableItem2)
@@ -96,7 +94,6 @@ class EditableListViewFragment : BaseComponentsFragment() {
                 setButtonData("Lorem ipsum dolor sit amet", "Lorem ipsum dolor")
                 setButtonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
                 setButtonAccessibility("Lorem ipsum", "Lorem ipsum")
-                setPadding(0, 0, 0, 0)
             }
         }
     }
