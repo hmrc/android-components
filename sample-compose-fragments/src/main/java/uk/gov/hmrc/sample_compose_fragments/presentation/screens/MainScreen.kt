@@ -74,9 +74,8 @@ fun ComponentsTopBar(navController: NavHostController) {
 }
 
 private fun getCommitFunction(
-    fragment: Fragment,
-    tag: String
+    fragment: Fragment
 ): FragmentTransaction.(containerId: Int) -> Unit =
     {
-        replace(it, fragment, tag)
+        replace(it, fragment)
     }

@@ -49,12 +49,10 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
 import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey3
 import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
 import uk.gov.hmrc.sample_compose_fragments.domain.model.ColorItem
-import uk.gov.hmrc.sample_compose_fragments.presentation.navigation.NavigationScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
 @Composable
-fun ColorsListScreen(screen: NavigationScreen, viewModel: ColorsViewModel = hiltViewModel()) {
-
+fun ColorsListScreen(viewModel: ColorsViewModel = hiltViewModel()) {
     DisplayList(viewModel)
 }
 

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import uk.gov.hmrc.sample_compose_fragments.presentation.navigation.NavigationScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ColorsListScreen
 
 class ColorsFragment : Fragment() {
@@ -17,7 +16,7 @@ class ColorsFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                ColorsListScreen(NavigationScreen.Colors)
+                ColorsListScreen()
             }
         }
     }

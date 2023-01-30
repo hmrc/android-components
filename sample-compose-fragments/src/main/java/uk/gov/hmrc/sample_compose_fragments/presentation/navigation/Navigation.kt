@@ -101,10 +101,7 @@ fun ComponentsBottomNavigation(navController: NavHostController) {
 fun ComponentsNavGraph(
     navController: NavHostController, modifier: Modifier,
     fragmentManager: FragmentManager,
-    getCommitFunction: (
-        fragment: Fragment,
-        tag: String
-    ) -> (FragmentTransaction.(containerId: Int) -> Unit)
+    getCommitFunction: (fragment: Fragment) -> (FragmentTransaction.(containerId: Int) -> Unit)
 ) {
     NavHost(navController, startDestination = NavigationScreen.Organisms.route, modifier) {
         composable(
@@ -142,10 +139,7 @@ fun ComponentsNavGraph(
             FragmentContainer(
                 modifier = Modifier.fillMaxSize(),
                 fragmentManager = fragmentManager,
-                commit = getCommitFunction(
-                    ColorsFragment.newInstance(),
-                    NavigationScreen.Colors.route
-                )
+                commit = getCommitFunction(ColorsFragment.newInstance())
             )
         }
     }
