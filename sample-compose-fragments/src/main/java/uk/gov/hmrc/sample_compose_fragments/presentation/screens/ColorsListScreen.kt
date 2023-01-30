@@ -103,7 +103,7 @@ fun ListItem(item: ColorItem) {
                 modifier = Modifier
                     .padding(horizontal = 16.dp)
                     .align(alignment = Alignment.CenterVertically),
-                text = item.name,
+                text = item.colorName,
                 color = HmrcBlack,
                 fontSize = 18.sp,
                 style = MaterialTheme.typography.bodyMedium,

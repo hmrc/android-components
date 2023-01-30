@@ -25,8 +25,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -39,12 +43,18 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.navigation.NavigationCo
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
+    val activity = LocalContext.current as? FragmentActivity ?: return
 
     Scaffold(
         topBar = { ComponentsTopBar(navController) },
         bottomBar = { ComponentsBottomNavigation(navController) },
     ) { innerPadding ->
-        ComponentsNavGraph(navController, Modifier.padding(innerPadding))
+        ComponentsNavGraph(
+            navController,
+            Modifier.padding(innerPadding),
+            activity.supportFragmentManager,
+            ::getCommitFunction
+        )
     }
 }
 
@@ -62,3 +72,11 @@ fun ComponentsTopBar(navController: NavHostController) {
         )
     )
 }
+
+private fun getCommitFunction(
+    fragment: Fragment,
+    tag: String
+): FragmentTransaction.(containerId: Int) -> Unit =
+    {
+        replace(it, fragment, tag)
+    }

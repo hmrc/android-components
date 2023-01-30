@@ -1,19 +1,18 @@
 package uk.gov.hmrc.sample_compose_fragments.presentation
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.fragment.app.FragmentActivity
 import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcWhiteBackground
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.MainScreen
-import uk.gov.hmrc.sample_compose_fragments.presentation.ui.theme.AndroidcomponentsTheme
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -29,7 +28,7 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    AndroidcomponentsTheme {
+    HmrcTheme {
         MainScreen()
     }
 }

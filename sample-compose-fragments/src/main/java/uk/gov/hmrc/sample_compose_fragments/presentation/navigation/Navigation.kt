@@ -17,6 +17,7 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.navigation
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -28,8 +29,9 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -39,11 +41,10 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_fragments.presentation.fragment.ColorsFragment
+import uk.gov.hmrc.sample_compose_fragments.presentation.fragment.FragmentContainer
 import uk.gov.hmrc.sample_compose_fragments.presentation.navigation.NavigationConstants.NAV_ARG_TOP_APP_BAR_TITLE
-import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ColorsListScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
-import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
 object NavigationConstants {
     const val NAV_ARG_TOP_APP_BAR_TITLE = "NAV_ARG_TOP_APP_BAR_TITLE"
@@ -97,7 +98,14 @@ fun ComponentsBottomNavigation(navController: NavHostController) {
 }
 
 @Composable
-fun ComponentsNavGraph(navController: NavHostController, modifier: Modifier) {
+fun ComponentsNavGraph(
+    navController: NavHostController, modifier: Modifier,
+    fragmentManager: FragmentManager,
+    getCommitFunction: (
+        fragment: Fragment,
+        tag: String
+    ) -> (FragmentTransaction.(containerId: Int) -> Unit)
+) {
     NavHost(navController, startDestination = NavigationScreen.Organisms.route, modifier) {
         composable(
             NavigationScreen.Organisms.route,
@@ -125,14 +133,20 @@ fun ComponentsNavGraph(navController: NavHostController, modifier: Modifier) {
                 }
             )
         ) { ComponentListScreen(NavigationScreen.Atoms) }
-        composable(
-            NavigationScreen.Colors.route,
-            arguments = listOf(
-                navArgument(NAV_ARG_TOP_APP_BAR_TITLE) {
-                    defaultValue = NavigationScreen.Colors.resourceId
-                }
+
+        composable(NavigationScreen.Colors.route, arguments = listOf(
+            navArgument(NAV_ARG_TOP_APP_BAR_TITLE) {
+                defaultValue = NavigationScreen.Colors.resourceId
+            }
+        )) {
+            FragmentContainer(
+                modifier = Modifier.fillMaxSize(),
+                fragmentManager = fragmentManager,
+                commit = getCommitFunction(
+                    ColorsFragment.newInstance(),
+                    NavigationScreen.Colors.route
+                )
             )
-        ) {
-            ColorsListScreen(NavigationScreen.Colors) }
+        }
     }
 }
