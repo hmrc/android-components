@@ -38,6 +38,7 @@
             android:id="@+id/column_two"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/hmrc_spacing_16"
             motion:layout_constraintBottom_toBottomOf="@id/icon_button"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toEndOf="@id/column_one"

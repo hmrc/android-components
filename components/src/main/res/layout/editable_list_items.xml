@@ -12,7 +12,8 @@
         android:id="@+id/column_one"
         style="@style/Text.Body"
         android:importantForAccessibility="no"
-        android:paddingHorizontal="@dimen/hmrc_spacing_16"
+        android:paddingStart="@dimen/hmrc_spacing_16"
+        android:paddingEnd="@dimen/hmrc_spacing_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start" />
@@ -21,10 +22,11 @@
         android:id="@+id/column_two"
         style="@style/Text.Body"
         android:importantForAccessibility="no"
-        android:paddingHorizontal="@dimen/hmrc_spacing_16"
+        android:paddingStart="@dimen/hmrc_spacing_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical|end" />
+        android:gravity="center_vertical|end"
+        tools:ignore="RtlSymmetry" />
 
     <uk.gov.hmrc.components.atom.button.SecondaryButton
         android:id="@+id/icon_button"
