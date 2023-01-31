@@ -2,25 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <application
-        android:name="uk.gov.hmrc.sample_compose_fragments.MyApp"
+        android:name="uk.gov.hmrc.sample_compose_fragments.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.androidComponents" >
+        android:theme="@style/Theme.AndroidComponents" >
         <activity
             android:name="uk.gov.hmrc.sample_compose_fragments.presentation.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.androidComponents" >
+            android:theme="@style/Theme.AndroidComponents" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
     </application>
 

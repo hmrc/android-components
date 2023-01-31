@@ -62,9 +62,8 @@ fun DisplayList(viewModel: ColorsViewModel) {
     val listState = rememberLazyListState()
 
     LazyColumn(
-        modifier = Modifier
-            .fillMaxSize(1F)
-            .background(HmrcGrey3), state = listState
+        modifier = Modifier.fillMaxSize(1F).background(HmrcGrey3),
+        state = listState
     ) {
         items(listItems) { item ->
             ListItem(item = item)
@@ -75,10 +74,7 @@ fun DisplayList(viewModel: ColorsViewModel) {
 @Composable
 fun ListItem(item: ColorItem) {
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp, 8.dp)
-            .clickable { },
+        modifier = Modifier.fillMaxWidth().padding(16.dp, 8.dp).clickable { },
         elevation = CardDefaults.cardElevation(
             defaultElevation = 1.dp,
         ),
@@ -87,6 +83,7 @@ fun ListItem(item: ColorItem) {
         ), shape = RoundedCornerShape(0)
     ) {
         Row(
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(12.dp)
         ) {
             Box(
@@ -94,7 +91,8 @@ fun ListItem(item: ColorItem) {
                     .heightIn(min = 40.dp)
                     .widthIn(min = 40.dp)
                     .border(BorderStroke(1.dp, HmrcBlack))
-                    .background(item.color),
+                    .background(item.color)
+                    .align(alignment = Alignment.CenterVertically),
             )
             Text(
                 textAlign = TextAlign.Center,

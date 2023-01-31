@@ -24,11 +24,3 @@ class MainActivity : FragmentActivity() {
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    HmrcTheme {
-        MainScreen()
-    }
-}
