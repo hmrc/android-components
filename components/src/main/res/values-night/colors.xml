@@ -31,5 +31,6 @@
     <color name="hmrc_pink">#FFBB94FF</color>
     <color name="hmrc_donut_chart_color_1">@color/hmrc_always_white</color>
     <color name="hmrc_donut_chart_color_2">@color/hmrc_teal</color>
+    <color name="hmrc_donut_chart_color_3">@color/hmrc_teal</color>
 
 </resources>

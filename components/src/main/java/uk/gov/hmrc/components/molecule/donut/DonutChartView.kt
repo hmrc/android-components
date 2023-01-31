@@ -17,7 +17,6 @@ package uk.gov.hmrc.components.molecule.donut
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.DashPathEffect
 import android.graphics.Paint
 import android.graphics.RectF
@@ -81,7 +80,7 @@ class DonutChartView @JvmOverloads constructor(
                 )
                 stripes3 = getBoolean(
                     R.styleable.DonutChartView_stripes3,
-                    false
+                    true
                 )
             } finally {
                 recycle()
@@ -110,7 +109,7 @@ class DonutChartView @JvmOverloads constructor(
         val radius = diameter / 2F
 
         val circumference: Float = (2F * Math.PI * radius).toFloat()
-        val dashPlusGapSize = (circumference / NUM_OF_DASHES)
+        val dashPlusGapSize = (circumference / TOTAL_NUM_OF_DASHES)
         val intervals = floatArrayOf(dashPlusGapSize * INTERVAL_GAP, dashPlusGapSize * INTERVAL_GAP)
 
         val path = DashPathEffect(intervals, 0F)
@@ -146,20 +145,37 @@ class DonutChartView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas?) {
         color1Paint = stripesOrPlain(stripes1, color1)
-        color2Paint = stripesOrPlain(stripes2, color2)
         color3Paint = stripesOrPlain(stripes3, color3)
 
-        val white = stripesOrPlain(false, Color.WHITE)
+        val white = stripesOrPlain(false, ContextCompat.getColor(context, R.color.hmrc_white_background))
 
         canvas?.apply {
-            drawArc(rect, startAngle, value1SweepAngle, false, white)
-            drawArc(rect, startAngle, value1SweepAngle, false, color1Paint)
+            if (0f - value1SweepAngle < DEGREES_FOR_NO_STRIPES) {
+                color1Paint = donutPaintWithColour(color1)
+                drawArc(rect, startAngle, value1SweepAngle, false, color1Paint)
+            } else {
+                color1Paint = stripesOrPlain(stripes1, color1)
+                drawArc(rect, startAngle, value1SweepAngle, false, white)
+                drawArc(rect, startAngle, value1SweepAngle, false, color1Paint)
+            }
 
-            drawArc(rect, startAngle, value2SweepAngle, false, white)
-            drawArc(rect, startAngle, value2SweepAngle, false, color2Paint)
+            if (0f - value2SweepAngle < DEGREES_FOR_NO_STRIPES) {
+                color2Paint = donutPaintWithColour(color2)
+                drawArc(rect, startAngle, value2SweepAngle, false, color2Paint)
+            } else {
+                color2Paint = stripesOrPlain(stripes2, color2)
+                drawArc(rect, startAngle, value2SweepAngle, false, white)
+                drawArc(rect, startAngle, value2SweepAngle, false, color2Paint)
+            }
 
-            drawArc(rect, startAngle, value3SweepAngle, false, white)
-            drawArc(rect, startAngle, value3SweepAngle, false, color3Paint)
+            if (0f - value3SweepAngle < DEGREES_FOR_NO_STRIPES) {
+                color3Paint = donutPaintWithColour(ContextCompat.getColor(context, R.color.hmrc_pink))
+                drawArc(rect, startAngle, value3SweepAngle, false, color3Paint)
+            } else {
+                color3Paint = stripesOrPlain(stripes3, color3)
+                drawArc(rect, startAngle, value3SweepAngle, false, white)
+                drawArc(rect, startAngle, value3SweepAngle, false, color3Paint)
+            }
         }
     }
 
@@ -248,7 +264,8 @@ class DonutChartView @JvmOverloads constructor(
         private const val ONE_HUNDRED_PERCENT = 100f
         private const val FULL_CIRCLE_ANGLE_IN_WHOLE_NUMBER = 360
         private const val FULL_CIRCLE_ANGLE_IN_DECIMALS_NUMBER = 3.6
-        private const val NUM_OF_DASHES = 80f
+        private const val TOTAL_NUM_OF_DASHES = 80f
         private const val INTERVAL_GAP = 0.5f
+        private const val DEGREES_FOR_NO_STRIPES = 18f
     }
 }
