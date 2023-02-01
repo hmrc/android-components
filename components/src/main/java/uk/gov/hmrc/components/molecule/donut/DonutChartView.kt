@@ -144,13 +144,10 @@ class DonutChartView @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas?) {
-        color1Paint = stripesOrPlain(stripes1, color1)
-        color3Paint = stripesOrPlain(stripes3, color3)
-
         val white = stripesOrPlain(false, ContextCompat.getColor(context, R.color.hmrc_white_background))
 
         canvas?.apply {
-            if (0f - value1SweepAngle < DEGREES_FOR_NO_STRIPES) {
+            if (value1SweepAngle - startAngle < DEGREES_FOR_NO_STRIPES) {
                 color1Paint = donutPaintWithColour(color1)
                 drawArc(rect, startAngle, value1SweepAngle, false, color1Paint)
             } else {
