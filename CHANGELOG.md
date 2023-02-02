@@ -18,7 +18,8 @@ Allowed headings:
 
 ### Additions
 
-* `DonutChartView` now supports three segments.
+* `DonutChartView` now supports three segments and stripes.
+*  Added new `EditableListView` component.
 
 ### Changed
 
