@@ -55,6 +55,7 @@ class EditableListViewAdapter(
             columnTwo.text = result.value
             iconButton.text = result.buttonText
             val positionLabel = position + 1
+
             divider.isVisible = positionLabel < itemCount
             itemView.contentDescription =
                 if (isEditEnable) {

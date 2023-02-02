@@ -50,6 +50,6 @@
 
     <color name="hmrc_donut_chart_color_1">@color/hmrc_teal</color>
     <color name="hmrc_donut_chart_color_2">#003078</color>
-    <color name="hmrc_donut_chart_color_3">@color/hmrc_pink</color>
+    <color name="hmrc_donut_chart_color_3">#003078</color>
 
 </resources>

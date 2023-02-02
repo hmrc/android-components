@@ -11,8 +11,9 @@
     <TextView
         android:id="@+id/column_one"
         style="@style/Text.Body"
-        android:layout_marginHorizontal="@dimen/hmrc_spacing_16"
         android:importantForAccessibility="no"
+        android:paddingStart="@dimen/hmrc_spacing_16"
+        android:paddingEnd="@dimen/hmrc_spacing_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start" />
@@ -20,18 +21,18 @@
     <TextView
         android:id="@+id/column_two"
         style="@style/Text.Body"
-        android:layout_marginHorizontal="@dimen/hmrc_spacing_16"
         android:importantForAccessibility="no"
+        android:paddingStart="@dimen/hmrc_spacing_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical|end" />
+        android:gravity="center_vertical|end"
+        tools:ignore="RtlSymmetry" />
 
     <uk.gov.hmrc.components.atom.button.SecondaryButton
         android:id="@+id/icon_button"
         android:minWidth="0dp"
         android:minHeight="0dp"
         android:importantForAccessibility="no"
-        android:paddingHorizontal="0dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -39,6 +40,7 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:paddingHorizontal="@dimen/hmrc_spacing_16"
         android:background="@drawable/components_divider"
         android:importantForAccessibility="no"
         android:visibility="gone" />
