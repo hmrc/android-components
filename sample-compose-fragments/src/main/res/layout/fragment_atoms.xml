@@ -1,7 +1,14 @@
-<androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragment_container_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.AtomsFragment">
 
-</androidx.fragment.app.FragmentContainerView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/title_atoms" />
+
+</LinearLayout>

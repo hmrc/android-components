@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/organismsFragment">
+
+    <fragment
+        android:id="@+id/organismsFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.OrganismsFragment"
+        android:label="fragment_organisms"
+        tools:layout="@layout/fragment_organisms"/>
+
+    <fragment
+        android:id="@+id/moleculesFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.MoleculesFragment"
+        android:label="fragment_molecules"
+        tools:layout="@layout/fragment_molecules"/>
+
+    <fragment
+        android:id="@+id/atomsFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.AtomsFragment"
+        android:label="fragment_atoms"
+        tools:layout="@layout/fragment_atoms"/>
+
+    <fragment
+        android:id="@+id/colorsFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.ColorsFragment"
+        android:label="fragment_colors"
+        tools:layout="@layout/fragment_colors"/>
+
+</navigation>

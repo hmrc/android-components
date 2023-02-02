@@ -47,12 +47,6 @@ class RepositoryImpl @Inject constructor() : Repository {
                 HmrcWhiteDark
             )
         )
-        colorList.add(
-            ColorItem(
-                "Always white (${HmrcWhiteBackground.hexToString()})",
-                HmrcWhiteBackground
-            )
-        )
         return colorList
     }
 

@@ -40,51 +40,59 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
 import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey3
 import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
+import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.domain.model.ColorItem
+import uk.gov.hmrc.sample_compose_fragments.presentation.fragment.ColorItemClickListener
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
 @Composable
-fun ColorsListScreen(viewModel: ColorsViewModel = hiltViewModel()) {
-    DisplayList(viewModel)
+fun ColorsListScreen(viewModel: ColorsViewModel, navigateTo: ColorItemClickListener) {
+    DisplayList(viewModel, navigateTo)
 }
 
 @Composable
-fun DisplayList(viewModel: ColorsViewModel) {
-    val listItems by viewModel.items.collectAsState()
+fun DisplayList(viewModel: ColorsViewModel, click: ColorItemClickListener) {
+    val listItems by viewModel.colorItems.collectAsState()
     val listState = rememberLazyListState()
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize(1F).background(HmrcGrey3),
+        modifier = Modifier
+            .fillMaxSize(1F)
+            .background(HmrcGrey3),
         state = listState
     ) {
         items(listItems) { item ->
-            ListItem(item = item)
+            ListItem(item = item, click)
         }
     }
 }
 
 @Composable
-fun ListItem(item: ColorItem) {
+fun ListItem(item: ColorItem, click: ColorItemClickListener) {
     Card(
-        modifier = Modifier.fillMaxWidth().padding(16.dp, 8.dp).clickable { },
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 1.dp,
-        ),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(
+                dimensionResource(id = R.dimen.hmrc_spacing_16),
+                dimensionResource(id = R.dimen.hmrc_spacing_8)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
         colors = CardDefaults.cardColors(
             containerColor = HmrcWhite,
         ), shape = RoundedCornerShape(0)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(12.dp)
+            modifier = Modifier
+                .padding(dimensionResource(id = R.dimen.hmrc_spacing_12))
+                .clickable(onClick = { click(item) })
         ) {
             Box(
                 modifier = Modifier
@@ -97,7 +105,7 @@ fun ListItem(item: ColorItem) {
             Text(
                 textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = dimensionResource(id = R.dimen.hmrc_spacing_16))
                     .align(alignment = Alignment.CenterVertically),
                 text = item.colorName,
                 color = HmrcBlack,

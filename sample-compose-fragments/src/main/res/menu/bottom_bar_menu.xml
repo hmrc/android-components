@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/organismsFragment"
+        android:icon="@drawable/ic_organisms"
+        android:title="@string/title_organisms"
+        />
+    <item
+        android:id="@+id/moleculesFragment"
+        android:icon="@drawable/ic_molecules"
+        android:title="@string/title_molecules" />
+    <item
+        android:id="@+id/atomsFragment"
+        android:icon="@drawable/ic_atoms"
+        android:title="@string/title_atoms" />
+    <item
+        android:id="@+id/colorsFragment"
+        android:icon="@drawable/ic_colors"
+        android:title="@string/title_colors" />
+
+</menu>

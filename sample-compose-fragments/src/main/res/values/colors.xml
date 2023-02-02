@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Color palette -->
+    <color name="hmrc_always_black">#000</color>
+    <color name="hmrc_always_white">#fff</color>
+
+    <color name="hmrc_black">#FF0B0C0C</color>
+    <color name="hmrc_white">#FFFFFFFF</color>
+    <color name="hmrc_white_background">#FFFFFFFF</color>
+    <color name="hmrc_green_1">#FF00703C</color>
+    <color name="hmrc_green_2">#FF85994B</color>
+    <color name="hmrc_blue">#FF1D70B8</color>
+    <color name="hmrc_teal">#FF28A197</color>
+    <color name="hmrc_red">#FFD4351C</color>
+    <color name="hmrc_grey_1">#FF505A5F</color>
+    <color name="hmrc_grey_2">#FFB1B4B6</color>
+    <color name="hmrc_grey_3">#FFF3F2F1</color>
+    <color name="hmrc_pink">#FFCA2B75</color>
+    <color name="hmrc_yellow">#FFFFBF47</color>
+
+    <color name="hmrc_error_text">@color/hmrc_red</color>
+    <color name="hmrc_dark_text">@color/hmrc_black</color>
+    <color name="hmrc_light_text">@color/hmrc_white</color>
+    <color name="hmrc_link_text">@color/hmrc_blue</color>
+    <color name="hmrc_info_text">@color/hmrc_grey_1</color>
+    <color name="hmrc_page_background">@color/hmrc_grey_3</color>
+    <color name="hmrc_divider">@color/hmrc_grey_2</color>
+    <color name="hmrc_inset_bar">@color/hmrc_grey_2</color>
+
+    <color name="hmrc_information_message_warning_headline_background">@color/hmrc_yellow</color>
+    <color name="hmrc_information_message_info_headline_background">@color/hmrc_blue</color>
+    <color name="hmrc_information_message_urgent_headline_background">@color/hmrc_red</color>
+    <color name="hmrc_information_message_notice_headline_background">@color/hmrc_black</color>
+
+    <color name="hmrc_donut_chart_color_1">@color/hmrc_teal</color>
+    <color name="hmrc_donut_chart_color_2">#003078</color>
+    <color name="hmrc_donut_chart_color_3">@color/hmrc_pink</color>
+</resources>

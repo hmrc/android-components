@@ -1,26 +1,28 @@
 package uk.gov.hmrc.sample_compose_fragments.presentation
 
 import android.os.Bundle
-import androidx.activity.compose.setContent
-import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.fragment.app.FragmentActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcWhiteBackground
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.MainScreen
+import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_components.databinding.ActivityMainBinding
 
 @AndroidEntryPoint
-class MainActivity : FragmentActivity() {
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            HmrcTheme {
-                Surface(color = HmrcWhiteBackground) {
-                    MainScreen()
-                }
-            }
-        }
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        navController = navHostFragment.navController
+        binding.bottomNavigationBar.setupWithNavController(navController)
+
     }
 }

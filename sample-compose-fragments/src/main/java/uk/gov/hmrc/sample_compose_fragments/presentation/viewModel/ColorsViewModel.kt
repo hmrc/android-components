@@ -15,8 +15,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ColorsViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
-    private val _items = MutableStateFlow(listOf<ColorItem>())
-    val items: StateFlow<List<ColorItem>> get() = _items
+    private val _colorItems = MutableStateFlow(listOf<ColorItem>())
+    val colorItems: StateFlow<List<ColorItem>> get() = _colorItems
 
     init {
         getFakeData()
@@ -25,7 +25,7 @@ class ColorsViewModel @Inject constructor(private val repository: Repository) : 
     private fun getFakeData() {
         viewModelScope.launch {
             withContext(Dispatchers.Default) {
-                _items.value = repository.getLists()
+                _colorItems.value = repository.getLists()
             }
         }
     }
