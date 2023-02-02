@@ -63,6 +63,7 @@ dependencies {
     implementation("androidx.compose.material3:material3:1.1.0-alpha04")
     implementation("androidx.appcompat:appcompat:1.6.0")
     implementation("androidx.compose.material3:material3:1.0.1.")
+    implementation("com.google.android.material:material:1.8.0")
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation ("androidx.navigation:navigation-ui:2.5.3")
     implementation("com.google.dagger:hilt-android:2.44")

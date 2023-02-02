@@ -40,15 +40,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
 import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey3
 import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
-import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
+import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.sample_compose_fragments.domain.model.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.presentation.fragment.ColorItemClickListener
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
@@ -76,17 +75,14 @@ fun DisplayList(viewModel: ColorsViewModel, click: ColorItemClickListener) {
 fun ListItem(item: ColorItem, click: ColorItemClickListener) {
     Card(
         modifier = Modifier
-            .fillMaxWidth().padding(
-                dimensionResource(id = R.dimen.hmrc_spacing_16),
-                dimensionResource(id = R.dimen.hmrc_spacing_8)),
+            .fillMaxWidth().padding(hmrc_spacing_16, hmrc_spacing_8),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
         colors = CardDefaults.cardColors(containerColor = HmrcWhite,), shape = RoundedCornerShape(0)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
-                .padding(dimensionResource(id = R.dimen.hmrc_spacing_12))
-                .clickable(onClick = { click(item) })
+                .padding(hmrc_spacing_16).clickable(onClick = { click(item) })
         ) {
             Box(
                 modifier = Modifier
@@ -95,9 +91,9 @@ fun ListItem(item: ColorItem, click: ColorItemClickListener) {
             )
             Text(
                 modifier = Modifier
-                    .padding(horizontal = dimensionResource(id = R.dimen.hmrc_spacing_16)).align(alignment = Alignment.CenterVertically),
-                text = item.colorName, color = HmrcBlack, fontSize = 18.sp,textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Black
+                    .padding(horizontal = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
+                text = item.colorName, color = HmrcBlack, textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold
             )
         }
     }

@@ -10,6 +10,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey1
 import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey2
 import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey3
 import uk.gov.hmrc.components.compose.ui.theme.HmrcPink
+import uk.gov.hmrc.components.compose.ui.theme.HmrcRed
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTeal
 import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
 import uk.gov.hmrc.components.compose.ui.theme.HmrcWhiteBackground
@@ -21,15 +22,16 @@ import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor() : Repository {
 
-    override suspend fun getLists(): List<ColorItem> {
+    override suspend fun getColorList(): List<ColorItem> {
         val colorList = arrayListOf<ColorItem>()
-        colorList.add(ColorItem("White (${HmrcWhite.hexToString()})", HmrcWhite))
         colorList.add(ColorItem("Black (${HmrcBlack.hexToString()})", HmrcBlack))
+        colorList.add(ColorItem("White (${HmrcWhite.hexToString()})", HmrcWhite))
         colorList.add(ColorItem("Green1 (${HmrcGreen1.hexToString()})", HmrcGreen1))
         colorList.add(ColorItem("Green2 (${HmrcGreen2.hexToString()})", HmrcGreen2))
         colorList.add(ColorItem("Blue (${HmrcBlue.hexToString()})", HmrcBlue))
         colorList.add(ColorItem("Teal (${HmrcTeal.hexToString()})", HmrcTeal))
-        colorList.add(ColorItem("Grey (${HmrcGrey1.hexToString()})", HmrcGrey1))
+        colorList.add(ColorItem("Red (${HmrcRed.hexToString()})", HmrcRed))
+        colorList.add(ColorItem("Grey1 (${HmrcGrey1.hexToString()})", HmrcGrey1))
         colorList.add(ColorItem("Grey2 (${HmrcGrey2.hexToString()})", HmrcGrey2))
         colorList.add(ColorItem("Grey3 (${HmrcGrey3.hexToString()})", HmrcGrey3))
         colorList.add(ColorItem("Pink (${HmrcPink.hexToString()})", HmrcPink))

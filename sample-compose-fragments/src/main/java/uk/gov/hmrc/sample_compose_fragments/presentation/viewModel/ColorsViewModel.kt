@@ -25,7 +25,7 @@ class ColorsViewModel @Inject constructor(private val repository: Repository) : 
     private fun getFakeData() {
         viewModelScope.launch {
             withContext(Dispatchers.Default) {
-                _colorItems.value = repository.getLists()
+                _colorItems.value = repository.getColorList()
             }
         }
     }
