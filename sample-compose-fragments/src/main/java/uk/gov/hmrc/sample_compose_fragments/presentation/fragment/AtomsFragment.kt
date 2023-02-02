@@ -1,19 +1,17 @@
 package uk.gov.hmrc.sample_compose_fragments.presentation.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_components.databinding.FragmentAtomsBinding
 
-class AtomsFragment : Fragment() {
+class AtomsFragment : Fragment(R.layout.fragment_atoms) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_atoms, container, false)
+    private lateinit var binding: FragmentAtomsBinding
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentAtomsBinding.bind(view)
     }
 }

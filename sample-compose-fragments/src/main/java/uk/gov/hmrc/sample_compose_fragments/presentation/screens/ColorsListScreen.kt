@@ -64,10 +64,7 @@ fun DisplayList(viewModel: ColorsViewModel, click: ColorItemClickListener) {
     val listState = rememberLazyListState()
 
     LazyColumn(
-        modifier = Modifier
-            .fillMaxSize(1F)
-            .background(HmrcGrey3),
-        state = listState
+        modifier = Modifier.fillMaxSize(1F).background(HmrcGrey3), state = listState
     ) {
         items(listItems) { item ->
             ListItem(item = item, click)
@@ -79,14 +76,11 @@ fun DisplayList(viewModel: ColorsViewModel, click: ColorItemClickListener) {
 fun ListItem(item: ColorItem, click: ColorItemClickListener) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(
+            .fillMaxWidth().padding(
                 dimensionResource(id = R.dimen.hmrc_spacing_16),
                 dimensionResource(id = R.dimen.hmrc_spacing_8)),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = HmrcWhite,
-        ), shape = RoundedCornerShape(0)
+        colors = CardDefaults.cardColors(containerColor = HmrcWhite,), shape = RoundedCornerShape(0)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -96,22 +90,14 @@ fun ListItem(item: ColorItem, click: ColorItemClickListener) {
         ) {
             Box(
                 modifier = Modifier
-                    .heightIn(min = 40.dp)
-                    .widthIn(min = 40.dp)
-                    .border(BorderStroke(1.dp, HmrcBlack))
-                    .background(item.color)
-                    .align(alignment = Alignment.CenterVertically),
+                    .heightIn(min = 40.dp).widthIn(min = 40.dp).border(BorderStroke(1.dp, HmrcBlack))
+                    .background(item.color).align(alignment = Alignment.CenterVertically),
             )
             Text(
-                textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .padding(horizontal = dimensionResource(id = R.dimen.hmrc_spacing_16))
-                    .align(alignment = Alignment.CenterVertically),
-                text = item.colorName,
-                color = HmrcBlack,
-                fontSize = 18.sp,
-                style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.Black
+                    .padding(horizontal = dimensionResource(id = R.dimen.hmrc_spacing_16)).align(alignment = Alignment.CenterVertically),
+                text = item.colorName, color = HmrcBlack, fontSize = 18.sp,textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Black
             )
         }
     }
