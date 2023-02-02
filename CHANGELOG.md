@@ -16,6 +16,11 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+* `DonutChartView` standard width reduced.
+
+## [4.4.0] - 2023-02-02
+
 ### Additions
 
 * `DonutChartView` now supports three segments and stripes.
