@@ -19,7 +19,6 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.screens
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -49,16 +48,15 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.sample_compose_fragments.domain.model.ColorItem
-import uk.gov.hmrc.sample_compose_fragments.presentation.fragment.ColorItemClickListener
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
 @Composable
-fun ColorsListScreen(viewModel: ColorsViewModel, navigateTo: ColorItemClickListener) {
-    DisplayList(viewModel, navigateTo)
+fun ColorsListScreen(viewModel: ColorsViewModel) {
+    DisplayList(viewModel)
 }
 
 @Composable
-fun DisplayList(viewModel: ColorsViewModel, click: ColorItemClickListener) {
+fun DisplayList(viewModel: ColorsViewModel) {
     val listItems by viewModel.colorItems.collectAsState()
     val listState = rememberLazyListState()
 
@@ -66,13 +64,13 @@ fun DisplayList(viewModel: ColorsViewModel, click: ColorItemClickListener) {
         modifier = Modifier.fillMaxSize(1F).background(HmrcGrey3), state = listState
     ) {
         items(listItems) { item ->
-            ListItem(item = item, click)
+            ListItem(item = item)
         }
     }
 }
 
 @Composable
-fun ListItem(item: ColorItem, click: ColorItemClickListener) {
+fun ListItem(item: ColorItem) {
     Card(
         modifier = Modifier
             .fillMaxWidth().padding(hmrc_spacing_16, hmrc_spacing_8),
@@ -81,9 +79,7 @@ fun ListItem(item: ColorItem, click: ColorItemClickListener) {
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .padding(hmrc_spacing_16).clickable(onClick = { click(item) })
-        ) {
+            modifier = Modifier.padding(hmrc_spacing_16)) {
             Box(
                 modifier = Modifier
                     .heightIn(min = 40.dp).widthIn(min = 40.dp).border(BorderStroke(1.dp, HmrcBlack))

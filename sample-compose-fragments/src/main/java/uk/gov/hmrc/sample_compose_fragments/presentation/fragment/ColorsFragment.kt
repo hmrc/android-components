@@ -7,7 +7,6 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentColorsBinding
-import uk.gov.hmrc.sample_compose_fragments.domain.model.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.presentation.MainActivity
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ColorsListScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
@@ -23,10 +22,7 @@ class ColorsFragment : Fragment(R.layout.fragment_colors) {
         binding = FragmentColorsBinding.bind(view)
         (activity as MainActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
         binding.composeView.setContent {
-            ColorsListScreen(viewModel, navigateTo = {
-            })
+            ColorsListScreen(viewModel)
         }
     }
 }
-
-typealias ColorItemClickListener = (item: ColorItem) -> Unit
