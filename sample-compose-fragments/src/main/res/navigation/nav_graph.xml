@@ -8,25 +8,25 @@
     <fragment
         android:id="@+id/organismsFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.OrganismsFragment"
-        android:label="Organisms"
+        android:label="@string/title_organisms"
         tools:layout="@layout/fragment_organisms"/>
 
     <fragment
         android:id="@+id/moleculesFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.MoleculesFragment"
-        android:label="Molecules"
+        android:label="@string/title_molecules"
         tools:layout="@layout/fragment_molecules"/>
 
     <fragment
         android:id="@+id/atomsFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.AtomsFragment"
-        android:label="Atoms"
+        android:label="@string/title_atoms"
         tools:layout="@layout/fragment_atoms"/>
 
     <fragment
         android:id="@+id/colorsFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.ColorsFragment"
-        android:label="Colors"
+        android:label="@string/title_colors"
         tools:layout="@layout/fragment_colors"/>
 
 </navigation>

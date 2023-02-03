@@ -16,9 +16,11 @@
 package uk.gov.hmrc.components.sample.compose.screens
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -31,6 +33,7 @@ import uk.gov.hmrc.components.sample.compose.navigation.ComponentsBottomNavigati
 import uk.gov.hmrc.components.sample.compose.navigation.ComponentsNavGraph
 import uk.gov.hmrc.components.sample.compose.navigation.NavigationConstants.NAV_ARG_TOP_APP_BAR_TITLE
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
@@ -43,13 +46,16 @@ fun MainScreen() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ComponentsTopBar(navController: NavHostController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val title = navBackStackEntry?.arguments?.getInt(NAV_ARG_TOP_APP_BAR_TITLE)
     TopAppBar(
         title = { Text(text = title?.let { stringResource(id = title) } ?: "") },
-        backgroundColor = HmrcTheme.colors.hmrcAlwaysBlack,
-        contentColor = HmrcTheme.colors.hmrcAlwaysWhite
+        colors = TopAppBarDefaults.smallTopAppBarColors(
+            containerColor = HmrcTheme.colors.hmrcAlwaysBlack,
+            titleContentColor = HmrcTheme.colors.hmrcAlwaysWhite
+        )
     )
 }
