@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.4.1] - 2023-02-03
+
 ### Changed
 * `DonutChartView` standard width reduced.
 
