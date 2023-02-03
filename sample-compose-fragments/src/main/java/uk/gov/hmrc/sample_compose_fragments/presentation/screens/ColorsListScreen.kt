@@ -88,7 +88,7 @@ fun ListItem(item: ColorItem) {
             Text(
                 modifier = Modifier
                     .padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
-                text = item.colorName, color = HmrcBlack, textAlign = TextAlign.Center, style = HmrcTypography.titleLarge
+                text = item.colorName, color = HmrcBlack, style = HmrcTypography.titleLarge
             )
         }
     }
