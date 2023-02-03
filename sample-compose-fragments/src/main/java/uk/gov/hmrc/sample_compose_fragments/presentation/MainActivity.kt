@@ -13,7 +13,6 @@ import uk.gov.hmrc.sample_compose_components.databinding.ActivityMainBinding
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private val navController by lazy {
         val navHostFragment = supportFragmentManager
@@ -27,7 +26,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.organismsFragment,
+                R.id.moleculesFragment,
+                R.id.atomsFragment,
+                R.id.colorsFragment
+            )
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bottomNavigationBar.setupWithNavController(navController)
     }
