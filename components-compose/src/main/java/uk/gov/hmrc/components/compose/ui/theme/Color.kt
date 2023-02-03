@@ -17,6 +17,10 @@ package uk.gov.hmrc.components.compose.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+//Color palette
+val HmrcAlwaysBlack = Color(0xFF000000)
+val HmrcAlwaysWhite = Color(0xFFFFFFFF)
+
 // Light theme colors
 val HmrcBlack = Color(0xFF0B0C0C)
 val HmrcWhite = Color(0xFFFFFFFF)

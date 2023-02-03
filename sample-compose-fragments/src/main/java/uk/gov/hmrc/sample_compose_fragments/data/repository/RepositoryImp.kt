@@ -2,6 +2,8 @@ package uk.gov.hmrc.sample_compose_fragments.data.repository
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAlwaysBlack
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAlwaysWhite
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlue
 import uk.gov.hmrc.components.compose.ui.theme.HmrcGreen1
@@ -14,7 +16,6 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcRed
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTeal
 import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
 import uk.gov.hmrc.components.compose.ui.theme.HmrcWhiteBackground
-import uk.gov.hmrc.components.compose.ui.theme.HmrcWhiteDark
 import uk.gov.hmrc.components.compose.ui.theme.HmrcYellow
 import uk.gov.hmrc.sample_compose_fragments.domain.model.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
@@ -45,8 +46,14 @@ class RepositoryImpl @Inject constructor() : Repository {
         )
         colorList.add(
             ColorItem(
-                "Always black (${HmrcWhiteDark.hexToString()})",
-                HmrcWhiteDark
+                "Always black (${HmrcAlwaysBlack.hexToString()})",
+                HmrcAlwaysBlack
+            )
+        )
+        colorList.add(
+            ColorItem(
+                "Always white (${HmrcAlwaysWhite.hexToString()})",
+                HmrcAlwaysWhite
             )
         )
         return colorList
