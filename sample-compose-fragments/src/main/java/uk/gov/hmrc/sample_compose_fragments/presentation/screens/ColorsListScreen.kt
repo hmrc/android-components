@@ -33,17 +33,14 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
-import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey3
-import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTypography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
@@ -52,16 +49,11 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewMod
 
 @Composable
 fun ColorsListScreen(viewModel: ColorsViewModel) {
-    DisplayList(viewModel)
-}
-
-@Composable
-fun DisplayList(viewModel: ColorsViewModel) {
     val listItems by viewModel.colorItems.collectAsState()
     val listState = rememberLazyListState()
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize(1F).background(HmrcGrey3), state = listState,
+        modifier = Modifier.fillMaxSize(1F), state = listState,
         contentPadding = PaddingValues(top = hmrc_spacing_8, bottom = hmrc_spacing_8)
     ) {
         items(listItems) { item ->
@@ -75,20 +67,20 @@ fun ListItem(item: ColorItem) {
     Card(
         modifier = Modifier
             .fillMaxWidth().padding(hmrc_spacing_16, hmrc_spacing_8),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-        colors = CardDefaults.cardColors(containerColor = HmrcWhite,), shape = RoundedCornerShape(0)
+        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),shape = RoundedCornerShape(0),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
     ) {
         Row(
             modifier = Modifier.padding(hmrc_spacing_16)) {
             Box(
                 modifier = Modifier
-                    .heightIn(min = 42.dp).widthIn(min = 42.dp).border(BorderStroke(1.dp, HmrcBlack))
+                    .heightIn(min = 42.dp).widthIn(min = 42.dp).border(BorderStroke(1.dp, MaterialTheme.colorScheme.onSurface))
                     .background(item.color).align(alignment = Alignment.CenterVertically),
             )
             Text(
                 modifier = Modifier
                     .padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
-                text = item.colorName, color = HmrcBlack, style = HmrcTypography.titleLarge
+                text = item.colorName, color = MaterialTheme.colorScheme.onSurface, style = HmrcTypography.titleLarge
             )
         }
     }

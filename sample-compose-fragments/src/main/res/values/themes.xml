@@ -1,6 +1,6 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Theme.AndroidComponents" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.AndroidComponents" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/hmrc_always_black</item>
         <item name="colorPrimaryDark">@color/hmrc_always_black</item>
         <item name="colorControlNormal">@color/hmrc_always_white</item>

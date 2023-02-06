@@ -11,7 +11,6 @@ import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcAlwaysBlack
 import uk.gov.hmrc.components.compose.ui.theme.HmrcAlwaysWhite
-import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.ActivityMainBinding
 
@@ -45,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.apply {
             bottomNavigationBar.setupWithNavController(navController)
-            bottomNavigationBar.setBackgroundColor(HmrcWhite.toArgb())
         }
     }
 }
