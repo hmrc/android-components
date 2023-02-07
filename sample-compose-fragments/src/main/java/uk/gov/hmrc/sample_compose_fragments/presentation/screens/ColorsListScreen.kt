@@ -33,7 +33,6 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -44,6 +43,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.ui.theme.ColorItem
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTypography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
@@ -71,7 +71,7 @@ fun ListItem(item: ColorItem) {
             .fillMaxWidth()
             .padding(hmrc_spacing_16, hmrc_spacing_8),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),shape = RoundedCornerShape(0),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
+        colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
     ) {
         Row(
             modifier = Modifier.padding(hmrc_spacing_16)) {
@@ -79,7 +79,7 @@ fun ListItem(item: ColorItem) {
                 modifier = Modifier
                     .heightIn(min = 42.dp)
                     .widthIn(min = 42.dp)
-                    .border(BorderStroke(1.dp, MaterialTheme.colorScheme.onSurface))
+                    .border(BorderStroke(1.dp, HmrcTheme.colors.hmrcBlack))
                     .background(item.color)
                     .align(alignment = Alignment.CenterVertically),
             )
@@ -87,7 +87,7 @@ fun ListItem(item: ColorItem) {
                 modifier = Modifier
                     .padding(start = hmrc_spacing_16)
                     .align(alignment = Alignment.CenterVertically),
-                text = "${item.colorName} (${item.color.hexToString()})", color = MaterialTheme.colorScheme.onSurface,
+                text = "${item.colorName} (${item.color.hexToString()})", color = HmrcTheme.colors.hmrcBlack,
                 style = HmrcTypography.titleLarge
             )
         }
