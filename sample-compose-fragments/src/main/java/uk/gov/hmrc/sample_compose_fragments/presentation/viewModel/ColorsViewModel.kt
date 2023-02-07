@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import uk.gov.hmrc.components.compose.ui.theme.ColorItem
+import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
 import javax.inject.Inject
 

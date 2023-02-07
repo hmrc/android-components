@@ -19,7 +19,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -56,7 +55,7 @@ private val DarkColorPalette = HmrcColors(
     hmrcGreen1 = HmrcGreen1Dark,
     hmrcGreen2 = HmrcGreen2Dark,
     hmrcBlue = HmrcBlueDark,
-    hmrcTeal = HmrcTealDark,
+    hmrcTeal = HmrcTeal,
     hmrcRed = HmrcRedDark,
     hmrcGrey1 = HmrcGrey1Dark,
     hmrcGrey2 = HmrcGrey2Dark,
@@ -79,38 +78,6 @@ fun HmrcTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable (
     }
 }
 
-enum class ColorItem(val colorName: String) {
-    HmrcBlack("Black"), HmrcWhite("White"), HmrcGreen1("Green 1"),
-    HmrcGreen2("Green 2"), HmrcBlue("Blue"), HmrcTeal("Teal"),
-    HmrcRed("Red"), HmrcGrey1("Grey 1"), HmrcGrey2("Grey 2"),
-    HmrcGrey3("Grey 3"), HmrcPink("Pink"), HmrcYellow("Yellow"),
-    HmrcWhiteBackground("White background"), HmrcAlwaysBlack("Always black"),
-    HmrcAlwaysWhite("Always white");
-
-    val color: Color
-        @Composable
-        @ReadOnlyComposable
-        get() {
-            val colors = if (isSystemInDarkTheme()) DarkColorPalette else LightColorPalette
-            return when (this) {
-                HmrcBlack -> colors.hmrcBlack
-                HmrcWhite -> colors.hmrcWhite
-                HmrcGreen1 -> colors.hmrcGreen1
-                HmrcGreen2 -> colors.hmrcGreen2
-                HmrcBlue -> colors.hmrcBlue
-                HmrcTeal -> colors.hmrcTeal
-                HmrcRed -> colors.hmrcRed
-                HmrcGrey1 -> colors.hmrcGrey1
-                HmrcGrey2 -> colors.hmrcGrey2
-                HmrcGrey3 -> colors.hmrcGrey3
-                HmrcPink -> colors.hmrcPink
-                HmrcYellow -> colors.hmrcYellow
-                HmrcWhiteBackground -> colors.hmrcWhiteBackground
-                HmrcAlwaysBlack -> colors.hmrcAlwaysBlack
-                HmrcAlwaysWhite -> colors.hmrcAlwaysWhite
-            }
-        }
-}
 object HmrcTheme {
     val colors: HmrcColors
         @Composable

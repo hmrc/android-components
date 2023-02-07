@@ -42,11 +42,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
-import uk.gov.hmrc.components.compose.ui.theme.ColorItem
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTypography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
+import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
 @Composable
