@@ -80,12 +80,12 @@ fun HmrcTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable (
 }
 
 enum class ColorItem(val colorName: String) {
-    HmrcBlack("Black"), HmrcWhite("White"), HmrcGreen1("Green1"),
-    HmrcGreen2("Green2"), HmrcBlue("Blue"), HmrcTeal("Teal"),
-    HmrcRed("Red"), HmrcGrey1("Grey1"), HmrcGrey2("Grey2"),
-    HmrcGrey3("Grey3"), HmrcPink("Pink"), HmrcYellow("Yellow"),
-    HmrcWhiteBackground("WhiteBackground"), HmrcAlwaysBlack("AlwaysBlack"),
-    HmrcAlwaysWhite("AlwaysWhite");
+    HmrcBlack("Black"), HmrcWhite("White"), HmrcGreen1("Green 1"),
+    HmrcGreen2("Green 2"), HmrcBlue("Blue"), HmrcTeal("Teal"),
+    HmrcRed("Red"), HmrcGrey1("Grey 1"), HmrcGrey2("Grey 2"),
+    HmrcGrey3("Grey 3"), HmrcPink("Pink"), HmrcYellow("Yellow"),
+    HmrcWhiteBackground("White background"), HmrcAlwaysBlack("Always black"),
+    HmrcAlwaysWhite("Always white");
 
     val color: Color
         @Composable
