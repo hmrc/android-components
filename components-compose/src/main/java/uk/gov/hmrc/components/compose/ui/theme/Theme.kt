@@ -28,8 +28,6 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 private val LightColorPalette = HmrcColors(
-    hmrcAlwaysBlack = HmrcAlwaysBlack,
-    hmrcAlwaysWhite = HmrcAlwaysWhite,
     hmrcBlack = HmrcBlack,
     hmrcWhite = HmrcWhite,
     hmrcWhiteBackground = HmrcWhiteBackground,
@@ -47,8 +45,6 @@ private val LightColorPalette = HmrcColors(
 )
 
 private val DarkColorPalette = HmrcColors(
-    hmrcAlwaysBlack = HmrcAlwaysBlack,
-    hmrcAlwaysWhite = HmrcAlwaysWhite,
     hmrcBlack = HmrcBlackDark,
     hmrcWhite = HmrcWhiteDark,
     hmrcWhiteBackground = HmrcWhiteBackgroundDark,
@@ -90,8 +86,6 @@ object HmrcTheme {
 @Stable
 @SuppressWarnings("LongParameterList")
 class HmrcColors(
-    hmrcAlwaysBlack: Color,
-    hmrcAlwaysWhite: Color,
     hmrcBlack: Color,
     hmrcWhite: Color,
     hmrcWhiteBackground: Color,
@@ -119,10 +113,6 @@ class HmrcColors(
     hmrcInfoMessageNoticeHeadlineBackground: Color = hmrcBlack,
     isDark: Boolean
 ) {
-    var hmrcAlwaysBlack by mutableStateOf(hmrcAlwaysBlack)
-        private set
-    var hmrcAlwaysWhite by mutableStateOf(hmrcAlwaysWhite)
-        private set
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
     var hmrcWhite by mutableStateOf(hmrcWhite)
@@ -176,9 +166,10 @@ class HmrcColors(
     var isDark by mutableStateOf(isDark)
         private set
 
+    val hmrcAlwaysBlack: Color = HmrcBlack
+    val hmrcAlwaysWhite: Color = HmrcWhite
+
     fun update(other: HmrcColors) {
-        hmrcAlwaysBlack = other.hmrcAlwaysBlack
-        hmrcAlwaysWhite = other.hmrcAlwaysWhite
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
         hmrcWhiteBackground = other.hmrcWhiteBackground
@@ -208,8 +199,6 @@ class HmrcColors(
     }
 
     fun copy(): HmrcColors = HmrcColors(
-        hmrcAlwaysBlack = hmrcAlwaysBlack,
-        hmrcAlwaysWhite = hmrcAlwaysWhite,
         hmrcBlack = hmrcBlack,
         hmrcWhite = hmrcWhite,
         hmrcWhiteBackground = hmrcWhiteBackground,

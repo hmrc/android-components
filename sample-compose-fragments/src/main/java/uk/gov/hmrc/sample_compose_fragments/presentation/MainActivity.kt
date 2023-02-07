@@ -9,10 +9,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
-import uk.gov.hmrc.components.compose.ui.theme.HmrcAlwaysBlack
-import uk.gov.hmrc.components.compose.ui.theme.HmrcAlwaysWhite
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.ActivityMainBinding
+import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -28,11 +28,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.toolbar.apply {
-            setTitleTextColor(HmrcAlwaysWhite.toArgb())
-            background = ColorDrawable(HmrcAlwaysBlack.toArgb())
-            setSupportActionBar(this)
-        }
+        setSupportActionBar(binding.toolbar)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.organismsFragment,
