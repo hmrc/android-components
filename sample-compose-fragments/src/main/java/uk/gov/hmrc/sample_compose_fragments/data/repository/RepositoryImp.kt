@@ -1,64 +1,16 @@
 package uk.gov.hmrc.sample_compose_fragments.data.repository
 
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
-import uk.gov.hmrc.components.compose.ui.theme.HmrcAlwaysBlack
-import uk.gov.hmrc.components.compose.ui.theme.HmrcAlwaysWhite
-import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
-import uk.gov.hmrc.components.compose.ui.theme.HmrcBlue
-import uk.gov.hmrc.components.compose.ui.theme.HmrcGreen1
-import uk.gov.hmrc.components.compose.ui.theme.HmrcGreen2
-import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey1
-import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey2
-import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey3
-import uk.gov.hmrc.components.compose.ui.theme.HmrcPink
-import uk.gov.hmrc.components.compose.ui.theme.HmrcRed
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTeal
-import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
-import uk.gov.hmrc.components.compose.ui.theme.HmrcWhiteBackground
-import uk.gov.hmrc.components.compose.ui.theme.HmrcYellow
-import uk.gov.hmrc.sample_compose_fragments.domain.model.ColorItem
+import uk.gov.hmrc.components.compose.ui.theme.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor() : Repository {
 
-    override suspend fun getColorList(): List<ColorItem> {
-        val colorList = arrayListOf<ColorItem>()
-        colorList.add(ColorItem("Black (${HmrcBlack.hexToString()})", HmrcBlack))
-        colorList.add(ColorItem("White (${HmrcWhite.hexToString()})", HmrcWhite))
-        colorList.add(ColorItem("Green1 (${HmrcGreen1.hexToString()})", HmrcGreen1))
-        colorList.add(ColorItem("Green2 (${HmrcGreen2.hexToString()})", HmrcGreen2))
-        colorList.add(ColorItem("Blue (${HmrcBlue.hexToString()})", HmrcBlue))
-        colorList.add(ColorItem("Teal (${HmrcTeal.hexToString()})", HmrcTeal))
-        colorList.add(ColorItem("Red (${HmrcRed.hexToString()})", HmrcRed))
-        colorList.add(ColorItem("Grey1 (${HmrcGrey1.hexToString()})", HmrcGrey1))
-        colorList.add(ColorItem("Grey2 (${HmrcGrey2.hexToString()})", HmrcGrey2))
-        colorList.add(ColorItem("Grey3 (${HmrcGrey3.hexToString()})", HmrcGrey3))
-        colorList.add(ColorItem("Pink (${HmrcPink.hexToString()})", HmrcPink))
-        colorList.add(ColorItem("Yellow (${HmrcYellow.hexToString()})", HmrcYellow))
-        colorList.add(
-            ColorItem(
-                "White background (${
-                    HmrcWhiteBackground.hexToString()
-                })", HmrcWhiteBackground
-            )
-        )
-        colorList.add(
-            ColorItem(
-                "Always black (${HmrcAlwaysBlack.hexToString()})",
-                HmrcAlwaysBlack
-            )
-        )
-        colorList.add(
-            ColorItem(
-                "Always white (${HmrcAlwaysWhite.hexToString()})",
-                HmrcAlwaysWhite
-            )
-        )
-        return colorList
-    }
-
-    private fun Color.hexToString(): String = String.format("#%08X", toArgb())
+    override suspend fun getColorList() = arrayListOf(
+        ColorItem.HmrcBlack, ColorItem.HmrcWhite, ColorItem.HmrcGreen1, ColorItem.HmrcGreen2,
+        ColorItem.HmrcBlue, ColorItem.HmrcTeal, ColorItem.HmrcRed, ColorItem.HmrcGrey1,
+        ColorItem.HmrcGrey2, ColorItem.HmrcGrey3, ColorItem.HmrcPink, ColorItem.HmrcYellow,
+        ColorItem.HmrcWhiteBackground, ColorItem.HmrcAlwaysBlack, ColorItem.HmrcAlwaysWhite,
+    )
 
 }

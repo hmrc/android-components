@@ -40,11 +40,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
+import uk.gov.hmrc.components.compose.ui.theme.ColorItem
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTypography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
-import uk.gov.hmrc.sample_compose_fragments.domain.model.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
 @Composable
@@ -66,7 +68,8 @@ fun ColorsListScreen(viewModel: ColorsViewModel) {
 fun ListItem(item: ColorItem) {
     Card(
         modifier = Modifier
-            .fillMaxWidth().padding(hmrc_spacing_16, hmrc_spacing_8),
+            .fillMaxWidth()
+            .padding(hmrc_spacing_16, hmrc_spacing_8),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),shape = RoundedCornerShape(0),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
     ) {
@@ -74,14 +77,21 @@ fun ListItem(item: ColorItem) {
             modifier = Modifier.padding(hmrc_spacing_16)) {
             Box(
                 modifier = Modifier
-                    .heightIn(min = 42.dp).widthIn(min = 42.dp).border(BorderStroke(1.dp, MaterialTheme.colorScheme.onSurface))
-                    .background(item.color).align(alignment = Alignment.CenterVertically),
+                    .heightIn(min = 42.dp)
+                    .widthIn(min = 42.dp)
+                    .border(BorderStroke(1.dp, MaterialTheme.colorScheme.onSurface))
+                    .background(item.color)
+                    .align(alignment = Alignment.CenterVertically),
             )
             Text(
                 modifier = Modifier
-                    .padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
-                text = item.colorName, color = MaterialTheme.colorScheme.onSurface, style = HmrcTypography.titleLarge
+                    .padding(start = hmrc_spacing_16)
+                    .align(alignment = Alignment.CenterVertically),
+                text = "${item.colorName} (${item.color.hexToString()})", color = MaterialTheme.colorScheme.onSurface,
+                style = HmrcTypography.titleLarge
             )
         }
     }
 }
+
+private fun Color.hexToString(): String = String.format("#%08X", toArgb())

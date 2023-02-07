@@ -19,6 +19,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -78,6 +79,38 @@ fun HmrcTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable (
     }
 }
 
+enum class ColorItem(val colorName: String) {
+    HmrcBlack("Black"), HmrcWhite("White"), HmrcGreen1("Green1"),
+    HmrcGreen2("Green2"), HmrcBlue("Blue"), HmrcTeal("Teal"),
+    HmrcRed("Red"), HmrcGrey1("Grey1"), HmrcGrey2("Grey2"),
+    HmrcGrey3("Grey3"), HmrcPink("Pink"), HmrcYellow("Yellow"),
+    HmrcWhiteBackground("WhiteBackground"), HmrcAlwaysBlack("AlwaysBlack"),
+    HmrcAlwaysWhite("AlwaysWhite");
+
+    val color: Color
+        @Composable
+        @ReadOnlyComposable
+        get() {
+            val colors = if (isSystemInDarkTheme()) DarkColorPalette else LightColorPalette
+            return when (this) {
+                HmrcBlack -> colors.hmrcBlack
+                HmrcWhite -> colors.hmrcWhite
+                HmrcGreen1 -> colors.hmrcGreen1
+                HmrcGreen2 -> colors.hmrcGreen2
+                HmrcBlue -> colors.hmrcBlue
+                HmrcTeal -> colors.hmrcTeal
+                HmrcRed -> colors.hmrcRed
+                HmrcGrey1 -> colors.hmrcGrey1
+                HmrcGrey2 -> colors.hmrcGrey2
+                HmrcGrey3 -> colors.hmrcGrey3
+                HmrcPink -> colors.hmrcPink
+                HmrcYellow -> colors.hmrcYellow
+                HmrcWhiteBackground -> colors.hmrcWhiteBackground
+                HmrcAlwaysBlack -> colors.hmrcAlwaysBlack
+                HmrcAlwaysWhite -> colors.hmrcAlwaysWhite
+            }
+        }
+}
 object HmrcTheme {
     val colors: HmrcColors
         @Composable
