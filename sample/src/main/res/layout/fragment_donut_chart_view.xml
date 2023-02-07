@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright 2018 HM Revenue & Customs
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/SampleScrollView">
+
+    <LinearLayout
+        android:id="@+id/content_layout"
+        style="@style/SampleSectionContainer">
+
+        <TextView style="@style/PlaceholderText" />
+
+        <FrameLayout style="@style/PlaceholderContainer">
+
+             <uk.gov.hmrc.components.molecule.donut.DonutChartView
+                 android:id="@+id/donut_placeholder"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content" />
+
+        </FrameLayout>
+
+        <TextView style="@style/ExampleText" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/hmrc_spacing_16"
+            android:layout_marginTop="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.molecule.donut.DonutChartView
+                android:id="@+id/donut_example_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="75dp"
+                app:stripes3="true" />
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/hmrc_spacing_16"
+            android:layout_marginTop="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.molecule.donut.DonutChartView
+                android:id="@+id/donut_example_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:color1="@color/hmrc_pink"
+                app:color2="@color/hmrc_yellow" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/hmrc_spacing_16"
+            android:layout_marginTop="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.molecule.donut.DonutChartView
+                android:id="@+id/donut_example_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="100dp"
+                app:color1="@color/hmrc_pink"
+                app:color2="@color/hmrc_yellow"
+                app:color3="@color/hmrc_green_1" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>

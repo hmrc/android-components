@@ -74,9 +74,11 @@
     <string name="molecules_h4">H4 Title Body View</string>
     <string name="molecules_h5">H5 Title Body View</string>
     <string name="molecules_bold">Bold Title Body View</string>
+    <string name="molecules_editable_list_view">Editable List View</string>
     <string name="molecules_inset">Inset View</string>
     <string name="molecules_inset_text">Inset Text View</string>
     <string name="molecules_multi_column_row">Multi Column Row View</string>
+    <string name="molecules_donut_chart_view">Donut Chart View</string>
     <string name="molecules_switch_row">Switch Row View</string>
     <string name="molecules_status">Status View</string>
     <string name="molecules_warning">Warning View</string>
@@ -94,6 +96,7 @@
     <string name="organisms_summary_row">Summary Row View</string>
     <string name="organisms_separated_view_container">Separated View Container</string>
     <string name="organisms_menu_panel_row">Menu Panel Row View</string>
+    <string name="organisms_editable_list_view">Editable List View</string>
 
     <!-- Separated view container -->
     <string name="separated_view_container_placeholder_text_1">Item 1</string>
@@ -140,6 +143,7 @@
 
     <string name="multi_column_row_example_text_1">Estimated annual income</string>
     <string name="multi_column_row_example_text_2">£24,000</string>
+    <string name="multi_column_row_example_text_1_2_content_description">Estimated annual income is £24,000</string>
     <string name="multi_column_row_example_text_3">£31,865</string>
     <string name="multi_column_row_example_text_4">20%</string>
     <string name="multi_column_row_example_text_5">£6,373</string>

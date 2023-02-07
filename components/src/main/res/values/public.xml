@@ -17,7 +17,7 @@
     <public name="hmrc_pink" type="color" />
     <public name="hmrc_yellow" type="color" />
     <public name="hmrc_white_background" type="color" />
-    <public name="hmrc_card_background" type="color" />
+    <public name="hmrc_page_background" type="color" />
     <public name="hmrc_divider" type="color" />
     <public name="hmrc_dark_text" type="color" />
     <public name="hmrc_information_message_warning_headline_background" />
@@ -25,6 +25,9 @@
     <public name="hmrc_information_message_urgent_headline_background" />
     <public name="hmrc_information_message_notice_headline_background" />
     <public name="hmrc_secondary_button_ripple" type="color" />
+    <public name="hmrc_donut_chart_color_1" type="color" />
+    <public name="hmrc_donut_chart_color_2" type="color" />
+    <public name="hmrc_donut_chart_color_3" type="color" />
 
     <!-- Styles -->
     <public name="MaterialTextButtonNoInset" type="style" />
@@ -39,6 +42,7 @@
     <public name="Text.Info" type="style" />
     <public name="Text.Error" type="style" />
     <public name="Divider" type="style" />
+    <public name="TabBar" type="style" />
 
     <!-- Dimens -->
     <public name="hmrc_spacing_4" type="dimen" />
@@ -50,5 +54,6 @@
 
     <!-- Drawable -->
     <public name="components_ripple_background" type="drawable" />
+    <public name="components_ic_warning" type="drawable" />
 
 </resources>

@@ -15,11 +15,13 @@
  */
 package uk.gov.hmrc.components.sample.compose.screens
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -36,8 +38,8 @@ fun MainScreen() {
     Scaffold(
         topBar = { ComponentsTopBar(navController) },
         bottomBar = { ComponentsBottomNavigation(navController) },
-    ) {
-        ComponentsNavGraph(navController)
+    ) { innerPadding ->
+        ComponentsNavGraph(navController, Modifier.padding(innerPadding))
     }
 }
 

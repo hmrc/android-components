@@ -7,7 +7,6 @@ plugins {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'uk.gov.hmrc.spotless'
 apply plugin: 'io.gitlab.arturbosch.detekt'
 
@@ -22,8 +21,6 @@ android {
     defaultConfig {
         minSdk Versions.minSdk
         targetSdk Versions.targetSdk
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -48,21 +45,25 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion Versions.compose
+        kotlinCompilerExtensionVersion Versions.kotlinCompilerExtensionVersion
     }
+    namespace 'uk.gov.hmrc.components.compose'
 }
 
 dependencies {
+    implementation platform(Libs.compose_bom)
+    androidTestImplementation platform(Libs.compose_bom)
+
     implementation Libs.androidX_coreKtx
-    implementation Libs.androidX_compose_ui
-    implementation Libs.androidX_compose_tooling
-    implementation Libs.androidX_compose_foundation
-    implementation Libs.androidX_compose_material
+    implementation Libs.compose_ui
+    implementation Libs.compose_tooling
+    implementation Libs.compose_foundation
+    implementation Libs.compose_material
 
     testImplementation Libs.junit
 
     // UI Tests
-    androidTestImplementation Libs.androidX_compose_uiTest
+    androidTestImplementation Libs.compose_uiTest
     androidTestImplementation Libs.androidX_test_ext_junit
     androidTestImplementation Libs.androidX_test_espressoCore
 }

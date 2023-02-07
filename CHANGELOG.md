@@ -16,6 +16,61 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.4.1] - 2023-02-03
+
+### Changed
+* `DonutChartView` standard width reduced.
+
+## [4.4.0] - 2023-02-02
+
+### Additions
+
+* `DonutChartView` now supports three segments and stripes.
+*  Added new `EditableListView` component.
+
+### Changed
+
+The following libraries were updated:
+
+* `com.android.tools.build:gradle:`: `7.0.3` -> `7.3.1`
+* `org.jetbrains.kotlin:kotlin-gradle-plugin:`: `1.5.31` -> `1.7.20`
+* `targetSdk`: `30` -> `33`
+* `compileSdk`: `30` -> `33`
+* `buildTools`: `30.0.3` -> `33.0.1`
+
+* `androidx.annotation:annotation:`: `1.2.0` -> `1.5.0`
+* `androidx.appcompat:appcompat:`: `1.2.0` -> `1.5.1`
+* `androidx.recyclerview:recyclerview:`: `1.2.0` -> `1.2.1`
+* `androidx.constraintlayout:constraintlayout:`: `2.0.4` -> `2.1.4`
+* `androidx.lifecycle:lifecycle-common-java8:2.3.1`: removed
+* `androidx.lifecycle:lifecycle-compiler:2.5.1`: added
+* `androidx.core:core-ktx:`: `1.3.0` -> `1.9.0`
+* `androidx.test:core-ktx:`: `1.3.0` -> `1.5.0`
+* `androidx.test.ext:junit-ktx:`: `1.1.2` -> `1.1.5`
+* `androidx.test.espresso:espresso-core:`: `3.3.0` -> `3.5.1`
+* `androidx.test.espresso:espresso-contrib:`: `3.3.0` -> `3.5.1`
+* `androidx.test:runner:`: `1.3.0` -> `1.5.2`
+* `com.google.android.material:material:`: `1.3.0` -> `1.7.0`
+* `junit:junit:`: `4.13` -> `4.13.2`
+
+## [4.3.2] - 2023-01-09
+
+### Changed
+
+* When an error is displayed on a `SelectRowGroup` component, then the error content description will have the prefix "Error:"
+
+## [4.3.1] - 2022-12-28
+
+### Additions
+
+* Added ability to give a whole row content description on `MultiColumnRow`s.
+
+## [4.3.0] - 2022-11-25
+
+### Additions
+
+* Added `DonutChartView` component.
+
 ## [4.2.0] - 2022-07-15
 
 ### Changed

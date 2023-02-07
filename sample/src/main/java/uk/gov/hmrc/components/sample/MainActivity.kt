@@ -21,7 +21,7 @@ import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.LabelVisibilityMode
+import com.google.android.material.navigation.NavigationBarView
 import uk.gov.hmrc.components.sample.atoms.AtomsFragment
 import uk.gov.hmrc.components.sample.base.ToolbarState
 import uk.gov.hmrc.components.sample.colors.ColorsFragment
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupBottomNavigation() {
         binding.bottomNavigation.apply {
             menu.clear()
-            labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+            labelVisibilityMode = NavigationBarView.LABEL_VISIBILITY_LABELED
         }
 
         val items = provideBottomNavigationItems()

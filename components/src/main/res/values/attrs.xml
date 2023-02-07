@@ -29,6 +29,18 @@
     <attr name="materialTextButtonStyle" format="reference" />
     <!-- Material icon button style. -->
     <attr name="materialIconButtonStyle" format="reference" />
+    <!-- Button Start Editing Text to Display-->
+    <attr name="buttonStartEditingText" />
+    <!-- Button Finished Editing Text to Display-->
+    <attr name="buttonFinishEditingText" />
+    <!-- Button Start Editing Icon to Display-->
+    <attr name="buttonStartEditingIcon" />
+    <!-- Button Finished Editing Icon to Display -->
+    <attr name="buttonFinishEditingIcon" />
+    <!-- Start Editing Accessibility message to read. -->
+    <attr name="startEditingAccessibility" />
+    <!-- End Editing Accessibility message to read. -->
+    <attr name="endEditingAccessibility" />
 
     <declare-styleable name="InsetTextView">
         <!-- Text to display. -->
@@ -246,6 +258,33 @@
             <!-- Notice message -->
             <enum name="notice" value="3" />
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="DonutChartView">
+        <attr name="color1" format="color" />
+        <attr name="color2" format="color" />
+        <attr name="color3" format="color" />
+        <attr name="stripes1" format="boolean" />
+        <attr name="stripes2" format="boolean" />
+        <attr name="stripes3" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="EditableListView">
+        <!-- Title to display. -->
+        <attr name="title" />
+        <!-- Button Start Editing Text to Display-->
+        <attr name="buttonStartEditingText" />
+        <!-- Button Finished Editing Text to Display-->
+        <attr name="buttonFinishEditingText" />
+        <!-- Button Start Editing Icon to Display-->
+        <attr name="buttonStartEditingIcon" />
+        <!-- Button Finished Editing Icon to Display -->
+        <attr name="buttonFinishEditingIcon" />
+        <!-- Start Editing Accessibility message to read. -->
+        <attr name="startEditingAccessibility" />
+        <!-- End Editing Accessibility message to read. -->
+        <attr name="endEditingAccessibility" />
+
     </declare-styleable>
 
 </resources>

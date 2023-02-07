@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layoutDescription="@xml/scene_editing_mode"
+    tools:showPaths="true">
+
+    <TextView
+        android:id="@+id/column_one"
+        style="@style/Text.Body"
+        android:importantForAccessibility="no"
+        android:paddingStart="@dimen/hmrc_spacing_16"
+        android:paddingEnd="@dimen/hmrc_spacing_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start" />
+
+    <TextView
+        android:id="@+id/column_two"
+        style="@style/Text.Body"
+        android:importantForAccessibility="no"
+        android:paddingStart="@dimen/hmrc_spacing_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|end"
+        tools:ignore="RtlSymmetry" />
+
+    <uk.gov.hmrc.components.atom.button.SecondaryButton
+        android:id="@+id/icon_button"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:importantForAccessibility="no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingHorizontal="@dimen/hmrc_spacing_16"
+        android:background="@drawable/components_divider"
+        android:importantForAccessibility="no"
+        android:visibility="gone" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
