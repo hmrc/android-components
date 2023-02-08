@@ -1,7 +1,5 @@
-package uk.gov.hmrc.sample_compose_fragments.presentation.screens
-
 /*
- * Copyright 2021 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +13,7 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.screens
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package uk.gov.hmrc.sample_compose_fragments.presentation.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
