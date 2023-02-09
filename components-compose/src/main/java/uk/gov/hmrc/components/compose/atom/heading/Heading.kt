@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import uk.gov.hmrc.components.compose.ui.theme.CustomHmrcTypography
@@ -27,7 +28,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 @Composable
 fun Heading(text: String, style: TextStyle, modifier: Modifier = Modifier, color: Color? = null) {
     val safeColor = color ?: colors.hmrcBlack
-    Text(text = text, modifier = modifier.semantics { }, style = style, color = safeColor)
+    Text(text = text, modifier = modifier.semantics { heading() }, style = style, color = safeColor)
 }
 
 @Composable
