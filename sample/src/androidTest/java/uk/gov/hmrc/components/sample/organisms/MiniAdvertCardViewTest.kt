@@ -24,22 +24,22 @@ class MiniAdvertCardViewTest : BaseActivityTest() {
 
     @Test
     fun screenshots() {
-        screenshots(IDENTIFIER)
+        screenshots(POSITION)
     }
 
     @Test
     @NightMode
     fun nightModeScreenshots() {
-        nightModeScreenshots(IDENTIFIER)
+        nightModeScreenshots(POSITION)
     }
 
     @Test
     @FontScale(scale = 2f)
     fun fontScaleScreenshots() {
-        fontScaleScreenshots(IDENTIFIER)
+        fontScaleScreenshots(POSITION)
     }
 
     companion object {
-        const val IDENTIFIER = "Mini Advert Card View"
+        const val POSITION = 9
     }
 }
