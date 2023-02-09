@@ -42,6 +42,17 @@
         <item name="android:insetBottom">0dp</item>
     </style>
 
+    <style name="MaterialTextMiniAdvertButton" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:minHeight">@dimen/button_min_height</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="backgroundTint">@color/hmrc_blue</item>
+        <item name="drawableTint">@color/hmrc_white</item>
+        <item name="android:padding">@dimen/hmrc_spacing_16</item>
+        <item name="android:gravity">center_vertical|start</item>
+    </style>
+
     <style name="Widget.Components.CardView" parent="Widget.MaterialComponents.CardView">
         <item name="shapeAppearance">@style/ShapeAppearance.Components.CardView</item>
         <item name="cardBackgroundColor">@color/hmrc_white_background</item>
