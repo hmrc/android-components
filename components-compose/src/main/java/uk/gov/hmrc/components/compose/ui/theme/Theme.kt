@@ -16,7 +16,7 @@
 package uk.gov.hmrc.components.compose.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Stable
@@ -51,7 +51,7 @@ private val DarkColorPalette = HmrcColors(
     hmrcGreen1 = HmrcGreen1Dark,
     hmrcGreen2 = HmrcGreen2Dark,
     hmrcBlue = HmrcBlueDark,
-    hmrcTeal = HmrcTealDark,
+    hmrcTeal = HmrcTeal,
     hmrcRed = HmrcRedDark,
     hmrcGrey1 = HmrcGrey1Dark,
     hmrcGrey2 = HmrcGrey2Dark,
@@ -67,7 +67,7 @@ fun HmrcTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable (
 
     ProvideHmrcColors(colors) {
         MaterialTheme(
-            typography = Typography,
+            typography = HmrcTypography,
             shapes = Shapes,
             content = content
         )
