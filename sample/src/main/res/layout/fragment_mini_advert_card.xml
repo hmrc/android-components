@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/hmrc_spacing_16"
-            app:title="@string/title_body_cta_placeholder_button"/>
+            app:title="@string/title_body_cta_placeholder_button" />
 
         <TextView style="@style/ExampleText" />
 
@@ -38,14 +38,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/hmrc_spacing_16"
-            app:title="@string/mini_advert_example_1_title"/>
+            app:title="@string/mini_advert_example_1_title" />
 
         <uk.gov.hmrc.components.organism.card.MiniAdvertCardView
             android:id="@+id/mini_advert_example_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/hmrc_spacing_16"
-            app:title="@string/mini_advert_example_2_title"/>
+            app:title="@string/mini_advert_example_2_title" />
 
     </LinearLayout>
 
