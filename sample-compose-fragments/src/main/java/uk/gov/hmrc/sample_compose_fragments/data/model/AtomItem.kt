@@ -13,17 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.sample_compose_fragments.data.repository
+package uk.gov.hmrc.sample_compose_fragments.data.model
 
-import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
-import uk.gov.hmrc.sample_compose_fragments.data.model.AtomItem
-import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
-import javax.inject.Inject
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentItem
 
-class RepositoryImpl @Inject constructor() : Repository {
-
-    override suspend fun getColorList() = ColorItem.values().asList()
-    override suspend fun getAtomList() = arrayListOf(
-        AtomItem(1, "Text"), AtomItem(2, "Buttons"), AtomItem(3, "Divider")
-    )
+class AtomItem(val id: Int,val name: String): ComponentItem {
+    override val title: String
+        get() = name
 }

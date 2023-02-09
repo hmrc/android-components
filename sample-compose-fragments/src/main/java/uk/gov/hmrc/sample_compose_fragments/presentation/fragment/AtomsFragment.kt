@@ -17,16 +17,33 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.fragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentAtomsBinding
+import uk.gov.hmrc.sample_compose_components.databinding.FragmentTextBinding
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.TextScreen
 
-class AtomsFragment : Fragment(R.layout.fragment_atoms) {
+class TextFragment : Fragment(R.layout.fragment_text) {
 
-    private lateinit var binding: FragmentAtomsBinding
+    private lateinit var binding: FragmentTextBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentAtomsBinding.bind(view)
+        binding = FragmentTextBinding.bind(view)
+        binding.composeViewText.setContent {
+            HmrcTheme() {
+                Surface(
+                    modifier = Modifier
+                        .fillMaxHeight().fillMaxWidth(),
+                    color = HmrcTheme.colors.hmrcPageBackground
+                ) {
+                    TextScreen()
+                }
+            }
+        }
     }
 }
