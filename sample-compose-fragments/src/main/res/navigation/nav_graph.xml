@@ -34,7 +34,7 @@
 
     <fragment
         android:id="@+id/atomsFragment"
-        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.AtomsFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.AtomsFragment"
         android:label="@string/title_atoms"
         tools:layout="@layout/fragment_atoms"/>
 
@@ -43,5 +43,16 @@
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.ColorsFragment"
         android:label="@string/title_colors"
         tools:layout="@layout/fragment_colors"/>
+
+    <fragment
+        android:id="@+id/textFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.TextFragment"
+        android:label="@string/title_text"
+        tools:layout="@layout/fragment_text">
+        <argument
+            android:name="text"
+            app:argType="string" />
+
+    </fragment>
 
 </navigation>

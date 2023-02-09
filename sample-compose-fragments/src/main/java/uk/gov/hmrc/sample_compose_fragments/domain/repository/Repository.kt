@@ -16,7 +16,9 @@
 package uk.gov.hmrc.sample_compose_fragments.domain.repository
 
 import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
+import uk.gov.hmrc.sample_compose_fragments.data.model.AtomItem
 
 interface Repository {
     suspend fun getColorList(): List<ColorItem>
+    suspend fun getAtomList(): List<AtomItem>
 }
