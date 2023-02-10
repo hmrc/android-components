@@ -45,7 +45,7 @@ class MiniAdvertCardFragment : BaseComponentsFragment() {
             miniAdvertExample1.setOnClickListener { onCtaPressed() }
             miniAdvertExampleWithContentDesc.apply {
                 setOnClickListener { onCtaPressed() }
-                setAccessibilityMessage(getString(R.string.mini_advert_example_2_content_desc))
+                setAccessibilityMessage(getString(R.string.open_in_a_web_browser_content_desc))
             }
         }
     }

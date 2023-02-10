@@ -349,6 +349,6 @@
     <!--  Mini Advert Card View  -->
     <string name="mini_advert_example_1_title">Give feedback to help us improve</string>
     <string name="mini_advert_example_2_title">Give feedback to help us improve by filling in the form</string>
-    <string name="mini_advert_example_2_content_desc">Give feedback to help us improve by filling in the form, double tap to activate</string>
+    <string name="open_in_a_web_browser_content_desc">open in a web browser</string>
 
 </resources>
