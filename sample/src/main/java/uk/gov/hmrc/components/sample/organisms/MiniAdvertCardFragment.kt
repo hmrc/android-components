@@ -43,7 +43,10 @@ class MiniAdvertCardFragment : BaseComponentsFragment() {
         binding.apply {
             miniAdvertPlaceholder.setOnClickListener { onCtaPressed() }
             miniAdvertExample1.setOnClickListener { onCtaPressed() }
-            miniAdvertExample2.setOnClickListener { onCtaPressed() }
+            miniAdvertExampleWithContentDesc.apply {
+                setOnClickListener { onCtaPressed() }
+                setAccessibilityMessage(getString(R.string.mini_advert_example_2_content_desc))
+            }
         }
     }
 

@@ -41,7 +41,7 @@
             app:title="@string/mini_advert_example_1_title" />
 
         <uk.gov.hmrc.components.organism.card.MiniAdvertCardView
-            android:id="@+id/mini_advert_example_2"
+            android:id="@+id/mini_advert_example_with_content_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/hmrc_spacing_16"
