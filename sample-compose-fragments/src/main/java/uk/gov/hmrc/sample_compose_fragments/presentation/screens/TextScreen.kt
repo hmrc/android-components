@@ -23,11 +23,13 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.atom.heading.Heading3
 import uk.gov.hmrc.components.compose.atom.heading.Heading4
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTypography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
+import uk.gov.hmrc.sample_compose_components.R
 
 @Composable
 fun TextScreen() {
@@ -35,34 +37,34 @@ fun TextScreen() {
         modifier = Modifier
             .fillMaxWidth().padding(hmrc_spacing_16).verticalScroll(rememberScrollState())
     ) {
-        Heading3(text = "Heading3 text")
+        Heading3(text = stringResource(id = R.string.text_heading3))
         Text(
-            text = "H3 text", style = HmrcTypography.typography.h3, modifier = Modifier.padding(top = hmrc_spacing_16)
+            text = stringResource(id = R.string.text_h3), style = HmrcTypography.typography.h3, modifier = Modifier.padding(top = hmrc_spacing_16)
         )
-        Heading4(text = "Heading4 text", modifier = Modifier.padding(top = hmrc_spacing_16))
+        Heading4(text = stringResource(id = R.string.text_heading4), modifier = Modifier.padding(top = hmrc_spacing_16))
         Text(
-            text = "H4 text", style = HmrcTypography.typography.h4,
+            text = stringResource(id = R.string.text_h4), style = HmrcTypography.typography.h4,
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
-        Heading5(text = "Heading5 text", modifier = Modifier.padding(top = hmrc_spacing_16))
+        Heading5(text = stringResource(id = R.string.text_heading5), modifier = Modifier.padding(top = hmrc_spacing_16))
         Text(
-            text = "H5 text", style = HmrcTypography.typography.h5,
-            modifier = Modifier.padding(top = hmrc_spacing_16)
-        )
-        Text(
-            text = "Bold text", style = HmrcTypography.typography.h6,
+            text = stringResource(id = R.string.text_h5), style = HmrcTypography.typography.h5,
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
         Text(
-            text = "Body text", style = HmrcTypography.typography.body,
+            text = stringResource(id = R.string.text_bold), style = HmrcTypography.typography.h6,
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
         Text(
-            text = "Info text", style = HmrcTypography.typography.info,
+            text = stringResource(id = R.string.text_body), style = HmrcTypography.typography.body,
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
         Text(
-            text = "Error text", style = HmrcTypography.typography.errorText,
+            text = stringResource(id = R.string.text_info), style = HmrcTypography.typography.info,
+            modifier = Modifier.padding(top = hmrc_spacing_16)
+        )
+        Text(
+            text = stringResource(id = R.string.text_error), style = HmrcTypography.typography.errorText,
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
     }
