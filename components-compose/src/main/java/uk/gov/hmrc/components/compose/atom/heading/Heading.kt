@@ -18,30 +18,27 @@ package uk.gov.hmrc.components.compose.atom.heading
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
-import uk.gov.hmrc.components.compose.ui.theme.CustomHmrcTypography
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTypography
 
 @Composable
-fun Heading(text: String, style: TextStyle, modifier: Modifier = Modifier, color: Color? = null) {
-    val safeColor = color ?: colors.hmrcBlack
-    Text(text = text, modifier = modifier.semantics { heading() }, style = style, color = safeColor)
+fun Heading(text: String, style: TextStyle, modifier: Modifier = Modifier) {
+    Text(text = text, modifier = modifier.semantics { heading() }, style = style)
 }
 
 @Composable
-fun Heading3(text: String, modifier: Modifier = Modifier, color: Color? = null) {
-    Heading(text = text, style = CustomHmrcTypography.h3, modifier = modifier, color)
+fun Heading3(text: String, modifier: Modifier = Modifier) {
+    Heading(text = text, style = HmrcTypography.typography.h3, modifier = modifier)
 }
 
 @Composable
-fun Heading4(text: String, modifier: Modifier = Modifier, color: Color? = null) {
-    Heading(text = text, CustomHmrcTypography.h4, modifier = modifier, color)
+fun Heading4(text: String, modifier: Modifier = Modifier) {
+    Heading(text = text, style = HmrcTypography.typography.h4, modifier = modifier)
 }
 
 @Composable
-fun Heading5(text: String, modifier: Modifier = Modifier, color: Color? = null) {
-    Heading(text = text, CustomHmrcTypography.h5, modifier = modifier, color)
+fun Heading5(text: String, modifier: Modifier = Modifier) {
+    Heading(text = text, style = HmrcTypography.typography.h5, modifier = modifier)
 }

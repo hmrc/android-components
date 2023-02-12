@@ -32,8 +32,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import uk.gov.hmrc.components.compose.ui.theme.CustomHmrcTypography
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTypography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 
@@ -64,7 +64,7 @@ fun <T : ComponentItem> ComponentListItem(item: T, navigateTo: (item: T) -> Unit
         ) {
             Text(
                 modifier = Modifier.padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
-                text = item.title, color = HmrcTheme.colors.hmrcBlack, style = CustomHmrcTypography.h5
+                text = item.title, style = HmrcTypography.typography.h5
             )
         }
     }

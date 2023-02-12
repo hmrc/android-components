@@ -23,7 +23,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -48,14 +47,12 @@ class AtomsFragment : Fragment(R.layout.fragment_atoms) {
             HmrcTheme {
                 Surface(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .fillMaxWidth(),
+                        .fillMaxHeight().fillMaxWidth(),
                     color = HmrcTheme.colors.hmrcPageBackground
                 ) {
                     ComponentListScreen(items = listItems, navigateTo = {
                         if (it.id == 1) {
-                            val bundle = bundleOf("text" to it.title)
-                            findNavController().navigate(R.id.textFragment, bundle)
+                            findNavController().navigate(AtomsFragmentDirections.actionAtomsFragmentToNavGraphAtoms())
                         }
                     })
                 }

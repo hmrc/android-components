@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.TextFragment">
+    tools:context="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.TextFragment">
 
     <androidx.compose.ui.platform.ComposeView
         android:id="@+id/compose_view_text"

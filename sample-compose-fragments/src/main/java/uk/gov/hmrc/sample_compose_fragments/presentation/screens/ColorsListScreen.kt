@@ -41,7 +41,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
-import uk.gov.hmrc.components.compose.ui.theme.CustomHmrcTypography
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTypography
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
@@ -81,8 +81,7 @@ fun ListItem(item: ColorItem) {
             Text(
                 modifier = Modifier
                     .padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
-                text = "${item.colorName} (${item.color.hexToString()})", color = HmrcTheme.colors.hmrcBlack,
-                style = CustomHmrcTypography.h5
+                text = "${item.colorName} (${item.color.hexToString()})", style = HmrcTypography.typography.h5
             )
         }
     }

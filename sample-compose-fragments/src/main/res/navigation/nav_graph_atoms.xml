@@ -14,16 +14,17 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MoleculesFragment">
+    android:id="@+id/nav_graph_atoms"
+    app:startDestination="@+id/textFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/title_molecules" />
+    <fragment
+        android:id="@+id/textFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.TextFragment"
+        android:label="@string/title_text"
+        tools:layout="@layout/fragment_text">
+    </fragment>
 
-</LinearLayout>
+</navigation>
