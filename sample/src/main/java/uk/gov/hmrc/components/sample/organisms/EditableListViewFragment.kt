@@ -20,7 +20,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import uk.gov.hmrc.components.organism.editable.EditableListView
+import uk.gov.hmrc.components.organism.editable.EditableListItemViewState
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
 import uk.gov.hmrc.components.sample.base.BaseComponentsFragment
@@ -43,33 +43,33 @@ class EditableListViewFragment : BaseComponentsFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val editableItem = arrayListOf<EditableListView.EditableItem>(
-            EditableListViewModel(
+        val editableItem = arrayListOf(
+            EditableListItemViewState(
                 "Column 1", "Column 2", "Column 3"
             ) { onCtaPressed() },
-            EditableListViewModel(
+            EditableListItemViewState(
                 "Column 1", "Column 2", "Column 3"
             ) { onCtaPressed() }
         )
-        val editableItem1 = arrayListOf<EditableListView.EditableItem>(
-            EditableListViewModel(
+        val editableItem1 = arrayListOf(
+            EditableListItemViewState(
                 "Medical", "£1000", "Edit", "1000 pounds"
             ) { onCtaPressed() },
-            EditableListViewModel(
+            EditableListItemViewState(
                 "Car Benefit", "£600", "Edit", "600 pounds"
             ) { onCtaPressed() },
-            EditableListViewModel(
+            EditableListItemViewState(
                 "Insurance", "£300000", "Edit", "300000 pounds"
             ) { onCtaPressed() },
-            EditableListViewModel(
+            EditableListItemViewState(
                 "Tax Benefits", "£55500", "Edit", "55500 pounds"
             ) { onCtaPressed() }
         )
-        val editableItem2 = arrayListOf<EditableListView.EditableItem>(
-            EditableListViewModel(
+        val editableItem2 = arrayListOf(
+            EditableListItemViewState(
                 "Lorem ipsum dolor", "78695743008", "Lorem ipsum", "78695743008 pounds"
             ) { onCtaPressed() },
-            EditableListViewModel(
+            EditableListItemViewState(
                 "Lorem ipsum dolor", "46970783733", "Lorem ipsum", "46970783733 pounds"
             ) { onCtaPressed() }
         )

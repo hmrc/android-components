@@ -13,11 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.components.sample.organisms
+package uk.gov.hmrc.components.organism.editable
 
-import uk.gov.hmrc.components.organism.editable.EditableListView
-
-data class EditableListViewModel(
+data class EditableListItemViewState(
     override var name: String,
     override var value: String,
     override var buttonText: String,
