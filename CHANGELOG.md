@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
 * `EditableListView` changed to use EditableListItemViewState.
 
 ## [4.4.1] - 2023-02-03
