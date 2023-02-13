@@ -117,14 +117,6 @@ open class EditableListView @JvmOverloads constructor(
         binding.title.text = title
     }
 
-    interface EditableItem {
-        var name: String
-        var value: String
-        var buttonText: String
-        var valueContentDescription: String?
-        val onClickListener: (Int) -> Unit
-    }
-
     private fun setFocusListener() {
         ViewCompat.setAccessibilityDelegate(
             binding.root,

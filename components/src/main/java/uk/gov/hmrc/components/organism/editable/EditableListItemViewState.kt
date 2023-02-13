@@ -16,9 +16,9 @@
 package uk.gov.hmrc.components.organism.editable
 
 data class EditableListItemViewState(
-    override var name: String,
-    override var value: String,
-    override var buttonText: String,
-    override var valueContentDescription: String? = null,
-    override val onClickListener: (Int) -> Unit
-) : EditableListView.EditableItem
+    var name: String,
+    var value: String,
+    var buttonText: String,
+    var valueContentDescription: String? = null,
+    val onClickListener: (Int) -> Unit
+)
