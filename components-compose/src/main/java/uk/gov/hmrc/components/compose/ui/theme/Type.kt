@@ -15,71 +15,57 @@
  */
 package uk.gov.hmrc.components.compose.ui.theme
 
-import androidx.compose.material3.Typography
-import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-// Set of Material typography styles to start with
-
-val Typography = Typography(
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
-    )
-)
-
-data class AppTypography(
-    val colorBlack: Color? = null,
-    val colorGray1: Color? = null,
-    val colorRed: Color? = null,
+data class HmrcTypography(
+    val hmrcBlack: Color,
+    val hmrcGrey1: Color,
+    val hmrcRed: Color,
 
     val h3: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 48.sp,
-        color = colorBlack!!
+        color = hmrcBlack
     ),
     val h4: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 30.sp,
-        color = colorBlack!!
+        color = hmrcBlack
     ),
     val h5: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 20.sp,
-        color = colorBlack!!
+        color = hmrcBlack
     ),
     val h6: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
-        color = colorBlack!!
+        color = hmrcBlack
     ),
     val body: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
-        color = colorBlack!!
+        color = hmrcBlack
     ),
     val info: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
-        color = colorGray1!!
+        color = hmrcGrey1
     ),
     val errorText: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
-        color = colorRed!!
+        color = hmrcRed
     )
 )
-
-internal val LocalTypography = staticCompositionLocalOf { AppTypography() }

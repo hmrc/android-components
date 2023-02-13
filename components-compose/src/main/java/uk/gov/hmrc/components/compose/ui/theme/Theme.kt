@@ -65,16 +65,15 @@ private val DarkColorPalette = HmrcColors(
 fun HmrcTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     val colors = if (darkTheme) DarkColorPalette else LightColorPalette
 
-    ProvideHmrcColors(
+    ProvideHmrcTheme(
         colors,
-        AppTypography(
-            colorBlack = colors.hmrcBlack,
-            colorGray1 = colors.hmrcGrey1,
-            colorRed = colors.hmrcRed
+        HmrcTypography(
+            hmrcBlack = colors.hmrcBlack,
+            hmrcGrey1 = colors.hmrcGrey1,
+            hmrcRed = colors.hmrcRed
         )
     ) {
         MaterialTheme(
-            typography = Typography,
             shapes = Shapes,
             content = content
         )
@@ -85,12 +84,10 @@ object HmrcTheme {
     val colors: HmrcColors
         @Composable
         get() = LocalHmrcColors.current
-}
 
-object HmrcTypography {
-    val typography: AppTypography
+    val typography: HmrcTypography
         @Composable
-        get() = LocalTypography.current
+        get() = LocalHmrcTypography.current
 }
 
 /**
@@ -242,21 +239,22 @@ class HmrcColors(
 }
 
 @Composable
-fun ProvideHmrcColors(
+fun ProvideHmrcTheme(
     colors: HmrcColors,
-    typography: AppTypography,
+    typography: HmrcTypography,
     content: @Composable () -> Unit
 ) {
     // Explicitly creating a new object here so we don't mutate the initial [colors] provided,
     // and overwrite the values set in it.
     val colorPalette = remember { colors.copy() }
-    val appTypography = remember { typography }
+    val typographySet = remember { typography.copy() }
     colorPalette.update(colors)
     CompositionLocalProvider(
         LocalHmrcColors provides colorPalette,
-        LocalTypography provides appTypography,
+        LocalHmrcTypography provides typographySet,
         content = content
     )
 }
 
 private val LocalHmrcColors = staticCompositionLocalOf<HmrcColors> { error("No HmrcColorPalette provided") }
+private val LocalHmrcTypography = staticCompositionLocalOf<HmrcTypography> { error("No HmrcTypography provided") }

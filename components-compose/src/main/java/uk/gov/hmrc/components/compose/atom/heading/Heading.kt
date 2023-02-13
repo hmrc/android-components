@@ -21,7 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTypography
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
 fun Heading(text: String, style: TextStyle, modifier: Modifier = Modifier) {
@@ -30,15 +30,15 @@ fun Heading(text: String, style: TextStyle, modifier: Modifier = Modifier) {
 
 @Composable
 fun Heading3(text: String, modifier: Modifier = Modifier) {
-    Heading(text = text, style = HmrcTypography.typography.h3, modifier = modifier)
+    Heading(text = text, style = HmrcTheme.typography.h3, modifier = modifier)
 }
 
 @Composable
 fun Heading4(text: String, modifier: Modifier = Modifier) {
-    Heading(text = text, style = HmrcTypography.typography.h4, modifier = modifier)
+    Heading(text = text, style = HmrcTheme.typography.h4, modifier = modifier)
 }
 
 @Composable
 fun Heading5(text: String, modifier: Modifier = Modifier) {
-    Heading(text = text, style = HmrcTypography.typography.h5, modifier = modifier)
+    Heading(text = text, style = HmrcTheme.typography.h5, modifier = modifier)
 }

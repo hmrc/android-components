@@ -64,7 +64,7 @@ fun <T : ComponentItem> ComponentListItem(item: T, navigateTo: (item: T) -> Unit
         ) {
             Text(
                 modifier = Modifier.padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
-                text = item.title, style = HmrcTypography.typography.h5
+                text = item.title, style = HmrcTheme.typography.h5
             )
         }
     }
