@@ -15,20 +15,18 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.data.repository
 
-import android.content.Context
-import dagger.hilt.android.qualifiers.ApplicationContext
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.data.model.AtomItem
 import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
 import javax.inject.Inject
 
-class RepositoryImpl @Inject constructor(@ApplicationContext val mContext: Context) : Repository {
+class RepositoryImpl @Inject constructor() : Repository {
     val string = String
     override suspend fun getColorList() = ColorItem.values().asList()
     override suspend fun getAtomList() = arrayListOf(
-        AtomItem(1, mContext.getString(R.string.atoms_text)),
-        AtomItem(2, mContext.getString(R.string.atoms_buttons)),
-        AtomItem(3, mContext.getString(R.string.atoms_divider))
+        AtomItem(1, R.string.atoms_text),
+        AtomItem(2, R.string.atoms_buttons),
+        AtomItem(3, R.string.atoms_divider)
     )
 }

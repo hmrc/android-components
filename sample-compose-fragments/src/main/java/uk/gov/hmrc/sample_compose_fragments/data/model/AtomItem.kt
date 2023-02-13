@@ -15,9 +15,7 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.data.model
 
+import androidx.annotation.StringRes
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentItem
 
-class AtomItem(val id: Int, val name: String): ComponentItem {
-    override val title: String
-        get() = name
-}
+class AtomItem(val id: Int, @StringRes override val titleRes: Int): ComponentItem
