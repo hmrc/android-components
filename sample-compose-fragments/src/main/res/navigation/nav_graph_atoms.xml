@@ -17,8 +17,18 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph_atoms"
-    app:startDestination="@+id/textFragment">
+    android:id="@+id/nav_graph_atoms_screen"
+    app:startDestination="@+id/atomsFragment">
+
+    <fragment
+        android:id="@+id/atomsFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.AtomsFragment"
+        android:label="@string/title_atoms"
+        tools:layout="@layout/fragment_atoms">
+        <action
+            android:id="@+id/action_atomsFragment_to_textFragment"
+            app:destination="@id/textFragment"/>
+    </fragment>
 
     <fragment
         android:id="@+id/textFragment"

@@ -32,22 +32,12 @@
         android:label="@string/title_molecules"
         tools:layout="@layout/fragment_molecules"/>
 
-    <fragment
-        android:id="@+id/atomsFragment"
-        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.AtomsFragment"
-        android:label="@string/title_atoms"
-        tools:layout="@layout/fragment_atoms">
-        <action
-            android:id="@+id/action_atomsFragment_to_nav_graph_atoms"
-            app:destination="@id/nav_graph_atoms"/>
-    </fragment>
+    <include app:graph="@navigation/nav_graph_atoms" />
 
     <fragment
         android:id="@+id/colorsFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.colors.ColorsFragment"
         android:label="@string/title_colors"
         tools:layout="@layout/fragment_colors"/>
-
-    <include app:graph="@navigation/nav_graph_atoms" />
 
 </navigation>

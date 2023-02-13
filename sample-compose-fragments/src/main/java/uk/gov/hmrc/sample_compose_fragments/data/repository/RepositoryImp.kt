@@ -22,7 +22,7 @@ import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor() : Repository {
-    val string = String
+
     override suspend fun getColorList() = ColorItem.values().asList()
     override suspend fun getAtomList() = arrayListOf(
         AtomItem(1, R.string.atoms_text),

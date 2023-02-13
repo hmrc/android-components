@@ -52,7 +52,7 @@ class AtomsFragment : Fragment(R.layout.fragment_atoms) {
                 ) {
                     ComponentListScreen(items = listItems, navigateTo = {
                         if (it.id == 1) {
-                            findNavController().navigate(AtomsFragmentDirections.actionAtomsFragmentToNavGraphAtoms())
+                            findNavController().navigate(R.id.action_atomsFragment_to_textFragment)
                         }
                     })
                 }
