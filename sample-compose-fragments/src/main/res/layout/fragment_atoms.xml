@@ -22,9 +22,9 @@
     android:orientation="vertical"
     android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.AtomsFragment">
 
-    <TextView
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/compose_view_atoms"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/title_atoms" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

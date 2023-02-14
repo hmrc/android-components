@@ -18,7 +18,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.MoleculesFragment">
+    tools:context="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MoleculesFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
