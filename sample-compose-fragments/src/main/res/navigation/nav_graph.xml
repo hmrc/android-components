@@ -22,25 +22,21 @@
 
     <fragment
         android:id="@+id/organismsFragment"
-        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.OrganismsFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.organisms.OrganismsFragment"
         android:label="@string/title_organisms"
         tools:layout="@layout/fragment_organisms"/>
 
     <fragment
         android:id="@+id/moleculesFragment"
-        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.MoleculesFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MoleculesFragment"
         android:label="@string/title_molecules"
         tools:layout="@layout/fragment_molecules"/>
 
-    <fragment
-        android:id="@+id/atomsFragment"
-        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.AtomsFragment"
-        android:label="@string/title_atoms"
-        tools:layout="@layout/fragment_atoms"/>
+    <include app:graph="@navigation/nav_graph_atoms" />
 
     <fragment
         android:id="@+id/colorsFragment"
-        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.ColorsFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.colors.ColorsFragment"
         android:label="@string/title_colors"
         tools:layout="@layout/fragment_colors"/>
 
