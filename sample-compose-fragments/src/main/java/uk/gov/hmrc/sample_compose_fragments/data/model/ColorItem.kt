@@ -17,7 +17,7 @@ package uk.gov.hmrc.sample_compose_fragments.data.model
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 
 enum class ColorItem(val colorName: String) {
     HmrcBlack("Black"),
@@ -40,21 +40,21 @@ enum class ColorItem(val colorName: String) {
         @Composable
         get() {
             return when (this) {
-                HmrcBlack -> HmrcTheme.colors.hmrcBlack
-                HmrcWhite -> HmrcTheme.colors.hmrcWhite
-                HmrcGreen1 -> HmrcTheme.colors.hmrcGreen1
-                HmrcGreen2 -> HmrcTheme.colors.hmrcGreen2
-                HmrcBlue -> HmrcTheme.colors.hmrcBlue
-                HmrcTeal -> HmrcTheme.colors.hmrcTeal
-                HmrcRed -> HmrcTheme.colors.hmrcRed
-                HmrcGrey1 -> HmrcTheme.colors.hmrcGrey1
-                HmrcGrey2 -> HmrcTheme.colors.hmrcGrey2
-                HmrcGrey3 -> HmrcTheme.colors.hmrcGrey3
-                HmrcPink -> HmrcTheme.colors.hmrcPink
-                HmrcYellow -> HmrcTheme.colors.hmrcYellow
-                HmrcWhiteBackground -> HmrcTheme.colors.hmrcWhiteBackground
-                HmrcAlwaysBlack -> HmrcTheme.colors.hmrcAlwaysBlack
-                HmrcAlwaysWhite -> HmrcTheme.colors.hmrcAlwaysWhite
+                HmrcBlack -> colors.hmrcBlack
+                HmrcWhite -> colors.hmrcWhite
+                HmrcGreen1 -> colors.hmrcGreen1
+                HmrcGreen2 -> colors.hmrcGreen2
+                HmrcBlue -> colors.hmrcBlue
+                HmrcTeal -> colors.hmrcTeal
+                HmrcRed -> colors.hmrcRed
+                HmrcGrey1 -> colors.hmrcGrey1
+                HmrcGrey2 -> colors.hmrcGrey2
+                HmrcGrey3 -> colors.hmrcGrey3
+                HmrcPink -> colors.hmrcPink
+                HmrcYellow -> colors.hmrcYellow
+                HmrcWhiteBackground -> colors.hmrcWhiteBackground
+                HmrcAlwaysBlack -> colors.hmrcAlwaysBlack
+                HmrcAlwaysWhite -> colors.hmrcAlwaysWhite
             }
         }
 }

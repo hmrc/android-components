@@ -16,6 +16,8 @@
 package uk.gov.hmrc.components.compose.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material.ripple.RippleAlpha
+import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -88,6 +90,19 @@ object HmrcTheme {
     val typography: HmrcTypography
         @Composable
         get() = LocalHmrcTypography.current
+}
+
+object HmrcRippleTheme : RippleTheme {
+    @Composable
+    override fun defaultColor() = HmrcTheme.colors.hmrcBlue
+
+    @Composable
+    override fun rippleAlpha(): RippleAlpha = RippleAlpha(
+        draggedAlpha = 0.24f,
+        focusedAlpha = 0.40f,
+        hoveredAlpha = 0.40f,
+        pressedAlpha = 0.24f
+    )
 }
 
 /**

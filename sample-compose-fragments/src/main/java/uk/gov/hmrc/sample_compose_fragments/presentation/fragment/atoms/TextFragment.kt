@@ -23,6 +23,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentTextBinding
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.TextScreen
@@ -37,9 +38,8 @@ class TextFragment : Fragment(R.layout.fragment_text) {
         binding.composeViewText.setContent {
             HmrcTheme() {
                 Surface(
-                    modifier = Modifier
-                        .fillMaxHeight().fillMaxWidth(),
-                    color = HmrcTheme.colors.hmrcPageBackground
+                    modifier = Modifier.fillMaxHeight().fillMaxWidth(),
+                    color = colors.hmrcPageBackground
                 ) {
                     TextScreen()
                 }
