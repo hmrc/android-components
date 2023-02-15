@@ -14,16 +14,13 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MoleculesFragment">
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mini_advert_button"
+        style="@style/MaterialTextMiniAdvertButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/title_molecules" />
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/components_ic_chevron_right" />
 
-</LinearLayout>
+</merge>

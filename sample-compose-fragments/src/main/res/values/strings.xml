@@ -30,6 +30,7 @@
     <string name="title_molecules">Molecules</string>
     <string name="title_organisms">Organisms</string>
     <string name="title_colors">Colors</string>
+    <string name="title_text">Text</string>
 
     <!-- Full Screen Error Sample -->
     <string name="shuttering_default_title">Service unavailable</string>

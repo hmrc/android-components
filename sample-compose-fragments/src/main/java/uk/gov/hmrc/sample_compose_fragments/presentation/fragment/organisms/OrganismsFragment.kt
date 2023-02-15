@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.sample_compose_fragments.presentation.fragment
+package uk.gov.hmrc.sample_compose_fragments.presentation.fragment.organisms
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentMoleculesBinding
+import uk.gov.hmrc.sample_compose_components.databinding.FragmentOrganismsBinding
 
-class MoleculesFragment : Fragment(R.layout.fragment_molecules) {
+class OrganismsFragment : Fragment(R.layout.fragment_organisms) {
 
-    private lateinit var binding: FragmentMoleculesBinding
+    private lateinit var binding: FragmentOrganismsBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentMoleculesBinding.bind(view)
+        binding = FragmentOrganismsBinding.bind(view)
     }
 }

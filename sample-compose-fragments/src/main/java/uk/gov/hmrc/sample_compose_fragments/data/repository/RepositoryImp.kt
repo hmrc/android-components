@@ -15,6 +15,8 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.data.repository
 
+import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_fragments.data.model.AtomItem
 import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
 import javax.inject.Inject
@@ -22,4 +24,9 @@ import javax.inject.Inject
 class RepositoryImpl @Inject constructor() : Repository {
 
     override suspend fun getColorList() = ColorItem.values().asList()
+    override suspend fun getAtomList() = arrayListOf(
+        AtomItem(1, R.string.atoms_text),
+        AtomItem(2, R.string.atoms_buttons),
+        AtomItem(3, R.string.atoms_divider)
+    )
 }
