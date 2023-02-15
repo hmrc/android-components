@@ -19,3 +19,5 @@ import androidx.compose.ui.unit.dp
 
 val hmrc_spacing_8 = 8.dp
 val hmrc_spacing_16 = 16.dp
+val hmrc_icon_size_24 = 24.dp
+val hmrc_button_size_48 = 48.dp

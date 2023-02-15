@@ -25,6 +25,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentColorsBinding
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ColorsListScreen
@@ -41,9 +42,8 @@ class ColorsFragment : Fragment(R.layout.fragment_colors) {
         binding = FragmentColorsBinding.bind(view)
         binding.composeView.setContent {
             HmrcTheme {
-                Surface(
-                    modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                    color = HmrcTheme.colors.hmrcPageBackground
+                Surface(modifier = Modifier.fillMaxHeight().fillMaxWidth(),
+                    color = colors.hmrcPageBackground
                 ) {
                     ColorsListScreen(viewModel = viewModel)
                 }

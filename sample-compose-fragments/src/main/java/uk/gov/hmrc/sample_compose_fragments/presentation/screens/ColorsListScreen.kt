@@ -41,8 +41,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTypography
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
@@ -69,19 +69,19 @@ fun ListItem(item: ColorItem) {
         modifier = Modifier
             .fillMaxWidth().padding(hmrc_spacing_16, hmrc_spacing_8),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),shape = RoundedCornerShape(0),
-        colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
+        colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
     ) {
         Row(
             modifier = Modifier.padding(hmrc_spacing_16)) {
             Box(
                 modifier = Modifier
-                    .heightIn(min = 42.dp).widthIn(min = 42.dp).border(BorderStroke(1.dp, HmrcTheme.colors.hmrcBlack))
+                    .heightIn(min = 42.dp).widthIn(min = 42.dp).border(BorderStroke(1.dp, colors.hmrcBlack))
                     .background(item.color).align(alignment = Alignment.CenterVertically),
             )
             Text(
                 modifier = Modifier
                     .padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
-                text = "${item.colorName} (${item.color.hexToString()})", style = HmrcTheme.typography.h5
+                text = "${item.colorName} (${item.color.hexToString()})", style = typography.h5
             )
         }
     }
