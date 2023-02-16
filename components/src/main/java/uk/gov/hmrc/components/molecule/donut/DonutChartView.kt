@@ -286,6 +286,6 @@ class DonutChartView @JvmOverloads constructor(
         private const val FULL_CIRCLE_ANGLE_IN_DECIMALS_NUMBER = 3.6
         private const val TOTAL_NUM_OF_DASHES = 80f
         private const val INTERVAL_GAP = 0.5f
-        private const val PERCENT_FOR_NO_STRIPES = 1.25f
+        private const val PERCENT_FOR_NO_STRIPES = 5f
     }
 }
