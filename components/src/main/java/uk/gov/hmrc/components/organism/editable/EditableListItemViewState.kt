@@ -15,10 +15,12 @@
  */
 package uk.gov.hmrc.components.organism.editable
 
+import androidx.annotation.StringRes
+
 data class EditableListItemViewState(
-    var name: String,
+    @StringRes var name: Int,
     var value: String,
-    var buttonText: String,
+    @StringRes var buttonText: Int,
     var valueContentDescription: String? = null,
     val onClickListener: (Int) -> Unit
 )

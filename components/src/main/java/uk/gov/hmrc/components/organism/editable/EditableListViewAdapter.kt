@@ -51,9 +51,9 @@ class EditableListViewAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(result: EditableListItemViewState, position: Int) = with(binding) {
-            columnOne.text = result.name
+            columnOne.text = binding.root.context.getString(result.name)
             columnTwo.text = result.value
-            iconButton.text = result.buttonText
+            iconButton.text = binding.root.context.getString(result.buttonText)
             val positionLabel = position + 1
 
             divider.isVisible = positionLabel < itemCount
