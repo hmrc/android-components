@@ -55,6 +55,15 @@ class DonutChartView @JvmOverloads constructor(
     private var value2SweepAngle: Float = 0f
     private var value3SweepAngle: Float = 0f
 
+    private var value1: Float = 0.0f
+    private var value2: Float = 0.0f
+    private var value3: Float = 0.0f
+    private var shouldAnimate: Boolean = true
+
+    var value1Percent: Float = 0.0f
+    var value2Percent: Float = 0.0f
+    var value3Percent: Float = 0.0f
+
     init {
         context.theme.obtainStyledAttributes(attrs, R.styleable.DonutChartView, 0, 0).apply {
             try {
@@ -147,7 +156,7 @@ class DonutChartView @JvmOverloads constructor(
         val white = stripesOrPlain(false, ContextCompat.getColor(context, R.color.hmrc_white_background))
 
         canvas?.apply {
-            if (value1SweepAngle - startAngle < DEGREES_FOR_NO_STRIPES) {
+            if (value1Percent < PERCENT_FOR_NO_STRIPES) {
                 color1Paint = donutPaintWithColour(color1)
                 drawArc(rect, startAngle, value1SweepAngle, false, color1Paint)
             } else {
@@ -156,7 +165,7 @@ class DonutChartView @JvmOverloads constructor(
                 drawArc(rect, startAngle, value1SweepAngle, false, color1Paint)
             }
 
-            if (0f - value2SweepAngle < DEGREES_FOR_NO_STRIPES) {
+            if (value2Percent < PERCENT_FOR_NO_STRIPES) {
                 color2Paint = donutPaintWithColour(color2)
                 drawArc(rect, startAngle, value2SweepAngle, false, color2Paint)
             } else {
@@ -165,7 +174,7 @@ class DonutChartView @JvmOverloads constructor(
                 drawArc(rect, startAngle, value2SweepAngle, false, color2Paint)
             }
 
-            if (0f - value3SweepAngle < DEGREES_FOR_NO_STRIPES) {
+            if (value3Percent < PERCENT_FOR_NO_STRIPES) {
                 color3Paint = donutPaintWithColour(ContextCompat.getColor(context, R.color.hmrc_pink))
                 drawArc(rect, startAngle, value3SweepAngle, false, color3Paint)
             } else {
@@ -176,7 +185,21 @@ class DonutChartView @JvmOverloads constructor(
         }
     }
 
-    fun startAnimation(value1: Float, value2: Float, value3: Float = 0f, shouldAnimate: Boolean) {
+    fun setValues(value1: Float, value2: Float, value3: Float = 0f, shouldAnimate: Boolean) {
+        this@DonutChartView.value1 = value1
+        this@DonutChartView.value2 = value2
+        this@DonutChartView.value3 = value3
+        this@DonutChartView.shouldAnimate = shouldAnimate
+
+        val total = value1 + value2 + value3
+        this@DonutChartView.value3Percent = (ONE_HUNDRED_PERCENT / total) * value3
+        this@DonutChartView.value2Percent = (ONE_HUNDRED_PERCENT / total) * value2
+        this@DonutChartView.value1Percent = (ONE_HUNDRED_PERCENT / total) * value1
+
+        startAnimation()
+    }
+
+    private fun startAnimation() {
         val total = value1 + value2 + value3
 
         val value3Percent = (ONE_HUNDRED_PERCENT / total) * value3
@@ -263,6 +286,6 @@ class DonutChartView @JvmOverloads constructor(
         private const val FULL_CIRCLE_ANGLE_IN_DECIMALS_NUMBER = 3.6
         private const val TOTAL_NUM_OF_DASHES = 80f
         private const val INTERVAL_GAP = 0.5f
-        private const val DEGREES_FOR_NO_STRIPES = 18f
+        private const val PERCENT_FOR_NO_STRIPES = 1.25f
     }
 }
