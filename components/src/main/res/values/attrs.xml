@@ -80,6 +80,13 @@
         <attr name="accessibilityMessage" />
     </declare-styleable>
 
+    <declare-styleable name="MiniAdvertButtonView">
+        <!-- Title to display. -->
+        <attr name="title" />
+        <!-- Accessibility message to read. -->
+        <attr name="accessibilityMessage" />
+    </declare-styleable>
+
     <declare-styleable name="TitleBodyView">
         <!-- Title to display. -->
         <attr name="title" />

@@ -97,6 +97,7 @@
     <string name="organisms_separated_view_container">Separated View Container</string>
     <string name="organisms_menu_panel_row">Menu Panel Row View</string>
     <string name="organisms_editable_list_view">Editable List View</string>
+    <string name="organisms_mini_advert_card">Mini Advert Card View</string>
 
     <!-- Separated view container -->
     <string name="separated_view_container_placeholder_text_1">Item 1</string>
@@ -344,5 +345,10 @@
     <string name="menu_panel_example_3_body">A savings account with bonuses designed to help you start saving</string>
     <string name="menu_panel_example_4_title">News</string>
     <string name="menu_panel_example_4_body">News and current tax related information from HMRC</string>
+
+    <!--  Mini Advert Card View  -->
+    <string name="mini_advert_example_1_title">Give feedback to help us improve</string>
+    <string name="mini_advert_example_2_title">Give feedback to help us improve by filling in the form</string>
+    <string name="open_in_a_web_browser_content_desc">open in a web browser</string>
 
 </resources>

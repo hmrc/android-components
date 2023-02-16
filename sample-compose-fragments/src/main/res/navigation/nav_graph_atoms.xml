@@ -28,13 +28,24 @@
         <action
             android:id="@+id/action_atomsFragment_to_textFragment"
             app:destination="@id/textFragment"/>
+        <action
+            android:id="@+id/action_atomsFragment_to_buttonFragment"
+            app:destination="@id/buttonFragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/textFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.TextFragment"
-        android:label="@string/title_text"
+        android:label="@string/atoms_text"
         tools:layout="@layout/fragment_text">
+    </fragment>
+
+    <fragment
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.ButtonFragment"
+        android:label="@string/atoms_buttons"
+        tools:layout="@layout/fragment_button"
+        android:id="@+id/buttonFragment">
+
     </fragment>
 
 </navigation>
