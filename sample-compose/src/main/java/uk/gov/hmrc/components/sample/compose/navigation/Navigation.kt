@@ -17,10 +17,10 @@ package uk.gov.hmrc.components.sample.compose.navigation
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -51,7 +51,7 @@ sealed class NavigationScreen(val route: String, @StringRes val resourceId: Int,
 
 @Composable
 fun ComponentsBottomNavigation(navController: NavHostController) {
-    BottomNavigation(backgroundColor = HmrcTheme.colors.hmrcWhiteBackground) {
+    NavigationBar(containerColor = HmrcTheme.colors.hmrcWhiteBackground) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
 
@@ -63,13 +63,13 @@ fun ComponentsBottomNavigation(navController: NavHostController) {
         )
 
         navigationItems.forEach { screen ->
-            BottomNavigationItem(
-                unselectedContentColor = HmrcTheme.colors.hmrcGrey1,
-                selectedContentColor = HmrcTheme.colors.hmrcBlue,
+            val selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true
+            NavigationBarItem(
                 icon = {
                     Icon(
+                        tint = if (selected) HmrcTheme.colors.hmrcBlue else HmrcTheme.colors.hmrcGrey1,
                         painter = painterResource(id = screen.icon),
-                        contentDescription = null,
+                        contentDescription = null
                     )
                 },
                 label = { Text(stringResource(screen.resourceId)) },

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2023 HM Revenue & Customs
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_atoms_screen"
+    app:startDestination="@+id/atomsFragment">
+
+    <fragment
+        android:id="@+id/atomsFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.AtomsFragment"
+        android:label="@string/title_atoms"
+        tools:layout="@layout/fragment_atoms">
+        <action
+            android:id="@+id/action_atomsFragment_to_textFragment"
+            app:destination="@id/textFragment"/>
+        <action
+            android:id="@+id/action_atomsFragment_to_buttonFragment"
+            app:destination="@id/buttonFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/textFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.TextFragment"
+        android:label="@string/atoms_text"
+        tools:layout="@layout/fragment_text">
+    </fragment>
+
+    <fragment
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.ButtonFragment"
+        android:label="@string/atoms_buttons"
+        tools:layout="@layout/fragment_button"
+        android:id="@+id/buttonFragment">
+
+    </fragment>
+
+</navigation>

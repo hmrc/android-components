@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,9 @@
 package uk.gov.hmrc.components.compose.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material.ripple.RippleAlpha
+import androidx.compose.material.ripple.RippleTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Stable
@@ -51,7 +53,7 @@ private val DarkColorPalette = HmrcColors(
     hmrcGreen1 = HmrcGreen1Dark,
     hmrcGreen2 = HmrcGreen2Dark,
     hmrcBlue = HmrcBlueDark,
-    hmrcTeal = HmrcTealDark,
+    hmrcTeal = HmrcTeal,
     hmrcRed = HmrcRedDark,
     hmrcGrey1 = HmrcGrey1Dark,
     hmrcGrey2 = HmrcGrey2Dark,
@@ -65,9 +67,15 @@ private val DarkColorPalette = HmrcColors(
 fun HmrcTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     val colors = if (darkTheme) DarkColorPalette else LightColorPalette
 
-    ProvideHmrcColors(colors) {
+    ProvideHmrcTheme(
+        colors,
+        HmrcTypography(
+            hmrcBlack = colors.hmrcBlack,
+            hmrcGrey1 = colors.hmrcGrey1,
+            hmrcRed = colors.hmrcRed
+        )
+    ) {
         MaterialTheme(
-            typography = Typography,
             shapes = Shapes,
             content = content
         )
@@ -78,6 +86,23 @@ object HmrcTheme {
     val colors: HmrcColors
         @Composable
         get() = LocalHmrcColors.current
+
+    val typography: HmrcTypography
+        @Composable
+        get() = LocalHmrcTypography.current
+}
+
+object HmrcRippleTheme : RippleTheme {
+    @Composable
+    override fun defaultColor() = HmrcTheme.colors.hmrcBlue
+
+    @Composable
+    override fun rippleAlpha(): RippleAlpha = RippleAlpha(
+        draggedAlpha = 0.24f,
+        focusedAlpha = 0.40f,
+        hoveredAlpha = 0.40f,
+        pressedAlpha = 0.24f
+    )
 }
 
 /**
@@ -229,12 +254,22 @@ class HmrcColors(
 }
 
 @Composable
-fun ProvideHmrcColors(colors: HmrcColors, content: @Composable () -> Unit) {
+fun ProvideHmrcTheme(
+    colors: HmrcColors,
+    typography: HmrcTypography,
+    content: @Composable () -> Unit
+) {
     // Explicitly creating a new object here so we don't mutate the initial [colors] provided,
     // and overwrite the values set in it.
     val colorPalette = remember { colors.copy() }
+    val typographySet = remember { typography.copy() }
     colorPalette.update(colors)
-    CompositionLocalProvider(LocalHmrcColors provides colorPalette, content = content)
+    CompositionLocalProvider(
+        LocalHmrcColors provides colorPalette,
+        LocalHmrcTypography provides typographySet,
+        content = content
+    )
 }
 
 private val LocalHmrcColors = staticCompositionLocalOf<HmrcColors> { error("No HmrcColorPalette provided") }
+private val LocalHmrcTypography = staticCompositionLocalOf<HmrcTypography> { error("No HmrcTypography provided") }

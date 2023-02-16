@@ -35,9 +35,10 @@ class OrganismsFragment : ComponentListFragment() {
             ComponentListItem(getString(R.string.organisms_info_message_card)) { selectFragment(InformationMessageCardFragment()) },
             ComponentListItem(getString(R.string.organisms_menu_panel_row)) { selectFragment(MenuPanelRowFragment()) },
             ComponentListItem(getString(R.string.organisms_editable_list_view)) {
-                selectFragment(
-                    EditableListViewFragment()
-                )
+                selectFragment(EditableListViewFragment())
+            },
+            ComponentListItem(getString(R.string.organisms_mini_advert_card)) {
+                selectFragment(MiniAdvertCardFragment())
             }
         )
     }

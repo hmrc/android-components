@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+        Copyright 2023 HM Revenue & Customs
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    -->
+<resources>
+    <string name="app_name">sample-compose-components</string>
+
+    <!-- Placeholder strings -->
+    <string name="long_text">Lorem ipsum dolor sit amet, id cum ullum deseruisse solet.</string>
+    <string name="longer_text">Lorem ipsum dolor sit amet, ne nec regione nostrum. Quo altera nusquam apeirian et, melius discere pro ne, sint unum.</string>
+    <string name="longest_text">Lorem ipsum dolor sit amet, his ne quis phaedrum. Illum eloquentiam in pro, aperiam conceptam complectitur cum in, eum paulo
+		ceteros at. Vel erroribus adversarium at, integre omnesque eu est. Appareat expetenda cum no. Erant omnes interesset pro at, id mei munere moderatius,
+		ius ne ignota perpetua.
+	</string>
+
+    <!-- Navigation -->
+    <string name="title_activity_main">Components</string>
+    <string name="title_atoms">Atoms</string>
+    <string name="title_molecules">Molecules</string>
+    <string name="title_organisms">Organisms</string>
+    <string name="title_colors">Colors</string>
+
+    <!-- Full Screen Error Sample -->
+    <string name="shuttering_default_title">Service unavailable</string>
+    <string name="shuttering_default_description">You’ll be able to use the Help to Save service later.</string>
+
+    <!-- Status Card Sample -->
+    <string name="status_card_default_title">Join Help To Save</string>
+    <string name="status_card_default_description">Be rewarded for taking care of your money!</string>
+
+    <!-- Full Screen Notification Sample -->
+    <string name="full_screen_notification_default_title">It is time to save!</string>
+    <string name="full_screen_notification_default_description">Make a deposit in your help to save account to keep your payment streak going</string>
+
+    <!-- Color Sample -->
+    <string name="color_name_with_hex">%s (%s)</string>
+    <string name="colors_black">Black</string>
+    <string name="colors_white">White</string>
+    <string name="colors_green_1">Green 1</string>
+    <string name="colors_green_2">Green 2</string>
+    <string name="colors_blue">Blue</string>
+    <string name="colors_teal">Teal</string>
+    <string name="colors_red">Red</string>
+    <string name="colors_grey_1">Grey 1</string>
+    <string name="colors_grey_2">Grey 2</string>
+    <string name="colors_grey_3">Grey 3</string>
+    <string name="colors_pink">Pink</string>
+    <string name="colors_yellow">Yellow</string>
+    <string name="colors_white_background">White background</string>
+    <string name="colors_always_black">Always black</string>
+    <string name="colors_always_white">Always white</string>
+
+    <!-- Atoms navigation -->
+    <string name="atoms_text">Text</string>
+    <string name="atoms_buttons">Buttons</string>
+    <string name="atoms_attributed_strings">Attributed Strings</string>
+    <string name="atoms_divider">Divider</string>
+
+    <!-- Molecules navigation -->
+    <string name="molecules_h4">H4 Title Body View</string>
+    <string name="molecules_h5">H5 Title Body View</string>
+    <string name="molecules_bold">Bold Title Body View</string>
+    <string name="molecules_inset">Inset View</string>
+    <string name="molecules_inset_text">Inset Text View</string>
+    <string name="molecules_multi_column_row">Multi Column Row View</string>
+    <string name="molecules_switch_row">Switch Row View</string>
+    <string name="molecules_status">Status View</string>
+    <string name="molecules_warning">Warning View</string>
+    <string name="molecules_tab_bar">Tab Bar View</string>
+    <string name="molecules_select_row">Select Row View</string>
+
+    <!-- Organisms navigation -->
+    <string name="organisms_text_input">Text Input View</string>
+    <string name="organisms_currency_input">Currency Input View</string>
+    <string name="organisms_headline_card">Headline Card View</string>
+    <string name="organisms_primary_card">Primary Card View</string>
+    <string name="organisms_info_message_card">Information Message Card View</string>
+    <string name="organisms_status_card">Status Card View</string>
+    <string name="organisms_icon_button_card">Icon Button Card View</string>
+    <string name="organisms_summary_row">Summary Row View</string>
+    <string name="organisms_separated_view_container">Separated View Container</string>
+    <string name="organisms_menu_panel_row">Menu Panel Row View</string>
+
+    <!-- Separated view container -->
+    <string name="separated_view_container_placeholder_text_1">Item 1</string>
+    <string name="separated_view_container_placeholder_text_2">Item 2</string>
+    <string name="separated_view_container_placeholder_text_3">Item 3</string>
+
+
+    <!-- Title body cta card -->
+    <string name="title_body_cta_placeholder_title">Title</string>
+    <string name="title_body_cta_placeholder_body">Body</string>
+    <string name="title_body_cta_placeholder_button">Button</string>
+
+    <string name="title_body_cta_example_title">Renew your tax credits</string>
+    <string name="title_body_cta_example_body">Renew your tax credits or check the progress of your claims</string>
+    <string name="title_body_cta_example_button">Renew or check my claims</string>
+
+    <!-- Status card -->
+    <string name="status_card_placeholder_title">Title</string>
+    <string name="status_card_placeholder_body">Body</string>
+    <string name="status_card_placeholder_primary_button">Primary button</string>
+    <string name="status_card_placeholder_secondary_button">Secondary button</string>
+    <string name="status_card_placeholder_info_text">Info text</string>
+
+    <string name="status_card_example_1_title">Service unavailable</string>
+    <string name="status_card_example_1_body">You\'ll need to try again later.</string>
+    <string name="status_card_example_1_body_content_desc">You\'ll need to try again later content description</string>
+
+    <string name="status_card_example_2_title">Your Help to Save account closed on 21 May 2018</string>
+
+    <string name="status_card_example_3_title">You can\'t access John Smith\'s information right now</string>
+    <string name="status_card_example_3_body">We have been told that John Smith is deceased so we can\'t show the information you are expecting.\n\nIf you need to discuss this account, please contact the PAYE helpline.</string>
+    <string name="status_card_example_3_button_1">Call 0300 200 3300</string>
+    <string name="status_card_example_3_button_2">Learn about call charges</string>
+
+    <string name="status_card_example_4_title">You are currently offline</string>
+    <string name="status_card_example_4_body">It appears as if you are not connected to the internet. Check your connection and try again.</string>
+    <string name="status_card_example_4_button">Try again</string>
+    <string name="status_card_example_4_info">DDC3ABB2&#8211;E830&#8211;4B68&#8211;8AA4&#8211;1923579B9879</string>
+
+    <!-- Multi column row -->
+    <string name="multi_column_row_placeholder_text1">Text 1</string>
+    <string name="multi_column_row_placeholder_text2">Text 2</string>
+    <string name="multi_column_row_placeholder_text3">Text 3</string>
+
+    <string name="multi_column_row_example_text_1">Estimated annual income</string>
+    <string name="multi_column_row_example_text_2">£24,000</string>
+    <string name="multi_column_row_example_text_3">£31,865</string>
+    <string name="multi_column_row_example_text_4">20%</string>
+    <string name="multi_column_row_example_text_5">£6,373</string>
+    <string name="multi_column_row_example_text_6">Account number</string>
+    <string name="multi_column_row_example_text_7">10084712</string>
+    <string name="multi_column_row_example_text_8">Heading</string>
+
+    <!-- Switch row -->
+    <string name="switch_row_placeholder_title">Title</string>
+    <string name="switch_row_placeholder_body_on">Body. Switch: on</string>
+    <string name="switch_row_placeholder_body_off">Body. Switch: off</string>
+
+    <string name="switch_row_example_1_title">Start of the month</string>
+    <string name="switch_row_example_1_body">Get a reminder on the first day of each month</string>
+
+    <string name="switch_row_example_2_title">End of the month</string>
+    <string name="switch_row_example_2_body">Get a reminder 5 days before the end of each month</string>
+
+    <string name="switch_row_example_3_title">Fingerprint ID</string>
+
+    <string name="switch_row_example_4_title">@string/long_text</string>
+
+    <string name="switch_row_example_5_title">@string/long_text</string>
+    <string name="switch_row_example_5_body">@string/longest_text</string>
+
+    <!-- Summary row -->
+    <string name="summary_row_placeholder_title">Title</string>
+    <string name="summary_row_placeholder_row1_text1">Text 1</string>
+    <string name="summary_row_placeholder_row1_text2">Text 2</string>
+    <string name="summary_row_placeholder_row1_text3">Text 3</string>
+
+    <string name="summary_row_example_1a_title">Sainsbury\'s PLC</string>
+    <string name="summary_row_example_1a_row1_text1">Payroll</string>
+    <string name="summary_row_example_1a_row1_text2">96245SLJK88</string>
+    <string name="summary_row_example_1a_row2_text1">Tax code</string>
+    <string name="summary_row_example_1a_row2_text2">1185L</string>
+    <string name="summary_row_example_1a_row3_text1">Estimated taxable income</string>
+    <string name="summary_row_example_1a_row3_text2">£5,690</string>
+    <string name="summary_row_example_1a_accessibility_message">Sainsbury\'s PLC. Button. Double tap to change these details in your web browser.</string>
+
+    <string name="summary_row_example_1b_title">Eastwood Charter School (7601)</string>
+    <string name="summary_row_example_1b_row1_text1">Tax code</string>
+    <string name="summary_row_example_1b_row1_text2">BR</string>
+    <string name="summary_row_example_1b_row2_text1">Estimated taxable income</string>
+    <string name="summary_row_example_1b_row2_text2">£4,143</string>
+
+    <string name="summary_row_example_2_title">Fingerprint ID</string>
+    <string name="summary_row_example_2_row1_text1">On</string>
+    <string name="summary_row_example_2_accessibility_title">Fingerprint ID, on</string>
+    <string name="summary_row_example_2_accessibility_action">activate</string>
+
+    <!-- Inset -->
+    <string name="inset_placeholder_text">Nested content goes here</string>
+    <string name="inset_example_text_line_1_description">Account Number:</string>
+    <string name="inset_example_text_line_1_value"><b>12345678</b></string>
+    <string name="inset_example_text_line_2_description">Sort Code:</string>
+    <string name="inset_example_text_line_2_value"><b>12-34-56</b></string>
+    <string name="inset_example_text_line_3_description">Payment Reference:</string>
+    <string name="inset_example_text_line_3_value"><b>Testing 789</b></string>
+
+    <!-- Inset Text -->
+    <string name="inset_text_placeholder_text">Inset text</string>
+    <string name="inset_text_example_text">Your employer or pension provider takes off Income Tax before they pay you. This
+		is called Pay As You Earn (PAYE). The amount of tax you pay depends on your income, how much of it is tax-free,
+		and your tax code.
+	</string>
+
+    <!-- Icon button -->
+    <string name="icon_button_placeholder_title">Title</string>
+    <string name="icon_button_example_1_title">About the calculator</string>
+    <string name="icon_button_example_2_title">How has my gross pay been calculated?</string>
+
+    <!-- Headings -->
+    <string name="heading_title">Title</string>
+
+    <!-- Headline -->
+    <string name="headline_placeholder_title">Title</string>
+    <string name="headline_placeholder_headline">Headline</string>
+    <string name="headline_placeholder_body">Body</string>
+    <string name="headline_placeholder_button">Button</string>
+
+    <string name="headline_example_title">Your PAYE income tax estimate</string>
+    <string name="headline_example_headline">£12,345</string>
+    <string name="headline_example_headline_description">This is a description of the headline</string>
+    <string name="headline_example_body">This is the income tax we think you will have paid by the end of this tax year.</string>
+    <string name="headline_example_button">View tax estimate</string>
+    <string name="headline_example_icon_button">How is this calculated?</string>
+    <string name="headline_example_chevron_content_description">Income tax estimate. Button. Double tap to view these details in your web browser.</string>
+
+    <!-- H4 -->
+    <string name="h4_placeholder_title">Title</string>
+    <string name="h4_placeholder_body">Body</string>
+    <string name="h4_example_title">Pay As You Earn</string>
+    <string name="h4_example_body">6 April 2018 to 5 April 2019</string>
+
+    <!-- H5 -->
+    <string name="h5_placeholder_title">Title</string>
+    <string name="h5_placeholder_body">Body</string>
+    <string name="h5_example_title">You don\'t have any money in this account.</string>
+    <string name="h5_example_body">Your closing balance of £240 was transferred to your UK bank account on 28 February 2020.</string>
+
+    <!-- Bold -->
+    <string name="bold_placeholder_title">Title</string>
+    <string name="bold_placeholder_body">Body</string>
+    <string name="bold_example_title">Date and time</string>
+    <string name="bold_example_body">7 February 2019 at 17:12:45 GMT</string>
+
+    <!-- CTA messages -->
+    <string name="cta_pressed">Call to action was pressed!</string>
+
+    <!-- Text input -->
+    <string name="text_input_placeholder_hint">Hint</string>
+    <string name="text_input_example_1_hint">Message</string>
+    <string name="text_input_example_1_content_description">Enter your message</string>
+    <string name="text_input_example_1_error">Tell us what you need help with</string>
+    <string name="text_input_example_2_hint">Name</string>
+    <string name="text_input_example_2_error">Enter your name</string>
+    <string name="text_input_example_3_hint">Email</string>
+    <string name="text_input_example_3_error">Email is empty</string>
+
+    <!-- Currency input -->
+    <string name="currency_input_placeholder_hint">Hint</string>
+    <string name="currency_input_example_1_hint">Pay amount</string>
+    <string name="currency_input_example_2_hint">Pay amount (pounds)</string>
+    <string name="currency_input_example_3_hint">Pay amount (pounds)</string>
+    <string name="currency_input_example_1_error">Enter an amount</string>
+    <string name="currency_input_example_2_error">Enter an amount</string>
+    <string name="currency_input_example_3_error">Enter an amount</string>
+    <string name="currency_input_example_3_text">123.45</string>
+
+    <!-- Placeholder/Example headings -->
+    <string name="heading_placeholder_singular">Placeholder:</string>
+    <string name="heading_placeholder_plural">Placeholders:</string>
+    <string name="heading_example_singular">Example:</string>
+    <string name="heading_example_plural">Examples:</string>
+
+    <!-- Text -->
+    <string name="text_heading3">Heading3 text</string>
+    <string name="text_h3">H3 text</string>
+    <string name="text_heading4">Heading4 text</string>
+    <string name="text_h4">H4 text</string>
+    <string name="text_heading5">Heading5 text</string>
+    <string name="text_h5">H5 text</string>
+    <string name="text_bold">Bold text</string>
+    <string name="text_body">Body text</string>
+    <string name="text_info">Info text</string>
+    <string name="text_error">Error text</string>
+    <string name="text_link">&lt;a href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/tax-credits-enquiries">Link text&lt;/a></string>
+    <string name="text_bullet_1">Bulleted Text without newline characters that extends over multiple lines in order to demonstrate indenting. Bulleted Text without newline characters that extends over multiple lines in order to demonstrate indenting.</string>
+    <string name="text_bullet_2">Bulleted Text with newline characters\nthat extends over multiple lines\nin order to demonstrate indenting.</string>
+
+    <!-- Buttons -->
+    <string name="button_primary_example">Primary button</string>
+    <string name="button_primary_example_disabled">Disabled primary button</string>
+    <string name="button_secondary_example">Secondary button</string>
+    <string name="button_icon_example">Icon button</string>
+    <string name="button_accessibility_message">do something</string>
+
+    <!-- Divider -->
+    <string name="divider_example_text">Content</string>
+
+    <!-- Warning -->
+    <string name="warning_example_1_text">You must renew your tax credits by 31 July 2019</string>
+    <string name="warning_example_2_text">We are currently working out your payments as your child is changing their education or training. This should be done by 7 September 2019.</string>
+
+    <!-- Information Message -->
+    <string name="info_message_placeholder_headline">Headline</string>
+    <string name="info_message_placeholder_body">Body</string>
+    <string name="info_message_placeholder_headline_button">Headline button</string>
+    <string name="info_message_example_1_headline">Info message</string>
+    <string name="info_message_example_1_headline_content_description">Info message content description</string>
+    <string name="info_message_example_1_button_primary">A primary action</string>
+    <string name="info_message_example_1_button_secondary">A secondary action</string>
+    <string name="info_message_example_2_headline">Warning message</string>
+    <string name="info_message_example_2_button">Do something</string>
+    <string name="info_message_example_3_headline">Info message</string>
+    <string name="info_message_example_3_headline_content_description">Info message content description</string>
+    <string name="info_message_example_3_body">This is where we can have a short bit of copy about this thing.</string>
+    <string name="info_message_example_3_button">Do something</string>
+    <string name="info_message_example_4_headline">Notice message</string>
+    <string name="info_message_example_4_headline_content_description">Notice message content description</string>
+
+    <!--  Menu Panel Row View  -->
+    <string name="menu_panel_placeholder_title">Title</string>
+    <string name="menu_panel_placeholder_body">Body</string>
+    <string name="menu_panel_example_1_title">Pay As You Earn (PAYE)</string>
+    <string name="menu_panel_example_1_body">Check your tax codes and Income Tax from PAYE income sources</string>
+    <string name="menu_panel_example_2_title">Messages</string>
+    <string name="menu_panel_example_2_body">Messages and letters from HMRC</string>
+    <string name="menu_panel_example_3_title">Help to Save account</string>
+    <string name="menu_panel_example_3_body">A savings account with bonuses designed to help you start saving</string>
+    <string name="menu_panel_example_4_title">News</string>
+    <string name="menu_panel_example_4_body">News and current tax related information from HMRC</string>
+
+</resources>
