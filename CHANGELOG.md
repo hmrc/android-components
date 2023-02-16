@@ -19,6 +19,7 @@ Allowed headings:
 ### Changed
 
 * `EditableListView` changed to use `EditableListItemViewState`.
+* Changes to `DonutChartView` animation and Donut percentage calculation.
 
 ### Additions
 
