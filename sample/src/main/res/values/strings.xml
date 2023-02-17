@@ -351,4 +351,32 @@
     <string name="mini_advert_example_2_title">Give feedback to help us improve by filling in the form</string>
     <string name="open_in_a_web_browser_content_desc">open in a web browser</string>
 
+    <!--  Editable List View  -->
+    <string name="editable_list_view_placeholder_title">Title</string>
+    <string name="editable_list_view_placeholder_name">Column 1</string>
+    <string name="editable_list_view_placeholder_link_button">Column 3</string>
+    <string name="editable_list_view_placeholder_start_button">(Link) Button Text</string>
+    <string name="editable_list_view_placeholder_end_button">(Link) Button Text</string>
+    <string name="editable_list_view_placeholder_accessibility_start">Accessibility Text</string>
+    <string name="editable_list_view_placeholder_accessibility_end">Accessibility Text</string>
+
+    <string name="editable_list_view_example_1_title">Your Company Benefits</string>
+    <string name="editable_list_view_example_1_name_r1">Medical</string>
+    <string name="editable_list_view_example_1_name_r2">Car Benefit</string>
+    <string name="editable_list_view_example_1_name_r3">Insurance</string>
+    <string name="editable_list_view_example_1_name_r4">Tax Benefits</string>
+    <string name="editable_list_view_example_1_link_button">Edit</string>
+    <string name="editable_list_view_example_1_start_button">Update or remove benefits</string>
+    <string name="editable_list_view_example_1_end_button">Finish updating benefits</string>
+    <string name="editable_list_view_example_1_accessibility_start">Edit buttons now hidden</string>
+    <string name="editable_list_view_example_1_accessibility_end">Edit buttons now visible</string>
+
+    <string name="editable_list_view_example_2_title">Lorem ipsum dolor sit amet, id cum ullum deseruisse solet.</string>
+    <string name="editable_list_view_example_2_name_r1">Lorem ipsum dolor</string>
+    <string name="editable_list_view_example_2_link_button">Lorem ipsum</string>
+    <string name="editable_list_view_example_2_start_button">Lorem ipsum dolor sit amet</string>
+    <string name="editable_list_view_example_2_end_button">Lorem ipsum dolor</string>
+    <string name="editable_list_view_example_2_accessibility_start">Lorem ipsum</string>
+    <string name="editable_list_view_example_2_accessibility_end">Lorem ipsum</string>
+
 </resources>

@@ -16,6 +16,11 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* `EditableListView` changed to use `EditableListItemViewState`.
+* Changes to `DonutChartView` animation and Donut percentage calculation.
+
 ### Additions
 
 * Added new `MiniAdvertCardView` component.

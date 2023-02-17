@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView
 import uk.gov.hmrc.components.databinding.EditableListItemsBinding
 
 class EditableListViewAdapter(
-    private val values: List<EditableListView.EditableItem>,
+    private val values: List<EditableListItemViewState>,
 ) : RecyclerView.Adapter<EditableListViewAdapter.ViewHolder>() {
 
     var isEditEnable: Boolean = false
@@ -50,10 +50,10 @@ class EditableListViewAdapter(
     inner class ViewHolder(private val binding: EditableListItemsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(result: EditableListView.EditableItem, position: Int) = with(binding) {
-            columnOne.text = result.name
+        fun bind(result: EditableListItemViewState, position: Int) = with(binding) {
+            columnOne.text = binding.root.context.getString(result.name)
             columnTwo.text = result.value
-            iconButton.text = result.buttonText
+            iconButton.text = binding.root.context.getString(result.buttonText)
             val positionLabel = position + 1
 
             divider.isVisible = positionLabel < itemCount
@@ -75,7 +75,7 @@ class EditableListViewAdapter(
             }
         }
 
-        private fun valueAccessibility(editableItem: EditableListView.EditableItem): String =
+        private fun valueAccessibility(editableItem: EditableListItemViewState): String =
             editableItem.valueContentDescription ?: editableItem.value
     }
 }

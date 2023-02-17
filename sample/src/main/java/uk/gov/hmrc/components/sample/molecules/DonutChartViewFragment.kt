@@ -38,9 +38,9 @@ class DonutChartViewFragment : BaseComponentsFragment() {
     @Suppress("MagicNumber")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.donutPlaceholder.startAnimation(34f, 33f, 33f, shouldAnimate = true)
-        binding.donutExample1.startAnimation(75f, 20f, 2f, shouldAnimate = true)
-        binding.donutExample2.startAnimation(100f, 100f, shouldAnimate = false)
-        binding.donutExample3.startAnimation(200f, 50f, 50f, shouldAnimate = false)
+        binding.donutPlaceholder.setValues(34f, 33f, 33f, shouldAnimate = true)
+        binding.donutExample1.setValues(75f, 20f, 2f, shouldAnimate = true)
+        binding.donutExample2.setValues(100f, 100f, shouldAnimate = false)
+        binding.donutExample3.setValues(200f, 50f, 50f, shouldAnimate = true)
     }
 }

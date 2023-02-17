@@ -20,7 +20,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import uk.gov.hmrc.components.organism.editable.EditableListView
+import uk.gov.hmrc.components.organism.editable.EditableListItemViewState
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
 import uk.gov.hmrc.components.sample.base.BaseComponentsFragment
@@ -41,59 +41,100 @@ class EditableListViewFragment : BaseComponentsFragment() {
         return binding.root
     }
 
+    @Suppress("LongMethod")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val editableItem = arrayListOf<EditableListView.EditableItem>(
-            EditableListViewModel(
-                "Column 1", "Column 2", "Column 3"
+        val editableItem = arrayListOf(
+            EditableListItemViewState(
+                R.string.editable_list_view_placeholder_name,
+                "Column 2",
+                R.string.editable_list_view_placeholder_link_button
             ) { onCtaPressed() },
-            EditableListViewModel(
-                "Column 1", "Column 2", "Column 3"
+            EditableListItemViewState(
+                R.string.editable_list_view_placeholder_name,
+                "Column 2",
+                R.string.editable_list_view_placeholder_link_button
             ) { onCtaPressed() }
         )
-        val editableItem1 = arrayListOf<EditableListView.EditableItem>(
-            EditableListViewModel(
-                "Medical", "£1000", "Edit", "1000 pounds"
+        val editableItem1 = arrayListOf(
+            EditableListItemViewState(
+                R.string.editable_list_view_example_1_name_r1,
+                "£1000",
+                R.string.editable_list_view_example_1_link_button,
+                "1000 pounds"
             ) { onCtaPressed() },
-            EditableListViewModel(
-                "Car Benefit", "£600", "Edit", "600 pounds"
+            EditableListItemViewState(
+                R.string.editable_list_view_example_1_name_r2,
+                "£600",
+                R.string.editable_list_view_example_1_link_button,
+                "600 pounds"
             ) { onCtaPressed() },
-            EditableListViewModel(
-                "Insurance", "£300000", "Edit", "300000 pounds"
+            EditableListItemViewState(
+                R.string.editable_list_view_example_1_name_r3,
+                "£300000",
+                R.string.editable_list_view_example_1_link_button,
+                "300000 pounds"
             ) { onCtaPressed() },
-            EditableListViewModel(
-                "Tax Benefits", "£55500", "Edit", "55500 pounds"
+            EditableListItemViewState(
+                R.string.editable_list_view_example_1_name_r4,
+                "£55500",
+                R.string.editable_list_view_example_1_link_button,
+                "55500 pounds"
             ) { onCtaPressed() }
         )
-        val editableItem2 = arrayListOf<EditableListView.EditableItem>(
-            EditableListViewModel(
-                "Lorem ipsum dolor", "78695743008", "Lorem ipsum", "78695743008 pounds"
+        val editableItem2 = arrayListOf(
+            EditableListItemViewState(
+                R.string.editable_list_view_example_2_name_r1,
+                "78695743008",
+                R.string.editable_list_view_example_2_link_button,
+                "78695743008 pounds"
             ) { onCtaPressed() },
-            EditableListViewModel(
-                "Lorem ipsum dolor", "46970783733", "Lorem ipsum", "46970783733 pounds"
+            EditableListItemViewState(
+                R.string.editable_list_view_example_2_name_r1,
+                "46970783733",
+                R.string.editable_list_view_example_2_link_button,
+                "46970783733 pounds"
             ) { onCtaPressed() }
         )
         binding.apply {
             editableListView.apply {
                 setData(editableItem)
-                setTitle("Title")
-                setButtonData("(Link) Button Text", "(Link) Button Text")
+                setTitle(getString(R.string.editable_list_view_placeholder_title))
+                setButtonData(
+                    getString(R.string.editable_list_view_placeholder_start_button),
+                    getString(R.string.editable_list_view_placeholder_end_button)
+                )
                 setButtonIconData(R.drawable.ic_help_outline, R.drawable.ic_help_outline)
-                setButtonAccessibility("Accessibility Text", "Accessibility Text")
+                setButtonAccessibility(
+                    getString(R.string.editable_list_view_placeholder_accessibility_start),
+                    getString(R.string.editable_list_view_placeholder_accessibility_end)
+                )
             }
             editableListExample1.apply {
                 setData(editableItem1)
-                setTitle("Your Company Benefits")
-                setButtonData("Update or remove benefits", "Finish updating benefits")
+                setTitle(getString(R.string.editable_list_view_example_1_title))
+                setButtonData(
+                    getString(R.string.editable_list_view_example_1_start_button),
+                    getString(R.string.editable_list_view_example_1_end_button)
+                )
                 setButtonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
-                setButtonAccessibility("Edit buttons now hidden", "Edit buttons now visible")
+                setButtonAccessibility(
+                    getString(R.string.editable_list_view_example_1_accessibility_start),
+                    getString(R.string.editable_list_view_example_1_accessibility_end)
+                )
             }
             editableListExample2.apply {
                 setData(editableItem2)
-                setTitle("Lorem ipsum dolor sit amet, id cum ullum deseruisse solet.")
-                setButtonData("Lorem ipsum dolor sit amet", "Lorem ipsum dolor")
+                setTitle(getString(R.string.editable_list_view_example_2_title))
+                setButtonData(
+                    getString(R.string.editable_list_view_example_2_start_button),
+                    getString(R.string.editable_list_view_example_2_end_button)
+                )
                 setButtonIconData(R.drawable.ic_edit, R.drawable.ic_tick)
-                setButtonAccessibility("Lorem ipsum", "Lorem ipsum")
+                setButtonAccessibility(
+                    getString(R.string.editable_list_view_example_2_accessibility_start),
+                    getString(R.string.editable_list_view_example_2_accessibility_end)
+                )
             }
         }
     }
