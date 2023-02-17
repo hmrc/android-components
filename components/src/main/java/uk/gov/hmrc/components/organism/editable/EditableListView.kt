@@ -42,7 +42,8 @@ open class EditableListView @JvmOverloads constructor(
     private var buttonIcon: Pair<Int, Int> = Pair(0, 0)
     private lateinit var editableListViewAdapter: EditableListViewAdapter
     private var editableItems = ArrayList<EditableListItemViewState>()
-    private var editMode = false
+    var editMode = false
+        private set
 
     init {
         attrs?.let {
