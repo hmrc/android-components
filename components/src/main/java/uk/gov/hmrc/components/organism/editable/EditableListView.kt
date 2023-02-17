@@ -41,7 +41,7 @@ open class EditableListView @JvmOverloads constructor(
     private var buttonAccessibility: Pair<String, String> = Pair("", "")
     private var buttonIcon: Pair<Int, Int> = Pair(0, 0)
     private lateinit var editableListViewAdapter: EditableListViewAdapter
-    private var editableItems = ArrayList<EditableItem>()
+    private var editableItems = ArrayList<EditableListItemViewState>()
     private var editMode = false
 
     init {
@@ -105,7 +105,7 @@ open class EditableListView @JvmOverloads constructor(
         buttonAccessibility = Pair(startEditingAccessibility, endEditingAccessibility)
     }
 
-    fun setData(editableItem: ArrayList<EditableItem>) {
+    fun setData(editableItem: ArrayList<EditableListItemViewState>) {
         this.editableItems = editableItem
         editableListViewAdapter = EditableListViewAdapter(editableItem)
         binding.listItems.apply {
@@ -115,14 +115,6 @@ open class EditableListView @JvmOverloads constructor(
 
     fun setTitle(title: CharSequence?) {
         binding.title.text = title
-    }
-
-    interface EditableItem {
-        var name: String
-        var value: String
-        var buttonText: String
-        var valueContentDescription: String?
-        val onClickListener: (Int) -> Unit
     }
 
     private fun setFocusListener() {
