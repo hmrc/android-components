@@ -53,7 +53,7 @@ class EditableListViewAdapter(
         fun bind(result: EditableListItemViewState, position: Int) = with(binding) {
             columnOne.text = binding.root.context.getString(result.name)
             columnTwo.text = result.value
-            iconButton.text = binding.root.context.getString(result.buttonText)
+            actionButton.text = binding.root.context.getString(result.buttonText)
             val positionLabel = position + 1
 
             divider.isVisible = positionLabel < itemCount
@@ -64,7 +64,7 @@ class EditableListViewAdapter(
                 } else {
                     "${result.name}: ${valueAccessibility(result)}, Item $positionLabel of $itemCount."
                 }
-            iconButton.setOnClickListener {
+            actionButton.setOnClickListener {
                 result.onClickListener(adapterPosition)
             }
 
