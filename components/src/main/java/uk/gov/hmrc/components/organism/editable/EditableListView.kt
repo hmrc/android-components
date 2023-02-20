@@ -66,13 +66,18 @@ open class EditableListView @JvmOverloads constructor(
             typedArray.recycle()
         }
         binding.title.id = Random.nextInt()
+        setIconButtonClickListener(null)
+        setFocusListener()
+    }
+
+    fun setIconButtonClickListener(additionalClickListener: (() -> Unit)?){
         binding.iconButton.setOnClickListener {
             if (::editableListViewAdapter.isInitialized) {
                 editableListViewAdapter.isEditEnable = !editableListViewAdapter.isEditEnable
             }
             setEditModeUI(!editMode)
+            additionalClickListener?.invoke()
         }
-        setFocusListener()
     }
 
     private fun setEditModeUI(isInEditMode: Boolean) {
