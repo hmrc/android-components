@@ -18,7 +18,7 @@ Allowed headings:
 
 ### Changed
 
-* `EditableListView` changed to have public `editMode` getter.
+* `EditableListView` changed to have public `editMode` getter and `setIconButtonClickListener` method.
 
 ## [4.5.0] - 2023-02-17
 

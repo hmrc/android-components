@@ -70,7 +70,7 @@ open class EditableListView @JvmOverloads constructor(
         setFocusListener()
     }
 
-    fun setIconButtonClickListener(additionalClickListener: (() -> Unit)?){
+    fun setIconButtonClickListener(additionalClickListener: (() -> Unit)?) {
         binding.iconButton.setOnClickListener {
             if (::editableListViewAdapter.isInitialized) {
                 editableListViewAdapter.isEditEnable = !editableListViewAdapter.isEditEnable
