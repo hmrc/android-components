@@ -20,6 +20,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import uk.gov.hmrc.components.organism.editable.EditableListItemViewState
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
@@ -122,6 +123,11 @@ class EditableListViewFragment : BaseComponentsFragment() {
                     getString(R.string.editable_list_view_example_1_accessibility_start),
                     getString(R.string.editable_list_view_example_1_accessibility_end)
                 )
+                setIconButtonClickListener {
+                    Toast.makeText(
+                        requireContext(), "Additional custom click listener invoked", LENGTH_LONG
+                    ).show()
+                }
             }
             editableListExample2.apply {
                 setData(editableItem2)

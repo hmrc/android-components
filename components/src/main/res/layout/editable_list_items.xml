@@ -29,7 +29,7 @@
         tools:ignore="RtlSymmetry" />
 
     <uk.gov.hmrc.components.atom.button.SecondaryButton
-        android:id="@+id/icon_button"
+        android:id="@+id/action_button"
         android:minWidth="0dp"
         android:minHeight="0dp"
         android:importantForAccessibility="no"

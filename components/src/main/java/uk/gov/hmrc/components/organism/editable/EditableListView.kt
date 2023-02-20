@@ -42,7 +42,8 @@ open class EditableListView @JvmOverloads constructor(
     private var buttonIcon: Pair<Int, Int> = Pair(0, 0)
     private lateinit var editableListViewAdapter: EditableListViewAdapter
     private var editableItems = ArrayList<EditableListItemViewState>()
-    private var editMode = false
+    var editMode = false
+        private set
 
     init {
         attrs?.let {
@@ -65,13 +66,18 @@ open class EditableListView @JvmOverloads constructor(
             typedArray.recycle()
         }
         binding.title.id = Random.nextInt()
+        setIconButtonClickListener(null)
+        setFocusListener()
+    }
+
+    fun setIconButtonClickListener(additionalClickListener: (() -> Unit)?) {
         binding.iconButton.setOnClickListener {
             if (::editableListViewAdapter.isInitialized) {
                 editableListViewAdapter.isEditEnable = !editableListViewAdapter.isEditEnable
             }
             setEditModeUI(!editMode)
+            additionalClickListener?.invoke()
         }
-        setFocusListener()
     }
 
     private fun setEditModeUI(isInEditMode: Boolean) {
