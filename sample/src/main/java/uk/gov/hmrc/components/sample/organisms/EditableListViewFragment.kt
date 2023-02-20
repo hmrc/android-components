@@ -123,9 +123,11 @@ class EditableListViewFragment : BaseComponentsFragment() {
                     getString(R.string.editable_list_view_example_1_accessibility_start),
                     getString(R.string.editable_list_view_example_1_accessibility_end)
                 )
-                setIconButtonClickListener { Toast.makeText(
-                    requireContext(), "Additional custom click listener invoked", LENGTH_LONG
-                ).show() }
+                setIconButtonClickListener {
+                    Toast.makeText(
+                        requireContext(), "Additional custom click listener invoked", LENGTH_LONG
+                    ).show()
+                }
             }
             editableListExample2.apply {
                 setData(editableItem2)
