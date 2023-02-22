@@ -57,6 +57,7 @@ class EditableListViewAdapter(
             columnOne.text = nameText
             columnTwo.text = result.value
             actionButton.text = actionButtonText
+
             val positionLabel = position + 1
 
             divider.isVisible = positionLabel < itemCount
@@ -69,6 +70,7 @@ class EditableListViewAdapter(
                 }
 
             itemView.setOnClickListener { if (isEditEnable) result.onClickListener(adapterPosition) else null }
+
             actionButton.setOnClickListener {
                 result.onClickListener(adapterPosition)
             }
