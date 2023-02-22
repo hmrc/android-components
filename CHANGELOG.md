@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Fixed
+
+* `EditableListView` bug with content description and edit button using TalkBack
+
 ### Changed
 
 * `EditableListView` changed to have public `editMode` getter and `setIconButtonClickListener` method.

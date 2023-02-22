@@ -51,19 +51,24 @@ class EditableListViewAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(result: EditableListItemViewState, position: Int) = with(binding) {
-            columnOne.text = binding.root.context.getString(result.name)
+            val nameText = binding.root.context.getString(result.name)
+            val actionButtonText = binding.root.context.getString(result.buttonText)
+
+            columnOne.text = nameText
             columnTwo.text = result.value
-            actionButton.text = binding.root.context.getString(result.buttonText)
+            actionButton.text = actionButtonText
             val positionLabel = position + 1
 
             divider.isVisible = positionLabel < itemCount
             itemView.contentDescription =
                 if (isEditEnable) {
-                    "${result.name}: ${valueAccessibility(result)}, Tap to ${result.buttonText}," +
+                    "$nameText: ${valueAccessibility(result)}, Tap to $actionButtonText," +
                         " Item $positionLabel of $itemCount."
                 } else {
-                    "${result.name}: ${valueAccessibility(result)}, Item $positionLabel of $itemCount."
+                    "$nameText: ${valueAccessibility(result)}, Item $positionLabel of $itemCount."
                 }
+
+            itemView.setOnClickListener { if (isEditEnable) result.onClickListener(adapterPosition) else null }
             actionButton.setOnClickListener {
                 result.onClickListener(adapterPosition)
             }
