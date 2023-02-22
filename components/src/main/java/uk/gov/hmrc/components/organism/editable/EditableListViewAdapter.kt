@@ -64,9 +64,9 @@ class EditableListViewAdapter(
                 } else {
                     "${result.name}: ${valueAccessibility(result)}, Item $positionLabel of $itemCount."
                 }
-            actionButton.setOnClickListener {
-                result.onClickListener(adapterPosition)
-            }
+
+            itemView.setOnClickListener { if (isEditEnable) result.onClickListener(adapterPosition) else null }
+            actionButton.setOnClickListener { result.onClickListener(adapterPosition) }
 
             if (isEditEnable) {
                 motionLayout.transitionToEnd()

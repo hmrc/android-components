@@ -19,8 +19,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import uk.gov.hmrc.components.organism.editable.EditableListItemViewState
+import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
 import uk.gov.hmrc.components.sample.databinding.FragmentComponentListBinding
 
@@ -43,6 +47,25 @@ abstract class BaseListFragment<ItemType, ViewHolder : RecyclerView.ViewHolder> 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.testElvJemma.apply {
+            val editableItem = arrayListOf(
+                EditableListItemViewState(
+                    R.string.editable_list_view_placeholder_name,
+                    "Column 2",
+                    R.string.editable_list_view_placeholder_link_button
+                ) { Toast.makeText(requireContext(), "test", LENGTH_LONG).show() },
+                EditableListItemViewState(
+                    R.string.editable_list_view_placeholder_name,
+                    "Column 2",
+                    R.string.editable_list_view_placeholder_link_button
+                ) { }
+            )
+            setData(editableItem)
+            setTitle(getString(R.string.editable_list_view_placeholder_title))
+            setButtonData("Not in edit mode", "In edit mode")
+            setButtonIconData(R.drawable.ic_help_outline, R.drawable.ic_help_outline)
+        }
 
         binding.componentList.apply {
             setHasFixedSize(true)

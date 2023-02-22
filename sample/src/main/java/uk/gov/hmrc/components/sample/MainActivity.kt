@@ -22,11 +22,8 @@ import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationBarView
-import uk.gov.hmrc.components.sample.atoms.AtomsFragment
 import uk.gov.hmrc.components.sample.base.ToolbarState
-import uk.gov.hmrc.components.sample.colors.ColorsFragment
 import uk.gov.hmrc.components.sample.databinding.ActivityMainBinding
-import uk.gov.hmrc.components.sample.molecules.MoleculesFragment
 import uk.gov.hmrc.components.sample.organisms.OrganismsFragment
 
 class MainActivity : AppCompatActivity() {
@@ -86,9 +83,6 @@ class MainActivity : AppCompatActivity() {
     private fun provideBottomNavigationItems(): List<BottomNavigationItemModel> {
         return listOf(
             BottomNavigationItemModel(getString(R.string.title_organisms), R.drawable.ic_organisms) { showFragment(OrganismsFragment()) },
-            BottomNavigationItemModel(getString(R.string.title_molecules), R.drawable.ic_molecules) { showFragment(MoleculesFragment()) },
-            BottomNavigationItemModel(getString(R.string.title_atoms), R.drawable.ic_atoms) { showFragment(AtomsFragment()) },
-            BottomNavigationItemModel(getString(R.string.title_colors), R.drawable.ic_colors) { showFragment(ColorsFragment()) }
         )
     }
 

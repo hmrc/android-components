@@ -16,6 +16,8 @@
 package uk.gov.hmrc.components.organism.editable
 
 import android.content.Context
+import android.os.Bundle
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -27,7 +29,6 @@ import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentEditableListViewBinding
-import kotlin.random.Random
 
 open class EditableListView @JvmOverloads constructor(
     context: Context,
@@ -42,8 +43,11 @@ open class EditableListView @JvmOverloads constructor(
     private var buttonIcon: Pair<Int, Int> = Pair(0, 0)
     private lateinit var editableListViewAdapter: EditableListViewAdapter
     private var editableItems = ArrayList<EditableListItemViewState>()
-    var editMode = false
-        private set
+    var inEditMode = false
+        private set(inEditMode) {
+            field = inEditMode
+            updateEditModeView()
+        }
 
     init {
         attrs?.let {
@@ -65,9 +69,23 @@ open class EditableListView @JvmOverloads constructor(
             setTitle(title)
             typedArray.recycle()
         }
-        binding.title.id = Random.nextInt()
+        binding.title.id = View.generateViewId()
         setIconButtonClickListener(null)
         setFocusListener()
+    }
+
+    override fun onSaveInstanceState(): Parcelable? {
+        return Bundle().apply {
+            putParcelable(STATE_SUPER, super.onSaveInstanceState())
+            putBoolean(STATE_IN_EDIT_MODE, inEditMode)
+        }
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        (state as? Bundle)?.let {
+            inEditMode = it.getBoolean(STATE_IN_EDIT_MODE)
+            super.onRestoreInstanceState(it.getParcelable(STATE_SUPER))
+        }
     }
 
     fun setIconButtonClickListener(additionalClickListener: (() -> Unit)?) {
@@ -75,25 +93,23 @@ open class EditableListView @JvmOverloads constructor(
             if (::editableListViewAdapter.isInitialized) {
                 editableListViewAdapter.isEditEnable = !editableListViewAdapter.isEditEnable
             }
-            setEditModeUI(!editMode)
+            inEditMode = !inEditMode
             additionalClickListener?.invoke()
         }
     }
 
-    private fun setEditModeUI(isInEditMode: Boolean) {
-        this.editMode = isInEditMode
+    private fun updateEditModeView() {
         binding.iconButton.apply {
-            accessibilityTraversalBefore =
-                if (isInEditMode) binding.title.id else nextFocusForwardId
-            setIconResource(if (isInEditMode) buttonIcon.second else buttonIcon.first)
-            announceForAccessibility(if (isInEditMode) buttonAccessibility.second else buttonAccessibility.first)
-            text = if (isInEditMode) buttonText.second else buttonText.first
+            accessibilityTraversalBefore = if (inEditMode) binding.title.id else nextFocusForwardId
+            setIconResource(if (inEditMode) buttonIcon.second else buttonIcon.first)
+            announceForAccessibility(if (inEditMode) buttonAccessibility.second else buttonAccessibility.first)
+            text = if (inEditMode) buttonText.second else buttonText.first
         }
     }
 
     fun setButtonData(startEditingText: String, endEditingText: String) {
         buttonText = Pair(startEditingText, endEditingText)
-        binding.iconButton.text = if (editMode) endEditingText else startEditingText
+        binding.iconButton.text = if (inEditMode) endEditingText else startEditingText
     }
 
     fun setButtonIconData(
@@ -101,7 +117,7 @@ open class EditableListView @JvmOverloads constructor(
         @DrawableRes endEditingIcon: Int
     ) {
         buttonIcon = Pair(startEditingIcon, endEditingIcon)
-        binding.iconButton.setIconResource(if (editMode) buttonIcon.second else buttonIcon.first)
+        binding.iconButton.setIconResource(if (inEditMode) buttonIcon.second else buttonIcon.first)
     }
 
     fun setButtonAccessibility(
@@ -144,6 +160,9 @@ open class EditableListView @JvmOverloads constructor(
     }
 
     companion object {
+        private const val STATE_SUPER = "STATE_SUPER"
+        private const val STATE_IN_EDIT_MODE = "STATE_IN_EDIT_MODE"
+        private const val STATE_VIEW_ID = "STATE_VIEW_ID"
         const val NO_ICON: Int = 0
     }
 }

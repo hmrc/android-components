@@ -43,9 +43,6 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.organismsFragment,
-                R.id.moleculesFragment,
-                R.id.atomsFragment,
-                R.id.colorsFragment
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
