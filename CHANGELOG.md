@@ -16,6 +16,19 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.5.1] - 2023-02-20
+
+### Changed
+
+* `EditableListView` changed to have public `editMode` getter and `setIconButtonClickListener` method.
+
+## [4.5.0] - 2023-02-17
+
+### Changed
+
+* `EditableListView` changed to use `EditableListItemViewState`.
+* Changes to `DonutChartView` animation and Donut percentage calculation.
+
 ### Additions
 
 * Added new `MiniAdvertCardView` component.

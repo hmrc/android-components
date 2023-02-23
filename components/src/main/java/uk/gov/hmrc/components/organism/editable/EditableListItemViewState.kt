@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.components.sample.organisms
+package uk.gov.hmrc.components.organism.editable
 
-import uk.gov.hmrc.components.organism.editable.EditableListView
+import androidx.annotation.StringRes
 
-data class EditableListViewModel(
-    override var name: String,
-    override var value: String,
-    override var buttonText: String,
-    override var valueContentDescription: String? = null,
-    override val onClickListener: (Int) -> Unit
-) : EditableListView.EditableItem
+data class EditableListItemViewState(
+    @StringRes var name: Int,
+    var value: String,
+    @StringRes var buttonText: Int,
+    var valueContentDescription: String? = null,
+    val onClickListener: (Int) -> Unit
+)
