@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.5.2] - 2023-02-23
+
 ### Fixed
 
 * `EditableListView` bug with content description and edit button using TalkBack
