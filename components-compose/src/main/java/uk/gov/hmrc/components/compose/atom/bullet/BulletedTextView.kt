@@ -22,8 +22,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
+import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 
 @Composable
 fun BulletedTextView(
@@ -33,14 +33,14 @@ fun BulletedTextView(
     Column {
         Row(modifier = modifier) {
             Text(
-                modifier = Modifier.padding(end = 16.dp),
+                modifier = Modifier.padding(end = hmrc_spacing_16),
                 text = "\u25CF",
-                style = HmrcTheme.typography.bulletedText,
+                style = typography.body,
                 textAlign = TextAlign.Start
             )
             Text(
                 text = text,
-                style = HmrcTheme.typography.bulletedText,
+                style = typography.body,
                 textAlign = TextAlign.Start
             )
         }

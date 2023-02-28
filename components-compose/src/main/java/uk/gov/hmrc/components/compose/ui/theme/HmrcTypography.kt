@@ -67,11 +67,5 @@ data class HmrcTypography(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         color = hmrcRed
-    ),
-    val bulletedText: TextStyle = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        color = hmrcBlack
     )
 )
