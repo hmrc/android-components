@@ -20,45 +20,29 @@ import android.view.View
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
-import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentMoleculesBinding
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
-import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.MoleculesViewModel
+import uk.gov.hmrc.sample_compose_components.databinding.FragmentInsetTextViewBinding
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.InsetTextViewScreen
 
-@AndroidEntryPoint
-class MoleculesFragment : Fragment(R.layout.fragment_molecules) {
+class InsetTextViewFragment : Fragment(R.layout.fragment_inset_text_view) {
 
-    private lateinit var binding: FragmentMoleculesBinding
-    private val viewModel: MoleculesViewModel by activityViewModels()
+    private lateinit var binding: FragmentInsetTextViewBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentMoleculesBinding.bind(view)
-
-        binding.composeViewMolecules.setContent {
-            val listItems by viewModel.moleculesItems.collectAsState()
-            HmrcTheme {
+        binding = FragmentInsetTextViewBinding.bind(view)
+        binding.composeView.setContent {
+            HmrcTheme() {
                 Surface(
                     modifier = Modifier.fillMaxHeight().fillMaxWidth(),
                     color = HmrcTheme.colors.hmrcPageBackground
                 ) {
-                    ComponentListScreen(items = listItems, navigateTo = {
-                        when (it.id) {
-                            1 -> findNavController().navigate(R.id.action_moleculesFragment_to_insetViewFragment)
-                            2 -> findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
-                        }
-                    })
+                    InsetTextViewScreen()
                 }
             }
         }
-        viewModel.getMoleculesData()
     }
 }

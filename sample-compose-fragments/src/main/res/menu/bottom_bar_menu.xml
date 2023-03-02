@@ -21,7 +21,7 @@
         android:title="@string/title_organisms"
         />
     <item
-        android:id="@+id/moleculesFragment"
+        android:id="@+id/nav_graph_molecules"
         android:icon="@drawable/ic_molecules"
         android:title="@string/title_molecules" />
     <item

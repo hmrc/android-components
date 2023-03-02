@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.components.compose.molecule.titleBodyView
+package uk.gov.hmrc.sample_compose_fragments.data.model
 
-class TitleBodyView
+import androidx.annotation.StringRes
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentItem
+
+class MoleculesItem(val id: Int, @StringRes override val titleRes: Int): ComponentItem
