@@ -62,26 +62,29 @@ class EditableListViewFragment : BaseComponentsFragment() {
                 R.string.editable_list_view_example_1_name_r1,
                 "£1000",
                 R.string.editable_list_view_example_1_link_button,
-                "1000 pounds"
+                "1000 pounds",
+                R.string.editable_list_view_web_browser_accessibility
             ) { onCtaPressed() },
             EditableListItemViewState(
                 R.string.editable_list_view_example_1_name_r2,
                 "£600",
                 R.string.editable_list_view_example_1_link_button,
-                "600 pounds"
+                "600 pounds",
+                R.string.editable_list_view_web_browser_accessibility
             ) { onCtaPressed() },
             EditableListItemViewState(
                 R.string.editable_list_view_example_1_name_r3,
                 "£300000",
                 R.string.editable_list_view_example_1_link_button,
-                "300000 pounds"
+                "300000 pounds",
+                R.string.editable_list_view_web_browser_accessibility
             ) { onCtaPressed() },
             EditableListItemViewState(
                 R.string.editable_list_view_example_1_name_r4,
                 "£55500",
                 R.string.editable_list_view_example_1_link_button,
                 "55500 pounds"
-            ) { onCtaPressed() }
+            ) { onCtaPressed() },
         )
         val editableItem2 = arrayListOf(
             EditableListItemViewState(
