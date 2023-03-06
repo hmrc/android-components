@@ -24,6 +24,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import uk.gov.hmrc.components.compose.atom.bullet.BulletedTextView
 import uk.gov.hmrc.components.compose.atom.heading.Heading3
 import uk.gov.hmrc.components.compose.atom.heading.Heading4
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
@@ -35,7 +36,9 @@ import uk.gov.hmrc.sample_compose_components.R
 fun TextScreen() {
     Column(
         modifier = Modifier
-            .fillMaxWidth().padding(start = hmrc_spacing_16, end = hmrc_spacing_16).verticalScroll(rememberScrollState())
+            .fillMaxWidth()
+            .padding(start = hmrc_spacing_16, end = hmrc_spacing_16)
+            .verticalScroll(rememberScrollState())
     ) {
         Heading3(text = stringResource(id = R.string.text_heading3))
         Text(
@@ -66,6 +69,12 @@ fun TextScreen() {
         Text(
             text = stringResource(id = R.string.text_error), style = typography.errorText,
             modifier = Modifier.padding(top = hmrc_spacing_16)
+        )
+        BulletedTextView(text = stringResource(id = R.string.text_bullet_1),
+            modifier = Modifier.padding(top = hmrc_spacing_16)
+        )
+        BulletedTextView(text = stringResource(id = R.string.text_bullet_2),
+            modifier = Modifier.padding(vertical = hmrc_spacing_16)
         )
     }
 }
