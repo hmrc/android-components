@@ -44,7 +44,8 @@ fun InsetView(
                     .fillMaxHeight()
                     .width(20.dp)
                     .clip(RectangleShape)
-                    .padding(end = hmrc_spacing_16))
+                    .padding(end = hmrc_spacing_16)
+            )
             childView()
         }
     }
