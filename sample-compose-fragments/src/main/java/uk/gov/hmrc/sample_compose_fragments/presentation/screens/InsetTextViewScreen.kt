@@ -46,7 +46,9 @@ fun InsetTextViewScreen() {
 
         InsetTextView(
             text = stringResource(id = R.string.inset_text_placeholder_text),
-            modifier = Modifier.addPlaceholderModifier())
+            modifier = Modifier
+                .padding(bottom = hmrc_spacing_16)
+                .addPlaceholderModifier())
 
         Heading5(text = stringResource(id = R.string.heading_example_plural),
             modifier = Modifier.padding(bottom = hmrc_spacing_16))
