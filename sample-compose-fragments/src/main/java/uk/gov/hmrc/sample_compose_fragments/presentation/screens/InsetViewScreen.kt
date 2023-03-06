@@ -32,7 +32,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.molecule.inset.InsetView
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.extension.addPlaceholderModifier
@@ -54,7 +55,7 @@ fun InsetViewScreen() {
             childView = {
                 Text(
                     text = stringResource(R.string.inset_placeholder_text),
-                    style = HmrcTheme.typography.body,
+                    style = typography.body,
                     textAlign = TextAlign.Start
                 )
             }
@@ -66,7 +67,7 @@ fun InsetViewScreen() {
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(0),
-            colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)) {
+            colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)) {
             InsetView(modifier = Modifier.padding(hmrc_spacing_16),
                 childView = {
                     Column() {
@@ -74,12 +75,12 @@ fun InsetViewScreen() {
                             Text(
                                 text = stringResource(R.string.inset_example_text_line_1_description),
                                 modifier = Modifier.padding(end = 4.dp),
-                                style = HmrcTheme.typography.body,
+                                style = typography.body,
                                 textAlign = TextAlign.Start
                             )
                             Text(
                                 text = stringResource(id = R.string.inset_example_text_line_1_value),
-                                style = HmrcTheme.typography.h6,
+                                style = typography.h6,
                                 textAlign = TextAlign.Start
                             )
                         }
@@ -87,12 +88,12 @@ fun InsetViewScreen() {
                             Text(
                                 text = stringResource(R.string.inset_example_text_line_2_description),
                                 modifier = Modifier.padding(end = 4.dp),
-                                style = HmrcTheme.typography.body,
+                                style = typography.body,
                                 textAlign = TextAlign.Start
                             )
                             Text(
                                 text = stringResource(id = R.string.inset_example_text_line_2_value),
-                                style = HmrcTheme.typography.h6,
+                                style = typography.h6,
                                 textAlign = TextAlign.Start
                             )
                         }
@@ -100,12 +101,12 @@ fun InsetViewScreen() {
                             Text(
                                 text = stringResource(R.string.inset_example_text_line_3_description),
                                 modifier = Modifier.padding(end = 4.dp),
-                                style = HmrcTheme.typography.body,
+                                style = typography.body,
                                 textAlign = TextAlign.Start
                             )
                             Text(
                                 text = stringResource(id = R.string.inset_example_text_line_3_value),
-                                style = HmrcTheme.typography.h6,
+                                style = typography.h6,
                                 textAlign = TextAlign.Start
                             )
                         }

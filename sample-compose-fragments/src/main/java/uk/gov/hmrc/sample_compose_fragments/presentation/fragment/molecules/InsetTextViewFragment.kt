@@ -23,6 +23,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentInsetTextViewBinding
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.InsetTextViewScreen
@@ -38,7 +39,7 @@ class InsetTextViewFragment : Fragment(R.layout.fragment_inset_text_view) {
             HmrcTheme() {
                 Surface(
                     modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                    color = HmrcTheme.colors.hmrcPageBackground
+                    color = colors.hmrcPageBackground
                 ) {
                     InsetTextViewScreen()
                 }

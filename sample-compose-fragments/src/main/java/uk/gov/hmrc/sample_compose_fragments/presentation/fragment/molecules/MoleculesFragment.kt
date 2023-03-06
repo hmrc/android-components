@@ -28,6 +28,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentMoleculesBinding
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
@@ -48,7 +49,7 @@ class MoleculesFragment : Fragment(R.layout.fragment_molecules) {
             HmrcTheme {
                 Surface(
                     modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                    color = HmrcTheme.colors.hmrcPageBackground
+                    color = colors.hmrcPageBackground
                 ) {
                     ComponentListScreen(items = listItems, navigateTo = {
                         when (it.id) {
