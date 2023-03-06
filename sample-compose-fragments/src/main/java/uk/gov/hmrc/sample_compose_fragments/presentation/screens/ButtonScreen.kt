@@ -34,7 +34,10 @@ import uk.gov.hmrc.sample_compose_components.R
 @Composable
 fun ButtonScreen() {
     Column(
-        modifier = Modifier.fillMaxWidth().padding(hmrc_spacing_16).verticalScroll(rememberScrollState())
+        modifier = Modifier
+            .fillMaxWidth()
+            .verticalScroll(rememberScrollState())
+            .padding(hmrc_spacing_16)
     ) {
         PrimaryButton(text = stringResource(id = R.string.button_primary_example)) {}
         Spacer(modifier = Modifier.height(hmrc_spacing_16))
@@ -42,7 +45,9 @@ fun ButtonScreen() {
         Spacer(modifier = Modifier.height(hmrc_spacing_16))
         SecondaryButton(text = stringResource(id = R.string.button_secondary_example), onClick = {})
         Spacer(modifier = Modifier.height(hmrc_spacing_16))
-        IconButton(text = stringResource(id = R.string.button_icon_example), iconResId = R.drawable.ic_info, onClick = {})
+        IconButton(text = stringResource(id = R.string.button_icon_example),
+            iconResId = R.drawable.ic_info,
+            onClick = {})
 
     }
 }

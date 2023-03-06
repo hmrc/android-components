@@ -43,8 +43,8 @@ fun InsetViewScreen() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(hmrc_spacing_16)
             .verticalScroll(rememberScrollState())
+            .padding(hmrc_spacing_16)
     ) {
         Heading5(text = stringResource(id = R.string.heading_placeholder_plural),
             modifier = Modifier.padding(bottom = hmrc_spacing_16))

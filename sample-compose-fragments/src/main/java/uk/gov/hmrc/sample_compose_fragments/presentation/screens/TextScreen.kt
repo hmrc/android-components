@@ -37,12 +37,14 @@ fun TextScreen() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = hmrc_spacing_16, end = hmrc_spacing_16)
             .verticalScroll(rememberScrollState())
+            .padding(hmrc_spacing_16)
     ) {
         Heading3(text = stringResource(id = R.string.text_heading3))
         Text(
-            text = stringResource(id = R.string.text_h3), style = typography.h3, modifier = Modifier.padding(top = hmrc_spacing_16)
+            text = stringResource(id = R.string.text_h3),
+            style = typography.h3,
+            modifier = Modifier.padding(top = hmrc_spacing_16)
         )
         Heading4(text = stringResource(id = R.string.text_heading4), modifier = Modifier.padding(top = hmrc_spacing_16))
         Text(
@@ -74,7 +76,7 @@ fun TextScreen() {
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
         BulletedTextView(text = stringResource(id = R.string.text_bullet_2),
-            modifier = Modifier.padding(vertical = hmrc_spacing_16)
+            modifier = Modifier.padding(top = hmrc_spacing_16)
         )
     }
 }
