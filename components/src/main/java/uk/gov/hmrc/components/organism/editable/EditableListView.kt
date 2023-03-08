@@ -25,6 +25,7 @@ import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentEditableListViewBinding
@@ -132,6 +133,11 @@ open class EditableListView @JvmOverloads constructor(
                 ): Boolean {
                     if (event.eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
                         if (child.id == binding.title.id) {
+                            binding.iconButton.accessibilityTraversalBefore = nextFocusForwardId
+                        }
+                    }
+                    if (event.eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED) {
+                        if (child.id == binding.iconButton.id) {
                             binding.iconButton.accessibilityTraversalBefore = nextFocusForwardId
                         }
                     }
