@@ -25,7 +25,6 @@ import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
-import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentEditableListViewBinding
