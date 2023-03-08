@@ -15,17 +15,25 @@
  */
 package uk.gov.hmrc.components.organism.editable
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import uk.gov.hmrc.components.databinding.EditableListItemsBinding
 
-class EditableListViewAdapter(
-    private val values: List<EditableListItemViewState>,
-) : RecyclerView.Adapter<EditableListViewAdapter.ViewHolder>() {
+class EditableListViewAdapter : RecyclerView.Adapter<EditableListViewAdapter.ViewHolder>() {
 
-    var isEditEnable: Boolean = false
+    var values: List<EditableListItemViewState> = listOf()
+        @SuppressLint("NotifyDataSetChanged")
+        set(list) {
+            field = list
+            notifyDataSetChanged()
+        }
+
+    var firstPass: Boolean = true
+
+    var isEditEnabled: Boolean = false
         @Suppress("NotifyDataSetChanged")
         set(value) {
             field = value
@@ -60,27 +68,34 @@ class EditableListViewAdapter(
 
             val positionLabel = position + 1
 
+            val additionalAccessibility = additionalActionAccessibility(result) ?: ""
+
+            // temporary accessibility fix as first pass through ELV doesn't add row information
+            val itemNumText = ", Item $positionLabel of $itemCount"
+
             divider.isVisible = positionLabel < itemCount
             itemView.contentDescription =
-                if (isEditEnable) {
-                    "$nameText: ${valueAccessibility(result)}, Tap to $actionButtonText," +
-                        " Item $positionLabel of $itemCount."
+                if (isEditEnabled) {
+                    "$nameText: ${valueAccessibility(result)}, " +
+                        "$actionButtonText button, " + additionalAccessibility
                 } else {
-                    "$nameText: ${valueAccessibility(result)}, Item $positionLabel of $itemCount."
+                    "$nameText: ${valueAccessibility(result)}" + if (firstPass) itemNumText else ""
                 }
 
-            itemView.setOnClickListener { if (isEditEnable) result.onClickListener(adapterPosition) else null }
-
-            actionButton.setOnClickListener {
-                result.onClickListener(adapterPosition)
-            }
-
-            if (isEditEnable) {
+            if (isEditEnabled) {
                 motionLayout.transitionToEnd()
+                itemView.setOnClickListener { result.onClickListener(adapterPosition) }
+                actionButton.setOnClickListener { result.onClickListener(adapterPosition) }
+                firstPass = false
             } else {
+                itemView.isClickable = false
+                actionButton.isClickable = false
                 motionLayout.transitionToStart()
             }
         }
+
+        private fun additionalActionAccessibility(editableItem: EditableListItemViewState): String? =
+            editableItem.additionalActionContentDescription?.let { binding.root.context.getString(it) }
 
         private fun valueAccessibility(editableItem: EditableListItemViewState): String =
             editableItem.valueContentDescription ?: editableItem.value

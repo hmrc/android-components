@@ -14,7 +14,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">HMRC App Components Sample</string>
 
     <!-- Placeholder strings -->
@@ -378,5 +378,6 @@
     <string name="editable_list_view_example_2_end_button">Lorem ipsum dolor</string>
     <string name="editable_list_view_example_2_accessibility_start">Lorem ipsum</string>
     <string name="editable_list_view_example_2_accessibility_end">Lorem ipsum</string>
+    <string name="editable_list_view_web_browser_accessibility">opens in a web browser</string>
 
 </resources>
