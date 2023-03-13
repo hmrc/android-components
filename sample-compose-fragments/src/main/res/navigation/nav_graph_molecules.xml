@@ -44,7 +44,7 @@
         android:id="@+id/insetTextViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.InsetTextViewFragment"
         android:label="@string/molecules_inset_text"
-        tools:layout="@layout/fragment_inset_text_view">
+        tools:layout="@layout/fragment_inset_view">
     </fragment>
 
 </navigation>

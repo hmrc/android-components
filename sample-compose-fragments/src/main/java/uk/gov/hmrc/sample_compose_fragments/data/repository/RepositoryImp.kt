@@ -25,12 +25,21 @@ class RepositoryImpl @Inject constructor() : Repository {
 
     override suspend fun getColorList() = ColorItem.values().asList()
     override suspend fun getAtomList() = arrayListOf(
-        ComponentMenuItem(1, R.string.atoms_text),
-        ComponentMenuItem(2, R.string.atoms_buttons),
-        ComponentMenuItem(3, R.string.atoms_divider)
+        ComponentMenuItem(TEXT_ATOM, R.string.atoms_text),
+        ComponentMenuItem(BUTTON_ATOM, R.string.atoms_buttons),
+        ComponentMenuItem(DIVIDER_ATOM, R.string.atoms_divider)
     )
     override suspend fun getMoleculesList() = arrayListOf(
-        ComponentMenuItem(1, R.string.molecules_inset),
-        ComponentMenuItem(2, R.string.molecules_inset_text)
+        ComponentMenuItem(INSET_VIEW_MOLECULE, R.string.molecules_inset),
+        ComponentMenuItem(INSET_TEXT_VIEW_MOLECULE, R.string.molecules_inset_text)
     )
+
+    companion object {
+        const val TEXT_ATOM = 1
+        const val BUTTON_ATOM = 2
+        const val DIVIDER_ATOM = 3
+
+        const val INSET_VIEW_MOLECULE = 1
+        const val INSET_TEXT_VIEW_MOLECULE = 2
+    }
 }

@@ -31,6 +31,8 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentMoleculesBinding
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.INSET_TEXT_VIEW_MOLECULE
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.INSET_VIEW_MOLECULE
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.MoleculesViewModel
 
@@ -53,8 +55,12 @@ class MoleculesFragment : Fragment(R.layout.fragment_molecules) {
                 ) {
                     ComponentListScreen(items = listItems, navigateTo = {
                         when (it.id) {
-                            1 -> findNavController().navigate(R.id.action_moleculesFragment_to_insetViewFragment)
-                            2 -> findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
+                            INSET_VIEW_MOLECULE -> {
+                                findNavController().navigate(R.id.action_moleculesFragment_to_insetViewFragment)
+                            }
+                            INSET_TEXT_VIEW_MOLECULE -> {
+                                findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
+                            }
                         }
                     })
                 }

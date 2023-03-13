@@ -15,34 +15,27 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.molecule.inset.InsetTextView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.extension.addPlaceholderModifier
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderHeading
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesHeading
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
 fun InsetTextViewScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .verticalScroll(rememberScrollState())
-            .padding(hmrc_spacing_16)
-    ) {
-        Heading5(text = stringResource(id = R.string.heading_placeholder_plural),
-            modifier = Modifier.padding(bottom = hmrc_spacing_16))
+    ScreenScrollViewColumn {
+        PlaceholderHeading()
 
         InsetTextView(
             text = stringResource(id = R.string.inset_text_placeholder_text),
@@ -50,8 +43,7 @@ fun InsetTextViewScreen() {
                 .padding(bottom = hmrc_spacing_16)
                 .addPlaceholderModifier())
 
-        Heading5(text = stringResource(id = R.string.heading_example_plural),
-            modifier = Modifier.padding(bottom = hmrc_spacing_16))
+        ExamplesHeading()
 
         Card(
             modifier = Modifier.fillMaxWidth(),

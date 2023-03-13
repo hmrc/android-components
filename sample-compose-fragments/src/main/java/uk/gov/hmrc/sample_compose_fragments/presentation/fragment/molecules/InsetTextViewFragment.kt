@@ -25,16 +25,16 @@ import androidx.fragment.app.Fragment
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentInsetTextViewBinding
+import uk.gov.hmrc.sample_compose_components.databinding.FragmentInsetViewBinding
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.InsetTextViewScreen
 
-class InsetTextViewFragment : Fragment(R.layout.fragment_inset_text_view) {
+class InsetTextViewFragment : Fragment(R.layout.fragment_inset_view) {
 
-    private lateinit var binding: FragmentInsetTextViewBinding
+    private lateinit var binding: FragmentInsetViewBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentInsetTextViewBinding.bind(view)
+        binding = FragmentInsetViewBinding.bind(view)
         binding.composeView.setContent {
             HmrcTheme() {
                 Surface(

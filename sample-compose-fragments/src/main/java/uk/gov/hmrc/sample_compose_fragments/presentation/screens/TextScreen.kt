@@ -31,15 +31,11 @@ import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
 fun TextScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .verticalScroll(rememberScrollState())
-            .padding(hmrc_spacing_16)
-    ) {
+    ScreenScrollViewColumn {
         Heading3(text = stringResource(id = R.string.text_heading3))
         Text(
             text = stringResource(id = R.string.text_h3),

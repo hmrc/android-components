@@ -29,25 +29,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.molecule.inset.InsetView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
+import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_4
+import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.extension.addPlaceholderModifier
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesHeading
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderHeading
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
 fun InsetViewScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .verticalScroll(rememberScrollState())
-            .padding(hmrc_spacing_16)
-    ) {
-        Heading5(text = stringResource(id = R.string.heading_placeholder_plural),
-            modifier = Modifier.padding(bottom = hmrc_spacing_16))
+    ScreenScrollViewColumn {
+        PlaceholderHeading()
 
         InsetView(modifier = Modifier
             .padding(bottom = hmrc_spacing_16)
@@ -61,8 +59,7 @@ fun InsetViewScreen() {
             }
         )
 
-        Heading5(text = stringResource(id = R.string.heading_example_plural),
-            modifier = Modifier.padding(bottom = hmrc_spacing_16))
+        ExamplesHeading()
 
         Card(
             modifier = Modifier.fillMaxWidth(),
@@ -74,7 +71,7 @@ fun InsetViewScreen() {
                         Row {
                             Text(
                                 text = stringResource(R.string.inset_example_text_line_1_description),
-                                modifier = Modifier.padding(end = 4.dp),
+                                modifier = Modifier.padding(end = hmrc_spacing_4),
                                 style = typography.body,
                                 textAlign = TextAlign.Start
                             )
@@ -84,10 +81,10 @@ fun InsetViewScreen() {
                                 textAlign = TextAlign.Start
                             )
                         }
-                        Row(modifier = Modifier.padding(top = 8.dp)) {
+                        Row(modifier = Modifier.padding(top = hmrc_spacing_8)) {
                             Text(
                                 text = stringResource(R.string.inset_example_text_line_2_description),
-                                modifier = Modifier.padding(end = 4.dp),
+                                modifier = Modifier.padding(end = hmrc_spacing_4),
                                 style = typography.body,
                                 textAlign = TextAlign.Start
                             )
@@ -97,10 +94,10 @@ fun InsetViewScreen() {
                                 textAlign = TextAlign.Start
                             )
                         }
-                        Row(modifier = Modifier.padding(top = 8.dp)) {
+                        Row(modifier = Modifier.padding(top = hmrc_spacing_8)) {
                             Text(
                                 text = stringResource(R.string.inset_example_text_line_3_description),
-                                modifier = Modifier.padding(end = 4.dp),
+                                modifier = Modifier.padding(end = hmrc_spacing_4),
                                 style = typography.body,
                                 textAlign = TextAlign.Start
                             )
