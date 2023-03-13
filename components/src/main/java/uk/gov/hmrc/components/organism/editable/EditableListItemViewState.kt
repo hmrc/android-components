@@ -22,5 +22,6 @@ data class EditableListItemViewState(
     var value: String,
     @StringRes var buttonText: Int,
     var valueContentDescription: String? = null,
+    @StringRes var additionalActionContentDescription: Int? = null,
     val onClickListener: (Int) -> Unit
 )

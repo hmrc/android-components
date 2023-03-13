@@ -25,6 +25,7 @@ import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentEditableListViewBinding
 import kotlin.random.Random
@@ -40,8 +41,7 @@ open class EditableListView @JvmOverloads constructor(
     private var buttonText: Pair<String, String> = Pair("", "")
     private var buttonAccessibility: Pair<String, String> = Pair("", "")
     private var buttonIcon: Pair<Int, Int> = Pair(0, 0)
-    private lateinit var editableListViewAdapter: EditableListViewAdapter
-    private var editableItems = ArrayList<EditableListItemViewState>()
+    private val editableListViewAdapter = EditableListViewAdapter()
     var editMode = false
         private set
 
@@ -65,6 +65,10 @@ open class EditableListView @JvmOverloads constructor(
             setTitle(title)
             typedArray.recycle()
         }
+        binding.listItems.apply {
+            adapter = editableListViewAdapter
+            layoutManager = LinearLayoutManager(binding.root.context)
+        }
         binding.title.id = Random.nextInt()
         setIconButtonClickListener(null)
         setFocusListener()
@@ -72,9 +76,7 @@ open class EditableListView @JvmOverloads constructor(
 
     fun setIconButtonClickListener(additionalClickListener: (() -> Unit)?) {
         binding.iconButton.setOnClickListener {
-            if (::editableListViewAdapter.isInitialized) {
-                editableListViewAdapter.isEditEnable = !editableListViewAdapter.isEditEnable
-            }
+            editableListViewAdapter.isEditEnabled = !editableListViewAdapter.isEditEnabled
             setEditModeUI(!editMode)
             additionalClickListener?.invoke()
         }
@@ -112,11 +114,7 @@ open class EditableListView @JvmOverloads constructor(
     }
 
     fun setData(editableItem: ArrayList<EditableListItemViewState>) {
-        this.editableItems = editableItem
-        editableListViewAdapter = EditableListViewAdapter(editableItem)
-        binding.listItems.apply {
-            adapter = editableListViewAdapter
-        }
+        editableListViewAdapter.values = editableItem
     }
 
     fun setTitle(title: CharSequence?) {
@@ -134,6 +132,11 @@ open class EditableListView @JvmOverloads constructor(
                 ): Boolean {
                     if (event.eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
                         if (child.id == binding.title.id) {
+                            binding.iconButton.accessibilityTraversalBefore = nextFocusForwardId
+                        }
+                    }
+                    if (event.eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED) {
+                        if (child.id == binding.iconButton.id) {
                             binding.iconButton.accessibilityTraversalBefore = nextFocusForwardId
                         }
                     }
