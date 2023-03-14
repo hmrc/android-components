@@ -31,8 +31,8 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentAtomsBinding
-import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.BUTTON_ATOM
-import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.TEXT_ATOM
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ATOM_BUTTON
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ATOM_TEXT
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.AtomsViewModel
 
@@ -54,8 +54,8 @@ class AtomsFragment : Fragment(R.layout.fragment_atoms) {
                 ) {
                     ComponentListScreen(items = listItems, navigateTo = {
                         when (it.id) {
-                            TEXT_ATOM -> findNavController().navigate(R.id.action_atomsFragment_to_textFragment)
-                            BUTTON_ATOM -> findNavController().navigate(R.id.action_atomsFragment_to_buttonFragment)
+                            ATOM_TEXT -> findNavController().navigate(R.id.action_atomsFragment_to_textFragment)
+                            ATOM_BUTTON -> findNavController().navigate(R.id.action_atomsFragment_to_buttonFragment)
                         }
                     })
                 }
