@@ -30,8 +30,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentAtomsBinding
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentMoleculesBinding
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_TEXT_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_VIEW
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.MoleculesViewModel
 
@@ -53,7 +54,12 @@ class MoleculesFragment : Fragment(R.layout.fragment_molecules) {
                 ) {
                     ComponentListScreen(items = listItems, navigateTo = {
                         when (it.id) {
-                            1 -> findNavController().navigate(R.id.action_moleculesFragment_to_titleBodyViewFragment)
+                            MOLECULE_INSET_VIEW -> {
+                                findNavController().navigate(R.id.action_moleculesFragment_to_insetViewFragment)
+                            }
+                            MOLECULE_INSET_TEXT_VIEW -> {
+                                findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
+                            }
                         }
                     })
                 }

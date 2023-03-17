@@ -16,7 +16,7 @@
 package uk.gov.hmrc.sample_compose_fragments.data.repository
 
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_fragments.data.model.AtomItem
+import uk.gov.hmrc.sample_compose_fragments.data.model.ComponentMenuItem
 import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.data.model.MoleculeItem
 import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
@@ -26,12 +26,28 @@ class RepositoryImpl @Inject constructor() : Repository {
 
     override suspend fun getColorList() = ColorItem.values().asList()
     override suspend fun getAtomList() = arrayListOf(
-        AtomItem(1, R.string.atoms_text),
-        AtomItem(2, R.string.atoms_buttons),
-        AtomItem(3, R.string.atoms_divider)
+        ComponentMenuItem(ATOM_TEXT, R.string.atoms_text),
+        ComponentMenuItem(ATOM_BUTTON, R.string.atoms_buttons),
+        ComponentMenuItem(ATOM_DIVIDER, R.string.atoms_divider)
     )
+<<<<<<< HEAD
 
     override suspend fun getMoleculeList() = arrayListOf(
         MoleculeItem(1, R.string.molecules_h4)
     )
+=======
+    override suspend fun getMoleculesList() = arrayListOf(
+        ComponentMenuItem(MOLECULE_INSET_VIEW, R.string.molecules_inset),
+        ComponentMenuItem(MOLECULE_INSET_TEXT_VIEW, R.string.molecules_inset_text)
+    )
+
+    companion object {
+        const val ATOM_TEXT = 1
+        const val ATOM_BUTTON = 2
+        const val ATOM_DIVIDER = 3
+
+        const val MOLECULE_INSET_VIEW = 1
+        const val MOLECULE_INSET_TEXT_VIEW = 2
+    }
+>>>>>>> main
 }

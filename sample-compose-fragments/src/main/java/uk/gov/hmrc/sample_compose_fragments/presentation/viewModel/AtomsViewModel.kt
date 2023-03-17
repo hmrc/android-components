@@ -23,15 +23,15 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import uk.gov.hmrc.sample_compose_fragments.data.model.AtomItem
+import uk.gov.hmrc.sample_compose_fragments.data.model.ComponentMenuItem
 import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
 import javax.inject.Inject
 
 @HiltViewModel
 class AtomsViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
-    private val _atomsItems = MutableStateFlow(listOf<AtomItem>())
-    val atomsItems: StateFlow<List<AtomItem>> get() = _atomsItems
+    private val _atomsItems = MutableStateFlow(listOf<ComponentMenuItem>())
+    val atomsItems: StateFlow<List<ComponentMenuItem>> get() = _atomsItems
 
      fun getAtomsData() {
          viewModelScope.launch {
