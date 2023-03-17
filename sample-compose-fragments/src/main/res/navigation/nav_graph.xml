@@ -26,12 +26,7 @@
         android:label="@string/title_organisms"
         tools:layout="@layout/fragment_organisms"/>
 
-    <fragment
-        android:id="@+id/moleculesFragment"
-        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MoleculesFragment"
-        android:label="@string/title_molecules"
-        tools:layout="@layout/fragment_molecules"/>
-
+    <include app:graph="@navigation/nav_graph_molecules" />
     <include app:graph="@navigation/nav_graph_atoms" />
 
     <fragment

@@ -16,14 +16,12 @@
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_container_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MoleculesFragment">
+    android:orientation="vertical">
 
     <androidx.compose.ui.platform.ComposeView
-        android:id="@+id/compose_view_molecules"
+        android:id="@+id/compose_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
