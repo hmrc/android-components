@@ -13,15 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.sample_compose_fragments.domain.repository
+package uk.gov.hmrc.sample_compose_fragments.data.model
 
-import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
-import uk.gov.hmrc.sample_compose_fragments.data.model.AtomItem
-import uk.gov.hmrc.sample_compose_fragments.data.model.MoleculeItem
+import androidx.annotation.StringRes
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentItem
 
-interface Repository {
-    suspend fun getColorList(): List<ColorItem>
-    suspend fun getAtomList(): List<AtomItem>
-    suspend fun getMoleculeList(): List<MoleculeItem>
-
-}
+class MoleculeItem(val id: Int, @StringRes override val titleRes: Int): ComponentItem

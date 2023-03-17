@@ -20,45 +20,30 @@ import android.view.View
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
-import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentAtomsBinding
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentMoleculesBinding
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
-import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.MoleculesViewModel
+import uk.gov.hmrc.sample_compose_components.databinding.FragmentH4TitleBodyViewBinding
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.H4TitleBodyViewScreen
 
-@AndroidEntryPoint
-class MoleculesFragment : Fragment(R.layout.fragment_molecules) {
+class H4TitleBodyViewFragment : Fragment(R.layout.fragment_h4_title_body_view) {
 
-    private lateinit var binding: FragmentMoleculesBinding
-    private val viewModel: MoleculesViewModel by activityViewModels()
+    private lateinit var binding: FragmentH4TitleBodyViewBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentMoleculesBinding.bind(view)
-        binding.composeViewMolecules.setContent {
-            val listItems by viewModel.moleculesItems.collectAsState()
-            HmrcTheme {
+        binding = FragmentH4TitleBodyViewBinding.bind(view)
+        binding.composeViewH4TitleBodyView.setContent {
+            HmrcTheme() {
                 Surface(
                     modifier = Modifier.fillMaxHeight().fillMaxWidth(),
                     color = colors.hmrcPageBackground
                 ) {
-                    ComponentListScreen(items = listItems, navigateTo = {
-                        when (it.id) {
-                            1 -> findNavController().navigate(R.id.action_moleculesFragment_to_titleBodyViewFragment)
-                        }
-                    })
+                    H4TitleBodyViewScreen()
                 }
             }
         }
-        viewModel.getMoleculesData()
     }
 }

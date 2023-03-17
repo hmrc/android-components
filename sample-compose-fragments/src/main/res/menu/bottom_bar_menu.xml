@@ -18,10 +18,9 @@
     <item
         android:id="@+id/organismsFragment"
         android:icon="@drawable/ic_organisms"
-        android:title="@string/title_organisms"
-        />
+        android:title="@string/title_organisms" />
     <item
-        android:id="@+id/moleculesFragment"
+        android:id="@+id/nav_graph_molecules_screen"
         android:icon="@drawable/ic_molecules"
         android:title="@string/title_molecules" />
     <item

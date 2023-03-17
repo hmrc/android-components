@@ -20,10 +20,9 @@
     android:layout_height="match_parent"
     tools:context="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MoleculesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/compose_view_molecules"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/title_molecules" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
