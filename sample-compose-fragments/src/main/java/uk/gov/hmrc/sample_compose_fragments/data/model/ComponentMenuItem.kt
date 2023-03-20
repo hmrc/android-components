@@ -18,4 +18,4 @@ package uk.gov.hmrc.sample_compose_fragments.data.model
 import androidx.annotation.StringRes
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentItem
 
-class AtomItem(val id: Int, @StringRes override val titleRes: Int): ComponentItem
+class ComponentMenuItem(val id: Int, @StringRes override val titleRes: Int): ComponentItem

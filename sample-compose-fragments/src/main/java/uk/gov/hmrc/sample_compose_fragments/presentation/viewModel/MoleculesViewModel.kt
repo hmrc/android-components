@@ -28,16 +28,16 @@ import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
 import javax.inject.Inject
 
 @HiltViewModel
-class AtomsViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
+class MoleculesViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
-    private val _atomsItems = MutableStateFlow(listOf<ComponentMenuItem>())
-    val atomsItems: StateFlow<List<ComponentMenuItem>> get() = _atomsItems
+    private val _moleculesItems = MutableStateFlow(listOf<ComponentMenuItem>())
+    val moleculesItems: StateFlow<List<ComponentMenuItem>> get() = _moleculesItems
 
-     fun getAtomsData() {
-         viewModelScope.launch {
-             withContext(Dispatchers.Default) {
-                 _atomsItems.value = repository.getAtomList()
-             }
-         }
-     }
+    fun getMoleculesData() {
+        viewModelScope.launch {
+            withContext(Dispatchers.Default) {
+                _moleculesItems.value = repository.getMoleculesList()
+            }
+        }
+    }
 }

@@ -17,16 +17,55 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules
 
 import android.os.Bundle
 import android.view.View
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentMoleculesBinding
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_TEXT_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_VIEW
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.MoleculesViewModel
 
+@AndroidEntryPoint
 class MoleculesFragment : Fragment(R.layout.fragment_molecules) {
 
     private lateinit var binding: FragmentMoleculesBinding
+    private val viewModel: MoleculesViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMoleculesBinding.bind(view)
+
+        binding.composeViewMolecules.setContent {
+            val listItems by viewModel.moleculesItems.collectAsState()
+            HmrcTheme {
+                Surface(
+                    modifier = Modifier.fillMaxHeight().fillMaxWidth(),
+                    color = colors.hmrcPageBackground
+                ) {
+                    ComponentListScreen(items = listItems, navigateTo = {
+                        when (it.id) {
+                            MOLECULE_INSET_VIEW -> {
+                                findNavController().navigate(R.id.action_moleculesFragment_to_insetViewFragment)
+                            }
+                            MOLECULE_INSET_TEXT_VIEW -> {
+                                findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
+                            }
+                        }
+                    })
+                }
+            }
+        }
+        viewModel.getMoleculesData()
     }
 }

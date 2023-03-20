@@ -31,18 +31,16 @@ import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
 fun TextScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = hmrc_spacing_16, end = hmrc_spacing_16)
-            .verticalScroll(rememberScrollState())
-    ) {
+    ScreenScrollViewColumn {
         Heading3(text = stringResource(id = R.string.text_heading3))
         Text(
-            text = stringResource(id = R.string.text_h3), style = typography.h3, modifier = Modifier.padding(top = hmrc_spacing_16)
+            text = stringResource(id = R.string.text_h3),
+            style = typography.h3,
+            modifier = Modifier.padding(top = hmrc_spacing_16)
         )
         Heading4(text = stringResource(id = R.string.text_heading4), modifier = Modifier.padding(top = hmrc_spacing_16))
         Text(
@@ -74,7 +72,7 @@ fun TextScreen() {
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
         BulletedTextView(text = stringResource(id = R.string.text_bullet_2),
-            modifier = Modifier.padding(vertical = hmrc_spacing_16)
+            modifier = Modifier.padding(top = hmrc_spacing_16)
         )
     }
 }

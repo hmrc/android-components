@@ -17,6 +17,7 @@ package uk.gov.hmrc.components.compose.ui.theme
 
 import androidx.compose.ui.unit.dp
 
+val hmrc_spacing_4 = 4.dp
 val hmrc_spacing_8 = 8.dp
 val hmrc_spacing_16 = 16.dp
 val hmrc_icon_size_24 = 24.dp
