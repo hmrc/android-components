@@ -27,7 +27,8 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import uk.gov.hmrc.components.compose.molecule.titleBody.H4TitleBodyView
+import uk.gov.hmrc.components.compose.molecule.inset.InsetView
+import uk.gov.hmrc.components.compose.molecule.titleBody.BoldTitleBodyView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
@@ -38,16 +39,16 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
-fun H4TitleBodyViewScreen() {
+fun BoldTitleBodyViewScreen() {
     ScreenScrollViewColumn {
 
         PlaceholderHeading()
 
-        H4TitleBodyView(
-            H4Text = stringResource(id = R.string.h4_placeholder_title),
-            H5Text = stringResource(id = R.string.h4_placeholder_body),
+        BoldTitleBodyView(
+            headingText = stringResource(id = R.string.bold_placeholder_title),
+            bodyText = stringResource(id = R.string.bold_placeholder_body),
             modifier = Modifier.addPlaceholderModifier()
-        )
+            )
 
         Spacer(modifier = Modifier.padding(bottom = hmrc_spacing_16))
 
@@ -58,23 +59,26 @@ fun H4TitleBodyViewScreen() {
             shape = RoundedCornerShape(0),
             colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
         ) {
-            H4TitleBodyView(
-                H4Text = stringResource(id = R.string.h4_example_title),
-                H5Text = stringResource(id = R.string.h4_example_body),
+            BoldTitleBodyView(
+                headingText = stringResource(id = R.string.bold_example_title),
+                bodyText = stringResource(id = R.string.bold_example_body),
                 modifier = Modifier.padding(start = hmrc_spacing_16, end = hmrc_spacing_16)
             )
         }
 
         Card(
-            modifier = Modifier.fillMaxWidth().padding(top = hmrc_spacing_16),
+            modifier = Modifier
+                .padding(top = hmrc_spacing_16)
+                .fillMaxWidth(),
             shape = RoundedCornerShape(0),
             colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
         ) {
-            H4TitleBodyView(
-                H4Text = stringResource(id = R.string.long_text),
-                H5Text = stringResource(id = R.string.longer_text),
+            BoldTitleBodyView(
+                headingText = stringResource(id = R.string.long_text),
+                bodyText = stringResource(id = R.string.longer_text),
                 modifier = Modifier.padding(start = hmrc_spacing_16, end = hmrc_spacing_16)
             )
         }
     }
 }
+

@@ -26,9 +26,9 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.H5TitleBodyViewScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.BoldTitleBodyViewScreen
 
-class H5TitleBodyViewFragment : Fragment(R.layout.fragment_compose_example) {
+class BoldTitleBodyViewFragment : Fragment(R.layout.fragment_compose_example) {
 
     private lateinit var binding: FragmentComposeExampleBinding
 
@@ -41,7 +41,7 @@ class H5TitleBodyViewFragment : Fragment(R.layout.fragment_compose_example) {
                     modifier = Modifier.fillMaxHeight().fillMaxWidth(),
                     color = colors.hmrcPageBackground
                 ) {
-                    H5TitleBodyViewScreen()
+                    BoldTitleBodyViewScreen()
                 }
             }
         }

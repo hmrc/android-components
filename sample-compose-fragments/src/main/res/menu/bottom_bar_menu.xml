@@ -20,11 +20,7 @@
         android:icon="@drawable/ic_organisms"
         android:title="@string/title_organisms" />
     <item
-<<<<<<< HEAD
-        android:id="@+id/nav_graph_molecules_screen"
-=======
         android:id="@+id/nav_graph_molecules"
->>>>>>> main
         android:icon="@drawable/ic_molecules"
         android:title="@string/title_molecules" />
     <item

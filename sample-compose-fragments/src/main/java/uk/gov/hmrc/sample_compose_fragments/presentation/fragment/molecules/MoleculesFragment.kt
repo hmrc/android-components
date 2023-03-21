@@ -31,6 +31,9 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentMoleculesBinding
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.BOLD_TITLE_BODY_VUEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.H4_TITLE_BODY_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.H5_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_TEXT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_VIEW
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
@@ -59,6 +62,15 @@ class MoleculesFragment : Fragment(R.layout.fragment_molecules) {
                             }
                             MOLECULE_INSET_TEXT_VIEW -> {
                                 findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
+                            }
+                            BOLD_TITLE_BODY_VUEW -> {
+                                findNavController().navigate(R.id.action_moleculesFragment_to_boldTitleBodyViewFragment)
+                            }
+                            H4_TITLE_BODY_VIEW -> {
+                                findNavController().navigate(R.id.action_moleculesFragment_to_h4TitleBodyViewFragment)
+                            }
+                            H5_TITLE_BODY_VIEW -> {
+                                findNavController().navigate(R.id.action_moleculesFragment_to_h5TitleBodyViewFragment)
                             }
                         }
                     })

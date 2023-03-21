@@ -25,17 +25,17 @@ import androidx.fragment.app.Fragment
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentH4TitleBodyViewBinding
+import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.H4TitleBodyViewScreen
 
-class H4TitleBodyViewFragment : Fragment(R.layout.fragment_h4_title_body_view) {
+class H4TitleBodyViewFragment : Fragment(R.layout.fragment_compose_example) {
 
-    private lateinit var binding: FragmentH4TitleBodyViewBinding
+    private lateinit var binding: FragmentComposeExampleBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentH4TitleBodyViewBinding.bind(view)
-        binding.composeViewH4TitleBodyView.setContent {
+        binding = FragmentComposeExampleBinding.bind(view)
+        binding.composeView.setContent {
             HmrcTheme() {
                 Surface(
                     modifier = Modifier.fillMaxHeight().fillMaxWidth(),
