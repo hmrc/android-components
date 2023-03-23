@@ -30,14 +30,12 @@ fun H4TitleBodyView(
     H5Text: String,
     modifier: Modifier = Modifier,
 ) {
-    Column {
-        Row(modifier = modifier) {
+    Row(modifier = modifier) {
+        Column {
             Heading4(
                 text = H4Text,
                 modifier = Modifier.padding(vertical = hmrc_spacing_8)
             )
-        }
-        Row(modifier = modifier) {
             Heading5(
                 text = H5Text,
                 modifier = Modifier.padding(vertical = hmrc_spacing_8)

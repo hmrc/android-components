@@ -31,14 +31,12 @@ fun H5TitleBodyView(
     bodyText: String,
     modifier: Modifier = Modifier,
 ) {
-    Column {
-        Row(modifier = modifier) {
+    Row(modifier = modifier) {
+        Column {
             Heading5(
                 text = H5Text,
                 modifier = Modifier.padding(vertical = hmrc_spacing_8)
             )
-        }
-        Row(modifier = modifier) {
             Text(
                 text = bodyText,
                 modifier = Modifier.padding(vertical = hmrc_spacing_8)

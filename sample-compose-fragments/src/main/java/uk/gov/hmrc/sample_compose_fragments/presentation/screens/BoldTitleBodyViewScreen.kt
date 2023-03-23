@@ -15,23 +15,18 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import uk.gov.hmrc.components.compose.molecule.inset.InsetView
 import uk.gov.hmrc.components.compose.molecule.titleBody.BoldTitleBodyView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.extension.addPlaceholderModifier
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesHeading
@@ -62,7 +57,7 @@ fun BoldTitleBodyViewScreen() {
             BoldTitleBodyView(
                 headingText = stringResource(id = R.string.bold_example_title),
                 bodyText = stringResource(id = R.string.bold_example_body),
-                modifier = Modifier.padding(start = hmrc_spacing_16, end = hmrc_spacing_16)
+                modifier = Modifier.padding(hmrc_spacing_16)
             )
         }
 
@@ -76,7 +71,7 @@ fun BoldTitleBodyViewScreen() {
             BoldTitleBodyView(
                 headingText = stringResource(id = R.string.long_text),
                 bodyText = stringResource(id = R.string.longer_text),
-                modifier = Modifier.padding(start = hmrc_spacing_16, end = hmrc_spacing_16)
+                modifier = Modifier.padding(hmrc_spacing_16)
             )
         }
     }

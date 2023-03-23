@@ -18,7 +18,6 @@ package uk.gov.hmrc.sample_compose_fragments.data.repository
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.data.model.ComponentMenuItem
 import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
-import uk.gov.hmrc.sample_compose_fragments.data.model.MoleculeItem
 import uk.gov.hmrc.sample_compose_fragments.domain.repository.Repository
 import javax.inject.Inject
 
@@ -34,9 +33,9 @@ class RepositoryImpl @Inject constructor() : Repository {
     override suspend fun getMoleculesList() = arrayListOf(
         ComponentMenuItem(MOLECULE_INSET_VIEW, R.string.molecules_inset),
         ComponentMenuItem(MOLECULE_INSET_TEXT_VIEW, R.string.molecules_inset_text),
-        ComponentMenuItem(H4_TITLE_BODY_VIEW, R.string.molecules_h4),
-        ComponentMenuItem(H5_TITLE_BODY_VIEW, R.string.molecules_h5),
-        ComponentMenuItem(BOLD_TITLE_BODY_VUEW, R.string.molecules_bold),
+        ComponentMenuItem(MOLECULE_H4_TITLE_BODY_VIEW, R.string.molecules_h4),
+        ComponentMenuItem(MOLECULE_H5_TITLE_BODY_VIEW, R.string.molecules_h5),
+        ComponentMenuItem(MOLECULE_BOLD_TITLE_BODY_VIEW, R.string.molecules_bold),
         )
 
     companion object {
@@ -46,8 +45,8 @@ class RepositoryImpl @Inject constructor() : Repository {
 
         const val MOLECULE_INSET_VIEW = 1
         const val MOLECULE_INSET_TEXT_VIEW = 2
-        const val H4_TITLE_BODY_VIEW = 3
-        const val H5_TITLE_BODY_VIEW = 4
-        const val BOLD_TITLE_BODY_VUEW = 5
+        const val MOLECULE_H4_TITLE_BODY_VIEW = 3
+        const val MOLECULE_H5_TITLE_BODY_VIEW = 4
+        const val MOLECULE_BOLD_TITLE_BODY_VIEW = 5
     }
 }
