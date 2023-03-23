@@ -37,7 +37,7 @@ fun H5TitleBodyView(
             )
             Text(
                 text = bodyText,
-                modifier = Modifier.padding(vertical = hmrc_spacing_16)
+                modifier = Modifier.padding(top = hmrc_spacing_16)
             )
         }
     }
