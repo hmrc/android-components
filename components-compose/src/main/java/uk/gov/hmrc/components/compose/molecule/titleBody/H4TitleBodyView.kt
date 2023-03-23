@@ -22,7 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import uk.gov.hmrc.components.compose.atom.heading.Heading4
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
+import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 
 @Composable
 fun H4TitleBodyView(
@@ -34,11 +34,10 @@ fun H4TitleBodyView(
         Column {
             Heading4(
                 text = H4Text,
-                modifier = Modifier.padding(vertical = hmrc_spacing_8)
             )
             Heading5(
                 text = H5Text,
-                modifier = Modifier.padding(vertical = hmrc_spacing_8)
+                modifier = Modifier.padding(top = hmrc_spacing_16)
             )
         }
     }
