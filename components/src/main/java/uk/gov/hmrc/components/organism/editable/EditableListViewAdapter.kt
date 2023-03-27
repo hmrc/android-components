@@ -84,12 +84,14 @@ class EditableListViewAdapter : RecyclerView.Adapter<EditableListViewAdapter.Vie
 
             if (isEditEnabled) {
                 motionLayout.transitionToEnd()
+                actionButton.isVisible = true
                 itemView.setOnClickListener { result.onClickListener(adapterPosition) }
                 actionButton.setOnClickListener { result.onClickListener(adapterPosition) }
                 firstPass = false
             } else {
                 itemView.isClickable = false
                 actionButton.isClickable = false
+                actionButton.isVisible = false
                 motionLayout.transitionToStart()
             }
         }
