@@ -50,7 +50,7 @@ fun BoldTitleBodyViewScreen() {
         ExamplesHeading()
 
         Card(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.padding(bottom = hmrc_spacing_16).fillMaxWidth(),
             shape = RoundedCornerShape(0),
             colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
         ) {
