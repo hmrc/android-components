@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.5.4] - 2023-03-27
+
 ### Fixed
 
 * `EditableListView` action button visibility fixes.
