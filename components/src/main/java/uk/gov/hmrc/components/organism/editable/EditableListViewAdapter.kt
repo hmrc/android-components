@@ -17,6 +17,7 @@ package uk.gov.hmrc.components.organism.editable
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
@@ -91,7 +92,7 @@ class EditableListViewAdapter : RecyclerView.Adapter<EditableListViewAdapter.Vie
             } else {
                 itemView.isClickable = false
                 actionButton.isClickable = false
-                actionButton.isVisible = false
+                actionButton.visibility = View.INVISIBLE
                 motionLayout.transitionToStart()
             }
         }

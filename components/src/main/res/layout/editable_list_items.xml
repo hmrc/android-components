@@ -34,7 +34,8 @@
         android:minHeight="0dp"
         android:importantForAccessibility="no"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="invisible" />
 
     <View
         android:id="@+id/divider"

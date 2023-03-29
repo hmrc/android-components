@@ -51,7 +51,8 @@
             motion:layout_constraintWidth_max="120dp"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:visibilityMode="ignore" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier"
@@ -100,7 +101,8 @@
             motion:layout_constraintWidth_max="120dp"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:visibilityMode="ignore" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@id/barrier"
