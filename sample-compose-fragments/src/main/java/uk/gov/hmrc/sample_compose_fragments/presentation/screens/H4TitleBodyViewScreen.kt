@@ -40,8 +40,8 @@ fun H4TitleBodyViewScreen() {
         PlaceholderHeading()
 
         H4TitleBodyView(
-            H4Text = stringResource(id = R.string.h4_placeholder_title),
-            H5Text = stringResource(id = R.string.h4_placeholder_body),
+            h4Text = stringResource(id = R.string.h4_placeholder_title),
+            h5Text = stringResource(id = R.string.h4_placeholder_body),
             modifier = Modifier.addPlaceholderModifier()
         )
 
@@ -50,13 +50,13 @@ fun H4TitleBodyViewScreen() {
         ExamplesHeading()
 
         Card(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().padding(bottom = hmrc_spacing_16),
             shape = RoundedCornerShape(0),
             colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
         ) {
             H4TitleBodyView(
-                H4Text = stringResource(id = R.string.h4_example_title),
-                H5Text = stringResource(id = R.string.h4_example_body),
+                h4Text = stringResource(id = R.string.h4_example_title),
+                h5Text = stringResource(id = R.string.h4_example_body),
                 modifier = Modifier.padding(hmrc_spacing_16)
             )
         }
@@ -67,8 +67,8 @@ fun H4TitleBodyViewScreen() {
             colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
         ) {
             H4TitleBodyView(
-                H4Text = stringResource(id = R.string.long_text),
-                H5Text = stringResource(id = R.string.longer_text),
+                h4Text = stringResource(id = R.string.long_text),
+                h5Text = stringResource(id = R.string.longer_text),
                 modifier = Modifier.padding(hmrc_spacing_16)
             )
         }

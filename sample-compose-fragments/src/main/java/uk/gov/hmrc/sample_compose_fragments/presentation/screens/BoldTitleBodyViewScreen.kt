@@ -69,8 +69,8 @@ fun BoldTitleBodyViewScreen() {
             colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
         ) {
             BoldTitleBodyView(
-                headingText = stringResource(id = R.string.long_text),
-                bodyText = stringResource(id = R.string.longer_text),
+                headingText = stringResource(id = R.string.longer_text),
+                bodyText = stringResource(id = R.string.longest_text),
                 modifier = Modifier.padding(hmrc_spacing_16)
             )
         }
