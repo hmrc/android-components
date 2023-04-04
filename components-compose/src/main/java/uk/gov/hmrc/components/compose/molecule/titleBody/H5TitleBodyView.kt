@@ -33,9 +33,7 @@ fun H5TitleBodyView(
 ) {
     Row(modifier = modifier) {
         Column {
-            Heading5(
-                text = titleText,
-            )
+            Heading5(text = titleText)
             Text(
                 text = bodyText,
                 style = HmrcTheme.typography.body,

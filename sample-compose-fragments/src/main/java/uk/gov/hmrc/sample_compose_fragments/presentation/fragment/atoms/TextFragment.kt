@@ -17,17 +17,12 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms
 
 import android.os.Bundle
 import android.view.View
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.TextScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.atoms.TextScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 
 class TextFragment : Fragment(R.layout.fragment_compose_example) {

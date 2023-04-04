@@ -13,15 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.sample_compose_fragments.presentation.screens
+package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
@@ -29,7 +27,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.molecule.inset.InsetView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
@@ -37,27 +34,24 @@ import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_4
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_fragments.presentation.extension.addPlaceholderModifier
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesHeading
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderHeading
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
 fun InsetViewScreen() {
     ScreenScrollViewColumn {
-        PlaceholderHeading()
-
-        InsetView(modifier = Modifier
-            .padding(bottom = hmrc_spacing_16)
-            .addPlaceholderModifier(),
-            childView = {
-                Text(
-                    text = stringResource(R.string.inset_placeholder_text),
-                    style = typography.body,
-                    textAlign = TextAlign.Start
-                )
-            }
-        )
+        PlaceholderSlot {
+            InsetView(
+                childView = {
+                    Text(
+                        text = stringResource(R.string.inset_placeholder_text),
+                        style = typography.body,
+                        textAlign = TextAlign.Start
+                    )
+                }
+            )
+        }
 
         ExamplesHeading()
 
@@ -67,7 +61,7 @@ fun InsetViewScreen() {
             colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)) {
             InsetView(modifier = Modifier.padding(hmrc_spacing_16),
                 childView = {
-                    Column() {
+                    Column {
                         Row {
                             Text(
                                 text = stringResource(R.string.inset_example_text_line_1_description),

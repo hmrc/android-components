@@ -15,8 +15,10 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -30,11 +32,14 @@ import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_fragments.presentation.extension.addPlaceholderModifier
 
 @Composable
 fun HmrcSurface(content: @Composable () -> Unit) {
     Surface(
-        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxHeight()
+            .fillMaxWidth(),
         color = HmrcTheme.colors.hmrcPageBackground,
         content = content
     )
@@ -52,11 +57,15 @@ fun ScreenScrollViewColumn(content: @Composable ColumnScope.() -> Unit) {
 }
 
 @Composable
-fun PlaceholderHeading() {
+fun PlaceholderSlot(content: @Composable () -> Unit) {
     Heading5(
         text = stringResource(id = R.string.heading_placeholder_plural),
         modifier = Modifier.padding(bottom = hmrc_spacing_16)
     )
+    Box(modifier = Modifier.addPlaceholderModifier()) {
+        content()
+    }
+    Spacer(modifier = Modifier.padding(bottom = hmrc_spacing_16))
 }
 
 @Composable
