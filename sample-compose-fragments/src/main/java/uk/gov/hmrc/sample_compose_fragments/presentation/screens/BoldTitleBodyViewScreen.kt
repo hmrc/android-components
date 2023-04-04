@@ -40,10 +40,10 @@ fun BoldTitleBodyViewScreen() {
         PlaceholderHeading()
 
         BoldTitleBodyView(
-            headingText = stringResource(id = R.string.bold_placeholder_title),
+            titleText = stringResource(id = R.string.bold_placeholder_title),
             bodyText = stringResource(id = R.string.bold_placeholder_body),
             modifier = Modifier.addPlaceholderModifier()
-            )
+        )
 
         Spacer(modifier = Modifier.padding(bottom = hmrc_spacing_16))
 
@@ -55,21 +55,19 @@ fun BoldTitleBodyViewScreen() {
             colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
         ) {
             BoldTitleBodyView(
-                headingText = stringResource(id = R.string.bold_example_title),
+                titleText = stringResource(id = R.string.bold_example_title),
                 bodyText = stringResource(id = R.string.bold_example_body),
                 modifier = Modifier.padding(hmrc_spacing_16)
             )
         }
 
         Card(
-            modifier = Modifier
-                .padding(top = hmrc_spacing_16)
-                .fillMaxWidth(),
+            modifier = Modifier.padding(top = hmrc_spacing_16).fillMaxWidth(),
             shape = RoundedCornerShape(0),
             colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
         ) {
             BoldTitleBodyView(
-                headingText = stringResource(id = R.string.longer_text),
+                titleText = stringResource(id = R.string.longer_text),
                 bodyText = stringResource(id = R.string.longest_text),
                 modifier = Modifier.padding(hmrc_spacing_16)
             )

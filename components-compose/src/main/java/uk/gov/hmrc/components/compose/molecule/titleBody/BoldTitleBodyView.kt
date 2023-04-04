@@ -26,14 +26,14 @@ import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 
 @Composable
 fun BoldTitleBodyView(
-    headingText: String,
+    titleText: String,
     bodyText: String,
     modifier: Modifier = Modifier,
 ) {
     Row(modifier = modifier) {
         Column {
             Text(
-                text = headingText,
+                text = titleText,
                 style = typography.h6
             )
             Text(
