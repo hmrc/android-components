@@ -23,6 +23,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -45,19 +46,22 @@ class AtomsFragment : Fragment(R.layout.fragment_atoms) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAtomsBinding.bind(view)
-        binding.composeViewAtoms.setContent {
-            val listItems by viewModel.atomsItems.collectAsState()
-            HmrcTheme {
-                Surface(
-                    modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                    color = colors.hmrcPageBackground
-                ) {
-                    ComponentListScreen(items = listItems, navigateTo = {
-                        when (it.id) {
-                            ATOM_TEXT -> findNavController().navigate(R.id.action_atomsFragment_to_textFragment)
-                            ATOM_BUTTON -> findNavController().navigate(R.id.action_atomsFragment_to_buttonFragment)
-                        }
-                    })
+        binding.composeViewAtoms.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                val listItems by viewModel.atomsItems.collectAsState()
+                HmrcTheme {
+                    Surface(
+                        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
+                        color = colors.hmrcPageBackground
+                    ) {
+                        ComponentListScreen(items = listItems, navigateTo = {
+                            when (it.id) {
+                                ATOM_TEXT -> findNavController().navigate(R.id.action_atomsFragment_to_textFragment)
+                                ATOM_BUTTON -> findNavController().navigate(R.id.action_atomsFragment_to_buttonFragment)
+                            }
+                        })
+                    }
                 }
             }
         }

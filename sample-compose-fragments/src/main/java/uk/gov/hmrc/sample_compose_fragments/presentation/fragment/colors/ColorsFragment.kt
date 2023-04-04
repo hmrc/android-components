@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,12 +41,16 @@ class ColorsFragment : Fragment(R.layout.fragment_colors) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentColorsBinding.bind(view)
-        binding.composeView.setContent {
-            HmrcTheme {
-                Surface(modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                    color = colors.hmrcPageBackground
-                ) {
-                    ColorsListScreen(viewModel = viewModel)
+        binding.composeView.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                HmrcTheme {
+                    Surface(
+                        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
+                        color = colors.hmrcPageBackground
+                    ) {
+                        ColorsListScreen(viewModel = viewModel)
+                    }
                 }
             }
         }

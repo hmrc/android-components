@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
@@ -37,13 +38,16 @@ class InsetViewFragment : Fragment(R.layout.fragment_compose_example) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentComposeExampleBinding.bind(view)
-        binding.composeView.setContent {
-            HmrcTheme() {
-                Surface(
-                    modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                    color = colors.hmrcPageBackground
-                ) {
-                    InsetViewScreen()
+        binding.composeView.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                HmrcTheme {
+                    Surface(
+                        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
+                        color = colors.hmrcPageBackground
+                    ) {
+                        InsetViewScreen()
+                    }
                 }
             }
         }

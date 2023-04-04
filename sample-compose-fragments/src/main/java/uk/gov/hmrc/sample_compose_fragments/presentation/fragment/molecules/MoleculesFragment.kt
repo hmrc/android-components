@@ -23,6 +23,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -48,32 +49,35 @@ class MoleculesFragment : Fragment(R.layout.fragment_molecules) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMoleculesBinding.bind(view)
-        binding.composeViewMolecules.setContent {
-            val listItems by viewModel.moleculesItems.collectAsState()
-            HmrcTheme {
-                Surface(
-                    modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                    color = colors.hmrcPageBackground
-                ) {
-                    ComponentListScreen(items = listItems, navigateTo = {
-                        when (it.id) {
-                            MOLECULE_INSET_VIEW -> {
-                                findNavController().navigate(R.id.action_moleculesFragment_to_insetViewFragment)
+        binding.composeViewMolecules.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                val listItems by viewModel.moleculesItems.collectAsState()
+                HmrcTheme {
+                    Surface(
+                        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
+                        color = colors.hmrcPageBackground
+                    ) {
+                        ComponentListScreen(items = listItems, navigateTo = {
+                            when (it.id) {
+                                MOLECULE_INSET_VIEW -> {
+                                    findNavController().navigate(R.id.action_moleculesFragment_to_insetViewFragment)
+                                }
+                                MOLECULE_INSET_TEXT_VIEW -> {
+                                    findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
+                                }
+                                MOLECULE_BOLD_TITLE_BODY_VIEW -> {
+                                    findNavController().navigate(R.id.action_moleculesFragment_to_boldTitleBodyViewFragment)
+                                }
+                                MOLECULE_H4_TITLE_BODY_VIEW -> {
+                                    findNavController().navigate(R.id.action_moleculesFragment_to_h4TitleBodyViewFragment)
+                                }
+                                MOLECULE_H5_TITLE_BODY_VIEW -> {
+                                    findNavController().navigate(R.id.action_moleculesFragment_to_h5TitleBodyViewFragment)
+                                }
                             }
-                            MOLECULE_INSET_TEXT_VIEW -> {
-                                findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
-                            }
-                            MOLECULE_BOLD_TITLE_BODY_VIEW -> {
-                                findNavController().navigate(R.id.action_moleculesFragment_to_boldTitleBodyViewFragment)
-                            }
-                            MOLECULE_H4_TITLE_BODY_VIEW -> {
-                                findNavController().navigate(R.id.action_moleculesFragment_to_h4TitleBodyViewFragment)
-                            }
-                            MOLECULE_H5_TITLE_BODY_VIEW -> {
-                                findNavController().navigate(R.id.action_moleculesFragment_to_h5TitleBodyViewFragment)
-                            }
-                        }
-                    })
+                        })
+                    }
                 }
             }
         }
