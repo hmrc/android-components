@@ -35,6 +35,7 @@ import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleB
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ATOM_BUTTON
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ATOM_TEXT
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.AtomsViewModel
 
 @AndroidEntryPoint
@@ -51,10 +52,7 @@ class AtomsFragment : Fragment(R.layout.fragment_compose_example) {
             setContent {
                 val listItems by viewModel.atomsItems.collectAsState()
                 HmrcTheme {
-                    Surface(
-                        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                        color = colors.hmrcPageBackground
-                    ) {
+                    HmrcSurface {
                         ComponentListScreen(items = listItems, navigateTo = {
                             when (it.id) {
                                 ATOM_TEXT -> findNavController().navigate(R.id.action_atomsFragment_to_textFragment)

@@ -28,6 +28,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.H4TitleBodyViewScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 
 class H4TitleBodyViewFragment : Fragment(R.layout.fragment_compose_example) {
 
@@ -40,10 +41,7 @@ class H4TitleBodyViewFragment : Fragment(R.layout.fragment_compose_example) {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 HmrcTheme {
-                    Surface(
-                        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                        color = colors.hmrcPageBackground
-                    ) {
+                    HmrcSurface {
                         H4TitleBodyViewScreen()
                     }
                 }

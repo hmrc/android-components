@@ -38,6 +38,7 @@ import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Compa
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_TEXT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_VIEW
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.MoleculesViewModel
 
 @AndroidEntryPoint
@@ -54,10 +55,7 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
             setContent {
                 val listItems by viewModel.moleculesItems.collectAsState()
                 HmrcTheme {
-                    Surface(
-                        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                        color = colors.hmrcPageBackground
-                    ) {
+                    HmrcSurface {
                         ComponentListScreen(items = listItems, navigateTo = {
                             when (it.id) {
                                 MOLECULE_INSET_VIEW -> {

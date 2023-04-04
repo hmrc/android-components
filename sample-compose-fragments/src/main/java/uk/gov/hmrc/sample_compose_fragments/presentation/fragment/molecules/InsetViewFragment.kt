@@ -29,6 +29,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.InsetViewScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 
 @AndroidEntryPoint
 class InsetViewFragment : Fragment(R.layout.fragment_compose_example) {
@@ -42,10 +43,7 @@ class InsetViewFragment : Fragment(R.layout.fragment_compose_example) {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 HmrcTheme {
-                    Surface(
-                        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                        color = colors.hmrcPageBackground
-                    ) {
+                    HmrcSurface {
                         InsetViewScreen()
                     }
                 }
