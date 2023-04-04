@@ -29,10 +29,14 @@ class RepositoryImpl @Inject constructor() : Repository {
         ComponentMenuItem(ATOM_BUTTON, R.string.atoms_buttons),
         ComponentMenuItem(ATOM_DIVIDER, R.string.atoms_divider)
     )
+
     override suspend fun getMoleculesList() = arrayListOf(
         ComponentMenuItem(MOLECULE_INSET_VIEW, R.string.molecules_inset),
-        ComponentMenuItem(MOLECULE_INSET_TEXT_VIEW, R.string.molecules_inset_text)
-    )
+        ComponentMenuItem(MOLECULE_INSET_TEXT_VIEW, R.string.molecules_inset_text),
+        ComponentMenuItem(MOLECULE_H4_TITLE_BODY_VIEW, R.string.molecules_h4),
+        ComponentMenuItem(MOLECULE_H5_TITLE_BODY_VIEW, R.string.molecules_h5),
+        ComponentMenuItem(MOLECULE_BOLD_TITLE_BODY_VIEW, R.string.molecules_bold),
+        )
 
     companion object {
         const val ATOM_TEXT = 1
@@ -41,5 +45,8 @@ class RepositoryImpl @Inject constructor() : Repository {
 
         const val MOLECULE_INSET_VIEW = 1
         const val MOLECULE_INSET_TEXT_VIEW = 2
+        const val MOLECULE_H4_TITLE_BODY_VIEW = 3
+        const val MOLECULE_H5_TITLE_BODY_VIEW = 4
+        const val MOLECULE_BOLD_TITLE_BODY_VIEW = 5
     }
 }

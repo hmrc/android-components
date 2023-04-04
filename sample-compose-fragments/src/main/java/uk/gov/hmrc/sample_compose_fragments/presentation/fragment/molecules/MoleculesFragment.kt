@@ -31,6 +31,9 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentMoleculesBinding
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_BOLD_TITLE_BODY_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H4_TITLE_BODY_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H5_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_TEXT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_VIEW
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
@@ -45,7 +48,6 @@ class MoleculesFragment : Fragment(R.layout.fragment_molecules) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMoleculesBinding.bind(view)
-
         binding.composeViewMolecules.setContent {
             val listItems by viewModel.moleculesItems.collectAsState()
             HmrcTheme {
@@ -60,6 +62,15 @@ class MoleculesFragment : Fragment(R.layout.fragment_molecules) {
                             }
                             MOLECULE_INSET_TEXT_VIEW -> {
                                 findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
+                            }
+                            MOLECULE_BOLD_TITLE_BODY_VIEW -> {
+                                findNavController().navigate(R.id.action_moleculesFragment_to_boldTitleBodyViewFragment)
+                            }
+                            MOLECULE_H4_TITLE_BODY_VIEW -> {
+                                findNavController().navigate(R.id.action_moleculesFragment_to_h4TitleBodyViewFragment)
+                            }
+                            MOLECULE_H5_TITLE_BODY_VIEW -> {
+                                findNavController().navigate(R.id.action_moleculesFragment_to_h5TitleBodyViewFragment)
                             }
                         }
                     })
