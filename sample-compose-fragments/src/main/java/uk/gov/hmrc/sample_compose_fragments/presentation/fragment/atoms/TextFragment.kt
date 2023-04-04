@@ -26,17 +26,17 @@ import androidx.fragment.app.Fragment
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentTextBinding
+import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.TextScreen
 
-class TextFragment : Fragment(R.layout.fragment_text) {
+class TextFragment : Fragment(R.layout.fragment_compose_example) {
 
-    private lateinit var binding: FragmentTextBinding
+    private lateinit var binding: FragmentComposeExampleBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentTextBinding.bind(view)
-        binding.composeViewText.apply {
+        binding = FragmentComposeExampleBinding.bind(view)
+        binding.composeView.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 HmrcTheme {

@@ -31,22 +31,22 @@ import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentAtomsBinding
+import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ATOM_BUTTON
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ATOM_TEXT
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.AtomsViewModel
 
 @AndroidEntryPoint
-class AtomsFragment : Fragment(R.layout.fragment_atoms) {
+class AtomsFragment : Fragment(R.layout.fragment_compose_example) {
 
-    private lateinit var binding: FragmentAtomsBinding
+    private lateinit var binding: FragmentComposeExampleBinding
     private val viewModel: AtomsViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentAtomsBinding.bind(view)
-        binding.composeViewAtoms.apply {
+        binding = FragmentComposeExampleBinding.bind(view)
+        binding.composeView.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 val listItems by viewModel.atomsItems.collectAsState()

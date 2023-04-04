@@ -31,7 +31,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentMoleculesBinding
+import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_BOLD_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H4_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H5_TITLE_BODY_VIEW
@@ -41,15 +41,15 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListSc
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.MoleculesViewModel
 
 @AndroidEntryPoint
-class MoleculesFragment : Fragment(R.layout.fragment_molecules) {
+class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
 
-    private lateinit var binding: FragmentMoleculesBinding
+    private lateinit var binding: FragmentComposeExampleBinding
     private val viewModel: MoleculesViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentMoleculesBinding.bind(view)
-        binding.composeViewMolecules.apply {
+        binding = FragmentComposeExampleBinding.bind(view)
+        binding.composeView.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 val listItems by viewModel.moleculesItems.collectAsState()
