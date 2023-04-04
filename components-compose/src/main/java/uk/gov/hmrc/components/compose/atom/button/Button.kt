@@ -61,7 +61,7 @@ fun HmrcButton(
         modifier = modifier.heightIn(min = hmrc_button_size_48).fillMaxWidth(), colors = buttonColors,
         enabled = enabled, shape = shape, contentPadding = contentPadding, onClick = onClick,
     ) {
-        content.invoke(this)
+        content()
         Text(
             text = text, fontSize = 16.sp, fontWeight = FontWeight.Normal, textAlign = textAlign,
             modifier = modifier.weight(1f)
