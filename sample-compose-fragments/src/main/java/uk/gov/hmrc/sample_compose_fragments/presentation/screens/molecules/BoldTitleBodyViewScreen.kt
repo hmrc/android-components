@@ -27,7 +27,7 @@ import uk.gov.hmrc.components.compose.molecule.titleBody.BoldTitleBodyView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesHeading
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -41,30 +41,30 @@ fun BoldTitleBodyViewScreen() {
             )
         }
 
-        ExamplesHeading()
+        ExamplesSlot {
+            Card(
+                modifier = Modifier.padding(bottom = hmrc_spacing_16).fillMaxWidth(),
+                shape = RoundedCornerShape(0),
+                colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
+            ) {
+                BoldTitleBodyView(
+                    titleText = stringResource(id = R.string.bold_example_title),
+                    bodyText = stringResource(id = R.string.bold_example_body),
+                    modifier = Modifier.padding(hmrc_spacing_16)
+                )
+            }
 
-        Card(
-            modifier = Modifier.padding(bottom = hmrc_spacing_16).fillMaxWidth(),
-            shape = RoundedCornerShape(0),
-            colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
-        ) {
-            BoldTitleBodyView(
-                titleText = stringResource(id = R.string.bold_example_title),
-                bodyText = stringResource(id = R.string.bold_example_body),
-                modifier = Modifier.padding(hmrc_spacing_16)
-            )
-        }
-
-        Card(
-            modifier = Modifier.padding(top = hmrc_spacing_16).fillMaxWidth(),
-            shape = RoundedCornerShape(0),
-            colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
-        ) {
-            BoldTitleBodyView(
-                titleText = stringResource(id = R.string.longer_text),
-                bodyText = stringResource(id = R.string.longest_text),
-                modifier = Modifier.padding(hmrc_spacing_16)
-            )
+            Card(
+                modifier = Modifier.padding(top = hmrc_spacing_16).fillMaxWidth(),
+                shape = RoundedCornerShape(0),
+                colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
+            ) {
+                BoldTitleBodyView(
+                    titleText = stringResource(id = R.string.longer_text),
+                    bodyText = stringResource(id = R.string.longest_text),
+                    modifier = Modifier.padding(hmrc_spacing_16)
+                )
+            }
         }
     }
 }

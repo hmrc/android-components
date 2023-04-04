@@ -34,7 +34,7 @@ import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_4
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesHeading
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -53,57 +53,58 @@ fun InsetViewScreen() {
             )
         }
 
-        ExamplesHeading()
-
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(0),
-            colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)) {
-            InsetView(modifier = Modifier.padding(hmrc_spacing_16),
-                childView = {
-                    Column {
-                        Row {
-                            Text(
-                                text = stringResource(R.string.inset_example_text_line_1_description),
-                                modifier = Modifier.padding(end = hmrc_spacing_4),
-                                style = typography.body,
-                                textAlign = TextAlign.Start
-                            )
-                            Text(
-                                text = stringResource(id = R.string.inset_example_text_line_1_value),
-                                style = typography.h6,
-                                textAlign = TextAlign.Start
-                            )
-                        }
-                        Row(modifier = Modifier.padding(top = hmrc_spacing_8)) {
-                            Text(
-                                text = stringResource(R.string.inset_example_text_line_2_description),
-                                modifier = Modifier.padding(end = hmrc_spacing_4),
-                                style = typography.body,
-                                textAlign = TextAlign.Start
-                            )
-                            Text(
-                                text = stringResource(id = R.string.inset_example_text_line_2_value),
-                                style = typography.h6,
-                                textAlign = TextAlign.Start
-                            )
-                        }
-                        Row(modifier = Modifier.padding(top = hmrc_spacing_8)) {
-                            Text(
-                                text = stringResource(R.string.inset_example_text_line_3_description),
-                                modifier = Modifier.padding(end = hmrc_spacing_4),
-                                style = typography.body,
-                                textAlign = TextAlign.Start
-                            )
-                            Text(
-                                text = stringResource(id = R.string.inset_example_text_line_3_value),
-                                style = typography.h6,
-                                textAlign = TextAlign.Start
-                            )
+        ExamplesSlot {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(0),
+                colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
+            ) {
+                InsetView(modifier = Modifier.padding(hmrc_spacing_16),
+                    childView = {
+                        Column {
+                            Row {
+                                Text(
+                                    text = stringResource(R.string.inset_example_text_line_1_description),
+                                    modifier = Modifier.padding(end = hmrc_spacing_4),
+                                    style = typography.body,
+                                    textAlign = TextAlign.Start
+                                )
+                                Text(
+                                    text = stringResource(id = R.string.inset_example_text_line_1_value),
+                                    style = typography.h6,
+                                    textAlign = TextAlign.Start
+                                )
+                            }
+                            Row(modifier = Modifier.padding(top = hmrc_spacing_8)) {
+                                Text(
+                                    text = stringResource(R.string.inset_example_text_line_2_description),
+                                    modifier = Modifier.padding(end = hmrc_spacing_4),
+                                    style = typography.body,
+                                    textAlign = TextAlign.Start
+                                )
+                                Text(
+                                    text = stringResource(id = R.string.inset_example_text_line_2_value),
+                                    style = typography.h6,
+                                    textAlign = TextAlign.Start
+                                )
+                            }
+                            Row(modifier = Modifier.padding(top = hmrc_spacing_8)) {
+                                Text(
+                                    text = stringResource(R.string.inset_example_text_line_3_description),
+                                    modifier = Modifier.padding(end = hmrc_spacing_4),
+                                    style = typography.body,
+                                    textAlign = TextAlign.Start
+                                )
+                                Text(
+                                    text = stringResource(id = R.string.inset_example_text_line_3_value),
+                                    style = typography.h6,
+                                    textAlign = TextAlign.Start
+                                )
+                            }
                         }
                     }
-                }
-            )
+                )
+            }
         }
     }
 }

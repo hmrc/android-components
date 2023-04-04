@@ -69,9 +69,10 @@ fun PlaceholderSlot(content: @Composable () -> Unit) {
 }
 
 @Composable
-fun ExamplesHeading() {
+fun ExamplesSlot(content: @Composable () -> Unit) {
     Heading5(
         text = stringResource(id = R.string.heading_example_plural),
         modifier = Modifier.padding(bottom = hmrc_spacing_16)
     )
+    content()
 }

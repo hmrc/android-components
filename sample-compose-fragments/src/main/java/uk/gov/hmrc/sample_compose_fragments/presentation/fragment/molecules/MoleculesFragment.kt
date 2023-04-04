@@ -53,20 +53,20 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                     HmrcSurface {
                         ComponentListScreen(items = listItems, navigateTo = {
                             when (it.id) {
-                                MOLECULE_INSET_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_insetViewFragment)
-                                }
-                                MOLECULE_INSET_TEXT_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
-                                }
-                                MOLECULE_BOLD_TITLE_BODY_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_boldTitleBodyViewFragment)
-                                }
                                 MOLECULE_H4_TITLE_BODY_VIEW -> {
                                     findNavController().navigate(R.id.action_moleculesFragment_to_h4TitleBodyViewFragment)
                                 }
                                 MOLECULE_H5_TITLE_BODY_VIEW -> {
                                     findNavController().navigate(R.id.action_moleculesFragment_to_h5TitleBodyViewFragment)
+                                }
+                                MOLECULE_BOLD_TITLE_BODY_VIEW -> {
+                                    findNavController().navigate(R.id.action_moleculesFragment_to_boldTitleBodyViewFragment)
+                                }
+                                MOLECULE_INSET_VIEW -> {
+                                    findNavController().navigate(R.id.action_moleculesFragment_to_insetViewFragment)
+                                }
+                                MOLECULE_INSET_TEXT_VIEW -> {
+                                    findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
                                 }
                             }
                         })
