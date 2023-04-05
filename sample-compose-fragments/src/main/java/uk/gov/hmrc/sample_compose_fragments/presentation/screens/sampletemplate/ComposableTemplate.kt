@@ -29,7 +29,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.extension.addPlaceholderModifier
@@ -40,7 +40,7 @@ fun HmrcSurface(content: @Composable () -> Unit) {
         modifier = Modifier
             .fillMaxHeight()
             .fillMaxWidth(),
-        color = HmrcTheme.colors.hmrcPageBackground,
+        color = colors.hmrcPageBackground,
         content = content
     )
 }

@@ -47,5 +47,6 @@ class ColorsFragment : Fragment(R.layout.fragment_compose_example) {
                 }
             }
         }
+        viewModel.getColorsData()
     }
 }
