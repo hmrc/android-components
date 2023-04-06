@@ -13,13 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.sample_compose_fragments.presentation.screens
+package uk.gov.hmrc.sample_compose_fragments.presentation.screens.atoms
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -44,34 +40,42 @@ fun TextScreen() {
         )
         Heading4(text = stringResource(id = R.string.text_heading4), modifier = Modifier.padding(top = hmrc_spacing_16))
         Text(
-            text = stringResource(id = R.string.text_h4), style = typography.h4,
+            text = stringResource(id = R.string.text_h4),
+            style = typography.h4,
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
         Heading5(text = stringResource(id = R.string.text_heading5), modifier = Modifier.padding(top = hmrc_spacing_16))
         Text(
-            text = stringResource(id = R.string.text_h5), style = typography.h5,
+            text = stringResource(id = R.string.text_h5),
+            style = typography.h5,
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
         Text(
-            text = stringResource(id = R.string.text_bold), style = typography.h6,
+            text = stringResource(id = R.string.text_bold),
+            style = typography.h6,
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
         Text(
-            text = stringResource(id = R.string.text_body), style = typography.body,
+            text = stringResource(id = R.string.text_body),
+            style = typography.body,
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
         Text(
-            text = stringResource(id = R.string.text_info), style = typography.info,
+            text = stringResource(id = R.string.text_info),
+            style = typography.info,
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
         Text(
-            text = stringResource(id = R.string.text_error), style = typography.errorText,
+            text = stringResource(id = R.string.text_error),
+            style = typography.errorText,
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
-        BulletedTextView(text = stringResource(id = R.string.text_bullet_1),
+        BulletedTextView(
+            text = stringResource(id = R.string.text_bullet_1),
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
-        BulletedTextView(text = stringResource(id = R.string.text_bullet_2),
+        BulletedTextView(
+            text = stringResource(id = R.string.text_bullet_2),
             modifier = Modifier.padding(top = hmrc_spacing_16)
         )
     }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.sample_compose_fragments.presentation.screens
+package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -27,32 +27,28 @@ import uk.gov.hmrc.components.compose.molecule.inset.InsetTextView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_fragments.presentation.extension.addPlaceholderModifier
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderHeading
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesHeading
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
 fun InsetTextViewScreen() {
     ScreenScrollViewColumn {
-        PlaceholderHeading()
+        PlaceholderSlot {
+            InsetTextView(text = stringResource(id = R.string.inset_text_placeholder_text))
+        }
 
-        InsetTextView(
-            text = stringResource(id = R.string.inset_text_placeholder_text),
-            modifier = Modifier
-                .padding(bottom = hmrc_spacing_16)
-                .addPlaceholderModifier())
-
-        ExamplesHeading()
-
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(0),
-            colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)) {
-            InsetTextView(
-                text = stringResource(id = R.string.inset_text_example_text),
-                modifier = Modifier.padding(hmrc_spacing_16)
-            )
+        ExamplesSlot {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(0),
+                colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
+            ) {
+                InsetTextView(
+                    text = stringResource(id = R.string.inset_text_example_text),
+                    modifier = Modifier.padding(hmrc_spacing_16)
+                )
+            }
         }
     }
 }
