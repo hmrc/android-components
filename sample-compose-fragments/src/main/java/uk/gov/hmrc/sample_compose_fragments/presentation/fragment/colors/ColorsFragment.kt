@@ -17,37 +17,36 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.fragment.colors
 
 import android.os.Bundle
 import android.view.View
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentColorsBinding
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ColorsListScreen
+import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.colors.ColorsListScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
 @AndroidEntryPoint
-class ColorsFragment : Fragment(R.layout.fragment_colors) {
+class ColorsFragment : Fragment(R.layout.fragment_compose_example) {
 
-    private lateinit var binding: FragmentColorsBinding
+    private lateinit var binding: FragmentComposeExampleBinding
     private val viewModel: ColorsViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentColorsBinding.bind(view)
-        binding.composeView.setContent {
-            HmrcTheme {
-                Surface(modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                    color = colors.hmrcPageBackground
-                ) {
-                    ColorsListScreen(viewModel = viewModel)
+        binding = FragmentComposeExampleBinding.bind(view)
+        binding.composeView.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                HmrcTheme {
+                    HmrcSurface {
+                        ColorsListScreen(viewModel = viewModel)
+                    }
                 }
             }
         }
+        viewModel.getColorsData()
     }
 }

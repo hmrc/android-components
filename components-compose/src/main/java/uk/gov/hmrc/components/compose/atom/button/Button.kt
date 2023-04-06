@@ -58,12 +58,19 @@ fun HmrcButton(
     content: @Composable RowScope.() -> Unit = {},
 ) {
     Button(
-        modifier = modifier.heightIn(min = hmrc_button_size_48).fillMaxWidth(), colors = buttonColors,
-        enabled = enabled, shape = shape, contentPadding = contentPadding, onClick = onClick,
+        modifier = modifier.heightIn(min = hmrc_button_size_48).fillMaxWidth(),
+        colors = buttonColors,
+        enabled = enabled,
+        shape = shape,
+        contentPadding = contentPadding,
+        onClick = onClick,
     ) {
-        content.invoke(this)
+        content()
         Text(
-            text = text, fontSize = 16.sp, fontWeight = FontWeight.Normal, textAlign = textAlign,
+            text = text,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Normal,
+            textAlign = textAlign,
             modifier = modifier.weight(1f)
         )
     }
@@ -84,7 +91,10 @@ fun PrimaryButton(
         disabledContainerColor = colors.hmrcGrey2, disabledContentColor = colors.hmrcGrey1
     )
     HmrcButton(
-        text = text, modifier = modifier, enabled = enabled, textAlign = textAlign,
+        text = text,
+        modifier = modifier,
+        enabled = enabled,
+        textAlign = textAlign,
         buttonColors = if (enabled) primaryButtonColors else disabledPrimaryButtonColors,
         onClick = onClick
     )
@@ -104,10 +114,15 @@ fun SecondaryButton(
 ) {
     CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
         HmrcButton(
-            text = text, modifier = modifier, contentPadding = PaddingValues(all = hmrc_spacing_16),
-            enabled = enabled, textAlign = textAlign, buttonColors = buttonColors, onClick = onClick,
+            text = text,
+            modifier = modifier,
+            contentPadding = PaddingValues(all = hmrc_spacing_16),
+            enabled = enabled,
+            textAlign = textAlign,
+            buttonColors = buttonColors,
+            onClick = onClick,
         ) {
-            content.invoke(this)
+            content()
         }
     }
 }
@@ -120,12 +135,10 @@ fun IconButton(
     textAlign: TextAlign = TextAlign.Start,
     onClick: () -> Unit,
 ) {
-    SecondaryButton(
-        text = text, modifier = Modifier, textAlign = textAlign, onClick = onClick
-    ) {
-
+    SecondaryButton(text = text, modifier = Modifier, textAlign = textAlign, onClick = onClick) {
         Icon(
-            painter = painterResource(id = iconResId), contentDescription = null,
+            painter = painterResource(id = iconResId),
+            contentDescription = null,
             modifier = modifier.size(hmrc_icon_size_24)
         )
         Spacer(modifier = modifier.width(hmrc_spacing_16))

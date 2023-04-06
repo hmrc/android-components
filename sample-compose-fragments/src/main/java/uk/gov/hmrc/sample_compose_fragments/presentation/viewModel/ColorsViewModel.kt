@@ -33,11 +33,7 @@ class ColorsViewModel @Inject constructor(private val repository: Repository) : 
     private val _colorItems = MutableStateFlow(listOf<ColorItem>())
     val colorItems: StateFlow<List<ColorItem>> get() = _colorItems
 
-    init {
-        getFakeData()
-    }
-
-    private fun getFakeData() {
+    fun getColorsData() {
         viewModelScope.launch {
             withContext(Dispatchers.Default) {
                 _colorItems.value = repository.getColorList()

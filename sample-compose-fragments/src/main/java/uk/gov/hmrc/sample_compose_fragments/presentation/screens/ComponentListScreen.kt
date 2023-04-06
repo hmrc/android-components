@@ -43,7 +43,8 @@ fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T
     val listState = rememberLazyListState()
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize(1F), state = listState,
+        modifier = Modifier.fillMaxSize(1F),
+        state = listState,
         contentPadding = PaddingValues(top = hmrc_spacing_8, bottom = hmrc_spacing_8)
     ) {
         items(items) { item ->
@@ -56,16 +57,18 @@ fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T
 fun <T : ComponentItem> ComponentListItem(item: T, navigateTo: (item: T) -> Unit) {
     Card(
         modifier = Modifier
-            .fillMaxWidth().padding(hmrc_spacing_16, hmrc_spacing_8).clickable(onClick = { navigateTo(item) }),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),shape = RoundedCornerShape(0),
+            .fillMaxWidth()
+            .padding(hmrc_spacing_16, hmrc_spacing_8)
+            .clickable(onClick = { navigateTo(item) }),
+        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
+        shape = RoundedCornerShape(0),
         colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
     ) {
-        Row(
-            modifier = Modifier.padding(hmrc_spacing_16).align(alignment = Alignment.CenterHorizontally)
-        ) {
+        Row(modifier = Modifier.padding(hmrc_spacing_16).align(alignment = Alignment.CenterHorizontally)) {
             Text(
                 modifier = Modifier.padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
-                text = stringResource(item.titleRes), style = typography.h5
+                text = stringResource(item.titleRes),
+                style = typography.h5
             )
         }
     }

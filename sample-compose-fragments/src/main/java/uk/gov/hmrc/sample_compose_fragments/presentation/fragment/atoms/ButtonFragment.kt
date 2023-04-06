@@ -17,31 +17,28 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms
 
 import android.os.Bundle
 import android.view.View
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_components.databinding.FragmentButtonBinding
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ButtonScreen
+import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.atoms.ButtonScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 
-class ButtonFragment : Fragment(R.layout.fragment_button) {
+class ButtonFragment : Fragment(R.layout.fragment_compose_example) {
 
-    private lateinit var binding: FragmentButtonBinding
+    private lateinit var binding: FragmentComposeExampleBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentButtonBinding.bind(view)
-        binding.composeViewButton.setContent {
-            HmrcTheme {
-                Surface(
-                    modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-                    color = colors.hmrcPageBackground
-                ) {
-                    ButtonScreen()
+        binding = FragmentComposeExampleBinding.bind(view)
+        binding.composeView.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                HmrcTheme {
+                    HmrcSurface {
+                        ButtonScreen()
+                    }
                 }
             }
         }

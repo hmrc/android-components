@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.sample_compose_fragments.presentation.screens
+package uk.gov.hmrc.sample_compose_fragments.presentation.screens.colors
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -54,7 +54,8 @@ fun ColorsListScreen(viewModel: ColorsViewModel) {
     val listState = rememberLazyListState()
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize(1F), state = listState,
+        modifier = Modifier.fillMaxSize(1F),
+        state = listState,
         contentPadding = PaddingValues(top = hmrc_spacing_8, bottom = hmrc_spacing_8)
     ) {
         items(listItems) { item ->
@@ -66,22 +67,24 @@ fun ColorsListScreen(viewModel: ColorsViewModel) {
 @Composable
 fun ListItem(item: ColorItem) {
     Card(
-        modifier = Modifier
-            .fillMaxWidth().padding(hmrc_spacing_16, hmrc_spacing_8),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),shape = RoundedCornerShape(0),
+        modifier = Modifier.fillMaxWidth().padding(hmrc_spacing_16, hmrc_spacing_8),
+        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
+        shape = RoundedCornerShape(0),
         colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
     ) {
-        Row(
-            modifier = Modifier.padding(hmrc_spacing_16)) {
+        Row(modifier = Modifier.padding(hmrc_spacing_16)) {
             Box(
                 modifier = Modifier
-                    .heightIn(min = 42.dp).widthIn(min = 42.dp).border(BorderStroke(1.dp, colors.hmrcBlack))
-                    .background(item.color).align(alignment = Alignment.CenterVertically),
+                    .heightIn(min = 42.dp)
+                    .widthIn(min = 42.dp)
+                    .border(BorderStroke(1.dp, colors.hmrcBlack))
+                    .background(item.color)
+                    .align(alignment = Alignment.CenterVertically),
             )
             Text(
-                modifier = Modifier
-                    .padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
-                text = "${item.colorName} (${item.color.hexToString()})", style = typography.h5
+                modifier = Modifier.padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
+                text = "${item.colorName} (${item.color.hexToString()})",
+                style = typography.h5
             )
         }
     }

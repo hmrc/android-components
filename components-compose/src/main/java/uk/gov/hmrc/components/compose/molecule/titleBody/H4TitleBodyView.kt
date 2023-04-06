@@ -26,17 +26,15 @@ import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 
 @Composable
 fun H4TitleBodyView(
-    h4Text: String,
-    h5Text: String,
+    titleText: String,
+    bodyText: String,
     modifier: Modifier = Modifier,
 ) {
     Row(modifier = modifier) {
         Column {
-            Heading4(
-                text = h4Text,
-            )
+            Heading4(text = titleText)
             Heading5(
-                text = h5Text,
+                text = bodyText,
                 modifier = Modifier.padding(top = hmrc_spacing_16)
             )
         }

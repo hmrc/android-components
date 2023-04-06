@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.sample_compose_fragments.presentation.screens
+package uk.gov.hmrc.sample_compose_fragments.presentation.screens.atoms
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -36,9 +36,10 @@ fun ButtonScreen() {
         Spacer(modifier = Modifier.height(hmrc_spacing_16))
         SecondaryButton(text = stringResource(id = R.string.button_secondary_example), onClick = {})
         Spacer(modifier = Modifier.height(hmrc_spacing_16))
-        IconButton(text = stringResource(id = R.string.button_icon_example),
+        IconButton(
+            text = stringResource(id = R.string.button_icon_example),
             iconResId = R.drawable.ic_info,
-            onClick = {})
-
+            onClick = {}
+        )
     }
 }
