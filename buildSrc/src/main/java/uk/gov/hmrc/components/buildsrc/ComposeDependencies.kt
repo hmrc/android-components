@@ -20,23 +20,23 @@ class ComposeDependencies {
         const val minSdk = 23
         const val targetSdk = 33
         const val compileSdk = 33
-        const val kotlinCompilerExtensionVersion = "1.3.2"
+        const val kotlinCompilerExtensionVersion = "1.4.4"
     }
 
     object Libs {
         const val compose_bom = "androidx.compose:compose-bom:2022.12.00"
         const val compose_foundation = "androidx.compose.foundation:foundation"
-        const val compose_material = "androidx.compose.material3:material3:1.0.1"
+        const val compose_material = "androidx.compose.material3:material3:1.1.0-beta02"
         const val compose_tooling = "androidx.compose.ui:ui-tooling"
         const val compose_ui = "androidx.compose.ui:ui"
         const val compose_uiTest = "androidx.compose.ui:ui-test-junit4"
 
-        const val material = "com.google.android.material:material:1.7.0"
+        const val material = "com.google.android.material:material:1.8.0"
 
-        const val androidX_activity_activityCompose = "androidx.activity:activity-compose:1.6.1"
-        const val androidX_appCompat = "androidx.appcompat:appcompat:1.5.1"
-        const val androidX_coreKtx = "androidx.core:core-ktx:1.9.0"
-        const val androidX_lifecycle_runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+        const val androidX_activity_activityCompose = "androidx.activity:activity-compose:1.7.0"
+        const val androidX_appCompat = "androidx.appcompat:appcompat:1.6.1"
+        const val androidX_coreKtx = "androidx.core:core-ktx:1.10.0"
+        const val androidX_lifecycle_runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
         const val androidX_navigation_navigationCompose = "androidx.navigation:navigation-compose:2.5.3"
 
         const val androidX_test_ext_junit = "androidx.test.ext:junit-ktx:1.1.5"
