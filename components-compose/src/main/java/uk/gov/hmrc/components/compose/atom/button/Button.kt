@@ -39,7 +39,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import uk.gov.hmrc.components.compose.ui.theme.*
+import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 
 @Composable
