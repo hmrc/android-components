@@ -2,22 +2,17 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowItem
 import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowView
-import uk.gov.hmrc.components.compose.molecule.titleBody.H4TitleBodyView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
@@ -57,13 +52,13 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(hmrc_spacing_16), columnList = listOf(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16), columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_1),
                                 textStyle = HmrcTheme.typography.body,
@@ -77,13 +72,14 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(hmrc_spacing_16), columnList = listOf(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.longest_text),
                                 textStyle = HmrcTheme.typography.errorText,
@@ -97,13 +93,14 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(hmrc_spacing_16), columnList = listOf(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_1),
                                 textStyle = HmrcTheme.typography.body,
@@ -122,13 +119,14 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(hmrc_spacing_16), columnList = listOf(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.longer_text),
                                 textStyle = HmrcTheme.typography.h6,
@@ -147,13 +145,14 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(hmrc_spacing_16), columnList = listOf(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_6),
                                 textStyle = HmrcTheme.typography.body,
@@ -172,13 +171,14 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(hmrc_spacing_16), columnList = listOf(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_8),
                                 textStyle = HmrcTheme.typography.h5,
@@ -197,13 +197,14 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(hmrc_spacing_16), columnList = listOf(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_3),
                                 textStyle = HmrcTheme.typography.body,
@@ -227,13 +228,14 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(hmrc_spacing_16), columnList = listOf(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.long_text),
                                 textStyle = HmrcTheme.typography.body,
@@ -257,13 +259,14 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(hmrc_spacing_16), columnList = listOf(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.summary_row_placeholder_row1_text1),
                                 textStyle = HmrcTheme.typography.body,

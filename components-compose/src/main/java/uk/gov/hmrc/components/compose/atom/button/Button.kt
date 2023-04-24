@@ -39,11 +39,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
+import uk.gov.hmrc.components.compose.ui.theme.*
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_button_size_48
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_icon_size_24
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 
 @Composable
 fun HmrcButton(
@@ -58,7 +55,7 @@ fun HmrcButton(
     content: @Composable RowScope.() -> Unit = {},
 ) {
     Button(
-        modifier = modifier.heightIn(min = hmrc_button_size_48).fillMaxWidth(),
+        modifier = modifier.heightIn(min = HmrcTheme.dimensions.hmrc_button_size_48).fillMaxWidth(),
         colors = buttonColors,
         enabled = enabled,
         shape = shape,
@@ -116,7 +113,7 @@ fun SecondaryButton(
         HmrcButton(
             text = text,
             modifier = modifier,
-            contentPadding = PaddingValues(all = hmrc_spacing_16),
+            contentPadding = PaddingValues(all = HmrcTheme.dimensions.hmrc_spacing_16),
             enabled = enabled,
             textAlign = textAlign,
             buttonColors = buttonColors,
@@ -139,8 +136,8 @@ fun IconButton(
         Icon(
             painter = painterResource(id = iconResId),
             contentDescription = null,
-            modifier = modifier.size(hmrc_icon_size_24)
+            modifier = modifier.size(HmrcTheme.dimensions.hmrc_icon_size_24)
         )
-        Spacer(modifier = modifier.width(hmrc_spacing_16))
+        Spacer(modifier = modifier.width(HmrcTheme.dimensions.hmrc_spacing_16))
     }
 }

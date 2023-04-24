@@ -23,7 +23,7 @@ import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.atom.button.IconButton
 import uk.gov.hmrc.components.compose.atom.button.PrimaryButton
 import uk.gov.hmrc.components.compose.atom.button.SecondaryButton
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -31,11 +31,11 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.
 fun ButtonScreen() {
     ScreenScrollViewColumn {
         PrimaryButton(text = stringResource(id = R.string.button_primary_example)) {}
-        Spacer(modifier = Modifier.height(hmrc_spacing_16))
+        Spacer(modifier = Modifier.height(dimensions.hmrc_spacing_16))
         PrimaryButton(text = stringResource(id = R.string.button_primary_example_disabled), enabled = false) {}
-        Spacer(modifier = Modifier.height(hmrc_spacing_16))
+        Spacer(modifier = Modifier.height(dimensions.hmrc_spacing_16))
         SecondaryButton(text = stringResource(id = R.string.button_secondary_example), onClick = {})
-        Spacer(modifier = Modifier.height(hmrc_spacing_16))
+        Spacer(modifier = Modifier.height(dimensions.hmrc_spacing_16))
         IconButton(
             text = stringResource(id = R.string.button_icon_example),
             iconResId = R.drawable.ic_info,

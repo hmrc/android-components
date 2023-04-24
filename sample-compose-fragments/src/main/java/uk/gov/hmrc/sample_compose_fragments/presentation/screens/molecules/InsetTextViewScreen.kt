@@ -25,7 +25,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.molecule.inset.InsetTextView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
@@ -46,7 +45,7 @@ fun InsetTextViewScreen() {
             ) {
                 InsetTextView(
                     text = stringResource(id = R.string.inset_text_example_text),
-                    modifier = Modifier.padding(hmrc_spacing_16)
+                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16)
                 )
             }
         }

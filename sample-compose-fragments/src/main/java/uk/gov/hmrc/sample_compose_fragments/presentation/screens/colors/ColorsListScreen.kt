@@ -41,10 +41,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
@@ -56,7 +55,7 @@ fun ColorsListScreen(viewModel: ColorsViewModel) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(1F),
         state = listState,
-        contentPadding = PaddingValues(top = hmrc_spacing_8, bottom = hmrc_spacing_8)
+        contentPadding = PaddingValues(top = HmrcTheme.dimensions.hmrc_spacing_8, bottom = HmrcTheme.dimensions.hmrc_spacing_8)
     ) {
         items(listItems) { item ->
             ListItem(item = item)
@@ -67,12 +66,12 @@ fun ColorsListScreen(viewModel: ColorsViewModel) {
 @Composable
 fun ListItem(item: ColorItem) {
     Card(
-        modifier = Modifier.fillMaxWidth().padding(hmrc_spacing_16, hmrc_spacing_8),
+        modifier = Modifier.fillMaxWidth().padding(HmrcTheme.dimensions.hmrc_spacing_16, HmrcTheme.dimensions.hmrc_spacing_8),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
         shape = RoundedCornerShape(0),
         colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
     ) {
-        Row(modifier = Modifier.padding(hmrc_spacing_16)) {
+        Row(modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16)) {
             Box(
                 modifier = Modifier
                     .heightIn(min = 42.dp)
@@ -82,7 +81,7 @@ fun ListItem(item: ColorItem) {
                     .align(alignment = Alignment.CenterVertically),
             )
             Text(
-                modifier = Modifier.padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
+                modifier = Modifier.padding(start = HmrcTheme.dimensions.hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
                 text = "${item.colorName} (${item.color.hexToString()})",
                 style = typography.h5
             )

@@ -25,7 +25,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.molecule.titleBody.H5TitleBodyView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
@@ -45,28 +44,28 @@ fun H5TitleBodyViewScreen() {
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = hmrc_spacing_16),
+                    .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
                 shape = RoundedCornerShape(0),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
                 H5TitleBodyView(
                     titleText = stringResource(id = R.string.h5_example_title),
                     bodyText = stringResource(id = R.string.h5_example_body),
-                    modifier = Modifier.padding(hmrc_spacing_16)
+                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16)
                 )
             }
 
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = hmrc_spacing_16),
+                    .padding(top = HmrcTheme.dimensions.hmrc_spacing_16),
                 shape = RoundedCornerShape(0),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
                 H5TitleBodyView(
                     titleText = stringResource(id = R.string.longer_text),
                     bodyText = stringResource(id = R.string.longest_text),
-                    modifier = Modifier.padding(hmrc_spacing_16)
+                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16)
                 )
             }
         }

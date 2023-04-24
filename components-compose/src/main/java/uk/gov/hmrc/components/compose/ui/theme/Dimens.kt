@@ -57,9 +57,3 @@ val largeDimensions = Dimensions(
     hmrc_icon_size_24 = 24.dp,
     hmrc_button_size_48 = 48.dp
 )
-
-val hmrc_spacing_4 = 4.dp
-val hmrc_spacing_8 = 8.dp
-val hmrc_spacing_16 = 16.dp
-val hmrc_icon_size_24 = 24.dp
-val hmrc_button_size_48 = 48.dp

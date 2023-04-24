@@ -20,8 +20,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 
 @Composable
 fun InsetTextView(
@@ -32,7 +32,7 @@ fun InsetTextView(
         modifier = modifier,
         childView = {
             Text(
-                modifier = Modifier.padding(vertical = hmrc_spacing_8),
+                modifier = Modifier.padding(vertical = HmrcTheme.dimensions.hmrc_spacing_8),
                 text = text,
                 style = typography.body,
                 textAlign = TextAlign.Start,
