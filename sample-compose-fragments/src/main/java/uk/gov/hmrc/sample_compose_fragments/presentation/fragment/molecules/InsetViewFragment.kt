@@ -19,6 +19,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.LocalAppDimens
 import uk.gov.hmrc.components.compose.ui.theme.rememberWindowSizeClass
@@ -27,6 +28,7 @@ import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleB
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules.InsetViewScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 
+@AndroidEntryPoint
 class InsetViewFragment : Fragment(R.layout.fragment_compose_example) {
 
     private lateinit var binding: FragmentComposeExampleBinding

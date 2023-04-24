@@ -33,12 +33,19 @@ import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Compa
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H5_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_TEXT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_MULTI_COLUMN_ROW_VIEW
+import uk.gov.hmrc.sample_compose_fragments.navigator.Navigator
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.MoleculesViewModel
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
+
+    @Inject
+    lateinit var navigator: Navigator
+
 
     private lateinit var binding: FragmentComposeExampleBinding
     private val viewModel: MoleculesViewModel by activityViewModels()
@@ -56,19 +63,22 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                         ComponentListScreen(items = listItems, navigateTo = {
                             when (it.id) {
                                 MOLECULE_H4_TITLE_BODY_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_h4TitleBodyViewFragment)
+                                    with(navigator) { gotoMoleculeH4TitleBodyView() }
                                 }
                                 MOLECULE_H5_TITLE_BODY_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_h5TitleBodyViewFragment)
+                                    with(navigator) { gotoMoleculeH5TitleBodyView() }
                                 }
                                 MOLECULE_BOLD_TITLE_BODY_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_boldTitleBodyViewFragment)
+                                    with(navigator) { gotoMoleculeBoldTitleBodyView() }
                                 }
                                 MOLECULE_INSET_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_insetViewFragment)
+                                    with(navigator) { gotoMoleculeInsetView() }
                                 }
                                 MOLECULE_INSET_TEXT_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
+                                    with(navigator) { gotoMoleculeInsetTextView() }
+                                }
+                                MOLECULE_MULTI_COLUMN_ROW_VIEW -> {
+                                    with(navigator) { gotoMultiRowTextFragment() }
                                 }
                             }
                         })

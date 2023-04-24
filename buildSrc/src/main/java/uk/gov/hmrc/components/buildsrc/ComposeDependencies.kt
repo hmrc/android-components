@@ -21,6 +21,7 @@ class ComposeDependencies {
         const val targetSdk = 33
         const val compileSdk = 33
         const val kotlinCompilerExtensionVersion = "1.3.2"
+        const val jetpackNavigation = "2.5.3"
     }
 
     object Libs {
@@ -37,7 +38,13 @@ class ComposeDependencies {
         const val androidX_appCompat = "androidx.appcompat:appcompat:1.5.1"
         const val androidX_coreKtx = "androidx.core:core-ktx:1.9.0"
         const val androidX_lifecycle_runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
-        const val androidX_navigation_navigationCompose = "androidx.navigation:navigation-compose:2.5.3"
+
+        const val androidX_navigation_fragment =
+            "androidx.navigation:navigation-fragment-ktx:${Versions.jetpackNavigation}"
+        const val androidX_navigation_ui =
+            "androidx.navigation:navigation-ui-ktx:${Versions.jetpackNavigation}"
+        const val androidX_navigation_navigationCompose =
+            "androidx.navigation:navigation-compose:${Versions.jetpackNavigation}"
 
         const val androidX_test_ext_junit = "androidx.test.ext:junit-ktx:1.1.5"
         const val androidX_test_espressoCore = "androidx.test.espresso:espresso-core:3.5.1"
