@@ -57,13 +57,13 @@ fun InsetViewScreen() {
                 shape = RoundedCornerShape(0),
                 colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
             ) {
-                InsetView(modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                InsetView(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                     childView = {
                         Column {
                             Row {
                                 Text(
                                     text = stringResource(R.string.inset_example_text_line_1_description),
-                                    modifier = Modifier.padding(end = HmrcTheme.dimensions.hmrc_spacing_4),
+                                    modifier = Modifier.padding(end = HmrcTheme.dimensions.hmrcSpacing4),
                                     style = typography.body,
                                     textAlign = TextAlign.Start
                                 )
@@ -73,10 +73,10 @@ fun InsetViewScreen() {
                                     textAlign = TextAlign.Start
                                 )
                             }
-                            Row(modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_8)) {
+                            Row(modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing8)) {
                                 Text(
                                     text = stringResource(R.string.inset_example_text_line_2_description),
-                                    modifier = Modifier.padding(end = HmrcTheme.dimensions.hmrc_spacing_4),
+                                    modifier = Modifier.padding(end = HmrcTheme.dimensions.hmrcSpacing4),
                                     style = typography.body,
                                     textAlign = TextAlign.Start
                                 )
@@ -86,10 +86,10 @@ fun InsetViewScreen() {
                                     textAlign = TextAlign.Start
                                 )
                             }
-                            Row(modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_8)) {
+                            Row(modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing8)) {
                                 Text(
                                     text = stringResource(R.string.inset_example_text_line_3_description),
-                                    modifier = Modifier.padding(end = HmrcTheme.dimensions.hmrc_spacing_4),
+                                    modifier = Modifier.padding(end = HmrcTheme.dimensions.hmrcSpacing4),
                                     style = typography.body,
                                     textAlign = TextAlign.Start
                                 )

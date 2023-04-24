@@ -44,28 +44,28 @@ fun H5TitleBodyViewScreen() {
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
+                    .padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                 shape = RoundedCornerShape(0),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
                 H5TitleBodyView(
                     titleText = stringResource(id = R.string.h5_example_title),
                     bodyText = stringResource(id = R.string.h5_example_body),
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16)
+                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
                 )
             }
 
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = HmrcTheme.dimensions.hmrc_spacing_16),
+                    .padding(top = HmrcTheme.dimensions.hmrcSpacing16),
                 shape = RoundedCornerShape(0),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
                 H5TitleBodyView(
                     titleText = stringResource(id = R.string.longer_text),
                     bodyText = stringResource(id = R.string.longest_text),
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16)
+                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
                 )
             }
         }

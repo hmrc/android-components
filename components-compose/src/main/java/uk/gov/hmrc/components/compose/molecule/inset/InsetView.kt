@@ -42,8 +42,8 @@ fun InsetView(
                 modifier = Modifier
                     .fillMaxHeight()
                     .clip(RectangleShape)
-                    .padding(end = HmrcTheme.dimensions.hmrc_spacing_16)
-                    .width(HmrcTheme.dimensions.hmrc_spacing_4)
+                    .padding(end = HmrcTheme.dimensions.hmrcSpacing16)
+                    .width(HmrcTheme.dimensions.hmrcSpacing4)
             )
             childView()
         }

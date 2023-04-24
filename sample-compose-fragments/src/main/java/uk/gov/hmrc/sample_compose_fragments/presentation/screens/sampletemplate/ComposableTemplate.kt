@@ -51,7 +51,7 @@ fun ScreenScrollViewColumn(content: @Composable ColumnScope.() -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .verticalScroll(rememberScrollState())
-            .padding(HmrcTheme.dimensions.hmrc_spacing_16),
+            .padding(HmrcTheme.dimensions.hmrcSpacing16),
         content = content
     )
 }
@@ -60,19 +60,19 @@ fun ScreenScrollViewColumn(content: @Composable ColumnScope.() -> Unit) {
 fun PlaceholderSlot(content: @Composable () -> Unit) {
     Heading5(
         text = stringResource(id = R.string.heading_placeholder_plural),
-        modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16)
+        modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
     )
     Box(modifier = Modifier.addPlaceholderModifier()) {
         content()
     }
-    Spacer(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16))
+    Spacer(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16))
 }
 
 @Composable
 fun ExamplesSlot(content: @Composable () -> Unit) {
     Heading5(
         text = stringResource(id = R.string.heading_example_plural),
-        modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16)
+        modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
     )
     content()
 }

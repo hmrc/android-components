@@ -42,26 +42,26 @@ fun BoldTitleBodyViewScreen() {
 
         ExamplesSlot {
             Card(
-                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16).fillMaxWidth(),
+                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16).fillMaxWidth(),
                 shape = RoundedCornerShape(0),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
                 BoldTitleBodyView(
                     titleText = stringResource(id = R.string.bold_example_title),
                     bodyText = stringResource(id = R.string.bold_example_body),
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16)
+                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
                 )
             }
 
             Card(
-                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16).fillMaxWidth(),
+                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16).fillMaxWidth(),
                 shape = RoundedCornerShape(0),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
                 BoldTitleBodyView(
                     titleText = stringResource(id = R.string.longer_text),
                     bodyText = stringResource(id = R.string.longest_text),
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16)
+                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
                 )
             }
         }

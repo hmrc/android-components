@@ -31,11 +31,11 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.
 fun ButtonScreen() {
     ScreenScrollViewColumn {
         PrimaryButton(text = stringResource(id = R.string.button_primary_example)) {}
-        Spacer(modifier = Modifier.height(dimensions.hmrc_spacing_16))
+        Spacer(modifier = Modifier.height(dimensions.hmrcSpacing16))
         PrimaryButton(text = stringResource(id = R.string.button_primary_example_disabled), enabled = false) {}
-        Spacer(modifier = Modifier.height(dimensions.hmrc_spacing_16))
+        Spacer(modifier = Modifier.height(dimensions.hmrcSpacing16))
         SecondaryButton(text = stringResource(id = R.string.button_secondary_example), onClick = {})
-        Spacer(modifier = Modifier.height(dimensions.hmrc_spacing_16))
+        Spacer(modifier = Modifier.height(dimensions.hmrcSpacing16))
         IconButton(
             text = stringResource(id = R.string.button_icon_example),
             iconResId = R.drawable.ic_info,

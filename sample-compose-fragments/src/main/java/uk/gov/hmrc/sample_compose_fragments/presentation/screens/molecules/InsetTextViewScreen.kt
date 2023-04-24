@@ -45,7 +45,7 @@ fun InsetTextViewScreen() {
             ) {
                 InsetTextView(
                     text = stringResource(id = R.string.inset_text_example_text),
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16)
+                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
                 )
             }
         }

@@ -55,7 +55,7 @@ fun ColorsListScreen(viewModel: ColorsViewModel) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(1F),
         state = listState,
-        contentPadding = PaddingValues(top = HmrcTheme.dimensions.hmrc_spacing_8, bottom = HmrcTheme.dimensions.hmrc_spacing_8)
+        contentPadding = PaddingValues(top = HmrcTheme.dimensions.hmrcSpacing8, bottom = HmrcTheme.dimensions.hmrcSpacing8)
     ) {
         items(listItems) { item ->
             ListItem(item = item)
@@ -66,12 +66,12 @@ fun ColorsListScreen(viewModel: ColorsViewModel) {
 @Composable
 fun ListItem(item: ColorItem) {
     Card(
-        modifier = Modifier.fillMaxWidth().padding(HmrcTheme.dimensions.hmrc_spacing_16, HmrcTheme.dimensions.hmrc_spacing_8),
+        modifier = Modifier.fillMaxWidth().padding(HmrcTheme.dimensions.hmrcSpacing16, HmrcTheme.dimensions.hmrcSpacing8),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
         shape = RoundedCornerShape(0),
         colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
     ) {
-        Row(modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16)) {
+        Row(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)) {
             Box(
                 modifier = Modifier
                     .heightIn(min = 42.dp)
@@ -81,7 +81,7 @@ fun ListItem(item: ColorItem) {
                     .align(alignment = Alignment.CenterVertically),
             )
             Text(
-                modifier = Modifier.padding(start = HmrcTheme.dimensions.hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
+                modifier = Modifier.padding(start = HmrcTheme.dimensions.hmrcSpacing16).align(alignment = Alignment.CenterVertically),
                 text = "${item.colorName} (${item.color.hexToString()})",
                 style = typography.h5
             )

@@ -32,7 +32,7 @@ fun InsetTextView(
         modifier = modifier,
         childView = {
             Text(
-                modifier = Modifier.padding(vertical = HmrcTheme.dimensions.hmrc_spacing_8),
+                modifier = Modifier.padding(vertical = HmrcTheme.dimensions.hmrcSpacing8),
                 text = text,
                 style = typography.body,
                 textAlign = TextAlign.Start,

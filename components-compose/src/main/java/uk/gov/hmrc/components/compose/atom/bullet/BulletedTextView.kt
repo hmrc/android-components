@@ -33,7 +33,7 @@ fun BulletedTextView(
     Column {
         Row(modifier = modifier) {
             Text(
-                modifier = Modifier.padding(end = dimensions.hmrc_spacing_16),
+                modifier = Modifier.padding(end = dimensions.hmrcSpacing16),
                 text = "\u25CF",
                 style = typography.body,
                 textAlign = TextAlign.Start

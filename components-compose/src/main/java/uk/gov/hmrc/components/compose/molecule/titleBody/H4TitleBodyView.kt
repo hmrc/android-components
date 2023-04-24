@@ -35,7 +35,7 @@ fun H4TitleBodyView(
             Heading4(text = titleText)
             Heading5(
                 text = bodyText,
-                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16)
+                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
             )
         }
     }

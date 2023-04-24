@@ -36,47 +36,47 @@ fun TextScreen() {
         Text(
             text = stringResource(id = R.string.text_h3),
             style = typography.h3,
-            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16)
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
-        Heading4(text = stringResource(id = R.string.text_heading4), modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16))
+        Heading4(text = stringResource(id = R.string.text_heading4), modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16))
         Text(
             text = stringResource(id = R.string.text_h4),
             style = typography.h4,
-            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16)
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
-        Heading5(text = stringResource(id = R.string.text_heading5), modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16))
+        Heading5(text = stringResource(id = R.string.text_heading5), modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16))
         Text(
             text = stringResource(id = R.string.text_h5),
             style = typography.h5,
-            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16)
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
         Text(
             text = stringResource(id = R.string.text_bold),
             style = typography.h6,
-            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16)
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
         Text(
             text = stringResource(id = R.string.text_body),
             style = typography.body,
-            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16)
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
         Text(
             text = stringResource(id = R.string.text_info),
             style = typography.info,
-            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16)
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
         Text(
             text = stringResource(id = R.string.text_error),
             style = typography.errorText,
-            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16)
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
         BulletedTextView(
             text = stringResource(id = R.string.text_bullet_1),
-            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16)
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
         BulletedTextView(
             text = stringResource(id = R.string.text_bullet_2),
-            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_16)
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
     }
 }

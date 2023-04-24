@@ -67,13 +67,13 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16), columnList = listOf(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16), columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_1),
                                 textStyle = HmrcTheme.typography.body,
@@ -87,13 +87,13 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.longest_text),
@@ -108,13 +108,13 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_1),
@@ -134,13 +134,13 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.longer_text),
@@ -160,13 +160,13 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_6),
@@ -186,13 +186,13 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_8),
@@ -212,13 +212,13 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_3),
@@ -243,13 +243,13 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.long_text),
@@ -274,13 +274,13 @@ object MultiColumnRowViewScreen {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = HmrcTheme.dimensions.hmrc_spacing_16),
+                        .padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                     shape = RoundedCornerShape(0),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16),
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.summary_row_placeholder_row1_text1),

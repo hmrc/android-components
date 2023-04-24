@@ -39,7 +39,7 @@ fun BoldTitleBodyView(
             Text(
                 text = bodyText,
                 style = typography.body,
-                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrc_spacing_8)
+                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing8)
             )
         }
     }

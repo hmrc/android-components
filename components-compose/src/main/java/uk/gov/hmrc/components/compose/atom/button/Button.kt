@@ -55,7 +55,7 @@ fun HmrcButton(
     content: @Composable RowScope.() -> Unit = {},
 ) {
     Button(
-        modifier = modifier.heightIn(min = HmrcTheme.dimensions.hmrc_button_size_48).fillMaxWidth(),
+        modifier = modifier.heightIn(min = HmrcTheme.dimensions.hmrcButtonSize48).fillMaxWidth(),
         colors = buttonColors,
         enabled = enabled,
         shape = shape,
@@ -113,7 +113,7 @@ fun SecondaryButton(
         HmrcButton(
             text = text,
             modifier = modifier,
-            contentPadding = PaddingValues(all = HmrcTheme.dimensions.hmrc_spacing_16),
+            contentPadding = PaddingValues(all = HmrcTheme.dimensions.hmrcSpacing16),
             enabled = enabled,
             textAlign = textAlign,
             buttonColors = buttonColors,
@@ -136,8 +136,8 @@ fun IconButton(
         Icon(
             painter = painterResource(id = iconResId),
             contentDescription = null,
-            modifier = modifier.size(HmrcTheme.dimensions.hmrc_icon_size_24)
+            modifier = modifier.size(HmrcTheme.dimensions.hmrcIconSize24)
         )
-        Spacer(modifier = modifier.width(HmrcTheme.dimensions.hmrc_spacing_16))
+        Spacer(modifier = modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
     }
 }

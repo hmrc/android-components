@@ -44,7 +44,7 @@ fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T
     LazyColumn(
         modifier = Modifier.fillMaxSize(1F),
         state = listState,
-        contentPadding = PaddingValues(top = HmrcTheme.dimensions.hmrc_spacing_8, bottom = HmrcTheme.dimensions.hmrc_spacing_8)
+        contentPadding = PaddingValues(top = HmrcTheme.dimensions.hmrcSpacing8, bottom = HmrcTheme.dimensions.hmrcSpacing8)
     ) {
         items(items) { item ->
             ComponentListItem(item = item, navigateTo)
@@ -57,15 +57,15 @@ fun <T : ComponentItem> ComponentListItem(item: T, navigateTo: (item: T) -> Unit
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(HmrcTheme.dimensions.hmrc_spacing_16, HmrcTheme.dimensions.hmrc_spacing_8)
+            .padding(HmrcTheme.dimensions.hmrcSpacing16, HmrcTheme.dimensions.hmrcSpacing8)
             .clickable(onClick = { navigateTo(item) }),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
         shape = RoundedCornerShape(0),
         colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
     ) {
-        Row(modifier = Modifier.padding(HmrcTheme.dimensions.hmrc_spacing_16).align(alignment = Alignment.CenterHorizontally)) {
+        Row(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16).align(alignment = Alignment.CenterHorizontally)) {
             Text(
-                modifier = Modifier.padding(start = HmrcTheme.dimensions.hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
+                modifier = Modifier.padding(start = HmrcTheme.dimensions.hmrcSpacing16).align(alignment = Alignment.CenterVertically),
                 text = stringResource(item.titleRes),
                 style = typography.h5
             )

@@ -19,41 +19,41 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 data class Dimensions(
-    val hmrc_spacing_4: Dp,
-    val hmrc_spacing_8: Dp,
-    val hmrc_spacing_16: Dp,
-    val hmrc_icon_size_24: Dp,
-    val hmrc_button_size_48: Dp,
+    val hmrcSpacing4: Dp,
+    val hmrcSpacing8: Dp,
+    val hmrcSpacing16: Dp,
+    val hmrcIconSize24: Dp,
+    val hmrcButtonSize48: Dp,
 )
 
 val smallDimensions = Dimensions(
-    hmrc_spacing_4 = 4.dp,
-    hmrc_spacing_8 = 8.dp,
-    hmrc_spacing_16 = 16.dp,
-    hmrc_icon_size_24 = 24.dp,
-    hmrc_button_size_48 = 48.dp
+    hmrcSpacing4 = 4.dp,
+    hmrcSpacing8 = 8.dp,
+    hmrcSpacing16 = 16.dp,
+    hmrcIconSize24 = 24.dp,
+    hmrcButtonSize48 = 48.dp
 )
 
 val compactDimensions = Dimensions(
-    hmrc_spacing_4 = 4.dp,
-    hmrc_spacing_8 = 8.dp,
-    hmrc_spacing_16 = 16.dp,
-    hmrc_icon_size_24 = 24.dp,
-    hmrc_button_size_48 = 48.dp
+    hmrcSpacing4 = 4.dp,
+    hmrcSpacing8 = 8.dp,
+    hmrcSpacing16 = 16.dp,
+    hmrcIconSize24 = 24.dp,
+    hmrcButtonSize48 = 48.dp
 )
 
 val mediumDimensions = Dimensions(
-    hmrc_spacing_4 = 4.dp,
-    hmrc_spacing_8 = 8.dp,
-    hmrc_spacing_16 = 16.dp,
-    hmrc_icon_size_24 = 24.dp,
-    hmrc_button_size_48 = 48.dp
+    hmrcSpacing4 = 4.dp,
+    hmrcSpacing8 = 8.dp,
+    hmrcSpacing16 = 16.dp,
+    hmrcIconSize24 = 24.dp,
+    hmrcButtonSize48 = 48.dp
 )
 
 val largeDimensions = Dimensions(
-    hmrc_spacing_4 = 4.dp,
-    hmrc_spacing_8 = 8.dp,
-    hmrc_spacing_16 = 16.dp,
-    hmrc_icon_size_24 = 24.dp,
-    hmrc_button_size_48 = 48.dp
+    hmrcSpacing4 = 4.dp,
+    hmrcSpacing8 = 8.dp,
+    hmrcSpacing16 = 16.dp,
+    hmrcIconSize24 = 24.dp,
+    hmrcButtonSize48 = 48.dp
 )

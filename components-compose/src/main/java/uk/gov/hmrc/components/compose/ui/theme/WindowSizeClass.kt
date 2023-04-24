@@ -21,11 +21,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalConfiguration
 
-const val SMALL_RANGE = 360
-const val COMPACT_START_RANGE = 361
-const val COMPACT_END_RANGE = 480
-const val MEDIUM_START_RANGE = 481
-const val MEDIUM_END_RANGE = 720
+private const val SMALL_RANGE = 360
+private const val COMPACT_START_RANGE = 361
+private const val COMPACT_END_RANGE = 480
+private const val MEDIUM_START_RANGE = 481
+private const val MEDIUM_END_RANGE = 720
 
 sealed class WindowSize(val size: Int) {
     data class Small(val smallSize: Int) : WindowSize(smallSize)
