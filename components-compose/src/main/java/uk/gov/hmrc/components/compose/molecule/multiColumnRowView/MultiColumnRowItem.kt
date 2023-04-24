@@ -21,5 +21,5 @@ import androidx.compose.ui.text.TextStyle
 data class MultiColumnRowItem(
     val text: String = "",
     val modifier: Modifier = Modifier,
-    val textStyle : TextStyle
+    val textStyle: TextStyle
 )

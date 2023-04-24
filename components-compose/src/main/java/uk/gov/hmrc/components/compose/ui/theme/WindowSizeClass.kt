@@ -33,7 +33,6 @@ sealed class WindowSize(val size: Int) {
     data class Large(val largeSize: Int) : WindowSize(largeSize)
 }
 
-
 data class WindowSizeClass(
     val width: WindowSize,
     val height: WindowSize
@@ -76,15 +75,3 @@ private object WindowSizeConstants {
     const val MEDIUM_START_RANGE = 481
     const val MEDIUM_END_RANGE = 720
 }
-
-
-
-
-
-
-
-
-
-
-
-

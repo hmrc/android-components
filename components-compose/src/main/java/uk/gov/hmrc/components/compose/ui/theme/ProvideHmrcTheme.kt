@@ -51,4 +51,4 @@ val LocalHmrcColors = staticCompositionLocalOf<HmrcColors> { error("No HmrcColor
 val LocalHmrcTypography = staticCompositionLocalOf<HmrcTypography> { error("No HmrcTypography provided") }
 
 val LocalAppDimens = compositionLocalOf { smallDimensions }
-val LocalOrientationMode = compositionLocalOf { Orientation.Portrait}
+val LocalOrientationMode = compositionLocalOf { Orientation.Portrait }

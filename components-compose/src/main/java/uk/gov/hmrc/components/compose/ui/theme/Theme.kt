@@ -68,12 +68,11 @@ fun HmrcTheme(
 ) {
     val colors = if (darkTheme) DarkColorPalette else LightColorPalette
 
-    //check orientation
+    // check orientation
     val orientation = when {
         windowSizeClass.width.size > windowSizeClass.height.size -> Orientation.Landscape
         else -> Orientation.Portrait
     }
-
 
     val sizeThatMatters = when (orientation) {
         Orientation.Portrait -> windowSizeClass.width
@@ -94,7 +93,7 @@ fun HmrcTheme(
     )
 
     // We can define the different typography of different sizes screen
-    val typography =  when (sizeThatMatters) {
+    val typography = when (sizeThatMatters) {
         is WindowSize.Small -> hmrcTypography
         is WindowSize.Medium -> hmrcTypography
         is WindowSize.Compact -> hmrcTypography
@@ -123,11 +122,11 @@ object HmrcTheme {
         @Composable
         get() = LocalHmrcTypography.current
 
-    val dimensions : Dimensions
+    val dimensions: Dimensions
         @Composable
         get() = LocalAppDimens.current
 
-    val orientation : Orientation
+    val orientation: Orientation
         @Composable
         get() = LocalOrientationMode.current
 }
