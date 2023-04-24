@@ -25,6 +25,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.rememberWindowSizeClass
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_BOLD_TITLE_BODY_VIEW
@@ -49,7 +50,8 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 val listItems by viewModel.moleculesItems.collectAsState()
-                HmrcTheme {
+                val window = rememberWindowSizeClass()
+                HmrcTheme(window) {
                     HmrcSurface {
                         ComponentListScreen(items = listItems, navigateTo = {
                             when (it.id) {
