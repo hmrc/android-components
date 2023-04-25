@@ -45,17 +45,15 @@ object MultiColumnRowViewScreen {
                         MultiColumnRowItem(
                             text = stringResource(id = R.string.multi_column_row_placeholder_text1),
                             modifier = Modifier.weight(1f),
-                            textStyle = HmrcTheme.typography.body
                         ),
                         MultiColumnRowItem(
                             text = stringResource(id = R.string.multi_column_row_placeholder_text2),
                             modifier = Modifier.weight(0.5f),
-                            textStyle = HmrcTheme.typography.body
                         ),
                         MultiColumnRowItem(
                             text = stringResource(id = R.string.multi_column_row_placeholder_text3),
                             modifier = Modifier.weight(0.5f),
-                            textStyle = HmrcTheme.typography.body.copy(textAlign = TextAlign.Right),
+                            textStyle = { HmrcTheme.typography.body.copy(textAlign = TextAlign.Right) },
                         )
                     )
                 )
@@ -73,10 +71,10 @@ object MultiColumnRowViewScreen {
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16), columnList = listOf(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                        columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_1),
-                                textStyle = HmrcTheme.typography.body,
                                 modifier = Modifier.weight(1f)
                             )
                         )
@@ -97,7 +95,7 @@ object MultiColumnRowViewScreen {
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.longest_text),
-                                textStyle = HmrcTheme.typography.errorText,
+                                textStyle = { HmrcTheme.typography.errorText },
                                 modifier = Modifier.weight(1f)
                             )
                         )
@@ -118,12 +116,10 @@ object MultiColumnRowViewScreen {
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_1),
-                                textStyle = HmrcTheme.typography.body,
                                 modifier = Modifier.weight(1f)
                             ),
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_2),
-                                textStyle = HmrcTheme.typography.body,
                                 modifier = Modifier
                             )
                         )
@@ -144,12 +140,12 @@ object MultiColumnRowViewScreen {
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.longer_text),
-                                textStyle = HmrcTheme.typography.h6,
+                                textStyle = { HmrcTheme.typography.h6 },
                                 modifier = Modifier.weight(1f)
                             ),
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.long_text),
-                                textStyle = HmrcTheme.typography.h6.copy(textAlign = TextAlign.Right),
+                                textStyle = { HmrcTheme.typography.h6.copy(textAlign = TextAlign.Right) },
                                 modifier = Modifier.weight(0.5f)
                             )
                         )
@@ -170,12 +166,11 @@ object MultiColumnRowViewScreen {
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_6),
-                                textStyle = HmrcTheme.typography.body,
                                 modifier = Modifier.weight(1f)
                             ),
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_7),
-                                textStyle = HmrcTheme.typography.h6.copy(textAlign = TextAlign.Right),
+                                textStyle = { HmrcTheme.typography.h6.copy(textAlign = TextAlign.Right) },
                                 modifier = Modifier.weight(0.5f)
                             )
                         )
@@ -196,12 +191,11 @@ object MultiColumnRowViewScreen {
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_8),
-                                textStyle = HmrcTheme.typography.h5,
+                                textStyle = { HmrcTheme.typography.h5 },
                                 modifier = Modifier.weight(1f)
                             ),
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.summary_row_placeholder_row1_text2),
-                                textStyle = HmrcTheme.typography.body,
                                 modifier = Modifier
                             )
                         )
@@ -222,17 +216,15 @@ object MultiColumnRowViewScreen {
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_3),
-                                textStyle = HmrcTheme.typography.body,
                                 modifier = Modifier.weight(1f)
                             ),
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_4),
-                                textStyle = HmrcTheme.typography.body,
                                 modifier = Modifier.weight(0.5f)
                             ),
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.multi_column_row_example_text_5),
-                                textStyle = HmrcTheme.typography.body.copy(textAlign = TextAlign.Right),
+                                textStyle = { HmrcTheme.typography.body.copy(textAlign = TextAlign.Right) },
                                 modifier = Modifier.weight(0.5f)
                             )
                         )
@@ -253,17 +245,16 @@ object MultiColumnRowViewScreen {
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.long_text),
-                                textStyle = HmrcTheme.typography.body,
                                 modifier = Modifier.weight(1f)
                             ),
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.long_text),
-                                textStyle = HmrcTheme.typography.body.copy(textAlign = TextAlign.Right),
+                                textStyle = { HmrcTheme.typography.body.copy(textAlign = TextAlign.Right) },
                                 modifier = Modifier.weight(1f)
                             ),
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.long_text),
-                                textStyle = HmrcTheme.typography.body.copy(textAlign = TextAlign.Right),
+                                textStyle = { HmrcTheme.typography.body.copy(textAlign = TextAlign.Right) },
                                 modifier = Modifier.weight(1f)
                             )
                         )
@@ -284,12 +275,11 @@ object MultiColumnRowViewScreen {
                         columnList = listOf(
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.summary_row_placeholder_row1_text1),
-                                textStyle = HmrcTheme.typography.body,
                                 modifier = Modifier.weight(1f)
                             ),
                             MultiColumnRowItem(
                                 text = stringResource(id = R.string.summary_row_placeholder_row1_text2),
-                                textStyle = HmrcTheme.typography.body.copy(textAlign = TextAlign.Right),
+                                textStyle = { HmrcTheme.typography.body.copy(textAlign = TextAlign.Right) },
                                 modifier = Modifier.weight(1f)
                             )
                         )

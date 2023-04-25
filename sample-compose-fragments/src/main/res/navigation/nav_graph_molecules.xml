@@ -85,11 +85,6 @@
         android:id="@+id/navMultiRowTextFragment"
         android:label="@string/molecules_multi_column_row"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MultiColumnRowViewFragment">
-
-        <argument
-            android:name="title"
-            app:argType="string"/>
-
     </fragment>
 
 

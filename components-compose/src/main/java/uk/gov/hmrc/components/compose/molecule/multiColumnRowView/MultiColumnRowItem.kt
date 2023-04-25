@@ -15,11 +15,13 @@
  */
 package uk.gov.hmrc.components.compose.molecule.multiColumnRowView
 
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 data class MultiColumnRowItem(
     val text: String = "",
     val modifier: Modifier = Modifier,
-    val textStyle: TextStyle
+    val textStyle: @Composable () -> TextStyle = { HmrcTheme.typography.body }
 )

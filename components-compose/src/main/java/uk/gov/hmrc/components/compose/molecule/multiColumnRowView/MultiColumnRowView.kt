@@ -29,7 +29,11 @@ fun MultiColumnRowView(
     Box(modifier = modifier) {
         Row {
             columnList.forEach { column ->
-                Text(text = column.text, style = column.textStyle, modifier = column.modifier)
+                Text(
+                    text = column.text,
+                    style = column.textStyle.invoke(),
+                    modifier = column.modifier
+                )
             }
         }
     }

@@ -29,7 +29,7 @@ class AppNavigator @Inject constructor() : Navigator{
     }
 
     override fun Fragment.gotoMultiRowTextFragment() {
-        navigate(MoleculesFragmentDirections.actionMoleculesFragmentToNavMultiRowTextFragment("Multi Row"))
+        navigate(MoleculesFragmentDirections.actionMoleculesFragmentToNavMultiRowTextFragment())
     }
 
     override fun Fragment.goBack() {
