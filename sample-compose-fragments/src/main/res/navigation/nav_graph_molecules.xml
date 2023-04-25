@@ -24,7 +24,10 @@
         android:id="@+id/moleculesFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MoleculesFragment"
         android:label="@string/title_molecules"
-        tools:layout="@layout/fragment_molecules">
+        tools:layout="@layout/fragment_compose_example">
+        <action
+            android:id="@+id/action_moleculesFragment_to_textInputViewFragment"
+            app:destination="@id/textInputViewFragment"/>
         <action
             android:id="@+id/action_moleculesFragment_to_insetViewFragment"
             app:destination="@id/insetViewFragment"/>
@@ -40,6 +43,13 @@
         <action
             android:id="@+id/action_moleculesFragment_to_h5TitleBodyViewFragment"
             app:destination="@id/h5TitleBodyViewFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/textInputViewFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.TextInputViewFragment"
+        android:label="@string/molecules_text_input_view"
+        tools:layout="@layout/fragment_compose_example">
     </fragment>
 
     <fragment

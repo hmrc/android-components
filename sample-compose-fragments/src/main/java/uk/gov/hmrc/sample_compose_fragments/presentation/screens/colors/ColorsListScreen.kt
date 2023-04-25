@@ -34,13 +34,13 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
@@ -50,7 +50,7 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewMod
 
 @Composable
 fun ColorsListScreen(viewModel: ColorsViewModel) {
-    val listItems by viewModel.colorItems.collectAsState()
+    val listItems by viewModel.colorItems.collectAsStateWithLifecycle()
     val listState = rememberLazyListState()
 
     LazyColumn(

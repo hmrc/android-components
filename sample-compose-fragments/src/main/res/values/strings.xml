@@ -73,6 +73,7 @@
     <string name="molecules_bold">Bold Title Body View</string>
     <string name="molecules_inset">Inset View</string>
     <string name="molecules_inset_text">Inset Text View</string>
+    <string name="molecules_text_input_view">Text Input View</string>
     <string name="molecules_multi_column_row">Multi Column Row View</string>
     <string name="molecules_switch_row">Switch Row View</string>
     <string name="molecules_status">Status View</string>
