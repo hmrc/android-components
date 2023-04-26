@@ -29,16 +29,17 @@ fun MultiColumnRowView(
 ) {
     Box(modifier = modifier) {
         Row {
-            val columns = columnList.take(3) // Restricting 3 items
-            columns.forEachIndexed { index, column ->
+            val restrictedColumnCount = 3
+            val restrictedColumns = columnList.take(restrictedColumnCount)
+            restrictedColumns.forEachIndexed { index, column ->
                 val textAlign =
-                    if (columns.size >= 2 && index >= 1) TextAlign.End else TextAlign.Start
-                val weight =
-                    if (columns.size == 1) 1f else if (columns.size == 2 && index == 0) 1f else 0.5f
+                    if (restrictedColumns.size >= 2 && index >= 1) TextAlign.End else TextAlign.Start
+                val columnWeight =
+                    if (restrictedColumns.size == 1) 1f else if (restrictedColumns.size == 2 && index == 0) 1f else 0.5f
                 Text(
                     text = column.text,
                     style = column.textStyle.invoke().copy(textAlign = textAlign),
-                    modifier = column.modifier.weight(weight)
+                    modifier = column.modifier.weight(columnWeight)
                 )
             }
         }
