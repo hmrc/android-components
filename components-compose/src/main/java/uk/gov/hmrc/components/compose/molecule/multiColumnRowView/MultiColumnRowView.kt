@@ -15,7 +15,6 @@
  */
 package uk.gov.hmrc.components.compose.molecule.multiColumnRowView
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,26 +32,21 @@ object MultiColumnRowView {
         modifier: Modifier = Modifier,
         columnList: List<MultiColumnRowItem>
     ) {
-        Box(modifier = modifier) {
-            Row {
-                val restrictedColumns = columnList.take(restrictedColumnCount)
-                restrictedColumns.forEachIndexed { index, column ->
+        Row(modifier = modifier) {
+            val restrictedColumns = columnList.take(restrictedColumnCount)
+            restrictedColumns.forEachIndexed { index, column ->
 
-                    val textAlign =
-                        if (restrictedColumns.size >= 2 && index >= 1) TextAlign.End
-                        else TextAlign.Start
+                val textAlign = if (index == 0) TextAlign.Start else TextAlign.End
 
-                    val columnWeight =
-                        if (restrictedColumns.size == 1) WEIGHT_FULL
-                        else if (restrictedColumns.size == 2 && index == 0) WEIGHT_FULL
-                        else WEIGHT_HALF
+                val columnWeight =
+                    if (restrictedColumns.size == 1 || (restrictedColumns.size == 2 && index == 0)) WEIGHT_FULL
+                    else WEIGHT_HALF
 
-                    Text(
-                        text = column.text,
-                        style = column.textStyle.invoke().copy(textAlign = textAlign),
-                        modifier = column.modifier.weight(columnWeight)
-                    )
-                }
+                Text(
+                    text = column.text,
+                    style = column.textStyle.invoke().copy(textAlign = textAlign),
+                    modifier = column.modifier.weight(columnWeight)
+                )
             }
         }
     }
