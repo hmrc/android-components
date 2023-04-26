@@ -22,25 +22,37 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 
-@Composable
-fun MultiColumnRowView(
-    modifier: Modifier = Modifier,
-    columnList: List<MultiColumnRowItem>
-) {
-    Box(modifier = modifier) {
-        Row {
-            val restrictedColumnCount = 3
-            val restrictedColumns = columnList.take(restrictedColumnCount)
-            restrictedColumns.forEachIndexed { index, column ->
-                val textAlign =
-                    if (restrictedColumns.size >= 2 && index >= 1) TextAlign.End else TextAlign.Start
-                val columnWeight =
-                    if (restrictedColumns.size == 1) 1f else if (restrictedColumns.size == 2 && index == 0) 1f else 0.5f
-                Text(
-                    text = column.text,
-                    style = column.textStyle.invoke().copy(textAlign = textAlign),
-                    modifier = column.modifier.weight(columnWeight)
-                )
+object MultiColumnRowView {
+
+    private const val restrictedColumnCount = 3
+    private const val WEIGHT_FULL = 1f
+    private const val WEIGHT_HALF = 0.5f
+
+    @Composable
+    operator fun invoke(
+        modifier: Modifier = Modifier,
+        columnList: List<MultiColumnRowItem>
+    ) {
+        Box(modifier = modifier) {
+            Row {
+                val restrictedColumns = columnList.take(restrictedColumnCount)
+                restrictedColumns.forEachIndexed { index, column ->
+
+                    val textAlign =
+                        if (restrictedColumns.size >= 2 && index >= 1) TextAlign.End
+                        else TextAlign.Start
+
+                    val columnWeight =
+                        if (restrictedColumns.size == 1) WEIGHT_FULL
+                        else if (restrictedColumns.size == 2 && index == 0) WEIGHT_FULL
+                        else WEIGHT_HALF
+
+                    Text(
+                        text = column.text,
+                        style = column.textStyle.invoke().copy(textAlign = textAlign),
+                        modifier = column.modifier.weight(columnWeight)
+                    )
+                }
             }
         }
     }
