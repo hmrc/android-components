@@ -20,19 +20,25 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 
 @Composable
 fun MultiColumnRowView(
     modifier: Modifier = Modifier,
-    columnList: List<MultiColumnRowItem> = listOf()
+    columnList: List<MultiColumnRowItem>
 ) {
     Box(modifier = modifier) {
         Row {
-            columnList.forEach { column ->
+            val columns = columnList.take(3) // Restricting 3 items
+            columns.forEachIndexed { index, column ->
+                val textAlign =
+                    if (columns.size >= 2 && index >= 1) TextAlign.End else TextAlign.Start
+                val weight =
+                    if (columns.size == 1) 1f else if (columns.size == 2 && index == 0) 1f else 0.5f
                 Text(
                     text = column.text,
-                    style = column.textStyle.invoke(),
-                    modifier = column.modifier
+                    style = column.textStyle.invoke().copy(textAlign = textAlign),
+                    modifier = column.modifier.weight(weight)
                 )
             }
         }
