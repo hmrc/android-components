@@ -34,21 +34,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import uk.gov.hmrc.components.compose.ui.theme.textInputViewColors
-
+import uk.gov.hmrc.components.compose.molecule.input.TextInputView
 
 @Composable
-fun TextInputView(
-    modifier: Modifier = Modifier,
-    placeholderText: String? = null,
-    errorText: String? = null,
-    isError: () -> Boolean,
-    labelText: String? = null,
-    supportingText: String? = null,
-    singleLine: Boolean = false,
-    characterCount: Int? = null,
-   // onValueChange: () -> Unit,
-    vm: TextInputViewModel
-) {
+fun CurrencyInputView(): TextInputView {
 
     var localValue: String by remember {
         mutableStateOf("")
@@ -101,7 +90,6 @@ fun TextInputView(
                 vm.updateValue(localValue)
                 isErrorLocal = isError.invoke()
             },
-            onValueChange = {},
             colors = textInputViewColors(),
             label = { labelText?.let { Text(text = it) } },
             supportingText = if (counterEnabled) supportingTextCounterCombo() else supportingText(),

@@ -32,4 +32,10 @@ class TextInputViewModel: ViewModel() {
         return text.length > characterCount
     }
 
+    fun onValueChanged() {
+
+
+    }
+
+
 }

@@ -64,13 +64,12 @@ fun TextInputViewScreen(
                 val characterCount = 20
 
                 TextInputView(
-                    errorText = "ERROR",
+                    errorText = "Looooooooooonnnnnnnnnnnnnngggggggggggggggggggggggggggggggggggggggggggggggggggggg error",
                     isError = {fragmentsViewModel.validateCharCount(characterCount, viewModel.value)},
                     labelText = "Enter username",
-                    supportingText = "Username",
+                    supportingText = "Looooooooooonnnnnnnnnnnnnnggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
                     singleLine = true,
                     characterCount = characterCount,
-                    counterEnabled = true,
                     vm = viewModel
                 )
             }
