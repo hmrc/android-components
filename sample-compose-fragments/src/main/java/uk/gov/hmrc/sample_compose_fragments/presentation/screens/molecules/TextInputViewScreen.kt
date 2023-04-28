@@ -20,30 +20,31 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.molecule.input.TextInputView
-import uk.gov.hmrc.components.compose.molecule.input.TextInputViewModel
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 import androidx.lifecycle.viewmodel.compose.viewModel
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.TextInputViewModel
 
 
 @Composable
-fun TextInputViewScreen(
-    viewModel: TextInputViewModel = viewModel(),
-    fragmentsViewModel: uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.TextInputViewModel = viewModel()
-) {
+fun TextInputViewScreen() {
+
+    val viewModel = viewModel<TextInputViewModel>()
 
     ScreenScrollViewColumn {
         PlaceholderSlot {
             TextInputView(
-                errorText = "Error: Validation error",
-                isError = {fragmentsViewModel.textMatchesValidation("error", viewModel.value)},
+                onInputValueChange = { viewModel.validateInput(it) },
+                errorText = viewModel.textInputError.collectAsStateWithLifecycle().value,
                 labelText = "This is a label. Type 'error' for error validation",
                 supportingText = "This is supporting text",
-                vm = viewModel
             )
         }
 
@@ -53,25 +54,25 @@ fun TextInputViewScreen(
                 shape = RoundedCornerShape(0),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
-                TextInputView(
-                    errorText = "Error: Must not be empty",
-                    isError = {fragmentsViewModel.isEmptyValidation(viewModel.value)},
-                    labelText = "This is a label",
-                    supportingText = "This is supporting text",
-                    vm = viewModel
-                )
-
-                val characterCount = 20
-
-                TextInputView(
-                    errorText = "Looooooooooonnnnnnnnnnnnnngggggggggggggggggggggggggggggggggggggggggggggggggggggg error",
-                    isError = {fragmentsViewModel.validateCharCount(characterCount, viewModel.value)},
-                    labelText = "Enter username",
-                    supportingText = "Looooooooooonnnnnnnnnnnnnnggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
-                    singleLine = true,
-                    characterCount = characterCount,
-                    vm = viewModel
-                )
+//                TextInputView(
+//                    errorText = "Error: Must not be empty",
+//                    isError = {fragmentsViewModel.isEmptyValidation(viewModel.value)},
+//                    labelText = "This is a label",
+//                    supportingText = "This is supporting text",
+//                    vm = viewModel
+//                )
+//
+//                val characterCount = 20
+//
+//                TextInputView(
+//                    errorText = "Looooooooooonnnnnnnnnnnnnngggggggggggggggggggggggggggggggggggggggggggggggggggggg error",
+//                    isError = {fragmentsViewModel.validateCharCount(characterCount, viewModel.value)},
+//                    labelText = "Enter username",
+//                    supportingText = "Looooooooooonnnnnnnnnnnnnnggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+//                    singleLine = true,
+//                    characterCount = characterCount,
+//                    vm = viewModel
+//                )
             }
         }
     }

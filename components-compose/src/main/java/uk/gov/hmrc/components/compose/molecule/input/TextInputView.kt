@@ -28,7 +28,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -39,47 +39,34 @@ import uk.gov.hmrc.components.compose.ui.theme.textInputViewColors
 @Composable
 fun TextInputView(
     modifier: Modifier = Modifier,
+    onInputValueChange: (String) -> Unit,
     placeholderText: String? = null,
     errorText: String? = null,
-    isError: () -> Boolean,
     labelText: String? = null,
     supportingText: String? = null,
     singleLine: Boolean = false,
     characterCount: Int? = null,
-   // onValueChange: () -> Unit,
-    vm: TextInputViewModel
+    leadingIcon: @Composable (() -> Unit)? = null
 ) {
 
-    var localValue: String by remember {
-        mutableStateOf("")
-    }
-
-    var isErrorLocal: Boolean by remember {
-        mutableStateOf(false)
-    }
+    var localValue: String by rememberSaveable { mutableStateOf("") }
+    var localError: String? by rememberSaveable { mutableStateOf(null) }
+    localError = errorText
 
     val counterEnabled: Boolean = characterCount != null
 
+    @Composable
     fun supportingText(): @Composable (() -> Unit)? {
-        if (isErrorLocal && (!errorText.isNullOrEmpty())) {
-            return { Text(text = errorText) }
-        }
-        else if (!supportingText.isNullOrEmpty()) {
-            return { Text(text = supportingText) }
-        }
-        return null
+        val text: String? = localError ?: supportingText
+        return text?.let { { Text(text = text) } }
     }
 
     @Composable
-    fun supportingTextCounterCombo(): @Composable (() -> Unit)? {
+    fun supportingTextCounterCombo(): @Composable (() -> Unit) {
         return {
-            Row() {
+            Row {
                 Column(horizontalAlignment = Alignment.Start, modifier = Modifier.fillMaxWidth(0.8f)) {
-                    if (isErrorLocal && (!errorText.isNullOrEmpty())) {
-                        Text(text = errorText)
-                    } else if (!supportingText.isNullOrEmpty()) {
-                        Text(text = supportingText)
-                    }
+                    supportingText()
                 }
                 Column(horizontalAlignment = Alignment.End, modifier = Modifier.fillMaxWidth(0.95f)) {
                     Text(
@@ -91,42 +78,32 @@ fun TextInputView(
         }
     }
 
-    Row(modifier = modifier) {
-        OutlinedTextField(
-            modifier = Modifier.fillMaxWidth(),
-            isError = isErrorLocal,
-            value = localValue,
-            onValueChange = {
-                localValue = it
-                vm.updateValue(localValue)
-                isErrorLocal = isError.invoke()
-            },
-            onValueChange = {},
-            colors = textInputViewColors(),
-            label = { labelText?.let { Text(text = it) } },
-            supportingText = if (counterEnabled) supportingTextCounterCombo() else supportingText(),
-            placeholder = { placeholderText?.let { Text(text = it) } },
-            singleLine = singleLine,
-            trailingIcon = {
-                if(isErrorLocal) {
-                    Icon(
-                        Icons.Default.Info,
-                        contentDescription = "error"
-                    )
-                }
-                else {
-                    Icon(
-                        Icons.Default.Clear,
-                        contentDescription = "clear text",
-                        modifier = Modifier
-                            .clickable {
-                                localValue = ""
-                            }
-                    )
-                }
+    OutlinedTextField(
+        modifier = modifier.fillMaxWidth(),
+        isError = !localError.isNullOrEmpty(),
+        value = localValue,
+        onValueChange = {
+            onInputValueChange(it)
+            localValue = it
+        },
+        colors = textInputViewColors(),
+        label = { labelText?.let { Text(text = it) } },
+        supportingText = if (counterEnabled) supportingTextCounterCombo() else supportingText(),
+        placeholder = { placeholderText?.let { Text(text = it) } },
+        singleLine = singleLine,
+        trailingIcon = {
+            if (!localError.isNullOrEmpty()) {
+                Icon(Icons.Default.Info, contentDescription = "error")
+            } else {
+                Icon(
+                    Icons.Default.Clear,
+                    contentDescription = "clear text",
+                    modifier = Modifier.clickable { localValue = "" }
+                )
             }
-        )
-    }
+        },
+        leadingIcon = leadingIcon,
+    )
 }
 
 

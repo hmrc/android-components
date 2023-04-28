@@ -17,12 +17,8 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules
 
 import android.os.Bundle
 import android.view.View
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import uk.gov.hmrc.components.compose.molecule.input.TextInputViewModel
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding

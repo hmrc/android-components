@@ -16,12 +16,25 @@
 package uk.gov.hmrc.sample_compose_fragments.presentation.viewModel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class TextInputViewModel: ViewModel() {
 
-    fun textMatchesValidation(errorString: String, text: String): Boolean {
-        return text == errorString
+    private val _textInputError = MutableStateFlow<String?>(null)
+    val textInputError: StateFlow<String?> get() = _textInputError
+
+    fun validateInput(input: String) {
+        viewModelScope.launch {
+            withContext(Dispatchers.Default) {
+                _textInputError.value = if (input == ERROR_INPUT_PHRASE) "Error: this is an error" else null
+            }
+        }
     }
 
     fun isEmptyValidation(text: String): Boolean {
@@ -32,9 +45,8 @@ class TextInputViewModel: ViewModel() {
         return text.length > characterCount
     }
 
-    fun onValueChanged() {
-
-
+    companion object {
+        private const val ERROR_INPUT_PHRASE = "error"
     }
 
 
