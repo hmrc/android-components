@@ -23,35 +23,23 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class TextInputViewModel: ViewModel() {
+class CurrencyInputViewModel: ViewModel() {
 
-    private val _textInputError = MutableStateFlow<String?>(null)
-    val textInputError: StateFlow<String?> get() = _textInputError
     private val _textInputErrorEmptyValidation = MutableStateFlow<String?>(null)
     val textInputErrorEmptyValidation: StateFlow<String?> get() = _textInputErrorEmptyValidation
-    private val _textInputErrorCharCount = MutableStateFlow<String?>(null)
-    val textInputErrorCharCount: StateFlow<String?> get() = _textInputErrorCharCount
-    private val _textInputErrorCharCount1 = MutableStateFlow<String?>(null)
-    val textInputErrorCharCount1: StateFlow<String?> get() = _textInputErrorCharCount1
+    private val _textInputErrorEmptyValidation1 = MutableStateFlow<String?>(null)
+    val textInputErrorEmptyValidation1: StateFlow<String?> get() = _textInputErrorEmptyValidation1
+    private val _textInputErrorEmptyValidation2 = MutableStateFlow<String?>(null)
+    val textInputErrorEmptyValidation2: StateFlow<String?> get() = _textInputErrorEmptyValidation2
 
 
     fun isEmptyValidation(input: String, errorText: String, id: Int) {
         viewModelScope.launch {
             withContext(Dispatchers.Default) {
                 when (id) {
-                    0 -> _textInputError.value = if (input.isBlank()) errorText else null
-                    1 -> _textInputErrorEmptyValidation.value = if (input.isBlank()) errorText else null
-                }
-            }
-        }
-    }
-
-    fun validateCharCount(characterCount: Int, input: String, errorText: String?, id: Int) {
-        viewModelScope.launch {
-            withContext(Dispatchers.Default) {
-                when (id) {
-                    0 -> _textInputErrorCharCount.value = if (input.length > characterCount) errorText else null
-                    1 -> _textInputErrorCharCount1.value = if (input.length > characterCount) errorText else null
+                    0 -> _textInputErrorEmptyValidation.value = if (input.isBlank()) errorText else null
+                    1 -> _textInputErrorEmptyValidation1.value = if (input.isBlank()) errorText else null
+                    2 -> _textInputErrorEmptyValidation2.value = if (input.isBlank()) errorText else null
                 }
             }
         }

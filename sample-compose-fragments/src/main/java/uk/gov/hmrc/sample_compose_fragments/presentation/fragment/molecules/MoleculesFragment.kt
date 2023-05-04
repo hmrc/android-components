@@ -28,6 +28,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_BOLD_TITLE_BODY_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_CURRENCY_INPUT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H4_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H5_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_TEXT_VIEW
@@ -54,6 +55,12 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                     HmrcSurface {
                         ComponentListScreen(items = listItems, navigateTo = {
                             when (it.id) {
+                                MOLECULE_CURRENCY_INPUT_VIEW -> {
+                                    findNavController().navigate(R.id.action_moleculesFragment_to_currencyInputViewFragment)
+                                }
+                                MOLECULE_TEXT_INPUT_VIEW -> {
+                                    findNavController().navigate(R.id.action_moleculesFragment_to_textInputViewFragment)
+                                }
                                 MOLECULE_H4_TITLE_BODY_VIEW -> {
                                     findNavController().navigate(R.id.action_moleculesFragment_to_h4TitleBodyViewFragment)
                                 }
@@ -69,10 +76,6 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                                 MOLECULE_INSET_TEXT_VIEW -> {
                                     findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
                                 }
-                                MOLECULE_TEXT_INPUT_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_textInputViewFragment)
-                                }
-
                             }
                         })
                     }

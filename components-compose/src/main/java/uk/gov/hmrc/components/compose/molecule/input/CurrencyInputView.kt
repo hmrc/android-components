@@ -15,108 +15,52 @@
  */
 package uk.gov.hmrc.components.compose.molecule.input
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedTextField
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
-import uk.gov.hmrc.components.compose.ui.theme.textInputViewColors
-import uk.gov.hmrc.components.compose.molecule.input.TextInputView
+import androidx.compose.ui.text.input.KeyboardType
 
 @Composable
-fun CurrencyInputView(): TextInputView {
+fun CurrencyInputView(
+    modifier: Modifier = Modifier,
+    onInputValueChange: ((String) -> Unit)? = null,
+    placeholderText: String? = null,
+    errorText: String? = null,
+    errorContentDescription: String? = null,
+    labelText: String? = null,
+    labelContentDescription: String? = null,
+    singleLine: Boolean = false,
+    characterCount: Int? = null,
+    enableDecimal: Boolean = true,
+) {
 
-    var localValue: String by remember {
-        mutableStateOf("")
+    // pattern matches a decimal number
+    val pattern = remember { Regex("^[0-9]+(\\.?)([0-9]?[0-9]?)") }
+
+    fun enableDecimal(input: String, localValue: String): (String) {
+        val matchesBoolean: Boolean = input.matches(pattern)
+
+        return if (enableDecimal) {
+            if (matchesBoolean) {
+                input.filter { input.matches(pattern) }
+            } else localValue
+        } else input.filter { symbol -> symbol.isDigit() }
     }
 
-    var isErrorLocal: Boolean by remember {
-        mutableStateOf(false)
-    }
-
-    val counterEnabled: Boolean = characterCount != null
-
-    fun supportingText(): @Composable (() -> Unit)? {
-        if (isErrorLocal && (!errorText.isNullOrEmpty())) {
-            return { Text(text = errorText) }
-        }
-        else if (!supportingText.isNullOrEmpty()) {
-            return { Text(text = supportingText) }
-        }
-        return null
-    }
-
-    @Composable
-    fun supportingTextCounterCombo(): @Composable (() -> Unit)? {
-        return {
-            Row() {
-                Column(horizontalAlignment = Alignment.Start, modifier = Modifier.fillMaxWidth(0.8f)) {
-                    if (isErrorLocal && (!errorText.isNullOrEmpty())) {
-                        Text(text = errorText)
-                    } else if (!supportingText.isNullOrEmpty()) {
-                        Text(text = supportingText)
-                    }
-                }
-                Column(horizontalAlignment = Alignment.End, modifier = Modifier.fillMaxWidth(0.95f)) {
-                    Text(
-                        text = "${localValue.length}/$characterCount",
-                        textAlign = TextAlign.End,
-                    )
-                }
-            }
-        }
-    }
-
-    Row(modifier = modifier) {
-        OutlinedTextField(
-            modifier = Modifier.fillMaxWidth(),
-            isError = isErrorLocal,
-            value = localValue,
-            onValueChange = {
-                localValue = it
-                vm.updateValue(localValue)
-                isErrorLocal = isError.invoke()
-            },
-            colors = textInputViewColors(),
-            label = { labelText?.let { Text(text = it) } },
-            supportingText = if (counterEnabled) supportingTextCounterCombo() else supportingText(),
-            placeholder = { placeholderText?.let { Text(text = it) } },
-            singleLine = singleLine,
-            trailingIcon = {
-                if(isErrorLocal) {
-                    Icon(
-                        Icons.Default.Info,
-                        contentDescription = "error"
-                    )
-                }
-                else {
-                    Icon(
-                        Icons.Default.Clear,
-                        contentDescription = "clear text",
-                        modifier = Modifier
-                            .clickable {
-                                localValue = ""
-                            }
-                    )
-                }
-            }
-        )
-    }
+    TextInputView(
+        modifier,
+        onInputValueChange,
+        inputFilter = { it: String, localValue: String -> enableDecimal(it, localValue) },
+        placeholderText,
+        errorText,
+        errorContentDescription,
+        labelText,
+        labelContentDescription,
+        singleLine,
+        characterCount,
+        leadingIcon = { Text(text = "£") },
+        keyboardOptions = if (enableDecimal) KeyboardOptions(keyboardType = KeyboardType.Decimal) else KeyboardOptions(keyboardType = KeyboardType.Number)
+    )
 }
-
-
-
-

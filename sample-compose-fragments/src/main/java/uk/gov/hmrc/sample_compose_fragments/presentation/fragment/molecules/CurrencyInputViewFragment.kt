@@ -22,10 +22,10 @@ import androidx.fragment.app.Fragment
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules.TextInputViewScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules.CurrencyInputViewScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 
-class TextInputViewFragment : Fragment(R.layout.fragment_compose_example) {
+class CurrencyInputViewFragment : Fragment(R.layout.fragment_compose_example) {
 
     private lateinit var binding: FragmentComposeExampleBinding
 
@@ -37,7 +37,7 @@ class TextInputViewFragment : Fragment(R.layout.fragment_compose_example) {
             setContent {
                 HmrcTheme {
                     HmrcSurface {
-                        TextInputViewScreen()
+                        CurrencyInputViewScreen()
                     }
                 }
             }

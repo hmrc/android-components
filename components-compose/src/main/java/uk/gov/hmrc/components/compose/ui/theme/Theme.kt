@@ -275,20 +275,20 @@ fun ProvideHmrcTheme(
 
 @Composable
 fun textInputViewColors(): TextFieldColors = OutlinedTextFieldDefaults.colors(
-        focusedTextColor = HmrcBlack,
-        unfocusedTextColor = HmrcBlack,
-        errorTextColor = HmrcRed,
-        errorLeadingIconColor = HmrcRed,
-        errorTrailingIconColor = HmrcRed,
-        focusedLabelColor = HmrcBlue,
-        unfocusedLabelColor = HmrcBlack,
-        focusedBorderColor = HmrcBlue,
-        errorBorderColor = HmrcRed,
-        unfocusedBorderColor = HmrcBlack,
-        errorSupportingTextColor = HmrcRed,
-        focusedSupportingTextColor = HmrcBlack,
-        errorLabelColor = HmrcRed
-    )
+    focusedTextColor = HmrcBlack,
+    unfocusedTextColor = HmrcBlack,
+    errorTextColor = HmrcRed,
+    errorLeadingIconColor = HmrcRed,
+    errorTrailingIconColor = HmrcRed,
+    focusedLabelColor = HmrcBlue,
+    unfocusedLabelColor = HmrcBlack,
+    focusedBorderColor = HmrcBlue,
+    errorBorderColor = HmrcRed,
+    unfocusedBorderColor = HmrcBlack,
+    errorSupportingTextColor = HmrcRed,
+    focusedSupportingTextColor = HmrcBlack,
+    errorLabelColor = HmrcRed
+)
 
 private val LocalHmrcColors = staticCompositionLocalOf<HmrcColors> { error("No HmrcColorPalette provided") }
 private val LocalHmrcTypography = staticCompositionLocalOf<HmrcTypography> { error("No HmrcTypography provided") }

@@ -29,6 +29,9 @@
             android:id="@+id/action_moleculesFragment_to_textInputViewFragment"
             app:destination="@id/textInputViewFragment"/>
         <action
+            android:id="@+id/action_moleculesFragment_to_currencyInputViewFragment"
+            app:destination="@id/currencyInputViewFragment"/>
+        <action
             android:id="@+id/action_moleculesFragment_to_insetViewFragment"
             app:destination="@id/insetViewFragment"/>
         <action
@@ -49,6 +52,13 @@
         android:id="@+id/textInputViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.TextInputViewFragment"
         android:label="@string/molecules_text_input_view"
+        tools:layout="@layout/fragment_compose_example">
+    </fragment>
+
+    <fragment
+        android:id="@+id/currencyInputViewFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.CurrencyInputViewFragment"
+        android:label="@string/molecules_currency_input_view"
         tools:layout="@layout/fragment_compose_example">
     </fragment>
 

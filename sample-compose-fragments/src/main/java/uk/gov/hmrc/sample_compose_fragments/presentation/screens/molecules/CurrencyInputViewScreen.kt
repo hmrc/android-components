@@ -24,61 +24,59 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import uk.gov.hmrc.components.compose.molecule.input.TextInputView
+import uk.gov.hmrc.components.compose.molecule.input.CurrencyInputView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
-import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.TextInputViewModel
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.CurrencyInputViewModel
+
 
 @Composable
-fun TextInputViewScreen() {
+fun CurrencyInputViewScreen() {
 
-    val viewModel = viewModel<TextInputViewModel>()
+    val viewModel = viewModel<CurrencyInputViewModel>()
 
-    val errorTextEx1 = stringResource(id = R.string.text_input_this_is_error)
-    val errorTextEx2 = stringResource(id = R.string.text_input_example_2_error)
-    val errorTextEx3 = stringResource(id = R.string.text_input_example_3_error)
-
+    val errorText1 = stringResource(id = R.string.currency_input_example_1_error)
+    val errorText2 = stringResource(id = R.string.currency_input_example_2_error)
+    val errorText3 = stringResource(id = R.string.currency_input_example_3_error)
 
     ScreenScrollViewColumn {
-        val characterCount = 50
         PlaceholderSlot {
-            TextInputView(
-                onInputValueChange = { viewModel.validateCharCount(characterCount, it, null, 0) },
-                errorText = viewModel.textInputErrorCharCount.collectAsStateWithLifecycle().value,
-                labelText = stringResource(id = R.string.text_input_placeholder_hint),
-                characterCount = characterCount
+            CurrencyInputView(
+                labelText = stringResource(id = R.string.currency_input_placeholder_hint),
+                enableDecimal = false,
             )
         }
 
         ExamplesSlot {
-            val characterCount1 = 5
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(0),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
-                TextInputView(
-                    onInputValueChange = { viewModel.validateCharCount(characterCount1, it, errorTextEx1, 1) },
-                    errorText = viewModel.textInputErrorCharCount1.collectAsStateWithLifecycle().value,
-                    labelText = stringResource(R.string.text_input_example_1_hint),
-                    characterCount = characterCount1
-                )
-
-                TextInputView(
-                    onInputValueChange = { viewModel.isEmptyValidation(it, errorTextEx2, 0) },
-                    errorText = viewModel.textInputError.collectAsStateWithLifecycle().value,
-                    labelText = stringResource(id = R.string.text_input_example_2_hint)
-                )
-
-                TextInputView(
-                    onInputValueChange = { viewModel.isEmptyValidation(it, errorTextEx3, 1) },
+                CurrencyInputView(
+                    onInputValueChange = { viewModel.isEmptyValidation(it, errorText1, 0) },
                     errorText = viewModel.textInputErrorEmptyValidation.collectAsStateWithLifecycle().value,
-                    labelText = stringResource(R.string.text_input_example_3_hint),
-                    singleLine = true
-                )
+                    labelText = stringResource(id = R.string.currency_input_example_1_hint),
+                    enableDecimal = false
+                    )
+
+                CurrencyInputView(
+                    onInputValueChange = { viewModel.isEmptyValidation(it, errorText2, 1) },
+                    errorText = viewModel.textInputErrorEmptyValidation1.collectAsStateWithLifecycle().value,
+                    labelText = stringResource(id = R.string.currency_input_example_2_hint),
+                    enableDecimal = true
+                    )
+
+                CurrencyInputView(
+                    onInputValueChange = { viewModel.isEmptyValidation(it, errorText3, 2) },
+                    errorText = viewModel.textInputErrorEmptyValidation2.collectAsStateWithLifecycle().value,
+                    labelText = stringResource(id = R.string.currency_input_example_3_hint),
+                    placeholderText = stringResource(id = R.string.currency_input_example_3_text),
+                    enableDecimal = true
+                    )
             }
         }
     }
