@@ -16,16 +16,20 @@
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import uk.gov.hmrc.components.compose.molecule.input.TextInputView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
+import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
@@ -49,7 +53,7 @@ fun TextInputViewScreen() {
                 onInputValueChange = { viewModel.validateCharCount(characterCount, it, null, 0) },
                 errorText = viewModel.textInputErrorCharCount.collectAsStateWithLifecycle().value,
                 labelText = stringResource(id = R.string.text_input_placeholder_hint),
-                characterCount = characterCount
+                characterCount = characterCount,
             )
         }
 
@@ -64,7 +68,7 @@ fun TextInputViewScreen() {
                     onInputValueChange = { viewModel.validateCharCount(characterCount1, it, errorTextEx1, 1) },
                     errorText = viewModel.textInputErrorCharCount1.collectAsStateWithLifecycle().value,
                     labelText = stringResource(R.string.text_input_example_1_hint),
-                    characterCount = characterCount1
+                    characterCount = characterCount1,
                 )
 
                 TextInputView(

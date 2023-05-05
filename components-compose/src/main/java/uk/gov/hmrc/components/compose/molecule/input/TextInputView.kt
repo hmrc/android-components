@@ -19,6 +19,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
@@ -33,12 +35,15 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
-import uk.gov.hmrc.components.compose.R
+import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
+import uk.gov.hmrc.components.compose.ui.theme.hmrc_icon_size_24
+import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
+import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_4
+import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.components.compose.ui.theme.textInputViewColors
 
 @Composable
@@ -107,8 +112,20 @@ fun TextInputView(
         }
     }
 
+    fun modifier(): Modifier {
+        return if (counterEnabled) {
+            modifier.fillMaxWidth().padding(top = hmrc_icon_size_24).padding(horizontal = hmrc_spacing_16)
+        }
+        else if (!localError.isNullOrEmpty()) {
+            modifier.fillMaxWidth().padding(top = hmrc_icon_size_24).padding(horizontal = hmrc_spacing_16)
+        }
+        else {
+            modifier.fillMaxWidth().padding(vertical = hmrc_icon_size_24).padding(horizontal = hmrc_spacing_16)
+        }
+    }
+
     OutlinedTextField(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier(),
         isError = !localError.isNullOrEmpty() || (localValue.length > (characterCount ?: Int.MAX_VALUE)),
         value = localValue,
         onValueChange = {
@@ -138,16 +155,17 @@ fun TextInputView(
         singleLine = singleLine,
         trailingIcon = {
             if (!localError.isNullOrEmpty()) {
-                Icon(Icons.Default.Info, contentDescription = stringResource(id = R.string.text_input_clear_button_content_description))
-            } else {
+                Icon(Icons.Default.Info, contentDescription = "Error")
+            } else if (localValue != "") {
                 Icon(
                     Icons.Default.Clear,
-                    contentDescription = "clear text",
+                    contentDescription = "Clear text",
                     modifier = Modifier.clickable { localValue = "" }
                 )
             }
         },
         leadingIcon = leadingIcon,
-        keyboardOptions = keyboardOptions
-    )
+        keyboardOptions = keyboardOptions,
+        shape = RoundedCornerShape(0),
+        )
 }
