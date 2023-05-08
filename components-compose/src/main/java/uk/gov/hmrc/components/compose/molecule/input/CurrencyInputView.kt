@@ -60,7 +60,7 @@ fun CurrencyInputView(
         labelContentDescription,
         singleLine,
         characterCount,
-        leadingIcon = { Text(text = "£") },
+        prefix = { Text(text = "£") },
         keyboardOptions = if (enableDecimal) KeyboardOptions(keyboardType = KeyboardType.Decimal) else KeyboardOptions(keyboardType = KeyboardType.Number)
     )
 }

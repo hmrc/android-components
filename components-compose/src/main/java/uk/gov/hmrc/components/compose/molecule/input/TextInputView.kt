@@ -38,12 +38,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_icon_size_24
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_4
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.components.compose.ui.theme.textInputViewColors
 
 @Composable
@@ -58,7 +55,7 @@ fun TextInputView(
     labelContentDescription: String? = null,
     singleLine: Boolean = false,
     characterCount: Int? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
+    prefix: @Composable (() -> Unit)? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default
 ) {
 
@@ -115,11 +112,9 @@ fun TextInputView(
     fun modifier(): Modifier {
         return if (counterEnabled) {
             modifier.fillMaxWidth().padding(top = hmrc_icon_size_24).padding(horizontal = hmrc_spacing_16)
-        }
-        else if (!localError.isNullOrEmpty()) {
+        } else if (!localError.isNullOrEmpty()) {
             modifier.fillMaxWidth().padding(top = hmrc_icon_size_24).padding(horizontal = hmrc_spacing_16)
-        }
-        else {
+        } else {
             modifier.fillMaxWidth().padding(vertical = hmrc_icon_size_24).padding(horizontal = hmrc_spacing_16)
         }
     }
@@ -164,8 +159,8 @@ fun TextInputView(
                 )
             }
         },
-        leadingIcon = leadingIcon,
+        prefix = prefix,
         keyboardOptions = keyboardOptions,
         shape = RoundedCornerShape(0),
-        )
+    )
 }

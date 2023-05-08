@@ -32,7 +32,6 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.CurrencyInputViewModel
 
-
 @Composable
 fun CurrencyInputViewScreen() {
 
