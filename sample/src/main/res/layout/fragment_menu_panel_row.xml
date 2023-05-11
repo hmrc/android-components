@@ -86,6 +86,17 @@
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/hmrc_spacing_16"
             android:layout_marginEnd="@dimen/hmrc_spacing_16"
+            android:layout_marginBottom="@dimen/hmrc_spacing_8"
+            app:body="@string/menu_panel_example_5_body"
+            app:title="@string/menu_panel_example_5_title"
+            app:useWebContentDescription="true" />
+
+        <uk.gov.hmrc.components.organism.menu.MenuPanelRowView
+            android:id="@+id/menu_example6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/hmrc_spacing_16"
+            android:layout_marginEnd="@dimen/hmrc_spacing_16"
             app:body="@string/longest_text"
             app:title="@string/long_text" />
 

@@ -56,7 +56,8 @@ class MenuPanelRowFragment : BaseComponentsFragment() {
                 setOnClickListener { onCtaPressed() }
                 showNotification(MenuPanelRowView.Notification.Count(100))
             }
-            menuExample5.apply {
+            menuExample5.setOnClickListener { onCtaPressed() }
+            menuExample6.apply {
                 setOnClickListener { onCtaPressed() }
                 showNotification(MenuPanelRowView.Notification.New)
             }
