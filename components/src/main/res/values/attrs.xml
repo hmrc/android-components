@@ -218,6 +218,8 @@
         <attr name="title" />
         <!-- Body to display below the title. -->
         <attr name="body" />
+        <!-- Whether or not the component use open in web browser as content description. -->
+        <attr name="useWebContentDescription" />
     </declare-styleable>
 
     <declare-styleable name="WarningView">

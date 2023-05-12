@@ -35,7 +35,7 @@ import uk.gov.hmrc.components.databinding.ComponentMenuPanelRowBinding
 
 class MenuPanelRowView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
+    attrs: AttributeSet? = null,
 ) : MaterialCardView(context, attrs) {
 
     private val binding: ComponentMenuPanelRowBinding =
@@ -46,11 +46,16 @@ class MenuPanelRowView @JvmOverloads constructor(
 
     private var menuPanelNotification: Notification = Notification.None
 
+    private var useWebContentDescription: Boolean = false
+
     init {
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.MenuPanelRowView, 0, 0)
             val title = typedArray.getString(R.styleable.MenuPanelRowView_title) ?: ""
             val body = typedArray.getString(R.styleable.MenuPanelRowView_body) ?: ""
+            useWebContentDescription = typedArray.getBoolean(
+                R.styleable.MenuPanelRowView_useWebContentDescription, false
+            )
 
             setTitle(title)
             setBody(body)
@@ -66,13 +71,18 @@ class MenuPanelRowView @JvmOverloads constructor(
         val title = getTitle()
         val body = getBody()
         val notification = menuPanelNotification
+        val actionContentDescription = context.getString(
+            if (useWebContentDescription) R.string.accessibility_button_open_in_browser
+            else R.string.accessibility_button_activate
+        )
         binding.layout.apply {
             contentDescription = when {
                 notification is Notification.Count && notification.count == 0 -> {
                     context.getString(
                         R.string.menu_panel_button_circle_notification_content_description,
                         title,
-                        body
+                        body,
+                        actionContentDescription
                     )
                 }
                 notification is Notification.Count && notification.count == 1 -> {
@@ -80,7 +90,8 @@ class MenuPanelRowView @JvmOverloads constructor(
                         R.string.menu_panel_button_one_notification_content_description,
                         title,
                         notification.count.toString(),
-                        body
+                        body,
+                        actionContentDescription
                     )
                 }
                 notification is Notification.Count && notification.count > 1 -> {
@@ -88,17 +99,24 @@ class MenuPanelRowView @JvmOverloads constructor(
                         R.string.menu_panel_button_multiple_notifications_content_description,
                         title,
                         notification.count.toString(),
-                        body
+                        body,
+                        actionContentDescription
                     )
                 }
                 notification is Notification.New -> {
                     context.getString(
                         R.string.menu_panel_button_new_notification_content_description,
                         title,
-                        body
+                        body,
+                        actionContentDescription
                     )
                 }
-                else -> context.getString(R.string.menu_panel_button_no_notification_content_description, title, body)
+                else -> context.getString(
+                    R.string.menu_panel_button_no_notification_content_description,
+                    title,
+                    body,
+                    actionContentDescription
+                )
             }
         }
     }
