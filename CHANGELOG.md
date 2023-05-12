@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.6.0] - 2023-05-12
+
 ### Changed
 
 * Changed`MenuPanelRowView` to support open in a web browser content description.
