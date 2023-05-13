@@ -25,6 +25,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
 
 private val LightColorPalette = HmrcColors(
     hmrcBlack = HmrcBlack,
@@ -129,6 +130,10 @@ object HmrcTheme {
     val orientation: Orientation
         @Composable
         get() = LocalOrientationMode.current
+
+    val fonScale: Float
+        @Composable
+        get() = LocalDensity.current.fontScale
 }
 
 object HmrcRippleTheme : RippleTheme {
