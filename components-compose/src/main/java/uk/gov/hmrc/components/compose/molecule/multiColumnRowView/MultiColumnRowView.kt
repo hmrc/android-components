@@ -36,7 +36,7 @@ object MultiColumnRowView {
         columnList: List<MultiColumnRowItem>
     ) {
 
-        val fontScale = HmrcTheme.fonScale
+        val fontScale = HmrcTheme.fontScale
 
         if (fontScale < MAX_SINGLE_LINE_FONT_SCALE) {
             Row(modifier = modifier) {

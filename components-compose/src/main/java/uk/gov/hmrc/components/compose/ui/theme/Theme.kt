@@ -131,7 +131,7 @@ object HmrcTheme {
         @Composable
         get() = LocalOrientationMode.current
 
-    val fonScale: Float
+    val fontScale: Float
         @Composable
         get() = LocalDensity.current.fontScale
 }
