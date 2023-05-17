@@ -46,6 +46,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
 @Composable
@@ -66,11 +67,9 @@ fun ColorsListScreen(viewModel: ColorsViewModel) {
 
 @Composable
 fun ListItem(item: ColorItem) {
-    Card(
-        modifier = Modifier.fillMaxWidth().padding(hmrc_spacing_16, hmrc_spacing_8),
+    HmrcCard(
+        modifier = Modifier.padding(hmrc_spacing_16, hmrc_spacing_8),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-        shape = RoundedCornerShape(0),
-        colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
     ) {
         Row(modifier = Modifier.padding(hmrc_spacing_16)) {
             Box(

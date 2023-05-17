@@ -39,9 +39,9 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
+import uk.gov.hmrc.components.compose.ui.theme.TextInputViewColors
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_icon_size_24
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
-import uk.gov.hmrc.components.compose.ui.theme.textInputViewColors
 
 @Composable
 fun TextInputView(
@@ -68,11 +68,10 @@ fun TextInputView(
     val counterEnabled: Boolean = characterCount != null
 
     fun errorText(): @Composable (() -> Unit)? {
-        val text: String? = errorText
-        return text?.let {
+        return errorText?.let {
             {
                 Text(
-                    text = text,
+                    text = it,
                     modifier = Modifier.semantics {
                         if (errorContentDescription != null) {
                             contentDescription = errorContentDescription
@@ -110,9 +109,7 @@ fun TextInputView(
     }
 
     fun modifier(): Modifier {
-        return if (counterEnabled) {
-            modifier.fillMaxWidth().padding(top = hmrc_icon_size_24).padding(horizontal = hmrc_spacing_16)
-        } else if (!localError.isNullOrEmpty()) {
+        return if (counterEnabled || !localError.isNullOrEmpty()) {
             modifier.fillMaxWidth().padding(top = hmrc_icon_size_24).padding(horizontal = hmrc_spacing_16)
         } else {
             modifier.fillMaxWidth().padding(vertical = hmrc_icon_size_24).padding(horizontal = hmrc_spacing_16)
@@ -127,12 +124,12 @@ fun TextInputView(
             if (onInputValueChange != null) {
                 onInputValueChange(it)
             }
-            localValue = if (inputFilter != null && it != "") {
+            localValue = if (inputFilter != null && it.isNotEmpty()) {
                 inputFilter(it, localValue)
             } else it
         },
         textStyle = typography.body,
-        colors = textInputViewColors(),
+        colors = TextInputViewColors(),
         label = {
             labelText?.let {
                 Text(
@@ -151,11 +148,11 @@ fun TextInputView(
         trailingIcon = {
             if (!localError.isNullOrEmpty()) {
                 Icon(Icons.Default.Info, contentDescription = "Error")
-            } else if (localValue != "") {
+            } else if (localValue.isNotEmpty()) {
                 Icon(
                     Icons.Default.Clear,
                     contentDescription = "Clear text",
-                    modifier = Modifier.clickable { localValue = "" }
+                    modifier = Modifier.clickable { localValue.isEmpty() }
                 )
             }
         },

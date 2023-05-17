@@ -37,6 +37,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 
 @Composable
 fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T) -> Unit) {
@@ -55,14 +56,11 @@ fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T
 
 @Composable
 fun <T : ComponentItem> ComponentListItem(item: T, navigateTo: (item: T) -> Unit) {
-    Card(
+    HmrcCard(
         modifier = Modifier
-            .fillMaxWidth()
             .padding(hmrc_spacing_16, hmrc_spacing_8)
             .clickable(onClick = { navigateTo(item) }),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-        shape = RoundedCornerShape(0),
-        colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
     ) {
         Row(modifier = Modifier.padding(hmrc_spacing_16).align(alignment = Alignment.CenterHorizontally)) {
             Text(

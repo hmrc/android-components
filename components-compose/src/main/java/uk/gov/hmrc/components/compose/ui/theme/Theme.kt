@@ -274,7 +274,7 @@ fun ProvideHmrcTheme(
 }
 
 @Composable
-fun textInputViewColors(): TextFieldColors = OutlinedTextFieldDefaults.colors(
+fun TextInputViewColors(): TextFieldColors = OutlinedTextFieldDefaults.colors(
     focusedTextColor = HmrcBlack,
     unfocusedTextColor = HmrcBlack,
     errorTextColor = HmrcRed,

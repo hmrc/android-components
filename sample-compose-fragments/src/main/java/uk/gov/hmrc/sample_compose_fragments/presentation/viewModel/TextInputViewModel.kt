@@ -17,12 +17,14 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+@HiltViewModel
 class TextInputViewModel: ViewModel() {
 
     private val _textInputError = MutableStateFlow<String?>(null)

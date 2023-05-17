@@ -39,7 +39,7 @@ fun CurrencyInputView(
     // pattern matches a decimal number
     val pattern = remember { Regex("^[0-9]+(\\.?)([0-9]?[0-9]?)") }
 
-    fun enableDecimal(input: String, localValue: String): (String) {
+    fun decimalPatternChecker(input: String, localValue: String): (String) {
         val matchesBoolean: Boolean = input.matches(pattern)
 
         return if (enableDecimal) {
@@ -52,7 +52,7 @@ fun CurrencyInputView(
     TextInputView(
         modifier,
         onInputValueChange,
-        inputFilter = { it: String, localValue: String -> enableDecimal(it, localValue) },
+        inputFilter = { it: String, localValue: String -> decimalPatternChecker(it, localValue) },
         placeholderText,
         errorText,
         errorContentDescription,

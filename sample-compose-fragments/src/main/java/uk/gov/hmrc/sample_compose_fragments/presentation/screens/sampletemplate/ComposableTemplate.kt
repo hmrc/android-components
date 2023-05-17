@@ -24,11 +24,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
@@ -76,3 +81,16 @@ fun ExamplesSlot(content: @Composable () -> Unit) {
     )
     content()
 }
+
+@Composable
+fun HmrcCard(modifier: Modifier? = Modifier, elevation: CardElevation = CardDefaults.cardElevation(), content: @Composable ColumnScope.() -> Unit) {
+    Card(
+        modifier = modifier?.fillMaxWidth() ?: Modifier.fillMaxWidth(),
+        shape = RectangleShape,
+        content = content,
+        colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground),
+        elevation = elevation
+    )
+}
+
+
