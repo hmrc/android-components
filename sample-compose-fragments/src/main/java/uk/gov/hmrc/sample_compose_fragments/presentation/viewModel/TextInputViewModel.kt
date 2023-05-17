@@ -23,9 +23,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 @HiltViewModel
-class TextInputViewModel: ViewModel() {
+class TextInputViewModel @Inject constructor(): ViewModel() {
 
     private val _textInputError = MutableStateFlow<String?>(null)
     val textInputError: StateFlow<String?> get() = _textInputError

@@ -53,7 +53,7 @@ fun H4TitleBodyViewScreen() {
                 )
             }
 
-            Card(
+            HmrcCard(
                 modifier = Modifier.padding(top = hmrc_spacing_16)
             ) {
                 H4TitleBodyView(
