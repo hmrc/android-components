@@ -23,10 +23,10 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowItem
 import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowView
+import uk.gov.hmrc.components.compose.ui.extensions.enableTalkBacMergeAccessibility
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
@@ -98,7 +98,9 @@ object MultiColumnRowViewScreen {
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                        modifier = Modifier
+                            .enableTalkBacMergeAccessibility()
+                            .padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
                             MultiColumnRowItem(text = stringResource(id = R.string.multi_column_row_example_text_1)),
                             MultiColumnRowItem(text = stringResource(id = R.string.multi_column_row_example_text_2))
@@ -186,7 +188,7 @@ object MultiColumnRowViewScreen {
                         columnList = listOf(
                             MultiColumnRowItem(text = stringResource(id = R.string.multi_column_row_example_text_3)),
                             MultiColumnRowItem(text = stringResource(id = R.string.multi_column_row_example_text_4)),
-                            MultiColumnRowItem(text = stringResource(id = R.string.multi_column_row_example_text_5),)
+                            MultiColumnRowItem(text = stringResource(id = R.string.multi_column_row_example_text_5))
                         )
                     )
                 }
@@ -226,7 +228,9 @@ object MultiColumnRowViewScreen {
                     colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
                 ) {
                     MultiColumnRowView(
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                        modifier = Modifier
+                            .enableTalkBacMergeAccessibility()
+                            .padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
                             MultiColumnRowItem(text = stringResource(id = R.string.summary_row_placeholder_row1_text1)),
                             MultiColumnRowItem(text = stringResource(id = R.string.summary_row_placeholder_row1_text2))
