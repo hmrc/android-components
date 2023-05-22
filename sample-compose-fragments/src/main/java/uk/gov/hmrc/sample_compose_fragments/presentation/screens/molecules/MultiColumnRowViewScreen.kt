@@ -26,7 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowItem
 import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowView
-import uk.gov.hmrc.components.compose.ui.extensions.enableTalkBacMergeAccessibility
+import uk.gov.hmrc.components.compose.ui.extensions.enableTalkBackMergeAccessibility
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
@@ -99,7 +99,7 @@ object MultiColumnRowViewScreen {
                 ) {
                     MultiColumnRowView(
                         modifier = Modifier
-                            .enableTalkBacMergeAccessibility()
+                            .enableTalkBackMergeAccessibility()
                             .padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
                             MultiColumnRowItem(text = stringResource(id = R.string.multi_column_row_example_text_1)),
@@ -229,7 +229,7 @@ object MultiColumnRowViewScreen {
                 ) {
                     MultiColumnRowView(
                         modifier = Modifier
-                            .enableTalkBacMergeAccessibility()
+                            .enableTalkBackMergeAccessibility()
                             .padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
                             MultiColumnRowItem(text = stringResource(id = R.string.summary_row_placeholder_row1_text1)),

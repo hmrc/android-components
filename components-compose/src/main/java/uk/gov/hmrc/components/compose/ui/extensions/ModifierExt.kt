@@ -18,5 +18,5 @@ package uk.gov.hmrc.components.compose.ui.extensions
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.semantics
 
-fun Modifier.enableTalkBacMergeAccessibility() =
+fun Modifier.enableTalkBackMergeAccessibility() =
     this.then(semantics(mergeDescendants = true) {})
