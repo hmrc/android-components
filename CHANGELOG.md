@@ -16,6 +16,13 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.6.0] - 2023-05-12
+
+### Changed
+
+* Changed`MenuPanelRowView` to support open in a web browser content description.
+* Changed`MenuPanelRowView` content description read at the end, rather than the middle of title/body.
+
 ## [4.5.5] - 2023-03-29
 
 ### Fixed
