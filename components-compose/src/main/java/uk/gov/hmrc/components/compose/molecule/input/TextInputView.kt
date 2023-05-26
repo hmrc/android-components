@@ -46,6 +46,7 @@ import uk.gov.hmrc.components.compose.ui.theme.hmrc_icon_size_24
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 
 @Composable
+@Suppress("ComplexMethod")
 fun TextInputView(
     modifier: Modifier = Modifier,
     onInputValueChange: ((String) -> Unit)? = null,
@@ -88,7 +89,7 @@ fun TextInputView(
     fun errorTextCounterCombo(): @Composable (() -> Unit) {
         return {
             Row {
-                Column(horizontalAlignment = Alignment.Start, modifier = Modifier.fillMaxWidth(0.8f)) {
+                Column(horizontalAlignment = Alignment.Start, modifier = Modifier.fillMaxWidth(ERROR_TEXT_WITH_CHAR_COUNT_WIDTH)) {
                     if (errorText != null) {
                         Text(
                             text = errorText,
@@ -100,7 +101,7 @@ fun TextInputView(
                         )
                     }
                 }
-                Column(horizontalAlignment = Alignment.End, modifier = Modifier.fillMaxWidth(0.95f)) {
+                Column(horizontalAlignment = Alignment.End, modifier = Modifier.fillMaxWidth(CHAR_COUNT_WIDTH)) {
                     Text(
                         text = "${localValue.length}/$characterCount",
                         textAlign = TextAlign.End,
@@ -166,6 +167,9 @@ fun TextInputView(
         },
         prefix = prefix,
         keyboardOptions = keyboardOptions,
-        shape = RoundedCornerShape(0),
+        shape = RoundedCornerShape(0)
     )
 }
+
+private const val ERROR_TEXT_WITH_CHAR_COUNT_WIDTH = 0.8f
+private const val CHAR_COUNT_WIDTH = 0.95f
