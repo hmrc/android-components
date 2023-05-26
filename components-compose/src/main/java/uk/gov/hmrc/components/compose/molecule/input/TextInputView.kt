@@ -35,9 +35,11 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
+import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.components.compose.ui.theme.TextInputViewColors
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_icon_size_24
@@ -110,9 +112,15 @@ fun TextInputView(
 
     fun modifier(): Modifier {
         return if (counterEnabled || !localError.isNullOrEmpty()) {
-            modifier.fillMaxWidth().padding(top = hmrc_icon_size_24).padding(horizontal = hmrc_spacing_16)
+            modifier
+                .fillMaxWidth()
+                .padding(top = hmrc_icon_size_24)
+                .padding(horizontal = hmrc_spacing_16)
         } else {
-            modifier.fillMaxWidth().padding(vertical = hmrc_icon_size_24).padding(horizontal = hmrc_spacing_16)
+            modifier
+                .fillMaxWidth()
+                .padding(vertical = hmrc_icon_size_24)
+                .padding(horizontal = hmrc_spacing_16)
         }
     }
 
@@ -147,11 +155,11 @@ fun TextInputView(
         singleLine = singleLine,
         trailingIcon = {
             if (!localError.isNullOrEmpty()) {
-                Icon(Icons.Default.Info, contentDescription = "Error")
+                Icon(Icons.Default.Info, contentDescription = stringResource(id = R.string.textInputView_error))
             } else if (localValue.isNotEmpty()) {
                 Icon(
                     Icons.Default.Clear,
-                    contentDescription = "Clear text",
+                    contentDescription = stringResource(id = R.string.textInputView_clear),
                     modifier = Modifier.clickable { localValue.isEmpty() }
                 )
             }
