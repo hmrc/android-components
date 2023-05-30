@@ -89,7 +89,10 @@ fun TextInputView(
     fun errorTextCounterCombo(): @Composable (() -> Unit) {
         return {
             Row {
-                Column(horizontalAlignment = Alignment.Start, modifier = Modifier.fillMaxWidth(ErrorTextWithCharCountWidth)) {
+                Column(
+                    horizontalAlignment = Alignment.Start,
+                    modifier = Modifier.fillMaxWidth(ErrorTextWithCharCountWidth)
+                ) {
                     if (errorText != null) {
                         Text(
                             text = errorText,
