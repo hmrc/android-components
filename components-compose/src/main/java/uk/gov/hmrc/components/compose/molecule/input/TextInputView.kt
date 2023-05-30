@@ -89,7 +89,7 @@ fun TextInputView(
     fun errorTextCounterCombo(): @Composable (() -> Unit) {
         return {
             Row {
-                Column(horizontalAlignment = Alignment.Start, modifier = Modifier.fillMaxWidth(ERROR_TEXT_WITH_CHAR_COUNT_WIDTH)) {
+                Column(horizontalAlignment = Alignment.Start, modifier = Modifier.fillMaxWidth(ErrorTextWithCharCountWidth)) {
                     if (errorText != null) {
                         Text(
                             text = errorText,
@@ -101,7 +101,7 @@ fun TextInputView(
                         )
                     }
                 }
-                Column(horizontalAlignment = Alignment.End, modifier = Modifier.fillMaxWidth(CHAR_COUNT_WIDTH)) {
+                Column(horizontalAlignment = Alignment.End, modifier = Modifier.fillMaxWidth(CharCountWidth)) {
                     Text(
                         text = "${localValue.length}/$characterCount",
                         textAlign = TextAlign.End,
@@ -171,5 +171,5 @@ fun TextInputView(
     )
 }
 
-private const val ERROR_TEXT_WITH_CHAR_COUNT_WIDTH = 0.8f
-private const val CHAR_COUNT_WIDTH = 0.95f
+private const val ErrorTextWithCharCountWidth = 0.8f
+private const val CharCountWidth = 0.95f
