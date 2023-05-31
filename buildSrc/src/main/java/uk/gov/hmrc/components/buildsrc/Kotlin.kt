@@ -1,3 +1,5 @@
+package uk.gov.hmrc.components.buildsrc
+
 /*
  * Copyright 2023 HM Revenue & Customs
  *
@@ -13,12 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.components.compose.ui.theme
-
-import androidx.compose.ui.unit.dp
-
-val hmrc_spacing_4 = 4.dp
-val hmrc_spacing_8 = 8.dp
-val hmrc_spacing_16 = 16.dp
-val hmrc_icon_size_24 = 24.dp
-val hmrc_button_size_48 = 48.dp
+object Kotlin {
+    const val version = "1.7.20"
+    const val jvmVersion = "1.8"
+}

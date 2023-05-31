@@ -75,7 +75,11 @@ dependencies {
     implementation Libs.androidX_lifecycle_runtimeKtx
     implementation Libs.androidX_activity_activityCompose
     implementation Libs.material
+
+    //Navigation
     implementation Libs.androidX_navigation_navigationCompose
+    implementation Libs.androidX_navigation_ui
+    implementation Libs.androidX_navigation_fragment
 
     testImplementation Libs.junit
 
