@@ -27,7 +27,6 @@ import androidx.compose.ui.graphics.ImageShader
 import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.res.imageResource
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
 
 internal fun Modifier.addPlaceholderModifier(): Modifier = composed {

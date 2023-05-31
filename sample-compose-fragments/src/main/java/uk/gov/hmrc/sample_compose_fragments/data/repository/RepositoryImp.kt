@@ -37,6 +37,7 @@ class RepositoryImpl @Inject constructor() : Repository {
         ComponentMenuItem(MOLECULE_BOLD_TITLE_BODY_VIEW, R.string.molecules_bold),
         ComponentMenuItem(MOLECULE_INSET_VIEW, R.string.molecules_inset),
         ComponentMenuItem(MOLECULE_INSET_TEXT_VIEW, R.string.molecules_inset_text),
+        ComponentMenuItem(MOLECULE_MULTI_COLUMN_ROW_VIEW, R.string.molecules_multi_column_row),
     )
 
     companion object {
@@ -49,5 +50,6 @@ class RepositoryImpl @Inject constructor() : Repository {
         const val MOLECULE_BOLD_TITLE_BODY_VIEW = 5
         const val MOLECULE_INSET_VIEW = 6
         const val MOLECULE_INSET_TEXT_VIEW = 7
+        const val MOLECULE_MULTI_COLUMN_ROW_VIEW = 8
     }
 }
