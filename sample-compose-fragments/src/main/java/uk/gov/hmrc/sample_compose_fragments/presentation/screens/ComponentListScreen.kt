@@ -33,11 +33,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
+<<<<<<< HEAD
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
+=======
+>>>>>>> main
 
 @Composable
 fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T) -> Unit) {
@@ -46,7 +50,7 @@ fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T
     LazyColumn(
         modifier = Modifier.fillMaxSize(1F),
         state = listState,
-        contentPadding = PaddingValues(top = hmrc_spacing_8, bottom = hmrc_spacing_8)
+        contentPadding = PaddingValues(top = HmrcTheme.dimensions.hmrcSpacing8, bottom = HmrcTheme.dimensions.hmrcSpacing8)
     ) {
         items(items) { item ->
             ComponentListItem(item = item, navigateTo)
@@ -58,13 +62,18 @@ fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T
 fun <T : ComponentItem> ComponentListItem(item: T, navigateTo: (item: T) -> Unit) {
     HmrcCard(
         modifier = Modifier
+<<<<<<< HEAD
             .padding(hmrc_spacing_16, hmrc_spacing_8)
+=======
+            .fillMaxWidth()
+            .padding(HmrcTheme.dimensions.hmrcSpacing16, HmrcTheme.dimensions.hmrcSpacing8)
+>>>>>>> main
             .clickable(onClick = { navigateTo(item) }),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
     ) {
-        Row(modifier = Modifier.padding(hmrc_spacing_16).align(alignment = Alignment.CenterHorizontally)) {
+        Row(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16).align(alignment = Alignment.CenterHorizontally)) {
             Text(
-                modifier = Modifier.padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
+                modifier = Modifier.padding(start = HmrcTheme.dimensions.hmrcSpacing16).align(alignment = Alignment.CenterVertically),
                 text = stringResource(item.titleRes),
                 style = typography.h5
             )

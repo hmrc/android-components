@@ -27,9 +27,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_4
 
 @Composable
 fun InsetView(
@@ -43,8 +42,8 @@ fun InsetView(
                 modifier = Modifier
                     .fillMaxHeight()
                     .clip(RectangleShape)
-                    .padding(end = hmrc_spacing_16)
-                    .width(hmrc_spacing_4)
+                    .padding(end = HmrcTheme.dimensions.hmrcSpacing16)
+                    .width(HmrcTheme.dimensions.hmrcSpacing4)
             )
             childView()
         }

@@ -13,30 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.components.compose.molecule.inset
+package uk.gov.hmrc.components.compose.molecule.multiColumnRowView
 
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.TextStyle
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
-@Composable
-fun InsetTextView(
-    text: String,
-    modifier: Modifier = Modifier
-) {
-    InsetView(
-        modifier = modifier,
-        childView = {
-            Text(
-                modifier = Modifier.padding(vertical = HmrcTheme.dimensions.hmrcSpacing8),
-                text = text,
-                style = typography.body,
-                textAlign = TextAlign.Start,
-            )
-        }
-    )
-}
+data class MultiColumnRowItem(
+    val text: String = "",
+    val modifier: Modifier = Modifier,
+    val textStyle: @Composable () -> TextStyle = { HmrcTheme.typography.body }
+)

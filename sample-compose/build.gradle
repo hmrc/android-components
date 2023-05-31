@@ -79,8 +79,15 @@ dependencies {
 
     implementation Libs.androidX_activity_activityCompose
     implementation Libs.material
+<<<<<<< HEAD
     implementation Libs.androidx_material
+=======
+
+    //Navigation
+>>>>>>> main
     implementation Libs.androidX_navigation_navigationCompose
+    implementation Libs.androidX_navigation_ui
+    implementation Libs.androidX_navigation_fragment
 
     testImplementation Libs.junit
 

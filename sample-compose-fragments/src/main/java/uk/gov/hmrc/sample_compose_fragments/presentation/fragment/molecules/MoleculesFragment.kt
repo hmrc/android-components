@@ -25,6 +25,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.rememberWindowSizeClass
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_BOLD_TITLE_BODY_VIEW
@@ -33,13 +34,23 @@ import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Compa
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H5_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_TEXT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_VIEW
+<<<<<<< HEAD
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_TEXT_INPUT_VIEW
+=======
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_MULTI_COLUMN_ROW_VIEW
+import uk.gov.hmrc.sample_compose_fragments.navigator.Navigator
+>>>>>>> main
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.MoleculesViewModel
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
+
+    @Inject
+    lateinit var navigator: Navigator
+
 
     private lateinit var binding: FragmentComposeExampleBinding
     private val viewModel: MoleculesViewModel by activityViewModels()
@@ -51,7 +62,8 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 val listItems by viewModel.moleculesItems.collectAsState()
-                HmrcTheme {
+                val window = rememberWindowSizeClass()
+                HmrcTheme(window) {
                     HmrcSurface {
                         ComponentListScreen(items = listItems, navigateTo = {
                             when (it.id) {
@@ -62,19 +74,22 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                                     findNavController().navigate(R.id.action_moleculesFragment_to_textInputViewFragment)
                                 }
                                 MOLECULE_H4_TITLE_BODY_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_h4TitleBodyViewFragment)
+                                    with(navigator) { gotoMoleculeH4TitleBodyView() }
                                 }
                                 MOLECULE_H5_TITLE_BODY_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_h5TitleBodyViewFragment)
+                                    with(navigator) { gotoMoleculeH5TitleBodyView() }
                                 }
                                 MOLECULE_BOLD_TITLE_BODY_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_boldTitleBodyViewFragment)
+                                    with(navigator) { gotoMoleculeBoldTitleBodyView() }
                                 }
                                 MOLECULE_INSET_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_insetViewFragment)
+                                    with(navigator) { gotoMoleculeInsetView() }
                                 }
                                 MOLECULE_INSET_TEXT_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_insetTextViewFragment)
+                                    with(navigator) { gotoMoleculeInsetTextView() }
+                                }
+                                MOLECULE_MULTI_COLUMN_ROW_VIEW -> {
+                                    with(navigator) { gotoMultiRowTextFragment() }
                                 }
                             }
                         })

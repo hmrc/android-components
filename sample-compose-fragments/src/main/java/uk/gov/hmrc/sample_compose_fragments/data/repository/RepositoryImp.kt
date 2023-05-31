@@ -38,8 +38,14 @@ class RepositoryImpl @Inject constructor() : Repository {
         ComponentMenuItem(MOLECULE_H5_TITLE_BODY_VIEW, R.string.molecules_h5),
         ComponentMenuItem(MOLECULE_BOLD_TITLE_BODY_VIEW, R.string.molecules_bold),
         ComponentMenuItem(MOLECULE_INSET_VIEW, R.string.molecules_inset),
+<<<<<<< HEAD
         ComponentMenuItem(MOLECULE_INSET_TEXT_VIEW, R.string.molecules_inset_text)
         )
+=======
+        ComponentMenuItem(MOLECULE_INSET_TEXT_VIEW, R.string.molecules_inset_text),
+        ComponentMenuItem(MOLECULE_MULTI_COLUMN_ROW_VIEW, R.string.molecules_multi_column_row),
+    )
+>>>>>>> main
 
     companion object {
         const val ATOM_TEXT = 1
@@ -51,7 +57,11 @@ class RepositoryImpl @Inject constructor() : Repository {
         const val MOLECULE_BOLD_TITLE_BODY_VIEW = 5
         const val MOLECULE_INSET_VIEW = 6
         const val MOLECULE_INSET_TEXT_VIEW = 7
+<<<<<<< HEAD
         const val MOLECULE_TEXT_INPUT_VIEW = 8
         const val MOLECULE_CURRENCY_INPUT_VIEW = 9
+=======
+        const val MOLECULE_MULTI_COLUMN_ROW_VIEW = 8
+>>>>>>> main
     }
 }
