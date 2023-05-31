@@ -20,7 +20,7 @@ class ComposeDependencies {
         const val minSdk = 23
         const val targetSdk = 33
         const val compileSdk = 33
-        const val kotlinCompilerExtensionVersion = "1.4.4"
+        const val kotlinCompilerExtensionVersion = "1.3.2"
     }
 
     object Libs {
