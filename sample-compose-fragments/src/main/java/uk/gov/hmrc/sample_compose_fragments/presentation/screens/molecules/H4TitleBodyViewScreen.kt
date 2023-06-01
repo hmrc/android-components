@@ -42,15 +42,8 @@ fun H4TitleBodyViewScreen() {
         }
 
         ExamplesSlot {
-<<<<<<< HEAD
             HmrcCard(
-                modifier = Modifier.padding(bottom = hmrc_spacing_16),
-=======
-            Card(
-                modifier = Modifier.fillMaxWidth().padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                shape = RoundedCornerShape(0),
-                colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
->>>>>>> main
+                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
             ) {
                 H4TitleBodyView(
                     titleText = stringResource(id = R.string.h4_example_title),
@@ -59,15 +52,8 @@ fun H4TitleBodyViewScreen() {
                 )
             }
 
-<<<<<<< HEAD
             HmrcCard(
-                modifier = Modifier.padding(top = hmrc_spacing_16)
-=======
-            Card(
-                modifier = Modifier.fillMaxWidth().padding(top = HmrcTheme.dimensions.hmrcSpacing16),
-                shape = RoundedCornerShape(0),
-                colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
->>>>>>> main
+                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
             ) {
                 H4TitleBodyView(
                     titleText = stringResource(id = R.string.long_text),

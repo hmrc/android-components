@@ -76,15 +76,13 @@ dependencies {
     implementation Libs.androidX_lifecycle_viewModelKtx
     implementation Libs.androidX_lifecycle_runtimeLiveData
     implementation Libs.androidX_lifecycle_viewModelCompose
+    implementation Libs.androidx_lifecycle_runtimeCompose
 
     implementation Libs.androidX_activity_activityCompose
     implementation Libs.material
-<<<<<<< HEAD
     implementation Libs.androidx_material
-=======
 
     //Navigation
->>>>>>> main
     implementation Libs.androidX_navigation_navigationCompose
     implementation Libs.androidX_navigation_ui
     implementation Libs.androidX_navigation_fragment

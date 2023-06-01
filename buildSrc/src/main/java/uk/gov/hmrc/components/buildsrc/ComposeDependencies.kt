@@ -32,12 +32,12 @@ class ComposeDependencies {
         const val compose_ui = "androidx.compose.ui:ui"
         const val compose_uiTest = "androidx.compose.ui:ui-test-junit4"
 
-        const val material = "com.google.android.material:material:1.7.0"
+        const val material = "com.google.android.material:material:1.8.0"
         const val androidx_material = "androidx.compose.material:material:1.4.1"
-        const val androidX_activity_activityCompose = "androidx.activity:activity-compose:1.6.1"
-        const val androidX_appCompat = "androidx.appcompat:appcompat:1.5.1"
-        const val androidX_coreKtx = "androidx.core:core-ktx:1.9.0"
-        const val androidX_lifecycle_runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+        const val androidX_activity_activityCompose = "androidx.activity:activity-compose:1.7.0"
+        const val androidX_appCompat = "androidx.appcompat:appcompat:1.6.1"
+        const val androidX_coreKtx = "androidx.core:core-ktx:1.10.0"
+        const val androidX_lifecycle_runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
         const val androidX_navigation_fragment =
             "androidx.navigation:navigation-fragment-ktx:${Versions.jetpackNavigation}"
         const val androidX_navigation_ui =
@@ -48,7 +48,7 @@ class ComposeDependencies {
         const val androidX_lifecycle_viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
         const val androidX_lifecycle_liveDataCore = "androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1"
         const val androidX_lifecycle_runtimeLiveData = "androidx.compose.runtime:runtime-livedata:1.4.2"
-
+        const val androidx_lifecycle_runtimeCompose = "androidx.lifecycle:lifecycle-runtime-compose:2.6.1"
         const val androidX_test_ext_junit = "androidx.test.ext:junit-ktx:1.1.5"
         const val androidX_test_espressoCore = "androidx.test.espresso:espresso-core:3.5.1"
 

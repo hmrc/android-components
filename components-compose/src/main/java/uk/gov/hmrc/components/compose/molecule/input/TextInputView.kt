@@ -40,10 +40,8 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import uk.gov.hmrc.components.compose.R
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
-import uk.gov.hmrc.components.compose.ui.theme.TextInputViewColors
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_icon_size_24
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 
 @Composable
 @Suppress("ComplexMethod")
@@ -114,17 +112,18 @@ fun TextInputView(
         }
     }
 
+    @Composable
     fun modifier(): Modifier {
         return if (counterEnabled || !localError.isNullOrEmpty()) {
             modifier
                 .fillMaxWidth()
-                .padding(top = hmrc_icon_size_24)
-                .padding(horizontal = hmrc_spacing_16)
+                .padding(top = HmrcTheme.dimensions.hmrcIconSize24)
+                .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
         } else {
             modifier
                 .fillMaxWidth()
-                .padding(vertical = hmrc_icon_size_24)
-                .padding(horizontal = hmrc_spacing_16)
+                .padding(vertical = HmrcTheme.dimensions.hmrcIconSize24)
+                .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
         }
     }
 
@@ -141,7 +140,7 @@ fun TextInputView(
             } else it
         },
         textStyle = typography.body,
-        colors = TextInputViewColors(),
+        colors = HmrcTheme.textFieldColors,
         label = {
             labelText?.let {
                 Text(

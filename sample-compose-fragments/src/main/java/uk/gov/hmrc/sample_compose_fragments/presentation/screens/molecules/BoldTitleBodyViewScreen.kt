@@ -42,15 +42,8 @@ fun BoldTitleBodyViewScreen() {
         }
 
         ExamplesSlot {
-<<<<<<< HEAD
             HmrcCard(
-                modifier = Modifier.padding(bottom = hmrc_spacing_16)
-=======
-            Card(
-                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16).fillMaxWidth(),
-                shape = RoundedCornerShape(0),
-                colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
->>>>>>> main
+                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
             ) {
                 BoldTitleBodyView(
                     titleText = stringResource(id = R.string.bold_example_title),
@@ -59,15 +52,8 @@ fun BoldTitleBodyViewScreen() {
                 )
             }
 
-<<<<<<< HEAD
             HmrcCard(
-                modifier = Modifier.padding(top = hmrc_spacing_16)
-=======
-            Card(
-                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16).fillMaxWidth(),
-                shape = RoundedCornerShape(0),
-                colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
->>>>>>> main
+                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
             ) {
                 BoldTitleBodyView(
                     titleText = stringResource(id = R.string.longer_text),

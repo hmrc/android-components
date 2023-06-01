@@ -53,17 +53,8 @@ fun InsetViewScreen() {
         }
 
         ExamplesSlot {
-<<<<<<< HEAD
             HmrcCard() {
-                InsetView(modifier = Modifier.padding(hmrc_spacing_16),
-=======
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(0),
-                colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
-            ) {
                 InsetView(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
->>>>>>> main
                     childView = {
                         Column {
                             Row {

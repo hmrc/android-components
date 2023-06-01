@@ -28,6 +28,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.textFieldColors
 
 private val LightColorPalette = HmrcColors(
     hmrcBlack = HmrcBlack,
@@ -107,6 +108,7 @@ fun HmrcTheme(
         dimensions = dimensions,
         orientation = orientation,
         colors = colors,
+        textFieldColors = textFieldColors,
         typography = typography
     ) {
         MaterialTheme(
@@ -120,6 +122,10 @@ object HmrcTheme {
     val colors: HmrcColors
         @Composable
         get() = LocalHmrcColors.current
+
+    val textFieldColors: TextFieldColors
+        @Composable
+        get() = LocalTextFieldColors.current
 
     val typography: HmrcTypography
         @Composable
@@ -305,45 +311,21 @@ class HmrcColors(
         hmrcInfoMessageNoticeHeadlineBackground = hmrcInfoMessageNoticeHeadlineBackground,
         isDark = isDark,
     )
-}
-<<<<<<< HEAD
 
-@Composable
-fun ProvideHmrcTheme(
-    colors: HmrcColors,
-    typography: HmrcTypography,
-    content: @Composable () -> Unit
-) {
-    // Explicitly creating a new object here so we don't mutate the initial [colors] provided,
-    // and overwrite the values set in it.
-    val colorPalette = remember { colors.copy() }
-    val typographySet = remember { typography.copy() }
-    colorPalette.update(colors)
-    CompositionLocalProvider(
-        LocalHmrcColors provides colorPalette,
-        LocalHmrcTypography provides typographySet,
-        content = content
+    @Composable
+    fun textInputViewColors(): TextFieldColors = OutlinedTextFieldDefaults.colors(
+        focusedTextColor = HmrcBlack,
+        unfocusedTextColor = HmrcBlack,
+        errorTextColor = HmrcRed,
+        errorLeadingIconColor = HmrcRed,
+        errorTrailingIconColor = HmrcRed,
+        focusedLabelColor = HmrcBlue,
+        unfocusedLabelColor = HmrcBlack,
+        focusedBorderColor = HmrcBlue,
+        errorBorderColor = HmrcRed,
+        unfocusedBorderColor = HmrcBlack,
+        errorSupportingTextColor = HmrcRed,
+        focusedSupportingTextColor = HmrcBlack,
+        errorLabelColor = HmrcRed
     )
 }
-
-@Composable
-fun TextInputViewColors(): TextFieldColors = OutlinedTextFieldDefaults.colors(
-    focusedTextColor = HmrcBlack,
-    unfocusedTextColor = HmrcBlack,
-    errorTextColor = HmrcRed,
-    errorLeadingIconColor = HmrcRed,
-    errorTrailingIconColor = HmrcRed,
-    focusedLabelColor = HmrcBlue,
-    unfocusedLabelColor = HmrcBlack,
-    focusedBorderColor = HmrcBlue,
-    errorBorderColor = HmrcRed,
-    unfocusedBorderColor = HmrcBlack,
-    errorSupportingTextColor = HmrcRed,
-    focusedSupportingTextColor = HmrcBlack,
-    errorLabelColor = HmrcRed
-)
-
-private val LocalHmrcColors = staticCompositionLocalOf<HmrcColors> { error("No HmrcColorPalette provided") }
-private val LocalHmrcTypography = staticCompositionLocalOf<HmrcTypography> { error("No HmrcTypography provided") }
-=======
->>>>>>> main
