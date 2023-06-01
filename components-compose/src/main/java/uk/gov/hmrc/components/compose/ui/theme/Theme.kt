@@ -28,7 +28,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.textFieldColors
 
 private val LightColorPalette = HmrcColors(
     hmrcBlack = HmrcBlack,
@@ -104,11 +103,27 @@ fun HmrcTheme(
         else -> hmrcTypography
     }
 
+    val textInputViewColors: TextFieldColors = OutlinedTextFieldDefaults.colors(
+        focusedTextColor = HmrcBlack,
+        unfocusedTextColor = HmrcBlack,
+        errorTextColor = HmrcRed,
+        errorLeadingIconColor = HmrcRed,
+        errorTrailingIconColor = HmrcRed,
+        focusedLabelColor = HmrcBlue,
+        unfocusedLabelColor = HmrcBlack,
+        focusedBorderColor = HmrcBlue,
+        errorBorderColor = HmrcRed,
+        unfocusedBorderColor = HmrcBlack,
+        errorSupportingTextColor = HmrcRed,
+        focusedSupportingTextColor = HmrcBlack,
+        errorLabelColor = HmrcRed
+    )
+
     ProvideHmrcTheme(
         dimensions = dimensions,
         orientation = orientation,
         colors = colors,
-        textFieldColors = textFieldColors,
+        textFieldColors = textInputViewColors,
         typography = typography
     ) {
         MaterialTheme(
@@ -310,22 +325,5 @@ class HmrcColors(
         hmrcInfoMessageUrgentHeadlineBackground = hmrcInfoMessageUrgentHeadlineBackground,
         hmrcInfoMessageNoticeHeadlineBackground = hmrcInfoMessageNoticeHeadlineBackground,
         isDark = isDark,
-    )
-
-    @Composable
-    fun textInputViewColors(): TextFieldColors = OutlinedTextFieldDefaults.colors(
-        focusedTextColor = HmrcBlack,
-        unfocusedTextColor = HmrcBlack,
-        errorTextColor = HmrcRed,
-        errorLeadingIconColor = HmrcRed,
-        errorTrailingIconColor = HmrcRed,
-        focusedLabelColor = HmrcBlue,
-        unfocusedLabelColor = HmrcBlack,
-        focusedBorderColor = HmrcBlue,
-        errorBorderColor = HmrcRed,
-        unfocusedBorderColor = HmrcBlack,
-        errorSupportingTextColor = HmrcRed,
-        focusedSupportingTextColor = HmrcBlack,
-        errorLabelColor = HmrcRed
     )
 }
