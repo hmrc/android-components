@@ -47,8 +47,7 @@ class AtomsFragment : Fragment(R.layout.fragment_compose_example) {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 val listItems by viewModel.atomsItems.collectAsState()
-                val window = rememberWindowSizeClass()
-                HmrcTheme(window) {
+                HmrcTheme {
                     HmrcSurface {
                         ComponentListScreen(items = listItems, navigateTo = {
                             when (it.id) {

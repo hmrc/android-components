@@ -63,7 +63,7 @@ private val DarkColorPalette = HmrcColors(
 
 @Composable
 fun HmrcTheme(
-    windowSizeClass: WindowSizeClass,
+    windowSizeClass: WindowSizeClass = rememberWindowSizeClass(),
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

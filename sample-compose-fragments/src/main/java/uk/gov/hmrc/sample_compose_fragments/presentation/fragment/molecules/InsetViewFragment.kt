@@ -39,8 +39,7 @@ class InsetViewFragment : Fragment(R.layout.fragment_compose_example) {
         binding.composeView.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                val window = rememberWindowSizeClass()
-                HmrcTheme(windowSizeClass = window) {
+                HmrcTheme {
                     HmrcSurface {
                         InsetViewScreen()
                     }
