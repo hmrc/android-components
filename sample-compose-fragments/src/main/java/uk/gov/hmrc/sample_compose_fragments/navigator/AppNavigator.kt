@@ -32,6 +32,10 @@ class AppNavigator @Inject constructor() : Navigator{
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToNavMultiRowTextFragment())
     }
 
+    override fun Fragment.gotoMoleculeSwitchRowView() {
+        navigate(MoleculesFragmentDirections.actionMoleculesFragmentToSwitchRowViewFragment())
+    }
+
     override fun Fragment.goBack() {
         findNavController().popBackStack()
     }

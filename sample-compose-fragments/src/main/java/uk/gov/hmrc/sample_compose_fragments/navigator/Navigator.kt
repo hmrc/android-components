@@ -16,5 +16,7 @@ interface Navigator {
 
     fun Fragment.gotoMoleculeBoldTitleBodyView()
 
+    fun Fragment.gotoMoleculeSwitchRowView()
+
     fun Fragment.goBack()
 }
