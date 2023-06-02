@@ -148,19 +148,16 @@
     <string name="switch_row_placeholder_title">Title</string>
     <string name="switch_row_placeholder_body_on">Body. Switch: on</string>
     <string name="switch_row_placeholder_body_off">Body. Switch: off</string>
-
     <string name="switch_row_example_1_title">Start of the month</string>
     <string name="switch_row_example_1_body">Get a reminder on the first day of each month</string>
-
     <string name="switch_row_example_2_title">End of the month</string>
     <string name="switch_row_example_2_body">Get a reminder 5 days before the end of each month</string>
-
     <string name="switch_row_example_3_title">Fingerprint ID</string>
-
     <string name="switch_row_example_4_title">@string/long_text</string>
-
     <string name="switch_row_example_5_title">@string/long_text</string>
     <string name="switch_row_example_5_body">@string/longest_text</string>
+    <string name="switch_row_enabled">Enabled</string>
+    <string name="switch_row_disabled">Disabled</string>
 
     <!-- Summary row -->
     <string name="summary_row_placeholder_title">Title</string>

@@ -1,74 +1,83 @@
+/*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package uk.gov.hmrc.components.compose.molecule.item
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 
 @Composable
 fun SwitchRowView(
-    title: String?,
-    body: String?,
+    modifier: Modifier = Modifier,
+    title: String? = null,
+    body: String? = null,
     contentDescription: String? = null,
+    checkedState: Boolean = false,
     onCheckedChangeListener: ((Boolean) -> Unit)? = null,
 ) {
     var localCheckedState by remember { mutableStateOf(false) }
-   // localCheckedState = isChecked
+    // localCheckedState = isChecked
 
-    Row {
-        Column {
-            title?.let { title ->
-                Text(
-                    text = title,
-                    style = HmrcTheme.typography.h6
-                )
-            }
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Column(modifier = Modifier.weight(1f).wrapContentWidth(Alignment.Start)) {
+            title?.let { title -> Text(text = title, style = HmrcTheme.typography.h6) }
             if (title != null && body != null) { Spacer(modifier = Modifier.height(dimensions.hmrcSpacing8)) }
-            body?.let { body ->
-                Text(
-                    text = body,
-                    style = HmrcTheme.typography.info
-                )
-            }
+            body?.let { body -> Text(text = body, style = HmrcTheme.typography.info) }
         }
-        Switch(
-            checked = localCheckedState,
-            onCheckedChange = {
-                if (onCheckedChangeListener != null) { onCheckedChangeListener(it) }
-                localCheckedState = it
-            }
-        )
+        Column(modifier = Modifier.wrapContentWidth(Alignment.End).padding(start = dimensions.hmrcSpacing16)) {
+            Switch(
+                checked = localCheckedState,
+                onCheckedChange = {
+                    if (onCheckedChangeListener != null) { onCheckedChangeListener(it) }
+                    localCheckedState = it
+                }
+            )
+        }
     }
 }
 
-@Preview
-@Composable
-fun Preview() {
-    SwitchRowView(title = "title", body = "body")
-}
-
-
-
 // Whole row toggleable
 
-//Row(
-//Modifier.toggleable(
-//role = Role.Switch,
-//value = checkedState,
-//onValueChange = { checkedState = it }
-//)
-//) {
+// Row(
+// Modifier.toggleable(
+// role = Role.Switch,
+// value = checkedState,
+// onValueChange = { checkedState = it }
+// )
+// ) {
 //    Column {
 //        Text(text = title)
 //        Text(text = body)
@@ -77,4 +86,4 @@ fun Preview() {
 //        checked = checkedState,
 //        onCheckedChange = null
 //    )
-//}
+// }
