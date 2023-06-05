@@ -41,7 +41,12 @@ fun TextInputViewScreen() {
         val characterCount = 50
         PlaceholderSlot {
             TextInputView(
-                onInputValueChange = { viewModel.validateCharCount(characterCount, it, null, 0) },
+                onInputValueChange = { viewModel.validateCharCount(
+                    characterCount = characterCount,
+                    input = it,
+                    errorText = null,
+                    id = 0
+                ) },
                 errorText = viewModel.textInputErrorCharCount.collectAsStateWithLifecycle().value,
                 labelText = stringResource(id = R.string.text_input_placeholder_hint),
                 characterCount = characterCount,

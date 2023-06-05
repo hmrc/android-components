@@ -64,11 +64,11 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                     HmrcSurface {
                         ComponentListScreen(items = listItems, navigateTo = {
                             when (it.id) {
-                                MOLECULE_CURRENCY_INPUT_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_currencyInputViewFragment)
-                                }
                                 MOLECULE_TEXT_INPUT_VIEW -> {
-                                    findNavController().navigate(R.id.action_moleculesFragment_to_textInputViewFragment)
+                                    with(navigator) { gotoMoleculeH5TitleBodyView() }
+                                }
+                                MOLECULE_CURRENCY_INPUT_VIEW -> {
+                                    with(navigator) { gotoCurrencyInputView() }
                                 }
                                 MOLECULE_H4_TITLE_BODY_VIEW -> {
                                     with(navigator) { gotoMoleculeH4TitleBodyView() }

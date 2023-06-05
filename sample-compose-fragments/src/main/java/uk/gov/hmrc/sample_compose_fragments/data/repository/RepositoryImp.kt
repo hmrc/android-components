@@ -47,13 +47,13 @@ class RepositoryImpl @Inject constructor() : Repository {
         const val ATOM_BUTTON = 2
         const val ATOM_DIVIDER = 3
 
+        const val MOLECULE_TEXT_INPUT_VIEW = 1
+        const val MOLECULE_CURRENCY_INPUT_VIEW = 2
         const val MOLECULE_H4_TITLE_BODY_VIEW = 3
         const val MOLECULE_H5_TITLE_BODY_VIEW = 4
         const val MOLECULE_BOLD_TITLE_BODY_VIEW = 5
         const val MOLECULE_INSET_VIEW = 6
         const val MOLECULE_INSET_TEXT_VIEW = 7
-        const val MOLECULE_TEXT_INPUT_VIEW = 8
-        const val MOLECULE_CURRENCY_INPUT_VIEW = 9
-        const val MOLECULE_MULTI_COLUMN_ROW_VIEW = 10
+        const val MOLECULE_MULTI_COLUMN_ROW_VIEW = 8
     }
 }

@@ -3,6 +3,9 @@ package uk.gov.hmrc.sample_compose_fragments.navigator
 import androidx.fragment.app.Fragment
 
 interface Navigator {
+    fun Fragment.gotoTextInputView()
+
+    fun Fragment.gotoCurrencyInputView()
 
     fun Fragment.gotoMultiRowTextFragment()
 
