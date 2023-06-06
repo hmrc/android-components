@@ -22,8 +22,13 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -47,6 +52,16 @@ fun SwitchRowView(
     var localCheckedState by remember { mutableStateOf(false) }
     // localCheckedState = isChecked
 
+    val icon: (@Composable () -> Unit)? = if (localCheckedState) {
+        {
+            Icon(
+                imageVector = Icons.Filled.Check,
+                contentDescription = null, // Icon isn't focusable, no need for content description
+                modifier = Modifier.size(SwitchDefaults.IconSize),
+            )
+        }
+    } else null
+
     Row(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -63,7 +78,18 @@ fun SwitchRowView(
                 onCheckedChange = {
                     if (onCheckedChangeListener != null) { onCheckedChangeListener(it) }
                     localCheckedState = it
-                }
+                },
+                thumbContent = icon,
+                colors = SwitchDefaults.colors(
+                    checkedThumbColor = HmrcTheme.colors.hmrcWhite,
+                    checkedTrackColor = HmrcTheme.colors.hmrcBlue,
+                    checkedBorderColor = HmrcTheme.colors.hmrcBlue,
+                    checkedIconColor = HmrcTheme.colors.hmrcBlue,
+                    uncheckedThumbColor = HmrcTheme.colors.hmrcGrey1,
+                    uncheckedTrackColor = HmrcTheme.colors.hmrcGrey3,
+                    uncheckedBorderColor = HmrcTheme.colors.hmrcGrey1,
+                    uncheckedIconColor = HmrcTheme.colors.hmrcGrey1
+                )
             )
         }
     }

@@ -80,7 +80,7 @@ fun SwitchRowViewScreen() {
             }
 
             Card(
-                modifier = Modifier.fillMaxWidth().padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
+                modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
                 SwitchRowView(
