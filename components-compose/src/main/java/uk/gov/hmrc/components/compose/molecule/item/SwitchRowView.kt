@@ -48,7 +48,20 @@ fun SwitchRowView(
     onCheckedChangeListener: ((Boolean) -> Unit)? = null,
 ) {
 
-    val icon: (@Composable () -> Unit)? = if (checkedState) {
+    val hmrcSwitchColors = with(HmrcTheme.colors) {
+        SwitchDefaults.colors(
+            checkedThumbColor = hmrcWhite,
+            checkedTrackColor = hmrcBlue,
+            checkedBorderColor = hmrcBlue,
+            checkedIconColor = hmrcBlue,
+            uncheckedThumbColor = hmrcGrey1,
+            uncheckedTrackColor = hmrcGrey3,
+            uncheckedBorderColor = hmrcGrey1,
+            uncheckedIconColor = hmrcGrey1
+        )
+    }
+
+    val thumbIcon: (@Composable () -> Unit)? = if (checkedState) {
         {
             Icon(
                 imageVector = Icons.Filled.Check,
@@ -73,17 +86,8 @@ fun SwitchRowView(
                 modifier = Modifier.semantics { checkedStateContentDesc?.let { stateDescription = it } },
                 checked = checkedState,
                 onCheckedChange = { if (onCheckedChangeListener != null) { onCheckedChangeListener(it) } },
-                thumbContent = icon,
-                colors = SwitchDefaults.colors(
-                    checkedThumbColor = HmrcTheme.colors.hmrcWhite,
-                    checkedTrackColor = HmrcTheme.colors.hmrcBlue,
-                    checkedBorderColor = HmrcTheme.colors.hmrcBlue,
-                    checkedIconColor = HmrcTheme.colors.hmrcBlue,
-                    uncheckedThumbColor = HmrcTheme.colors.hmrcGrey1,
-                    uncheckedTrackColor = HmrcTheme.colors.hmrcGrey3,
-                    uncheckedBorderColor = HmrcTheme.colors.hmrcGrey1,
-                    uncheckedIconColor = HmrcTheme.colors.hmrcGrey1
-                )
+                thumbContent = thumbIcon,
+                colors = hmrcSwitchColors,
             )
         }
     }

@@ -11,10 +11,10 @@ import javax.inject.Inject
 @HiltViewModel
 class SwitchRowViewModel @Inject constructor(): ViewModel() {
 
-    private val _placeholderSwitchUiState = MutableStateFlow(createPlaceholderSwitchUiState())
+    private val _placeholderSwitchUiState = MutableStateFlow(createInitialPlaceholderSwitchUiState())
     val placeholderSwitchUiState: StateFlow<SwitchUiState> get() = _placeholderSwitchUiState
 
-    private val _examplesUiState = MutableStateFlow(createExamplesSwitchUiState())
+    private val _examplesUiState = MutableStateFlow(createInitialExamplesSwitchUiState())
     val examplesUiState: StateFlow<ExamplesUiState> get() = _examplesUiState
 
     private val _showToast = MutableStateFlow<Int?>(null)
@@ -84,13 +84,13 @@ class SwitchRowViewModel @Inject constructor(): ViewModel() {
         _showToast.value = text
     }
 
-    private fun createPlaceholderSwitchUiState() = SwitchUiState(
+    private fun createInitialPlaceholderSwitchUiState() = SwitchUiState(
         title = R.string.switch_row_placeholder_title,
         body = R.string.switch_row_placeholder_body_off,
         enabled = false,
     )
 
-    private fun createExamplesSwitchUiState() = ExamplesUiState(
+    private fun createInitialExamplesSwitchUiState() = ExamplesUiState(
         exampleOne = SwitchUiState(
             title = R.string.switch_row_example_1_title,
             body = R.string.switch_row_example_1_body,

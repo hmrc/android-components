@@ -119,7 +119,7 @@ fun SwitchRowViewScreen(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
-                with(examplesUiState.exampleOne) {
+                with(examplesUiState.exampleFive) {
                     SwitchRowView(
                         modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         title = title?.let { stringResource(it) },
