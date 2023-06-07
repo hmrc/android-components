@@ -31,7 +31,7 @@ class SwitchRowViewFragment : Fragment(R.layout.fragment_compose_example) {
             setContent {
                 HmrcTheme {
                     HmrcSurface {
-                        SwitchRowViewScreen()
+                        SwitchRowViewScreen(viewModel)
                     }
                 }
             }

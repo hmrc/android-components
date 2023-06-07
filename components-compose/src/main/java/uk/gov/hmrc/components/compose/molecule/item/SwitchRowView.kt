@@ -49,10 +49,8 @@ fun SwitchRowView(
     checkedState: Boolean = false,
     onCheckedChangeListener: ((Boolean) -> Unit)? = null,
 ) {
-    var localCheckedState by remember { mutableStateOf(false) }
-    // localCheckedState = isChecked
 
-    val icon: (@Composable () -> Unit)? = if (localCheckedState) {
+    val icon: (@Composable () -> Unit)? = if (checkedState) {
         {
             Icon(
                 imageVector = Icons.Filled.Check,
@@ -74,11 +72,8 @@ fun SwitchRowView(
         }
         Column(modifier = Modifier.wrapContentWidth(Alignment.End).padding(start = dimensions.hmrcSpacing16)) {
             Switch(
-                checked = localCheckedState,
-                onCheckedChange = {
-                    if (onCheckedChangeListener != null) { onCheckedChangeListener(it) }
-                    localCheckedState = it
-                },
+                checked = checkedState,
+                onCheckedChange = { if (onCheckedChangeListener != null) { onCheckedChangeListener(it) } },
                 thumbContent = icon,
                 colors = SwitchDefaults.colors(
                     checkedThumbColor = HmrcTheme.colors.hmrcWhite,
