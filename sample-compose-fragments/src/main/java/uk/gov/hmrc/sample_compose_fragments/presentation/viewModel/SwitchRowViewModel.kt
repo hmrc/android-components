@@ -23,20 +23,34 @@ class SwitchRowViewModel @Inject constructor(): ViewModel() {
     fun onPlaceholderSwitchChanged(enabled: Boolean) {
         val body = if (enabled) R.string.switch_row_placeholder_body_on else R.string.switch_row_placeholder_body_off
         _placeholderSwitchUiState.value = _placeholderSwitchUiState.value.copy(body = body, enabled = enabled)
-        showToast(body)
+        showToast(with(_placeholderSwitchUiState.value) { if (enabled) enabledToastText else disabledToastText })
     }
 
     fun onExampleSwitchChanged(enabled: Boolean, switchRowExample: SwitchRowExample) {
         _examplesUiState.value = with(_examplesUiState.value) {
             when (switchRowExample) {
-                SwitchRowExample.ONE -> copy(exampleOne = exampleOne.copy(enabled = enabled))
-                SwitchRowExample.TWO -> copy(exampleTwo = exampleTwo.copy(enabled = enabled))
-                SwitchRowExample.THREE -> copy(exampleThree = exampleThree.copy(enabled = enabled))
-                SwitchRowExample.FOUR -> copy(exampleFour = exampleFour.copy(enabled = enabled))
-                SwitchRowExample.FIVE -> copy(exampleFive = exampleFive.copy(enabled = enabled))
+                SwitchRowExample.ONE -> {
+                    showToast(if (enabled) exampleOne.enabledToastText else exampleOne.disabledToastText)
+                    copy(exampleOne = exampleOne.copy(enabled = enabled))
+                }
+                SwitchRowExample.TWO -> {
+                    showToast(if (enabled) exampleTwo.enabledToastText else exampleTwo.disabledToastText)
+                    copy(exampleTwo = exampleTwo.copy(enabled = enabled))
+                }
+                SwitchRowExample.THREE -> {
+                    showToast(if (enabled) exampleThree.enabledToastText else exampleThree.disabledToastText)
+                    copy(exampleThree = exampleThree.copy(enabled = enabled))
+                }
+                SwitchRowExample.FOUR -> {
+                    showToast(if (enabled) exampleFour.enabledToastText else exampleFour.disabledToastText)
+                    copy(exampleFour = exampleFour.copy(enabled = enabled))
+                }
+                SwitchRowExample.FIVE -> {
+                    showToast(if (enabled) exampleFive.enabledToastText else exampleFive.disabledToastText)
+                    copy(exampleFive = exampleFive.copy(enabled = enabled))
+                }
             }
         }
-        showToast(if (enabled) R.string.switch_row_enabled else R.string.switch_row_disabled)
     }
 
     private fun showToast(@StringRes text: Int) {
@@ -46,24 +60,46 @@ class SwitchRowViewModel @Inject constructor(): ViewModel() {
     private fun createPlaceholderSwitchUiState() = SwitchUiState(
         title = R.string.switch_row_placeholder_title,
         body = R.string.switch_row_placeholder_body_off,
-        enabled = false
+        enabled = false,
+        enabledToastText = R.string.switch_row_enabled,
+        disabledToastText = R.string.switch_row_placeholder_body_off
     )
 
     private fun createExamplesSwitchUiState() = ExamplesUiState(
         exampleOne = SwitchUiState(
-            title = R.string.switch_row_example_1_title, body = R.string.switch_row_example_1_body, enabled = false
+            title = R.string.switch_row_example_1_title,
+            body = R.string.switch_row_example_1_body,
+            enabled = false,
+            enabledToastText = R.string.switch_row_example_1_enabled_content_desc,
+            disabledToastText = R.string.switch_row_example_1_disabled_content_desc,
         ),
         exampleTwo = SwitchUiState(
-            title = R.string.switch_row_example_2_title, body = R.string.switch_row_example_2_body, enabled = true
+            title = R.string.switch_row_example_2_title,
+            body = R.string.switch_row_example_2_body,
+            enabled = true,
+            enabledToastText = R.string.switch_row_example_2_enabled_content_desc,
+            disabledToastText = R.string.switch_row_example_2_disabled_content_desc,
         ),
         exampleThree = SwitchUiState(
-            title = null, body = R.string.switch_row_example_3_title, enabled = false
+            title = null,
+            body = R.string.switch_row_example_3_title,
+            enabled = false,
+            enabledToastText = R.string.switch_row_example_3_enabled_content_desc,
+            disabledToastText = R.string.switch_row_example_3_disabled_content_desc,
         ),
         exampleFour = SwitchUiState(
-            title = R.string.switch_row_example_4_title, body = null, enabled = false
+            title = R.string.switch_row_example_4_title,
+            body = null,
+            enabled = false,
+            enabledToastText = R.string.switch_row_example_4_enabled_content_desc,
+            disabledToastText = R.string.switch_row_example_4_disabled_content_desc,
         ),
         exampleFive = SwitchUiState(
-            title = R.string.switch_row_example_5_title, body = R.string.switch_row_example_5_body, enabled = false
+            title = R.string.switch_row_example_5_title,
+            body = R.string.switch_row_example_5_body,
+            enabled = false,
+            enabledToastText = R.string.switch_row_example_5_enabled_content_desc,
+            disabledToastText = R.string.switch_row_example_5_disabled_content_desc,
         ),
     )
 
@@ -75,7 +111,13 @@ class SwitchRowViewModel @Inject constructor(): ViewModel() {
         val exampleFive: SwitchUiState,
     )
 
-    data class SwitchUiState(@StringRes val title: Int?, @StringRes val body: Int?, val enabled: Boolean = false)
+    data class SwitchUiState(
+        @StringRes val title: Int?,
+        @StringRes val body: Int?,
+        val enabled: Boolean = false,
+        @StringRes val enabledToastText: Int,
+        @StringRes val disabledToastText: Int,
+    )
 
     enum class SwitchRowExample {
         ONE, TWO, THREE, FOUR, FIVE
