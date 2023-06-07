@@ -31,12 +31,10 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 
@@ -45,8 +43,8 @@ fun SwitchRowView(
     modifier: Modifier = Modifier,
     title: String? = null,
     body: String? = null,
-    contentDescription: String? = null,
     checkedState: Boolean = false,
+    checkedStateContentDesc: String? = null,
     onCheckedChangeListener: ((Boolean) -> Unit)? = null,
 ) {
 
@@ -72,6 +70,7 @@ fun SwitchRowView(
         }
         Column(modifier = Modifier.wrapContentWidth(Alignment.End).padding(start = dimensions.hmrcSpacing16)) {
             Switch(
+                modifier = Modifier.semantics { checkedStateContentDesc?.let { stateDescription = it } },
                 checked = checkedState,
                 onCheckedChange = { if (onCheckedChangeListener != null) { onCheckedChangeListener(it) } },
                 thumbContent = icon,
@@ -89,22 +88,3 @@ fun SwitchRowView(
         }
     }
 }
-
-// Whole row toggleable
-
-// Row(
-// Modifier.toggleable(
-// role = Role.Switch,
-// value = checkedState,
-// onValueChange = { checkedState = it }
-// )
-// ) {
-//    Column {
-//        Text(text = title)
-//        Text(text = body)
-//    }
-//    Switch(
-//        checked = checkedState,
-//        onCheckedChange = null
-//    )
-// }

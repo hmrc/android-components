@@ -38,13 +38,6 @@ fun SwitchRowViewScreen(
     examplesUiState: SwitchRowViewModel.ExamplesUiState,
     onExampleSwitchChanged: (Boolean, SwitchRowExample) -> Unit
 ) {
-
-    val exampleOne = examplesUiState.exampleOne
-    val exampleTwo = examplesUiState.exampleTwo
-    val exampleThree = examplesUiState.exampleThree
-    val exampleFour = examplesUiState.exampleFour
-    val exampleFive = examplesUiState.exampleFive
-
     ScreenScrollViewColumn {
         PlaceholderSlot {
             SwitchRowView(
@@ -61,13 +54,16 @@ fun SwitchRowViewScreen(
                 modifier = Modifier.fillMaxWidth().padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
-                SwitchRowView(
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
-                    title = exampleOne.title?.let { stringResource(it) },
-                    body = exampleOne.body?.let { stringResource(it) },
-                    checkedState = exampleOne.enabled,
-                    onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.ONE)},
-                )
+                with(examplesUiState.exampleOne) {
+                    SwitchRowView(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                        title = title?.let { stringResource(it) },
+                        body = body?.let { stringResource(it) },
+                        checkedStateContentDesc = enabledContentDesc?.let { stringResource(it) },
+                        checkedState = enabled,
+                        onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.ONE) },
+                    )
+                }
             }
 
             // Example two
@@ -75,13 +71,15 @@ fun SwitchRowViewScreen(
                 modifier = Modifier.fillMaxWidth().padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
-                SwitchRowView(
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
-                    title = exampleTwo.title?.let { stringResource(it) },
-                    body = exampleTwo.body?.let { stringResource(it) },
-                    checkedState = exampleTwo.enabled,
-                    onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.TWO)},
-                )
+                with(examplesUiState.exampleTwo) {
+                    SwitchRowView(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                        title = title?.let { stringResource(it) },
+                        body = body?.let { stringResource(it) },
+                        checkedState = enabled,
+                        onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.TWO)},
+                    )
+                }
             }
 
             // Example three
@@ -89,13 +87,15 @@ fun SwitchRowViewScreen(
                 modifier = Modifier.fillMaxWidth().padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
-                SwitchRowView(
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
-                    title = exampleThree.title?.let { stringResource(it) },
-                    body = exampleThree.body?.let { stringResource(it) },
-                    checkedState = exampleThree.enabled,
-                    onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.THREE)},
-                )
+                with(examplesUiState.exampleThree) {
+                    SwitchRowView(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                        title = title?.let { stringResource(it) },
+                        body = body?.let { stringResource(it) },
+                        checkedState = enabled,
+                        onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.THREE)},
+                    )
+                }
             }
 
             // Example four
@@ -103,13 +103,15 @@ fun SwitchRowViewScreen(
                 modifier = Modifier.fillMaxWidth().padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
-                SwitchRowView(
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
-                    title = exampleFour.title?.let { stringResource(it) },
-                    body = exampleFour.body?.let { stringResource(it) },
-                    checkedState = exampleFour.enabled,
-                    onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.FOUR)}
-                )
+                with(examplesUiState.exampleFour) {
+                    SwitchRowView(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                        title = title?.let { stringResource(it) },
+                        body = body?.let { stringResource(it) },
+                        checkedState = enabled,
+                        onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.FOUR)}
+                    )
+                }
             }
 
             // Example five
@@ -117,13 +119,15 @@ fun SwitchRowViewScreen(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
             ) {
-                SwitchRowView(
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
-                    title = exampleFive.title?.let { stringResource(it) },
-                    body = exampleFive.body?.let { stringResource(it) },
-                    checkedState = exampleFive.enabled,
-                    onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.FIVE)}
-                )
+                with(examplesUiState.exampleOne) {
+                    SwitchRowView(
+                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                        title = title?.let { stringResource(it) },
+                        body = body?.let { stringResource(it) },
+                        checkedState = enabled,
+                        onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.FIVE)}
+                    )
+                }
             }
         }
     }

@@ -158,16 +158,18 @@
     <string name="switch_row_example_5_body">@string/longest_text</string>
     <string name="switch_row_enabled">Enabled</string>
     <string name="switch_row_disabled">Disabled</string>
-    <string name="switch_row_example_1_enabled_content_desc">Start of the month: enabled</string>
-    <string name="switch_row_example_1_disabled_content_desc">Start of the month: disabled</string>
-    <string name="switch_row_example_2_enabled_content_desc">End of the month: enabled</string>
-    <string name="switch_row_example_2_disabled_content_desc">End of the month: disabled</string>
-    <string name="switch_row_example_3_enabled_content_desc">Fingerprint ID: enabled</string>
-    <string name="switch_row_example_3_disabled_content_desc">Fingerprint ID: disabled</string>
-    <string name="switch_row_example_4_enabled_content_desc">Long text 1: enabled</string>
-    <string name="switch_row_example_4_disabled_content_desc">Long text 1: disabled</string>
-    <string name="switch_row_example_5_enabled_content_desc">Long text 2: enabled</string>
-    <string name="switch_row_example_5_disabled_content_desc">Long text 2: disabled</string>
+    <string name="switch_row_example_1_enabled_content_desc">Start of the month reminders enabled</string>
+    <string name="switch_row_example_1_disabled_content_desc">Start of the month reminders disabled</string>
+    <string name="switch_row_example_1_enabled_toast">Start of the month: enabled</string>
+    <string name="switch_row_example_1_disabled_toast">Start of the month: disabled</string>
+    <string name="switch_row_example_2_enabled_toast">End of the month: enabled</string>
+    <string name="switch_row_example_2_disabled_toast">End of the month: disabled</string>
+    <string name="switch_row_example_3_enabled_toast">Fingerprint ID: enabled</string>
+    <string name="switch_row_example_3_disabled_toast">Fingerprint ID: disabled</string>
+    <string name="switch_row_example_4_enabled_toast">Long text 1: enabled</string>
+    <string name="switch_row_example_4_disabled_toast">Long text 1: disabled</string>
+    <string name="switch_row_example_5_enabled_toast">Long text 2: enabled</string>
+    <string name="switch_row_example_5_disabled_toast">Long text 2: disabled</string>
 
     <!-- Summary row -->
     <string name="summary_row_placeholder_title">Title</string>
