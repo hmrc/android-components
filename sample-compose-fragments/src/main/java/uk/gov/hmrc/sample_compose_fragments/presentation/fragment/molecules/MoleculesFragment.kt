@@ -65,7 +65,7 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                         ComponentListScreen(items = listItems, navigateTo = {
                             when (it.id) {
                                 MOLECULE_TEXT_INPUT_VIEW -> {
-                                    with(navigator) { gotoMoleculeH5TitleBodyView() }
+                                    with(navigator) { gotoTextInputView() }
                                 }
                                 MOLECULE_CURRENCY_INPUT_VIEW -> {
                                     with(navigator) { gotoCurrencyInputView() }

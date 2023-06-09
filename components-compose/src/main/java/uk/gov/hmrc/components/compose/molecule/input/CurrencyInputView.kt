@@ -37,16 +37,18 @@ fun CurrencyInputView(
 ) {
 
     // pattern matches a decimal number
-    val pattern = remember { Regex("^[0-9]+(\\.?)([0-9]?[0-9]?)") }
+    val decimalPattern = remember { Regex("^(?!0[0-9])[0-9]+(\\.?)([0-9]?[0-9]?)") }
+    // pattern matches a non decimal number
+    val nonDecimalPattern = remember { Regex("^(?!0[0-9])[0-9]+$") }
 
     fun decimalPatternChecker(input: String, localValue: String): (String) {
-        val matchesBoolean: Boolean = input.matches(pattern)
+        val matchesDecimal: Boolean = input.matches(decimalPattern)
 
         return if (enableDecimal) {
-            if (matchesBoolean) {
-                input.filter { input.matches(pattern) }
+            if (matchesDecimal) {
+                input.filter { input.matches(decimalPattern) }
             } else localValue
-        } else input.filter { symbol -> symbol.isDigit() }
+        } else input.filter { input.matches(nonDecimalPattern) }
     }
 
     TextInputView(

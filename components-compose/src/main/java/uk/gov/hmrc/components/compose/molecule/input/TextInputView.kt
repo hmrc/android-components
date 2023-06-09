@@ -163,7 +163,7 @@ fun TextInputView(
                 Icon(
                     Icons.Default.Clear,
                     contentDescription = stringResource(id = R.string.textInputView_clear),
-                    modifier = Modifier.clickable { localValue.isEmpty() }
+                    modifier = Modifier.clickable { localValue = "" }
                 )
             }
         },
