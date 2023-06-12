@@ -40,7 +40,7 @@ fun CurrencyInputViewScreen() {
         PlaceholderSlot {
             CurrencyInputView(
                 labelText = stringResource(id = R.string.currency_input_placeholder_hint),
-                enableDecimal = false,
+                enableDecimal = true,
             )
         }
 
@@ -50,14 +50,14 @@ fun CurrencyInputViewScreen() {
                     onInputValueChange = { viewModel.isEmptyValidation(it, errorText1, 0) },
                     errorText = viewModel.textInputErrorEmptyValidation.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.currency_input_example_1_hint),
-                    enableDecimal = false
+                    enableDecimal = true
                     )
 
                 CurrencyInputView(
                     onInputValueChange = { viewModel.isEmptyValidation(it, errorText2, 1) },
                     errorText = viewModel.textInputErrorEmptyValidation1.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.currency_input_example_2_hint),
-                    enableDecimal = true
+                    enableDecimal = false
                     )
 
                 CurrencyInputView(
