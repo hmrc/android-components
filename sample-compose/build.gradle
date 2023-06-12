@@ -73,8 +73,14 @@ dependencies {
     implementation Libs.compose_material
     implementation Libs.compose_tooling
     implementation Libs.androidX_lifecycle_runtimeKtx
+    implementation Libs.androidX_lifecycle_viewModelKtx
+    implementation Libs.androidX_lifecycle_runtimeLiveData
+    implementation Libs.androidX_lifecycle_viewModelCompose
+    implementation Libs.androidx_lifecycle_runtimeCompose
+
     implementation Libs.androidX_activity_activityCompose
     implementation Libs.material
+    implementation Libs.androidx_material
 
     //Navigation
     implementation Libs.androidX_navigation_navigationCompose
@@ -88,4 +94,13 @@ dependencies {
     androidTestImplementation Libs.compose_uiTest
 
     debugImplementation Libs.compose_tooling
+
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.10") {
+            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.10") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
 }

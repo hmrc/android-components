@@ -64,7 +64,7 @@ dependencies {
     implementation("androidx.compose.ui:ui:${rootProject.extra["compose_version"]}")
     implementation("androidx.compose.ui:ui-tooling-preview:${rootProject.extra["compose_version"]}")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("androidx.compose.material3:material3:1.1.0-alpha04")
+    implementation("androidx.compose.material3:material3:1.2.0-alpha02")
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation ("androidx.navigation:navigation-ui:2.5.3")
     implementation("com.google.dagger:hilt-android:2.44")

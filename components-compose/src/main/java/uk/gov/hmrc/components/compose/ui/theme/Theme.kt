@@ -19,6 +19,8 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -101,10 +103,27 @@ fun HmrcTheme(
         else -> hmrcTypography
     }
 
+    val textInputViewColors: TextFieldColors = OutlinedTextFieldDefaults.colors(
+        focusedTextColor = HmrcBlack,
+        unfocusedTextColor = HmrcBlack,
+        errorTextColor = HmrcRed,
+        errorLeadingIconColor = HmrcRed,
+        errorTrailingIconColor = HmrcRed,
+        focusedLabelColor = HmrcBlue,
+        unfocusedLabelColor = HmrcBlack,
+        focusedBorderColor = HmrcBlue,
+        errorBorderColor = HmrcRed,
+        unfocusedBorderColor = HmrcBlack,
+        errorSupportingTextColor = HmrcRed,
+        focusedSupportingTextColor = HmrcBlack,
+        errorLabelColor = HmrcRed
+    )
+
     ProvideHmrcTheme(
         dimensions = dimensions,
         orientation = orientation,
         colors = colors,
+        textFieldColors = textInputViewColors,
         typography = typography
     ) {
         MaterialTheme(
@@ -118,6 +137,10 @@ object HmrcTheme {
     val colors: HmrcColors
         @Composable
         get() = LocalHmrcColors.current
+
+    val textFieldColors: TextFieldColors
+        @Composable
+        get() = LocalTextFieldColors.current
 
     val typography: HmrcTypography
         @Composable

@@ -15,6 +15,7 @@
  */
 package uk.gov.hmrc.components.compose.ui.theme
 
+import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
@@ -26,6 +27,7 @@ fun ProvideHmrcTheme(
     dimensions: Dimensions,
     orientation: Orientation,
     colors: HmrcColors,
+    textFieldColors: TextFieldColors,
     typography: HmrcTypography,
     content: @Composable () -> Unit
 ) {
@@ -36,18 +38,21 @@ fun ProvideHmrcTheme(
     val orientation = remember { orientation }
 
     val colorPalette = remember { colors.copy() }
+    val textFieldColorPalette = remember { textFieldColors }
     val typographySet = remember { typography.copy() }
     colorPalette.update(colors)
     CompositionLocalProvider(
         LocalAppDimens provides dimSet,
         LocalOrientationMode provides orientation,
         LocalHmrcColors provides colorPalette,
+        LocalTextFieldColors provides textFieldColorPalette,
         LocalHmrcTypography provides typographySet,
         content = content
     )
 }
 
 val LocalHmrcColors = staticCompositionLocalOf<HmrcColors> { error("No HmrcColorPalette provided") }
+val LocalTextFieldColors = staticCompositionLocalOf<TextFieldColors> { error("No HmrcColorPalette provided") }
 val LocalHmrcTypography = staticCompositionLocalOf<HmrcTypography> { error("No HmrcTypography provided") }
 
 val LocalAppDimens = compositionLocalOf { smallDimensions }

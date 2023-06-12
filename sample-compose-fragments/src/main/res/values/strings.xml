@@ -73,6 +73,8 @@
     <string name="molecules_bold">Bold Title Body View</string>
     <string name="molecules_inset">Inset View</string>
     <string name="molecules_inset_text">Inset Text View</string>
+    <string name="molecules_text_input_view">Text Input View</string>
+    <string name="molecules_currency_input_view">Currency Input View</string>
     <string name="molecules_multi_column_row">Multi Column Row View</string>
     <string name="molecules_switch_row">Switch Row View</string>
     <string name="molecules_status">Status View</string>
@@ -265,6 +267,8 @@
     <string name="text_input_example_2_error">Enter your name</string>
     <string name="text_input_example_3_hint">Email</string>
     <string name="text_input_example_3_error">Email is empty</string>
+    <string name="text_input_this_is_error">this is an error</string>
+    <string name="text_input_clear_button_content_description">Clear text</string>
 
     <!-- Currency input -->
     <string name="currency_input_placeholder_hint">Hint</string>

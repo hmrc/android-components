@@ -27,6 +27,7 @@ import uk.gov.hmrc.components.compose.molecule.titleBody.BoldTitleBodyView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -41,10 +42,8 @@ fun BoldTitleBodyViewScreen() {
         }
 
         ExamplesSlot {
-            Card(
-                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16).fillMaxWidth(),
-                shape = RoundedCornerShape(0),
-                colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
+            HmrcCard(
+                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
             ) {
                 BoldTitleBodyView(
                     titleText = stringResource(id = R.string.bold_example_title),
@@ -53,10 +52,8 @@ fun BoldTitleBodyViewScreen() {
                 )
             }
 
-            Card(
-                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16).fillMaxWidth(),
-                shape = RoundedCornerShape(0),
-                colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
+            HmrcCard(
+                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
             ) {
                 BoldTitleBodyView(
                     titleText = stringResource(id = R.string.longer_text),

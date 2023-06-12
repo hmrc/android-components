@@ -22,34 +22,32 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
 @Composable
 fun ColorsListScreen(viewModel: ColorsViewModel) {
-    val listItems by viewModel.colorItems.collectAsState()
+    val listItems by viewModel.colorItems.collectAsStateWithLifecycle()
     val listState = rememberLazyListState()
 
     LazyColumn(
@@ -65,11 +63,9 @@ fun ColorsListScreen(viewModel: ColorsViewModel) {
 
 @Composable
 fun ListItem(item: ColorItem) {
-    Card(
-        modifier = Modifier.fillMaxWidth().padding(HmrcTheme.dimensions.hmrcSpacing16, HmrcTheme.dimensions.hmrcSpacing8),
+    HmrcCard(
+        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16, HmrcTheme.dimensions.hmrcSpacing8),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-        shape = RoundedCornerShape(0),
-        colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
     ) {
         Row(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)) {
             Box(

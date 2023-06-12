@@ -28,6 +28,14 @@ class AppNavigator @Inject constructor() : Navigator{
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToBoldTitleBodyViewFragment())
     }
 
+    override fun Fragment.gotoTextInputView() {
+        navigate(MoleculesFragmentDirections.actionMoleculesFragmentToTextInputViewFragment())
+    }
+
+    override fun Fragment.gotoCurrencyInputView() {
+        navigate(MoleculesFragmentDirections.actionMoleculesFragmentToCurrencyInputViewFragment())
+    }
+
     override fun Fragment.gotoMultiRowTextFragment() {
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToNavMultiRowTextFragment())
     }

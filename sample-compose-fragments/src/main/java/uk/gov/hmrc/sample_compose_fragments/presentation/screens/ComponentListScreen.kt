@@ -24,8 +24,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -34,8 +32,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 
 @Composable
 fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T) -> Unit) {
@@ -54,14 +52,12 @@ fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T
 
 @Composable
 fun <T : ComponentItem> ComponentListItem(item: T, navigateTo: (item: T) -> Unit) {
-    Card(
+    HmrcCard(
         modifier = Modifier
-            .fillMaxWidth()
             .padding(HmrcTheme.dimensions.hmrcSpacing16, HmrcTheme.dimensions.hmrcSpacing8)
+            .fillMaxWidth()
             .clickable(onClick = { navigateTo(item) }),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-        shape = RoundedCornerShape(0),
-        colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
     ) {
         Row(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16).align(alignment = Alignment.CenterHorizontally)) {
             Text(
