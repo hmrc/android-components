@@ -49,7 +49,9 @@
         <action
             android:id="@+id/action_moleculesFragment_to_navMultiRowTextFragment"
             app:destination="@id/navMultiRowTextFragment" />
-
+        <action
+            android:id="@+id/action_moleculesFragment_to_switchRowViewFragment"
+            app:destination="@id/switchRowViewFragment" />
     </fragment>
 
     <fragment
@@ -70,42 +72,41 @@
         android:id="@+id/insetViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.InsetViewFragment"
         android:label="@string/molecules_inset"
-        tools:layout="@layout/fragment_compose_example">
-    </fragment>
+        tools:layout="@layout/fragment_compose_example" />
 
     <fragment
         android:id="@+id/insetTextViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.InsetTextViewFragment"
         android:label="@string/molecules_inset_text"
-        tools:layout="@layout/fragment_compose_example">
-    </fragment>
+        tools:layout="@layout/fragment_compose_example" />
 
     <fragment
         android:id="@+id/boldTitleBodyViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.BoldTitleBodyViewFragment"
         android:label="@string/molecules_bold"
-        tools:layout="@layout/fragment_compose_example">
-    </fragment>
+        tools:layout="@layout/fragment_compose_example" />
 
     <fragment
         android:id="@+id/h4TitleBodyViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.H4TitleBodyViewFragment"
         android:label="@string/molecules_h4"
-        tools:layout="@layout/fragment_compose_example">
-    </fragment>
+        tools:layout="@layout/fragment_compose_example" />
 
     <fragment
         android:id="@+id/h5TitleBodyViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.H5TitleBodyViewFragment"
         android:label="@string/molecules_h5"
-        tools:layout="@layout/fragment_compose_example">
-    </fragment>
+        tools:layout="@layout/fragment_compose_example" />
 
     <fragment
         android:id="@+id/navMultiRowTextFragment"
         android:label="@string/molecules_multi_column_row"
-        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MultiColumnRowViewFragment">
-    </fragment>
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MultiColumnRowViewFragment" />
+
+    <fragment
+        android:id="@+id/switchRowViewFragment"
+        android:label="@string/molecules_switch_row"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.SwitchRowViewFragment" />
 
 
 </navigation>
