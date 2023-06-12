@@ -34,6 +34,7 @@ import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Compa
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_TEXT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_MULTI_COLUMN_ROW_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_SWITCH_ROW_VIEW
 import uk.gov.hmrc.sample_compose_fragments.navigator.Navigator
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
@@ -57,8 +58,7 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 val listItems by viewModel.moleculesItems.collectAsState()
-                val window = rememberWindowSizeClass()
-                HmrcTheme(window) {
+                HmrcTheme {
                     HmrcSurface {
                         ComponentListScreen(items = listItems, navigateTo = {
                             when (it.id) {
@@ -79,6 +79,9 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                                 }
                                 MOLECULE_MULTI_COLUMN_ROW_VIEW -> {
                                     with(navigator) { gotoMultiRowTextFragment() }
+                                }
+                                MOLECULE_SWITCH_ROW_VIEW -> {
+                                    with(navigator) { gotoMoleculeSwitchRowView() }
                                 }
                             }
                         })

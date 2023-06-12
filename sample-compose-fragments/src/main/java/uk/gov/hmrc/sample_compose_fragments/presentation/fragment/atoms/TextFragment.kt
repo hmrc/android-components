@@ -36,8 +36,7 @@ class TextFragment : Fragment(R.layout.fragment_compose_example) {
         binding.composeView.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                val window = rememberWindowSizeClass()
-                HmrcTheme(window) {
+                HmrcTheme {
                     HmrcSurface {
                         TextScreen()
                     }
