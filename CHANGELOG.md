@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.7.0] - 2023-06-16
+
 ### Changed
 
 * Changed`PrimaryCardView` to have a custom title content description.
