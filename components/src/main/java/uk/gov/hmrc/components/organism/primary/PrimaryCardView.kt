@@ -38,14 +38,20 @@ open class PrimaryCardView @JvmOverloads constructor(
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.PrimaryCardView, 0, 0)
             val title = typedArray.getString(R.styleable.PrimaryCardView_title)
+            val titleContentDescription = typedArray.getString(R.styleable.PrimaryCardView_titleContentDescription)
 
             setTitle(title)
+            setTitleContentDescription(titleContentDescription)
             typedArray.recycle()
         }
     }
 
     fun setTitle(title: CharSequence?) {
         binding.title.text = title
+    }
+
+    fun setTitleContentDescription(desc: String?) {
+        desc?.let { binding.title.contentDescription = it }
     }
 
     override fun removeChildPadding() {

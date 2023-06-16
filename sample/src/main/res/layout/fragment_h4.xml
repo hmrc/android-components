@@ -30,7 +30,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:body="@string/h4_placeholder_body"
-                app:title="@string/h4_placeholder_title" />
+                app:title="@string/h4_placeholder_title"
+                app:bodyContentDescription="@string/h4_placeholder_body_content_description"
+                app:titleContentDescription="@string/h4_placeholder_title_content_description" />
 
         </FrameLayout>
 

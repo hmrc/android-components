@@ -109,6 +109,7 @@
     <string name="title_body_cta_placeholder_title">Title</string>
     <string name="title_body_cta_placeholder_body">Body</string>
     <string name="title_body_cta_placeholder_button">Button</string>
+    <string name="title_body_cta_placeholder_content_description">Content Description</string>
 
     <string name="title_body_cta_example_title">Renew your tax credits</string>
     <string name="title_body_cta_example_body">Renew your tax credits or check the progress of your claims</string>
@@ -241,6 +242,8 @@
     <!-- H4 -->
     <string name="h4_placeholder_title">Title</string>
     <string name="h4_placeholder_body">Body</string>
+    <string name="h4_placeholder_body_content_description">Body Content Description</string>
+    <string name="h4_placeholder_title_content_description">Title Content Description</string>
     <string name="h4_example_title">Pay As You Earn</string>
     <string name="h4_example_body">6 April 2018 to 5 April 2019</string>
 

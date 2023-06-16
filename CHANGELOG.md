@@ -16,6 +16,11 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* Changed`PrimaryCardView` to have a custom title content description.
+* Changed`TitleBodyView` to have custom title and body content descriptions.
+
 ## [4.6.0] - 2023-05-12
 
 ### Changed

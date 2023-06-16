@@ -6,6 +6,10 @@
     <attr name="textColor" format="reference" />
     <!-- Title to display. -->
     <attr name="title" format="string" />
+    <!-- Title content description. -->
+    <attr name="titleContentDescription" format="string" />
+    <!-- Body content description. -->
+    <attr name="bodyContentDescription" format="string" />
     <!-- Subtitle to display. -->
     <attr name="subtitle" format="string" />
     <!-- Icon to display. -->
@@ -90,8 +94,12 @@
     <declare-styleable name="TitleBodyView">
         <!-- Title to display. -->
         <attr name="title" />
+        <!-- Title content description. -->
+        <attr name="titleContentDescription" />
         <!-- Body text to display. -->
         <attr name="body" format="string" />
+        <!-- Body content description. -->
+        <attr name="bodyContentDescription" />
     </declare-styleable>
 
     <declare-styleable name="MultiColumnRowView">
@@ -142,7 +150,7 @@
         <!-- Title to display. This is smaller than the headline. -->
         <attr name="title" />
         <!-- Title content description -->
-        <attr name="titleContentDescription" format="string" />
+        <attr name="titleContentDescription" />
         <!-- Headline to display. This is larger than the title. -->
         <attr name="headline" format="string" />
         <!-- Headline content description -->
@@ -152,6 +160,8 @@
     <declare-styleable name="PrimaryCardView">
         <!-- Title to display. -->
         <attr name="title" />
+        <!-- Title content description -->
+        <attr name="titleContentDescription" />
     </declare-styleable>
 
     <declare-styleable name="InsetView">
@@ -165,7 +175,7 @@
         <!-- Body to display below the title. -->
         <attr name="body" />
         <!-- Body content description. -->
-        <attr name="bodyContentDesc" format="string" />
+        <attr name="bodyContentDescription" />
         <!-- Text color of all text. -->
         <attr name="textColor" />
         <!-- Icon to be displayed at the top of the view. -->
