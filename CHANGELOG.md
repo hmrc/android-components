@@ -16,12 +16,17 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Fixed
+
+* `DonutChartView` ensuring the donut values are cleared before starting the animation
+
 ## [4.7.0] - 2023-06-16
 
 ### Changed
 
 * Changed`PrimaryCardView` to have a custom title content description.
 * Changed`TitleBodyView` to have custom title and body content descriptions.
+
 
 ## [4.6.0] - 2023-05-12
 
