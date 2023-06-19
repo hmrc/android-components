@@ -62,6 +62,11 @@ dependencies {
 
     testImplementation Libs.junit
 
+    //Navigation
+    implementation Libs.androidX_navigation_navigationCompose
+    implementation Libs.androidX_navigation_ui
+    implementation Libs.androidX_navigation_fragment
+
     // UI Tests
     androidTestImplementation Libs.compose_uiTest
     androidTestImplementation Libs.androidX_test_ext_junit

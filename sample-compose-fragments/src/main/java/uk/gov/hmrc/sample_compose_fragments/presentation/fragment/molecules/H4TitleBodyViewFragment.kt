@@ -19,12 +19,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.rememberWindowSizeClass
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules.H4TitleBodyViewScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 
+@AndroidEntryPoint
 class H4TitleBodyViewFragment : Fragment(R.layout.fragment_compose_example) {
 
     private lateinit var binding: FragmentComposeExampleBinding

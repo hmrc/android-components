@@ -29,7 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/hmrc_spacing_16"
-            app:title="@string/title_body_cta_placeholder_title">
+            app:title="@string/title_body_cta_placeholder_title"
+            app:titleContentDescription="@string/title_body_cta_placeholder_content_description">
 
             <TextView
                 style="@style/Text.Body"

@@ -32,11 +32,15 @@ class RepositoryImpl @Inject constructor() : Repository {
     )
 
     override suspend fun getMoleculesList() = arrayListOf(
+        ComponentMenuItem(MOLECULE_TEXT_INPUT_VIEW, R.string.molecules_text_input_view),
+        ComponentMenuItem(MOLECULE_CURRENCY_INPUT_VIEW, R.string.molecules_currency_input_view),
         ComponentMenuItem(MOLECULE_H4_TITLE_BODY_VIEW, R.string.molecules_h4),
         ComponentMenuItem(MOLECULE_H5_TITLE_BODY_VIEW, R.string.molecules_h5),
         ComponentMenuItem(MOLECULE_BOLD_TITLE_BODY_VIEW, R.string.molecules_bold),
         ComponentMenuItem(MOLECULE_INSET_VIEW, R.string.molecules_inset),
         ComponentMenuItem(MOLECULE_INSET_TEXT_VIEW, R.string.molecules_inset_text),
+        ComponentMenuItem(MOLECULE_MULTI_COLUMN_ROW_VIEW, R.string.molecules_multi_column_row),
+        ComponentMenuItem(MOLECULE_SWITCH_ROW_VIEW, R.string.molecules_switch_row),
     )
 
     companion object {
@@ -44,10 +48,14 @@ class RepositoryImpl @Inject constructor() : Repository {
         const val ATOM_BUTTON = 2
         const val ATOM_DIVIDER = 3
 
+        const val MOLECULE_TEXT_INPUT_VIEW = 1
+        const val MOLECULE_CURRENCY_INPUT_VIEW = 2
         const val MOLECULE_H4_TITLE_BODY_VIEW = 3
         const val MOLECULE_H5_TITLE_BODY_VIEW = 4
         const val MOLECULE_BOLD_TITLE_BODY_VIEW = 5
         const val MOLECULE_INSET_VIEW = 6
         const val MOLECULE_INSET_TEXT_VIEW = 7
+        const val MOLECULE_MULTI_COLUMN_ROW_VIEW = 8
+        const val MOLECULE_SWITCH_ROW_VIEW = 9
     }
 }

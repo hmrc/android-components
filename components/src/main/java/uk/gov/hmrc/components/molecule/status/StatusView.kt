@@ -44,7 +44,7 @@ class StatusView @JvmOverloads constructor(
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.StatusView, 0, 0)
             val title = typedArray.getString(R.styleable.StatusView_title)
             val body = typedArray.getString(R.styleable.StatusView_body)
-            val bodyContentDesc = typedArray.getString(R.styleable.StatusView_bodyContentDesc)
+            val bodyContentDesc = typedArray.getString(R.styleable.StatusView_bodyContentDescription)
             val textColor = typedArray.getResourceId(R.styleable.StatusView_textColor, R.color.hmrc_black)
             val icon = typedArray.getResourceId(R.styleable.StatusView_icon, NO_ICON)
             val iconTint = typedArray.getResourceId(R.styleable.StatusView_iconTintColor, NO_ICON_TINT)

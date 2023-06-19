@@ -19,15 +19,15 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
 
 private val LightColorPalette = HmrcColors(
     hmrcBlack = HmrcBlack,
@@ -64,16 +64,67 @@ private val DarkColorPalette = HmrcColors(
 )
 
 @Composable
-fun HmrcTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+fun HmrcTheme(
+    windowSizeClass: WindowSizeClass = rememberWindowSizeClass(),
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
     val colors = if (darkTheme) DarkColorPalette else LightColorPalette
 
+    // check orientation
+    val orientation = when {
+        windowSizeClass.width.size > windowSizeClass.height.size -> Orientation.Landscape
+        else -> Orientation.Portrait
+    }
+
+    val sizeThatMatters = when (orientation) {
+        Orientation.Portrait -> windowSizeClass.width
+        else -> windowSizeClass.height
+    }
+
+    val dimensions = when (sizeThatMatters) {
+        is WindowSize.Small -> smallDimensions
+        is WindowSize.Medium -> mediumDimensions
+        is WindowSize.Compact -> compactDimensions
+        else -> largeDimensions
+    }
+
+    val hmrcTypography = HmrcTypography(
+        hmrcBlack = colors.hmrcBlack,
+        hmrcGrey1 = colors.hmrcGrey1,
+        hmrcRed = colors.hmrcRed
+    )
+
+    // We can define the different typography of different sizes screen
+    val typography = when (sizeThatMatters) {
+        is WindowSize.Small -> hmrcTypography
+        is WindowSize.Medium -> hmrcTypography
+        is WindowSize.Compact -> hmrcTypography
+        else -> hmrcTypography
+    }
+
+    val textInputViewColors: TextFieldColors = OutlinedTextFieldDefaults.colors(
+        focusedTextColor = HmrcBlack,
+        unfocusedTextColor = HmrcBlack,
+        errorTextColor = HmrcRed,
+        errorLeadingIconColor = HmrcRed,
+        errorTrailingIconColor = HmrcRed,
+        focusedLabelColor = HmrcBlue,
+        unfocusedLabelColor = HmrcBlack,
+        focusedBorderColor = HmrcBlue,
+        errorBorderColor = HmrcRed,
+        unfocusedBorderColor = HmrcBlack,
+        errorSupportingTextColor = HmrcRed,
+        focusedSupportingTextColor = HmrcBlack,
+        errorLabelColor = HmrcRed
+    )
+
     ProvideHmrcTheme(
-        colors,
-        HmrcTypography(
-            hmrcBlack = colors.hmrcBlack,
-            hmrcGrey1 = colors.hmrcGrey1,
-            hmrcRed = colors.hmrcRed
-        )
+        dimensions = dimensions,
+        orientation = orientation,
+        colors = colors,
+        textFieldColors = textInputViewColors,
+        typography = typography
     ) {
         MaterialTheme(
             shapes = Shapes,
@@ -87,9 +138,25 @@ object HmrcTheme {
         @Composable
         get() = LocalHmrcColors.current
 
+    val textFieldColors: TextFieldColors
+        @Composable
+        get() = LocalTextFieldColors.current
+
     val typography: HmrcTypography
         @Composable
         get() = LocalHmrcTypography.current
+
+    val dimensions: Dimensions
+        @Composable
+        get() = LocalAppDimens.current
+
+    val orientation: Orientation
+        @Composable
+        get() = LocalOrientationMode.current
+
+    val fontScale: Float
+        @Composable
+        get() = LocalDensity.current.fontScale
 }
 
 object HmrcRippleTheme : RippleTheme {
@@ -180,13 +247,21 @@ class HmrcColors(
         private set
     var hmrcInsetBar by mutableStateOf(hmrcInsetBar)
         private set
-    var hmrcInfoMessageWarningHeadlineBackground by mutableStateOf(hmrcInfoMessageWarningHeadlineBackground)
+    var hmrcInfoMessageWarningHeadlineBackground by mutableStateOf(
+        hmrcInfoMessageWarningHeadlineBackground
+    )
         private set
-    var hmrcInfoMessageInfoHeadlineBackground by mutableStateOf(hmrcInfoMessageInfoHeadlineBackground)
+    var hmrcInfoMessageInfoHeadlineBackground by mutableStateOf(
+        hmrcInfoMessageInfoHeadlineBackground
+    )
         private set
-    var hmrcInfoMessageUrgentHeadlineBackground by mutableStateOf(hmrcInfoMessageUrgentHeadlineBackground)
+    var hmrcInfoMessageUrgentHeadlineBackground by mutableStateOf(
+        hmrcInfoMessageUrgentHeadlineBackground
+    )
         private set
-    var hmrcInfoMessageNoticeHeadlineBackground by mutableStateOf(hmrcInfoMessageNoticeHeadlineBackground)
+    var hmrcInfoMessageNoticeHeadlineBackground by mutableStateOf(
+        hmrcInfoMessageNoticeHeadlineBackground
+    )
         private set
     var isDark by mutableStateOf(isDark)
         private set
@@ -252,24 +327,3 @@ class HmrcColors(
         isDark = isDark,
     )
 }
-
-@Composable
-fun ProvideHmrcTheme(
-    colors: HmrcColors,
-    typography: HmrcTypography,
-    content: @Composable () -> Unit
-) {
-    // Explicitly creating a new object here so we don't mutate the initial [colors] provided,
-    // and overwrite the values set in it.
-    val colorPalette = remember { colors.copy() }
-    val typographySet = remember { typography.copy() }
-    colorPalette.update(colors)
-    CompositionLocalProvider(
-        LocalHmrcColors provides colorPalette,
-        LocalHmrcTypography provides typographySet,
-        content = content
-    )
-}
-
-private val LocalHmrcColors = staticCompositionLocalOf<HmrcColors> { error("No HmrcColorPalette provided") }
-private val LocalHmrcTypography = staticCompositionLocalOf<HmrcTypography> { error("No HmrcTypography provided") }

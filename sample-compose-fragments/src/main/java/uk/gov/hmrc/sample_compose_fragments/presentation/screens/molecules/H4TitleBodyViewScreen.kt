@@ -25,9 +25,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.molecule.titleBody.H4TitleBodyView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -42,27 +42,23 @@ fun H4TitleBodyViewScreen() {
         }
 
         ExamplesSlot {
-            Card(
-                modifier = Modifier.fillMaxWidth().padding(bottom = hmrc_spacing_16),
-                shape = RoundedCornerShape(0),
-                colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
+            HmrcCard(
+                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
             ) {
                 H4TitleBodyView(
                     titleText = stringResource(id = R.string.h4_example_title),
                     bodyText = stringResource(id = R.string.h4_example_body),
-                    modifier = Modifier.padding(hmrc_spacing_16)
+                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
                 )
             }
 
-            Card(
-                modifier = Modifier.fillMaxWidth().padding(top = hmrc_spacing_16),
-                shape = RoundedCornerShape(0),
-                colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground)
+            HmrcCard(
+                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
             ) {
                 H4TitleBodyView(
                     titleText = stringResource(id = R.string.long_text),
                     bodyText = stringResource(id = R.string.longer_text),
-                    modifier = Modifier.padding(hmrc_spacing_16)
+                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
                 )
             }
         }

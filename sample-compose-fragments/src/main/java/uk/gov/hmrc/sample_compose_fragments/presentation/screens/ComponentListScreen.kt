@@ -24,8 +24,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,10 +31,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_16
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 
 @Composable
 fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T) -> Unit) {
@@ -45,7 +42,7 @@ fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T
     LazyColumn(
         modifier = Modifier.fillMaxSize(1F),
         state = listState,
-        contentPadding = PaddingValues(top = hmrc_spacing_8, bottom = hmrc_spacing_8)
+        contentPadding = PaddingValues(top = HmrcTheme.dimensions.hmrcSpacing8, bottom = HmrcTheme.dimensions.hmrcSpacing8)
     ) {
         items(items) { item ->
             ComponentListItem(item = item, navigateTo)
@@ -55,18 +52,16 @@ fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T
 
 @Composable
 fun <T : ComponentItem> ComponentListItem(item: T, navigateTo: (item: T) -> Unit) {
-    Card(
+    HmrcCard(
         modifier = Modifier
+            .padding(HmrcTheme.dimensions.hmrcSpacing16, HmrcTheme.dimensions.hmrcSpacing8)
             .fillMaxWidth()
-            .padding(hmrc_spacing_16, hmrc_spacing_8)
             .clickable(onClick = { navigateTo(item) }),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-        shape = RoundedCornerShape(0),
-        colors = CardDefaults.cardColors(containerColor = colors.hmrcWhiteBackground)
     ) {
-        Row(modifier = Modifier.padding(hmrc_spacing_16).align(alignment = Alignment.CenterHorizontally)) {
+        Row(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16).align(alignment = Alignment.CenterHorizontally)) {
             Text(
-                modifier = Modifier.padding(start = hmrc_spacing_16).align(alignment = Alignment.CenterVertically),
+                modifier = Modifier.padding(start = HmrcTheme.dimensions.hmrcSpacing16).align(alignment = Alignment.CenterVertically),
                 text = stringResource(item.titleRes),
                 style = typography.h5
             )

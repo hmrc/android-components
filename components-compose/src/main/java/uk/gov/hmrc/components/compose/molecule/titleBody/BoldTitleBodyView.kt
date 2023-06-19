@@ -21,8 +21,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
-import uk.gov.hmrc.components.compose.ui.theme.hmrc_spacing_8
 
 @Composable
 fun BoldTitleBodyView(
@@ -39,7 +39,7 @@ fun BoldTitleBodyView(
             Text(
                 text = bodyText,
                 style = typography.body,
-                modifier = Modifier.padding(top = hmrc_spacing_8)
+                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing8)
             )
         }
     }

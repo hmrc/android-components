@@ -36,9 +36,13 @@ abstract class TitleBodyView @JvmOverloads constructor(
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.TitleBodyView, 0, 0)
             val title = typedArray.getString(R.styleable.TitleBodyView_title)
             val body = typedArray.getString(R.styleable.TitleBodyView_body)
+            val titleContentDescription = typedArray.getString(R.styleable.TitleBodyView_titleContentDescription)
+            val bodyContentDescription = typedArray.getString(R.styleable.TitleBodyView_bodyContentDescription)
 
             setTitle(title)
+            setTitleContentDescription(titleContentDescription)
             setBody(body)
+            setBodyContentDescription(bodyContentDescription)
 
             typedArray.recycle()
         }
@@ -50,7 +54,15 @@ abstract class TitleBodyView @JvmOverloads constructor(
         binding.title.text = title
     }
 
+    fun setTitleContentDescription(desc: String?) {
+        desc?.let { binding.title.contentDescription = it }
+    }
+
     fun setBody(body: CharSequence?) {
         binding.body.text = body
+    }
+
+    fun setBodyContentDescription(desc: String?) {
+        desc?.let { binding.body.contentDescription = it }
     }
 }

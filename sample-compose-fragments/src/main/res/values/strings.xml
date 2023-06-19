@@ -73,6 +73,8 @@
     <string name="molecules_bold">Bold Title Body View</string>
     <string name="molecules_inset">Inset View</string>
     <string name="molecules_inset_text">Inset Text View</string>
+    <string name="molecules_text_input_view">Text Input View</string>
+    <string name="molecules_currency_input_view">Currency Input View</string>
     <string name="molecules_multi_column_row">Multi Column Row View</string>
     <string name="molecules_switch_row">Switch Row View</string>
     <string name="molecules_status">Status View</string>
@@ -148,19 +150,28 @@
     <string name="switch_row_placeholder_title">Title</string>
     <string name="switch_row_placeholder_body_on">Body. Switch: on</string>
     <string name="switch_row_placeholder_body_off">Body. Switch: off</string>
-
     <string name="switch_row_example_1_title">Start of the month</string>
     <string name="switch_row_example_1_body">Get a reminder on the first day of each month</string>
-
     <string name="switch_row_example_2_title">End of the month</string>
     <string name="switch_row_example_2_body">Get a reminder 5 days before the end of each month</string>
-
     <string name="switch_row_example_3_title">Fingerprint ID</string>
-
     <string name="switch_row_example_4_title">@string/long_text</string>
-
     <string name="switch_row_example_5_title">@string/long_text</string>
     <string name="switch_row_example_5_body">@string/longest_text</string>
+    <string name="switch_row_enabled">Enabled</string>
+    <string name="switch_row_disabled">Disabled</string>
+    <string name="switch_row_example_1_enabled_content_desc">Start of the month reminders enabled</string>
+    <string name="switch_row_example_1_disabled_content_desc">Start of the month reminders disabled</string>
+    <string name="switch_row_example_1_enabled_toast">Start of the month: enabled</string>
+    <string name="switch_row_example_1_disabled_toast">Start of the month: disabled</string>
+    <string name="switch_row_example_2_enabled_toast">End of the month: enabled</string>
+    <string name="switch_row_example_2_disabled_toast">End of the month: disabled</string>
+    <string name="switch_row_example_3_enabled_toast">Fingerprint ID: enabled</string>
+    <string name="switch_row_example_3_disabled_toast">Fingerprint ID: disabled</string>
+    <string name="switch_row_example_4_enabled_toast">Long text 1: enabled</string>
+    <string name="switch_row_example_4_disabled_toast">Long text 1: disabled</string>
+    <string name="switch_row_example_5_enabled_toast">Long text 2: enabled</string>
+    <string name="switch_row_example_5_disabled_toast">Long text 2: disabled</string>
 
     <!-- Summary row -->
     <string name="summary_row_placeholder_title">Title</string>
@@ -256,6 +267,8 @@
     <string name="text_input_example_2_error">Enter your name</string>
     <string name="text_input_example_3_hint">Email</string>
     <string name="text_input_example_3_error">Email is empty</string>
+    <string name="text_input_this_is_error">this is an error</string>
+    <string name="text_input_clear_button_content_description">Clear text</string>
 
     <!-- Currency input -->
     <string name="currency_input_placeholder_hint">Hint</string>
