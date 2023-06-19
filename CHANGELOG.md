@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Fixed
+
+* `DonutChartView` Ensuring the donut values are cleared before starting the animation
+
 ## [4.6.0] - 2023-05-12
 
 ### Changed
