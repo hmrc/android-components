@@ -51,5 +51,6 @@
     <color name="hmrc_donut_chart_color_1">@color/hmrc_teal</color>
     <color name="hmrc_donut_chart_color_2">#003078</color>
     <color name="hmrc_donut_chart_color_3">#003078</color>
+    <color name="hmrc_transparent_color">#00000000</color>
 
 </resources>

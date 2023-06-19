@@ -19,6 +19,8 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.DashPathEffect
 import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
 import android.graphics.RectF
 import android.provider.Settings
 import android.util.AttributeSet
@@ -39,11 +41,13 @@ class DonutChartView @JvmOverloads constructor(
     private val color1: Int
     private val color2: Int
     private val color3: Int
+    private val clearColor: Int
 
     private val stripes1: Boolean
     private val stripes2: Boolean
     private val stripes3: Boolean
 
+    private lateinit var clearColorPaint: Paint
     private lateinit var color1Paint: Paint
     private lateinit var color2Paint: Paint
     private lateinit var color3Paint: Paint
@@ -78,6 +82,10 @@ class DonutChartView @JvmOverloads constructor(
                 color3 = getColor(
                     R.styleable.DonutChartView_color3,
                     ContextCompat.getColor(context, R.color.hmrc_donut_chart_color_3)
+                )
+                clearColor = getColor(
+                    R.styleable.DonutChartView_clearColor,
+                    ContextCompat.getColor(context, R.color.hmrc_transparent_color)
                 )
                 stripes1 = getBoolean(
                     R.styleable.DonutChartView_stripes1,
@@ -156,6 +164,10 @@ class DonutChartView @JvmOverloads constructor(
         val white = stripesOrPlain(false, ContextCompat.getColor(context, R.color.hmrc_white_background))
 
         canvas?.apply {
+
+            clearColorPaint = donutPaintWithColour(clearColor)
+            drawArc(rect, startAngle, value1SweepAngle, false, clearColorPaint)
+
             if (value1Percent < PERCENT_FOR_NO_STRIPES) {
                 color1Paint = donutPaintWithColour(color1)
                 drawArc(rect, startAngle, value1SweepAngle, false, color1Paint)
