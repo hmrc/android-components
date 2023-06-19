@@ -45,7 +45,6 @@ class DonutChartView @JvmOverloads constructor(
     private val stripes2: Boolean
     private val stripes3: Boolean
 
-    private lateinit var clearColorPaint: Paint
     private lateinit var color1Paint: Paint
     private lateinit var color2Paint: Paint
     private lateinit var color3Paint: Paint
@@ -67,6 +66,7 @@ class DonutChartView @JvmOverloads constructor(
     var value3Percent: Float = 0.0f
 
     init {
+        clearValues()
         context.theme.obtainStyledAttributes(attrs, R.styleable.DonutChartView, 0, 0).apply {
             try {
                 color1 = getColor(
@@ -101,6 +101,20 @@ class DonutChartView @JvmOverloads constructor(
                 recycle()
             }
         }
+    }
+
+    private fun clearValues() {
+        value1 = 0.0f
+        value2 = 0.0f
+        value3 = 0.0f
+
+        value1Percent = 0.0f
+        value2Percent = 0.0f
+        value3Percent = 0.0f
+
+        value1SweepAngle = 0f
+        value2SweepAngle = 0f
+        value3SweepAngle = 0f
     }
 
     private fun stripesOrPlain(stripes: Boolean, color: Int): Paint {
@@ -162,10 +176,6 @@ class DonutChartView @JvmOverloads constructor(
         val white = stripesOrPlain(false, ContextCompat.getColor(context, R.color.hmrc_white_background))
 
         canvas?.apply {
-
-            clearColorPaint = donutPaintWithColour(clearColor)
-            drawArc(rect, startAngle, value1SweepAngle, false, clearColorPaint)
-
             if (value1Percent < PERCENT_FOR_NO_STRIPES) {
                 color1Paint = donutPaintWithColour(color1)
                 drawArc(rect, startAngle, value1SweepAngle, false, color1Paint)
@@ -196,6 +206,7 @@ class DonutChartView @JvmOverloads constructor(
     }
 
     fun setValues(value1: Float, value2: Float, value3: Float = 0f, shouldAnimate: Boolean) {
+        clearValues()
         this@DonutChartView.value1 = value1
         this@DonutChartView.value2 = value2
         this@DonutChartView.value3 = value3
@@ -279,9 +290,17 @@ class DonutChartView @JvmOverloads constructor(
 
     private fun Animation.setOnAnimationEnd(onEnd: () -> Unit) {
         this.setAnimationListener(object : Animation.AnimationListener {
-            @Suppress("EmptyFunctionBlock") override fun onAnimationRepeat(animation: Animation?) {}
-            @Suppress("EmptyFunctionBlock") override fun onAnimationStart(animation: Animation?) {}
-            override fun onAnimationEnd(animation: Animation?) { onEnd() }
+            @Suppress("EmptyFunctionBlock")
+            override fun onAnimationRepeat(animation: Animation?) {
+            }
+
+            @Suppress("EmptyFunctionBlock")
+            override fun onAnimationStart(animation: Animation?) {
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+                onEnd()
+            }
         })
     }
 
