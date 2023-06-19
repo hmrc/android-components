@@ -39,7 +39,6 @@ class DonutChartView @JvmOverloads constructor(
     private val color1: Int
     private val color2: Int
     private val color3: Int
-    private val clearColor: Int
 
     private val stripes1: Boolean
     private val stripes2: Boolean
@@ -80,10 +79,6 @@ class DonutChartView @JvmOverloads constructor(
                 color3 = getColor(
                     R.styleable.DonutChartView_color3,
                     ContextCompat.getColor(context, R.color.hmrc_donut_chart_color_3)
-                )
-                clearColor = getColor(
-                    R.styleable.DonutChartView_clearColor,
-                    ContextCompat.getColor(context, R.color.hmrc_transparent_color)
                 )
                 stripes1 = getBoolean(
                     R.styleable.DonutChartView_stripes1,

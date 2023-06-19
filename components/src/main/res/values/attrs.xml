@@ -273,7 +273,6 @@
         <attr name="color1" format="color" />
         <attr name="color2" format="color" />
         <attr name="color3" format="color" />
-        <attr name="clearColor" format="color" />
         <attr name="stripes1" format="boolean" />
         <attr name="stripes2" format="boolean" />
         <attr name="stripes3" format="boolean" />
