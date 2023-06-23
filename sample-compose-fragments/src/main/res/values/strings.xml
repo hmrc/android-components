@@ -344,7 +344,4 @@
     <string name="menu_panel_example_3_body">A savings account with bonuses designed to help you start saving</string>
     <string name="menu_panel_example_4_title">News</string>
     <string name="menu_panel_example_4_body">News and current tax related information from HMRC</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
 </resources>
