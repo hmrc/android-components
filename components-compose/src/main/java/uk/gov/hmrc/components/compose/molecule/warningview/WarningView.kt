@@ -33,8 +33,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
 import uk.gov.hmrc.components.compose.R
+import uk.gov.hmrc.components.compose.ui.extensions.enableTalkBackMergeAccessibility
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 object WarningView {
@@ -48,18 +52,20 @@ object WarningView {
         icon: Int = R.drawable.components_ic_warning,
         iconTintColor: Color = HmrcTheme.colors.hmrcBlack,
         backgroundColor: Color = HmrcTheme.colors.hmrcWhiteBackground,
-        padding: Dp = HmrcTheme.dimensions.hmrcSpacing8
+        padding: Dp = HmrcTheme.dimensions.hmrcSpacing8,
+        contentDescription: String = stringResource(id = R.string.accessibility_warning, text)
     ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(backgroundColor)
+                .enableTalkBackMergeAccessibility()
         ) {
-
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(padding),
+                    .padding(padding)
+
             ) {
                 if (icon != NO_ICON) {
                     Image(
@@ -75,7 +81,10 @@ object WarningView {
                     modifier = Modifier
                         .weight(1f)
                         .heightIn(HmrcTheme.dimensions.hmrcIconSize36)
-                        .wrapContentSize(align = Alignment.CenterStart),
+                        .wrapContentSize(align = Alignment.CenterStart)
+                        .semantics {
+                            this.contentDescription = contentDescription
+                        },
                     style = HmrcTheme.typography.h6,
                     color = textColor
                 )
