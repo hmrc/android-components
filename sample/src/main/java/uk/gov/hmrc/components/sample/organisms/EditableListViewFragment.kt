@@ -144,6 +144,7 @@ class EditableListViewFragment : BaseComponentsFragment() {
                     getString(R.string.editable_list_view_example_2_accessibility_start),
                     getString(R.string.editable_list_view_example_2_accessibility_end)
                 )
+                setEditModeState(true)
             }
         }
     }
