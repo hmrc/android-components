@@ -28,7 +28,7 @@ class Dependencies {
         const val androidX_appcompat = "androidx.appcompat:appcompat:1.6.1"
         const val androidX_recyclerview = "androidx.recyclerview:recyclerview:1.3.0"
         const val androidX_constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
-        const val androidX_lifecycle = "androidx.lifecycle:lifecycle-compiler:2.5.1"
+        const val androidX_lifecycle = "androidx.lifecycle:lifecycle-compiler:2.6.1"
         const val androidX_core_ktx = "androidx.core:core-ktx:1.10.1"
         const val androidX_test_core_ktx = "androidx.test:core-ktx:1.5.0"
         const val androidX_test_ext_junit = "androidx.test.ext:junit-ktx:1.1.5"
