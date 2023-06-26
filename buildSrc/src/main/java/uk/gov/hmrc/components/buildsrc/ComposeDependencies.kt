@@ -21,7 +21,7 @@ class ComposeDependencies {
         const val targetSdk = 33
         const val compileSdk = 33
         const val kotlinCompilerExtensionVersion = "1.4.5"
-        const val jetpackNavigation = "2.5.3"
+        const val jetpackNavigation = "2.6.0"
     }
 
     object Libs {
@@ -36,7 +36,7 @@ class ComposeDependencies {
         const val androidx_material = "androidx.compose.material:material:1.4.3"
         const val androidX_activity_activityCompose = "androidx.activity:activity-compose:1.7.2"
         const val androidX_appCompat = "androidx.appcompat:appcompat:1.6.1"
-        const val androidX_coreKtx = "androidx.core:core-ktx:1.10.0"
+        const val androidX_coreKtx = "androidx.core:core-ktx:1.10.1"
         const val androidX_lifecycle_runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
         const val androidX_navigation_fragment =
             "androidx.navigation:navigation-fragment-ktx:${Versions.jetpackNavigation}"
