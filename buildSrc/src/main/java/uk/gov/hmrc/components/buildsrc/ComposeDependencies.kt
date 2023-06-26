@@ -47,7 +47,7 @@ class ComposeDependencies {
         const val androidX_lifecycle_viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
         const val androidX_lifecycle_viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
         const val androidX_lifecycle_liveDataCore = "androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1"
-        const val androidX_lifecycle_runtimeLiveData = "androidx.compose.runtime:runtime-livedata:1.4.2"
+        const val androidX_lifecycle_runtimeLiveData = "androidx.compose.runtime:runtime-livedata:1.4.3"
         const val androidx_lifecycle_runtimeCompose = "androidx.lifecycle:lifecycle-runtime-compose:2.6.1"
         const val androidX_test_ext_junit = "androidx.test.ext:junit-ktx:1.1.5"
         const val androidX_test_espressoCore = "androidx.test.espresso:espresso-core:3.5.1"
