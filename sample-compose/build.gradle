@@ -4,7 +4,7 @@ import uk.gov.hmrc.components.buildsrc.ComposeDependencies.Versions
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id("androidx.navigation.safeargs")
+    id 'androidx.navigation.safeargs'
 }
 
 apply plugin: 'uk.gov.hmrc.spotless'
@@ -93,7 +93,6 @@ dependencies {
     androidTestImplementation Libs.androidX_test_ext_junit
     androidTestImplementation Libs.androidX_test_espressoCore
     androidTestImplementation Libs.compose_uiTest
-
     debugImplementation Libs.compose_tooling
 
     constraints {
