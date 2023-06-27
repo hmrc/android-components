@@ -4,6 +4,7 @@ import uk.gov.hmrc.components.buildsrc.ComposeDependencies.Versions
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id("androidx.navigation.safeargs")
 }
 
 apply plugin: 'uk.gov.hmrc.spotless'
