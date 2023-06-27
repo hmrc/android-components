@@ -16,5 +16,5 @@ package uk.gov.hmrc.components.buildsrc
  * limitations under the License.
  */
 object Gradle {
-    const val version = "7.3.1"
+    const val version = "7.4.2"
 }
