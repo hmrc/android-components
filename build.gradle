@@ -7,6 +7,7 @@ buildscript {
     ext {
         compose_version = '1.4.2'
         kotlin_version = Kotlin.version
+        nav_version = "2.6.0"
     }
     repositories {
         google()
@@ -25,7 +26,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:${Gradle.version}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${Kotlin.version}"
-        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.6.0")
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.44.2'
         classpath "uk.gov.hmrc.gradle:spotless:1.1.1"
         classpath 'com.karumi:shot:5.10.4'
