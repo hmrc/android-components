@@ -16,6 +16,12 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.9.0] - 2023-06-26
+
+### Changed
+
+* Changed `EditableListView` to allow consumer to control what state to show. 
+
 ## [4.8.0] - 2023-06-20
 
 ### Fixed

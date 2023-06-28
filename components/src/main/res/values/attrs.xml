@@ -303,7 +303,8 @@
         <attr name="startEditingAccessibility" />
         <!-- End Editing Accessibility message to read. -->
         <attr name="endEditingAccessibility" />
-
+        <!-- Initiate in edit mode. -->
+        <attr name="inEditMode" format="boolean" />
     </declare-styleable>
 
 </resources>

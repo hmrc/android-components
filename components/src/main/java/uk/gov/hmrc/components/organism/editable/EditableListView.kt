@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,8 +42,7 @@ open class EditableListView @JvmOverloads constructor(
     private var buttonAccessibility: Pair<String, String> = Pair("", "")
     private var buttonIcon: Pair<Int, Int> = Pair(0, 0)
     private val editableListViewAdapter = EditableListViewAdapter()
-    var editMode = false
-        private set
+    private var editMode = false
 
     init {
         attrs?.let {
@@ -69,6 +68,13 @@ open class EditableListView @JvmOverloads constructor(
             adapter = editableListViewAdapter
             layoutManager = LinearLayoutManager(binding.root.context)
         }
+
+        attrs?.let {
+            val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.EditableListView, 0, 0)
+            val inEditMode = typedArray.getBoolean(R.styleable.EditableListView_inEditMode, false)
+            setEditModeState(inEditMode)
+        }
+
         binding.title.id = Random.nextInt()
         setIconButtonClickListener(null)
         setFocusListener()
@@ -76,20 +82,26 @@ open class EditableListView @JvmOverloads constructor(
 
     fun setIconButtonClickListener(additionalClickListener: (() -> Unit)?) {
         binding.iconButton.setOnClickListener {
-            editableListViewAdapter.isEditEnabled = !editableListViewAdapter.isEditEnabled
-            setEditModeUI(!editMode)
+            setEditModeState(!editMode)
             additionalClickListener?.invoke()
         }
     }
 
     private fun setEditModeUI(isInEditMode: Boolean) {
         this.editMode = isInEditMode
+
         binding.iconButton.apply {
-            accessibilityTraversalBefore =
-                if (isInEditMode) binding.title.id else nextFocusForwardId
-            setIconResource(if (isInEditMode) buttonIcon.second else buttonIcon.first)
-            announceForAccessibility(if (isInEditMode) buttonAccessibility.second else buttonAccessibility.first)
-            text = if (isInEditMode) buttonText.second else buttonText.first
+            if (isInEditMode) {
+                accessibilityTraversalBefore = binding.title.id
+                setIconResource(buttonIcon.second)
+                announceForAccessibility(buttonAccessibility.second)
+                text = buttonText.second
+            } else {
+                accessibilityTraversalBefore = nextFocusForwardId
+                setIconResource(buttonIcon.first)
+                announceForAccessibility(buttonAccessibility.first)
+                text = buttonText.first
+            }
         }
     }
 
@@ -119,6 +131,11 @@ open class EditableListView @JvmOverloads constructor(
 
     fun setTitle(title: CharSequence?) {
         binding.title.text = title
+    }
+
+    fun setEditModeState(inEditMode: Boolean) {
+        editableListViewAdapter.isEditEnabled = inEditMode
+        setEditModeUI(inEditMode)
     }
 
     private fun setFocusListener() {
