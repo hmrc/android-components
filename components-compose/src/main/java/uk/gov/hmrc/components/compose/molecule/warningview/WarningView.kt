@@ -16,8 +16,6 @@
 package uk.gov.hmrc.components.compose.molecule.warningview
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -47,48 +45,42 @@ object WarningView {
 
     @Composable
     operator fun invoke(
+        modifier: Modifier = Modifier,
         text: String,
         textColor: Color = HmrcTheme.colors.hmrcBlack,
         icon: Int = R.drawable.components_ic_warning,
         iconTintColor: Color = HmrcTheme.colors.hmrcBlack,
-        backgroundColor: Color = HmrcTheme.colors.hmrcWhiteBackground,
         padding: Dp = HmrcTheme.dimensions.hmrcSpacing8,
         contentDescription: String = stringResource(id = R.string.accessibility_warning, text)
     ) {
-        Box(
-            modifier = Modifier
+        Row(
+            modifier = modifier
                 .fillMaxWidth()
-                .background(backgroundColor)
+                .padding(padding)
                 .enableTalkBackMergeAccessibility()
-        ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(padding)
 
-            ) {
-                if (icon != NO_ICON) {
-                    Image(
-                        modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize36),
-                        painter = painterResource(id = icon),
-                        contentDescription = "",
-                        colorFilter = ColorFilter.tint(iconTintColor)
-                    )
-                    Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing8))
-                }
-                Text(
-                    text = text,
-                    modifier = Modifier
-                        .weight(1f)
-                        .heightIn(HmrcTheme.dimensions.hmrcIconSize36)
-                        .wrapContentSize(align = Alignment.CenterStart)
-                        .semantics {
-                            this.contentDescription = contentDescription
-                        },
-                    style = HmrcTheme.typography.h6,
-                    color = textColor
+        ) {
+            if (icon != NO_ICON) {
+                Image(
+                    modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize36),
+                    painter = painterResource(id = icon),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(iconTintColor)
                 )
+                Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing8))
             }
+            Text(
+                text = text,
+                modifier = Modifier
+                    .weight(1f)
+                    .heightIn(HmrcTheme.dimensions.hmrcIconSize36)
+                    .wrapContentSize(align = Alignment.CenterStart)
+                    .semantics {
+                        this.contentDescription = contentDescription
+                    },
+                style = HmrcTheme.typography.h6,
+                color = textColor
+            )
         }
     }
 }

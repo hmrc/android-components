@@ -15,11 +15,13 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import uk.gov.hmrc.components.compose.R as componentR
 import uk.gov.hmrc.components.compose.molecule.warningview.WarningView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
@@ -40,42 +42,39 @@ object WarningViewScreen {
             }
 
             ExamplesSlot {
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                //Example one
+                HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     WarningView(
                         text = stringResource(id = R.string.warning_example_1_text)
                     )
                 }
 
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                //Example two
+                HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     WarningView(
                         text = stringResource(id = R.string.warning_example_2_text)
                     )
                 }
 
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                //Example three
+                HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     WarningView(
+                        modifier = Modifier.background(HmrcTheme.colors.hmrcBlue),
                         text = stringResource(id = R.string.longest_text),
+                        icon = componentR.drawable.components_ic_warning,
                         iconTintColor = HmrcTheme.colors.hmrcWhite,
-                        backgroundColor = HmrcTheme.colors.hmrcBlue,
                         textColor = HmrcTheme.colors.hmrcWhite
                     )
                 }
 
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                // Example four
+                HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     WarningView(
+                        modifier = Modifier.background(HmrcTheme.colors.hmrcWhite),
+                        padding = 0.dp,
                         text = stringResource(id = R.string.warning_example_3_text),
                         iconTintColor = HmrcTheme.colors.hmrcRed,
                         textColor = HmrcTheme.colors.hmrcRed,
-                        backgroundColor = HmrcTheme.colors.hmrcWhite,
-                        padding = 0.dp
                     )
                 }
             }
