@@ -27,7 +27,7 @@ class ComposeDependencies {
     object Libs {
         const val compose_bom = "androidx.compose:compose-bom:2023.05.01"
         const val compose_foundation = "androidx.compose.foundation:foundation"
-        const val compose_material = "androidx.compose.material3:material3:1.1.1"
+        const val compose_material = "androidx.compose.material3:material3:1.1.0"
         const val compose_tooling = "androidx.compose.ui:ui-tooling"
         const val compose_ui = "androidx.compose.ui:ui"
         const val compose_uiTest = "androidx.compose.ui:ui-test-junit4"
