@@ -20,7 +20,7 @@ class ComposeDependencies {
         const val minSdk = 23
         const val targetSdk = 33
         const val compileSdk = 33
-        const val kotlinCompilerExtensionVersion = "1.3.2"
+        const val kotlinCompilerExtensionVersion = "1.4.2"
         const val jetpackNavigation = "2.5.3"
     }
 
