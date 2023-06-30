@@ -1,3 +1,5 @@
+import uk.gov.hmrc.components.buildsrc.ComposeDependencies.Versions
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -44,7 +46,7 @@ android {
         viewBinding = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.2"
+        kotlinCompilerExtensionVersion = Versions.kotlinCompilerExtensionVersion
     }
     packagingOptions {
         resources {
