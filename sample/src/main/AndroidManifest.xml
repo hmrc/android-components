@@ -16,7 +16,9 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:sharedUserId="uk.gov.hmrc.components.sample.uid">
+    android:sharedUserId="uk.gov.hmrc.components.sample.uid"
+    android:sharedUserMaxSdkVersion="32"
+    tools:targetApi="tiramisu">
 
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
