@@ -28,6 +28,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.rememberWindowSizeClass
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_BOLD_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_CURRENCY_INPUT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H4_TITLE_BODY_VIEW
@@ -36,6 +37,7 @@ import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Compa
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_TEXT_INPUT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_MULTI_COLUMN_ROW_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_STATUS_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_SWITCH_ROW_VIEW
 import uk.gov.hmrc.sample_compose_fragments.navigator.Navigator
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
@@ -90,6 +92,9 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                                 }
                                 MOLECULE_SWITCH_ROW_VIEW -> {
                                     with(navigator) { gotoMoleculeSwitchRowView() }
+                                }
+                                MOLECULE_STATUS_VIEW -> {
+                                    with(navigator) { goToMoleculeStatusView() }
                                 }
                             }
                         })
