@@ -113,7 +113,7 @@
     <fragment
         android:id="@+id/statusViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.StatusViewFragment"
-        android:label="StatusViewFragment" />
+        android:label="@string/molecules_status" />
 
 
 </navigation>
