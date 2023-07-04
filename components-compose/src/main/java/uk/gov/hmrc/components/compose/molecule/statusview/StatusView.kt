@@ -113,7 +113,7 @@ object StatusView {
             //region Primary Button
             if (primaryButtonText.isNotEmpty()) {
                 Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing8))
-                PrimaryButton(text = "Primary Button") {
+                PrimaryButton(text = primaryButtonText) {
                     onPrimaryButtonClickedListener()
                 }
             }
