@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_moleculesFragment_to_switchRowViewFragment"
             app:destination="@id/switchRowViewFragment" />
+        <action
+            android:id="@+id/action_moleculesFragment_to_warningViewFragment"
+            app:destination="@id/warningViewFragment" />
     </fragment>
 
     <fragment
@@ -107,6 +110,11 @@
         android:id="@+id/switchRowViewFragment"
         android:label="@string/molecules_switch_row"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.SwitchRowViewFragment" />
+
+    <fragment
+        android:id="@+id/warningViewFragment"
+        android:label="@string/molecules_warning"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.WarningViewFragment" />
 
 
 </navigation>
