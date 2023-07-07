@@ -113,15 +113,15 @@
         android:id="@+id/switchRowViewFragment"
         android:label="@string/molecules_switch_row"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.SwitchRowViewFragment" />
-    <fragment
-        android:id="@+id/statusViewFragment"
-        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.StatusViewFragment"
-        android:label="@string/molecules_status" />
 
     <fragment
         android:id="@+id/warningViewFragment"
         android:label="@string/molecules_warning"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.WarningViewFragment" />
 
+    <fragment
+        android:id="@+id/statusViewFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.StatusViewFragment"
+        android:label="@string/molecules_status" />
 
 </navigation>
