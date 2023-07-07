@@ -48,6 +48,10 @@ class AppNavigator @Inject constructor() : Navigator{
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToStatusViewFragment())
     }
 
+    override fun Fragment.gotoMoleculeWarningView() {
+        navigate(MoleculesFragmentDirections.actionMoleculesFragmentToWarningViewFragment())
+    }
+
     override fun Fragment.goBack() {
         findNavController().popBackStack()
     }
