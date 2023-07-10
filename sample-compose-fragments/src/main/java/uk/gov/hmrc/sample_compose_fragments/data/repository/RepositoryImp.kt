@@ -42,6 +42,7 @@ class RepositoryImpl @Inject constructor() : Repository {
         ComponentMenuItem(MOLECULE_MULTI_COLUMN_ROW_VIEW, R.string.molecules_multi_column_row),
         ComponentMenuItem(MOLECULE_SWITCH_ROW_VIEW, R.string.molecules_switch_row),
         ComponentMenuItem(MOLECULE_WARNING_VIEW, R.string.molecules_warning),
+        ComponentMenuItem(SELECT_ROW_VIEW, R.string.molecules_select_row),
     )
 
     companion object {
@@ -59,5 +60,6 @@ class RepositoryImpl @Inject constructor() : Repository {
         const val MOLECULE_MULTI_COLUMN_ROW_VIEW = 8
         const val MOLECULE_SWITCH_ROW_VIEW = 9
         const val MOLECULE_WARNING_VIEW = 10
+        const val SELECT_ROW_VIEW = 12
     }
 }
