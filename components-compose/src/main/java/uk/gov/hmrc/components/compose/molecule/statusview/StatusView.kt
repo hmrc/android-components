@@ -35,13 +35,13 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
+import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.button.PrimaryButton
 import uk.gov.hmrc.components.compose.atom.button.SecondaryButton
+import uk.gov.hmrc.components.compose.atom.heading.Heading
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 object StatusView {
-
-    const val NO_ICON: Int = -1
 
     enum class BodyAlignment(val alignment: TextAlign) {
         CENTER(TextAlign.Center),
@@ -56,7 +56,7 @@ object StatusView {
         bodyContentDesc: String = "",
         bodyAlignment: BodyAlignment = BodyAlignment.CENTER,
         textColor: Color = HmrcTheme.colors.hmrcBlack,
-        icon: Int,
+        icon: Int = R.drawable.ic_maintenance,
         iconTint: Color = HmrcTheme.colors.hmrcBlack,
         primaryButtonText: String = "",
         secondaryButtonText: String = "",
@@ -71,26 +71,26 @@ object StatusView {
         ) {
 
             //region Icon
-            if (icon != NO_ICON) {
-                Image(
-                    painter = painterResource(id = icon),
-                    contentDescription = "",
-                    modifier = Modifier
-                        .height(HmrcTheme.dimensions.hmrcIconSize100)
-                        .width(HmrcTheme.dimensions.hmrcIconSize100),
-                    colorFilter = ColorFilter.tint(iconTint),
-                    contentScale = ContentScale.Fit,
-                )
-                Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing24))
-            }
+            Image(
+                painter = painterResource(id = icon),
+                contentDescription = "",
+                modifier = Modifier
+                    .height(HmrcTheme.dimensions.hmrcIconSize100)
+                    .width(HmrcTheme.dimensions.hmrcIconSize100),
+                colorFilter = ColorFilter.tint(iconTint),
+                contentScale = ContentScale.Fit,
+            )
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing24))
             //endregion
 
             //region Title
-            Text(
+            Heading(
                 text = title,
-                style = HmrcTheme.typography.h5.copy(color = textColor),
-                modifier = Modifier.fillMaxSize(),
-                textAlign = TextAlign.Center
+                style = HmrcTheme.typography.h5.copy(
+                    color = textColor,
+                    textAlign = TextAlign.Center
+                ),
+                modifier = Modifier.fillMaxSize()
             )
             //endregion
 
