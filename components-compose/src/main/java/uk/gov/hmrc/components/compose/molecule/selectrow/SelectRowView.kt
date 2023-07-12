@@ -50,6 +50,7 @@ object SelectRowView {
      * @param selectRowViewItems List of items to be displayed in the selectable rows.
      * @param checkedIcon Resource ID for the checked icon.
      * @param uncheckedIcon Resource ID for the unchecked icon.
+     * @param initialSelection Initial selection position of a SelectRowView
      * @param errorText Error text to be displayed, if any.
      * @param onRowSelected Callback function triggered when an item is clicked.
      */
