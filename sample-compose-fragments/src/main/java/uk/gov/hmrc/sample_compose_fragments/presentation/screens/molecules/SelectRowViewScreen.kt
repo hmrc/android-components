@@ -1,3 +1,18 @@
+/*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
 import android.widget.Toast
@@ -34,7 +49,7 @@ object SelectRowViewScreen {
             }
 
             ExamplesSlot {
-                //Example one
+                //region Example one
                 HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     val errorText = remember { mutableStateOf("") }
                     SelectRowView(
@@ -44,7 +59,8 @@ object SelectRowViewScreen {
                             "Show an error",
                             stringResource(id = R.string.longer_text)
                         ),
-                        errorText = errorText.value
+                        errorText = errorText.value,
+                        initialSelection = 0
                     ) { position, value ->
                         if (position == THIRD_ROW_VIEW - 1) {
                             errorText.value = "This is an error"
@@ -56,8 +72,9 @@ object SelectRowViewScreen {
                         ).show()
                     }
                 }
+                //endregion
 
-                //Example two
+                //region Example two
                 HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     SelectRowView(
                         selectRowViewItems = listOf(
@@ -66,11 +83,13 @@ object SelectRowViewScreen {
                             "Third row",
                             "Fourth row"
                         ),
+                        initialSelection = 0,
                         checkedIcon = R.drawable.components_select_row_tick_checked
                     ) { position, value ->
-                        // We can use this block for Select Row View click listener
+                        // Handle the SelectRowView item click listener
                     }
                 }
+                //endregion
             }
         }
     }

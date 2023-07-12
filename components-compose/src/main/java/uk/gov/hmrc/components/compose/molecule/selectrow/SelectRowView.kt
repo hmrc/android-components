@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -57,10 +58,11 @@ object SelectRowView {
         selectRowViewItems: List<String>,
         checkedIcon: Int = R.drawable.components_select_row_circle_checked,
         uncheckedIcon: Int = R.drawable.components_select_row_circle_unchecked,
+        initialSelection: Int = INITIAL_SELECTED_ROW,
         errorText: String = "",
         onRowSelected: (position: Int, value: String) -> Unit
     ) {
-        val selectedValue = remember { mutableStateOf(INITIAL_SELECTED_ROW) }
+        val selectedValue = remember { mutableStateOf(initialSelection) }
         val restrictedItems = selectRowViewItems.take(RESTRICTED_ITEM_COUNT)
 
         Column(Modifier.padding(8.dp)) {
@@ -68,8 +70,10 @@ object SelectRowView {
             if (errorText.isNotEmpty()) {
                 Text(
                     text = errorText,
-                    color = HmrcTheme.colors.hmrcRed
+                    color = HmrcTheme.colors.hmrcRed,
+                    modifier = Modifier.offset(HmrcTheme.dimensions.hmrcSpacing8)
                 )
+                Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing8))
             }
             restrictedItems.forEachIndexed { index, selectRow ->
                 Row(
@@ -101,7 +105,7 @@ object SelectRowView {
                                     uncheckedIcon
                                 }
                             ),
-                            contentDescription = null,
+                            contentDescription = "",
                             tint = HmrcTheme.colors.hmrcBlack
                         )
                     }
