@@ -35,7 +35,6 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.button.PrimaryButton
 import uk.gov.hmrc.components.compose.atom.button.SecondaryButton
 import uk.gov.hmrc.components.compose.atom.heading.Heading
@@ -56,7 +55,7 @@ object StatusView {
         bodyContentDesc: String = "",
         bodyAlignment: BodyAlignment = BodyAlignment.CENTER,
         textColor: Color = HmrcTheme.colors.hmrcBlack,
-        icon: Int = R.drawable.ic_maintenance,
+        icon: Int,
         iconTint: Color = HmrcTheme.colors.hmrcBlack,
         primaryButtonText: String = "",
         secondaryButtonText: String = "",
