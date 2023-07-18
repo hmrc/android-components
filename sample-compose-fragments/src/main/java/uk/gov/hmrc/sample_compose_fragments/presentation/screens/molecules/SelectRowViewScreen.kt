@@ -41,8 +41,8 @@ object SelectRowViewScreen {
         ScreenScrollViewColumn {
             PlaceholderSlot {
                 SelectRowView(
-                    selectRowViewItems = listOf("(Body) Description"),
-                    errorText = "This is an error"
+                    selectRowViewItems = listOf(stringResource(R.string.select_row_body_description)),
+                    errorText = stringResource(R.string.select_row_error_message)
                 ) { position, value ->
                     // Handle the SelectRowView item click listener
                 }
@@ -54,9 +54,9 @@ object SelectRowViewScreen {
                     val errorText = remember { mutableStateOf("") }
                     SelectRowView(
                         selectRowViewItems = listOf(
-                            "First row",
-                            "Second row",
-                            "Show an error",
+                            stringResource(R.string.select_row_view_first_row),
+                            stringResource(R.string.select_row_view_second_row),
+                            stringResource(R.string.select_row_view_error_row),
                             stringResource(id = R.string.longer_text)
                         ),
                         errorText = errorText.value,
@@ -78,10 +78,10 @@ object SelectRowViewScreen {
                 HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     SelectRowView(
                         selectRowViewItems = listOf(
-                            "First row",
-                            "Second row",
-                            "Third row",
-                            "Fourth row"
+                            stringResource(R.string.select_row_view_first_row),
+                            stringResource(R.string.select_row_view_second_row),
+                            stringResource(R.string.select_row_view_third_row),
+                            stringResource(R.string.select_row_view_fourth_row)
                         ),
                         initialSelection = 0,
                         checkedIcon = R.drawable.components_select_row_tick_checked
