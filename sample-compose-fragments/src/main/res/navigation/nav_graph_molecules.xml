@@ -123,5 +123,4 @@
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.SelectRowViewFragment"
         android:label="@string/molecules_select_row" />
 
-
 </navigation>

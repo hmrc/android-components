@@ -38,7 +38,8 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 object SelectRowView {
 
-    private const val INITIAL_SELECTED_ROW = -1
+    const val NO_ROW_SELECTED_POSITION = -1
+    const val FIRST_ROW_SELECTED_POSITION = 0
 
     /**
      * Composable function that creates a SelectRowView with icons and text.
@@ -56,7 +57,7 @@ object SelectRowView {
         selectRowViewItems: List<String>,
         checkedIcon: Int = R.drawable.components_select_row_circle_checked,
         uncheckedIcon: Int = R.drawable.components_select_row_circle_unchecked,
-        rowSelectedPosition: Int = INITIAL_SELECTED_ROW,
+        rowSelectedPosition: Int,
         errorText: String = "",
         onRowSelected: (position: Int, value: String) -> Unit
     ) {

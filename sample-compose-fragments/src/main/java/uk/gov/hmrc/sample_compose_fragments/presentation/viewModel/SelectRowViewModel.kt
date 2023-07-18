@@ -24,14 +24,19 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView.FIRST_ROW_SELECTED_POSITION
+import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView.NO_ROW_SELECTED_POSITION
 import javax.inject.Inject
 
 @HiltViewModel
 class SelectRowViewModel @Inject constructor() : ViewModel() {
 
+
+
+
     // region Place Holder UI State
     private val errorText = MutableStateFlow("")
-    private val rowSelectedPosition = MutableStateFlow(-1)
+    private val rowSelectedPosition = MutableStateFlow(NO_ROW_SELECTED_POSITION)
     val placeHolderUiState: StateFlow<PlaceHolderState> = combine(
         errorText,
         rowSelectedPosition
@@ -49,8 +54,8 @@ class SelectRowViewModel @Inject constructor() : ViewModel() {
     //endregion
 
     // region Example UI State
-    private val rowSelectedPositionExample1 = MutableStateFlow(0)
-    private val rowSelectedPositionExample2 = MutableStateFlow(0)
+    private val rowSelectedPositionExample1 = MutableStateFlow(FIRST_ROW_SELECTED_POSITION)
+    private val rowSelectedPositionExample2 = MutableStateFlow(FIRST_ROW_SELECTED_POSITION)
     private val errorTextExample1 = MutableStateFlow("")
 
     val exampleUiState: StateFlow<ExampleUiState> = combine(
@@ -73,16 +78,18 @@ class SelectRowViewModel @Inject constructor() : ViewModel() {
 
     fun setErrorTextExample1(value: String) = viewModelScope.launch { errorTextExample1.emit(value) }
     //endregion
+
+    data class ExampleUiState(
+        val rowSelectedPositionExample1: Int = FIRST_ROW_SELECTED_POSITION,
+        val rowSelectedPositionExample2: Int = FIRST_ROW_SELECTED_POSITION,
+        val errorTextExample1: String = ""
+    )
+
+    data class PlaceHolderState(
+        val errorText: String = "",
+        val rowSelectedPosition: Int = NO_ROW_SELECTED_POSITION,
+    )
 }
 
-data class ExampleUiState(
-    val rowSelectedPositionExample1: Int = 0,
-    val rowSelectedPositionExample2: Int = 0,
-    val errorTextExample1: String = ""
-)
 
-data class PlaceHolderState(
-    val errorText: String = "",
-    val rowSelectedPosition: Int = -1,
-)
 
