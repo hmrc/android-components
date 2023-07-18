@@ -31,58 +31,58 @@ class SelectRowViewModel @Inject constructor() : ViewModel() {
 
     // region Place Holder UI State
     private val errorText = MutableStateFlow("")
-    private val initialSelection = MutableStateFlow(-1)
+    private val rowSelectedPosition = MutableStateFlow(-1)
     val placeHolderUiState: StateFlow<PlaceHolderState> = combine(
         errorText,
-        initialSelection
-    ) { errorText, initialSelection ->
+        rowSelectedPosition
+    ) { errorText, rowSelectedPosition ->
         PlaceHolderState(
             errorText = errorText,
-            initialSelection = initialSelection
+            rowSelectedPosition = rowSelectedPosition
         )
     }.stateIn(
         scope = viewModelScope, started = SharingStarted.WhileSubscribed(), initialValue = PlaceHolderState()
     )
 
-    fun setPlaceHolderInitialRowSelection(value: Int) = viewModelScope.launch { initialSelection.emit(value) }
+    fun setPlaceHolderRowSelectedPosition(value: Int) = viewModelScope.launch { rowSelectedPosition.emit(value) }
     fun setPlaceHolderErrorText(value: String) = viewModelScope.launch { errorText.emit(value) }
     //endregion
 
     // region Example UI State
-    private val initialRowSelectionExample1 = MutableStateFlow(0)
-    private val initialRowSelectionExample2 = MutableStateFlow(0)
+    private val rowSelectedPositionExample1 = MutableStateFlow(0)
+    private val rowSelectedPositionExample2 = MutableStateFlow(0)
     private val errorTextExample1 = MutableStateFlow("")
 
     val exampleUiState: StateFlow<ExampleUiState> = combine(
-        initialRowSelectionExample1,
-        initialRowSelectionExample2,
+        rowSelectedPositionExample1,
+        rowSelectedPositionExample2,
         errorTextExample1,
-    ) { initialRowSelectionExample1, initialRowSelectionExample2, errorTextExample1 ->
+    ) { rowSelectedPositionExample1, rowSelectedPositionExample2, errorTextExample1 ->
         ExampleUiState(
-            initialRowSelectionExample1 = initialRowSelectionExample1,
-            initialRowSelectionExample2 = initialRowSelectionExample2,
+            rowSelectedPositionExample1 = rowSelectedPositionExample1,
+            rowSelectedPositionExample2 = rowSelectedPositionExample2,
             errorTextExample1 = errorTextExample1,
         )
     }.stateIn(
         scope = viewModelScope, started = SharingStarted.WhileSubscribed(), initialValue = ExampleUiState()
     )
 
-    fun setInitialRowSelectionExample1(value: Int) = viewModelScope.launch { initialRowSelectionExample1.emit(value) }
+    fun setRowSelectedPositionExample1(value: Int) = viewModelScope.launch { rowSelectedPositionExample1.emit(value) }
 
-    fun setInitialRowSelectionExample2(value: Int) = viewModelScope.launch { initialRowSelectionExample2.emit(value) }
+    fun setRowSelectedPositionExample2(value: Int) = viewModelScope.launch { rowSelectedPositionExample2.emit(value) }
 
     fun setErrorTextExample1(value: String) = viewModelScope.launch { errorTextExample1.emit(value) }
     //endregion
 }
 
 data class ExampleUiState(
-    val initialRowSelectionExample1: Int = 0,
-    val initialRowSelectionExample2: Int = 0,
+    val rowSelectedPositionExample1: Int = 0,
+    val rowSelectedPositionExample2: Int = 0,
     val errorTextExample1: String = ""
 )
 
 data class PlaceHolderState(
     val errorText: String = "",
-    val initialSelection: Int = -1,
+    val rowSelectedPosition: Int = -1,
 )
 

@@ -50,9 +50,9 @@ object SelectRowViewScreen {
                 SelectRowView(
                     selectRowViewItems = listOf(stringResource(R.string.select_row_body_description)),
                     errorText = placeHolderUiState.errorText,
-                    initialSelection = placeHolderUiState.initialSelection
+                    rowSelectedPosition = placeHolderUiState.rowSelectedPosition
                 ) { position, value ->  // Handle the SelectRowView item click listener
-                    viewModel.setPlaceHolderInitialRowSelection(position)
+                    viewModel.setPlaceHolderRowSelectedPosition(position)
                 }
             }
             //endregion
@@ -69,9 +69,9 @@ object SelectRowViewScreen {
                             stringResource(id = R.string.longer_text)
                         ),
                         errorText = exampleUiState.errorTextExample1,
-                        initialSelection = exampleUiState.initialRowSelectionExample1
+                        rowSelectedPosition = exampleUiState.rowSelectedPositionExample1
                     ) { position, value -> // Handle the SelectRowView item click listener
-                        viewModel.setInitialRowSelectionExample1(position)
+                        viewModel.setRowSelectedPositionExample1(position)
                         if (position == THIRD_ROW_VIEW - 1) {
                             viewModel.setErrorTextExample1(context.getString(R.string.select_row_error_message))
                         } else {
@@ -95,10 +95,10 @@ object SelectRowViewScreen {
                             stringResource(R.string.select_row_view_third_row),
                             stringResource(R.string.select_row_view_fourth_row)
                         ),
-                        initialSelection = exampleUiState.initialRowSelectionExample2,
+                        rowSelectedPosition = exampleUiState.rowSelectedPositionExample2,
                         checkedIcon = R.drawable.components_select_row_tick_checked
                     ) { position, value -> // Handle the SelectRowView item click listener
-                        viewModel.setInitialRowSelectionExample2(position)
+                        viewModel.setRowSelectedPositionExample2(position)
                     }
                 }
                 //endregion

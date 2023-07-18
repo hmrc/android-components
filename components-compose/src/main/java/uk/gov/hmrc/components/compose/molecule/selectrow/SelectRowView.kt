@@ -29,8 +29,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -48,7 +46,7 @@ object SelectRowView {
      * @param selectRowViewItems List of items to be displayed in the selectable rows.
      * @param checkedIcon Resource ID for the checked icon.
      * @param uncheckedIcon Resource ID for the unchecked icon.
-     * @param initialSelection Initial selection position of a SelectRowView
+     * @param rowSelectedPosition Initial selection position of a SelectRowView
      * @param errorText Error text to be displayed, if any.
      * @param onRowSelected Callback function triggered when an item is clicked.
      */
@@ -58,12 +56,10 @@ object SelectRowView {
         selectRowViewItems: List<String>,
         checkedIcon: Int = R.drawable.components_select_row_circle_checked,
         uncheckedIcon: Int = R.drawable.components_select_row_circle_unchecked,
-        initialSelection: Int = INITIAL_SELECTED_ROW,
+        rowSelectedPosition: Int = INITIAL_SELECTED_ROW,
         errorText: String = "",
         onRowSelected: (position: Int, value: String) -> Unit
     ) {
-        val selectedValue = remember { mutableStateOf(initialSelection) }
-
         Column(modifier.padding(HmrcTheme.dimensions.hmrcSpacing8)) {
 
             if (errorText.isNotEmpty()) {
@@ -79,9 +75,8 @@ object SelectRowView {
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
                         .selectable(
-                            selected = (selectedValue.value == index),
+                            selected = (rowSelectedPosition == index),
                             onClick = {
-                                selectedValue.value = index
                                 onRowSelected(index, selectRow)
                             },
                             role = Role.RadioButton
@@ -89,16 +84,15 @@ object SelectRowView {
                         .padding(HmrcTheme.dimensions.hmrcSpacing8)
                 ) {
                     IconToggleButton(
-                        checked = selectedValue.value == index,
+                        checked = rowSelectedPosition == index,
                         onCheckedChange = {
-                            selectedValue.value = index
                             onRowSelected(index, selectRow)
                         },
                         modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize24)
                     ) {
                         Icon(
                             painter = painterResource(
-                                if (selectedValue.value == index) {
+                                if (rowSelectedPosition == index) {
                                     checkedIcon
                                 } else {
                                     uncheckedIcon
