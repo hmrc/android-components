@@ -15,6 +15,8 @@
  */
 package uk.gov.hmrc.components.compose.molecule.selectrow
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -25,6 +27,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.Text
@@ -61,8 +64,7 @@ object SelectRowView {
         errorText: String = "",
         onRowSelected: (position: Int, value: String) -> Unit
     ) {
-        Column(modifier.padding(HmrcTheme.dimensions.hmrcSpacing8)) {
-
+        Column(modifier = modifier) {
             if (errorText.isNotEmpty()) {
                 Text(
                     text = errorText,
@@ -75,14 +77,19 @@ object SelectRowView {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
+                        .clickable(
+                            interactionSource = MutableInteractionSource(),
+                            indication = rememberRipple(bounded = false),
+                            onClick = {}
+                        )
                         .selectable(
                             selected = (rowSelectedPosition == index),
                             onClick = {
                                 onRowSelected(index, selectRow)
                             },
-                            role = Role.RadioButton
+                            role = Role.RadioButton,
                         )
-                        .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                        .padding(HmrcTheme.dimensions.hmrcSpacing16)
                 ) {
                     IconToggleButton(
                         checked = rowSelectedPosition == index,
@@ -113,9 +120,9 @@ object SelectRowView {
                     )
                 }
 
-                if (index < selectRowViewItems.size - 1) {
-                    Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-                }
+//                if (index < selectRowViewItems.size - 1) {
+//                    Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+//                }
             }
         }
     }
