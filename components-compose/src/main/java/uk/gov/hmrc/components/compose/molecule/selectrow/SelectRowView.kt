@@ -35,13 +35,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 object SelectRowView {
 
-    private const val RESTRICTED_ITEM_COUNT = 4
     private const val INITIAL_SELECTED_ROW = -1
 
     /**
@@ -56,6 +54,7 @@ object SelectRowView {
      */
     @Composable
     operator fun invoke(
+        modifier: Modifier = Modifier,
         selectRowViewItems: List<String>,
         checkedIcon: Int = R.drawable.components_select_row_circle_checked,
         uncheckedIcon: Int = R.drawable.components_select_row_circle_unchecked,
@@ -64,9 +63,8 @@ object SelectRowView {
         onRowSelected: (position: Int, value: String) -> Unit
     ) {
         val selectedValue = remember { mutableStateOf(initialSelection) }
-        val restrictedItems = selectRowViewItems.take(RESTRICTED_ITEM_COUNT)
 
-        Column(Modifier.padding(8.dp)) {
+        Column(modifier.padding(HmrcTheme.dimensions.hmrcSpacing8)) {
 
             if (errorText.isNotEmpty()) {
                 Text(
@@ -76,7 +74,7 @@ object SelectRowView {
                 )
                 Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing8))
             }
-            restrictedItems.forEachIndexed { index, selectRow ->
+            selectRowViewItems.forEachIndexed { index, selectRow ->
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
@@ -96,7 +94,7 @@ object SelectRowView {
                             selectedValue.value = index
                             onRowSelected(index, selectRow)
                         },
-                        modifier = Modifier.size(24.dp)
+                        modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize24)
                     ) {
                         Icon(
                             painter = painterResource(
