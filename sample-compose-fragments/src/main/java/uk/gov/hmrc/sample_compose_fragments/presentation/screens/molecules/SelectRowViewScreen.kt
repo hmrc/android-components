@@ -18,8 +18,7 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 import android.widget.Toast
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -30,28 +29,38 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SelectRowViewModel
+import uk.gov.hmrc.sample_compose_fragments.util.ComposeUtil.collectAsStateLifecycleAware
 
 object SelectRowViewScreen {
 
     private const val THIRD_ROW_VIEW = 3
 
     @Composable
-    operator fun invoke() {
+    operator fun invoke(viewModel: SelectRowViewModel) {
         val context = LocalContext.current
+
+        val exampleUiState by viewModel.exampleUiState.collectAsStateLifecycleAware()
+        val placeHolderUiState by viewModel.placeHolderUiState.collectAsStateLifecycleAware()
+
         ScreenScrollViewColumn {
+            //region Place Holder
             PlaceholderSlot {
+                viewModel.setPlaceHolderErrorText(stringResource(id = R.string.select_row_error_message))
                 SelectRowView(
                     selectRowViewItems = listOf(stringResource(R.string.select_row_body_description)),
-                    errorText = stringResource(R.string.select_row_error_message)
-                ) { position, value ->
-                    // Handle the SelectRowView item click listener
+                    errorText = placeHolderUiState.errorText,
+                    initialSelection = placeHolderUiState.initialSelection
+                ) { position, value ->  // Handle the SelectRowView item click listener
+                    viewModel.setPlaceHolderInitialRowSelection(position)
                 }
             }
+            //endregion
 
             ExamplesSlot {
                 //region Example one
                 HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
-                    val errorText = remember { mutableStateOf("") }
+                    //val errorText = remember { mutableStateOf("") }
                     SelectRowView(
                         selectRowViewItems = listOf(
                             stringResource(R.string.select_row_view_first_row),
@@ -59,11 +68,14 @@ object SelectRowViewScreen {
                             stringResource(R.string.select_row_view_error_row),
                             stringResource(id = R.string.longer_text)
                         ),
-                        errorText = errorText.value,
-                        initialSelection = 0
-                    ) { position, value ->
+                        errorText = exampleUiState.errorTextExample1,
+                        initialSelection = exampleUiState.initialRowSelectionExample1
+                    ) { position, value -> // Handle the SelectRowView item click listener
+                        viewModel.setInitialRowSelectionExample1(position)
                         if (position == THIRD_ROW_VIEW - 1) {
-                            errorText.value = "This is an error"
+                            viewModel.setErrorTextExample1(context.getString(R.string.select_row_error_message))
+                        } else {
+                            viewModel.setErrorTextExample1("")
                         }
                         Toast.makeText(
                             context,
@@ -83,10 +95,10 @@ object SelectRowViewScreen {
                             stringResource(R.string.select_row_view_third_row),
                             stringResource(R.string.select_row_view_fourth_row)
                         ),
-                        initialSelection = 0,
+                        initialSelection = exampleUiState.initialRowSelectionExample2,
                         checkedIcon = R.drawable.components_select_row_tick_checked
-                    ) { position, value ->
-                        // Handle the SelectRowView item click listener
+                    ) { position, value -> // Handle the SelectRowView item click listener
+                        viewModel.setInitialRowSelectionExample2(position)
                     }
                 }
                 //endregion

@@ -19,15 +19,18 @@ import android.os.Bundle
 import android.view.View
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules.SelectRowViewScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SelectRowViewModel
 
 class SelectRowViewFragment : Fragment(R.layout.fragment_compose_example) {
 
     private lateinit var binding: FragmentComposeExampleBinding
+    private val viewModel: SelectRowViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +44,7 @@ class SelectRowViewFragment : Fragment(R.layout.fragment_compose_example) {
             setContent {
                 HmrcTheme {
                     HmrcSurface {
-                        SelectRowViewScreen()
+                        SelectRowViewScreen(viewModel)
                     }
                 }
             }

@@ -69,7 +69,7 @@ object SelectRowView {
             if (errorText.isNotEmpty()) {
                 Text(
                     text = errorText,
-                    style = HmrcTheme.typography.body,
+                    style = HmrcTheme.typography.body.copy(color = HmrcTheme.colors.hmrcRed),
                     modifier = Modifier.offset(HmrcTheme.dimensions.hmrcSpacing8)
                 )
                 Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing8))
@@ -114,7 +114,7 @@ object SelectRowView {
                     Text(
                         text = selectRow,
                         modifier = Modifier.fillMaxWidth(),
-                        color = HmrcTheme.colors.hmrcBlack
+                        style = HmrcTheme.typography.body
                     )
                 }
 
