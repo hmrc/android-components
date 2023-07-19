@@ -31,9 +31,6 @@ import javax.inject.Inject
 @HiltViewModel
 class SelectRowViewModel @Inject constructor() : ViewModel() {
 
-
-
-
     // region Place Holder UI State
     private val errorText = MutableStateFlow("")
     private val rowSelectedPosition = MutableStateFlow(NO_ROW_SELECTED_POSITION)
