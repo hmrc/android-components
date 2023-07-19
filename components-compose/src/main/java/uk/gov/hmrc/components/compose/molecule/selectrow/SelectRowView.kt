@@ -119,10 +119,6 @@ object SelectRowView {
                         style = HmrcTheme.typography.body
                     )
                 }
-
-//                if (index < selectRowViewItems.size - 1) {
-//                    Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-//                }
             }
         }
     }

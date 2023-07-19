@@ -60,7 +60,6 @@ object SelectRowViewScreen {
             ExamplesSlot {
                 //region Example one
                 HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
-                    //val errorText = remember { mutableStateOf("") }
                     SelectRowView(
                         selectRowViewItems = listOf(
                             stringResource(R.string.select_row_view_first_row),
