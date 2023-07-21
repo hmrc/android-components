@@ -22,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
@@ -30,7 +31,6 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SelectRowViewModel
-import uk.gov.hmrc.sample_compose_fragments.util.ComposeUtil.collectAsStateLifecycleAware
 
 object SelectRowViewScreen {
 
@@ -40,8 +40,8 @@ object SelectRowViewScreen {
     operator fun invoke(viewModel: SelectRowViewModel) {
         val context = LocalContext.current
 
-        val exampleUiState by viewModel.exampleUiState.collectAsStateLifecycleAware()
-        val placeHolderUiState by viewModel.placeHolderUiState.collectAsStateLifecycleAware()
+        val exampleUiState by viewModel.exampleUiState.collectAsStateWithLifecycle()
+        val placeHolderUiState by viewModel.placeHolderUiState.collectAsStateWithLifecycle()
 
         ScreenScrollViewColumn {
             //region Place Holder
