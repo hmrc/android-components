@@ -41,9 +41,6 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 object SelectRowView {
 
-    const val NO_ROW_SELECTED_POSITION = -1
-    const val FIRST_ROW_SELECTED_POSITION = 0
-
     /**
      * Composable function that creates a SelectRowView with icons and text.
      *

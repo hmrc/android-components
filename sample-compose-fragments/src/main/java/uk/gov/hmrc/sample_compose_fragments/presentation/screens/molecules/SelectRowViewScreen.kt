@@ -34,7 +34,7 @@ import uk.gov.hmrc.sample_compose_fragments.util.ComposeUtil.collectAsStateLifec
 
 object SelectRowViewScreen {
 
-    private const val THIRD_ROW_VIEW = 3
+    private const val ERROR_ITEM_INDEX = 2
 
     @Composable
     operator fun invoke(viewModel: SelectRowViewModel) {
@@ -71,7 +71,7 @@ object SelectRowViewScreen {
                         rowSelectedPosition = exampleUiState.rowSelectedPositionExample1
                     ) { position, value -> // Handle the SelectRowView item click listener
                         viewModel.setRowSelectedPositionExample1(position)
-                        if (position == THIRD_ROW_VIEW - 1) {
+                        if (position == ERROR_ITEM_INDEX) {
                             viewModel.setErrorTextExample1(context.getString(R.string.select_row_error_message))
                         } else {
                             viewModel.setErrorTextExample1("")

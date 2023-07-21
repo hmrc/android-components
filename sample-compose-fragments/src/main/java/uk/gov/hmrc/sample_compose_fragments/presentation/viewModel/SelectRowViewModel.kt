@@ -24,8 +24,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView.FIRST_ROW_SELECTED_POSITION
-import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView.NO_ROW_SELECTED_POSITION
 import javax.inject.Inject
 
 @HiltViewModel
@@ -86,6 +84,11 @@ class SelectRowViewModel @Inject constructor() : ViewModel() {
         val errorText: String = "",
         val rowSelectedPosition: Int = NO_ROW_SELECTED_POSITION,
     )
+
+    companion object {
+        const val NO_ROW_SELECTED_POSITION = -1
+        const val FIRST_ROW_SELECTED_POSITION = 0
+    }
 }
 
 
