@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_moleculesFragment_to_warningViewFragment"
             app:destination="@id/warningViewFragment" />
+        <action
+            android:id="@+id/action_moleculesFragment_to_statusViewFragment"
+            app:destination="@id/statusViewFragment" />
     </fragment>
 
     <fragment
@@ -116,5 +119,9 @@
         android:label="@string/molecules_warning"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.WarningViewFragment" />
 
+    <fragment
+        android:id="@+id/statusViewFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.StatusViewFragment"
+        android:label="@string/molecules_status" />
 
 </navigation>

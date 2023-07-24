@@ -38,5 +38,7 @@ interface Navigator {
 
     fun Fragment.gotoMoleculeWarningView()
 
+    fun Fragment.goToMoleculeStatusView()
+
     fun Fragment.goBack()
 }
