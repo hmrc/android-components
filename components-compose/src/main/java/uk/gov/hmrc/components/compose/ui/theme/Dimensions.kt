@@ -22,8 +22,10 @@ data class Dimensions(
     val hmrcSpacing4: Dp,
     val hmrcSpacing8: Dp,
     val hmrcSpacing16: Dp,
+    val hmrcSpacing24: Dp,
     val hmrcIconSize24: Dp,
     val hmrcIconSize36: Dp,
+    val hmrcIconSize100: Dp,
     val hmrcButtonSize48: Dp,
 )
 
@@ -31,8 +33,10 @@ val smallDimensions = Dimensions(
     hmrcSpacing4 = 4.dp,
     hmrcSpacing8 = 8.dp,
     hmrcSpacing16 = 16.dp,
+    hmrcSpacing24 = 24.dp,
     hmrcIconSize24 = 24.dp,
     hmrcIconSize36 = 36.dp,
+    hmrcIconSize100 = 100.dp,
     hmrcButtonSize48 = 48.dp
 )
 
@@ -40,8 +44,10 @@ val compactDimensions = Dimensions(
     hmrcSpacing4 = 4.dp,
     hmrcSpacing8 = 8.dp,
     hmrcSpacing16 = 16.dp,
+    hmrcSpacing24 = 24.dp,
     hmrcIconSize24 = 24.dp,
     hmrcIconSize36 = 36.dp,
+    hmrcIconSize100 = 100.dp,
     hmrcButtonSize48 = 48.dp
 )
 
@@ -49,8 +55,10 @@ val mediumDimensions = Dimensions(
     hmrcSpacing4 = 4.dp,
     hmrcSpacing8 = 8.dp,
     hmrcSpacing16 = 16.dp,
+    hmrcSpacing24 = 24.dp,
     hmrcIconSize24 = 24.dp,
     hmrcIconSize36 = 36.dp,
+    hmrcIconSize100 = 100.dp,
     hmrcButtonSize48 = 48.dp
 )
 
@@ -58,7 +66,9 @@ val largeDimensions = Dimensions(
     hmrcSpacing4 = 4.dp,
     hmrcSpacing8 = 8.dp,
     hmrcSpacing16 = 16.dp,
+    hmrcSpacing24 = 24.dp,
     hmrcIconSize24 = 24.dp,
     hmrcIconSize36 = 36.dp,
+    hmrcIconSize100 = 100.dp,
     hmrcButtonSize48 = 48.dp
 )

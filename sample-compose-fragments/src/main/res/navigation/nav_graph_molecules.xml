@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_moleculesFragment_to_selectRowViewFragment"
             app:destination="@id/selectRowViewFragment" />
+        <action
+            android:id="@+id/action_moleculesFragment_to_statusViewFragment"
+            app:destination="@id/statusViewFragment" />
     </fragment>
 
     <fragment
@@ -122,5 +125,10 @@
         android:id="@+id/selectRowViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.SelectRowViewFragment"
         android:label="@string/molecules_select_row" />
+
+    <fragment
+        android:id="@+id/statusViewFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.StatusViewFragment"
+        android:label="@string/molecules_status" />
 
 </navigation>

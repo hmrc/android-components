@@ -40,5 +40,7 @@ interface Navigator {
 
     fun Fragment.gotoMoleculeSelectRowView()
 
+    fun Fragment.goToMoleculeStatusView()
+
     fun Fragment.goBack()
 }

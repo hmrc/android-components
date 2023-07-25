@@ -44,6 +44,10 @@ class AppNavigator @Inject constructor() : Navigator{
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToSwitchRowViewFragment())
     }
 
+    override fun Fragment.goToMoleculeStatusView() {
+        navigate(MoleculesFragmentDirections.actionMoleculesFragmentToStatusViewFragment())
+    }
+
     override fun Fragment.gotoMoleculeWarningView() {
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToWarningViewFragment())
     }
