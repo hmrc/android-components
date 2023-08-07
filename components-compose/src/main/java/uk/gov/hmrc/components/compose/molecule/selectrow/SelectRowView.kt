@@ -43,7 +43,6 @@ import androidx.compose.ui.semantics.semantics
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
-
 object SelectRowView {
 
     const val NO_ROW_SELECTED_POSITION = -1
@@ -96,7 +95,8 @@ object SelectRowView {
                         .clearAndSetSemantics {
                             val selectedPositionText = "$index of ${selectRowViewItems.size}"
                             contentDescription =
-                                "${if (rowSelectedPosition == index) tickedText else noTickedText}; $selectRow; $radioButtonText; $selectedPositionText"
+                                "${if (rowSelectedPosition == index) tickedText else noTickedText}; " +
+                                "$selectRow; $radioButtonText; $selectedPositionText"
                         }
                         .padding(HmrcTheme.dimensions.hmrcSpacing16)
                 ) {
@@ -107,7 +107,7 @@ object SelectRowView {
                         },
                         modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize24),
 
-                        ) {
+                    ) {
                         Icon(
                             painter = painterResource(
                                 if (rowSelectedPosition == index) {
