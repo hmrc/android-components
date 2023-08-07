@@ -33,7 +33,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -57,7 +56,6 @@ object SelectRowView {
      * @param errorText Error text to be displayed, if any.
      * @param onRowSelected Callback function triggered when an item is clicked.
      */
-    @OptIn(ExperimentalComposeUiApi::class)
     @Composable
     operator fun invoke(
         modifier: Modifier = Modifier,
@@ -96,7 +94,7 @@ object SelectRowView {
                             val selectedPositionText = "$index of ${selectRowViewItems.size}"
                             contentDescription =
                                 "${if (rowSelectedPosition == index) tickedText else noTickedText}; " +
-                                "$selectRow; $radioButtonText; $selectedPositionText"
+                                        "$selectRow; $radioButtonText; $selectedPositionText"
                         }
                         .padding(HmrcTheme.dimensions.hmrcSpacing16)
                 ) {
@@ -107,15 +105,9 @@ object SelectRowView {
                         },
                         modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize24),
 
-                    ) {
+                        ) {
                         Icon(
-                            painter = painterResource(
-                                if (rowSelectedPosition == index) {
-                                    checkedIcon
-                                } else {
-                                    uncheckedIcon
-                                }
-                            ),
+                            painter = painterResource(if (rowSelectedPosition == index) checkedIcon else uncheckedIcon),
                             contentDescription = null,
                             tint = HmrcTheme.colors.hmrcBlack
                         )
