@@ -15,6 +15,7 @@
  */
 package uk.gov.hmrc.components.compose.molecule.selectrow
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,7 +26,6 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconToggleButton
@@ -33,11 +33,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+
 
 object SelectRowView {
 
@@ -53,6 +58,7 @@ object SelectRowView {
      * @param errorText Error text to be displayed, if any.
      * @param onRowSelected Callback function triggered when an item is clicked.
      */
+    @OptIn(ExperimentalComposeUiApi::class)
     @Composable
     operator fun invoke(
         modifier: Modifier = Modifier,
@@ -64,7 +70,6 @@ object SelectRowView {
         onRowSelected: (position: Int, value: String) -> Unit
     ) {
         Column(modifier = modifier) {
-
             if (errorText.isNotEmpty()) {
                 Text(
                     text = errorText,
@@ -76,16 +81,23 @@ object SelectRowView {
 
             selectRowViewItems.forEachIndexed { index, selectRow ->
                 val interactionSource = remember { MutableInteractionSource() }
+                val tickedText = stringResource(id = R.string.accessibility_ticked)
+                val noTickedText = stringResource(id = R.string.accessibility_not_ticked)
+                val radioButtonText = stringResource(id = R.string.accessibility_radio_button)
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
-                        .selectable(
-                            selected = (rowSelectedPosition == index),
+                        .clickable(
                             interactionSource = interactionSource,
                             indication = rememberRipple(bounded = true),
                             onClick = { onRowSelected(index, selectRow) },
-                            role = Role.RadioButton,
                         )
+                        .semantics(mergeDescendants = true) {}
+                        .clearAndSetSemantics {
+                            val selectedPositionText = "$index of ${selectRowViewItems.size}"
+                            contentDescription =
+                                "${if (rowSelectedPosition == index) tickedText else noTickedText}; $selectRow; $radioButtonText; $selectedPositionText"
+                        }
                         .padding(HmrcTheme.dimensions.hmrcSpacing16)
                 ) {
                     IconToggleButton(
@@ -93,8 +105,9 @@ object SelectRowView {
                         onCheckedChange = {
                             onRowSelected(index, selectRow)
                         },
-                        modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize24)
-                    ) {
+                        modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize24),
+
+                        ) {
                         Icon(
                             painter = painterResource(
                                 if (rowSelectedPosition == index) {
@@ -103,7 +116,7 @@ object SelectRowView {
                                     uncheckedIcon
                                 }
                             ),
-                            contentDescription = "",
+                            contentDescription = null,
                             tint = HmrcTheme.colors.hmrcBlack
                         )
                     }
@@ -113,7 +126,7 @@ object SelectRowView {
                     Text(
                         text = selectRow,
                         modifier = Modifier.fillMaxWidth(),
-                        style = HmrcTheme.typography.body
+                        style = HmrcTheme.typography.body,
                     )
                 }
             }
