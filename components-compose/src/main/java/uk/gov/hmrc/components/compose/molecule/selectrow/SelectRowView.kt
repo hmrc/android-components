@@ -94,7 +94,7 @@ object SelectRowView {
                             val selectedPositionText = "$index of ${selectRowViewItems.size}"
                             contentDescription =
                                 "${if (rowSelectedPosition == index) tickedText else noTickedText}; " +
-                                        "$selectRow; $radioButtonText; $selectedPositionText"
+                                "$selectRow; $radioButtonText; $selectedPositionText"
                         }
                         .padding(HmrcTheme.dimensions.hmrcSpacing16)
                 ) {
@@ -105,7 +105,7 @@ object SelectRowView {
                         },
                         modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize24),
 
-                        ) {
+                    ) {
                         Icon(
                             painter = painterResource(if (rowSelectedPosition == index) checkedIcon else uncheckedIcon),
                             contentDescription = null,
