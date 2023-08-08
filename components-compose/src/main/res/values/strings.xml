@@ -18,7 +18,7 @@
     <string name="textInputView_error">Error</string>
     <string name="textInputView_clear">Clear text</string>
     <string name="accessibility_warning">warning; %s</string>
-    <string name="accessibility_ticked">ticked</string>
-    <string name="accessibility_not_ticked">not ticked</string>
+    <string name="accessibility_selected">selected</string>
+    <string name="accessibility_not_selected">not selected</string>
     <string name="accessibility_radio_button">radio button</string>
 </resources>

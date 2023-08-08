@@ -77,51 +77,72 @@ object SelectRowView {
             }
 
             selectRowViewItems.forEachIndexed { index, selectRow ->
-                val interactionSource = remember { MutableInteractionSource() }
-                val tickedText = stringResource(id = R.string.accessibility_ticked)
-                val noTickedText = stringResource(id = R.string.accessibility_not_ticked)
-                val radioButtonText = stringResource(id = R.string.accessibility_radio_button)
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier
-                        .clickable(
-                            interactionSource = interactionSource,
-                            indication = rememberRipple(bounded = true),
-                            onClick = { onRowSelected(index, selectRow) },
-                        )
-                        .semantics(mergeDescendants = true) {}
-                        .clearAndSetSemantics {
-                            val selectedPositionText = "$index of ${selectRowViewItems.size}"
-                            contentDescription =
-                                "${if (rowSelectedPosition == index) tickedText else noTickedText}; " +
-                                "$selectRow; $radioButtonText; $selectedPositionText"
-                        }
-                        .padding(HmrcTheme.dimensions.hmrcSpacing16)
-                ) {
-                    IconToggleButton(
-                        checked = rowSelectedPosition == index,
-                        onCheckedChange = {
-                            onRowSelected(index, selectRow)
-                        },
-                        modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize24),
-
-                    ) {
-                        Icon(
-                            painter = painterResource(if (rowSelectedPosition == index) checkedIcon else uncheckedIcon),
-                            contentDescription = null,
-                            tint = HmrcTheme.colors.hmrcBlack
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
-
-                    Text(
-                        text = selectRow,
-                        modifier = Modifier.fillMaxWidth(),
-                        style = HmrcTheme.typography.body,
-                    )
-                }
+                RadioButton(
+                    index = index,
+                    selectRow = selectRow,
+                    rowSize = selectRowViewItems.size,
+                    checkedIcon = checkedIcon,
+                    uncheckedIcon = uncheckedIcon,
+                    rowSelectedPosition = rowSelectedPosition,
+                    onRowSelected = onRowSelected,
+                )
             }
+        }
+    }
+
+    @Composable
+    fun RadioButton(
+        index: Int,
+        selectRow: String,
+        rowSize: Int,
+        checkedIcon: Int,
+        uncheckedIcon: Int,
+        rowSelectedPosition: Int,
+        onRowSelected: (position: Int, value: String) -> Unit,
+    ) {
+        val interactionSource = remember { MutableInteractionSource() }
+        val selectedText = stringResource(id = R.string.accessibility_selected)
+        val notSelectedText = stringResource(id = R.string.accessibility_not_selected)
+        val radioButtonText = stringResource(id = R.string.accessibility_radio_button)
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .clickable(
+                    interactionSource = interactionSource,
+                    indication = rememberRipple(bounded = true),
+                    onClick = { onRowSelected(index, selectRow) }
+                )
+                .semantics(mergeDescendants = true) {}
+                .clearAndSetSemantics {
+                    val selectedPositionText = "${index + 1} of $rowSize"
+                    contentDescription =
+                        "${if (rowSelectedPosition == index) selectedText else notSelectedText}, " +
+                        "$selectRow, $radioButtonText, $selectedPositionText, in list, $rowSize items"
+                }
+                .padding(HmrcTheme.dimensions.hmrcSpacing16)
+        ) {
+            IconToggleButton(
+                checked = rowSelectedPosition == index,
+                onCheckedChange = {
+                    onRowSelected(index, selectRow)
+                },
+                modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize24),
+
+            ) {
+                Icon(
+                    painter = painterResource(if (rowSelectedPosition == index) checkedIcon else uncheckedIcon),
+                    contentDescription = null,
+                    tint = HmrcTheme.colors.hmrcBlack
+                )
+            }
+
+            Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
+
+            Text(
+                text = selectRow,
+                modifier = Modifier.fillMaxWidth(),
+                style = HmrcTheme.typography.body,
+            )
         }
     }
 }
