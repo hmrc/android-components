@@ -90,16 +90,8 @@ class SelectRowGroup @JvmOverloads constructor(
         (0..childCount).map { getChildAt(it) }.filterIsInstance<SelectRowView>().forEachIndexed { index, selectRow ->
             removeView(selectRow)
             binding.selectRowOptions.addView(selectRow)
-
             if (showDivider && index < childCount) {
-                val divider = View(context)
-                divider.setBackgroundResource(R.drawable.components_divider)
-                divider.layoutParams =
-                    LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, HMRC_SPACING_1.dpToPx().toInt()).apply {
-                        marginStart = HMRC_SPACING_16.dpToPx().toInt()
-                        marginEnd = HMRC_SPACING_16.dpToPx().toInt()
-                    }
-                binding.selectRowOptions.addView(divider)
+                binding.selectRowOptions.addView(createDivider())
             }
         }
     }
@@ -156,6 +148,17 @@ class SelectRowGroup @JvmOverloads constructor(
                     isChecked = child.id == initialSelectedRow
                 }
             }
+    }
+
+    private fun createDivider() = View(context).apply {
+        setBackgroundResource(R.drawable.components_divider)
+        layoutParams = LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            HMRC_SPACING_1.dpToPx().toInt()
+        ).apply {
+            marginStart = HMRC_SPACING_16.dpToPx().toInt()
+            marginEnd = HMRC_SPACING_16.dpToPx().toInt()
+        }
     }
 
     companion object {
