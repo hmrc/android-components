@@ -26,9 +26,9 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.widget.LinearLayout
 import android.widget.RadioButton
+import androidx.core.content.ContextCompat
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentSelectRowGroupBinding
-import uk.gov.hmrc.components.extensions.dpToPx
 
 class SelectRowGroup @JvmOverloads constructor(
     context: Context,
@@ -151,21 +151,19 @@ class SelectRowGroup @JvmOverloads constructor(
     }
 
     private fun createDivider() = View(context).apply {
-        setBackgroundResource(R.drawable.components_divider)
+        background = ContextCompat.getDrawable(context, R.drawable.components_divider)
         layoutParams = LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
-            HMRC_SPACING_1.dpToPx().toInt()
+            ViewGroup.LayoutParams.WRAP_CONTENT
         ).apply {
-            marginStart = HMRC_SPACING_16.dpToPx().toInt()
-            marginEnd = HMRC_SPACING_16.dpToPx().toInt()
+            marginStart = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
+            marginEnd = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
         }
     }
 
     companion object {
         private const val STATE_SELECTED_ROW = "STATE_SELECTED_ROW"
         private const val STATE_SUPER = "STATE_SUPER"
-        private const val HMRC_SPACING_16 = 16f
-        private const val HMRC_SPACING_1 = 1f
     }
 
     interface OnRowSelectedListener {
