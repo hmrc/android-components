@@ -76,11 +76,7 @@ object SelectRowViewScreen {
                         } else {
                             viewModel.setErrorTextExample1("")
                         }
-                        Toast.makeText(
-                            context,
-                            "Position: $position selected\nValue: $value",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(context, "$value selected", Toast.LENGTH_SHORT).show()
                     }
                 }
                 //endregion
