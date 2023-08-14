@@ -22,11 +22,13 @@ import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.widget.LinearLayout
 import android.widget.RadioButton
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentSelectRowGroupBinding
+import uk.gov.hmrc.components.extensions.dpToPx
 
 class SelectRowGroup @JvmOverloads constructor(
     context: Context,
@@ -42,6 +44,7 @@ class SelectRowGroup @JvmOverloads constructor(
     private var rowSelectedListener: OnRowSelectedListener? = null
 
     private var initialSelectedRow: Int = -1
+    private var showDivider: Boolean = false
 
     var selectedRow = -1
         set(value) {
@@ -74,6 +77,7 @@ class SelectRowGroup @JvmOverloads constructor(
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.SelectRowGroup, 0, 0)
             initialSelectedRow = typedArray.getResourceId(R.styleable.SelectRowGroup_selectedRow, -1)
+            showDivider = typedArray.getBoolean(R.styleable.SelectRowGroup_showDivider, false)
             typedArray.recycle()
         }
 
@@ -83,9 +87,20 @@ class SelectRowGroup @JvmOverloads constructor(
     override fun onFinishInflate() {
         super.onFinishInflate()
         // Moves any select row views inside select_row_options
-        (0..childCount).map { getChildAt(it) }.filterIsInstance<SelectRowView>().forEach {
-            removeView(it)
-            binding.selectRowOptions.addView(it)
+        (0..childCount).map { getChildAt(it) }.filterIsInstance<SelectRowView>().forEachIndexed { index, selectRow ->
+            removeView(selectRow)
+            binding.selectRowOptions.addView(selectRow)
+
+            if (showDivider && index < childCount) {
+                val divider = View(context)
+                divider.setBackgroundResource(R.drawable.components_divider)
+                divider.layoutParams =
+                    LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, HMRC_SPACING_1.dpToPx().toInt()).apply {
+                        marginStart = HMRC_SPACING_16.dpToPx().toInt()
+                        marginEnd = HMRC_SPACING_16.dpToPx().toInt()
+                    }
+                binding.selectRowOptions.addView(divider)
+            }
         }
     }
 
@@ -146,6 +161,8 @@ class SelectRowGroup @JvmOverloads constructor(
     companion object {
         private const val STATE_SELECTED_ROW = "STATE_SELECTED_ROW"
         private const val STATE_SUPER = "STATE_SUPER"
+        private const val HMRC_SPACING_16 = 16f
+        private const val HMRC_SPACING_1 = 1f
     }
 
     interface OnRowSelectedListener {

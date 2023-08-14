@@ -61,6 +61,7 @@ class SelectRowFragment : BaseComponentsFragment() {
                 }
             })
             selectRowTickGroup.selectedRow = R.id.select_row_tick_1
+            selectRowGroupWithDivider.selectedRow = R.id.select_row_1_with_divider
         }
     }
 
