@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
 * Changed `SelectRowView` to include a Divider with an added parameter `showDivider`, which is set to `false` by default.
 
 ## [4.9.0] - 2023-06-26
