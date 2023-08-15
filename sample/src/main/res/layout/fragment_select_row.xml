@@ -124,6 +124,45 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.molecule.selectrow.SelectRowGroup
+                android:id="@+id/select_row_group_with_divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:showDivider="true">
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_1_with_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:text="First row" />
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_2_with_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:text="Second row" />
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_3_with_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:text="Third row" />
+
+                <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
+                    android:id="@+id/select_row_4_with_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:text="Fourth row" />
+
+            </uk.gov.hmrc.components.molecule.selectrow.SelectRowGroup>
+
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
 
 </ScrollView>
