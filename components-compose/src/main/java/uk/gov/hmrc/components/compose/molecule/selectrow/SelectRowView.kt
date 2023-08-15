@@ -27,6 +27,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -36,7 +37,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import uk.gov.hmrc.components.compose.R
@@ -63,6 +63,7 @@ object SelectRowView {
         selectRowViewItems: List<String>,
         checkedIcon: Int = R.drawable.components_select_row_circle_checked,
         uncheckedIcon: Int = R.drawable.components_select_row_circle_unchecked,
+        showDivider: Boolean = false,
         rowSelectedPosition: Int = NO_ROW_SELECTED_POSITION,
         errorText: String = "",
         onRowSelected: (position: Int, value: String) -> Unit
@@ -107,6 +108,14 @@ object SelectRowView {
                                 text = selectRow,
                                 modifier = Modifier.fillMaxWidth(),
                                 style = HmrcTheme.typography.body
+                            )
+                        }
+                        if (showDivider && index < selectRowViewItems.size - 1) {
+                            Divider(
+                                modifier = Modifier.padding(
+                                    start = HmrcTheme.dimensions.hmrcSpacing16,
+                                    end = HmrcTheme.dimensions.hmrcSpacing16
+                                )
                             )
                         }
                     }
