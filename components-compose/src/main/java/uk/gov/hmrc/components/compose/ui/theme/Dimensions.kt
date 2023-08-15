@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 data class Dimensions(
+    val hmrcDividerHeight: Dp,
     val hmrcSpacing4: Dp,
     val hmrcSpacing8: Dp,
     val hmrcSpacing16: Dp,
@@ -30,6 +31,7 @@ data class Dimensions(
 )
 
 val smallDimensions = Dimensions(
+    hmrcDividerHeight = 1.dp,
     hmrcSpacing4 = 4.dp,
     hmrcSpacing8 = 8.dp,
     hmrcSpacing16 = 16.dp,
@@ -41,6 +43,7 @@ val smallDimensions = Dimensions(
 )
 
 val compactDimensions = Dimensions(
+    hmrcDividerHeight = 1.dp,
     hmrcSpacing4 = 4.dp,
     hmrcSpacing8 = 8.dp,
     hmrcSpacing16 = 16.dp,
@@ -52,6 +55,7 @@ val compactDimensions = Dimensions(
 )
 
 val mediumDimensions = Dimensions(
+    hmrcDividerHeight = 1.dp,
     hmrcSpacing4 = 4.dp,
     hmrcSpacing8 = 8.dp,
     hmrcSpacing16 = 16.dp,
@@ -63,6 +67,7 @@ val mediumDimensions = Dimensions(
 )
 
 val largeDimensions = Dimensions(
+    hmrcDividerHeight = 1.dp,
     hmrcSpacing4 = 4.dp,
     hmrcSpacing8 = 8.dp,
     hmrcSpacing16 = 16.dp,

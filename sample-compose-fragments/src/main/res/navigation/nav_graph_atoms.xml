@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright 2023 HM Revenue & Customs
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,36 +15,37 @@
 -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_atoms_screen"
     app:startDestination="@+id/atomsFragment">
 
     <fragment
         android:id="@+id/atomsFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.AtomsFragment"
-        android:label="@string/title_atoms"
-        tools:layout="@layout/fragment_atoms">
+        android:label="@string/title_atoms">
         <action
             android:id="@+id/action_atomsFragment_to_textFragment"
-            app:destination="@id/textFragment"/>
+            app:destination="@id/textFragment" />
         <action
             android:id="@+id/action_atomsFragment_to_buttonFragment"
-            app:destination="@id/buttonFragment"/>
+            app:destination="@id/buttonFragment" />
+        <action
+            android:id="@+id/action_atomsFragment_to_dividerFragment"
+            app:destination="@id/dividerFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/textFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.TextFragment"
-        android:label="@string/atoms_text"
-        tools:layout="@layout/fragment_text">
-    </fragment>
+        android:label="@string/atoms_text"/>
 
     <fragment
+        android:id="@+id/buttonFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.ButtonFragment"
-        android:label="@string/atoms_buttons"
-        tools:layout="@layout/fragment_button"
-        android:id="@+id/buttonFragment">
+        android:label="@string/atoms_buttons"/>
 
-    </fragment>
+    <fragment
+        android:id="@+id/dividerFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.DividerFragment"
+        android:label="@string/atoms_divider" />
 
 </navigation>
