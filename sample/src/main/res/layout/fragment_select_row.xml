@@ -133,7 +133,7 @@
                 android:id="@+id/select_row_group_with_divider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:showDivider="true">
+                app:showSelectRowDivider="true">
 
                 <uk.gov.hmrc.components.molecule.selectrow.SelectRowView
                     android:id="@+id/select_row_1_with_divider"
