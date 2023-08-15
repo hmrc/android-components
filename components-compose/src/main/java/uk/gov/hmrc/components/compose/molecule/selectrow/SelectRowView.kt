@@ -15,6 +15,7 @@
  */
 package uk.gov.hmrc.components.compose.molecule.selectrow
 
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -33,7 +34,11 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.liveRegion
+import androidx.compose.ui.semantics.semantics
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
@@ -68,7 +73,12 @@ object SelectRowView {
                     Text(
                         text = errorText,
                         style = HmrcTheme.typography.body.copy(color = HmrcTheme.colors.hmrcRed),
-                        modifier = Modifier.offset(HmrcTheme.dimensions.hmrcSpacing8)
+                        modifier = Modifier
+                            .offset(HmrcTheme.dimensions.hmrcSpacing8)
+                            .focusable()
+                            .semantics {
+                                liveRegion = LiveRegionMode.Polite
+                            }
                     )
                     Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing8))
                 }
