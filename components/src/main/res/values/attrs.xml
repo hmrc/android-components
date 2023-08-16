@@ -255,6 +255,7 @@
     <declare-styleable name="SelectRowGroup">
         <!-- Initial selected row resource id -->
         <attr name="selectedRow" format="reference" />
+        <!--Show Divider in SelectRowGroup-->
         <attr name="showSelectRowDivider" format="boolean" />
     </declare-styleable>
 
