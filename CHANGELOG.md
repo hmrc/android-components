@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Fixed
+
+* The attribute `showDivider` in `SelectRowView` has been renamed to `showSelectRowDivider`.
+
 ### Changed
 
 * Changed `SelectRowView` to include a Divider with an added parameter `showDivider`, which is set to `false` by default.
