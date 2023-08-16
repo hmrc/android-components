@@ -90,7 +90,7 @@ class SelectRowGroup @JvmOverloads constructor(
         (0..childCount).map { getChildAt(it) }.filterIsInstance<SelectRowView>().forEachIndexed { index, selectRow ->
             removeView(selectRow)
             binding.selectRowOptions.addView(selectRow)
-            if (showDivider && index < childCount) {
+            if (showDivider && childCount > 2) {
                 binding.selectRowOptions.addView(createDivider())
             }
         }
