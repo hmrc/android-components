@@ -87,7 +87,7 @@ class SelectRowGroup @JvmOverloads constructor(
     override fun onFinishInflate() {
         super.onFinishInflate()
         // Moves any select row views inside select_row_options
-        (0..childCount).map { getChildAt(it) }.filterIsInstance<SelectRowView>().forEachIndexed { index, selectRow ->
+        (0..childCount).map { getChildAt(it) }.filterIsInstance<SelectRowView>().forEach { selectRow ->
             removeView(selectRow)
             binding.selectRowOptions.addView(selectRow)
             if (showDivider && childCount > 2) {
