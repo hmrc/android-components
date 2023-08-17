@@ -18,6 +18,10 @@ Allowed headings:
 
 ### Fixed
 
+* Resolve the Divider problem for larger numbers of items in the `SelectRowViewGroup`
+
+### Fixed
+
 * The attribute `showDivider` in `SelectRowView` has been renamed to `showSelectRowDivider`.
 
 ### Changed
