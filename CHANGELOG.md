@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Fixed
+
+* Resolve the Divider issue for larger numbers of items in the `SelectRowViewGroup`
+
 ## [4.10.1] - 2023-08-16
 
 ### Fixed
