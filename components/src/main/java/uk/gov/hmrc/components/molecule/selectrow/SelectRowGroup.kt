@@ -77,7 +77,7 @@ class SelectRowGroup @JvmOverloads constructor(
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.SelectRowGroup, 0, 0)
             initialSelectedRow = typedArray.getResourceId(R.styleable.SelectRowGroup_selectedRow, -1)
-            showDivider = typedArray.getBoolean(R.styleable.SelectRowGroup_showDivider, false)
+            showDivider = typedArray.getBoolean(R.styleable.SelectRowGroup_showSelectRowDivider, false)
             typedArray.recycle()
         }
 
