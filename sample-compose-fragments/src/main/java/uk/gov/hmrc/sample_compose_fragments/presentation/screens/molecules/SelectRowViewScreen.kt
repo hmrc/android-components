@@ -97,6 +97,23 @@ object SelectRowViewScreen {
                     }
                 }
                 //endregion
+
+                //region Example three with divider
+                HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                    SelectRowView(
+                        selectRowViewItems = listOf(
+                            stringResource(R.string.select_row_view_first_row),
+                            stringResource(R.string.select_row_view_second_row),
+                            stringResource(R.string.select_row_view_third_row),
+                            stringResource(R.string.select_row_view_fourth_row)
+                        ),
+                        rowSelectedPosition = exampleUiState.rowSelectedPositionExample3,
+                        showDivider = true
+                    ) { position, value -> // Handle the SelectRowView item click listener
+                        viewModel.setRowSelectedPositionExample3(position)
+                    }
+                }
+                //endregion
             }
         }
     }

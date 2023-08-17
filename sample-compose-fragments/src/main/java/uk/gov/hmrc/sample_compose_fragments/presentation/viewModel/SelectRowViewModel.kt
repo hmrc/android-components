@@ -52,16 +52,19 @@ class SelectRowViewModel @Inject constructor() : ViewModel() {
     // region Example UI State
     private val rowSelectedPositionExample1 = MutableStateFlow(FIRST_ROW_SELECTED_POSITION)
     private val rowSelectedPositionExample2 = MutableStateFlow(FIRST_ROW_SELECTED_POSITION)
+    private val rowSelectedPositionExample3 = MutableStateFlow(FIRST_ROW_SELECTED_POSITION)
     private val errorTextExample1 = MutableStateFlow("")
 
     val exampleUiState: StateFlow<ExampleUiState> = combine(
         rowSelectedPositionExample1,
         rowSelectedPositionExample2,
+        rowSelectedPositionExample3,
         errorTextExample1,
-    ) { rowSelectedPositionExample1, rowSelectedPositionExample2, errorTextExample1 ->
+    ) { rowSelectedPositionExample1, rowSelectedPositionExample2, rowSelectedPositionExample3, errorTextExample1 ->
         ExampleUiState(
             rowSelectedPositionExample1 = rowSelectedPositionExample1,
             rowSelectedPositionExample2 = rowSelectedPositionExample2,
+            rowSelectedPositionExample3 = rowSelectedPositionExample3,
             errorTextExample1 = errorTextExample1,
         )
     }.stateIn(
@@ -72,12 +75,15 @@ class SelectRowViewModel @Inject constructor() : ViewModel() {
 
     fun setRowSelectedPositionExample2(value: Int) = viewModelScope.launch { rowSelectedPositionExample2.emit(value) }
 
+    fun setRowSelectedPositionExample3(value: Int) = viewModelScope.launch { rowSelectedPositionExample3.emit(value) }
+
     fun setErrorTextExample1(value: String) = viewModelScope.launch { errorTextExample1.emit(value) }
     //endregion
 
     data class ExampleUiState(
         val rowSelectedPositionExample1: Int = FIRST_ROW_SELECTED_POSITION,
         val rowSelectedPositionExample2: Int = FIRST_ROW_SELECTED_POSITION,
+        val rowSelectedPositionExample3: Int = FIRST_ROW_SELECTED_POSITION,
         val errorTextExample1: String = ""
     )
 
