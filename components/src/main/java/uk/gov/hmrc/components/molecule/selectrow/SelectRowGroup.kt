@@ -22,9 +22,11 @@ import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.widget.LinearLayout
 import android.widget.RadioButton
+import androidx.core.content.ContextCompat
 import uk.gov.hmrc.components.R
 import uk.gov.hmrc.components.databinding.ComponentSelectRowGroupBinding
 
@@ -42,6 +44,7 @@ class SelectRowGroup @JvmOverloads constructor(
     private var rowSelectedListener: OnRowSelectedListener? = null
 
     private var initialSelectedRow: Int = -1
+    private var showDivider: Boolean = false
 
     var selectedRow = -1
         set(value) {
@@ -74,6 +77,7 @@ class SelectRowGroup @JvmOverloads constructor(
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.SelectRowGroup, 0, 0)
             initialSelectedRow = typedArray.getResourceId(R.styleable.SelectRowGroup_selectedRow, -1)
+            showDivider = typedArray.getBoolean(R.styleable.SelectRowGroup_showDivider, false)
             typedArray.recycle()
         }
 
@@ -83,9 +87,12 @@ class SelectRowGroup @JvmOverloads constructor(
     override fun onFinishInflate() {
         super.onFinishInflate()
         // Moves any select row views inside select_row_options
-        (0..childCount).map { getChildAt(it) }.filterIsInstance<SelectRowView>().forEach {
-            removeView(it)
-            binding.selectRowOptions.addView(it)
+        (0..childCount).map { getChildAt(it) }.filterIsInstance<SelectRowView>().forEachIndexed { index, selectRow ->
+            removeView(selectRow)
+            binding.selectRowOptions.addView(selectRow)
+            if (showDivider && index < childCount) {
+                binding.selectRowOptions.addView(createDivider())
+            }
         }
     }
 
@@ -141,6 +148,17 @@ class SelectRowGroup @JvmOverloads constructor(
                     isChecked = child.id == initialSelectedRow
                 }
             }
+    }
+
+    private fun createDivider() = View(context).apply {
+        background = ContextCompat.getDrawable(context, R.drawable.components_divider)
+        layoutParams = LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        ).apply {
+            marginStart = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
+            marginEnd = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
+        }
     }
 
     companion object {
