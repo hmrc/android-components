@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.10.1] - 2023-08-16
+
 ### Fixed
 
 * The attribute `showDivider` in `SelectRowView` has been renamed to `showSelectRowDivider`.
