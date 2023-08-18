@@ -15,10 +15,7 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.atoms
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -26,7 +23,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.atom.divider.HmrcDivider
-import uk.gov.hmrc.components.compose.ui.extensions.enableTalkBackMergeAccessibility
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
@@ -37,39 +33,32 @@ object DividerScreen {
     operator fun invoke() {
         ScreenScrollViewColumn {
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-            Column(modifier = Modifier.enableTalkBackMergeAccessibility()) {
-                HmrcDivider()
-                Text(
-                    text = stringResource(id = R.string.divider_example_text),
-                    style = HmrcTheme.typography.body,
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
-                )
-            }
-            Column(modifier = Modifier.enableTalkBackMergeAccessibility()) {
-                HmrcDivider()
-                Text(
-                    text = stringResource(id = R.string.divider_example_text),
-                    style = HmrcTheme.typography.body,
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
-                )
-            }
-            Column(modifier = Modifier.enableTalkBackMergeAccessibility()) {
-                HmrcDivider()
-                Text(
-                    text = stringResource(id = R.string.divider_example_text),
-                    style = HmrcTheme.typography.body,
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
-                )
-            }
-            Column(modifier = Modifier.enableTalkBackMergeAccessibility()) {
-                HmrcDivider()
-                Text(
-                    text = stringResource(id = R.string.divider_example_text),
-                    style = HmrcTheme.typography.body,
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
-                )
-                HmrcDivider()
-            }
+            HmrcDivider()
+            Text(
+                text = stringResource(id = R.string.divider_example_text),
+                style = HmrcTheme.typography.body,
+                modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
+            )
+            HmrcDivider()
+            Text(
+                text = stringResource(id = R.string.divider_example_text),
+                style = HmrcTheme.typography.body,
+                modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
+            )
+            HmrcDivider()
+            Text(
+                text = stringResource(id = R.string.divider_example_text),
+                style = HmrcTheme.typography.body,
+                modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
+            )
+            HmrcDivider()
+            Text(
+                text = stringResource(id = R.string.divider_example_text),
+                style = HmrcTheme.typography.body,
+                modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
+            )
+            HmrcDivider()
         }
     }
+
 }
