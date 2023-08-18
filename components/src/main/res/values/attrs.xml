@@ -255,7 +255,8 @@
     <declare-styleable name="SelectRowGroup">
         <!-- Initial selected row resource id -->
         <attr name="selectedRow" format="reference" />
-        <attr name="showDivider" format="boolean" />
+        <!--Show Divider in SelectRowGroup-->
+        <attr name="showSelectRowDivider" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="InformationMessageCardView">

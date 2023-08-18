@@ -77,7 +77,7 @@ class SelectRowGroup @JvmOverloads constructor(
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.SelectRowGroup, 0, 0)
             initialSelectedRow = typedArray.getResourceId(R.styleable.SelectRowGroup_selectedRow, -1)
-            showDivider = typedArray.getBoolean(R.styleable.SelectRowGroup_showDivider, false)
+            showDivider = typedArray.getBoolean(R.styleable.SelectRowGroup_showSelectRowDivider, false)
             typedArray.recycle()
         }
 
@@ -87,10 +87,10 @@ class SelectRowGroup @JvmOverloads constructor(
     override fun onFinishInflate() {
         super.onFinishInflate()
         // Moves any select row views inside select_row_options
-        (0..childCount).map { getChildAt(it) }.filterIsInstance<SelectRowView>().forEachIndexed { index, selectRow ->
+        (0..childCount).map { getChildAt(it) }.filterIsInstance<SelectRowView>().forEach { selectRow ->
             removeView(selectRow)
             binding.selectRowOptions.addView(selectRow)
-            if (showDivider && index < childCount) {
+            if (showDivider && childCount > 2) {
                 binding.selectRowOptions.addView(createDivider())
             }
         }

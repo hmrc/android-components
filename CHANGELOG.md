@@ -16,6 +16,18 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Fixed
+
+* Resolve the Divider issue for larger numbers of items in the `SelectRowViewGroup`
+
+## [4.10.1] - 2023-08-16
+
+### Fixed
+
+* The attribute `showDivider` in `SelectRowView` has been renamed to `showSelectRowDivider`.
+
+## [4.10.0] - 2023-08-15
+
 ### Changed
 
 * Changed `SelectRowView` to include a Divider with an added parameter `showDivider`, which is set to `false` by default.
