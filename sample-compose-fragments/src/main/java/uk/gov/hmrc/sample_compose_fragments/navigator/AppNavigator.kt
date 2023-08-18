@@ -3,6 +3,7 @@ package uk.gov.hmrc.sample_compose_fragments.navigator
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.AtomsFragmentDirections
 import uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MoleculesFragmentDirections
 import javax.inject.Inject
 
@@ -26,6 +27,18 @@ class AppNavigator @Inject constructor() : Navigator{
 
     override fun Fragment.gotoMoleculeBoldTitleBodyView(){
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToBoldTitleBodyViewFragment())
+    }
+
+    override fun Fragment.gotoAtomText() {
+        navigate(AtomsFragmentDirections.actionAtomsFragmentToTextFragment())
+    }
+
+    override fun Fragment.gotoAtomButton() {
+        navigate(AtomsFragmentDirections.actionAtomsFragmentToButtonFragment())
+    }
+
+    override fun Fragment.gotoAtomDivider() {
+        navigate(AtomsFragmentDirections.actionAtomsFragmentToDividerFragment())
     }
 
     override fun Fragment.gotoTextInputView() {

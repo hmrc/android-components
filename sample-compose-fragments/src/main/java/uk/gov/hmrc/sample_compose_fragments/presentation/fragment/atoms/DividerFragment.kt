@@ -17,32 +17,17 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms
 
 import android.os.Bundle
 import android.view.View
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
-import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ATOM_BUTTON
-import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ATOM_DIVIDER
-import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ATOM_TEXT
-import uk.gov.hmrc.sample_compose_fragments.navigator.Navigator
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.atoms.DividerScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
-import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.AtomsViewModel
-import javax.inject.Inject
 
-@AndroidEntryPoint
-class AtomsFragment : Fragment(R.layout.fragment_compose_example) {
-
-    @Inject
-    lateinit var navigator: Navigator
+class DividerFragment : Fragment(R.layout.fragment_compose_example) {
 
     private lateinit var binding: FragmentComposeExampleBinding
-    private val viewModel: AtomsViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,20 +35,12 @@ class AtomsFragment : Fragment(R.layout.fragment_compose_example) {
         binding.composeView.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                val listItems by viewModel.atomsItems.collectAsState()
                 HmrcTheme {
                     HmrcSurface {
-                        ComponentListScreen(items = listItems, navigateTo = {
-                            when (it.id) {
-                                ATOM_TEXT -> with(navigator) { gotoAtomText() }
-                                ATOM_BUTTON -> with(navigator) { gotoAtomButton() }
-                                ATOM_DIVIDER -> with(navigator) { gotoAtomDivider() }
-                            }
-                        })
+                        DividerScreen()
                     }
                 }
             }
         }
-        viewModel.getAtomsData()
     }
 }

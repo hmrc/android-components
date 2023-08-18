@@ -18,6 +18,13 @@ package uk.gov.hmrc.sample_compose_fragments.navigator
 import androidx.fragment.app.Fragment
 
 interface Navigator {
+
+    fun Fragment.gotoAtomText()
+
+    fun Fragment.gotoAtomButton()
+
+    fun Fragment.gotoAtomDivider()
+
     fun Fragment.gotoTextInputView()
 
     fun Fragment.gotoCurrencyInputView()
