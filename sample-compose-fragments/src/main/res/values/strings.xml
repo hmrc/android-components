@@ -344,4 +344,13 @@
     <string name="menu_panel_example_3_body">A savings account with bonuses designed to help you start saving</string>
     <string name="menu_panel_example_4_title">News</string>
     <string name="menu_panel_example_4_body">News and current tax related information from HMRC</string>
+
+    <!--  Select Row View  -->
+    <string name="select_row_body_description">(Body) Description</string>
+    <string name="select_row_error_message">This is an error</string>
+    <string name="select_row_view_first_row">First row</string>
+    <string name="select_row_view_second_row">Second row</string>
+    <string name="select_row_view_error_row">Show an error</string>
+    <string name="select_row_view_third_row">Third row</string>
+    <string name="select_row_view_fourth_row">Fourth row</string>
 </resources>
