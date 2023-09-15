@@ -49,5 +49,7 @@ interface Navigator {
 
     fun Fragment.goToMoleculeStatusView()
 
+    fun Fragment.goToIconButtonCardView()
+
     fun Fragment.goBack()
 }

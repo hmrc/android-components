@@ -50,7 +50,6 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
     @Inject
     lateinit var navigator: Navigator
 
-
     private lateinit var binding: FragmentComposeExampleBinding
     private val viewModel: MoleculesViewModel by activityViewModels()
 

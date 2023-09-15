@@ -13,34 +13,44 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
+package uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import uk.gov.hmrc.components.compose.molecule.inset.InsetTextView
+import uk.gov.hmrc.components.compose.organism.card.IconButtonCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
-fun InsetTextViewScreen() {
+fun IconButtonCardViewScreen(onClickAction: () -> Unit) {
     ScreenScrollViewColumn {
         PlaceholderSlot {
-            InsetTextView(text = stringResource(id = R.string.inset_text_placeholder_text))
+            IconButtonCardView(
+                titleText = stringResource(id = R.string.icon_button_placeholder_title),
+                iconResId = R.drawable.ic_help_outline,
+                onClick = { onClickAction() }
+            )
         }
 
         ExamplesSlot {
-            HmrcCard() {
-                InsetTextView(
-                    text = stringResource(id = R.string.inset_text_example_text),
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
-                )
-            }
+            IconButtonCardView(
+                titleText = stringResource(id = R.string.icon_button_example_1_title),
+                iconResId = R.drawable.ic_help_outline,
+                onClick = { onClickAction() },
+                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
+            )
+
+            IconButtonCardView(
+                titleText = stringResource(id = R.string.longer_text),
+                iconResId = R.drawable.ic_help_outline,
+                onClick = { onClickAction() },
+                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
+            )
         }
     }
 }
