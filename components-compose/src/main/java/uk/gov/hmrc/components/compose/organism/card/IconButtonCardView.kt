@@ -16,8 +16,6 @@
 package uk.gov.hmrc.components.compose.organism.card
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import uk.gov.hmrc.components.compose.atom.button.IconButton
@@ -30,15 +28,11 @@ fun IconButtonCardView(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Row(modifier = modifier) {
-        Column {
-            HmrcCardView {
-                IconButton(
-                    text = titleText,
-                    iconResId = iconResId,
-                    onClick = onClick
-                )
-            }
-        }
+    HmrcCardView(modifier = modifier) {
+        IconButton(
+            text = titleText,
+            iconResId = iconResId,
+            onClick = onClick
+        )
     }
 }

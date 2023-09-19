@@ -71,6 +71,6 @@ class RepositoryImpl @Inject constructor() : Repository {
         const val SELECT_ROW_VIEW = 12
 
         // ORGANISM
-        const val ORGANISM_ICON_BUTTON_CARD_VIEW = 1
+        const val ORGANISM_ICON_BUTTON_CARD_VIEW = 4
     }
 }

@@ -27,12 +27,12 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
 fun HmrcCardView(
-    modifier: Modifier? = Modifier,
+    modifier: Modifier = Modifier,
     elevation: CardElevation = CardDefaults.cardElevation(),
     content: @Composable ColumnScope.() -> Unit
 ) {
     Card(
-        modifier = modifier?.fillMaxWidth() ?: Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         shape = RectangleShape,
         content = content,
         colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground),
