@@ -26,7 +26,11 @@ import androidx.compose.ui.graphics.RectangleShape
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
-fun HmrcCardView(modifier: Modifier? = Modifier, elevation: CardElevation = CardDefaults.cardElevation(), content: @Composable ColumnScope.() -> Unit) {
+fun HmrcCardView(
+    modifier: Modifier? = Modifier,
+    elevation: CardElevation = CardDefaults.cardElevation(),
+    content: @Composable ColumnScope.() -> Unit
+) {
     Card(
         modifier = modifier?.fillMaxWidth() ?: Modifier.fillMaxWidth(),
         shape = RectangleShape,
