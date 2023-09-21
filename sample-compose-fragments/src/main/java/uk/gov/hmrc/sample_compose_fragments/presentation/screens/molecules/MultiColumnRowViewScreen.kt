@@ -21,11 +21,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowItem
 import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowView
+import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.extensions.enableTalkBackMergeAccessibility
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -48,9 +48,7 @@ object MultiColumnRowViewScreen {
             ExamplesSlot {
 
                 // Simple MultiColumnRowView ColumnCount = 1
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     MultiColumnRowView(
                         modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
@@ -60,9 +58,7 @@ object MultiColumnRowViewScreen {
                 }
 
                 // Error text in single column row view ColumnCount = 1
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     MultiColumnRowView(
                         modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
@@ -75,9 +71,7 @@ object MultiColumnRowViewScreen {
                 }
 
                 // Estimated Income text MultiColumnRowView ColumnCount = 2
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     MultiColumnRowView(
                         modifier = Modifier
                             .enableTalkBackMergeAccessibility()
@@ -90,9 +84,7 @@ object MultiColumnRowViewScreen {
                 }
 
                 // MultiColumnRowView bold text columnCount = 2
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     MultiColumnRowView(
                         modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
@@ -109,9 +101,7 @@ object MultiColumnRowViewScreen {
                 }
 
                 // MultiColumnRowView Account and number Body and bold text columnCount = 2
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     MultiColumnRowView(
                         modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
@@ -125,9 +115,7 @@ object MultiColumnRowViewScreen {
                 }
 
                 // MultiColumnRowView Heading and  text columnCount = 2
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     MultiColumnRowView(
                         modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
@@ -141,9 +129,7 @@ object MultiColumnRowViewScreen {
                 }
 
                 // MultiColumnRowView text columnCount = 3
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     MultiColumnRowView(
                         modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
@@ -155,9 +141,7 @@ object MultiColumnRowViewScreen {
                 }
 
                 // MultiColumnRowView long text columnCount = 3
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     MultiColumnRowView(
                         modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         columnList = listOf(
@@ -175,9 +159,7 @@ object MultiColumnRowViewScreen {
                 }
 
                 // MultiColumnRowView body text same weight column = 2
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     MultiColumnRowView(
                         modifier = Modifier
                             .enableTalkBackMergeAccessibility()

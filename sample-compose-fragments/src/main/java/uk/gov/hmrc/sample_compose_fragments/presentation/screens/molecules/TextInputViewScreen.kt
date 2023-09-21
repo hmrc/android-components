@@ -20,9 +20,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import uk.gov.hmrc.components.compose.molecule.input.TextInputView
+import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.TextInputViewModel
@@ -55,7 +55,7 @@ fun TextInputViewScreen() {
 
         ExamplesSlot {
             val characterCount1 = 5
-            HmrcCard() {
+            HmrcCardView() {
                 TextInputView(
                     onInputValueChange = { viewModel.validateCharCount(characterCount1, it, errorTextEx1, 1) },
                     errorText = viewModel.textInputErrorCharCount1.collectAsStateWithLifecycle().value,

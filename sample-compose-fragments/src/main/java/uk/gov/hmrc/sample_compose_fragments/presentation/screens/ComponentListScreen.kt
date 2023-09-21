@@ -30,10 +30,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
+import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 
 @Composable
 fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T) -> Unit) {
@@ -52,12 +51,11 @@ fun <T : ComponentItem> ComponentListScreen(items: List<T>, navigateTo: (item: T
 
 @Composable
 fun <T : ComponentItem> ComponentListItem(item: T, navigateTo: (item: T) -> Unit) {
-    HmrcCard(
+    HmrcCardView(
         modifier = Modifier
             .padding(HmrcTheme.dimensions.hmrcSpacing16, HmrcTheme.dimensions.hmrcSpacing8)
             .fillMaxWidth()
             .clickable(onClick = { navigateTo(item) }),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
     ) {
         Row(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16).align(alignment = Alignment.CenterHorizontally)) {
             Text(

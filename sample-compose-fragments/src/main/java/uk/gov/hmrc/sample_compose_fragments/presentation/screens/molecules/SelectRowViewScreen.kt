@@ -24,10 +24,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView
+import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SelectRowViewModel
@@ -59,7 +59,7 @@ object SelectRowViewScreen {
 
             ExamplesSlot {
                 //region Example one
-                HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     SelectRowView(
                         selectRowViewItems = listOf(
                             stringResource(R.string.select_row_view_first_row),
@@ -82,7 +82,7 @@ object SelectRowViewScreen {
                 //endregion
 
                 //region Example two
-                HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     SelectRowView(
                         selectRowViewItems = listOf(
                             stringResource(R.string.select_row_view_first_row),
@@ -99,7 +99,7 @@ object SelectRowViewScreen {
                 //endregion
 
                 //region Example three with divider
-                HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     SelectRowView(
                         selectRowViewItems = listOf(
                             stringResource(R.string.select_row_view_first_row),

@@ -20,9 +20,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import uk.gov.hmrc.components.compose.molecule.input.CurrencyInputView
+import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.CurrencyInputViewModel
@@ -45,7 +45,7 @@ fun CurrencyInputViewScreen() {
         }
 
         ExamplesSlot {
-            HmrcCard() {
+            HmrcCardView() {
                 CurrencyInputView(
                     onInputValueChange = { viewModel.isEmptyValidation(it, errorText1, 0) },
                     errorText = viewModel.textInputErrorEmptyValidation.collectAsStateWithLifecycle().value,

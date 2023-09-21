@@ -20,10 +20,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.molecule.statusview.StatusView
+import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -50,9 +50,7 @@ object StatusViewScreen {
 
             ExamplesSlot {
                 //region Example 1
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     StatusView(
                         modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         title = stringResource(id = R.string.status_card_example_1_title),
@@ -63,9 +61,7 @@ object StatusViewScreen {
                 //endregion
 
                 //region Example 2
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     StatusView(
                         modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         title = stringResource(id = R.string.status_card_example_2_title),
@@ -76,9 +72,7 @@ object StatusViewScreen {
                 //endregion
 
                 //region Example 3
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     StatusView(
                         modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         title = stringResource(id = R.string.longer_text),
@@ -92,9 +86,7 @@ object StatusViewScreen {
                 //endregion
 
                 //region Example 4
-                HmrcCard(
-                    modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                ) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     StatusView(
                         modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                         title = stringResource(id = R.string.status_card_example_4_title),

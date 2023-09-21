@@ -23,10 +23,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.R as componentR
 import uk.gov.hmrc.components.compose.molecule.warningview.WarningView
+import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -43,21 +43,21 @@ object WarningViewScreen {
 
             ExamplesSlot {
                 //Example one
-                HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     WarningView(
                         text = stringResource(id = R.string.warning_example_1_text)
                     )
                 }
 
                 //Example two
-                HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     WarningView(
                         text = stringResource(id = R.string.warning_example_2_text)
                     )
                 }
 
                 //Example three
-                HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     WarningView(
                         modifier = Modifier.background(HmrcTheme.colors.hmrcBlue),
                         text = stringResource(id = R.string.longest_text),
@@ -68,7 +68,7 @@ object WarningViewScreen {
                 }
 
                 // Example four
-                HmrcCard(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     WarningView(
                         modifier = Modifier.background(HmrcTheme.colors.hmrcWhite),
                         padding = 0.dp,
