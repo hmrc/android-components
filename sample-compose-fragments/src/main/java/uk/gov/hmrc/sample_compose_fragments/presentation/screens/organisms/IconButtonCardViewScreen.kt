@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
+package uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import uk.gov.hmrc.components.compose.molecule.titleBody.H4TitleBodyView
-import uk.gov.hmrc.components.compose.organism.HmrcCardView
+import uk.gov.hmrc.components.compose.organism.card.IconButtonCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
@@ -28,31 +27,30 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
-fun H4TitleBodyViewScreen() {
+fun IconButtonCardViewScreen(onClickAction: () -> Unit) {
     ScreenScrollViewColumn {
         PlaceholderSlot {
-            H4TitleBodyView(
-                titleText = stringResource(id = R.string.h4_placeholder_title),
-                bodyText = stringResource(id = R.string.h4_placeholder_body),
+            IconButtonCardView(
+                titleText = stringResource(id = R.string.icon_button_placeholder_title),
+                iconResId = R.drawable.ic_help_outline,
+                onClick = { onClickAction() }
             )
         }
 
         ExamplesSlot {
-            HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
-                H4TitleBodyView(
-                    titleText = stringResource(id = R.string.h4_example_title),
-                    bodyText = stringResource(id = R.string.h4_example_body),
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
-                )
-            }
+            IconButtonCardView(
+                titleText = stringResource(id = R.string.icon_button_example_1_title),
+                iconResId = R.drawable.ic_help_outline,
+                onClick = { onClickAction() },
+                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
+            )
 
-            HmrcCardView(modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)) {
-                H4TitleBodyView(
-                    titleText = stringResource(id = R.string.long_text),
-                    bodyText = stringResource(id = R.string.longer_text),
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
-                )
-            }
+            IconButtonCardView(
+                titleText = stringResource(id = R.string.longer_text),
+                iconResId = R.drawable.ic_help_outline,
+                onClick = { onClickAction() },
+                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
+            )
         }
     }
 }

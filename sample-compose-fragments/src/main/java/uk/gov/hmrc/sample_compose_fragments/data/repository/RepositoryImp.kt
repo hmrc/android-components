@@ -46,11 +46,17 @@ class RepositoryImpl @Inject constructor() : Repository {
         ComponentMenuItem(SELECT_ROW_VIEW, R.string.molecules_select_row),
     )
 
+    override suspend fun getOrganismsList() = arrayListOf(
+        ComponentMenuItem(ORGANISM_ICON_BUTTON_CARD_VIEW, R.string.organisms_icon_button_card)
+    )
+
     companion object {
+        // ATOM
         const val ATOM_TEXT = 1
         const val ATOM_BUTTON = 2
         const val ATOM_DIVIDER = 3
 
+        // MOLECULE
         const val MOLECULE_TEXT_INPUT_VIEW = 1
         const val MOLECULE_CURRENCY_INPUT_VIEW = 2
         const val MOLECULE_H4_TITLE_BODY_VIEW = 3
@@ -63,5 +69,8 @@ class RepositoryImpl @Inject constructor() : Repository {
         const val MOLECULE_STATUS_VIEW = 10
         const val MOLECULE_WARNING_VIEW = 11
         const val SELECT_ROW_VIEW = 12
+
+        // ORGANISM
+        const val ORGANISM_ICON_BUTTON_CARD_VIEW = 4
     }
 }

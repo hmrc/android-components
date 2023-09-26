@@ -5,6 +5,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import uk.gov.hmrc.sample_compose_fragments.presentation.fragment.atoms.AtomsFragmentDirections
 import uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.MoleculesFragmentDirections
+import uk.gov.hmrc.sample_compose_fragments.presentation.fragment.organisms.OrganismsFragmentDirections
 import javax.inject.Inject
 
 class AppNavigator @Inject constructor() : Navigator{
@@ -67,6 +68,10 @@ class AppNavigator @Inject constructor() : Navigator{
 
     override fun Fragment.gotoMoleculeSelectRowView() {
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToSelectRowViewFragment())
+    }
+
+    override fun Fragment.goToIconButtonCardView() {
+        navigate(OrganismsFragmentDirections.actionOrganismsFragmentToIconButtonCardViewFragment())
     }
 
     override fun Fragment.goBack() {

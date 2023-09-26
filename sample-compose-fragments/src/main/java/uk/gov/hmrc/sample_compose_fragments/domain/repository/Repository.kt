@@ -22,4 +22,5 @@ interface Repository {
     suspend fun getColorList(): List<ColorItem>
     suspend fun getAtomList(): List<ComponentMenuItem>
     suspend fun getMoleculesList(): List<ComponentMenuItem>
+    suspend fun getOrganismsList(): List<ComponentMenuItem>
 }

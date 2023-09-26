@@ -15,19 +15,15 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.molecule.titleBody.BoldTitleBodyView
+import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcCard
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -42,9 +38,7 @@ fun BoldTitleBodyViewScreen() {
         }
 
         ExamplesSlot {
-            HmrcCard(
-                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
-            ) {
+            HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                 BoldTitleBodyView(
                     titleText = stringResource(id = R.string.bold_example_title),
                     bodyText = stringResource(id = R.string.bold_example_body),
@@ -52,9 +46,7 @@ fun BoldTitleBodyViewScreen() {
                 )
             }
 
-            HmrcCard(
-                modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
-            ) {
+            HmrcCardView(modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)) {
                 BoldTitleBodyView(
                     titleText = stringResource(id = R.string.longer_text),
                     bodyText = stringResource(id = R.string.longest_text),
