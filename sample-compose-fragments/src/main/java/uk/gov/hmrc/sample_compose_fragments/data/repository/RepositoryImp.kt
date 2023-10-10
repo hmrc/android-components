@@ -43,6 +43,7 @@ class RepositoryImpl @Inject constructor() : Repository {
         ComponentMenuItem(MOLECULE_SWITCH_ROW_VIEW, R.string.molecules_switch_row),
         ComponentMenuItem(MOLECULE_STATUS_VIEW, R.string.molecules_status),
         ComponentMenuItem(MOLECULE_WARNING_VIEW, R.string.molecules_warning),
+        ComponentMenuItem(MOLECULE_TAB_BAR_VIEW, R.string.molecules_tab_bar),
         ComponentMenuItem(SELECT_ROW_VIEW, R.string.molecules_select_row),
     )
 
@@ -68,7 +69,8 @@ class RepositoryImpl @Inject constructor() : Repository {
         const val MOLECULE_SWITCH_ROW_VIEW = 9
         const val MOLECULE_STATUS_VIEW = 10
         const val MOLECULE_WARNING_VIEW = 11
-        const val SELECT_ROW_VIEW = 12
+        const val MOLECULE_TAB_BAR_VIEW = 12
+        const val SELECT_ROW_VIEW = 13
 
         // ORGANISM
         const val ORGANISM_ICON_BUTTON_CARD_VIEW = 4
