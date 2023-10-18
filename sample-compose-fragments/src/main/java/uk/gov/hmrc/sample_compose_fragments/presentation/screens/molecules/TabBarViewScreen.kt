@@ -22,7 +22,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -35,14 +35,27 @@ import uk.gov.hmrc.sample_compose_components.R
 
 @Composable
 fun TabBarViewScreen() {
-    var lightSelectedTabIndex by remember { mutableStateOf(0) }
-    val lightTabItems = listOf("Light", "Style", "Tabs")
+    var lightSelectedTabIndex by remember { mutableIntStateOf(0) }
+    val lightTabItems = listOf(
+        stringResource(id = R.string.tab_bar_view_light_tab_item_1),
+        stringResource(id = R.string.tab_bar_view_light_tab_item_2),
+        stringResource(id = R.string.tab_bar_view_light_tab_item_3),
+    )
 
-    var darkSelectedTabIndex by remember { mutableStateOf(0) }
-    val darkTabItems = listOf("Dark", "Style", "Tabs")
+    var darkSelectedTabIndex by remember { mutableIntStateOf(0) }
+    val darkTabItems = listOf(
+        stringResource(id = R.string.tab_bar_view_dark_tab_item_1),
+        stringResource(id = R.string.tab_bar_view_dark_tab_item_2),
+        stringResource(id = R.string.tab_bar_view_dark_tab_item_3),
+    )
 
-    var longSelectedTabIndex by remember { mutableStateOf(0) }
-    val longTabItems = listOf("When fixed width breaks", "options align to left", "and component becomes", "scrollable")
+    var longSelectedTabIndex by remember { mutableIntStateOf(0) }
+    val longTabItems = listOf(
+        stringResource(id = R.string.tab_bar_view_long_tab_item_1),
+        stringResource(id = R.string.tab_bar_view_long_tab_item_2),
+        stringResource(id = R.string.tab_bar_view_long_tab_item_3),
+        stringResource(id = R.string.tab_bar_view_long_tab_item_4),
+    )
 
     // Not following the usual pattern with ExamplesSlot/ScreenScrollViewColumn,
     // because unlike other components, we want to demo TabBarView with the full length of the screen.

@@ -87,7 +87,7 @@ private fun HmrcTabRow(
                 color = tabBarStyle.selectedTextColour
             )
         },
-        tabs = { HmrcTabItem(tabItems, selectedIndex, onTabSelected, tabBarStyle) }
+        tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected, tabBarStyle) }
     )
 }
 
@@ -111,12 +111,12 @@ private fun HmrcScrollableTabRow(
                 color = tabBarStyle.selectedTextColour
             )
         },
-        tabs = { HmrcTabItem(tabItems, selectedIndex, onTabSelected, tabBarStyle) }
+        tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected, tabBarStyle) }
     )
 }
 
 @Composable
-private fun HmrcTabItem(
+private fun HmrcTabItems(
     tabItems: List<String>,
     selectedIndex: Int,
     onTabSelected: (Int) -> Unit,

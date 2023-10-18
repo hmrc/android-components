@@ -353,4 +353,17 @@
     <string name="select_row_view_error_row">Show an error</string>
     <string name="select_row_view_third_row">Third row</string>
     <string name="select_row_view_fourth_row">Fourth row</string>
+
+    <!--  Tab Bar View  -->
+    <string name="tab_bar_view_light_tab_item_1">Light</string>
+    <string name="tab_bar_view_light_tab_item_2">Style</string>
+    <string name="tab_bar_view_light_tab_item_3">Tabs</string>
+    <string name="tab_bar_view_dark_tab_item_1">Dark</string>
+    <string name="tab_bar_view_dark_tab_item_2">Style</string>
+    <string name="tab_bar_view_dark_tab_item_3">Tabs</string>
+    <string name="tab_bar_view_long_tab_item_1">When fixed width breaks</string>
+    <string name="tab_bar_view_long_tab_item_2">options align to left</string>
+    <string name="tab_bar_view_long_tab_item_3">and component becomes</string>
+    <string name="tab_bar_view_long_tab_item_4">scrollable</string>
+
 </resources>
