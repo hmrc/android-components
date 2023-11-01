@@ -47,7 +47,8 @@ class RepositoryImpl @Inject constructor() : Repository {
     )
 
     override suspend fun getOrganismsList() = arrayListOf(
-        ComponentMenuItem(ORGANISM_ICON_BUTTON_CARD_VIEW, R.string.organisms_icon_button_card)
+        ComponentMenuItem(ORGANISM_ICON_BUTTON_CARD_VIEW, R.string.organisms_icon_button_card),
+        ComponentMenuItem(ORGANISM_SEPARATED_VIEW_CONTAINER, R.string.organisms_separated_view_container)
     )
 
     companion object {
@@ -72,5 +73,6 @@ class RepositoryImpl @Inject constructor() : Repository {
 
         // ORGANISM
         const val ORGANISM_ICON_BUTTON_CARD_VIEW = 4
+        const val ORGANISM_SEPARATED_VIEW_CONTAINER = 6
     }
 }

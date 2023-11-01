@@ -27,6 +27,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_ICON_BUTTON_CARD_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_SEPARATED_VIEW_CONTAINER
 import uk.gov.hmrc.sample_compose_fragments.navigator.Navigator
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
@@ -55,6 +56,10 @@ class OrganismsFragment : Fragment(R.layout.fragment_compose_example) {
                             when (it.id) {
                                 ORGANISM_ICON_BUTTON_CARD_VIEW -> {
                                     with(navigator) { goToIconButtonCardView() }
+                                }
+
+                                ORGANISM_SEPARATED_VIEW_CONTAINER -> {
+                                    with(navigator) { goToSeparatedViewContainer() }
                                 }
                             }
                         })
