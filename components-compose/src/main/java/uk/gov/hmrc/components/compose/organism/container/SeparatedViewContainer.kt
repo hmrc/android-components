@@ -16,10 +16,8 @@
 package uk.gov.hmrc.components.compose.organism.container
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.atom.divider.HmrcDivider
 
 object SeparatedViewContainer {
@@ -34,7 +32,7 @@ object SeparatedViewContainer {
     operator fun invoke(
         showDivider: Int = SHOW_DIVIDER_NONE,
         vararg views: @Composable () -> Unit,
-        modifier: Modifier = Modifier.padding(8.dp)
+        modifier: Modifier = Modifier
     ) {
         Column(modifier = modifier) {
             // Show divider in the beginning
