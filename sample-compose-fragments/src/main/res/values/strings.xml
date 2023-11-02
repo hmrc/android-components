@@ -81,6 +81,7 @@
     <string name="molecules_warning">Warning View</string>
     <string name="molecules_tab_bar">Tab Bar View</string>
     <string name="molecules_select_row">Select Row View</string>
+    <string name="molecules_bottom_sheet">Bottom Sheet View</string>
 
     <!-- Organisms navigation -->
     <string name="organisms_text_input">Text Input View</string>
@@ -353,4 +354,7 @@
     <string name="select_row_view_error_row">Show an error</string>
     <string name="select_row_view_third_row">Third row</string>
     <string name="select_row_view_fourth_row">Fourth row</string>
+
+    <!-- Bottom Sheet View -->
+    <string name="bottom_sheet_example_1">Example 1</string>
 </resources>

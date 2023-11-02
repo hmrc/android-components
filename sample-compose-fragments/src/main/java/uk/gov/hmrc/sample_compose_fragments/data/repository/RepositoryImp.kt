@@ -44,6 +44,7 @@ class RepositoryImpl @Inject constructor() : Repository {
         ComponentMenuItem(MOLECULE_STATUS_VIEW, R.string.molecules_status),
         ComponentMenuItem(MOLECULE_WARNING_VIEW, R.string.molecules_warning),
         ComponentMenuItem(SELECT_ROW_VIEW, R.string.molecules_select_row),
+        ComponentMenuItem(BOTTOM_SHEET_VIEW, R.string.molecules_bottom_sheet),
     )
 
     override suspend fun getOrganismsList() = arrayListOf(
@@ -69,6 +70,7 @@ class RepositoryImpl @Inject constructor() : Repository {
         const val MOLECULE_STATUS_VIEW = 10
         const val MOLECULE_WARNING_VIEW = 11
         const val SELECT_ROW_VIEW = 12
+        const val BOTTOM_SHEET_VIEW = 13
 
         // ORGANISM
         const val ORGANISM_ICON_BUTTON_CARD_VIEW = 4

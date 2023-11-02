@@ -74,6 +74,10 @@ class AppNavigator @Inject constructor() : Navigator{
         navigate(OrganismsFragmentDirections.actionOrganismsFragmentToIconButtonCardViewFragment())
     }
 
+    override fun Fragment.goToBottomSheetView() {
+        navigate(MoleculesFragmentDirections.actionMoleculesFragmentToBottomSheetViewFragment())
+    }
+
     override fun Fragment.goBack() {
         findNavController().popBackStack()
     }

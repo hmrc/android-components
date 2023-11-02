@@ -26,6 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.BOTTOM_SHEET_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_BOLD_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_CURRENCY_INPUT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H4_TITLE_BODY_VIEW
@@ -99,6 +100,9 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                                 }
                                 SELECT_ROW_VIEW -> {
                                     with(navigator) { gotoMoleculeSelectRowView() }
+                                }
+                                BOTTOM_SHEET_VIEW -> {
+                                    with(navigator) { goToBottomSheetView() }
                                 }
                             }
                         })

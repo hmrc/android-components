@@ -51,5 +51,7 @@ interface Navigator {
 
     fun Fragment.goToIconButtonCardView()
 
+    fun Fragment.goToBottomSheetView()
+
     fun Fragment.goBack()
 }
