@@ -38,6 +38,7 @@ import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.divider.HmrcDivider
 import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
@@ -64,6 +65,7 @@ object SelectRowView {
         checkedIcon: Int = R.drawable.components_select_row_circle_checked,
         uncheckedIcon: Int = R.drawable.components_select_row_circle_unchecked,
         showDivider: Boolean = false,
+        defaultRowHorizontalPadding: Boolean = true,
         rowSelectedPosition: Int = NO_ROW_SELECTED_POSITION,
         errorText: String = "",
         onRowSelected: (position: Int, value: String) -> Unit
@@ -85,6 +87,9 @@ object SelectRowView {
                 }
 
                 Column(modifier = Modifier.selectableGroup()) {
+                    val rowHorizontalPadding = if (defaultRowHorizontalPadding) {
+                        HmrcTheme.dimensions.hmrcSpacing16
+                    } else 0.dp
                     selectRowViewItems.forEachIndexed { index, selectRow ->
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
@@ -94,7 +99,10 @@ object SelectRowView {
                                     onClick = { onRowSelected(index, selectRow) },
                                     role = Role.RadioButton
                                 )
-                                .padding(HmrcTheme.dimensions.hmrcSpacing16)
+                                .padding(
+                                    vertical = HmrcTheme.dimensions.hmrcSpacing16,
+                                    horizontal = rowHorizontalPadding
+                                )
                         ) {
                             Icon(
                                 painter = painterResource(

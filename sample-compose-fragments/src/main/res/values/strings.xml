@@ -356,5 +356,14 @@
     <string name="select_row_view_fourth_row">Fourth row</string>
 
     <!-- Bottom Sheet View -->
-    <string name="bottom_sheet_example_1">Example 1</string>
+    <string name="bottom_sheet_example_1">Simple bottom sheet</string>
+    <string name="bottom_sheet_example_2">Simple bottom sheet, extended</string>
+    <string name="bottom_sheet_example_3">Simple bottom sheet, full screen enabled</string>
+    <string name="bottom_sheet_example_4">Simple bottom sheet, extended, full screen enabled</string>
+    <string name="bottom_sheet_example_5">Simple long bottom sheet</string>
+    <string name="bottom_sheet_example_6">Simple long bottom sheet, extended</string>
+    <string name="bottom_sheet_example_7">Scrollable bottom sheet</string>
+    <string name="bottom_sheet_example_8">Scrollable bottom sheet, extended</string>
+    <string name="bottom_sheet_example_9">Short bottom sheet</string>
+    <string name="bottom_sheet_example_10">Short bottom sheet, extended</string>
 </resources>
