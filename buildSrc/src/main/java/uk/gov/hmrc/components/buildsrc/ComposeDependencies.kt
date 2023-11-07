@@ -18,16 +18,16 @@ package uk.gov.hmrc.components.buildsrc
 class ComposeDependencies {
     object Versions {
         const val minSdk = 23
-        const val targetSdk = 33
-        const val compileSdk = 33
+        const val targetSdk = 34
+        const val compileSdk = 34
         const val kotlinCompilerExtensionVersion = "1.4.2"
         const val jetpackNavigation = "2.6.0"
     }
 
     object Libs {
-        const val compose_bom = "androidx.compose:compose-bom:2022.12.00"
+        const val compose_bom = "androidx.compose:compose-bom:2023.10.01"
         const val compose_foundation = "androidx.compose.foundation:foundation"
-        const val compose_material = "androidx.compose.material3:material3:1.1.0-beta02"
+        const val compose_material = "androidx.compose.material3:material3"
         const val compose_tooling = "androidx.compose.ui:ui-tooling"
         const val compose_ui = "androidx.compose.ui:ui"
         const val compose_uiTest = "androidx.compose.ui:ui-test-junit4"
