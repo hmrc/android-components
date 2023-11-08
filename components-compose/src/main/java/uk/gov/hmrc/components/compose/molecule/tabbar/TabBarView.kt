@@ -25,13 +25,16 @@ import androidx.compose.material3.TabRowDefaults
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
-import uk.gov.hmrc.components.compose.ui.theme.HmrcBlue
 import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey1
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
@@ -44,26 +47,27 @@ fun TabBarView(
     modifier: Modifier = Modifier,
     tabBarStyle: TabBarViewStyle = TabBarViewStyle.LIGHT,
 ) {
+    var useScrollableTabRow: Boolean by rememberSaveable { mutableStateOf(true) }
 
-    // Getting the screen's width in DP.
-    val configuration = LocalConfiguration.current
-    val screenWidth = configuration.screenWidthDp.dp
-
-    // Getting each of the tab's width in DP.
-    val tabWidths = tabItems.map { tabText ->
-        (tabText.length * HmrcTheme.typography.tabBarText.fontSize.value).dp
-    }
-
-    // Sum of all tab's width.
-    val totalTabWidth = remember(tabWidths) {
-        tabWidths.sumOf { it.value.toInt() }.dp
-    }
+    var baselineHeight by remember { mutableStateOf(0.dp) }
 
     Column(modifier = modifier) {
-        if (totalTabWidth > screenWidth) {
-            HmrcScrollableTabRow(tabItems, selectedIndex, onTabSelected, tabBarStyle)
+        if (useScrollableTabRow) {
+            HmrcScrollableTabRow(tabItems, selectedIndex, onTabSelected, tabBarStyle) { scrollableTabRowHeight ->
+                // If there's no baseline height, this will build the scrollable Tab Row and measure the height
+                // of the row as the baseline. Once we have the baseline for scrollable Tab Row, we can compare it
+                // to the non-scrollable Tab Row's height.
+                if (baselineHeight == 0.dp) {
+                    baselineHeight = scrollableTabRowHeight
+                    useScrollableTabRow = false
+                }
+            }
         } else {
-            HmrcTabRow(tabItems, selectedIndex, onTabSelected, tabBarStyle)
+            HmrcTabRow(tabItems, selectedIndex, onTabSelected, tabBarStyle) { tabRowHeight ->
+                // If the non-scrollable Tab Row's height exceeded the baseline, this means the text in the tab has
+                // wrapped to create that extra height, therefore, meaning we should use the scrollable Tab Row.
+                useScrollableTabRow = tabRowHeight > baselineHeight
+            }
         }
     }
 }
@@ -74,17 +78,25 @@ private fun HmrcTabRow(
     selectedIndex: Int,
     onTabSelected: (Int) -> Unit,
     tabBarStyle: TabBarViewStyle,
+    onMeasured: (Dp) -> Unit
 ) {
+    var totalTabWidth by remember { mutableStateOf(0.dp) }
+
     SecondaryTabRow(
         selectedTabIndex = selectedIndex,
-        containerColor = tabBarStyle.backgroundColour,
+        modifier = Modifier
+            .onGloballyPositioned { layoutCoordinates ->
+                totalTabWidth = layoutCoordinates.size.height.dp
+                onMeasured(totalTabWidth)
+            },
+        containerColor = if (tabBarStyle == TabBarViewStyle.LIGHT) HmrcTheme.colors.hmrcWhite else HmrcBlack,
         divider = {}, // Empty divider, we don't want the grey divider at the bottom of the Tab.
         indicator = { tabPositions ->
             TabRowDefaults.SecondaryIndicator(
                 Modifier
                     .tabIndicatorOffset(tabPositions[selectedIndex])
                     .height(HmrcTheme.dimensions.hmrcSpacing4),
-                color = tabBarStyle.selectedTextColour
+                color = if (tabBarStyle == TabBarViewStyle.LIGHT) HmrcTheme.colors.hmrcBlue else HmrcWhite,
             )
         },
         tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected, tabBarStyle) }
@@ -97,10 +109,18 @@ private fun HmrcScrollableTabRow(
     selectedIndex: Int,
     onTabSelected: (Int) -> Unit,
     tabBarStyle: TabBarViewStyle,
+    onMeasured: (Dp) -> Unit
 ) {
+    var totalTabWidth by remember { mutableStateOf(0.dp) }
+
     SecondaryScrollableTabRow(
         selectedTabIndex = selectedIndex,
-        containerColor = tabBarStyle.backgroundColour,
+        modifier = Modifier
+            .onGloballyPositioned { layoutCoordinates ->
+                totalTabWidth = layoutCoordinates.size.height.dp
+                onMeasured(totalTabWidth)
+            },
+        containerColor = if (tabBarStyle == TabBarViewStyle.LIGHT) HmrcTheme.colors.hmrcWhite else HmrcBlack,
         divider = {}, // Empty divider, we don't want the grey divider at the bottom of the Tab.
         edgePadding = 0.dp,
         indicator = { tabPositions ->
@@ -108,7 +128,7 @@ private fun HmrcScrollableTabRow(
                 Modifier
                     .tabIndicatorOffset(tabPositions[selectedIndex])
                     .height(HmrcTheme.dimensions.hmrcSpacing4),
-                color = tabBarStyle.selectedTextColour
+                color = if (tabBarStyle == TabBarViewStyle.LIGHT) HmrcTheme.colors.hmrcBlue else HmrcWhite,
             )
         },
         tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected, tabBarStyle) }
@@ -127,7 +147,11 @@ private fun HmrcTabItems(
             Tab(
                 selected = index == selectedIndex,
                 onClick = { onTabSelected(index) },
-                selectedContentColor = tabBarStyle.selectedTextColour,
+                selectedContentColor = if (tabBarStyle == TabBarViewStyle.LIGHT) {
+                    HmrcTheme.colors.hmrcBlue
+                } else {
+                    HmrcWhite
+                },
                 unselectedContentColor = HmrcGrey1
             ) {
                 Text(
@@ -140,7 +164,7 @@ private fun HmrcTabItems(
     }
 }
 
-enum class TabBarViewStyle(val backgroundColour: Color, val selectedTextColour: Color) {
-    LIGHT(backgroundColour = HmrcWhite, selectedTextColour = HmrcBlue),
-    DARK(backgroundColour = HmrcBlack, selectedTextColour = HmrcWhite),
+enum class TabBarViewStyle {
+    LIGHT,
+    DARK,
 }
