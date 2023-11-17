@@ -35,6 +35,7 @@ import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Compa
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_MULTI_COLUMN_ROW_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_STATUS_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_SWITCH_ROW_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_TAB_BAR_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_TEXT_INPUT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_WARNING_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.SELECT_ROW_VIEW
@@ -96,6 +97,9 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                                 }
                                 MOLECULE_WARNING_VIEW -> {
                                     with(navigator) { gotoMoleculeWarningView() }
+                                }
+                                MOLECULE_TAB_BAR_VIEW -> {
+                                    with(navigator) { gotoMoleculeTabBarView() }
                                 }
                                 SELECT_ROW_VIEW -> {
                                     with(navigator) { gotoMoleculeSelectRowView() }

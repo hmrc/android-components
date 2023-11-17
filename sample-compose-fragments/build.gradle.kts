@@ -10,12 +10,12 @@ plugins {
 
 android {
     namespace = "uk.gov.hmrc.sample_compose_components"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "uk.gov.hmrc.sample_compose_components"
         minSdk = 23
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

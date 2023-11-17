@@ -66,6 +66,10 @@ class AppNavigator @Inject constructor() : Navigator{
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToWarningViewFragment())
     }
 
+    override fun Fragment.gotoMoleculeTabBarView() {
+        navigate(MoleculesFragmentDirections.actionMoleculesFragmentToTabBarViewFragment())
+    }
+
     override fun Fragment.gotoMoleculeSelectRowView() {
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToSelectRowViewFragment())
     }

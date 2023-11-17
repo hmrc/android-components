@@ -56,6 +56,9 @@
             android:id="@+id/action_moleculesFragment_to_warningViewFragment"
             app:destination="@id/warningViewFragment" />
         <action
+            android:id="@+id/action_moleculesFragment_to_tabBarViewFragment"
+            app:destination="@id/tabBarViewFragment" />
+        <action
             android:id="@+id/action_moleculesFragment_to_selectRowViewFragment"
             app:destination="@id/selectRowViewFragment" />
         <action
@@ -121,6 +124,12 @@
         android:id="@+id/warningViewFragment"
         android:label="@string/molecules_warning"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.WarningViewFragment" />
+
+    <fragment
+        android:id="@+id/tabBarViewFragment"
+        android:label="@string/molecules_tab_bar"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.TabBarViewFragment" />
+
     <fragment
         android:id="@+id/selectRowViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.SelectRowViewFragment"

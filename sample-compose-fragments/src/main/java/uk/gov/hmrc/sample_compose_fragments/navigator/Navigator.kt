@@ -45,6 +45,8 @@ interface Navigator {
 
     fun Fragment.gotoMoleculeWarningView()
 
+    fun Fragment.gotoMoleculeTabBarView()
+
     fun Fragment.gotoMoleculeSelectRowView()
 
     fun Fragment.goToMoleculeStatusView()
