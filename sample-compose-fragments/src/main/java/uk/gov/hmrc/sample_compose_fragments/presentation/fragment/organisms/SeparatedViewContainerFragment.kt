@@ -34,7 +34,7 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms.Separ
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SeparatedViewContainerViewModel
 
-class SeparateViewContainerFragment : Fragment(R.layout.fragment_compose_example) {
+class SeparatedViewContainerFragment : Fragment(R.layout.fragment_compose_example) {
 
     private lateinit var binding: FragmentComposeExampleBinding
     private val viewModel: SeparatedViewContainerViewModel by viewModels()

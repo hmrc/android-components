@@ -22,33 +22,33 @@ import uk.gov.hmrc.components.compose.atom.divider.HmrcDivider
 
 object SeparatedViewContainer {
 
-    const val SHOW_DIVIDER_NONE = 0
-    const val SHOW_DIVIDER_ALL = 1
-    const val SHOW_DIVIDER_BEGINNING = 2
-    const val SHOW_DIVIDER_MIDDLE = 3
-    const val SHOW_DIVIDER_END = 4
-
     @Composable
     operator fun invoke(
-        showDivider: Int = SHOW_DIVIDER_NONE,
+        showDivider: DividerMode = DividerMode.SHOW_DIVIDER_NONE,
         vararg views: @Composable () -> Unit,
         modifier: Modifier = Modifier
     ) {
         Column(modifier = modifier) {
             // Show divider in the beginning
-            if (showDivider == SHOW_DIVIDER_ALL || showDivider == SHOW_DIVIDER_BEGINNING) {
+            if (showDivider == DividerMode.SHOW_DIVIDER_ALL || showDivider == DividerMode.SHOW_DIVIDER_BEGINNING) {
                 HmrcDivider()
             }
             views.forEachIndexed { index, view ->
                 view()
-                if ((showDivider == SHOW_DIVIDER_ALL || showDivider == SHOW_DIVIDER_MIDDLE) && index < views.size - 1) {
+                if ((showDivider == DividerMode.SHOW_DIVIDER_ALL || showDivider == DividerMode.SHOW_DIVIDER_MIDDLE) &&
+                    index < views.size - 1
+                ) {
                     HmrcDivider()
                 }
             }
             // Show Divider at the end
-            if (showDivider == SHOW_DIVIDER_END || showDivider == SHOW_DIVIDER_ALL) {
+            if (showDivider == DividerMode.SHOW_DIVIDER_END || showDivider == DividerMode.SHOW_DIVIDER_ALL) {
                 HmrcDivider()
             }
         }
+    }
+
+    enum class DividerMode {
+        SHOW_DIVIDER_NONE, SHOW_DIVIDER_ALL, SHOW_DIVIDER_BEGINNING, SHOW_DIVIDER_MIDDLE, SHOW_DIVIDER_END
     }
 }

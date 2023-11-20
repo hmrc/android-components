@@ -29,7 +29,7 @@
             app:destination="@+id/iconButtonCardViewFragment" />
         <action
             android:id="@+id/action_organismsFragment_to_separateViewContainerFragment"
-            app:destination="@id/separateViewContainerFragment" />
+            app:destination="@id/separatedViewContainerFragment" />
     </fragment>
 
     <include app:graph="@navigation/nav_graph_atoms" />
@@ -47,8 +47,8 @@
         android:label="@string/title_colors"
         tools:layout="@layout/fragment_colors" />
     <fragment
-        android:id="@+id/separateViewContainerFragment"
-        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.organisms.SeparateViewContainerFragment"
+        android:id="@+id/separatedViewContainerFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.organisms.SeparatedViewContainerFragment"
         android:label="@string/organisms_separated_view_container"
         tools:layout="@layout/fragment_compose_example" />
 

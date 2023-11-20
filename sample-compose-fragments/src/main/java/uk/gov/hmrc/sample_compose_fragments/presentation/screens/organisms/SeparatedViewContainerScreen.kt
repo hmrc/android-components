@@ -26,10 +26,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.molecule.item.SwitchRowView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer
-import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer.SHOW_DIVIDER_ALL
-import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer.SHOW_DIVIDER_BEGINNING
-import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer.SHOW_DIVIDER_END
-import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer.SHOW_DIVIDER_MIDDLE
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.sample_compose_components.R
@@ -49,7 +45,7 @@ object SeparatedViewContainerScreen {
         ScreenScrollViewColumn {
             PlaceholderSlot {
                 SeparatedViewContainer(
-                    showDivider = SHOW_DIVIDER_ALL,
+                    showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_ALL,
                     {
                         Text(
                             text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
@@ -64,7 +60,7 @@ object SeparatedViewContainerScreen {
 
             PlaceholderSlot(showHeading = false) {
                 SeparatedViewContainer(
-                    showDivider = SHOW_DIVIDER_MIDDLE,
+                    showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_MIDDLE,
                     {
                         Text(
                             text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
@@ -98,7 +94,7 @@ object SeparatedViewContainerScreen {
             ExamplesSlot {
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     SeparatedViewContainer(
-                        showDivider = SHOW_DIVIDER_ALL,
+                        showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_ALL,
                         {
                             with(examplesUiState.exampleOne) {
                                 SwitchRowView(
@@ -138,7 +134,7 @@ object SeparatedViewContainerScreen {
 
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     SeparatedViewContainer(
-                        showDivider = SHOW_DIVIDER_BEGINNING,
+                        showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_BEGINNING,
                         {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
@@ -172,7 +168,7 @@ object SeparatedViewContainerScreen {
 
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     SeparatedViewContainer(
-                        showDivider = SHOW_DIVIDER_MIDDLE,
+                        showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_MIDDLE,
                         {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
@@ -206,7 +202,7 @@ object SeparatedViewContainerScreen {
 
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     SeparatedViewContainer(
-                        showDivider = SHOW_DIVIDER_END,
+                        showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_END,
                         {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
