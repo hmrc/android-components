@@ -78,6 +78,10 @@ class AppNavigator @Inject constructor() : Navigator{
         navigate(OrganismsFragmentDirections.actionOrganismsFragmentToIconButtonCardViewFragment())
     }
 
+    override fun Fragment.goToSeparatedViewContainer() {
+        navigate(OrganismsFragmentDirections.actionOrganismsFragmentToSeparateViewContainerFragment())
+    }
+
     override fun Fragment.goBack() {
         findNavController().popBackStack()
     }

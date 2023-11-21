@@ -57,11 +57,14 @@ fun ScreenScrollViewColumn(content: @Composable ColumnScope.() -> Unit) {
 }
 
 @Composable
-fun PlaceholderSlot(content: @Composable () -> Unit) {
-    Heading5(
-        text = stringResource(id = R.string.heading_placeholder_plural),
-        modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
-    )
+fun PlaceholderSlot(showHeading: Boolean = true, content: @Composable () -> Unit) {
+    if (showHeading) {
+        Heading5(
+            text = stringResource(id = R.string.heading_placeholder_plural),
+            modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
+        )
+    }
+
     Box(modifier = Modifier.addPlaceholderModifier()) {
         content()
     }

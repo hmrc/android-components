@@ -17,31 +17,27 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.fragment.organisms
 
 import android.os.Bundle
 import android.view.View
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import android.widget.Toast
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import dagger.hilt.android.AndroidEntryPoint
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.rememberWindowSizeClass
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
-import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_ICON_BUTTON_CARD_VIEW
-import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_SEPARATED_VIEW_CONTAINER
-import uk.gov.hmrc.sample_compose_fragments.navigator.Navigator
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms.SeparatedViewContainerScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
-import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.OrganismsViewModel
-import javax.inject.Inject
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SeparatedViewContainerViewModel
 
-@AndroidEntryPoint
-class OrganismsFragment : Fragment(R.layout.fragment_compose_example) {
-
-    @Inject
-    lateinit var navigator: Navigator
+class SeparatedViewContainerFragment : Fragment(R.layout.fragment_compose_example) {
 
     private lateinit var binding: FragmentComposeExampleBinding
-    private val viewModel: OrganismsViewModel by activityViewModels()
+    private val viewModel: SeparatedViewContainerViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,24 +45,26 @@ class OrganismsFragment : Fragment(R.layout.fragment_compose_example) {
         binding.composeView.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                val listItems by viewModel.organismsItems.collectAsState()
-                HmrcTheme {
+                val window = rememberWindowSizeClass()
+                HmrcTheme(window) {
                     HmrcSurface {
-                        ComponentListScreen(items = listItems, navigateTo = {
-                            when (it.id) {
-                                ORGANISM_ICON_BUTTON_CARD_VIEW -> {
-                                    with(navigator) { goToIconButtonCardView() }
-                                }
-
-                                ORGANISM_SEPARATED_VIEW_CONTAINER -> {
-                                    with(navigator) { goToSeparatedViewContainer() }
-                                }
-                            }
-                        })
+                        SeparatedViewContainerScreen(viewModel)
                     }
                 }
             }
         }
-        viewModel.getOrganismsData()
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.showToast.collectLatest { text -> text?.let { showToast(getString(it)) } }
+            }
+        }
+    }
+
+    private fun showToast(text: String) {
+        Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
     }
 }
