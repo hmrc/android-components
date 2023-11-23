@@ -82,6 +82,10 @@ class AppNavigator @Inject constructor() : Navigator{
         navigate(OrganismsFragmentDirections.actionOrganismsFragmentToSeparateViewContainerFragment())
     }
 
+    override fun Fragment.goToHeadlineCardView() {
+        navigate(OrganismsFragmentDirections.actionOrganismsFragmentToHeadlineCardFragment())
+    }
+
     override fun Fragment.goBack() {
         findNavController().popBackStack()
     }
