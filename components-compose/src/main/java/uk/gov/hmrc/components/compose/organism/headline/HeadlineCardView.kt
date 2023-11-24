@@ -16,16 +16,16 @@
 package uk.gov.hmrc.components.compose.organism.headline
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import uk.gov.hmrc.components.compose.atom.button.PrimaryButton
+import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.atom.heading.Heading3
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
@@ -36,28 +36,32 @@ object HeadlineCardView {
         modifier: Modifier = Modifier,
         headline: String,
         title: String,
-        views: List<ComposableItem>
+        childPadding: Boolean = true,
+        views: List<@Composable () -> Unit> = listOf()
     ) {
         Column(
-            modifier = modifier
+            modifier = modifier.background(HmrcTheme.colors.hmrcWhite).fillMaxWidth()
         ) {
-            Heading5(text = title)
-            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-            Heading3(text = headline)
-            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing8))
-            views.forEach { view ->
-                Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing8))
-                Box(modifier = Modifier.clickable(onClick = view.onClick)) {
-                    view.content()
+            Heading5(text = title, modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16))
+            Heading3(text = headline, modifier = Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16))
+
+            Column(
+                modifier = Modifier.then(
+                    if (childPadding) {
+                        Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
+                    } else {
+                        Modifier.padding(0.dp)
+                    }
+                )
+            ) {
+                views.forEach { view ->
+                    if (childPadding) Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+                    view()
                 }
             }
+            if (childPadding) Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
         }
     }
-
-    data class ComposableItem(
-        val content: @Composable () -> Unit,
-        val onClick: () -> Unit
-    )
 }
 
 @Preview
@@ -65,24 +69,16 @@ object HeadlineCardView {
 fun HeadlineCardViewPreview() {
     HmrcTheme() {
         HeadlineCardView(
-            modifier = Modifier.background(HmrcTheme.colors.hmrcWhite),
+            modifier = Modifier
+                .background(HmrcTheme.colors.hmrcWhite),
             title = "Title",
             headline = "Headline",
-            views = listOf(
-                HeadlineCardView.ComposableItem(
-                    content = { Text(text = "Hello") },
-                    onClick = { println("Clicked Hello") }
-                ),
-                HeadlineCardView.ComposableItem(
-                    content = {
-                        PrimaryButton(
-                            text = "Hello",
-                            onClick = {},
-                        )
-                    },
-                    onClick = { println("Clicked Hello") }
+            views = listOf {
+                Text(
+                    text = "Body",
+                    style = HmrcTheme.typography.body
                 )
-            )
+            }
         )
     }
 }

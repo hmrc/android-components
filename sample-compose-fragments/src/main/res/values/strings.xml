@@ -236,6 +236,8 @@
     <string name="headline_example_button">View tax estimate</string>
     <string name="headline_example_icon_button">How is this calculated?</string>
     <string name="headline_example_chevron_content_description">Income tax estimate. Button. Double tap to view these details in your web browser.</string>
+    <string name="headline_example_7_title">Total owed</string>
+    <string name="headline_example_7_headline">£12,345</string>
 
     <!-- H4 -->
     <string name="h4_placeholder_title">Title</string>
