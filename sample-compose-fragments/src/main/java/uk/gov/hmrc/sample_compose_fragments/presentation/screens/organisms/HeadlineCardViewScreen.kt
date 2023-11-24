@@ -8,7 +8,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import uk.gov.hmrc.components.compose.atom.button.IconButton
 import uk.gov.hmrc.components.compose.atom.button.PrimaryButton
@@ -25,7 +24,7 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.
 object HeadlineCardViewScreen {
     @Composable
     operator fun invoke(
-        onClick: () -> Unit
+        onClickAction: () -> Unit
     ) {
         ScreenScrollViewColumn {
             PlaceholderSlot {
@@ -50,7 +49,12 @@ object HeadlineCardViewScreen {
                             .background(HmrcTheme.colors.hmrcWhite),
                         title = stringResource(id = R.string.headline_example_title),
                         headline = stringResource(id = R.string.headline_example_headline),
-                        views = listOf { Text(text = stringResource(id = R.string.headline_example_body)) }
+                        views = listOf {
+                            Text(
+                                text = stringResource(id = R.string.headline_example_body),
+                                style = HmrcTheme.typography.body
+                            )
+                        }
                     )
                 }
 
@@ -60,7 +64,12 @@ object HeadlineCardViewScreen {
                         modifier = Modifier.background(HmrcTheme.colors.hmrcWhite),
                         title = stringResource(id = R.string.longer_text),
                         headline = stringResource(id = R.string.long_text),
-                        views = listOf { Text(text = stringResource(id = R.string.longest_text)) }
+                        views = listOf {
+                            Text(
+                                text = stringResource(id = R.string.longest_text),
+                                style = HmrcTheme.typography.body
+                            )
+                        }
                     )
                 }
 
@@ -80,7 +89,7 @@ object HeadlineCardViewScreen {
                             {
                                 PrimaryButton(
                                     text = stringResource(id = R.string.headline_example_button),
-                                    onClick = { onClick() },
+                                    onClick = { onClickAction() },
                                 )
                             }
                         )
@@ -107,7 +116,7 @@ object HeadlineCardViewScreen {
                                 SecondaryButton(
                                     text = stringResource(id = R.string.long_text),
                                     textAlign = TextAlign.Start,
-                                    onClick = { onClick() },
+                                    onClick = { onClickAction() },
                                 )
                             }
                         )
@@ -134,7 +143,7 @@ object HeadlineCardViewScreen {
                                 IconButton(
                                     text = stringResource(id = R.string.button_icon_example),
                                     iconResId = R.drawable.ic_info,
-                                    onClick = { onClick() }
+                                    onClick = { onClickAction() }
                                 )
                             }
                         )
