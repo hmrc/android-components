@@ -1,6 +1,5 @@
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -29,39 +28,41 @@ object HeadlineCardViewScreen {
         ScreenScrollViewColumn {
             PlaceholderSlot {
                 HeadlineCardView(
-                    modifier = Modifier.background(HmrcTheme.colors.hmrcWhite),
                     title = stringResource(id = R.string.headline_placeholder_title),
                     headline = stringResource(id = R.string.headline_placeholder_headline),
+                    isClickable = true,
                     views = listOf {
                         Text(
                             text = stringResource(id = R.string.headline_placeholder_body),
                             style = HmrcTheme.typography.body
                         )
                     }
-                )
+                ) {
+                    onClickAction()
+                }
             }
 
             ExamplesSlot {
                 // Example 1
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     HeadlineCardView(
-                        modifier = Modifier
-                            .background(HmrcTheme.colors.hmrcWhite),
                         title = stringResource(id = R.string.headline_example_title),
                         headline = stringResource(id = R.string.headline_example_headline),
+                        isClickable = true,
                         views = listOf {
                             Text(
                                 text = stringResource(id = R.string.headline_example_body),
                                 style = HmrcTheme.typography.body
                             )
                         }
-                    )
+                    ) {
+                        onClickAction()
+                    }
                 }
 
                 // Example 2
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     HeadlineCardView(
-                        modifier = Modifier.background(HmrcTheme.colors.hmrcWhite),
                         title = stringResource(id = R.string.longer_text),
                         headline = stringResource(id = R.string.long_text),
                         views = listOf {
@@ -76,7 +77,6 @@ object HeadlineCardViewScreen {
                 // Example 3
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     HeadlineCardView(
-                        modifier = Modifier.background(HmrcTheme.colors.hmrcWhite),
                         title = stringResource(id = R.string.headline_example_title),
                         headline = stringResource(id = R.string.headline_example_headline),
                         views = listOf(
@@ -99,7 +99,6 @@ object HeadlineCardViewScreen {
                 // Example 4
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     HeadlineCardView(
-                        modifier = Modifier.background(HmrcTheme.colors.hmrcWhite),
                         title = stringResource(id = R.string.longer_text),
                         headline = stringResource(id = R.string.long_text),
                         childPadding = false,
@@ -126,7 +125,6 @@ object HeadlineCardViewScreen {
                 // Example 5
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     HeadlineCardView(
-                        modifier = Modifier.background(HmrcTheme.colors.hmrcWhite),
                         title = stringResource(id = R.string.headline_example_title),
                         headline = stringResource(id = R.string.headline_example_headline),
                         childPadding = false,
@@ -141,7 +139,7 @@ object HeadlineCardViewScreen {
                             },
                             {
                                 IconButton(
-                                    text = stringResource(id = R.string.button_icon_example),
+                                    text = stringResource(id = R.string.headline_example_icon_button),
                                     iconResId = R.drawable.ic_info,
                                     onClick = { onClickAction() }
                                 )
@@ -153,7 +151,6 @@ object HeadlineCardViewScreen {
                 // Example 6
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     HeadlineCardView(
-                        modifier = Modifier.background(HmrcTheme.colors.hmrcWhite),
                         title = stringResource(id = R.string.headline_example_title),
                         headline = stringResource(id = R.string.headline_example_headline),
                         views = listOf(
@@ -173,7 +170,6 @@ object HeadlineCardViewScreen {
                 // Example 7
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     HeadlineCardView(
-                        modifier = Modifier.background(HmrcTheme.colors.hmrcWhite),
                         title = stringResource(id = R.string.headline_example_7_title),
                         headline = stringResource(id = R.string.headline_example_7_headline)
                     )
