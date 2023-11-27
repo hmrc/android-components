@@ -32,6 +32,8 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.R
@@ -46,12 +48,12 @@ object HeadlineCardView {
         modifier: Modifier = Modifier,
         headline: String,
         title: String,
-        isClickable: Boolean = false,
         childPadding: Boolean = true,
         views: List<@Composable () -> Unit> = listOf(),
-        onHeadlineCardClick: () -> Unit = {}
+        chevronContentDescription: String = stringResource(id = R.string.accessibility_button_activate),
+        onHeadlineCardClick: (() -> Unit)? = null
     ) {
-        if (isClickable) {
+        if (onHeadlineCardClick != null) {
             CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
                 Row(
                     modifier = Modifier
@@ -60,11 +62,23 @@ object HeadlineCardView {
                             onHeadlineCardClick()
                         }
                 ) {
-                    HeadlineCard(modifier = modifier.then(Modifier.weight(1f)), headline, title, childPadding, views)
+                    HeadlineCard(
+                        modifier = modifier.then(
+                            Modifier
+                                .weight(1f)
+                                .semantics(mergeDescendants = true) {}
+                        ),
+                        headline,
+                        title,
+                        childPadding,
+                        views
+                    )
                     Image(
-                        modifier = Modifier.align(Alignment.CenterVertically),
+                        modifier = Modifier
+                            .align(Alignment.CenterVertically)
+                            .semantics(mergeDescendants = true) {},
                         painter = painterResource(id = R.drawable.components_ic_chevron_right),
-                        contentDescription = ""
+                        contentDescription = chevronContentDescription
                     )
                     Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing8))
                 }
@@ -91,18 +105,21 @@ object HeadlineCardView {
                 text = title,
                 modifier = Modifier
                     .padding(HmrcTheme.dimensions.hmrcSpacing16)
+                    .semantics(mergeDescendants = true) {}
                     .fillMaxWidth()
             )
             Heading3(
                 text = headline,
                 modifier = Modifier
                     .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
+                    .semantics(mergeDescendants = true) {}
                     .fillMaxWidth()
             )
 
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .semantics(mergeDescendants = true) {}
                     .then(
                         if (childPadding) {
                             Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
@@ -129,7 +146,6 @@ fun HeadlineCardViewPreview() {
             modifier = Modifier,
             title = "Title",
             headline = "Headline",
-            isClickable = true,
             views = listOf {
                 Text(
                     text = "Body",

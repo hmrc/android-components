@@ -45,7 +45,6 @@ object HeadlineCardViewScreen {
                 HeadlineCardView(
                     title = stringResource(id = R.string.headline_placeholder_title),
                     headline = stringResource(id = R.string.headline_placeholder_headline),
-                    isClickable = true,
                     views = listOf {
                         Text(
                             text = stringResource(id = R.string.headline_placeholder_body),
@@ -63,13 +62,13 @@ object HeadlineCardViewScreen {
                     HeadlineCardView(
                         title = stringResource(id = R.string.headline_example_title),
                         headline = stringResource(id = R.string.headline_example_headline),
-                        isClickable = true,
                         views = listOf {
                             Text(
                                 text = stringResource(id = R.string.headline_example_body),
                                 style = HmrcTheme.typography.body
                             )
-                        }
+                        },
+                        chevronContentDescription = stringResource(id = R.string.headline_example_chevron_content_description)
                     ) {
                         onClickAction()
                     }
