@@ -45,15 +45,16 @@ object HeadlineCardViewScreen {
                 HeadlineCardView(
                     title = stringResource(id = R.string.headline_placeholder_title),
                     headline = stringResource(id = R.string.headline_placeholder_headline),
-                    views = listOf {
+                    onHeadlineCardClick = {
+                        onClickAction()
+                    },
+                    content = {
                         Text(
                             text = stringResource(id = R.string.headline_placeholder_body),
                             style = HmrcTheme.typography.body
                         )
                     }
-                ) {
-                    onClickAction()
-                }
+                )
             }
 
             ExamplesSlot {
@@ -62,16 +63,17 @@ object HeadlineCardViewScreen {
                     HeadlineCardView(
                         title = stringResource(id = R.string.headline_example_title),
                         headline = stringResource(id = R.string.headline_example_headline),
-                        views = listOf {
+                        onHeadlineCardClick = {
+                            onClickAction()
+                        },
+                        content = {
                             Text(
                                 text = stringResource(id = R.string.headline_example_body),
                                 style = HmrcTheme.typography.body
                             )
                         },
                         chevronContentDescription = stringResource(id = R.string.headline_example_chevron_content_description)
-                    ) {
-                        onClickAction()
-                    }
+                    )
                 }
 
                 // Example 2
@@ -79,7 +81,7 @@ object HeadlineCardViewScreen {
                     HeadlineCardView(
                         title = stringResource(id = R.string.longer_text),
                         headline = stringResource(id = R.string.long_text),
-                        views = listOf {
+                        content = {
                             Text(
                                 text = stringResource(id = R.string.longest_text),
                                 style = HmrcTheme.typography.body
@@ -93,20 +95,18 @@ object HeadlineCardViewScreen {
                     HeadlineCardView(
                         title = stringResource(id = R.string.headline_example_title),
                         headline = stringResource(id = R.string.headline_example_headline),
-                        views = listOf(
-                            {
-                                Text(
-                                    text = stringResource(id = R.string.headline_example_body),
-                                    style = HmrcTheme.typography.body
-                                )
-                            },
-                            {
-                                PrimaryButton(
-                                    text = stringResource(id = R.string.headline_example_button),
-                                    onClick = { onClickAction() },
-                                )
-                            }
-                        )
+                        content =
+                        {
+                            Text(
+                                text = stringResource(id = R.string.headline_example_body),
+                                style = HmrcTheme.typography.body
+                            )
+                            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+                            PrimaryButton(
+                                text = stringResource(id = R.string.headline_example_button),
+                                onClick = { onClickAction() },
+                            )
+                        }
                     )
                 }
 
@@ -116,23 +116,19 @@ object HeadlineCardViewScreen {
                         title = stringResource(id = R.string.longer_text),
                         headline = stringResource(id = R.string.long_text),
                         childPadding = false,
-                        views = listOf(
-                            { Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16)) },
-                            {
-                                Text(
-                                    modifier = Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16),
-                                    text = stringResource(id = R.string.longest_text),
-                                    style = HmrcTheme.typography.body
-                                )
-                            },
-                            {
-                                SecondaryButton(
-                                    text = stringResource(id = R.string.long_text),
-                                    textAlign = TextAlign.Start,
-                                    onClick = { onClickAction() },
-                                )
-                            }
-                        )
+                        content = {
+                            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+                            Text(
+                                modifier = Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16),
+                                text = stringResource(id = R.string.longest_text),
+                                style = HmrcTheme.typography.body
+                            )
+                            SecondaryButton(
+                                text = stringResource(id = R.string.long_text),
+                                textAlign = TextAlign.Start,
+                                onClick = { onClickAction() },
+                            )
+                        }
                     )
                 }
 
@@ -142,23 +138,22 @@ object HeadlineCardViewScreen {
                         title = stringResource(id = R.string.headline_example_title),
                         headline = stringResource(id = R.string.headline_example_headline),
                         childPadding = false,
-                        views = listOf(
-                            { Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16)) },
-                            {
-                                Text(
-                                    modifier = Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16),
-                                    text = stringResource(id = R.string.headline_example_body),
-                                    style = HmrcTheme.typography.body
-                                )
-                            },
-                            {
-                                IconButton(
-                                    text = stringResource(id = R.string.headline_example_icon_button),
-                                    iconResId = R.drawable.ic_info,
-                                    onClick = { onClickAction() }
-                                )
-                            }
-                        )
+                        content = {
+                            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+
+                            Text(
+                                modifier = Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16),
+                                text = stringResource(id = R.string.headline_example_body),
+                                style = HmrcTheme.typography.body
+                            )
+
+
+                            IconButton(
+                                text = stringResource(id = R.string.headline_example_icon_button),
+                                iconResId = R.drawable.ic_info,
+                                onClick = { onClickAction() }
+                            )
+                        }
                     )
                 }
 
@@ -167,15 +162,14 @@ object HeadlineCardViewScreen {
                     HeadlineCardView(
                         title = stringResource(id = R.string.headline_example_title),
                         headline = stringResource(id = R.string.headline_example_headline),
-                        views = listOf(
-                            {
-                                Text(
-                                    text = stringResource(id = R.string.headline_example_body),
-                                    style = HmrcTheme.typography.body
-                                )
-                            },
-                            { InsetTextView(text = stringResource(id = R.string.inset_text_example_text)) }
-                        )
+                        content = {
+                            Text(
+                                text = stringResource(id = R.string.headline_example_body),
+                                style = HmrcTheme.typography.body
+                            )
+                            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+                            InsetTextView(text = stringResource(id = R.string.inset_text_example_text))
+                        }
                     )
                 }
 

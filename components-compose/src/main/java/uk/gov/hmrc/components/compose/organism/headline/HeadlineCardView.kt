@@ -19,6 +19,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -49,9 +50,9 @@ object HeadlineCardView {
         headline: String,
         title: String,
         childPadding: Boolean = true,
-        views: List<@Composable () -> Unit> = listOf(),
         chevronContentDescription: String = stringResource(id = R.string.accessibility_button_activate),
-        onHeadlineCardClick: (() -> Unit)? = null
+        onHeadlineCardClick: (() -> Unit)? = null,
+        content: @Composable ColumnScope.() -> Unit = {},
     ) {
         if (onHeadlineCardClick != null) {
             CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
@@ -71,7 +72,7 @@ object HeadlineCardView {
                         headline,
                         title,
                         childPadding,
-                        views
+                        content
                     )
                     Image(
                         modifier = Modifier
@@ -84,7 +85,7 @@ object HeadlineCardView {
                 }
             }
         } else {
-            HeadlineCard(modifier, headline, title, childPadding, views)
+            HeadlineCard(modifier, headline, title, childPadding, content)
         }
     }
 
@@ -94,7 +95,7 @@ object HeadlineCardView {
         headline: String,
         title: String,
         childPadding: Boolean = true,
-        views: List<@Composable () -> Unit> = listOf()
+        content: @Composable ColumnScope.() -> Unit = {},
     ) {
         Column(
             modifier = modifier
@@ -115,7 +116,6 @@ object HeadlineCardView {
                     .semantics(mergeDescendants = true) {}
                     .fillMaxWidth()
             )
-
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -128,10 +128,8 @@ object HeadlineCardView {
                         }
                     )
             ) {
-                views.forEach { view ->
-                    if (childPadding) Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-                    view()
-                }
+                if (childPadding) Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+                content()
             }
             if (childPadding) Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
         }
@@ -146,7 +144,7 @@ fun HeadlineCardViewPreview() {
             modifier = Modifier,
             title = "Title",
             headline = "Headline",
-            views = listOf {
+            content = {
                 Text(
                     text = "Body",
                     style = HmrcTheme.typography.body
