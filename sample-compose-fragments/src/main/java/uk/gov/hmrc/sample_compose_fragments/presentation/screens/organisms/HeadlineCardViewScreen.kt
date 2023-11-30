@@ -29,6 +29,7 @@ import uk.gov.hmrc.components.compose.atom.button.SecondaryButton
 import uk.gov.hmrc.components.compose.molecule.inset.InsetTextView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.organism.headline.HeadlineCardView
+import uk.gov.hmrc.components.compose.organism.headline.HeadlineCardViewTemp
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
@@ -58,6 +59,25 @@ object HeadlineCardViewScreen {
             }
 
             ExamplesSlot {
+
+                // Example Temp
+                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                    HeadlineCardViewTemp(
+                        title = stringResource(id = R.string.headline_example_title),
+                        headline = stringResource(id = R.string.headline_example_headline),
+                        headlineContentDescription = stringResource(id = R.string.headline_example_headline_description),
+                        onHeadlineCardClick = {
+                            onClickAction()
+                        },
+                        content = {
+                            Text(
+                                text = stringResource(id = R.string.headline_example_body),
+                                style = HmrcTheme.typography.body
+                            )
+                        },
+                    )
+                }
+
                 // Example 1
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     HeadlineCardView(

@@ -43,7 +43,7 @@ import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
-object HeadlineCardView {
+object HeadlineCardViewTemp {
     @Composable
     operator fun invoke(
         modifier: Modifier = Modifier,
@@ -58,28 +58,16 @@ object HeadlineCardView {
     ) {
         if (onHeadlineCardClick != null) {
             CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
-                Row(
-                    modifier = Modifier
-                        .background(HmrcTheme.colors.hmrcWhiteBackground)
-                        .clickable {
-                            onHeadlineCardClick()
-                        }
-                ) {
-                    HeadlineCard(
+                Row(modifier = Modifier
+                    .background(HmrcTheme.colors.hmrcWhiteBackground)
+                    .clickable { onHeadlineCardClick() }) {
+                    HeadlineCardTemp(
                         modifier = modifier.then(
-                            Modifier
-                                .weight(1f)
-                                .semantics(mergeDescendants = true) {}
-                        ),
-                        headline, headlineContentDescription, title, titleContentDescription, childPadding, content
+                            Modifier.weight(1f)
+                        ), headline, headlineContentDescription, title, titleContentDescription, childPadding, content
                     )
                     Image(
-                        modifier = Modifier
-                            .align(Alignment.CenterVertically)
-                            .semantics(mergeDescendants = true) {contentDescription = chevronContentDescription}
-                            .clickable {
-                                onHeadlineCardClick()
-                            },
+                        modifier = Modifier.align(Alignment.CenterVertically),
                         painter = painterResource(id = R.drawable.components_ic_chevron_right),
                         contentDescription = chevronContentDescription
                     )
@@ -87,20 +75,14 @@ object HeadlineCardView {
                 }
             }
         } else {
-            HeadlineCard(
-                modifier,
-                headline,
-                headlineContentDescription,
-                title,
-                titleContentDescription,
-                childPadding,
-                content
+            HeadlineCardTemp(
+                modifier, headline, headlineContentDescription, title, titleContentDescription, childPadding, content
             )
         }
     }
 
     @Composable
-    fun HeadlineCard(
+    fun HeadlineCardTemp(
         modifier: Modifier = Modifier,
         headline: String,
         headlineContentDescription: String = "",
@@ -115,23 +97,21 @@ object HeadlineCardView {
                 .fillMaxWidth()
         ) {
             Heading5(
-                text = title,
-                modifier = Modifier
+                text = title, modifier = Modifier
                     .padding(HmrcTheme.dimensions.hmrcSpacing16)
-                    .semantics(mergeDescendants = true) { contentDescription = titleContentDescription }
                     .fillMaxWidth()
+                    .semantics { contentDescription = titleContentDescription }
             )
             Heading3(
                 text = headline,
                 modifier = Modifier
                     .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
-                    .semantics(mergeDescendants = true) { contentDescription = headlineContentDescription }
                     .fillMaxWidth()
+                    .semantics { contentDescription = headlineContentDescription }
             )
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .semantics(mergeDescendants = true) {}
                     .then(
                         if (childPadding) {
                             Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
@@ -150,18 +130,12 @@ object HeadlineCardView {
 
 @Preview
 @Composable
-fun HeadlineCardViewPreview() {
+fun HeadlineCardViewTempPreview() {
     HmrcTheme() {
-        HeadlineCardView(
-            modifier = Modifier,
-            title = "Title",
-            headline = "Headline",
-            content = {
-                Text(
-                    text = "Body",
-                    style = HmrcTheme.typography.body
-                )
-            }
-        )
+        HeadlineCardView(modifier = Modifier, title = "Title", headline = "Headline", content = {
+            Text(
+                text = "Body", style = HmrcTheme.typography.body
+            )
+        })
     }
 }
