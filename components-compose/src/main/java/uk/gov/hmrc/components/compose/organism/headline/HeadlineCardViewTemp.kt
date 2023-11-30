@@ -58,13 +58,16 @@ object HeadlineCardViewTemp {
     ) {
         if (onHeadlineCardClick != null) {
             CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
-                Row(modifier = Modifier
-                    .background(HmrcTheme.colors.hmrcWhiteBackground)
-                    .clickable { onHeadlineCardClick() }) {
+                Row(
+                    modifier = Modifier
+                        .background(HmrcTheme.colors.hmrcWhiteBackground)
+                        .clickable { onHeadlineCardClick() }
+                ) {
                     HeadlineCardTemp(
                         modifier = modifier.then(
                             Modifier.weight(1f)
-                        ), headline, headlineContentDescription, title, titleContentDescription, childPadding, content
+                        ),
+                        headline, headlineContentDescription, title, titleContentDescription, childPadding, content
                     )
                     Image(
                         modifier = Modifier.align(Alignment.CenterVertically),
@@ -97,7 +100,8 @@ object HeadlineCardViewTemp {
                 .fillMaxWidth()
         ) {
             Heading5(
-                text = title, modifier = Modifier
+                text = title,
+                modifier = Modifier
                     .padding(HmrcTheme.dimensions.hmrcSpacing16)
                     .fillMaxWidth()
                     .semantics { contentDescription = titleContentDescription }

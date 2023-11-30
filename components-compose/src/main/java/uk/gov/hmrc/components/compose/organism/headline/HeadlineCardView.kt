@@ -76,7 +76,7 @@ object HeadlineCardView {
                     Image(
                         modifier = Modifier
                             .align(Alignment.CenterVertically)
-                            .semantics(mergeDescendants = true) {contentDescription = chevronContentDescription}
+                            .semantics(mergeDescendants = true) { contentDescription = chevronContentDescription }
                             .clickable {
                                 onHeadlineCardClick()
                             },
