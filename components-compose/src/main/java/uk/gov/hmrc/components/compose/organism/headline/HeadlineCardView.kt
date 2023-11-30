@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -48,9 +49,11 @@ object HeadlineCardView {
     operator fun invoke(
         modifier: Modifier = Modifier,
         headline: String,
+        headlineContentDescription: String = "",
         title: String,
+        titleContentDescription: String = "",
         childPadding: Boolean = true,
-        chevronContentDescription: String = stringResource(id = R.string.accessibility_button_activate),
+        chevronContentDescription: String = "",//stringResource(id = R.string.accessibility_button_activate),
         onHeadlineCardClick: (() -> Unit)? = null,
         content: @Composable ColumnScope.() -> Unit = {},
     ) {
@@ -69,15 +72,15 @@ object HeadlineCardView {
                                 .weight(1f)
                                 .semantics(mergeDescendants = true) {}
                         ),
-                        headline,
-                        title,
-                        childPadding,
-                        content
+                        headline, headlineContentDescription, title, titleContentDescription, childPadding, content
                     )
                     Image(
                         modifier = Modifier
                             .align(Alignment.CenterVertically)
-                            .semantics(mergeDescendants = true) {},
+                            .semantics(mergeDescendants = true) {contentDescription = chevronContentDescription}
+                            .clickable {
+                                onHeadlineCardClick()
+                            },
                         painter = painterResource(id = R.drawable.components_ic_chevron_right),
                         contentDescription = chevronContentDescription
                     )
@@ -85,7 +88,15 @@ object HeadlineCardView {
                 }
             }
         } else {
-            HeadlineCard(modifier, headline, title, childPadding, content)
+            HeadlineCard(
+                modifier,
+                headline,
+                headlineContentDescription,
+                title,
+                titleContentDescription,
+                childPadding,
+                content
+            )
         }
     }
 
@@ -93,7 +104,9 @@ object HeadlineCardView {
     fun HeadlineCard(
         modifier: Modifier = Modifier,
         headline: String,
+        headlineContentDescription: String = "",
         title: String,
+        titleContentDescription: String = "",
         childPadding: Boolean = true,
         content: @Composable ColumnScope.() -> Unit = {},
     ) {
@@ -106,14 +119,14 @@ object HeadlineCardView {
                 text = title,
                 modifier = Modifier
                     .padding(HmrcTheme.dimensions.hmrcSpacing16)
-                    .semantics(mergeDescendants = true) {}
+                    .semantics(mergeDescendants = true) { contentDescription = titleContentDescription }
                     .fillMaxWidth()
             )
             Heading3(
                 text = headline,
                 modifier = Modifier
                     .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
-                    .semantics(mergeDescendants = true) {}
+                    .semantics(mergeDescendants = true) { contentDescription = headlineContentDescription }
                     .fillMaxWidth()
             )
             Column(

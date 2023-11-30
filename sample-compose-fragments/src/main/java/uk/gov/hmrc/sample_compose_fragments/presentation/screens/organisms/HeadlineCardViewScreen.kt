@@ -63,6 +63,7 @@ object HeadlineCardViewScreen {
                     HeadlineCardView(
                         title = stringResource(id = R.string.headline_example_title),
                         headline = stringResource(id = R.string.headline_example_headline),
+                        headlineContentDescription = stringResource(id = R.string.headline_example_headline_description),
                         onHeadlineCardClick = {
                             onClickAction()
                         },
