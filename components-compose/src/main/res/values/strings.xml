@@ -18,5 +18,4 @@
     <string name="textInputView_error">Error</string>
     <string name="textInputView_clear">Clear text</string>
     <string name="accessibility_warning">warning; %s</string>
-    <string name="accessibility_button_activate">button. Double tap to activate</string>
 </resources>
