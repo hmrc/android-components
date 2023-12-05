@@ -43,9 +43,7 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.traversalIndex
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.R
-import uk.gov.hmrc.components.compose.atom.heading.Heading3
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
@@ -140,8 +138,9 @@ object HeadlineCardView {
                     }
                     .fillMaxWidth()
             )
-            Heading3(
+            Text(
                 text = headline,
+                style = HmrcTheme.typography.h3,
                 modifier = Modifier
                     .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
                     .semantics(mergeDescendants = true) {
@@ -163,7 +162,7 @@ object HeadlineCardView {
                             if (childPaddingState) {
                                 Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
                             } else {
-                                Modifier.padding(0.dp)
+                                Modifier
                             }
                         )
                 ) {
