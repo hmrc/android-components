@@ -3,7 +3,7 @@ import uk.gov.hmrc.components.buildsrc.Dependencies.Versions
 
 plugins {
     id 'maven-publish'
-    id 'com.gladed.androidgitversion' version '0.4.9'
+    id 'com.gladed.androidgitversion' version '0.4.14'
 }
 
 apply plugin: 'com.android.library'
