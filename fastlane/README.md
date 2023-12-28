@@ -95,13 +95,13 @@ Runs the screenshot comparison
 
 Takes a release tag and updates changelog for the components-compose package
 
-### android jemmaTest
+### android publish_components_compose
 
 ```sh
-[bundle exec] fastlane android jemmaTest
+[bundle exec] fastlane android publish_components_compose
 ```
 
-Test
+Publishes compose components library
 
 ----
 
