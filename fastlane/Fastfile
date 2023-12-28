@@ -52,7 +52,7 @@ platform :android do
     git_pull
 
     # get current version
-    current_tag = last_git_tag
+    current_tag = last_git_tag(pattern: "[0-9]*")
     version = Semantic::Version.new(current_tag)
 
     # prompt for bump type
@@ -71,12 +71,11 @@ platform :android do
       tag = version.increment!(:patch)
     end
 
-
     sh("git", "checkout", "-b", "tag/#{tag.to_string}")
 
     # update changelog
-    stamp_changelog(section_identifier: tag.to_string)
-    git_commit(path: ".components/CHANGELOG.md", message: "Update CHANGELOG.md and tagging release")
+    stamp_changelog(changelog_path: 'components/CHANGELOG.md', section_identifier: tag.to_string)
+    git_commit(path: "components/CHANGELOG.md", message: "Update CHANGELOG.md and tagging release")
 
     push_to_git_remote
 
@@ -212,12 +211,13 @@ platform :android do
     git_pull
 
     # get current version
-    current_tag = last_git_tag(pattern: "compose/")
+    current_tag = last_git_tag(pattern: "compose/*")
+    current_tag.slice! "compose/"
     version = Semantic::Version.new(current_tag)
 
     # prompt for bump type
     bump_type = UI.select(
-       "Current version is #{current_tag}. What would you like to bump?",
+       "Current version is #{version}. What would you like to bump?",
        ["major", "minor", "patch"]
     )
 
@@ -231,37 +231,36 @@ platform :android do
       version = version.increment!(:patch)
     end
 
-    tag = "compose/#{version.to_string}"
-
-    sh("git", "checkout", "-b", "tag/#{tag}")
+    sh("git", "checkout", "-b", "tag/compose_#{version}")
 
     # update changelog
-    stamp_changelog(section_identifier: version.to_string)
-    git_commit(path: ".components-compose/CHANGELOG.md", message: "Update CHANGELOG.md and tagging release")
+    stamp_changelog(changelog_path: 'components-compose/CHANGELOG.md', section_identifier: version.to_string)
+    git_commit(path: "components-compose/CHANGELOG.md", message: "Update CHANGELOG.md and tagging release")
 
     push_to_git_remote
 
-    sh("gh", "pr", "create", "--title", "Release compose components #{version.to_string}", "--body", "")
+    sh("gh", "pr", "create", "--title", "Release compose components #{version}", "--body", "")
 
     # take tag and push to remote
+    tag = "compose/#{version}"
     add_git_tag(tag: tag)
     push_git_tags
 
     # update releases on Github
     changelog = read_changelog(
-      section_identifier: "[#{tag}]",
+      section_identifier: "[#{version}]",
       excluded_markdown_elements: []
     )
     set_github_release(
       repository_name: "hmrc/android-components",
       api_token: ENV["GITHUB_TOKEN"],
-      name: "Compose #{version.to_string}",
-      tag_name: tag.to_string,
+      name: tag,
+      tag_name: tag,
       description: changelog
     )
 
     # start release process on CI
-    sh("cd .. && sh release.sh '#{tag.to_string}'")
+    sh("cd .. && sh release.sh '#{tag}'")
   end
 
   desc "Publishes compose components library"
