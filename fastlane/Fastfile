@@ -260,7 +260,7 @@ platform :android do
     )
 
     # start release process on CI
-    sh("cd .. && sh release.sh '#{tag}'")
+    sh("cd .. && sh release_compose.sh '#{tag}'")
   end
 
   desc "Publishes compose components library"
