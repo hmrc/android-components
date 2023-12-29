@@ -16,6 +16,8 @@
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -47,6 +49,7 @@ fun CurrencyInputViewScreen() {
         ExamplesSlot {
             HmrcCardView() {
                 CurrencyInputView(
+                    modifier = Modifier.testTag("CurrencyInputViewPayAmount"),
                     onInputValueChange = { viewModel.isEmptyValidation(it, errorText1, 0) },
                     errorText = viewModel.textInputErrorEmptyValidation.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.currency_input_example_1_hint),
@@ -54,6 +57,7 @@ fun CurrencyInputViewScreen() {
                     )
 
                 CurrencyInputView(
+                    modifier = Modifier.testTag("CurrencyInputViewPayAmountPoundOne"),
                     onInputValueChange = { viewModel.isEmptyValidation(it, errorText2, 1) },
                     errorText = viewModel.textInputErrorEmptyValidation1.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.currency_input_example_2_hint),
@@ -61,6 +65,7 @@ fun CurrencyInputViewScreen() {
                     )
 
                 CurrencyInputView(
+                    modifier = Modifier.testTag("CurrencyInputViewPayAmountPoundTwo"),
                     onInputValueChange = { viewModel.isEmptyValidation(it, errorText3, 2) },
                     errorText = viewModel.textInputErrorEmptyValidation2.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.currency_input_example_3_hint),
