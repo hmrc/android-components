@@ -87,6 +87,7 @@ platform :android do
 
     # update releases on Github
     changelog = read_changelog(
+      changelog_path: 'components/CHANGELOG.md',
       section_identifier: "[#{tag}]",
       excluded_markdown_elements: []
     )
@@ -240,6 +241,7 @@ platform :android do
 
     # update releases on Github
     changelog = read_changelog(
+      changelog_path: 'components-compose/CHANGELOG.md',
       section_identifier: "[#{version}]",
       excluded_markdown_elements: []
     )
