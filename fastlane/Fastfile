@@ -201,14 +201,6 @@ platform :android do
     UI.user_error!("You need to provide the Bitrise app slug for this repo via a `ANDROID_COMPONENTS_APP_SLUG` environment variable") unless !ENV["ANDROID_COMPONENTS_APP_SLUG"].nil?
     UI.user_error!("You need to provide the Bitrise release workflow ID this repo via a `ANDROID_COMPONENTS_COMPOSE_RELEASE_WORKFLOW_ID` environment variable") unless !ENV["ANDROID_COMPONENTS_COMPOSE_RELEASE_WORKFLOW_ID"].nil?
 
-    # ensure repo is clean and on main
-    ensure_git_status_clean
-    ensure_git_branch(
-      branch: 'main'
-    )
-
-    # pull latest changes and fetch tags
-    git_pull
 
     # get current version
     current_tag = last_git_tag(pattern: "compose/*")
@@ -265,11 +257,6 @@ platform :android do
 
   desc "Publishes compose components library"
   lane :publish_components_compose do
-    ensure_git_status_clean
-    ensure_git_branch(
-      branch: 'main'
-    )
-
     check
 
     # build the app and upload to Github Packages
