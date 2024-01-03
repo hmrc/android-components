@@ -368,4 +368,18 @@
     <string name="tab_bar_view_long_tab_item_3">and component becomes</string>
     <string name="tab_bar_view_long_tab_item_4">scrollable</string>
 
+    <!-- Primary Card -->
+    <string name="primary_card_placeholder_title">Title</string>
+    <string name="primary_card_placeholder_body">Body</string>
+    <string name="primary_card_example_1_title">Renew your tax credits</string>
+    <string name="primary_card_example_1_body">Renew your tax credits or check the progress of your claims</string>
+    <string name="primary_card_example_2_title">Lorem ipsum dolor sit amet, ne nec regione nostrum. Quo altera nusquam apeirian et, melius discere pro ne, sint unum.</string>
+    <string name="primary_card_example_2_body">Lorem ipsum dolor sit amet, his ne quis phaedrum. Illum eloquentiam in pro, aperiam conceptam complectitur cum in, eum paulo
+		ceteros at. Vel erroribus adversarium at, integre omnesque eu est. Appareat expetenda cum no. Erant omnes interesset pro at, id mei munere moderatius,
+		ius ne ignota perpetua.
+	</string>
+    <string name="primary_card_example_3_button">Renew or check my claims</string>
+    <string name="primary_d_carexample_4_button">Lorem ipsum dolor sit amet, id cum ullum deseruisse solet.</string>
+
+
 </resources>

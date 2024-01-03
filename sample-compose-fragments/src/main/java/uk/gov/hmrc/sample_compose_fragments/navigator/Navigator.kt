@@ -57,5 +57,7 @@ interface Navigator {
 
     fun Fragment.goToHeadlineCardView()
 
+    fun Fragment.goToPrimaryCardView()
+
     fun Fragment.goBack()
 }
