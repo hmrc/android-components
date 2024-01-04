@@ -15,12 +15,15 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import uk.gov.hmrc.components.compose.molecule.input.CurrencyInputView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
@@ -45,28 +48,53 @@ fun CurrencyInputViewScreen() {
         }
 
         ExamplesSlot {
-            HmrcCardView() {
+            HmrcCardView {
                 CurrencyInputView(
+                    modifier = Modifier.padding(
+                        horizontal = HmrcTheme.dimensions.hmrcSpacing16,
+                        vertical = HmrcTheme.dimensions.hmrcSpacing24,
+                    ),
                     onInputValueChange = { viewModel.isEmptyValidation(it, errorText1, 0) },
                     errorText = viewModel.textInputErrorEmptyValidation.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.currency_input_example_1_hint),
                     enableDecimal = true
-                    )
+                )
 
                 CurrencyInputView(
+                    modifier = Modifier.padding(
+                        horizontal = HmrcTheme.dimensions.hmrcSpacing16,
+                        vertical = HmrcTheme.dimensions.hmrcSpacing24,
+                    ),
                     onInputValueChange = { viewModel.isEmptyValidation(it, errorText2, 1) },
                     errorText = viewModel.textInputErrorEmptyValidation1.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.currency_input_example_2_hint),
                     enableDecimal = false
-                    )
+                )
 
                 CurrencyInputView(
+                    modifier = Modifier.padding(
+                        horizontal = HmrcTheme.dimensions.hmrcSpacing16,
+                        vertical = HmrcTheme.dimensions.hmrcSpacing24,
+                    ),
+                    initialInputValue = stringResource(id = R.string.currency_input_example_3_text),
                     onInputValueChange = { viewModel.isEmptyValidation(it, errorText3, 2) },
                     errorText = viewModel.textInputErrorEmptyValidation2.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.currency_input_example_3_hint),
-                    placeholderText = stringResource(id = R.string.currency_input_example_3_text),
                     enableDecimal = true
-                    )
+                )
+
+                CurrencyInputView(
+                    modifier = Modifier.padding(
+                        horizontal = HmrcTheme.dimensions.hmrcSpacing16,
+                        vertical = HmrcTheme.dimensions.hmrcSpacing24,
+                    ),
+                    initialInputValue = stringResource(id = R.string.currency_input_example_3_text),
+                    onInputValueChange = { viewModel.isEmptyValidation(it, errorText3, 3) },
+                    errorText = viewModel.textInputErrorEmptyValidation3.collectAsStateWithLifecycle().value,
+                    labelText = stringResource(id = R.string.currency_input_example_4_label),
+                    hintText = stringResource(id = R.string.currency_input_example_4_hint),
+                    enableDecimal = true
+                )
             }
         }
     }

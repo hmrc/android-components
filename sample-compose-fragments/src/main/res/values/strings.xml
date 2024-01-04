@@ -261,7 +261,9 @@
     <string name="cta_pressed">Call to action was pressed!</string>
 
     <!-- Text input -->
+    <string name="text_input_placeholder_label">Label</string>
     <string name="text_input_placeholder_hint">Hint</string>
+    <string name="text_input_placeholder_placeholder">Placeholder</string>
     <string name="text_input_example_1_hint">Message</string>
     <string name="text_input_example_1_content_description">Enter your message</string>
     <string name="text_input_example_1_error">Tell us what you need help with</string>
@@ -281,6 +283,8 @@
     <string name="currency_input_example_2_error">Enter an amount</string>
     <string name="currency_input_example_3_error">Enter an amount</string>
     <string name="currency_input_example_3_text">123.45</string>
+    <string name="currency_input_example_4_label">Gross amount, in pounds</string>
+    <string name="currency_input_example_4_hint">This is the amount you are paid before any deductions are made.</string>
 
     <!-- Placeholder/Example headings -->
     <string name="heading_placeholder_singular">Placeholder:</string>

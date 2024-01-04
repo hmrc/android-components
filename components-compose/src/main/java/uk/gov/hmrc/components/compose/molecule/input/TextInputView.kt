@@ -23,8 +23,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -39,6 +38,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
@@ -47,45 +48,39 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 @Suppress("ComplexMethod")
 fun TextInputView(
     modifier: Modifier = Modifier,
+    initialInputValue: String = "",
     onInputValueChange: ((String) -> Unit)? = null,
     inputFilter: ((String, String) -> String)? = null,
+    labelText: String? = null,
+    labelContentDescription: String? = null,
+    hintText: String? = null,
+    hintContentDescription: String? = null,
+    prefix: @Composable (() -> Unit)? = null,
     placeholderText: String? = null,
     errorText: String? = null,
     errorContentDescription: String? = null,
-    labelText: String? = null,
-    labelContentDescription: String? = null,
-    singleLine: Boolean = false,
     characterCount: Int? = null,
-    prefix: @Composable (() -> Unit)? = null,
+    singleLine: Boolean = false,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default
 ) {
 
-    var localValue: String by rememberSaveable { mutableStateOf("") }
-
+    var localValue: String by rememberSaveable { mutableStateOf(initialInputValue) }
     var localError: String? by rememberSaveable { mutableStateOf(null) }
-
     localError = errorText
 
     val counterEnabled: Boolean = characterCount != null
 
-    fun errorText(): @Composable (() -> Unit)? {
-        return errorText?.let {
-            {
-                Text(
-                    text = it,
-                    modifier = Modifier.semantics {
-                        if (errorContentDescription != null) {
-                            contentDescription = errorContentDescription
-                        }
-                    }
-                )
-            }
+    val error: @Composable (() -> Unit)? = errorText?.let {
+        @Composable {
+            Text(
+                text = it,
+                modifier = Modifier.semantics { errorContentDescription?.let { contentDescription = it } }
+            )
         }
     }
 
-    @Composable
-    fun errorTextCounterCombo(): @Composable (() -> Unit) {
-        return {
+    val errorTextCounterCombo: @Composable (() -> Unit) =
+        @Composable {
             Row {
                 Column(
                     horizontalAlignment = Alignment.Start,
@@ -94,11 +89,7 @@ fun TextInputView(
                     if (errorText != null) {
                         Text(
                             text = errorText,
-                            modifier = Modifier.semantics {
-                                if (errorContentDescription != null) {
-                                    contentDescription = errorContentDescription
-                                }
-                            }
+                            modifier = Modifier.semantics { errorContentDescription?.let { contentDescription = it } }
                         )
                     }
                 }
@@ -110,68 +101,128 @@ fun TextInputView(
                 }
             }
         }
-    }
 
     @Composable
-    fun modifier(): Modifier {
-        return if (counterEnabled || !localError.isNullOrEmpty()) {
-            modifier
-                .fillMaxWidth()
-                .padding(top = HmrcTheme.dimensions.hmrcIconSize24)
-                .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
-        } else {
-            modifier
-                .fillMaxWidth()
-                .padding(vertical = HmrcTheme.dimensions.hmrcIconSize24)
-                .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
-        }
-    }
-
-    OutlinedTextField(
-        modifier = modifier(),
-        isError = !localError.isNullOrEmpty() || (localValue.length > (characterCount ?: Int.MAX_VALUE)),
-        value = localValue,
-        onValueChange = {
-            if (onInputValueChange != null) {
-                onInputValueChange(it)
-            }
-            localValue = if (inputFilter != null && it.isNotEmpty()) {
-                inputFilter(it, localValue)
-            } else it
-        },
-        textStyle = typography.body,
-        colors = HmrcTheme.textFieldColors,
-        label = {
-            labelText?.let {
-                Text(
-                    text = it,
-                    modifier = Modifier.semantics {
-                        if (labelContentDescription != null) {
-                            contentDescription = labelContentDescription
-                        }
-                    }
-                )
-            }
-        },
-        supportingText = if (counterEnabled) errorTextCounterCombo() else errorText(),
-        placeholder = { placeholderText?.let { Text(text = it) } },
-        singleLine = singleLine,
-        trailingIcon = {
-            if (!localError.isNullOrEmpty()) {
-                Icon(Icons.Default.Info, contentDescription = stringResource(id = R.string.textInputView_error))
-            } else if (localValue.isNotEmpty()) {
-                Icon(
-                    Icons.Default.Clear,
-                    contentDescription = stringResource(id = R.string.textInputView_clear),
-                    modifier = Modifier.clickable { localValue = "" }
-                )
-            }
-        },
-        prefix = prefix,
-        keyboardOptions = keyboardOptions,
-        shape = RoundedCornerShape(0)
+    fun Modifier.adjustPaddingForCounter() = this.padding(
+        bottom = if (counterEnabled || !localError.isNullOrEmpty()) 0.dp else HmrcTheme.dimensions.hmrcIconSize24
     )
+
+    Column(modifier = modifier) {
+        labelText?.let { label ->
+            Text(
+                text = label,
+                style = typography.h6,
+                modifier = Modifier
+                    .semantics { labelContentDescription?.let { contentDescription = it } }
+                    .padding(bottom = HmrcTheme.dimensions.hmrcSpacing8)
+            )
+        }
+        hintText?.let { hint ->
+            Text(
+                text = hint,
+                style = typography.body,
+                modifier = Modifier
+                    .semantics { hintContentDescription?.let { contentDescription = it } }
+                    .padding(bottom = HmrcTheme.dimensions.hmrcSpacing8)
+            )
+        }
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth().adjustPaddingForCounter(),
+            isError = !localError.isNullOrEmpty() || (localValue.length > (characterCount ?: Int.MAX_VALUE)),
+            value = localValue,
+            onValueChange = { newValue ->
+                if (onInputValueChange != null) {
+                    onInputValueChange(newValue)
+                }
+                localValue = if (inputFilter != null && newValue.isNotEmpty()) {
+                    inputFilter(newValue, localValue)
+                } else newValue
+            },
+            textStyle = typography.body,
+            colors = HmrcTheme.textFieldColors,
+            supportingText = if (counterEnabled) errorTextCounterCombo else error,
+            placeholder = { placeholderText?.let { Text(text = it) } },
+            singleLine = singleLine,
+            trailingIcon = {
+                if (localValue.isNotEmpty()) {
+                    Icon(
+                        Icons.Rounded.Close,
+                        contentDescription = stringResource(id = R.string.textInputView_clear),
+                        modifier = Modifier.clickable {
+                            localValue = ""
+                            if (onInputValueChange != null) { onInputValueChange(localValue) }
+                        }
+                    )
+                }
+            },
+            prefix = prefix,
+            keyboardOptions = keyboardOptions,
+            shape = RoundedCornerShape(0)
+        )
+    }
 }
 
 private const val ErrorTextWithCharCountWidth = 0.8f
 private const val CharCountWidth = 0.95f
+
+@Preview(showBackground = true)
+@Composable
+fun TextInputViewPreview() {
+    HmrcTheme {
+        TextInputView(
+            onInputValueChange = { },
+            labelText = "Label",
+            hintText = "Hint",
+            placeholderText = "Text"
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TextInputViewNoLabelPreview() {
+    HmrcTheme {
+        TextInputView(
+            onInputValueChange = { },
+            hintText = "Hint",
+            placeholderText = "Text"
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TextInputViewWithErrorPreview() {
+    HmrcTheme {
+        TextInputView(
+            onInputValueChange = { },
+            errorText = "Error",
+            labelText = "Label",
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TextInputViewWithCounterPreview() {
+    HmrcTheme {
+        TextInputView(
+            onInputValueChange = { },
+            labelText = "Label",
+            characterCount = 20,
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TextInputViewWithErrorAndCounterPreview() {
+    HmrcTheme {
+        TextInputView(
+            onInputValueChange = { },
+            labelText = "Label",
+            errorText = "Error",
+            characterCount = 20,
+        )
+    }
+}

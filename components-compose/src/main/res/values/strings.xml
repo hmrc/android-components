@@ -15,7 +15,6 @@
      limitations under the License.
  -->
 <resources>
-    <string name="textInputView_error">Error</string>
     <string name="textInputView_clear">Clear text</string>
     <string name="accessibility_warning">warning; %s</string>
 </resources>
