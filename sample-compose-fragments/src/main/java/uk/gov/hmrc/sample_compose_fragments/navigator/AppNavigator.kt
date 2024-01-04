@@ -87,7 +87,7 @@ class AppNavigator @Inject constructor() : Navigator{
     }
 
     override fun Fragment.goToPrimaryCardView() {
-        navigate(OrganismsFragmentDirections.actionOrganismsFragmentToPrimaryCardFragment())
+        navigate(OrganismsFragmentDirections.actionOrganismsFragmentToPrimaryCardViewFragment())
     }
 
     override fun Fragment.goBack() {

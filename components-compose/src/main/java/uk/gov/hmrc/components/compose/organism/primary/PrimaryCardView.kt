@@ -15,12 +15,9 @@
  */
 package uk.gov.hmrc.components.compose.organism.primary
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
@@ -30,10 +27,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
+import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
-fun PrimaryCard(
+fun PrimaryCardView(
     modifier: Modifier = Modifier,
     title: String,
     titleContentDescription: String = "",
@@ -42,16 +40,11 @@ fun PrimaryCard(
 ) {
     val childPaddingState by remember { derivedStateOf { childPadding } }
 
-    Column(
-        modifier = modifier
-            .background(HmrcTheme.colors.hmrcWhiteBackground)
-            .fillMaxWidth()
-    ) {
+    HmrcCardView(modifier = modifier) {
         Heading5(
             text = title,
             modifier = Modifier
-                .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
-                .padding(top = HmrcTheme.dimensions.hmrcSpacing16)
+                .padding(start = HmrcTheme.dimensions.hmrcSpacing16, end = HmrcTheme.dimensions.hmrcSpacing16, top = HmrcTheme.dimensions.hmrcSpacing16)
                 .semantics(mergeDescendants = true) {
                     contentDescription = titleContentDescription
                 }
@@ -63,8 +56,8 @@ fun PrimaryCard(
                     .fillMaxWidth()
                     .then(
                         if (childPaddingState) {
-                            Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
-                                .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
+                            Modifier
+                                .padding(HmrcTheme.dimensions.hmrcSpacing16)
                         } else {
                             Modifier
                         }
@@ -72,7 +65,6 @@ fun PrimaryCard(
             ) {
                 content()
             }
-            if (childPaddingState) Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
         }
     }
 }

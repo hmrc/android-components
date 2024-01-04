@@ -160,7 +160,7 @@ object HeadlineCardView {
                         }
                         .then(
                             if (childPaddingState) {
-                                Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
+                                Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
                             } else {
                                 Modifier
                             }
@@ -168,7 +168,6 @@ object HeadlineCardView {
                 ) {
                     content()
                 }
-                if (childPaddingState) Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             }
         }
     }

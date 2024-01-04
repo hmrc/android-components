@@ -15,7 +15,6 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -29,7 +28,7 @@ import uk.gov.hmrc.components.compose.atom.button.PrimaryButton
 import uk.gov.hmrc.components.compose.atom.button.SecondaryButton
 import uk.gov.hmrc.components.compose.molecule.inset.InsetTextView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
-import uk.gov.hmrc.components.compose.organism.primary.PrimaryCard
+import uk.gov.hmrc.components.compose.organism.primary.PrimaryCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
@@ -40,7 +39,7 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.
 fun PrimaryCardViewScreen(onClickAction: () -> Unit) {
     ScreenScrollViewColumn {
         PlaceholderSlot {
-            PrimaryCard(
+            PrimaryCardView(
                 title = stringResource(id = R.string.primary_card_placeholder_title),
                 content = {
                     Text(
@@ -53,7 +52,7 @@ fun PrimaryCardViewScreen(onClickAction: () -> Unit) {
 
         ExamplesSlot {
             HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
-                PrimaryCard(
+                PrimaryCardView(
                     title = stringResource(id = R.string.primary_card_example_1_title),
                     content = {
                         Text(
@@ -64,20 +63,20 @@ fun PrimaryCardViewScreen(onClickAction: () -> Unit) {
                 )
             }
             HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
-                PrimaryCard(
-                    title = stringResource(id = R.string.primary_card_example_2_title),
+                PrimaryCardView(
+                    title = stringResource(id = R.string.longer_text),
                     content = {
                         Text(
-                            text = stringResource(id = R.string.primary_card_example_2_body),
+                            text = stringResource(id = R.string.longest_text),
                             style = HmrcTheme.typography.body
                         )
                         Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-                        InsetTextView(text = stringResource(id = R.string.primary_card_example_2_title))
+                        InsetTextView(text = stringResource(id = R.string.longer_text))
                     }
                 )
             }
             HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
-                PrimaryCard(
+                PrimaryCardView(
                     title = stringResource(id = R.string.primary_card_example_1_title),
                     content = {
                         Text(
@@ -91,29 +90,28 @@ fun PrimaryCardViewScreen(onClickAction: () -> Unit) {
                 )
             }
             HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
-                PrimaryCard(
+                PrimaryCardView(
                     childPadding = false,
-                    title = stringResource(id = R.string.primary_card_example_2_title),
+                    title = stringResource(id = R.string.longer_text),
                     content = {
                         Text(
                             modifier = Modifier
-                                .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
-                                .padding(top = HmrcTheme.dimensions.hmrcSpacing16),
-                            text = stringResource(id = R.string.primary_card_example_2_body),
-                            style = HmrcTheme.typography.body
+                                .padding(start = HmrcTheme.dimensions.hmrcSpacing16, end = HmrcTheme.dimensions.hmrcSpacing16,  top = HmrcTheme.dimensions.hmrcSpacing16),
+                                text = stringResource(id = R.string.longest_text),
+                                style = HmrcTheme.typography.body
                         )
-                        SecondaryButton(text = stringResource(id = R.string.primary_d_carexample_4_button),
+                        SecondaryButton(text = stringResource(id = R.string.long_text),
                             textAlign = TextAlign.Start,
                             onClick = {onClickAction()})
                     }
                 )
             }
             HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
-                PrimaryCard(
+                PrimaryCardView(
                     childPadding = false,
-                    title = stringResource(id = R.string.primary_card_example_2_title),
+                    title = stringResource(id = R.string.longer_text),
                     content = {
-                        IconButton(text = stringResource(id = R.string.primary_d_carexample_4_button),
+                        IconButton(text = stringResource(id = R.string.long_text),
                             iconResId = R.drawable.ic_info,
                             onClick = {onClickAction()})
                     }
