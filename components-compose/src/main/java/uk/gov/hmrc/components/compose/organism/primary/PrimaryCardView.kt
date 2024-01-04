@@ -44,7 +44,11 @@ fun PrimaryCardView(
         Heading5(
             text = title,
             modifier = Modifier
-                .padding(start = HmrcTheme.dimensions.hmrcSpacing16, end = HmrcTheme.dimensions.hmrcSpacing16, top = HmrcTheme.dimensions.hmrcSpacing16)
+                .padding(
+                    start = HmrcTheme.dimensions.hmrcSpacing16,
+                    end = HmrcTheme.dimensions.hmrcSpacing16,
+                    top = HmrcTheme.dimensions.hmrcSpacing16
+                )
                 .semantics(mergeDescendants = true) {
                     contentDescription = titleContentDescription
                 }
