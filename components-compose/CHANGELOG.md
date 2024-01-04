@@ -16,7 +16,9 @@ Allowed headings:
 
 ## [Unreleased]
 
-Initial release of the HMRC Android Component Library built with Jetpack Compose!
+## [0.0.3] - 2024-01-02Z
+
+Initial alpha release of the HMRC Android Component Library, containing an initial subsection of HMRC Components built with Jetpack Compose!
 
 ### Added
 
