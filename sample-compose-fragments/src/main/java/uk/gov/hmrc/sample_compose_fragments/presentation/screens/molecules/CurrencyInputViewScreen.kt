@@ -35,14 +35,14 @@ fun CurrencyInputViewScreen() {
 
     val viewModel = viewModel<CurrencyInputViewModel>()
 
-    val errorText1 = stringResource(id = R.string.currency_input_example_1_error)
-    val errorText2 = stringResource(id = R.string.currency_input_example_2_error)
-    val errorText3 = stringResource(id = R.string.currency_input_example_3_error)
+    val errorText = stringResource(id = R.string.currency_input_example_error)
 
     ScreenScrollViewColumn {
         PlaceholderSlot {
             CurrencyInputView(
-                labelText = stringResource(id = R.string.currency_input_placeholder_hint),
+                labelText = stringResource(id = R.string.currency_input_placeholder_label),
+                hintText = stringResource(id = R.string.currency_input_placeholder_hint),
+                placeholderText = stringResource(id = R.string.currency_input_placeholder_placeholder),
                 enableDecimal = true,
             )
         }
@@ -54,9 +54,10 @@ fun CurrencyInputViewScreen() {
                         horizontal = HmrcTheme.dimensions.hmrcSpacing16,
                         vertical = HmrcTheme.dimensions.hmrcSpacing24,
                     ),
-                    onInputValueChange = { viewModel.isEmptyValidation(it, errorText1, 0) },
+                    onInputValueChange = { viewModel.isEmptyValidation(it, errorText, 0) },
                     errorText = viewModel.textInputErrorEmptyValidation.collectAsStateWithLifecycle().value,
-                    labelText = stringResource(id = R.string.currency_input_example_1_hint),
+                    labelText = stringResource(id = R.string.currency_input_example_1_label),
+                    hintText = stringResource(id = R.string.currency_input_example_1_hint),
                     enableDecimal = true
                 )
 
@@ -65,9 +66,10 @@ fun CurrencyInputViewScreen() {
                         horizontal = HmrcTheme.dimensions.hmrcSpacing16,
                         vertical = HmrcTheme.dimensions.hmrcSpacing24,
                     ),
-                    onInputValueChange = { viewModel.isEmptyValidation(it, errorText2, 1) },
+                    onInputValueChange = { viewModel.isEmptyValidation(it, errorText, 1) },
                     errorText = viewModel.textInputErrorEmptyValidation1.collectAsStateWithLifecycle().value,
-                    labelText = stringResource(id = R.string.currency_input_example_2_hint),
+                    labelText = stringResource(id = R.string.currency_input_example_2_label),
+                    hintText = stringResource(id = R.string.currency_input_example_2_hint),
                     enableDecimal = false
                 )
 
@@ -77,9 +79,10 @@ fun CurrencyInputViewScreen() {
                         vertical = HmrcTheme.dimensions.hmrcSpacing24,
                     ),
                     initialInputValue = stringResource(id = R.string.currency_input_example_3_text),
-                    onInputValueChange = { viewModel.isEmptyValidation(it, errorText3, 2) },
+                    onInputValueChange = { viewModel.isEmptyValidation(it, errorText, 2) },
                     errorText = viewModel.textInputErrorEmptyValidation2.collectAsStateWithLifecycle().value,
-                    labelText = stringResource(id = R.string.currency_input_example_3_hint),
+                    labelText = stringResource(id = R.string.currency_input_example_3_label),
+                    hintText = stringResource(id = R.string.currency_input_example_3_hint),
                     enableDecimal = true
                 )
 
@@ -89,7 +92,7 @@ fun CurrencyInputViewScreen() {
                         vertical = HmrcTheme.dimensions.hmrcSpacing24,
                     ),
                     initialInputValue = stringResource(id = R.string.currency_input_example_3_text),
-                    onInputValueChange = { viewModel.isEmptyValidation(it, errorText3, 3) },
+                    onInputValueChange = { viewModel.isEmptyValidation(it, errorText, 3) },
                     errorText = viewModel.textInputErrorEmptyValidation3.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.currency_input_example_4_label),
                     hintText = stringResource(id = R.string.currency_input_example_4_hint),

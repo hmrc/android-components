@@ -36,8 +36,7 @@ fun CurrencyInputView(
     placeholderText: String? = null,
     errorText: String? = null,
     errorContentDescription: String? = null,
-    characterCount: Int? = null,
-    singleLine: Boolean = false,
+    singleLine: Boolean = true,
     enableDecimal: Boolean = true,
 ) {
 
@@ -65,7 +64,6 @@ fun CurrencyInputView(
         placeholderText = placeholderText,
         errorText = errorText,
         errorContentDescription = errorContentDescription,
-        characterCount = characterCount,
         singleLine = singleLine,
         keyboardOptions = KeyboardOptions(
             keyboardType = if (enableDecimal) KeyboardType.Decimal else KeyboardType.Number
