@@ -39,7 +39,6 @@ fun PrimaryCardViewScreen(onClickAction: () -> Unit) {
     ScreenScrollViewColumn {
         PlaceholderSlot {
             PrimaryCardView(
-                modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
                 title = stringResource(id = R.string.primary_card_placeholder_title),
                 content = {
                     Text(
@@ -74,7 +73,6 @@ fun PrimaryCardViewScreen(onClickAction: () -> Unit) {
                 InsetTextView(text = stringResource(id = R.string.longer_text))
             }
         )
-    }
         PrimaryCardView(
             modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
             title = stringResource(id = R.string.primary_card_example_1_title),
@@ -121,4 +119,4 @@ fun PrimaryCardViewScreen(onClickAction: () -> Unit) {
             }
         )
     }
-
+}
