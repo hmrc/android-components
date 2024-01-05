@@ -67,6 +67,7 @@ dependencies {
     implementation Libs.compose_tooling
     implementation Libs.compose_foundation
     implementation Libs.compose_material
+    implementation Libs.compose_material_android
 
     testImplementation Libs.junit
 
