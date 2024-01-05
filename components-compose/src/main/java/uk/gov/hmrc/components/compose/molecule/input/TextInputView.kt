@@ -74,12 +74,14 @@ object TextInputView {
 
         val counterEnabled: Boolean = characterCount != null
 
-        val error: @Composable (() -> Unit)? = errorText?.let { @Composable {
-            Text(
-                text = it,
-                modifier = Modifier.semantics { errorContentDescription?.let { contentDescription = it } }
-            )
-        } }
+        val error: @Composable (() -> Unit)? = errorText?.let {
+            @Composable {
+                Text(
+                    text = it,
+                    modifier = Modifier.semantics { errorContentDescription?.let { contentDescription = it } }
+                )
+            }
+        }
 
         val errorTextCounterCombo: @Composable (() -> Unit) = @Composable {
             Row {
@@ -149,7 +151,7 @@ object TextInputView {
     }
 
     @Composable
-    private fun Label(labelText: String?, labelContentDescription: String?, ) {
+    private fun Label(labelText: String?, labelContentDescription: String?,) {
         labelText?.let { label ->
             Text(
                 text = label,
