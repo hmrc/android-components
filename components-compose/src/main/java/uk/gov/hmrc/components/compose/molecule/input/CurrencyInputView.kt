@@ -42,9 +42,9 @@ fun CurrencyInputView(
 ) {
 
     // pattern matches a decimal number
-    val decimalPattern = remember { Regex("^(?!0[0-9])[0-9]+(\\.?)([0-9]*)") }
+    val decimalPattern = remember { Regex("^([0-9]*)(\\.?)([0-9]*)$") }
     // pattern matches a non decimal number
-    val nonDecimalPattern = remember { Regex("^(?!0[0-9])[0-9]+$") }
+    val nonDecimalPattern = remember { Regex("^([0-9]*)$") }
 
     fun decimalPatternChecker(input: String, localValue: String) = when {
         enableDecimal && input.matches(decimalPattern) -> input
