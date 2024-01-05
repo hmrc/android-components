@@ -39,7 +39,8 @@ class ComposeDependencies {
         const val androidX_activity_activityCompose = "androidx.activity:activity-compose:1.8.2"
         const val androidX_appCompat = "androidx.appcompat:appcompat:1.6.1"
         const val androidX_coreKtx = "androidx.core:core-ktx:1.12.0"
-        const val androidX_lifecycle_runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.6.2"
+        const val androidX_lifecycle_runtimeKtx =
+            "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleVersion}"
         const val androidX_navigation_fragment =
             "androidx.navigation:navigation-fragment-ktx:${Versions.jetpackNavigation}"
         const val androidX_navigation_ui =

@@ -29,6 +29,13 @@ Allowed headings:
 * androidx.compose.material3:material3:1.1.1 -> 1.1.2
 * androidx.navigation:navigation-fragment-ktx:2.6.0 -> 2.7.6
 * androidx.navigation:navigation-ui:2.6.0 -> 2.7.6
+* androidx.compose:compose-bom:2022.12.00 -> 2023.10.01
+* com.google.android.material:material:1.8.0 -> 1.11.0
+* androidx.compose.material:material:1.4.1 -> 1.5.4
+* androidx.activity:activity-compose:1.7.2 -> 1.8.2
+* androidx.core:core-ktx:1.10.1 -> 1.12.0
+* lifecycleVersion updated to 2.6.2
+* androidx.compose.runtime:runtime-livedata:1.4.2 -> 1.5.4
 
 ## [0.0.3] - 2024-01-02Z
 
