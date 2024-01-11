@@ -78,6 +78,7 @@ object TextInputView {
             @Composable {
                 Text(
                     text = it,
+                    style = typography.errorText,
                     modifier = Modifier.semantics { errorContentDescription?.let { contentDescription = it } }
                 )
             }
@@ -92,6 +93,7 @@ object TextInputView {
                     if (errorText != null) {
                         Text(
                             text = errorText,
+                            style = typography.errorText,
                             modifier = Modifier.semantics {
                                 errorContentDescription?.let {
                                     contentDescription = it
@@ -101,8 +103,12 @@ object TextInputView {
                     }
                 }
                 Column(horizontalAlignment = Alignment.End, modifier = Modifier.fillMaxWidth(CHAR_COUNT_WIDTH)) {
+                    val textStyle = characterCount?.let {
+                        limit -> if (localValue.length > limit) typography.errorText else typography.body
+                    } ?: typography.body
                     Text(
                         text = "${localValue.length}/$characterCount",
+                        style = textStyle,
                         textAlign = TextAlign.End,
                     )
                 }
