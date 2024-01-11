@@ -103,8 +103,8 @@ object TextInputView {
                     }
                 }
                 Column(horizontalAlignment = Alignment.End, modifier = Modifier.fillMaxWidth(CHAR_COUNT_WIDTH)) {
-                    val textStyle = characterCount?.let {
-                        limit -> if (localValue.length > limit) typography.errorText else typography.body
+                    val textStyle = characterCount?.let { limit ->
+                        if (localValue.length > limit) typography.errorText else typography.body
                     } ?: typography.body
                     Text(
                         text = "${localValue.length}/$characterCount",
