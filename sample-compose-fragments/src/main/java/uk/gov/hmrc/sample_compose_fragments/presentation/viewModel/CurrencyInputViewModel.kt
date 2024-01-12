@@ -34,7 +34,8 @@ class CurrencyInputViewModel @Inject constructor(): ViewModel() {
     val textInputErrorEmptyValidation1: StateFlow<String?> get() = _textInputErrorEmptyValidation1
     private val _textInputErrorEmptyValidation2 = MutableStateFlow<String?>(null)
     val textInputErrorEmptyValidation2: StateFlow<String?> get() = _textInputErrorEmptyValidation2
-
+    private val _textInputErrorEmptyValidation3 = MutableStateFlow<String?>(null)
+    val textInputErrorEmptyValidation3: StateFlow<String?> get() = _textInputErrorEmptyValidation3
 
     fun isEmptyValidation(input: String, errorText: String, id: Int) {
         viewModelScope.launch {
@@ -43,6 +44,7 @@ class CurrencyInputViewModel @Inject constructor(): ViewModel() {
                     0 -> _textInputErrorEmptyValidation.value = if (input.isBlank()) errorText else null
                     1 -> _textInputErrorEmptyValidation1.value = if (input.isBlank()) errorText else null
                     2 -> _textInputErrorEmptyValidation2.value = if (input.isBlank()) errorText else null
+                    3 -> _textInputErrorEmptyValidation3.value = if (input.isBlank()) errorText else null
                 }
             }
         }

@@ -15,55 +15,78 @@
  */
 package uk.gov.hmrc.components.compose.molecule.input
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
 fun CurrencyInputView(
     modifier: Modifier = Modifier,
+    initialInputValue: String = "",
     onInputValueChange: ((String) -> Unit)? = null,
+    labelText: String? = null,
+    labelContentDescription: String? = null,
+    hintText: String? = null,
+    hintContentDescription: String? = null,
     placeholderText: String? = null,
     errorText: String? = null,
     errorContentDescription: String? = null,
-    labelText: String? = null,
-    labelContentDescription: String? = null,
-    singleLine: Boolean = false,
-    characterCount: Int? = null,
+    singleLine: Boolean = true,
     enableDecimal: Boolean = true,
 ) {
 
     // pattern matches a decimal number
-    val decimalPattern = remember { Regex("^(?!0[0-9])[0-9]+(\\.?)([0-9]?[0-9]?)") }
+    val decimalPattern = remember { Regex("^([0-9]*)(\\.?)([0-9]*)$") }
     // pattern matches a non decimal number
-    val nonDecimalPattern = remember { Regex("^(?!0[0-9])[0-9]+$") }
+    val nonDecimalPattern = remember { Regex("^([0-9]*)$") }
 
-    fun decimalPatternChecker(input: String, localValue: String): (String) {
-        val matchesDecimal: Boolean = input.matches(decimalPattern)
-
-        return if (enableDecimal) {
-            if (matchesDecimal) {
-                input.filter { input.matches(decimalPattern) }
-            } else localValue
-        } else input.filter { input.matches(nonDecimalPattern) }
+    fun decimalPatternChecker(input: String, localValue: String) = when {
+        enableDecimal && input.matches(decimalPattern) -> input
+        !enableDecimal && input.matches(nonDecimalPattern) -> input
+        else -> localValue
     }
 
     TextInputView(
-        modifier,
-        onInputValueChange,
+        modifier = modifier,
+        initialInputValue = initialInputValue,
+        onInputValueChange = onInputValueChange,
         inputFilter = { it: String, localValue: String -> decimalPatternChecker(it, localValue) },
-        placeholderText,
-        errorText,
-        errorContentDescription,
-        labelText,
-        labelContentDescription,
-        singleLine,
-        characterCount,
-        prefix = { Text(text = "£") },
-        keyboardOptions = if (enableDecimal) KeyboardOptions(keyboardType = KeyboardType.Decimal)
-        else KeyboardOptions(keyboardType = KeyboardType.Number)
+        labelText = labelText,
+        labelContentDescription = labelContentDescription,
+        hintText = hintText,
+        hintContentDescription = hintContentDescription,
+        prefix = {
+            Text(
+                text = "£",
+                style = HmrcTheme.typography.body,
+                modifier = Modifier.padding(end = HmrcTheme.dimensions.hmrcSpacing8)
+            )
+        },
+        placeholderText = placeholderText,
+        errorText = errorText,
+        errorContentDescription = errorContentDescription,
+        singleLine = singleLine,
+        keyboardOptions = KeyboardOptions(
+            keyboardType = if (enableDecimal) KeyboardType.Decimal else KeyboardType.Number
+        )
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CurrencyInputViewPreview() {
+    HmrcTheme {
+        CurrencyInputView(
+            onInputValueChange = { },
+            labelText = "Label",
+            hintText = "Hint",
+            placeholderText = "Text"
+        )
+    }
 }
