@@ -30,7 +30,6 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
-import uk.gov.hmrc.components.compose.organism.headline.HeadlineCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
