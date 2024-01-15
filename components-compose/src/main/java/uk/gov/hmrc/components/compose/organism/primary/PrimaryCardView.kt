@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -26,8 +27,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.tooling.preview.Preview
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
+import uk.gov.hmrc.components.compose.organism.headline.HeadlineCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
@@ -70,5 +73,39 @@ fun PrimaryCardView(
                 content()
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun PrimaryCardViewPreviewEmpty() {
+    HmrcTheme() {
+        PrimaryCardView(
+            modifier = Modifier,
+            title = "",
+            content = {
+                Text(
+                    text = "",
+                    style = HmrcTheme.typography.body
+                )
+            }
+        )
+    }
+}
+
+@Preview
+@Composable
+fun PrimaryCardViewPreviewFull() {
+    HmrcTheme() {
+        PrimaryCardView(
+            modifier = Modifier,
+            title = "Title",
+            content = {
+                Text(
+                    text = "Body",
+                    style = HmrcTheme.typography.body
+                )
+            }
+        )
     }
 }

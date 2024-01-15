@@ -149,7 +149,6 @@ object HeadlineCardView {
                     }
                     .fillMaxWidth()
             )
-            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             if (content != null) {
                 Column(
                     modifier = Modifier
