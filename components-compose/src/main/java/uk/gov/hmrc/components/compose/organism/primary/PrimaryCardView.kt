@@ -79,16 +79,7 @@ fun PrimaryCardView(
 @Composable
 fun PrimaryCardViewPreviewEmpty() {
     HmrcTheme() {
-        PrimaryCardView(
-            modifier = Modifier,
-            title = "",
-            content = {
-                Text(
-                    text = "",
-                    style = HmrcTheme.typography.body
-                )
-            }
-        )
+        PrimaryCardView(title = "Title")
     }
 }
 
