@@ -18,6 +18,7 @@ package uk.gov.hmrc.components.compose.molecule.tabbar
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.SecondaryScrollableTabRow
 import androidx.compose.material3.SecondaryTabRow
 import androidx.compose.material3.Tab
@@ -72,6 +73,7 @@ fun TabBarView(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun HmrcTabRow(
     tabItems: List<String>,
@@ -91,10 +93,10 @@ private fun HmrcTabRow(
             },
         containerColor = if (tabBarStyle == TabBarViewStyle.LIGHT) HmrcTheme.colors.hmrcWhite else HmrcBlack,
         divider = {}, // Empty divider, we don't want the grey divider at the bottom of the Tab.
-        indicator = { tabPositions ->
+        indicator = {
             TabRowDefaults.SecondaryIndicator(
                 Modifier
-                    .tabIndicatorOffset(tabPositions[selectedIndex])
+                    .tabIndicatorOffset(selectedIndex)
                     .height(HmrcTheme.dimensions.hmrcSpacing4),
                 color = if (tabBarStyle == TabBarViewStyle.LIGHT) HmrcTheme.colors.hmrcBlue else HmrcWhite,
             )
@@ -103,6 +105,7 @@ private fun HmrcTabRow(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun HmrcScrollableTabRow(
     tabItems: List<String>,

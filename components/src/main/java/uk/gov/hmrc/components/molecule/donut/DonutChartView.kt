@@ -167,7 +167,7 @@ class DonutChartView @JvmOverloads constructor(
         }
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         val white = stripesOrPlain(false, ContextCompat.getColor(context, R.color.hmrc_white_background))
 
         canvas?.apply {
