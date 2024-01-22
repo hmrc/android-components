@@ -375,4 +375,11 @@
     <string name="tab_bar_view_long_tab_item_3">and component becomes</string>
     <string name="tab_bar_view_long_tab_item_4">scrollable</string>
 
+    <!-- Primary Card View -->
+    <string name="primary_card_placeholder_title">Title</string>
+    <string name="primary_card_placeholder_body">Body</string>
+    <string name="primary_card_example_1_title">Renew your tax credits</string>
+    <string name="primary_card_example_1_body">Renew your tax credits or check the progress of your claims</string>
+    <string name="primary_card_example_3_button">Renew or check my claims</string>
+
 </resources>

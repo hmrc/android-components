@@ -23,7 +23,6 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.ripple.LocalRippleTheme
@@ -149,7 +148,6 @@ object HeadlineCardView {
                     }
                     .fillMaxWidth()
             )
-            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             if (content != null) {
                 Column(
                     modifier = Modifier
@@ -160,7 +158,7 @@ object HeadlineCardView {
                         }
                         .then(
                             if (childPaddingState) {
-                                Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
+                                Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16)
                             } else {
                                 Modifier
                             }
@@ -168,7 +166,6 @@ object HeadlineCardView {
                 ) {
                     content()
                 }
-                if (childPaddingState) Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             }
         }
     }
