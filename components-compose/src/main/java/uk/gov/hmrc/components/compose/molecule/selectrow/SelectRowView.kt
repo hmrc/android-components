@@ -79,9 +79,7 @@ object SelectRowView {
                         modifier = Modifier
                             .offset(HmrcTheme.dimensions.hmrcSpacing8)
                             .focusable()
-                            .semantics {
-                                liveRegion = LiveRegionMode.Polite
-                            }
+                            .semantics { liveRegion = LiveRegionMode.Polite }
                     )
                     Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing8))
                 }

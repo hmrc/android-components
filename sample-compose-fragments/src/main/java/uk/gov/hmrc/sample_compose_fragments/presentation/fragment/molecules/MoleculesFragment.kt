@@ -26,20 +26,20 @@ import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
-import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.BOTTOM_SHEET_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_BOLD_TITLE_BODY_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_BOTTOM_SHEET_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_CURRENCY_INPUT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H4_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H5_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_TEXT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_MULTI_COLUMN_ROW_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_SELECT_ROW_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_STATUS_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_SWITCH_ROW_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_TAB_BAR_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_TEXT_INPUT_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_WARNING_VIEW
-import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.SELECT_ROW_VIEW
 import uk.gov.hmrc.sample_compose_fragments.navigator.Navigator
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
@@ -102,10 +102,10 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                                 MOLECULE_TAB_BAR_VIEW -> {
                                     with(navigator) { gotoMoleculeTabBarView() }
                                 }
-                                SELECT_ROW_VIEW -> {
+                                MOLECULE_SELECT_ROW_VIEW -> {
                                     with(navigator) { gotoMoleculeSelectRowView() }
                                 }
-                                BOTTOM_SHEET_VIEW -> {
+                                MOLECULE_BOTTOM_SHEET_VIEW -> {
                                     with(navigator) { goToBottomSheetView() }
                                 }
                             }
