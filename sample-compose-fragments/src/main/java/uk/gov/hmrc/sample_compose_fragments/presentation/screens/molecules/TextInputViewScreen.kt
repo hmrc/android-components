@@ -15,12 +15,15 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import uk.gov.hmrc.components.compose.molecule.input.TextInputView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
@@ -48,28 +51,42 @@ fun TextInputViewScreen() {
                     id = 0
                 ) },
                 errorText = viewModel.textInputErrorCharCount.collectAsStateWithLifecycle().value,
-                labelText = stringResource(id = R.string.text_input_placeholder_hint),
+                labelText = stringResource(id = R.string.text_input_placeholder_label),
+                hintText = stringResource(id = R.string.text_input_placeholder_hint),
+                placeholderText = stringResource(id = R.string.text_input_placeholder_placeholder),
                 characterCount = characterCount,
             )
         }
 
         ExamplesSlot {
-            val characterCount1 = 5
-            HmrcCardView() {
+            HmrcCardView {
                 TextInputView(
-                    onInputValueChange = { viewModel.validateCharCount(characterCount1, it, errorTextEx1, 1) },
+                    modifier = Modifier.padding(
+                        horizontal = HmrcTheme.dimensions.hmrcSpacing16,
+                        vertical = HmrcTheme.dimensions.hmrcSpacing24,
+                    ),
+                    onInputValueChange = { viewModel.validateCharCount(5, it, errorTextEx1, 1) },
                     errorText = viewModel.textInputErrorCharCount1.collectAsStateWithLifecycle().value,
                     labelText = stringResource(R.string.text_input_example_1_hint),
-                    characterCount = characterCount1,
+                    labelContentDescription = stringResource(R.string.text_input_example_1_content_description),
+                    characterCount = 5,
                 )
 
                 TextInputView(
+                    modifier = Modifier.padding(
+                        horizontal = HmrcTheme.dimensions.hmrcSpacing16,
+                        vertical = HmrcTheme.dimensions.hmrcSpacing24,
+                    ),
                     onInputValueChange = { viewModel.isEmptyValidation(it, errorTextEx2, 0) },
                     errorText = viewModel.textInputError.collectAsStateWithLifecycle().value,
-                    labelText = stringResource(id = R.string.text_input_example_2_hint)
+                    hintText = stringResource(id = R.string.text_input_example_2_hint)
                 )
 
                 TextInputView(
+                    modifier = Modifier.padding(
+                        horizontal = HmrcTheme.dimensions.hmrcSpacing16,
+                        vertical = HmrcTheme.dimensions.hmrcSpacing24,
+                    ),
                     onInputValueChange = { viewModel.isEmptyValidation(it, errorTextEx3, 1) },
                     errorText = viewModel.textInputErrorEmptyValidation.collectAsStateWithLifecycle().value,
                     labelText = stringResource(R.string.text_input_example_3_hint),

@@ -107,16 +107,18 @@ fun HmrcTheme(
         focusedTextColor = HmrcBlack,
         unfocusedTextColor = HmrcBlack,
         errorTextColor = HmrcRed,
-        errorLeadingIconColor = HmrcRed,
-        errorTrailingIconColor = HmrcRed,
+        errorLeadingIconColor = HmrcBlack,
+        errorTrailingIconColor = HmrcBlack,
         focusedLabelColor = HmrcBlue,
         unfocusedLabelColor = HmrcBlack,
         focusedBorderColor = HmrcBlue,
-        errorBorderColor = HmrcRed,
+        errorBorderColor = HmrcBlack,
         unfocusedBorderColor = HmrcBlack,
         errorSupportingTextColor = HmrcRed,
         focusedSupportingTextColor = HmrcBlack,
-        errorLabelColor = HmrcRed
+        errorLabelColor = HmrcRed,
+        cursorColor = HmrcBlue,
+        errorCursorColor = HmrcRed,
     )
 
     ProvideHmrcTheme(

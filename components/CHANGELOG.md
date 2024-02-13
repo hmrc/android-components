@@ -16,6 +16,17 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* androidx.annotation:annotation:1.6.0 -> 1.7.1
+* androidx.recyclerview:recyclerview:1.3.0 -> 1.3.2
+* androidx.lifecycle:lifecycle-compiler:2.6.1 -> 2.6.2
+* androidx.core:core-ktx:1.10.1 -> 1.12.0
+* com.google.android.material:material:1.9.0 -> 1.11.0
+* compileSdk = 33 -> 34
+* kotlinCompilerExtensionVersion = "1.4.2" -> "1.4.8"
+* kotlin_version = "1.8.10" -> "1.8.22"
+
 ## [4.10.2] - 2023-08-17
 
 ### Fixed

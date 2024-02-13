@@ -45,6 +45,8 @@ interface Navigator {
 
     fun Fragment.gotoMoleculeWarningView()
 
+    fun Fragment.gotoMoleculeTabBarView()
+
     fun Fragment.gotoMoleculeSelectRowView()
 
     fun Fragment.goToMoleculeStatusView()
@@ -52,6 +54,12 @@ interface Navigator {
     fun Fragment.goToIconButtonCardView()
 
     fun Fragment.goToBottomSheetView()
+
+    fun Fragment.goToSeparatedViewContainer()
+
+    fun Fragment.goToHeadlineCardView()
+
+    fun Fragment.goToPrimaryCardView()
 
     fun Fragment.goBack()
 }

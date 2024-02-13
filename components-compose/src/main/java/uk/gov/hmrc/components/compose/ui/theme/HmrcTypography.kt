@@ -67,5 +67,10 @@ data class HmrcTypography(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         color = hmrcRed
+    ),
+    val tabBarText: TextStyle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp,
     )
 )

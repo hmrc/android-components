@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019 HM Revenue & Customs
+     Copyright 2023 HM Revenue & Customs
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,7 +14,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
  -->
-<resources>
-    <string name="textInputView_clear">Clear text</string>
-    <string name="accessibility_warning">warning; %s</string>
-</resources>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24.0"
+    android:viewportHeight="24.0">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M10,6L8.59,7.41 13.17,12l-4.58,4.59L10,18l6,-6z" />
+</vector>

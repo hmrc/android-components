@@ -66,6 +66,10 @@ class AppNavigator @Inject constructor() : Navigator{
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToWarningViewFragment())
     }
 
+    override fun Fragment.gotoMoleculeTabBarView() {
+        navigate(MoleculesFragmentDirections.actionMoleculesFragmentToTabBarViewFragment())
+    }
+
     override fun Fragment.gotoMoleculeSelectRowView() {
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToSelectRowViewFragment())
     }
@@ -76,6 +80,18 @@ class AppNavigator @Inject constructor() : Navigator{
 
     override fun Fragment.goToBottomSheetView() {
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToBottomSheetViewFragment())
+    }
+
+    override fun Fragment.goToSeparatedViewContainer() {
+        navigate(OrganismsFragmentDirections.actionOrganismsFragmentToSeparateViewContainerFragment())
+    }
+
+    override fun Fragment.goToHeadlineCardView() {
+        navigate(OrganismsFragmentDirections.actionOrganismsFragmentToHeadlineCardFragment())
+    }
+
+    override fun Fragment.goToPrimaryCardView() {
+        navigate(OrganismsFragmentDirections.actionOrganismsFragmentToPrimaryCardViewFragment())
     }
 
     override fun Fragment.goBack() {

@@ -43,12 +43,16 @@ class RepositoryImpl @Inject constructor() : Repository {
         ComponentMenuItem(MOLECULE_SWITCH_ROW_VIEW, R.string.molecules_switch_row),
         ComponentMenuItem(MOLECULE_STATUS_VIEW, R.string.molecules_status),
         ComponentMenuItem(MOLECULE_WARNING_VIEW, R.string.molecules_warning),
-        ComponentMenuItem(SELECT_ROW_VIEW, R.string.molecules_select_row),
-        ComponentMenuItem(BOTTOM_SHEET_VIEW, R.string.molecules_bottom_sheet),
+        ComponentMenuItem(MOLECULE_TAB_BAR_VIEW, R.string.molecules_tab_bar),
+        ComponentMenuItem(MOLECULE_SELECT_ROW_VIEW, R.string.molecules_select_row),
+        ComponentMenuItem(MOLECULE_BOTTOM_SHEET_VIEW, R.string.molecules_bottom_sheet),
     )
 
     override suspend fun getOrganismsList() = arrayListOf(
-        ComponentMenuItem(ORGANISM_ICON_BUTTON_CARD_VIEW, R.string.organisms_icon_button_card)
+        ComponentMenuItem(ORGANISM_HEADLINE_CARD_VIEW, R.string.organisms_headline_card),
+        ComponentMenuItem(ORGANISM_PRIMARY_CARD_VIEW, R.string.organisms_primary_card),
+        ComponentMenuItem(ORGANISM_ICON_BUTTON_CARD_VIEW, R.string.organisms_icon_button_card),
+        ComponentMenuItem(ORGANISM_SEPARATED_VIEW_CONTAINER, R.string.organisms_separated_view_container)
     )
 
     companion object {
@@ -69,10 +73,14 @@ class RepositoryImpl @Inject constructor() : Repository {
         const val MOLECULE_SWITCH_ROW_VIEW = 9
         const val MOLECULE_STATUS_VIEW = 10
         const val MOLECULE_WARNING_VIEW = 11
-        const val SELECT_ROW_VIEW = 12
-        const val BOTTOM_SHEET_VIEW = 13
+        const val MOLECULE_TAB_BAR_VIEW = 12
+        const val MOLECULE_SELECT_ROW_VIEW = 13
+        const val MOLECULE_BOTTOM_SHEET_VIEW = 13
 
         // ORGANISM
+        const val ORGANISM_HEADLINE_CARD_VIEW = 1
+        const val ORGANISM_PRIMARY_CARD_VIEW = 2
         const val ORGANISM_ICON_BUTTON_CARD_VIEW = 4
+        const val ORGANISM_SEPARATED_VIEW_CONTAINER = 6
     }
 }
