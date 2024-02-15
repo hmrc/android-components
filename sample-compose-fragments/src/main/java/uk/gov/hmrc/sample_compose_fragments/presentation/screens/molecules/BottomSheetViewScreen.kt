@@ -17,6 +17,7 @@ import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView
 import uk.gov.hmrc.components.compose.molecule.titleBody.H5TitleBodyView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
@@ -33,75 +34,77 @@ fun BottomSheetViewScreen() {
     var openBottomSheetExample10: Boolean by rememberSaveable { mutableStateOf(false) }
 
     ScreenScrollViewColumn {
-        PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_1)) {
-            openBottomSheetExample1 = true
-        }
-        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-        PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_2)) {
-            openBottomSheetExample2 = true
-        }
-        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-        PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_3)) {
-            openBottomSheetExample3 = true
-        }
-        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-        PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_4)) {
-            openBottomSheetExample4 = true
-        }
-        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-        PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_5)) {
-            openBottomSheetExample5 = true
-        }
-        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-        PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_6)) {
-            openBottomSheetExample6 = true
-        }
-        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-        PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_7)) {
-            openBottomSheetExample7 = true
-        }
-        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-        PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_8)) {
-            openBottomSheetExample8 = true
-        }
-        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-        PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_9)) {
-            openBottomSheetExample9 = true
-        }
-        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-        PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_10)) {
-            openBottomSheetExample10 = true
-        }
+        ExamplesSlot {
+            PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_1)) {
+                openBottomSheetExample1 = true
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_2)) {
+                openBottomSheetExample2 = true
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_3)) {
+                openBottomSheetExample3 = true
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_4)) {
+                openBottomSheetExample4 = true
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_5)) {
+                openBottomSheetExample5 = true
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_6)) {
+                openBottomSheetExample6 = true
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_7)) {
+                openBottomSheetExample7 = true
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_8)) {
+                openBottomSheetExample8 = true
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_9)) {
+                openBottomSheetExample9 = true
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_10)) {
+                openBottomSheetExample10 = true
+            }
 
-        SimpleBottomSheetExample(openBottomSheet = openBottomSheetExample1) {
-            openBottomSheetExample1 = !openBottomSheetExample1
-        }
-        SimpleBottomSheetExtendedExample(openBottomSheet = openBottomSheetExample2) {
-            openBottomSheetExample2= !openBottomSheetExample2
-        }
-        SimpleBottomFullSheetExample(openBottomSheet = openBottomSheetExample3) {
-            openBottomSheetExample3 = !openBottomSheetExample3
-        }
-        SimpleBottomFullSheetExtendedExample(openBottomSheet = openBottomSheetExample4) {
-            openBottomSheetExample4= !openBottomSheetExample4
-        }
-        SimpleLongBottomSheetExample(openBottomSheet = openBottomSheetExample5) {
-            openBottomSheetExample5 = !openBottomSheetExample5
-        }
-        SimpleLongBottomSheetExtendedExample(openBottomSheet = openBottomSheetExample6) {
-            openBottomSheetExample6= !openBottomSheetExample6
-        }
-        ScrollableBottomSheetExample(openBottomSheet = openBottomSheetExample7) {
-            openBottomSheetExample7 = !openBottomSheetExample7
-        }
-        ExtendedScrollableBottomSheetExample(openBottomSheet = openBottomSheetExample8) {
-            openBottomSheetExample8 = !openBottomSheetExample8
-        }
-        SmallExampleBottomSheet(openBottomSheet = openBottomSheetExample9) {
-            openBottomSheetExample9 = !openBottomSheetExample9
-        }
-        SmallExampleBottomSheetExtended(openBottomSheet = openBottomSheetExample10) {
-            openBottomSheetExample10 = !openBottomSheetExample10
+            SimpleBottomSheetExample(openBottomSheet = openBottomSheetExample1) {
+                openBottomSheetExample1 = !openBottomSheetExample1
+            }
+            SimpleBottomSheetExtendedExample(openBottomSheet = openBottomSheetExample2) {
+                openBottomSheetExample2 = !openBottomSheetExample2
+            }
+            SimpleBottomFullSheetExample(openBottomSheet = openBottomSheetExample3) {
+                openBottomSheetExample3 = !openBottomSheetExample3
+            }
+            SimpleBottomFullSheetExtendedExample(openBottomSheet = openBottomSheetExample4) {
+                openBottomSheetExample4 = !openBottomSheetExample4
+            }
+            SimpleLongBottomSheetExample(openBottomSheet = openBottomSheetExample5) {
+                openBottomSheetExample5 = !openBottomSheetExample5
+            }
+            SimpleLongBottomSheetExtendedExample(openBottomSheet = openBottomSheetExample6) {
+                openBottomSheetExample6 = !openBottomSheetExample6
+            }
+            ScrollableBottomSheetExample(openBottomSheet = openBottomSheetExample7) {
+                openBottomSheetExample7 = !openBottomSheetExample7
+            }
+            ExtendedScrollableBottomSheetExample(openBottomSheet = openBottomSheetExample8) {
+                openBottomSheetExample8 = !openBottomSheetExample8
+            }
+            SmallExampleBottomSheet(openBottomSheet = openBottomSheetExample9) {
+                openBottomSheetExample9 = !openBottomSheetExample9
+            }
+            SmallExampleBottomSheetExtended(openBottomSheet = openBottomSheetExample10) {
+                openBottomSheetExample10 = !openBottomSheetExample10
+            }
         }
     }
 }
@@ -155,15 +158,17 @@ fun SimpleBottomFullSheetExtendedExample(openBottomSheet: Boolean, onDismissRequ
 @Composable
 fun SimpleContent(onDismissRequest: () -> Unit) {
     H5TitleBodyView(
-        titleText = "Do you receive Blind Person's Allowance?",
-        bodyText = "If you're registered blind or severely sight impaired, you may get Blind Person's Allowance. " +
-                "This increases your Personal Allowance and means you pay less tax."
+        titleText = stringResource(id = R.string.bottom_sheet_example_long_content_title),
+        bodyText = stringResource(id = R.string.bottom_sheet_example_long_content_body),
     )
     SelectRowView(
-        selectRowViewItems = listOf("Yes", "No"),
+        selectRowViewItems = listOf(
+            stringResource(id = R.string.bottom_sheet_example_yes),
+            stringResource(id = R.string.bottom_sheet_example_no)
+        ),
         defaultRowHorizontalPadding = false
     ) { _, _ -> }
-    PrimaryButton("Save") { onDismissRequest() }
+    PrimaryButton(stringResource(id = R.string.bottom_sheet_example_save)) { onDismissRequest() }
 }
 
 @Composable
@@ -191,15 +196,20 @@ fun SimpleLongBottomSheetExtendedExample(openBottomSheet: Boolean, onDismissRequ
 @Composable
 fun SimpleLongContentExample(onDismissRequest: () -> Unit) {
     H5TitleBodyView(
-        titleText = "Do you receive Blind Person's Allowance?",
-        bodyText = "If you're registered blind or severely sight impaired, you may get Blind Person's Allowance. " +
-                "This increases your Personal Allowance and means you pay less tax."
+        titleText = stringResource(id = R.string.bottom_sheet_example_long_content_title),
+        bodyText = stringResource(id = R.string.bottom_sheet_example_long_content_body),
     )
     SelectRowView(
-        selectRowViewItems = listOf("Yes", "No", "Maybe", "I don't know", "Repeat question"),
+        selectRowViewItems = listOf(
+            stringResource(id = R.string.bottom_sheet_example_yes),
+            stringResource(id = R.string.bottom_sheet_example_no),
+            stringResource(id = R.string.bottom_sheet_example_maybe),
+            stringResource(id = R.string.bottom_sheet_example_dont_know),
+            stringResource(id = R.string.bottom_sheet_example_repeat_question),
+        ),
         defaultRowHorizontalPadding = false
     ) { _, _ -> }
-    PrimaryButton("Save") { onDismissRequest() }
+    PrimaryButton(stringResource(id = R.string.bottom_sheet_example_save)) { onDismissRequest() }
 }
 
 @Composable
@@ -227,9 +237,8 @@ fun ExtendedScrollableBottomSheetExample(openBottomSheet: Boolean, onDismissRequ
 @Composable
 fun ScrollableExampleContent(onDismissRequest: () -> Unit) {
     H5TitleBodyView(
-        titleText = "Do you receive Blind Person's Allowance?",
-        bodyText = "If you're registered blind or severely sight impaired, you may get Blind Person's Allowance. " +
-                "This increases your Personal Allowance and means you pay less tax.",
+        titleText = stringResource(id = R.string.bottom_sheet_example_long_content_title),
+        bodyText = stringResource(id = R.string.bottom_sheet_example_long_content_body),
         modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
     )
     H5TitleBodyView(
@@ -272,7 +281,7 @@ fun ScrollableExampleContent(onDismissRequest: () -> Unit) {
         bodyText = stringResource(R.string.longest_text),
         modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)
     )
-    PrimaryButton("Okay") { onDismissRequest() }
+    PrimaryButton(stringResource(R.string.bottom_sheet_example_okay)) { onDismissRequest() }
 }
 
 @Composable
@@ -282,7 +291,7 @@ fun SmallExampleBottomSheet(openBottomSheet: Boolean, onDismissRequest: () -> Un
         skipPartiallyExpanded = false,
         onDismissRequest = onDismissRequest
     ) {
-        Text("Hello!")
+        Text(stringResource(R.string.bottom_sheet_example_hello))
     }
 }
 
@@ -294,6 +303,6 @@ fun SmallExampleBottomSheetExtended(openBottomSheet: Boolean, onDismissRequest: 
         enableFullScreenExpansion = true,
         onDismissRequest = onDismissRequest
     ) {
-        Text("Hello!")
+        Text(stringResource(R.string.bottom_sheet_example_hello))
     }
 }

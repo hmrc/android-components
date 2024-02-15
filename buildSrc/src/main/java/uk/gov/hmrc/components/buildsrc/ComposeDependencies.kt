@@ -26,7 +26,7 @@ class ComposeDependencies {
     }
 
     object Libs {
-        const val compose_bom = "androidx.compose:compose-bom:2023.10.01"
+        const val compose_bom = "androidx.compose:compose-bom:2024.02.00"
         const val compose_foundation = "androidx.compose.foundation:foundation"
         const val compose_material = "androidx.compose.material3:material3"
         const val compose_material_android = "androidx.compose.material3:material3-android:1.2.0-beta01"

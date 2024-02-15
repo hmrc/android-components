@@ -375,6 +375,16 @@
     <string name="bottom_sheet_example_8">Scrollable bottom sheet, extended</string>
     <string name="bottom_sheet_example_9">Short bottom sheet</string>
     <string name="bottom_sheet_example_10">Short bottom sheet, extended</string>
+    <string name="bottom_sheet_example_yes">Yes</string>
+    <string name="bottom_sheet_example_no">No</string>
+    <string name="bottom_sheet_example_maybe">Maybe</string>
+    <string name="bottom_sheet_example_dont_know">I don\'t know</string>
+    <string name="bottom_sheet_example_repeat_question">Repeat question</string>
+    <string name="bottom_sheet_example_long_content_title">Do you receive Blind Person\'s Allowance?</string>
+    <string name="bottom_sheet_example_long_content_body">If you\'re registered blind or severely sight impaired, you may get Blind Person\'s Allowance. This increases your Personal Allowance and means you pay less tax.</string>
+    <string name="bottom_sheet_example_save">Save</string>
+    <string name="bottom_sheet_example_okay">Okay</string>
+    <string name="bottom_sheet_example_hello">Hello!</string>
 
     <!--  Tab Bar View  -->
     <string name="tab_bar_view_light_tab_item_1">Light</string>

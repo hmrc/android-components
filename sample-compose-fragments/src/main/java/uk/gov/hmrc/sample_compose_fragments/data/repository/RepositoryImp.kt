@@ -75,7 +75,7 @@ class RepositoryImpl @Inject constructor() : Repository {
         const val MOLECULE_WARNING_VIEW = 11
         const val MOLECULE_TAB_BAR_VIEW = 12
         const val MOLECULE_SELECT_ROW_VIEW = 13
-        const val MOLECULE_BOTTOM_SHEET_VIEW = 13
+        const val MOLECULE_BOTTOM_SHEET_VIEW = 14
 
         // ORGANISM
         const val ORGANISM_HEADLINE_CARD_VIEW = 1
