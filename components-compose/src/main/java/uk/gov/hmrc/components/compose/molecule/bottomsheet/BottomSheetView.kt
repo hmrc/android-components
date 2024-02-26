@@ -25,8 +25,8 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeContent
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -120,7 +120,7 @@ object BottomSheetView {
                             .verticalScroll(rememberScrollState())
                     ) {
                         sheetContent()
-                        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.systemBars))
+                        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeContent))
                     }
                 } else {
                     Column(
@@ -129,7 +129,7 @@ object BottomSheetView {
                             .verticalScroll(rememberScrollState())
                     ) {
                         sheetContent()
-                        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.systemBars))
+                        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeContent))
                     }
                 }
             }
