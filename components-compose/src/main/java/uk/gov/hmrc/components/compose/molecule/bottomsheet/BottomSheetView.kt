@@ -20,15 +20,18 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
@@ -60,12 +63,14 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 object BottomSheetView {
 
     @OptIn(ExperimentalMaterial3Api::class)
+    @Suppress("LongMethod")
     @Composable
     operator fun invoke(
         modifier: Modifier = Modifier,
         showBottomSheet: Boolean,
         skipPartiallyExpanded: Boolean = false,
         enableFullScreenExpansion: Boolean = false,
+        topWindowInset: Dp = HmrcTheme.dimensions.hmrcSpacing48,
         onDismissRequest: () -> Unit,
         sheetContent: @Composable ColumnScope.() -> Unit,
     ) {
@@ -78,7 +83,7 @@ object BottomSheetView {
                 onDismissRequest = onDismissRequest,
                 sheetState = sheetState,
                 containerColor = colors.hmrcWhiteBackground,
-                windowInsets = BottomSheetDefaults.windowInsets,
+                windowInsets = WindowInsets(top = topWindowInset),
                 dragHandle = { HmrcDragHandle() },
                 modifier = modifier,
             ) {
@@ -115,6 +120,7 @@ object BottomSheetView {
                             .verticalScroll(rememberScrollState())
                     ) {
                         sheetContent()
+                        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.systemBars))
                     }
                 } else {
                     Column(
@@ -123,6 +129,7 @@ object BottomSheetView {
                             .verticalScroll(rememberScrollState())
                     ) {
                         sheetContent()
+                        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.systemBars))
                     }
                 }
             }
