@@ -112,25 +112,14 @@ object BottomSheetView {
                         )
                     }
                 }
-                if (enableFullScreenExpansion) {
-                    Column(
-                        Modifier
-                            .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
-                            .fillMaxHeight()
-                            .verticalScroll(rememberScrollState())
-                    ) {
-                        sheetContent()
-                        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeContent))
-                    }
-                } else {
-                    Column(
-                        Modifier
-                            .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
-                            .verticalScroll(rememberScrollState())
-                    ) {
-                        sheetContent()
-                        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeContent))
-                    }
+                Column(
+                    Modifier
+                        .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
+                        .then(if (enableFullScreenExpansion) Modifier.fillMaxHeight() else Modifier)
+                        .verticalScroll(rememberScrollState())
+                ) {
+                    sheetContent()
+                    Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeContent))
                 }
             }
         }

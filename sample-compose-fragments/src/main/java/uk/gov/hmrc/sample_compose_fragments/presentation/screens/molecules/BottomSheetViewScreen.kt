@@ -35,74 +35,92 @@ fun BottomSheetViewScreen() {
 
     ScreenScrollViewColumn {
         ExamplesSlot {
+            // Example 1
             PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_1)) {
                 openBottomSheetExample1 = true
             }
+            SimpleBottomSheetExample(openBottomSheet = openBottomSheetExample1, skipPartiallyExpanded = false) {
+                openBottomSheetExample1 = !openBottomSheetExample1
+            }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+
+            // Example 2
             PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_2)) {
                 openBottomSheetExample2 = true
             }
+            SimpleBottomSheetExample(openBottomSheet = openBottomSheetExample2, skipPartiallyExpanded = true) {
+                openBottomSheetExample2 = !openBottomSheetExample2
+            }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+
+            // Example 3
             PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_3)) {
                 openBottomSheetExample3 = true
             }
+            SimpleBottomFullSheetExample(openBottomSheet = openBottomSheetExample3, skipPartiallyExpanded = false) {
+                openBottomSheetExample3 = !openBottomSheetExample3
+            }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+
+            // Example 4
             PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_4)) {
                 openBottomSheetExample4 = true
             }
+            SimpleBottomFullSheetExample(openBottomSheet = openBottomSheetExample4, skipPartiallyExpanded = true) {
+                openBottomSheetExample4 = !openBottomSheetExample4
+            }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+
+            // Example 5
             PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_5)) {
                 openBottomSheetExample5 = true
             }
+            SimpleLongBottomSheetExample(openBottomSheet = openBottomSheetExample5, skipPartiallyExpanded = false) {
+                openBottomSheetExample5 = !openBottomSheetExample5
+            }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+
+            // Example 6
             PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_6)) {
                 openBottomSheetExample6 = true
             }
+            SimpleLongBottomSheetExample(openBottomSheet = openBottomSheetExample6, skipPartiallyExpanded = true) {
+                openBottomSheetExample6 = !openBottomSheetExample6
+            }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+
+            // Example 7
             PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_7)) {
                 openBottomSheetExample7 = true
             }
+            ScrollableBottomSheetExample(openBottomSheet = openBottomSheetExample7, skipPartiallyExpanded = false) {
+                openBottomSheetExample7 = !openBottomSheetExample7
+            }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+
+            // Example 8
             PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_8)) {
                 openBottomSheetExample8 = true
             }
+            ScrollableBottomSheetExample(openBottomSheet = openBottomSheetExample8, skipPartiallyExpanded = true) {
+                openBottomSheetExample8 = !openBottomSheetExample8
+            }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+
+            // Example 9
             PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_9)) {
                 openBottomSheetExample9 = true
             }
+            SmallExampleBottomSheet(openBottomSheet = openBottomSheetExample9, enableFullScreenExpansion = false) {
+                openBottomSheetExample9 = !openBottomSheetExample9
+            }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+
+            // Example 10
             PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_10)) {
                 openBottomSheetExample10 = true
             }
-
-            SimpleBottomSheetExample(openBottomSheet = openBottomSheetExample1) {
-                openBottomSheetExample1 = !openBottomSheetExample1
-            }
-            SimpleBottomSheetExtendedExample(openBottomSheet = openBottomSheetExample2) {
-                openBottomSheetExample2 = !openBottomSheetExample2
-            }
-            SimpleBottomFullSheetExample(openBottomSheet = openBottomSheetExample3) {
-                openBottomSheetExample3 = !openBottomSheetExample3
-            }
-            SimpleBottomFullSheetExtendedExample(openBottomSheet = openBottomSheetExample4) {
-                openBottomSheetExample4 = !openBottomSheetExample4
-            }
-            SimpleLongBottomSheetExample(openBottomSheet = openBottomSheetExample5) {
-                openBottomSheetExample5 = !openBottomSheetExample5
-            }
-            SimpleLongBottomSheetExtendedExample(openBottomSheet = openBottomSheetExample6) {
-                openBottomSheetExample6 = !openBottomSheetExample6
-            }
-            ScrollableBottomSheetExample(openBottomSheet = openBottomSheetExample7) {
-                openBottomSheetExample7 = !openBottomSheetExample7
-            }
-            ExtendedScrollableBottomSheetExample(openBottomSheet = openBottomSheetExample8) {
-                openBottomSheetExample8 = !openBottomSheetExample8
-            }
-            SmallExampleBottomSheet(openBottomSheet = openBottomSheetExample9) {
-                openBottomSheetExample9 = !openBottomSheetExample9
-            }
-            SmallExampleBottomSheetExtended(openBottomSheet = openBottomSheetExample10) {
+            SmallExampleBottomSheet(openBottomSheet = openBottomSheetExample10, enableFullScreenExpansion = true) {
                 openBottomSheetExample10 = !openBottomSheetExample10
             }
         }
@@ -110,10 +128,10 @@ fun BottomSheetViewScreen() {
 }
 
 @Composable
-fun SimpleBottomSheetExample(openBottomSheet: Boolean, onDismissRequest: () -> Unit) {
+fun SimpleBottomSheetExample(openBottomSheet: Boolean, skipPartiallyExpanded: Boolean, onDismissRequest: () -> Unit) {
     BottomSheetView(
         showBottomSheet = openBottomSheet,
-        skipPartiallyExpanded = false,
+        skipPartiallyExpanded = skipPartiallyExpanded,
         onDismissRequest = onDismissRequest
     ) {
         SimpleContent(onDismissRequest)
@@ -121,33 +139,14 @@ fun SimpleBottomSheetExample(openBottomSheet: Boolean, onDismissRequest: () -> U
 }
 
 @Composable
-fun SimpleBottomSheetExtendedExample(openBottomSheet: Boolean, onDismissRequest: () -> Unit) {
+fun SimpleBottomFullSheetExample(
+    openBottomSheet: Boolean,
+    skipPartiallyExpanded: Boolean,
+    onDismissRequest: () -> Unit
+) {
     BottomSheetView(
         showBottomSheet = openBottomSheet,
-        skipPartiallyExpanded = true,
-        onDismissRequest = onDismissRequest
-    ) {
-        SimpleContent(onDismissRequest)
-    }
-}
-
-@Composable
-fun SimpleBottomFullSheetExample(openBottomSheet: Boolean, onDismissRequest: () -> Unit) {
-    BottomSheetView(
-        showBottomSheet = openBottomSheet,
-        skipPartiallyExpanded = false,
-        enableFullScreenExpansion = true,
-        onDismissRequest = onDismissRequest
-    ) {
-        SimpleContent(onDismissRequest)
-    }
-}
-
-@Composable
-fun SimpleBottomFullSheetExtendedExample(openBottomSheet: Boolean, onDismissRequest: () -> Unit) {
-    BottomSheetView(
-        showBottomSheet = openBottomSheet,
-        skipPartiallyExpanded = true,
+        skipPartiallyExpanded = skipPartiallyExpanded,
         enableFullScreenExpansion = true,
         onDismissRequest = onDismissRequest
     ) {
@@ -172,21 +171,14 @@ fun SimpleContent(onDismissRequest: () -> Unit) {
 }
 
 @Composable
-fun SimpleLongBottomSheetExample(openBottomSheet: Boolean, onDismissRequest: () -> Unit) {
+fun SimpleLongBottomSheetExample(
+    openBottomSheet: Boolean,
+    skipPartiallyExpanded: Boolean,
+    onDismissRequest: () -> Unit
+) {
     BottomSheetView(
         showBottomSheet = openBottomSheet,
-        skipPartiallyExpanded = false,
-        onDismissRequest = onDismissRequest
-    ) {
-        SimpleLongContentExample(onDismissRequest)
-    }
-}
-
-@Composable
-fun SimpleLongBottomSheetExtendedExample(openBottomSheet: Boolean, onDismissRequest: () -> Unit) {
-    BottomSheetView(
-        showBottomSheet = openBottomSheet,
-        skipPartiallyExpanded = true,
+        skipPartiallyExpanded = skipPartiallyExpanded,
         onDismissRequest = onDismissRequest
     ) {
         SimpleLongContentExample(onDismissRequest)
@@ -213,21 +205,14 @@ fun SimpleLongContentExample(onDismissRequest: () -> Unit) {
 }
 
 @Composable
-fun ScrollableBottomSheetExample(openBottomSheet: Boolean, onDismissRequest: () -> Unit) {
+fun ScrollableBottomSheetExample(
+    openBottomSheet: Boolean,
+    skipPartiallyExpanded: Boolean,
+    onDismissRequest: () -> Unit
+) {
     BottomSheetView(
         showBottomSheet = openBottomSheet,
-        skipPartiallyExpanded = false,
-        onDismissRequest = onDismissRequest
-    ) {
-        ScrollableExampleContent(onDismissRequest)
-    }
-}
-
-@Composable
-fun ExtendedScrollableBottomSheetExample(openBottomSheet: Boolean, onDismissRequest: () -> Unit) {
-    BottomSheetView(
-        showBottomSheet = openBottomSheet,
-        skipPartiallyExpanded = true,
+        skipPartiallyExpanded = skipPartiallyExpanded,
         onDismissRequest = onDismissRequest
     ) {
         ScrollableExampleContent(onDismissRequest)
@@ -285,24 +270,17 @@ fun ScrollableExampleContent(onDismissRequest: () -> Unit) {
 }
 
 @Composable
-fun SmallExampleBottomSheet(openBottomSheet: Boolean, onDismissRequest: () -> Unit) {
+fun SmallExampleBottomSheet(
+    openBottomSheet: Boolean,
+    enableFullScreenExpansion: Boolean,
+    onDismissRequest: () -> Unit
+) {
     BottomSheetView(
         showBottomSheet = openBottomSheet,
         skipPartiallyExpanded = false,
+        enableFullScreenExpansion = enableFullScreenExpansion,
         onDismissRequest = onDismissRequest
     ) {
-        Text(stringResource(R.string.bottom_sheet_example_hello))
-    }
-}
-
-@Composable
-fun SmallExampleBottomSheetExtended(openBottomSheet: Boolean, onDismissRequest: () -> Unit) {
-    BottomSheetView(
-        showBottomSheet = openBottomSheet,
-        skipPartiallyExpanded = false,
-        enableFullScreenExpansion = true,
-        onDismissRequest = onDismissRequest
-    ) {
-        Text(stringResource(R.string.bottom_sheet_example_hello))
+        Text(text = stringResource(R.string.bottom_sheet_example_hello), style = HmrcTheme.typography.body)
     }
 }
