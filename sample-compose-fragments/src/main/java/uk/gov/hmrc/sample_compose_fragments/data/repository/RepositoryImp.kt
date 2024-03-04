@@ -51,7 +51,8 @@ class RepositoryImpl @Inject constructor() : Repository {
         ComponentMenuItem(ORGANISM_HEADLINE_CARD_VIEW, R.string.organisms_headline_card),
         ComponentMenuItem(ORGANISM_PRIMARY_CARD_VIEW, R.string.organisms_primary_card),
         ComponentMenuItem(ORGANISM_ICON_BUTTON_CARD_VIEW, R.string.organisms_icon_button_card),
-        ComponentMenuItem(ORGANISM_SEPARATED_VIEW_CONTAINER, R.string.organisms_separated_view_container)
+        ComponentMenuItem(ORGANISM_SEPARATED_VIEW_CONTAINER, R.string.organisms_separated_view_container),
+        ComponentMenuItem(ORGANISM_INFORMATION_MESSAGE_CARD_VIEW, R.string.organisms_info_message_card)
     )
 
     companion object {
@@ -80,5 +81,6 @@ class RepositoryImpl @Inject constructor() : Repository {
         const val ORGANISM_PRIMARY_CARD_VIEW = 2
         const val ORGANISM_ICON_BUTTON_CARD_VIEW = 4
         const val ORGANISM_SEPARATED_VIEW_CONTAINER = 6
+        const val ORGANISM_INFORMATION_MESSAGE_CARD_VIEW = 7
     }
 }
