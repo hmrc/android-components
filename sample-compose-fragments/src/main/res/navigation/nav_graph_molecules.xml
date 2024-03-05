@@ -64,6 +64,9 @@
         <action
             android:id="@+id/action_moleculesFragment_to_statusViewFragment"
             app:destination="@id/statusViewFragment" />
+        <action
+            android:id="@+id/action_moleculesFragment_to_bottomSheetViewFragment"
+            app:destination="@+id/bottomSheetViewFragment" />
     </fragment>
 
     <fragment
@@ -139,5 +142,10 @@
         android:id="@+id/statusViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.StatusViewFragment"
         android:label="@string/molecules_status" />
+
+    <fragment
+        android:id="@+id/bottomSheetViewFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.BottomSheetViewFragment"
+        android:label="@string/molecules_bottom_sheet" />
 
 </navigation>

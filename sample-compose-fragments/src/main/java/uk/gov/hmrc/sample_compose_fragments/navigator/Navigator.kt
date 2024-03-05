@@ -53,6 +53,8 @@ interface Navigator {
 
     fun Fragment.goToIconButtonCardView()
 
+    fun Fragment.goToBottomSheetView()
+
     fun Fragment.goToSeparatedViewContainer()
 
     fun Fragment.goToHeadlineCardView()

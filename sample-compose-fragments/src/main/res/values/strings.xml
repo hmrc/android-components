@@ -81,6 +81,7 @@
     <string name="molecules_warning">Warning View</string>
     <string name="molecules_tab_bar">Tab Bar View</string>
     <string name="molecules_select_row">Select Row View</string>
+    <string name="molecules_bottom_sheet">Bottom Sheet View</string>
 
     <!-- Organisms navigation -->
     <string name="organisms_text_input">Text Input View</string>
@@ -362,6 +363,28 @@
     <string name="select_row_view_error_row">Show an error</string>
     <string name="select_row_view_third_row">Third row</string>
     <string name="select_row_view_fourth_row">Fourth row</string>
+
+    <!-- Bottom Sheet View -->
+    <string name="bottom_sheet_example_1">Simple bottom sheet</string>
+    <string name="bottom_sheet_example_2">Simple bottom sheet, extended</string>
+    <string name="bottom_sheet_example_3">Simple bottom sheet, full screen enabled</string>
+    <string name="bottom_sheet_example_4">Simple bottom sheet, extended, full screen enabled</string>
+    <string name="bottom_sheet_example_5">Simple long bottom sheet</string>
+    <string name="bottom_sheet_example_6">Simple long bottom sheet, extended</string>
+    <string name="bottom_sheet_example_7">Scrollable bottom sheet</string>
+    <string name="bottom_sheet_example_8">Scrollable bottom sheet, extended</string>
+    <string name="bottom_sheet_example_9">Short bottom sheet</string>
+    <string name="bottom_sheet_example_10">Short bottom sheet, extended</string>
+    <string name="bottom_sheet_example_yes">Yes</string>
+    <string name="bottom_sheet_example_no">No</string>
+    <string name="bottom_sheet_example_maybe">Maybe</string>
+    <string name="bottom_sheet_example_dont_know">I don\'t know</string>
+    <string name="bottom_sheet_example_repeat_question">Repeat question</string>
+    <string name="bottom_sheet_example_long_content_title">Do you receive Blind Person\'s Allowance?</string>
+    <string name="bottom_sheet_example_long_content_body">If you\'re registered blind or severely sight impaired, you may get Blind Person\'s Allowance. This increases your Personal Allowance and means you pay less tax.</string>
+    <string name="bottom_sheet_example_save">Save</string>
+    <string name="bottom_sheet_example_okay">Okay</string>
+    <string name="bottom_sheet_example_hello">Hello!</string>
 
     <!--  Tab Bar View  -->
     <string name="tab_bar_view_light_tab_item_1">Light</string>
