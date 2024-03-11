@@ -21,19 +21,21 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
 fun HmrcCardView(
     modifier: Modifier = Modifier,
+    customBackgroundColor: Color = HmrcTheme.colors.hmrcWhiteBackground,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RectangleShape,
         content = content,
-        colors = CardDefaults.cardColors(containerColor = HmrcTheme.colors.hmrcWhiteBackground),
+        colors = CardDefaults.cardColors(containerColor = customBackgroundColor),
         elevation = CardDefaults.cardElevation()
     )
 }

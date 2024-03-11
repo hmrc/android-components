@@ -91,8 +91,8 @@ class AppNavigator @Inject constructor() : Navigator{
     }
 
     override fun Fragment.goToInformationMessageCardView() {
-        navigate(OrganismsFragmentDirections.())
-}
+        navigate(OrganismsFragmentDirections.actionOrganismsFragmentToInformationMessageCardViewFragment())
+    }
 
     override fun Fragment.goBack() {
         findNavController().popBackStack()
