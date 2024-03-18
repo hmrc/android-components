@@ -20,8 +20,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
+import uk.gov.hmrc.components.compose.organism.information.InformationMessageButton
+import uk.gov.hmrc.components.compose.organism.information.InformationMessageButton.Companion.ButtonType
 import uk.gov.hmrc.components.compose.organism.information.InformationMessageCardView
-import uk.gov.hmrc.components.compose.organism.information.Type
+import uk.gov.hmrc.components.compose.organism.information.MessageType
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
@@ -35,7 +37,8 @@ fun InformationMessageCardViewScreen(onClickAction: () -> Unit) {
             InformationMessageCardView(
                 headline = stringResource(id = R.string.info_message_placeholder_headline),
                 text = stringResource(id = R.string.info_message_placeholder_headline),
-                type = Type.URGENT,
+                messageType = MessageType.URGENT,
+                buttons = listOf(InformationMessageButton("Headline button", MessageType.URGENT, onClick = {}))
             )
         }
 
@@ -44,7 +47,7 @@ fun InformationMessageCardViewScreen(onClickAction: () -> Unit) {
             HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                 InformationMessageCardView(
                     headline = stringResource(id = R.string.info_message_example_1_headline),
-                    type = Type.INFO
+                    messageType = MessageType.INFO
                 )
             }
 
@@ -52,7 +55,11 @@ fun InformationMessageCardViewScreen(onClickAction: () -> Unit) {
             HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                 InformationMessageCardView(
                     headline = stringResource(id = R.string.info_message_example_2_headline),
-                    type = Type.WARNING
+                    messageType = MessageType.WARNING,
+                    buttons = listOf(
+                        InformationMessageButton("Do something", MessageType.WARNING, onClick = {}),
+                        InformationMessageButton("Do something", MessageType.WARNING, ButtonType.OUTLINE, onClick = {})
+                    )
                 )
             }
 
@@ -62,7 +69,11 @@ fun InformationMessageCardViewScreen(onClickAction: () -> Unit) {
                     headline = stringResource(id = R.string.info_message_example_3_headline),
                     text = stringResource(id = R.string.info_message_example_3_body),
                     headlineContentDescription = stringResource(id = R.string.info_message_example_3_headline_content_description),
-                    type = Type.INFO
+                    messageType = MessageType.INFO,
+                    buttons = listOf(
+                        InformationMessageButton("Do something", MessageType.INFO, onClick = {}),
+                        InformationMessageButton("Do something", MessageType.INFO, ButtonType.OUTLINE, onClick = {})
+                    )
                 )
             }
 
@@ -71,7 +82,7 @@ fun InformationMessageCardViewScreen(onClickAction: () -> Unit) {
                 InformationMessageCardView(
                     headline = stringResource(id = R.string.info_message_example_4_headline),
                     headlineContentDescription = stringResource(id = R.string.info_message_example_4_headline_content_description),
-                    type = Type.NOTICE
+                    messageType = MessageType.NOTICE
                 )
             }
         }

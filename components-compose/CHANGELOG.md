@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Added
+
+* `InformationMessageCardView` component.
+
 ### Changed
 
 * kotlinCompilerExtensionVersion = "1.4.2" -> "1.4.8"
