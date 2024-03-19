@@ -53,6 +53,5 @@
         android:visibility="invisible"
         android:focusable="true"
         android:contentDescription="@string/accessibility_button_activate"
-        android:src="@drawable/components_ic_chevron_right"
-        app:tint="@color/hmrc_black" />
+        android:src="@drawable/components_ic_chevron_right" />
 </merge>
