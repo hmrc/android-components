@@ -140,7 +140,7 @@
                     android:layout_height="wrap_content"
                     app:readerTrait="simple"
                     app:title="@string/summary_row_placeholder_title"
-                    app:chevronIcon="@drawable/ic_calendar" />
+                    app:icon="@drawable/ic_calendar" />
 
             </LinearLayout>
 

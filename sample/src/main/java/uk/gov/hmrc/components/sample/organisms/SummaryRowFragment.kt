@@ -140,7 +140,7 @@ class SummaryRowFragment : BaseComponentsFragment() {
         binding.summaryRowExample6.apply {
             setRows(arrayListOf(example6Row1))
             setOnClickListener { onCtaPressed() }
-            setChevronTintColor(R.color.hmrc_blue)
+            setIconTintColor(R.color.hmrc_blue)
         }
     }
 

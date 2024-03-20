@@ -69,8 +69,8 @@ class SummaryRowView @JvmOverloads constructor(
                 R.style.Text_Bold
             )
             val icon =
-                typedArray.getResourceId(R.styleable.SummaryRowView_chevronIcon, R.drawable.components_ic_chevron_right)
-            val iconTint = typedArray.getResourceId(R.styleable.SummaryRowView_chevronIconTintColor, R.color.hmrc_black)
+                typedArray.getResourceId(R.styleable.SummaryRowView_icon, R.drawable.components_ic_chevron_right)
+            val iconTint = typedArray.getResourceId(R.styleable.SummaryRowView_iconTintColor, R.color.hmrc_black)
 
             val titleMaxLines = typedArray.getInt(R.styleable.SummaryRowView_titleMaxLines, -1)
             val accessibilityMessage = typedArray.getString(R.styleable.SummaryRowView_accessibilityMessage)
@@ -80,8 +80,8 @@ class SummaryRowView @JvmOverloads constructor(
             setTitle(titleText)
             setTitleTextAppearance(titleTextAppearance)
             setTitleMaxLines(titleMaxLines)
-            setChevronIcon(icon)
-            setChevronTintColor(iconTint)
+            setIcon(icon)
+            setIconTintColor(iconTint)
 
             accessibilityMessage?.let { message ->
                 setAccessibilityMessage(message)
@@ -134,19 +134,15 @@ class SummaryRowView @JvmOverloads constructor(
         }
     }
 
-    fun setChevronIcon(@DrawableRes icon: Int) {
-        if (icon != NO_CHEVRON_ICON) {
-            binding.imageChevron.setImageResource(icon)
-        }
+    fun setIcon(@DrawableRes icon: Int) {
+        binding.imageChevron.setImageResource(icon)
     }
 
-    fun setChevronTintColor(@ColorRes iconTint: Int) {
-        if (iconTint != NO_CHEVRON_ICON_TINT) {
-            binding.imageChevron.setColorFilter(
-                ContextCompat.getColor(context, iconTint),
-                android.graphics.PorterDuff.Mode.SRC_IN
-            )
-        }
+    fun setIconTintColor(@ColorRes iconTint: Int) {
+        binding.imageChevron.setColorFilter(
+            ContextCompat.getColor(context, iconTint),
+            android.graphics.PorterDuff.Mode.SRC_IN
+        )
     }
 
     fun setOnClickListener(clickHandler: () -> Unit) {
@@ -183,7 +179,5 @@ class SummaryRowView @JvmOverloads constructor(
     companion object {
         const val READER_TRAIT_INFO = 1
         const val READER_TRAIT_SIMPLE = 2
-        const val NO_CHEVRON_ICON_TINT: Int = -1
-        const val NO_CHEVRON_ICON: Int = -1
     }
 }

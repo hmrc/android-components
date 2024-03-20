@@ -18,7 +18,7 @@ Allowed headings:
 
 ### Changed
 
-* Added a dynamic chevron icon to `SummaryRowView` with two new attributes: `chevronIcon` for the icon and `chevronIconTintColor` for the icon tint color.
+* Added a dynamic icon to `SummaryRowView` with two new attributes: `icon` for the icon and `iconTintColor` for the icon tint color.
 * androidx.annotation:annotation:1.6.0 -> 1.7.1
 * androidx.recyclerview:recyclerview:1.3.0 -> 1.3.2
 * androidx.lifecycle:lifecycle-compiler:2.6.1 -> 2.6.2

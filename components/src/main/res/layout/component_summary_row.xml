@@ -52,6 +52,5 @@
         android:layout_marginStart="@dimen/hmrc_spacing_8"
         android:visibility="invisible"
         android:focusable="true"
-        android:contentDescription="@string/accessibility_button_activate"
-        android:src="@drawable/components_ic_chevron_right" />
+        android:contentDescription="@string/accessibility_button_activate" />
 </merge>
