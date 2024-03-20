@@ -58,7 +58,7 @@ class SummaryRowFragment : BaseComponentsFragment() {
         }
     }
 
-    @Suppress("LongMethod")
+    @Suppress("LongMethod", "ComplexMethod")
     private fun setupExampleRows() {
         val example1aRow1 = MultiColumnRowView(requireContext())
         example1aRow1.apply {

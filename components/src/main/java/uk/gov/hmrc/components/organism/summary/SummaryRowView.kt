@@ -68,7 +68,8 @@ class SummaryRowView @JvmOverloads constructor(
                 R.styleable.SummaryRowView_titleTextAppearance,
                 R.style.Text_Bold
             )
-            val icon = typedArray.getResourceId(R.styleable.SummaryRowView_chevronIcon, R.drawable.components_ic_chevron_right)
+            val icon =
+                typedArray.getResourceId(R.styleable.SummaryRowView_chevronIcon, R.drawable.components_ic_chevron_right)
             val iconTint = typedArray.getResourceId(R.styleable.SummaryRowView_chevronIconTintColor, R.color.hmrc_black)
 
             val titleMaxLines = typedArray.getInt(R.styleable.SummaryRowView_titleMaxLines, -1)

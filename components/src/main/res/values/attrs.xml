@@ -213,9 +213,9 @@
         <!-- Title max lines. -->
         <attr name="titleMaxLines" format="integer" />
         <!-- Chevron icon -->
-        <attr name="chevronIcon" format="reference"/>
+        <attr name="chevronIcon" format="reference" />
         <!-- Chevron Icon tint color. -->
-        <attr name="chevronIconTintColor" format="reference"/>
+        <attr name="chevronIconTintColor" format="reference" />
         <!-- Style to apply to the row -->
         <attr name="rowStyle" format="reference" />
         <!-- Reader trait -->
