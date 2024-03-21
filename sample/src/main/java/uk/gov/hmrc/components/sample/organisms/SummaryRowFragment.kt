@@ -58,7 +58,7 @@ class SummaryRowFragment : BaseComponentsFragment() {
         }
     }
 
-    @Suppress("LongMethod")
+    @Suppress("LongMethod", "ComplexMethod")
     private fun setupExampleRows() {
         val example1aRow1 = MultiColumnRowView(requireContext())
         example1aRow1.apply {
@@ -133,6 +133,14 @@ class SummaryRowFragment : BaseComponentsFragment() {
         binding.summaryRowExample5.apply {
             setRows(arrayListOf(example5Row1, example5Row2))
             setOnClickListener { onCtaPressed() }
+        }
+
+        val example6Row1 = MultiColumnRowView(requireContext())
+        example6Row1.setText(text1 = getString(R.string.long_text))
+        binding.summaryRowExample6.apply {
+            setRows(arrayListOf(example6Row1))
+            setOnClickListener { onCtaPressed() }
+            setIconTintColor(R.color.hmrc_blue)
         }
     }
 

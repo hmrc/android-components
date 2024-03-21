@@ -212,6 +212,10 @@
         <attr name="titleTextAppearance" format="reference" />
         <!-- Title max lines. -->
         <attr name="titleMaxLines" format="integer" />
+        <!-- Icon -->
+        <attr name="icon" />
+        <!-- Icon tint color. -->
+        <attr name="iconTintColor" />
         <!-- Style to apply to the row -->
         <attr name="rowStyle" format="reference" />
         <!-- Reader trait -->
