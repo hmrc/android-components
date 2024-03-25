@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.11.0] - 2024-03-25Z
+
 ### Changed
 
 * Added a dynamic icon to `SummaryRowView` with two new attributes: `icon` for the icon and `iconTintColor` for the icon tint color.
