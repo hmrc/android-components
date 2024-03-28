@@ -61,5 +61,7 @@ interface Navigator {
 
     fun Fragment.goToPrimaryCardView()
 
+    fun Fragment.goToInformationMessageCardView()
+
     fun Fragment.goBack()
 }
