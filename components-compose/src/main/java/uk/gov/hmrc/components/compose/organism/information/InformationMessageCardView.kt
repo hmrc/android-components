@@ -32,10 +32,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -73,12 +69,7 @@ fun InformationMessageCardView(
     messageType: MessageType,
     buttons: List<InformationMessageButton> = emptyList()
 ) {
-    val textColor: Color by remember { mutableStateOf(messageType.headlineTint) }
-    val iconColor: Color by remember { mutableStateOf(messageType.iconColor) }
-    val backgroundColor: Color by remember { mutableStateOf(messageType.backgroundColor) }
-    val icon: Int by remember { mutableIntStateOf(messageType.icon) }
-
-    HmrcCardView(modifier = modifier, customBackgroundColor = backgroundColor) {
+    HmrcCardView(modifier = modifier, customBackgroundColor = messageType.backgroundColor) {
         Row(
             modifier = modifier
                 .fillMaxWidth()
@@ -87,9 +78,9 @@ fun InformationMessageCardView(
         ) {
             Image(
                 modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize36),
-                painter = painterResource(id = icon),
+                painter = painterResource(id = messageType.icon),
                 contentDescription = "",
-                colorFilter = ColorFilter.tint(iconColor)
+                colorFilter = ColorFilter.tint(messageType.iconColor)
             )
             Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing8))
             Text(
@@ -102,7 +93,7 @@ fun InformationMessageCardView(
                         this.contentDescription = headlineContentDescription
                     },
                 style = HmrcTheme.typography.h6,
-                color = textColor
+                color = messageType.headlineTint
             )
         }
         if (text != null) {
@@ -119,7 +110,7 @@ fun InformationMessageCardView(
                     text = text,
                     modifier = Modifier,
                     style = HmrcTheme.typography.body,
-                    color = textColor
+                    color = messageType.headlineTint
                 )
             }
         }

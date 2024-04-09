@@ -41,7 +41,7 @@ class InformationMessageCardViewFragment : Fragment(R.layout.fragment_compose_ex
                 val window = rememberWindowSizeClass()
                 HmrcTheme(window) {
                     HmrcSurface {
-                        InformationMessageCardViewScreen { showToast(getString(R.string.cta_pressed)) }
+                        InformationMessageCardViewScreen()
                     }
                 }
             }

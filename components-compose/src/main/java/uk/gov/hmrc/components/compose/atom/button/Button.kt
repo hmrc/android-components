@@ -101,31 +101,27 @@ fun PrimaryButton(
     )
 }
 
-object SecondaryButton {
-    @Composable
-    operator fun invoke(
-        text: String,
-        modifier: Modifier = Modifier,
-        enabled: Boolean = true,
-        textAlign: TextAlign = TextAlign.Center,
-        buttonColors: ButtonColors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent, contentColor = colors.hmrcBlue
-        ),
-        onClick: () -> Unit,
-        content: @Composable RowScope.() -> Unit = {},
-    ) {
-        CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
-            HmrcButton(
-                text = text,
-                modifier = modifier,
-                contentPadding = PaddingValues(all = HmrcTheme.dimensions.hmrcSpacing16),
-                enabled = enabled,
-                textAlign = textAlign,
-                buttonColors = buttonColors,
-                onClick = onClick,
-            ) {
-                content()
-            }
+@Composable
+fun SecondaryButton(
+    text: String,
+    modifier: Modifier = Modifier,
+    textAlign: TextAlign = TextAlign.Center,
+    buttonColors: ButtonColors = ButtonDefaults.buttonColors(
+        containerColor = Color.Transparent, contentColor = colors.hmrcBlue
+    ),
+    onClick: () -> Unit,
+    content: @Composable RowScope.() -> Unit = {},
+) {
+    CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+        HmrcButton(
+            text = text,
+            modifier = modifier,
+            contentPadding = PaddingValues(all = HmrcTheme.dimensions.hmrcSpacing16),
+            textAlign = textAlign,
+            buttonColors = buttonColors,
+            onClick = onClick,
+        ) {
+            content()
         }
     }
 }

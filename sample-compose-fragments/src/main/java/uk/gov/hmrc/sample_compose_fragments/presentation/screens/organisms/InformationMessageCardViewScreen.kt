@@ -15,6 +15,8 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms
 
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -31,7 +33,7 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
-fun InformationMessageCardViewScreen(onClickAction: () -> Unit) {
+fun InformationMessageCardViewScreen() {
     ScreenScrollViewColumn {
         PlaceholderSlot {
             InformationMessageCardView(
@@ -44,15 +46,14 @@ fun InformationMessageCardViewScreen(onClickAction: () -> Unit) {
 
         ExamplesSlot {
             // Example 1
-            HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                 InformationMessageCardView(
                     headline = stringResource(id = R.string.info_message_example_1_headline),
                     messageType = MessageType.INFO
                 )
-            }
+
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
 
             // Example 2
-            HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                 InformationMessageCardView(
                     headline = stringResource(id = R.string.info_message_example_2_headline),
                     messageType = MessageType.WARNING,
@@ -61,10 +62,10 @@ fun InformationMessageCardViewScreen(onClickAction: () -> Unit) {
                         InformationMessageButton("Do something", MessageType.WARNING, ButtonType.OUTLINE, onClick = {})
                     )
                 )
-            }
+
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
 
             // Example 3
-            HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                 InformationMessageCardView(
                     headline = stringResource(id = R.string.info_message_example_3_headline),
                     text = stringResource(id = R.string.info_message_example_3_body),
@@ -75,16 +76,15 @@ fun InformationMessageCardViewScreen(onClickAction: () -> Unit) {
                         InformationMessageButton("Do something", MessageType.INFO, ButtonType.OUTLINE, onClick = {})
                     )
                 )
-            }
+
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
 
             // Example 4
-            HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                 InformationMessageCardView(
                     headline = stringResource(id = R.string.info_message_example_4_headline),
                     headlineContentDescription = stringResource(id = R.string.info_message_example_4_headline_content_description),
                     messageType = MessageType.NOTICE
                 )
-            }
         }
     }
 }
