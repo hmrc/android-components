@@ -46,45 +46,45 @@ fun InformationMessageCardViewScreen() {
 
         ExamplesSlot {
             // Example 1
-                InformationMessageCardView(
-                    headline = stringResource(id = R.string.info_message_example_1_headline),
-                    messageType = MessageType.INFO
-                )
+            InformationMessageCardView(
+                headline = stringResource(id = R.string.info_message_example_1_headline),
+                messageType = MessageType.INFO
+            )
 
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
 
             // Example 2
-                InformationMessageCardView(
-                    headline = stringResource(id = R.string.info_message_example_2_headline),
-                    messageType = MessageType.WARNING,
-                    buttons = listOf(
-                        InformationMessageButton("Do something", MessageType.WARNING, onClick = {}),
-                        InformationMessageButton("Do something", MessageType.WARNING, ButtonType.OUTLINE, onClick = {})
-                    )
+            InformationMessageCardView(
+                headline = stringResource(id = R.string.info_message_example_2_headline),
+                messageType = MessageType.WARNING,
+                buttons = listOf(
+                    InformationMessageButton("Do something", MessageType.WARNING, onClick = {}),
+                    InformationMessageButton("Do something", MessageType.WARNING, ButtonType.OUTLINE, onClick = {})
                 )
+            )
 
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
 
             // Example 3
-                InformationMessageCardView(
-                    headline = stringResource(id = R.string.info_message_example_3_headline),
-                    text = stringResource(id = R.string.info_message_example_3_body),
-                    headlineContentDescription = stringResource(id = R.string.info_message_example_3_headline_content_description),
-                    messageType = MessageType.INFO,
-                    buttons = listOf(
-                        InformationMessageButton("Do something", MessageType.INFO, onClick = {}),
-                        InformationMessageButton("Do something", MessageType.INFO, ButtonType.OUTLINE, onClick = {})
-                    )
+            InformationMessageCardView(
+                headline = stringResource(id = R.string.info_message_example_3_headline),
+                text = stringResource(id = R.string.info_message_example_3_body),
+                headlineContentDescription = stringResource(id = R.string.info_message_example_3_headline_content_description),
+                messageType = MessageType.INFO,
+                buttons = listOf(
+                    InformationMessageButton("Do something", MessageType.INFO, onClick = {}),
+                    InformationMessageButton("Do something", MessageType.INFO, ButtonType.OUTLINE, onClick = {})
                 )
+            )
 
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
 
             // Example 4
-                InformationMessageCardView(
-                    headline = stringResource(id = R.string.info_message_example_4_headline),
-                    headlineContentDescription = stringResource(id = R.string.info_message_example_4_headline_content_description),
-                    messageType = MessageType.NOTICE
-                )
+            InformationMessageCardView(
+                headline = stringResource(id = R.string.info_message_example_4_headline),
+                headlineContentDescription = stringResource(id = R.string.info_message_example_4_headline_content_description),
+                messageType = MessageType.NOTICE
+            )
         }
     }
 }
