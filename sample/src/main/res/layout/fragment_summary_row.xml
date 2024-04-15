@@ -123,6 +123,29 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            android:padding="@dimen/hmrc_spacing_16">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <uk.gov.hmrc.components.organism.summary.SummaryRowView
+                    android:id="@+id/summary_row_example_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:readerTrait="simple"
+                    app:title="@string/summary_row_placeholder_title"
+                    app:icon="@drawable/ic_calendar" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
 
 </ScrollView>

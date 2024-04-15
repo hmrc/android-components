@@ -20,6 +20,8 @@ Allowed headings:
 
 * `InformationMessageCardView` component.
 
+## [0.0.4] - 2024-04-12Z
+
 ### Changed
 
 * kotlinCompilerExtensionVersion = "1.4.2" -> "1.4.8"
