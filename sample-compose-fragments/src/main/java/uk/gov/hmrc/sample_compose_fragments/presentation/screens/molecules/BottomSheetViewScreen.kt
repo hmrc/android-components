@@ -162,11 +162,11 @@ fun SimpleContent(onDismissRequest: () -> Unit) {
     )
     SelectRowView(
         selectRowViewItems = listOf(
-            stringResource(id = R.string.bottom_sheet_example_yes),
-            stringResource(id = R.string.bottom_sheet_example_no)
+            SelectRowView.SelectRowViewItem(R.string.bottom_sheet_example_yes),
+            SelectRowView.SelectRowViewItem(R.string.bottom_sheet_example_no)
         ),
         defaultRowHorizontalPadding = false
-    ) { _, _ -> }
+    ) { _ -> }
     PrimaryButton(stringResource(id = R.string.bottom_sheet_example_save)) { onDismissRequest() }
 }
 
@@ -193,14 +193,14 @@ fun SimpleLongContentExample(onDismissRequest: () -> Unit) {
     )
     SelectRowView(
         selectRowViewItems = listOf(
-            stringResource(id = R.string.bottom_sheet_example_yes),
-            stringResource(id = R.string.bottom_sheet_example_no),
-            stringResource(id = R.string.bottom_sheet_example_maybe),
-            stringResource(id = R.string.bottom_sheet_example_dont_know),
-            stringResource(id = R.string.bottom_sheet_example_repeat_question),
+            SelectRowView.SelectRowViewItem(R.string.bottom_sheet_example_yes),
+            SelectRowView.SelectRowViewItem(R.string.bottom_sheet_example_no),
+            SelectRowView.SelectRowViewItem(R.string.bottom_sheet_example_maybe),
+            SelectRowView.SelectRowViewItem(R.string.bottom_sheet_example_dont_know),
+            SelectRowView.SelectRowViewItem(R.string.bottom_sheet_example_repeat_question),
         ),
         defaultRowHorizontalPadding = false
-    ) { _, _ -> }
+    ) { _ -> }
     PrimaryButton(stringResource(id = R.string.bottom_sheet_example_save)) { onDismissRequest() }
 }
 

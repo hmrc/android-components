@@ -15,6 +15,7 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.viewModel
 
+import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,77 +25,104 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView.NO_ROW_SELECTED_POSITION
+import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView.SelectRowViewItem
+import uk.gov.hmrc.sample_compose_components.R
 import javax.inject.Inject
 
 @HiltViewModel
 class SelectRowViewModel @Inject constructor() : ViewModel() {
 
-    // region Place Holder UI State
-    private val errorText = MutableStateFlow("")
-    private val rowSelectedPosition = MutableStateFlow(NO_ROW_SELECTED_POSITION)
-    val placeHolderUiState: StateFlow<PlaceHolderState> = combine(
-        errorText,
-        rowSelectedPosition
-    ) { errorText, rowSelectedPosition ->
-        PlaceHolderState(
-            errorText = errorText,
-            rowSelectedPosition = rowSelectedPosition
-        )
-    }.stateIn(
-        scope = viewModelScope, started = SharingStarted.WhileSubscribed(), initialValue = PlaceHolderState()
+    private val placeholderState = SelectRowViewState(
+        listOf(SelectRowViewItem(R.string.select_row_body_description)),
+        errorText = R.string.select_row_error_message
     )
 
-    fun setPlaceHolderRowSelectedPosition(value: Int) = viewModelScope.launch { rowSelectedPosition.emit(value) }
-    fun setPlaceHolderErrorText(value: String) = viewModelScope.launch { errorText.emit(value) }
+    private val exampleOneItemOne = SelectRowViewItem(R.string.select_row_view_first_row)
+    private val exampleOneItemTwo = SelectRowViewItem(R.string.select_row_view_second_row)
+    private val exampleOneItemThree = SelectRowViewItem(R.string.select_row_view_error_row)
+    private val exampleOneItemFour = SelectRowViewItem(R.string.longer_text)
+    private val exampleOneErrorText = R.string.select_row_error_message
+    private val exampleOneItems = listOf(exampleOneItemOne, exampleOneItemTwo, exampleOneItemThree, exampleOneItemFour)
+    private var exampleOne = SelectRowViewState(exampleOneItems, exampleOneItemOne)
+
+    private val exampleTwoItemOne = SelectRowViewItem(R.string.select_row_view_first_row)
+    private val exampleTwoItemTwo = SelectRowViewItem(R.string.select_row_view_second_row)
+    private val exampleTwoItemThree = SelectRowViewItem(R.string.select_row_view_third_row)
+    private val exampleTwoItemFour = SelectRowViewItem(R.string.select_row_view_fourth_row)
+    private val exampleTwoItems = listOf(exampleTwoItemOne, exampleTwoItemTwo, exampleTwoItemThree, exampleTwoItemFour)
+    private var exampleTwo = SelectRowViewState(exampleTwoItems, exampleTwoItemOne)
+
+    private val exampleThreeItemOne = SelectRowViewItem(R.string.select_row_view_first_row)
+    private val exampleThreeItemTwo = SelectRowViewItem(R.string.select_row_view_second_row)
+    private val exampleThreeItemThree = SelectRowViewItem(R.string.select_row_view_third_row)
+    private val exampleThreeItemFour = SelectRowViewItem(R.string.select_row_view_fourth_row)
+    private val exampleThreeItems =
+        listOf(exampleThreeItemOne, exampleThreeItemTwo, exampleThreeItemThree, exampleThreeItemFour)
+    private var exampleThree = SelectRowViewState(exampleThreeItems, exampleThreeItemOne)
+
+    // region Place Holder UI State
+    private val _placeholderUiState = MutableStateFlow(placeholderState)
+    val placeholderUiState: StateFlow<SelectRowViewState> get() = _placeholderUiState
+
+    fun setPlaceholderSelectedRow(item: SelectRowViewItem) = viewModelScope.launch {
+        placeholderState.selectedItem = item
+        _placeholderUiState.emit(placeholderState)
+    }
     //endregion
 
     // region Example UI State
-    private val rowSelectedPositionExample1 = MutableStateFlow(FIRST_ROW_SELECTED_POSITION)
-    private val rowSelectedPositionExample2 = MutableStateFlow(FIRST_ROW_SELECTED_POSITION)
-    private val rowSelectedPositionExample3 = MutableStateFlow(FIRST_ROW_SELECTED_POSITION)
-    private val errorTextExample1 = MutableStateFlow("")
+    private val exampleOneState = MutableStateFlow(exampleOne)
+    private val exampleTwoState = MutableStateFlow(exampleTwo)
+    private val exampleThreeState = MutableStateFlow(exampleThree)
 
     val exampleUiState: StateFlow<ExampleUiState> = combine(
-        rowSelectedPositionExample1,
-        rowSelectedPositionExample2,
-        rowSelectedPositionExample3,
-        errorTextExample1,
-    ) { rowSelectedPositionExample1, rowSelectedPositionExample2, rowSelectedPositionExample3, errorTextExample1 ->
+        exampleOneState,
+        exampleTwoState,
+        exampleThreeState,
+    ) { exampleOne, exampleTwo, exampleThree ->
         ExampleUiState(
-            rowSelectedPositionExample1 = rowSelectedPositionExample1,
-            rowSelectedPositionExample2 = rowSelectedPositionExample2,
-            rowSelectedPositionExample3 = rowSelectedPositionExample3,
-            errorTextExample1 = errorTextExample1,
+            exampleOne = exampleOne,
+            exampleTwo = exampleTwo,
+            exampleThree = exampleThree
         )
     }.stateIn(
-        scope = viewModelScope, started = SharingStarted.WhileSubscribed(), initialValue = ExampleUiState()
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(),
+        initialValue = ExampleUiState(exampleOne, exampleTwo, exampleThree)
     )
 
-    fun setRowSelectedPositionExample1(value: Int) = viewModelScope.launch { rowSelectedPositionExample1.emit(value) }
+    fun setExampleOneSelectedItem(item: SelectRowViewItem) = viewModelScope.launch {
+        exampleOneState.emit(
+            exampleOne.apply {
+                selectedItem = item
+                errorText = if (item == exampleOneItemThree) exampleOneErrorText else null
+            }
+        )
+    }
 
-    fun setRowSelectedPositionExample2(value: Int) = viewModelScope.launch { rowSelectedPositionExample2.emit(value) }
+    fun setExampleTwoSelectedItem(item: SelectRowViewItem) = viewModelScope.launch {
+        exampleTwo.selectedItem = item
+        exampleTwoState.emit(exampleTwo)
+    }
 
-    fun setRowSelectedPositionExample3(value: Int) = viewModelScope.launch { rowSelectedPositionExample3.emit(value) }
+    fun setExampleThreeSelectedItem(item: SelectRowViewItem) = viewModelScope.launch {
+        exampleThree.selectedItem = item
+        exampleThreeState.emit(exampleThree)
+    }
 
-    fun setErrorTextExample1(value: String) = viewModelScope.launch { errorTextExample1.emit(value) }
     //endregion
 
     data class ExampleUiState(
-        val rowSelectedPositionExample1: Int = FIRST_ROW_SELECTED_POSITION,
-        val rowSelectedPositionExample2: Int = FIRST_ROW_SELECTED_POSITION,
-        val rowSelectedPositionExample3: Int = FIRST_ROW_SELECTED_POSITION,
-        val errorTextExample1: String = ""
+        val exampleOne: SelectRowViewState,
+        val exampleTwo: SelectRowViewState,
+        val exampleThree: SelectRowViewState,
     )
 
-    data class PlaceHolderState(
-        val errorText: String = "",
-        val rowSelectedPosition: Int = NO_ROW_SELECTED_POSITION,
+    data class SelectRowViewState(
+        val items: List<SelectRowViewItem>,
+        var selectedItem: SelectRowViewItem? = null,
+        @StringRes var errorText: Int? = null
     )
-
-    companion object {
-        const val FIRST_ROW_SELECTED_POSITION = 0
-    }
 }
 
 

@@ -32,10 +32,6 @@ class SelectRowViewFragment : Fragment(R.layout.fragment_compose_example) {
     private lateinit var binding: FragmentComposeExampleBinding
     private val viewModel: SelectRowViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentComposeExampleBinding.bind(view)

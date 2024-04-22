@@ -15,6 +15,7 @@
  */
 package uk.gov.hmrc.components.compose.molecule.selectrow
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -34,6 +35,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.liveRegion
@@ -46,7 +48,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 object SelectRowView {
 
-    const val NO_ROW_SELECTED_POSITION = -1
+    class SelectRowViewItem(@StringRes val label: Int)
 
     /**
      * Composable function that creates a SelectRowView with icons and text.
@@ -61,20 +63,20 @@ object SelectRowView {
     @Composable
     operator fun invoke(
         modifier: Modifier = Modifier,
-        selectRowViewItems: List<String>,
+        selectRowViewItems: List<SelectRowViewItem>,
         checkedIcon: Int = R.drawable.components_select_row_circle_checked,
         uncheckedIcon: Int = R.drawable.components_select_row_circle_unchecked,
         showDivider: Boolean = false,
         defaultRowHorizontalPadding: Boolean = true,
-        rowSelectedPosition: Int = NO_ROW_SELECTED_POSITION,
-        errorText: String = "",
-        onRowSelected: (position: Int, value: String) -> Unit
+        selectedRowItem: SelectRowViewItem? = null,
+        @StringRes errorText: Int? = null,
+        onRowSelected: (selectedItem: SelectRowViewItem) -> Unit
     ) {
         CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
             Column(modifier = modifier) {
-                if (errorText.isNotEmpty()) {
+                errorText?.let {
                     Text(
-                        text = errorText,
+                        text = stringResource(id = errorText),
                         style = HmrcTheme.typography.body.copy(color = HmrcTheme.colors.hmrcRed),
                         modifier = Modifier
                             .offset(HmrcTheme.dimensions.hmrcSpacing8)
@@ -88,13 +90,13 @@ object SelectRowView {
                     val rowHorizontalPadding = if (defaultRowHorizontalPadding) {
                         HmrcTheme.dimensions.hmrcSpacing16
                     } else 0.dp
-                    selectRowViewItems.forEachIndexed { index, selectRow ->
+                    selectRowViewItems.forEachIndexed { index, rowItem ->
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
                             modifier = modifier
                                 .selectable(
-                                    selected = rowSelectedPosition == index,
-                                    onClick = { onRowSelected(index, selectRow) },
+                                    selected = selectedRowItem == rowItem,
+                                    onClick = { onRowSelected(rowItem) },
                                     role = Role.RadioButton
                                 )
                                 .padding(
@@ -104,14 +106,14 @@ object SelectRowView {
                         ) {
                             Icon(
                                 painter = painterResource(
-                                    if (rowSelectedPosition == index) checkedIcon else uncheckedIcon
+                                    if (selectedRowItem == rowItem) checkedIcon else uncheckedIcon
                                 ),
                                 contentDescription = null,
                                 tint = HmrcTheme.colors.hmrcBlack
                             )
                             Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
                             Text(
-                                text = selectRow,
+                                text = stringResource(id = rowItem.label),
                                 modifier = Modifier.fillMaxWidth(),
                                 style = HmrcTheme.typography.body
                             )
