@@ -21,8 +21,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
@@ -48,7 +46,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 object SelectRowView {
 
-    class SelectRowViewItem(@StringRes val label: Int)
+    data class SelectRowViewItem(@StringRes val label: Int)
 
     /**
      * Composable function that creates a SelectRowView with icons and text.
@@ -70,7 +68,7 @@ object SelectRowView {
         defaultRowHorizontalPadding: Boolean = true,
         selectedRowItem: SelectRowViewItem? = null,
         @StringRes errorText: Int? = null,
-        onRowSelected: (selectedItem: SelectRowViewItem) -> Unit
+        onRowSelected: (SelectRowViewItem) -> Unit
     ) {
         CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
             Column(modifier = modifier) {
@@ -79,11 +77,10 @@ object SelectRowView {
                         text = stringResource(id = errorText),
                         style = HmrcTheme.typography.body.copy(color = HmrcTheme.colors.hmrcRed),
                         modifier = Modifier
-                            .offset(HmrcTheme.dimensions.hmrcSpacing8)
+                            .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
                             .focusable()
                             .semantics { liveRegion = LiveRegionMode.Polite }
                     )
-                    Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing8))
                 }
 
                 Column(modifier = Modifier.selectableGroup()) {

@@ -50,7 +50,7 @@ class SelectRowViewModel @Inject constructor() : ViewModel() {
     private val exampleTwoItemThree = SelectRowViewItem(R.string.select_row_view_third_row)
     private val exampleTwoItemFour = SelectRowViewItem(R.string.select_row_view_fourth_row)
     private val exampleTwoItems = listOf(exampleTwoItemOne, exampleTwoItemTwo, exampleTwoItemThree, exampleTwoItemFour)
-    private var exampleTwo = SelectRowViewState(exampleTwoItems, exampleTwoItemOne)
+    private var exampleTwo = SelectRowViewState(exampleTwoItems, exampleTwoItemTwo)
 
     private val exampleThreeItemOne = SelectRowViewItem(R.string.select_row_view_first_row)
     private val exampleThreeItemTwo = SelectRowViewItem(R.string.select_row_view_second_row)
@@ -65,8 +65,8 @@ class SelectRowViewModel @Inject constructor() : ViewModel() {
     val placeholderUiState: StateFlow<SelectRowViewState> get() = _placeholderUiState
 
     fun setPlaceholderSelectedRow(item: SelectRowViewItem) = viewModelScope.launch {
-        placeholderState.selectedItem = item
-        _placeholderUiState.emit(placeholderState)
+        val updatedItem = placeholderState.copy(selectedItem = item)
+        _placeholderUiState.emit(updatedItem)
     }
     //endregion
 
@@ -92,22 +92,21 @@ class SelectRowViewModel @Inject constructor() : ViewModel() {
     )
 
     fun setExampleOneSelectedItem(item: SelectRowViewItem) = viewModelScope.launch {
-        exampleOneState.emit(
-            exampleOne.apply {
-                selectedItem = item
-                errorText = if (item == exampleOneItemThree) exampleOneErrorText else null
-            }
+        val updatedItem = exampleOne.copy(
+            selectedItem = item,
+            errorText = if (item == exampleOneItemThree) exampleOneErrorText else null
         )
+        exampleOneState.emit(updatedItem)
     }
 
     fun setExampleTwoSelectedItem(item: SelectRowViewItem) = viewModelScope.launch {
-        exampleTwo.selectedItem = item
-        exampleTwoState.emit(exampleTwo)
+        val updatedItem = exampleTwo.copy(selectedItem = item)
+        exampleTwoState.emit(updatedItem)
     }
 
     fun setExampleThreeSelectedItem(item: SelectRowViewItem) = viewModelScope.launch {
-        exampleThree.selectedItem = item
-        exampleThreeState.emit(exampleThree)
+        val updatedItem = exampleThree.copy(selectedItem = item)
+        exampleThreeState.emit(updatedItem)
     }
 
     //endregion
