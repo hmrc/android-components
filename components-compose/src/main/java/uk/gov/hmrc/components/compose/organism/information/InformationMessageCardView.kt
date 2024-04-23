@@ -44,20 +44,15 @@ import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.button.HmrcButton
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.extensions.enableTalkBackMergeAccessibility
-import uk.gov.hmrc.components.compose.ui.theme.HmrcAlwaysBlack
-import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
-import uk.gov.hmrc.components.compose.ui.theme.HmrcBlue
-import uk.gov.hmrc.components.compose.ui.theme.HmrcRed
 import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
-import uk.gov.hmrc.components.compose.ui.theme.HmrcYellow
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 
-enum class MessageType(val backgroundColor: Color, val headlineTint: Color, val iconColor: Color, val icon: Int) {
-    WARNING(HmrcYellow, HmrcAlwaysBlack, HmrcAlwaysBlack, R.drawable.components_ic_warning),
-    INFO(HmrcBlue, HmrcWhite, HmrcWhite, R.drawable.ic_info),
-    URGENT(HmrcRed, HmrcWhite, HmrcWhite, R.drawable.ic_info),
-    NOTICE(HmrcBlack, HmrcWhite, HmrcWhite, R.drawable.components_ic_warning)
+enum class InformationMessageType(val icon: Int) {
+    WARNING(R.drawable.components_ic_warning),
+    INFO(R.drawable.ic_info),
+    URGENT(R.drawable.ic_info),
+    NOTICE(R.drawable.components_ic_warning)
 }
 
 @Composable
@@ -66,10 +61,17 @@ fun InformationMessageCardView(
     headline: String,
     headlineContentDescription: String = "",
     text: String? = null,
-    messageType: MessageType,
+    messageType: InformationMessageType,
     buttons: List<InformationMessageButton> = emptyList()
 ) {
-    HmrcCardView(modifier = modifier, customBackgroundColor = messageType.backgroundColor) {
+    val (backgroundColor, headlineTint, iconColor) = when (messageType) {
+        InformationMessageType.WARNING -> Triple(colors.hmrcYellow, colors.hmrcAlwaysBlack, colors.hmrcAlwaysBlack)
+        InformationMessageType.INFO -> Triple(colors.hmrcBlue, colors.hmrcWhite, colors.hmrcWhite)
+        InformationMessageType.URGENT -> Triple(colors.hmrcRed, colors.hmrcWhite, colors.hmrcWhite)
+        InformationMessageType.NOTICE -> Triple(colors.hmrcBlack, colors.hmrcWhite, colors.hmrcWhite)
+    }
+
+    HmrcCardView(modifier = modifier, customBackgroundColor = backgroundColor) {
         Row(
             modifier = modifier
                 .fillMaxWidth()
@@ -80,7 +82,7 @@ fun InformationMessageCardView(
                 modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize36),
                 painter = painterResource(id = messageType.icon),
                 contentDescription = "",
-                colorFilter = ColorFilter.tint(messageType.iconColor)
+                colorFilter = ColorFilter.tint(iconColor)
             )
             Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing8))
             Text(
@@ -89,11 +91,9 @@ fun InformationMessageCardView(
                     .weight(1f)
                     .heightIn(HmrcTheme.dimensions.hmrcIconSize36)
                     .wrapContentSize(align = Alignment.CenterStart)
-                    .semantics {
-                        this.contentDescription = headlineContentDescription
-                    },
+                    .semantics { this.contentDescription = headlineContentDescription },
                 style = HmrcTheme.typography.h6,
-                color = messageType.headlineTint
+                color = headlineTint
             )
         }
         if (text != null) {
@@ -110,13 +110,13 @@ fun InformationMessageCardView(
                     text = text,
                     modifier = Modifier,
                     style = HmrcTheme.typography.body,
-                    color = messageType.headlineTint
+                    color = headlineTint
                 )
             }
         }
         if (buttons.isNotEmpty()) {
             buttons.forEach {
-                it.invoke()
+                it.invoke(headlineTint)
                 Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing8))
             }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing8))
@@ -126,27 +126,22 @@ fun InformationMessageCardView(
 
 class InformationMessageButton(
     val text: String,
-    val messageType: MessageType,
     val buttonType: ButtonType = ButtonType.ACTION,
     val onClick: () -> Unit
 ) {
     @Composable
-    operator fun invoke() {
+    operator fun invoke(headlineTint: Color) {
         val (colors, border) = when (buttonType) {
             ButtonType.ACTION -> {
                 Pair(
-                    ButtonDefaults.buttonColors(
-                        containerColor = HmrcTheme.colors.hmrcWhite, contentColor = HmrcTheme.colors.hmrcBlue
-                    ),
+                    ButtonDefaults.buttonColors(containerColor = colors.hmrcWhite, contentColor = colors.hmrcBlue),
                     null
                 )
             }
             ButtonType.OUTLINE -> {
                 Pair(
-                    ButtonDefaults.buttonColors(
-                        containerColor = Color.Transparent, contentColor = messageType.headlineTint
-                    ),
-                    BorderStroke(width = 1.0.dp, color = messageType.headlineTint,)
+                    ButtonDefaults.buttonColors(containerColor = Color.Transparent, contentColor = headlineTint),
+                    BorderStroke(width = 1.0.dp, color = headlineTint)
                 )
             }
         }
