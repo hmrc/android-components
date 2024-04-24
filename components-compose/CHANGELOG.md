@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [0.0.5] - 2024-04-24Z
+
 ### Changed
 
 * Changed how SelectRowGroup works. It now takes a list of `SelectRowViewItem` to populate the rows, and requires a
