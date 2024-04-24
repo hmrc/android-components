@@ -34,7 +34,7 @@ import uk.gov.hmrc.components.molecule.item.MultiColumnRowView
 
 class SummaryRowView @JvmOverloads constructor(
     context: Context,
-    val attrs: AttributeSet? = null,
+    attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr) {
 
