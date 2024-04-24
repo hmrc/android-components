@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Fixed
+
+* Resolved chevron icon initialization bug in `SummaryRowView`
+
 ## [4.11.0] - 2024-03-25Z
 
 ### Changed
