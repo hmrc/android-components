@@ -34,7 +34,7 @@ import uk.gov.hmrc.components.molecule.item.MultiColumnRowView
 
 class SummaryRowView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null,
+    val attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr) {
 
@@ -61,6 +61,9 @@ class SummaryRowView @JvmOverloads constructor(
         }
 
     init {
+        var icon = R.drawable.components_ic_chevron_right
+        var iconTint = R.color.hmrc_black
+
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.SummaryRowView, 0, 0)
             val titleText = typedArray.getString(R.styleable.SummaryRowView_title)
@@ -68,9 +71,9 @@ class SummaryRowView @JvmOverloads constructor(
                 R.styleable.SummaryRowView_titleTextAppearance,
                 R.style.Text_Bold
             )
-            val icon =
+            icon =
                 typedArray.getResourceId(R.styleable.SummaryRowView_icon, R.drawable.components_ic_chevron_right)
-            val iconTint = typedArray.getResourceId(R.styleable.SummaryRowView_iconTintColor, R.color.hmrc_black)
+            iconTint = typedArray.getResourceId(R.styleable.SummaryRowView_iconTintColor, R.color.hmrc_black)
 
             val titleMaxLines = typedArray.getInt(R.styleable.SummaryRowView_titleMaxLines, -1)
             val accessibilityMessage = typedArray.getString(R.styleable.SummaryRowView_accessibilityMessage)
@@ -80,9 +83,6 @@ class SummaryRowView @JvmOverloads constructor(
             setTitle(titleText)
             setTitleTextAppearance(titleTextAppearance)
             setTitleMaxLines(titleMaxLines)
-            setIcon(icon)
-            setIconTintColor(iconTint)
-
             accessibilityMessage?.let { message ->
                 setAccessibilityMessage(message)
             }
@@ -95,6 +95,8 @@ class SummaryRowView @JvmOverloads constructor(
         resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16).let {
             setPadding(it, it, it, it)
         }
+        setIcon(icon)
+        setIconTintColor(iconTint)
         addRipple()
     }
 

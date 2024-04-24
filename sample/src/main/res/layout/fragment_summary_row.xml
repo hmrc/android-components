@@ -138,11 +138,27 @@
                     android:id="@+id/summary_row_example_6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:icon="@drawable/ic_calendar"
                     app:readerTrait="simple"
-                    app:title="@string/summary_row_placeholder_title"
-                    app:icon="@drawable/ic_calendar" />
+                    app:title="@string/summary_row_placeholder_title" />
 
             </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/hmrc_spacing_16"
+            android:padding="@dimen/hmrc_spacing_16">
+
+            <uk.gov.hmrc.components.container.SeparatedViewContainer
+                android:id="@+id/container_summary_row_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dividerPadding="@dimen/hmrc_spacing_16"
+                android:orientation="vertical"
+                android:showDividers="middle" />
 
         </com.google.android.material.card.MaterialCardView>
 

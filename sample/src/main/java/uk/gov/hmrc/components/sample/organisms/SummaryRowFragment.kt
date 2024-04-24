@@ -21,6 +21,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import uk.gov.hmrc.components.molecule.item.MultiColumnRowView
+import uk.gov.hmrc.components.organism.summary.SummaryRowView
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
 import uk.gov.hmrc.components.sample.base.BaseComponentsFragment
@@ -141,6 +142,25 @@ class SummaryRowFragment : BaseComponentsFragment() {
             setRows(arrayListOf(example6Row1))
             setOnClickListener { onCtaPressed() }
             setIconTintColor(R.color.hmrc_blue)
+        }
+
+        // Example: SummaryRowView that is dynamically added
+        binding.containerSummaryRowView.apply {
+            removeAllViews()
+            addView(createDynamicSummaryRowView())
+        }
+    }
+
+    private fun createDynamicSummaryRowView(): SummaryRowView {
+        val row = MultiColumnRowView(requireContext())
+        row.setText(getString(R.string.long_text))
+        return SummaryRowView(requireContext()).apply {
+            readerTrait = SummaryRowView.READER_TRAIT_SIMPLE
+            setTitle(getString(R.string.summary_row_example_6_title))
+            setRows(arrayListOf(row))
+            setOnClickListener {
+                onCtaPressed()
+            }
         }
     }
 
