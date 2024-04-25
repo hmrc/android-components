@@ -20,6 +20,8 @@ Allowed headings:
 
 * `InformationMessageCardView` component.
 
+## [0.0.6] - 2024-04-25Z
+
 ### Changed
 
 * Changed how SelectRowGroup works. It now takes a list of `SelectRowViewItem` to populate the rows, and requires a
