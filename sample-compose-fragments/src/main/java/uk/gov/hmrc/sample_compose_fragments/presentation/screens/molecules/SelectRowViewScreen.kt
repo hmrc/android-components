@@ -15,13 +15,10 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
@@ -34,25 +31,20 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SelectRowView
 
 object SelectRowViewScreen {
 
-    private const val ERROR_ITEM_INDEX = 2
-
     @Composable
     operator fun invoke(viewModel: SelectRowViewModel) {
-        val context = LocalContext.current
-
         val exampleUiState by viewModel.exampleUiState.collectAsStateWithLifecycle()
-        val placeHolderUiState by viewModel.placeHolderUiState.collectAsStateWithLifecycle()
+        val placeholderUiState by viewModel.placeholderUiState.collectAsStateWithLifecycle()
 
         ScreenScrollViewColumn {
             //region Place Holder
             PlaceholderSlot {
-                viewModel.setPlaceHolderErrorText(stringResource(id = R.string.select_row_error_message))
                 SelectRowView(
-                    selectRowViewItems = listOf(stringResource(R.string.select_row_body_description)),
-                    errorText = placeHolderUiState.errorText,
-                    rowSelectedPosition = placeHolderUiState.rowSelectedPosition
-                ) { position, value ->  // Handle the SelectRowView item click listener
-                    viewModel.setPlaceHolderRowSelectedPosition(position)
+                    selectRowViewItems = placeholderUiState.items,
+                    errorText = placeholderUiState.errorText,
+                    selectedRowItem = placeholderUiState.selectedItem
+                ) { selectedItem ->  // Handle the SelectRowView item click listener
+                    viewModel.setPlaceholderSelectedRow(selectedItem)
                 }
             }
             //endregion
@@ -61,22 +53,11 @@ object SelectRowViewScreen {
                 //region Example one
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     SelectRowView(
-                        selectRowViewItems = listOf(
-                            stringResource(R.string.select_row_view_first_row),
-                            stringResource(R.string.select_row_view_second_row),
-                            stringResource(R.string.select_row_view_error_row),
-                            stringResource(id = R.string.longer_text)
-                        ),
-                        errorText = exampleUiState.errorTextExample1,
-                        rowSelectedPosition = exampleUiState.rowSelectedPositionExample1
-                    ) { position, value -> // Handle the SelectRowView item click listener
-                        viewModel.setRowSelectedPositionExample1(position)
-                        if (position == ERROR_ITEM_INDEX) {
-                            viewModel.setErrorTextExample1(context.getString(R.string.select_row_error_message))
-                        } else {
-                            viewModel.setErrorTextExample1("")
-                        }
-                        Toast.makeText(context, "$value selected", Toast.LENGTH_SHORT).show()
+                        selectRowViewItems = exampleUiState.exampleOne.items,
+                        errorText = exampleUiState.exampleOne.errorText,
+                        selectedRowItem = exampleUiState.exampleOne.selectedItem
+                    ) { selectedItem ->
+                        viewModel.setExampleOneSelectedItem(selectedItem)
                     }
                 }
                 //endregion
@@ -84,34 +65,20 @@ object SelectRowViewScreen {
                 //region Example two
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     SelectRowView(
-                        selectRowViewItems = listOf(
-                            stringResource(R.string.select_row_view_first_row),
-                            stringResource(R.string.select_row_view_second_row),
-                            stringResource(R.string.select_row_view_third_row),
-                            stringResource(R.string.select_row_view_fourth_row)
-                        ),
-                        rowSelectedPosition = exampleUiState.rowSelectedPositionExample2,
+                        selectRowViewItems = exampleUiState.exampleTwo.items,
+                        selectedRowItem = exampleUiState.exampleTwo.selectedItem,
                         checkedIcon = R.drawable.components_select_row_tick_checked
-                    ) { position, value -> // Handle the SelectRowView item click listener
-                        viewModel.setRowSelectedPositionExample2(position)
-                    }
+                    ) { selectedItem -> viewModel.setExampleTwoSelectedItem(selectedItem) }
                 }
                 //endregion
 
                 //region Example three with divider
                 HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
                     SelectRowView(
-                        selectRowViewItems = listOf(
-                            stringResource(R.string.select_row_view_first_row),
-                            stringResource(R.string.select_row_view_second_row),
-                            stringResource(R.string.select_row_view_third_row),
-                            stringResource(R.string.select_row_view_fourth_row)
-                        ),
-                        rowSelectedPosition = exampleUiState.rowSelectedPositionExample3,
+                        selectRowViewItems = exampleUiState.exampleThree.items,
+                        selectedRowItem = exampleUiState.exampleThree.selectedItem,
                         showDivider = true
-                    ) { position, value -> // Handle the SelectRowView item click listener
-                        viewModel.setRowSelectedPositionExample3(position)
-                    }
+                    ) { selectedItem -> viewModel.setExampleThreeSelectedItem(selectedItem) }
                 }
                 //endregion
             }
