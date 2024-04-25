@@ -31,6 +31,7 @@ val HmrcGrey2 = Color(0xFFB1B4B6)
 val HmrcGrey3 = Color(0xFFF3F2F1)
 val HmrcPink = Color(0xFFCA2B75)
 val HmrcYellow = Color(0xFFFFBF47)
+val HmrcAlwaysBlack = Color(0xFF0B0C0C)
 
 // Dark theme colors
 val HmrcBlackDark = Color(0xFFFFFFFF)

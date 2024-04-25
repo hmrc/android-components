@@ -16,6 +16,7 @@
 package uk.gov.hmrc.components.compose.atom.button
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
@@ -48,9 +49,10 @@ fun HmrcButton(
     text: String,
     modifier: Modifier = Modifier,
     textAlign: TextAlign = TextAlign.Center,
-    enabled: Boolean,
+    enabled: Boolean = true,
     shape: Shape = RectangleShape,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(),
+    border: BorderStroke? = null,
     contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit = {},
@@ -58,6 +60,7 @@ fun HmrcButton(
     Button(
         modifier = modifier.heightIn(min = HmrcTheme.dimensions.hmrcButtonSize48).fillMaxWidth(),
         colors = buttonColors,
+        border = border,
         enabled = enabled,
         shape = shape,
         contentPadding = contentPadding,
@@ -102,7 +105,6 @@ fun PrimaryButton(
 fun SecondaryButton(
     text: String,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true,
     textAlign: TextAlign = TextAlign.Center,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(
         containerColor = Color.Transparent, contentColor = colors.hmrcBlue
@@ -115,7 +117,6 @@ fun SecondaryButton(
             text = text,
             modifier = modifier,
             contentPadding = PaddingValues(all = HmrcTheme.dimensions.hmrcSpacing16),
-            enabled = enabled,
             textAlign = textAlign,
             buttonColors = buttonColors,
             onClick = onClick,
