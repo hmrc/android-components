@@ -197,6 +197,8 @@
     <string name="summary_row_example_2_accessibility_title">Fingerprint ID, on</string>
     <string name="summary_row_example_2_accessibility_action">activate</string>
 
+    <string name="summary_row_example_6_title">Dynamic Summary Row Title</string>
+
     <!-- Inset -->
     <string name="inset_placeholder_text">Nested content goes here</string>
     <string name="inset_example_text_line_1_description">Account Number:</string>
