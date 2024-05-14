@@ -23,7 +23,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import uk.gov.hmrc.components.R
 
-fun View.setAccessibilityMessage(message: CharSequence) {
+fun View.setAccessibilityMessage(message: CharSequence, className: String?) {
     ViewCompat.setAccessibilityDelegate(
         this,
         object : AccessibilityDelegateCompat() {
@@ -34,6 +34,9 @@ fun View.setAccessibilityMessage(message: CharSequence) {
                     message
                 )
                 info.addAction(customClick)
+                if (!className.isNullOrEmpty()) {
+                    info.roleDescription = className
+                }
             }
         }
     )
