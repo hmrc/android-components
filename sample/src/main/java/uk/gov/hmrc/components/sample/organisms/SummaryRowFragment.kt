@@ -19,9 +19,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
-import uk.gov.hmrc.components.extensions.setAccessibilityMessage
 import uk.gov.hmrc.components.molecule.item.MultiColumnRowView
 import uk.gov.hmrc.components.organism.summary.SummaryRowView
 import uk.gov.hmrc.components.sample.R
@@ -111,10 +109,10 @@ class SummaryRowFragment : BaseComponentsFragment() {
         binding.summaryRowExample2.apply {
             setRows(arrayListOf(example2Row1))
             setOnClickListener { onCtaPressed() }
-            setAccessibilityMessage(
-                getString(R.string.summary_row_example_2_accessibility_action), Button::class.java.simpleName
+            setButtonAccessibilityMessage(
+                getString(R.string.summary_row_example_2_accessibility_title),
+                getString(R.string.summary_row_example_2_accessibility_action)
             )
-            contentDescription = getString(R.string.summary_row_example_2_accessibility_title)
         }
 
         val example3Row1 = MultiColumnRowView(requireContext())

@@ -20,6 +20,7 @@ import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Button
 import android.widget.RelativeLayout
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
@@ -157,8 +158,8 @@ class SummaryRowView @JvmOverloads constructor(
     }
 
     fun setButtonAccessibilityMessage(buttonText: String, action: String) {
-        contentDescription = context.getString(R.string.button_content_description, buttonText)
-        setAccessibilityMessage(action)
+        contentDescription = buttonText
+        setAccessibilityMessage(action, Button::class.java.simpleName)
     }
 
     // This method can be used as an accessibility aid for informing talkback users of the result of tapping the view.
