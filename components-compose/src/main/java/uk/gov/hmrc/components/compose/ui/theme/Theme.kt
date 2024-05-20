@@ -43,6 +43,9 @@ private val LightColorPalette = HmrcColors(
     hmrcGrey3 = HmrcGrey3,
     hmrcPink = HmrcPink,
     hmrcYellow = HmrcYellow,
+    hmrcDonutChartColor1 = HmrcTeal,
+    hmrcDonutChartColor2 = HmrcDonutBlue,
+    hmrcDonutChartColor3 = HmrcDonutBlue,
     isDark = false
 )
 
@@ -60,6 +63,9 @@ private val DarkColorPalette = HmrcColors(
     hmrcGrey3 = HmrcGrey3Dark,
     hmrcPink = HmrcPinkDark,
     hmrcYellow = HmrcYellowDark,
+    hmrcDonutChartColor1 = HmrcWhite,
+    hmrcDonutChartColor2 = HmrcTeal,
+    hmrcDonutChartColor3 = HmrcTeal,
     isDark = true
 )
 
@@ -205,6 +211,9 @@ class HmrcColors(
     hmrcInfoMessageInfoHeadlineBackground: Color = hmrcBlue,
     hmrcInfoMessageUrgentHeadlineBackground: Color = hmrcRed,
     hmrcInfoMessageNoticeHeadlineBackground: Color = hmrcBlack,
+    hmrcDonutChartColor1: Color,
+    hmrcDonutChartColor2: Color,
+    hmrcDonutChartColor3: Color,
     isDark: Boolean
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
@@ -249,21 +258,19 @@ class HmrcColors(
         private set
     var hmrcInsetBar by mutableStateOf(hmrcInsetBar)
         private set
-    var hmrcInfoMessageWarningHeadlineBackground by mutableStateOf(
-        hmrcInfoMessageWarningHeadlineBackground
-    )
+    var hmrcInfoMessageWarningHeadlineBackground by mutableStateOf(hmrcInfoMessageWarningHeadlineBackground)
         private set
-    var hmrcInfoMessageInfoHeadlineBackground by mutableStateOf(
-        hmrcInfoMessageInfoHeadlineBackground
-    )
+    var hmrcInfoMessageInfoHeadlineBackground by mutableStateOf(hmrcInfoMessageInfoHeadlineBackground)
         private set
-    var hmrcInfoMessageUrgentHeadlineBackground by mutableStateOf(
-        hmrcInfoMessageUrgentHeadlineBackground
-    )
+    var hmrcInfoMessageUrgentHeadlineBackground by mutableStateOf(hmrcInfoMessageUrgentHeadlineBackground)
         private set
-    var hmrcInfoMessageNoticeHeadlineBackground by mutableStateOf(
-        hmrcInfoMessageNoticeHeadlineBackground
-    )
+    var hmrcInfoMessageNoticeHeadlineBackground by mutableStateOf(hmrcInfoMessageNoticeHeadlineBackground)
+        private set
+    var hmrcDonutChartColor1 by mutableStateOf(hmrcDonutChartColor1)
+        private set
+    var hmrcDonutChartColor2 by mutableStateOf(hmrcDonutChartColor2)
+        private set
+    var hmrcDonutChartColor3 by mutableStateOf(hmrcDonutChartColor3)
         private set
     var isDark by mutableStateOf(isDark)
         private set
@@ -297,6 +304,9 @@ class HmrcColors(
         hmrcInfoMessageInfoHeadlineBackground = other.hmrcInfoMessageInfoHeadlineBackground
         hmrcInfoMessageUrgentHeadlineBackground = other.hmrcInfoMessageUrgentHeadlineBackground
         hmrcInfoMessageNoticeHeadlineBackground = other.hmrcInfoMessageNoticeHeadlineBackground
+        hmrcDonutChartColor1 = other.hmrcDonutChartColor1
+        hmrcDonutChartColor2 = other.hmrcDonutChartColor2
+        hmrcDonutChartColor3 = other.hmrcDonutChartColor3
         isDark = other.isDark
     }
 
@@ -326,6 +336,9 @@ class HmrcColors(
         hmrcInfoMessageInfoHeadlineBackground = hmrcInfoMessageInfoHeadlineBackground,
         hmrcInfoMessageUrgentHeadlineBackground = hmrcInfoMessageUrgentHeadlineBackground,
         hmrcInfoMessageNoticeHeadlineBackground = hmrcInfoMessageNoticeHeadlineBackground,
+        hmrcDonutChartColor1 = hmrcDonutChartColor1,
+        hmrcDonutChartColor2 = hmrcDonutChartColor2,
+        hmrcDonutChartColor3 = hmrcDonutChartColor3,
         isDark = isDark,
     )
 }
