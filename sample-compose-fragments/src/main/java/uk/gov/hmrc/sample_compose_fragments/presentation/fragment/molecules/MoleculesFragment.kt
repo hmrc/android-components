@@ -29,6 +29,7 @@ import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleB
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_BOLD_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_BOTTOM_SHEET_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_CURRENCY_INPUT_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_DONUT_CHART_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H4_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_H5_TITLE_BODY_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.MOLECULE_INSET_TEXT_VIEW
@@ -107,6 +108,9 @@ class MoleculesFragment : Fragment(R.layout.fragment_compose_example) {
                                 }
                                 MOLECULE_BOTTOM_SHEET_VIEW -> {
                                     with(navigator) { goToBottomSheetView() }
+                                }
+                                MOLECULE_DONUT_CHART_VIEW -> {
+                                    with(navigator) { goToDonutChartView() }
                                 }
                             }
                         })

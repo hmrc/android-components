@@ -55,6 +55,8 @@ interface Navigator {
 
     fun Fragment.goToBottomSheetView()
 
+    fun Fragment.goToDonutChartView()
+
     fun Fragment.goToSeparatedViewContainer()
 
     fun Fragment.goToHeadlineCardView()
