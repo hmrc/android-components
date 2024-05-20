@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Added
+
+* Added role description option in `ViewExt`
+
 ## [4.11.1] - 2024-04-26Z
 
 ### Fixed

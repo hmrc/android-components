@@ -19,7 +19,6 @@
     <string name="text_input_example_hint">Message</string>
     <string name="text_input_example_text">I need some help with my help to save account. For some reason my account is blocked and I am not sure why. Please help.</string>
 
-    <string name="button_content_description">%s, button</string>
     <string name="menu_panel_button_no_notification_content_description">%s, %s. %s</string>
     <string name="menu_panel_button_new_notification_content_description">%s. New. %s. %s</string>
     <string name="menu_panel_button_circle_notification_content_description">%s, new item, %s. %s</string>
