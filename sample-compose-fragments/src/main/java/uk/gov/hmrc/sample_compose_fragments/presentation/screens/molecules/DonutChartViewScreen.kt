@@ -2,12 +2,11 @@ package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartView
-import uk.gov.hmrc.components.compose.molecule.donut.SegmentStyle
-import uk.gov.hmrc.components.compose.molecule.donut.StrokeType
+import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewSegmentStyle
+import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewStrokeType
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
@@ -24,15 +23,21 @@ fun DonutChartViewScreen() {
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             DonutChartView(
                 listOf(100.0, 100.0),
-                styles = listOf(SegmentStyle(HmrcTheme.colors.hmrcPink), SegmentStyle(HmrcTheme.colors.hmrcYellow))
+                styles = listOf(
+                    DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
+                    DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcYellow)
+                )
             )
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             DonutChartView(
                 listOf(200.0, 50.0, 50.0),
                 styles = listOf(
-                    SegmentStyle(HmrcTheme.colors.hmrcPink),
-                    SegmentStyle(HmrcTheme.colors.hmrcYellow),
-                    SegmentStyle(HmrcTheme.colors.hmrcGreen1, strokeType = StrokeType.STRIPE)
+                    DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
+                    DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcYellow),
+                    DonutChartViewSegmentStyle(
+                        HmrcTheme.colors.hmrcGreen1,
+                        strokeType = DonutChartViewStrokeType.STRIPE
+                    )
                 )
             )
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))

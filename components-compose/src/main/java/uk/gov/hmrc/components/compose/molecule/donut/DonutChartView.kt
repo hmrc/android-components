@@ -68,11 +68,11 @@ fun DonutChartView(
             )
             segment2Value.animateTo(
                 targetValue = 1f,
-                animationSpec = tween(durationMillis = 600, delayMillis = 1000, easing = FastOutSlowInEasing)
+                animationSpec = tween(durationMillis = 600, easing = FastOutSlowInEasing)
             )
             segment3Value.animateTo(
                 targetValue = 1f,
-                animationSpec = tween(durationMillis = 600, delayMillis = 1400, easing = FastOutSlowInEasing)
+                animationSpec = tween(durationMillis = 600, easing = FastOutSlowInEasing)
             )
         }
 
