@@ -41,153 +41,166 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
-private const val FIRST_SEGMENT_POSITION = 0
-private const val SECOND_SEGMENT_POSITION = 1
-private const val THIRD_SEGMENT_POSITION = 2
-private const val FIRST_SEGMENT_ANIMATION_DURATION = 1200
-private const val SECOND_SEGMENT_ANIMATION_DURATION = 600
-private const val THIRD_SEGMENT_ANIMATION_DURATION = 600
-private const val ANIMATION_START_VALUE = 0f
-private const val ANIMATION_END_VALUE = 1f
-private const val TOP_OF_CIRCLE_DEGREES = 270f
-private const val COMPLETE_CIRCLE_DEGREES = 360f
-private const val WHOLE_PERCENT = 1f
-private const val MIN_PERCENT_FOR_STRIPES = 0.05
+class DonutChartViewInput(val value: Double, val label: String)
+class DonutChartViewSegmentStyle(
+    val solidColor: Color,
+    val stripeColor: Color = solidColor,
+    val strokeType: DonutChartViewStrokeType = DonutChartViewStrokeType.SOLID,
+)
+enum class DonutChartViewStrokeType { SOLID, STRIPE }
+class DonutChartViewOutput(val color: Color, val label: String, val sweep: Float, val stroke: DonutChartViewStrokeType)
 
-@Composable
-fun DonutChartView(
-    input: List<DonutChartViewInput>,
-    modifier: Modifier = Modifier,
-    styles: List<DonutChartViewSegmentStyle> = listOf(
-        DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcDonutChartColor1),
-        DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcDonutChartColor2),
-        DonutChartViewSegmentStyle(
-            HmrcTheme.colors.hmrcPink,
-            HmrcTheme.colors.hmrcDonutChartColor2,
-            DonutChartViewStrokeType.STRIPE
-        )
-    ),
-    shouldAnimate: Boolean = true,
-    strokeWidth: Dp = HmrcTheme.dimensions.hmrcSpacing16,
-): List<DonutChartViewOutput> {
-    require(styles.size >= input.size) { "There are not enough styles defined for all input values." }
+object DonutChartView {
+    private const val FIRST_SEGMENT_POSITION = 0
+    private const val SECOND_SEGMENT_POSITION = 1
+    private const val THIRD_SEGMENT_POSITION = 2
+    private const val FIRST_SEGMENT_ANIMATION_DURATION = 1200
+    private const val SECOND_SEGMENT_ANIMATION_DURATION = 600
+    private const val THIRD_SEGMENT_ANIMATION_DURATION = 600
+    private const val ANIMATION_START_VALUE = 0f
+    private const val ANIMATION_END_VALUE = 1f
+    private const val TOP_OF_CIRCLE_DEGREES = 270f
+    private const val COMPLETE_CIRCLE_DEGREES = 360f
+    private const val WHOLE_PERCENT = 1f
+    private const val MIN_PERCENT_FOR_STRIPES = 0.05
 
-    val canvasModifier = modifier.aspectRatio(1f)
-
-    val solidStroke = with(LocalDensity.current) { Stroke(width = strokeWidth.toPx()) }
-    val stripedStroke = with(LocalDensity.current) {
-        Stroke(width = strokeWidth.toPx(), pathEffect = stripedPathEffect(HmrcTheme.dimensions.hmrcSpacing4.toPx()))
-    }
-
-    fun DonutChartViewStrokeType.toStroke() = when (this) {
-        DonutChartViewStrokeType.SOLID -> solidStroke
-        DonutChartViewStrokeType.STRIPE -> stripedStroke
-    }
-
-    val segments = processSegments(input, styles)
-    val baseColor = HmrcTheme.colors.hmrcWhite
-
-    if (shouldAnimate) {
-        val segment1Value = remember { Animatable(ANIMATION_START_VALUE) }
-        val segment2Value = remember { Animatable(ANIMATION_START_VALUE) }
-        val segment3Value = remember { Animatable(ANIMATION_START_VALUE) }
-        LaunchedEffect(input) {
-            segment1Value.animateTo(
-                targetValue = ANIMATION_END_VALUE,
-                animationSpec = tween(durationMillis = FIRST_SEGMENT_ANIMATION_DURATION, easing = FastOutSlowInEasing)
+    @Composable
+    operator fun invoke(
+        input: List<DonutChartViewInput>,
+        modifier: Modifier = Modifier,
+        styles: List<DonutChartViewSegmentStyle> = listOf(
+            DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcDonutChartColor1),
+            DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcDonutChartColor2),
+            DonutChartViewSegmentStyle(
+                HmrcTheme.colors.hmrcPink,
+                HmrcTheme.colors.hmrcDonutChartColor2,
+                DonutChartViewStrokeType.STRIPE
             )
-            segment2Value.animateTo(
-                targetValue = ANIMATION_END_VALUE,
-                animationSpec = tween(durationMillis = SECOND_SEGMENT_ANIMATION_DURATION, easing = FastOutSlowInEasing)
-            )
-            segment3Value.animateTo(
-                targetValue = ANIMATION_END_VALUE,
-                animationSpec = tween(durationMillis = THIRD_SEGMENT_ANIMATION_DURATION, easing = FastOutSlowInEasing)
-            )
+        ),
+        shouldAnimate: Boolean = true,
+        strokeWidth: Dp = HmrcTheme.dimensions.hmrcSpacing16,
+    ): List<DonutChartViewOutput> {
+        require(styles.size >= input.size) { "There are not enough styles defined for all input values." }
+
+        val canvasModifier = modifier.aspectRatio(1f)
+        val baseColor = HmrcTheme.colors.hmrcWhite
+        val solidStroke = with(LocalDensity.current) { Stroke(width = strokeWidth.toPx()) }
+        val stripedStroke = with(LocalDensity.current) {
+            Stroke(width = strokeWidth.toPx(), pathEffect = stripedPathEffect(HmrcTheme.dimensions.hmrcSpacing4.toPx()))
+        }
+        fun DonutChartViewStrokeType.toStroke() = when (this) {
+            DonutChartViewStrokeType.SOLID -> solidStroke
+            DonutChartViewStrokeType.STRIPE -> stripedStroke
         }
 
-        Canvas(canvasModifier) {
-            segments.elementAtOrNull(FIRST_SEGMENT_POSITION)?.let {
-                drawSegment(baseColor, solidStroke, it.color, it.sweep * segment1Value.value, it.stroke.toStroke())
+        val segments = processSegments(input, styles)
+
+        if (shouldAnimate) {
+            val segment1Value = remember { Animatable(ANIMATION_START_VALUE) }
+            val segment2Value = remember { Animatable(ANIMATION_START_VALUE) }
+            val segment3Value = remember { Animatable(ANIMATION_START_VALUE) }
+            LaunchedEffect(input) {
+                segment1Value.animateTo(
+                    targetValue = ANIMATION_END_VALUE,
+                    animationSpec = tween(
+                        durationMillis = FIRST_SEGMENT_ANIMATION_DURATION, easing = FastOutSlowInEasing
+                    )
+                )
+                segment2Value.animateTo(
+                    targetValue = ANIMATION_END_VALUE,
+                    animationSpec = tween(
+                        durationMillis = SECOND_SEGMENT_ANIMATION_DURATION, easing = FastOutSlowInEasing
+                    )
+                )
+                segment3Value.animateTo(
+                    targetValue = ANIMATION_END_VALUE,
+                    animationSpec = tween(
+                        durationMillis = THIRD_SEGMENT_ANIMATION_DURATION, easing = FastOutSlowInEasing
+                    )
+                )
             }
-            segments.elementAtOrNull(SECOND_SEGMENT_POSITION)?.let {
-                drawSegment(baseColor, solidStroke, it.color, it.sweep * -segment2Value.value, it.stroke.toStroke())
+
+            Canvas(canvasModifier) {
+                segments.elementAtOrNull(FIRST_SEGMENT_POSITION)?.let {
+                    drawSegment(baseColor, solidStroke, it.color, it.sweep * segment1Value.value, it.stroke.toStroke())
+                }
+                segments.elementAtOrNull(SECOND_SEGMENT_POSITION)?.let {
+                    drawSegment(baseColor, solidStroke, it.color, it.sweep * -segment2Value.value, it.stroke.toStroke())
+                }
+                segments.elementAtOrNull(THIRD_SEGMENT_POSITION)?.let {
+                    drawSegment(baseColor, solidStroke, it.color, it.sweep * -segment3Value.value, it.stroke.toStroke())
+                }
             }
-            segments.elementAtOrNull(THIRD_SEGMENT_POSITION)?.let {
-                drawSegment(baseColor, solidStroke, it.color, it.sweep * -segment3Value.value, it.stroke.toStroke())
-            }
-        }
-    } else {
-        Canvas(canvasModifier) {
-            segments.forEachIndexed { index, segment ->
-                if (index == FIRST_SEGMENT_POSITION) {
-                    drawSegment(baseColor, solidStroke, segment.color, segment.sweep, segment.stroke.toStroke())
-                } else {
-                    drawSegment(baseColor, solidStroke, segment.color, -segment.sweep, segment.stroke.toStroke())
+        } else {
+            Canvas(canvasModifier) {
+                segments.forEachIndexed { index, segment ->
+                    if (index == FIRST_SEGMENT_POSITION) {
+                        drawSegment(baseColor, solidStroke, segment.color, segment.sweep, segment.stroke.toStroke())
+                    } else {
+                        drawSegment(baseColor, solidStroke, segment.color, -segment.sweep, segment.stroke.toStroke())
+                    }
                 }
             }
         }
+        return segments
     }
-    return segments
-}
 
-private fun processSegments(
-    input: List<DonutChartViewInput>,
-    styles: List<DonutChartViewSegmentStyle>
-): List<DonutChartViewOutput> {
-    val totalValue = input.sumOf { it.value }
-    val sortedSegments = input.sortedByDescending { it.value }
-    val processedSegments = mutableListOf<DonutChartViewOutput>()
-    val wholeCirclePercent = WHOLE_PERCENT / totalValue
-    var sweepStartPoint = COMPLETE_CIRCLE_DEGREES
-    sortedSegments.forEachIndexed { index, inputItem ->
-        val style = styles[index]
-        val sweepPercent = wholeCirclePercent * inputItem.value
-        val sweepSpread = (sweepPercent * COMPLETE_CIRCLE_DEGREES).toFloat()
+    private fun processSegments(
+        input: List<DonutChartViewInput>,
+        styles: List<DonutChartViewSegmentStyle>
+    ): List<DonutChartViewOutput> {
+        val totalValue = input.sumOf { it.value }
+        val sortedSegments = input.sortedByDescending { it.value }
+        val processedSegments = mutableListOf<DonutChartViewOutput>()
+        val wholeCirclePercent = WHOLE_PERCENT / totalValue
+        var sweepStartPoint = COMPLETE_CIRCLE_DEGREES
+        sortedSegments.forEachIndexed { index, inputItem ->
+            val style = styles[index]
+            val sweepPercent = wholeCirclePercent * inputItem.value
+            val sweepSpread = (sweepPercent * COMPLETE_CIRCLE_DEGREES).toFloat()
 
-        val (strokeColor, strokeType) = if (
-            style.strokeType == DonutChartViewStrokeType.SOLID || sweepPercent <= MIN_PERCENT_FOR_STRIPES
-        ) {
-            Pair(style.solidColor, DonutChartViewStrokeType.SOLID)
-        } else Pair(style.stripeColor, DonutChartViewStrokeType.STRIPE)
+            val (strokeColor, strokeType) = if (
+                style.strokeType == DonutChartViewStrokeType.SOLID || sweepPercent <= MIN_PERCENT_FOR_STRIPES
+            ) {
+                Pair(style.solidColor, DonutChartViewStrokeType.SOLID)
+            } else Pair(style.stripeColor, DonutChartViewStrokeType.STRIPE)
 
-        processedSegments.add(DonutChartViewOutput(strokeColor, inputItem.label, sweepStartPoint, strokeType))
+            processedSegments.add(DonutChartViewOutput(strokeColor, inputItem.label, sweepStartPoint, strokeType))
 
-        sweepStartPoint -= sweepSpread
+            sweepStartPoint -= sweepSpread
+        }
+        return processedSegments
     }
-    return processedSegments
-}
 
-private fun DrawScope.drawSegment(
-    baseColor: Color,
-    baseStroke: Stroke,
-    color: Color,
-    sweep: Float,
-    stroke: Stroke
-) {
-    val diameterOffset = stroke.width / 2
-    val arcDimen = size.width - 2 * diameterOffset
-    drawArc(
-        color = baseColor,
-        startAngle = TOP_OF_CIRCLE_DEGREES, // Start at the top
-        sweepAngle = sweep,
-        useCenter = false,
-        topLeft = Offset(diameterOffset, diameterOffset),
-        size = Size(arcDimen, arcDimen),
-        style = baseStroke
-    )
-    drawArc(
-        color = color,
-        startAngle = TOP_OF_CIRCLE_DEGREES, // Start at the top
-        sweepAngle = sweep,
-        useCenter = false,
-        topLeft = Offset(diameterOffset, diameterOffset),
-        size = Size(arcDimen, arcDimen),
-        style = stroke
-    )
+    private fun DrawScope.drawSegment(
+        baseColor: Color,
+        baseStroke: Stroke,
+        color: Color,
+        sweep: Float,
+        stroke: Stroke
+    ) {
+        val diameterOffset = stroke.width / 2
+        val arcDimen = size.width - 2 * diameterOffset
+        drawArc(
+            color = baseColor,
+            startAngle = TOP_OF_CIRCLE_DEGREES, // Start at the top
+            sweepAngle = sweep,
+            useCenter = false,
+            topLeft = Offset(diameterOffset, diameterOffset),
+            size = Size(arcDimen, arcDimen),
+            style = baseStroke
+        )
+        drawArc(
+            color = color,
+            startAngle = TOP_OF_CIRCLE_DEGREES, // Start at the top
+            sweepAngle = sweep,
+            useCenter = false,
+            topLeft = Offset(diameterOffset, diameterOffset),
+            size = Size(arcDimen, arcDimen),
+            style = stroke
+        )
+    }
 }
-
-private fun stripedPathEffect(dashSize: Float) = PathEffect.dashPathEffect(floatArrayOf(dashSize, dashSize))
 
 @Composable
 fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier = Modifier) {
@@ -217,11 +230,4 @@ fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier 
     }
 }
 
-class DonutChartViewInput(val value: Double, val label: String)
-class DonutChartViewSegmentStyle(
-    val solidColor: Color,
-    val stripeColor: Color = solidColor,
-    val strokeType: DonutChartViewStrokeType = DonutChartViewStrokeType.SOLID,
-)
-enum class DonutChartViewStrokeType { SOLID, STRIPE }
-class DonutChartViewOutput(val color: Color, val label: String, val sweep: Float, val stroke: DonutChartViewStrokeType)
+private fun stripedPathEffect(dashSize: Float) = PathEffect.dashPathEffect(floatArrayOf(dashSize, dashSize))
