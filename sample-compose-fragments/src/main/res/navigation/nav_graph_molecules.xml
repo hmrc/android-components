@@ -67,6 +67,9 @@
         <action
             android:id="@+id/action_moleculesFragment_to_bottomSheetViewFragment"
             app:destination="@+id/bottomSheetViewFragment" />
+        <action
+            android:id="@+id/action_moleculesFragment_to_donutChartViewFragment"
+            app:destination="@+id/donutChartViewFragment" />
     </fragment>
 
     <fragment
@@ -147,5 +150,10 @@
         android:id="@+id/bottomSheetViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.BottomSheetViewFragment"
         android:label="@string/molecules_bottom_sheet" />
+
+    <fragment
+        android:id="@+id/donutChartViewFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.DonutChartViewFragment"
+        android:label="@string/molecules_donut_chart" />
 
 </navigation>

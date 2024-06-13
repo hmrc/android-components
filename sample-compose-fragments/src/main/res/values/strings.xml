@@ -82,6 +82,7 @@
     <string name="molecules_tab_bar">Tab Bar View</string>
     <string name="molecules_select_row">Select Row View</string>
     <string name="molecules_bottom_sheet">Bottom Sheet View</string>
+    <string name="molecules_donut_chart">Donut Chart View</string>
 
     <!-- Organisms navigation -->
     <string name="organisms_text_input">Text Input View</string>

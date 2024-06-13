@@ -19,6 +19,7 @@ Allowed headings:
 ### Added
 
 * `InformationMessageCardView` component.
+* `DonutChartView` component.
 
 ## [0.0.6] - 2024-04-25Z
 
