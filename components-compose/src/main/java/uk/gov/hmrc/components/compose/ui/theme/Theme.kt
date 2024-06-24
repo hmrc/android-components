@@ -121,7 +121,7 @@ fun HmrcTheme(
         unfocusedLabelColor = colors.hmrcBlack,
         errorLabelColor = colors.hmrcRed,
         focusedBorderColor = colors.hmrcBlue,
-        errorBorderColor = colors.hmrcRed,
+        errorBorderColor = colors.hmrcBlack,
         unfocusedBorderColor = colors.hmrcBlack,
         focusedPlaceholderColor = colors.hmrcGrey1,
         unfocusedPlaceholderColor = colors.hmrcGrey1,
