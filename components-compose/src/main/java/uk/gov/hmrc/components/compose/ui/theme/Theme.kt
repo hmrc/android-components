@@ -109,28 +109,7 @@ fun HmrcTheme(
         else -> hmrcTypography
     }
 
-    val textInputViewColors: TextFieldColors = OutlinedTextFieldDefaults.colors(
-        focusedTextColor = colors.hmrcBlack,
-        unfocusedTextColor = colors.hmrcBlack,
-        errorTextColor = colors.hmrcRed,
-        errorLeadingIconColor = colors.hmrcBlack,
-        focusedTrailingIconColor = colors.hmrcBlack,
-        unfocusedTrailingIconColor = colors.hmrcBlack,
-        errorTrailingIconColor = colors.hmrcBlack,
-        focusedLabelColor = colors.hmrcBlue,
-        unfocusedLabelColor = colors.hmrcBlack,
-        errorLabelColor = colors.hmrcRed,
-        focusedBorderColor = colors.hmrcBlue,
-        errorBorderColor = colors.hmrcBlack,
-        unfocusedBorderColor = colors.hmrcBlack,
-        focusedPlaceholderColor = colors.hmrcGrey1,
-        unfocusedPlaceholderColor = colors.hmrcGrey1,
-        errorPlaceholderColor = colors.hmrcGrey1,
-        errorSupportingTextColor = colors.hmrcRed,
-        focusedSupportingTextColor = colors.hmrcBlack,
-        cursorColor = colors.hmrcBlue,
-        errorCursorColor = colors.hmrcRed,
-    )
+    val textInputViewColors = TextInputViewColors(colors = colors)
 
     ProvideHmrcTheme(
         dimensions = dimensions,
@@ -145,6 +124,30 @@ fun HmrcTheme(
         )
     }
 }
+
+@Composable
+fun TextInputViewColors(colors: HmrcColors): TextFieldColors = OutlinedTextFieldDefaults.colors(
+    focusedTextColor = colors.hmrcBlack,
+    unfocusedTextColor = colors.hmrcBlack,
+    errorTextColor = colors.hmrcRed,
+    errorLeadingIconColor = colors.hmrcBlack,
+    focusedTrailingIconColor = colors.hmrcBlack,
+    unfocusedTrailingIconColor = colors.hmrcBlack,
+    errorTrailingIconColor = colors.hmrcBlack,
+    focusedLabelColor = colors.hmrcBlue,
+    unfocusedLabelColor = colors.hmrcBlack,
+    errorLabelColor = colors.hmrcRed,
+    focusedBorderColor = colors.hmrcBlue,
+    errorBorderColor = colors.hmrcBlack,
+    unfocusedBorderColor = colors.hmrcBlack,
+    focusedPlaceholderColor = colors.hmrcGrey1,
+    unfocusedPlaceholderColor = colors.hmrcGrey1,
+    errorPlaceholderColor = colors.hmrcGrey1,
+    errorSupportingTextColor = colors.hmrcRed,
+    focusedSupportingTextColor = colors.hmrcBlack,
+    cursorColor = colors.hmrcBlue,
+    errorCursorColor = colors.hmrcRed,
+)
 
 object HmrcTheme {
     val colors: HmrcColors
