@@ -21,6 +21,10 @@ Allowed headings:
 * `InformationMessageCardView` component.
 * `DonutChartView` component.
 
+### Changed
+
+* Better dark mode support for `TextInputView` and `CurrencyInputView`
+
 ## [0.0.6] - 2024-04-25Z
 
 ### Changed
