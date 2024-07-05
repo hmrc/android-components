@@ -20,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import uk.gov.hmrc.components.compose.atom.bullet.BulletedTextView
 import uk.gov.hmrc.components.compose.atom.heading.Heading3
 import uk.gov.hmrc.components.compose.atom.heading.Heading4
@@ -66,6 +67,11 @@ fun TextScreen() {
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
         Text(
+            text = stringResource(id = R.string.text_link),
+            style = typography.link,
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
+        )
+        Text(
             text = stringResource(id = R.string.text_error),
             style = typography.errorText,
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
@@ -78,5 +84,13 @@ fun TextScreen() {
             text = stringResource(id = R.string.text_bullet_2),
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
+    }
+}
+
+@Preview
+@Composable
+fun TextScreenPreview() {
+    HmrcTheme {
+        TextScreen()
     }
 }

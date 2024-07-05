@@ -308,7 +308,7 @@
     <string name="text_body">Body text</string>
     <string name="text_info">Info text</string>
     <string name="text_error">Error text</string>
-    <string name="text_link">&lt;a href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/tax-credits-enquiries">Link text&lt;/a></string>
+    <string name="text_link">Link text</string>
     <string name="text_bullet_1">Bulleted Text without newline characters that extends over multiple lines in order to demonstrate indenting. Bulleted Text without newline characters that extends over multiple lines in order to demonstrate indenting.</string>
     <string name="text_bullet_2">Bulleted Text with newline characters\nthat extends over multiple lines\nin order to demonstrate indenting.</string>
 

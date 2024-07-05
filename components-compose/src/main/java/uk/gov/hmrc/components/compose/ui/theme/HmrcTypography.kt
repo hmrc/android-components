@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 data class HmrcTypography(
     val hmrcBlack: Color,
     val hmrcGrey1: Color,
+    val hmrcBlue: Color,
     val hmrcRed: Color,
 
     val h3: TextStyle = TextStyle(
@@ -61,6 +62,12 @@ data class HmrcTypography(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         color = hmrcGrey1
+    ),
+    val link: TextStyle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp,
+        color = hmrcBlue
     ),
     val errorText: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,

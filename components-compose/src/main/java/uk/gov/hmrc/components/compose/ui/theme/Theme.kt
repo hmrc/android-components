@@ -98,7 +98,8 @@ fun HmrcTheme(
     val hmrcTypography = HmrcTypography(
         hmrcBlack = colors.hmrcBlack,
         hmrcGrey1 = colors.hmrcGrey1,
-        hmrcRed = colors.hmrcRed
+        hmrcBlue = colors.hmrcBlue,
+        hmrcRed = colors.hmrcRed,
     )
 
     // We can define the different typography of different sizes screen
