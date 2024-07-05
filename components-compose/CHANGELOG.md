@@ -20,6 +20,7 @@ Allowed headings:
 
 * `InformationMessageCardView` component.
 * `DonutChartView` component.
+* `Link` text style
 
 ## [0.0.6] - 2024-04-25Z
 
