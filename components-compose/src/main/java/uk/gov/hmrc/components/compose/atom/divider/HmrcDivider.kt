@@ -17,7 +17,7 @@ package uk.gov.hmrc.components.compose.atom.divider
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.height
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -31,7 +31,7 @@ object HmrcDivider {
         thickness: Dp = HmrcTheme.dimensions.hmrcDividerHeight,
         backgroundColor: Color = HmrcTheme.colors.hmrcDivider
     ) {
-        Divider(
+        HorizontalDivider(
             modifier = modifier.apply {
                 height(thickness)
                 background(color = backgroundColor)

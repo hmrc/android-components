@@ -21,6 +21,7 @@ Allowed headings:
 * `InformationMessageCardView` component.
 * `DonutChartView` component.
 * `Link` text style
+* `SeparatedViewContainer` has a new parameter `dividerHorizontalPadding` to enable padding to be set on the divider
 
 ### Changed
 

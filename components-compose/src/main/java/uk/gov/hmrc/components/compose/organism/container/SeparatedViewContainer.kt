@@ -16,34 +16,38 @@
 package uk.gov.hmrc.components.compose.organism.container
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.atom.divider.HmrcDivider
 
 object SeparatedViewContainer {
 
     @Composable
     operator fun invoke(
+        modifier: Modifier = Modifier,
         showDivider: DividerMode = DividerMode.SHOW_DIVIDER_NONE,
+        dividerHorizontalPadding: Dp = 0.dp,
         vararg views: @Composable () -> Unit,
-        modifier: Modifier = Modifier
     ) {
         Column(modifier = modifier) {
             // Show divider in the beginning
             if (showDivider == DividerMode.SHOW_DIVIDER_ALL || showDivider == DividerMode.SHOW_DIVIDER_BEGINNING) {
-                HmrcDivider()
+                HmrcDivider(modifier = Modifier.padding(horizontal = dividerHorizontalPadding))
             }
             views.forEachIndexed { index, view ->
                 view()
                 if ((showDivider == DividerMode.SHOW_DIVIDER_ALL || showDivider == DividerMode.SHOW_DIVIDER_MIDDLE) &&
                     index < views.size - 1
                 ) {
-                    HmrcDivider()
+                    HmrcDivider(modifier = Modifier.padding(horizontal = dividerHorizontalPadding))
                 }
             }
             // Show Divider at the end
             if (showDivider == DividerMode.SHOW_DIVIDER_END || showDivider == DividerMode.SHOW_DIVIDER_ALL) {
-                HmrcDivider()
+                HmrcDivider(modifier = Modifier.padding(horizontal = dividerHorizontalPadding))
             }
         }
     }

@@ -22,11 +22,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.molecule.item.SwitchRowView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
@@ -45,12 +46,14 @@ object SeparatedViewContainerScreen {
         ScreenScrollViewColumn {
             PlaceholderSlot {
                 SeparatedViewContainer(
+                    modifier = Modifier,
                     showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_ALL,
+                    dividerHorizontalPadding = 0.dp,
                     {
                         Text(
                             text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
                             modifier = Modifier
-                                .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                .padding(dimensions.hmrcSpacing8)
                                 .fillMaxSize(),
                             style = typography.h5,
                         )
@@ -60,12 +63,14 @@ object SeparatedViewContainerScreen {
 
             PlaceholderSlot(showHeading = false) {
                 SeparatedViewContainer(
+                    modifier = Modifier,
                     showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_MIDDLE,
+                    dividerHorizontalPadding = 0.dp,
                     {
                         Text(
                             text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
                             modifier = Modifier
-                                .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                .padding(dimensions.hmrcSpacing8)
                                 .fillMaxSize(),
                             style = typography.h5,
                         )
@@ -74,7 +79,7 @@ object SeparatedViewContainerScreen {
                         Text(
                             text = stringResource(id = R.string.separated_view_container_placeholder_text_2),
                             modifier = Modifier
-                                .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                .padding(dimensions.hmrcSpacing8)
                                 .fillMaxSize(),
                             style = typography.h5,
                         )
@@ -83,7 +88,7 @@ object SeparatedViewContainerScreen {
                         Text(
                             text = stringResource(id = R.string.separated_view_container_placeholder_text_3),
                             modifier = Modifier
-                                .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                .padding(dimensions.hmrcSpacing8)
                                 .fillMaxSize(),
                             style = typography.h5,
                         )
@@ -92,13 +97,15 @@ object SeparatedViewContainerScreen {
             }
 
             ExamplesSlot {
-                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
                     SeparatedViewContainer(
+                        modifier = Modifier.padding(vertical = dimensions.hmrcSpacing16),
                         showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_ALL,
+                        dividerHorizontalPadding = dimensions.hmrcSpacing16,
                         {
                             with(examplesUiState.exampleOne) {
                                 SwitchRowView(
-                                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                                    modifier = Modifier.padding(dimensions.hmrcSpacing16),
                                     title = title?.let { stringResource(it) },
                                     body = body?.let { stringResource(it) },
                                     checkedStateContentDesc = enabledContentDesc?.let { stringResource(it) },
@@ -115,7 +122,7 @@ object SeparatedViewContainerScreen {
                         {
                             with(examplesUiState.exampleTwo) {
                                 SwitchRowView(
-                                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                                    modifier = Modifier.padding(dimensions.hmrcSpacing16),
                                     title = title?.let { stringResource(it) },
                                     body = body?.let { stringResource(it) },
                                     checkedState = enabled,
@@ -128,18 +135,19 @@ object SeparatedViewContainerScreen {
                                 )
                             }
                         },
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                     )
                 }
 
-                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
                     SeparatedViewContainer(
+                        modifier = Modifier.padding(dimensions.hmrcSpacing16),
                         showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_BEGINNING,
+                        dividerHorizontalPadding = 0.dp,
                         {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
                                 modifier = Modifier
-                                    .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                    .padding(dimensions.hmrcSpacing8)
                                     .fillMaxSize(),
                                 style = typography.h5,
                             )
@@ -148,7 +156,7 @@ object SeparatedViewContainerScreen {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_2),
                                 modifier = Modifier
-                                    .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                    .padding(dimensions.hmrcSpacing8)
                                     .fillMaxSize(),
                                 style = typography.h5,
                             )
@@ -157,23 +165,24 @@ object SeparatedViewContainerScreen {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_3),
                                 modifier = Modifier
-                                    .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                    .padding(dimensions.hmrcSpacing8)
                                     .fillMaxSize(),
                                 style = typography.h5,
                             )
                         },
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                     )
                 }
 
-                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
                     SeparatedViewContainer(
+                        modifier = Modifier,
                         showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_MIDDLE,
+                        dividerHorizontalPadding = dimensions.hmrcSpacing16,
                         {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
                                 modifier = Modifier
-                                    .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                    .padding(dimensions.hmrcSpacing16)
                                     .fillMaxSize(),
                                 style = typography.h5,
                             )
@@ -182,7 +191,7 @@ object SeparatedViewContainerScreen {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_2),
                                 modifier = Modifier
-                                    .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                    .padding(dimensions.hmrcSpacing16)
                                     .fillMaxSize(),
                                 style = typography.h5,
                             )
@@ -191,23 +200,24 @@ object SeparatedViewContainerScreen {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_3),
                                 modifier = Modifier
-                                    .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                    .padding(dimensions.hmrcSpacing16)
                                     .fillMaxSize(),
                                 style = typography.h5,
                             )
-                        },
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                        }
                     )
                 }
 
-                HmrcCardView(modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16)) {
+                HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
                     SeparatedViewContainer(
+                        modifier = Modifier,
                         showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_END,
+                        dividerHorizontalPadding = dimensions.hmrcSpacing8,
                         {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
                                 modifier = Modifier
-                                    .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                    .padding(dimensions.hmrcSpacing8)
                                     .fillMaxSize(),
                                 style = typography.h5,
                             )
@@ -216,7 +226,7 @@ object SeparatedViewContainerScreen {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_2),
                                 modifier = Modifier
-                                    .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                    .padding(dimensions.hmrcSpacing8)
                                     .fillMaxSize(),
                                 style = typography.h5,
                             )
@@ -225,12 +235,11 @@ object SeparatedViewContainerScreen {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_3),
                                 modifier = Modifier
-                                    .padding(HmrcTheme.dimensions.hmrcSpacing8)
+                                    .padding(dimensions.hmrcSpacing8)
                                     .fillMaxSize(),
                                 style = typography.h5,
                             )
-                        },
-                        modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                        }
                     )
                 }
             }
