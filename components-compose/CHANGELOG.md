@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [0.0.7] - 2024-07-10Z
+
 ### Added
 
 * `InformationMessageCardView` component.
