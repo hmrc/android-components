@@ -18,11 +18,11 @@ package uk.gov.hmrc.components.compose.molecule.titleBody
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import uk.gov.hmrc.components.compose.atom.text.BodyText
+import uk.gov.hmrc.components.compose.atom.text.BoldText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
 @Composable
 fun BoldTitleBodyView(
@@ -32,13 +32,11 @@ fun BoldTitleBodyView(
 ) {
     Row(modifier = modifier) {
         Column {
-            Text(
+            BoldText(
                 text = titleText,
-                style = typography.h6
             )
-            Text(
+            BodyText(
                 text = bodyText,
-                style = typography.body,
                 modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing8)
             )
         }

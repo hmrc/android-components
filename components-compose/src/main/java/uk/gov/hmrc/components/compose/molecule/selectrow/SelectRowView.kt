@@ -27,7 +27,6 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -41,6 +40,8 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.divider.HmrcDivider
+import uk.gov.hmrc.components.compose.atom.text.BodyText
+import uk.gov.hmrc.components.compose.atom.text.ErrorText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
@@ -73,9 +74,8 @@ object SelectRowView {
         CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
             Column(modifier = modifier) {
                 errorText?.let {
-                    Text(
+                    ErrorText(
                         text = stringResource(id = errorText),
-                        style = HmrcTheme.typography.body.copy(color = HmrcTheme.colors.hmrcRed),
                         modifier = Modifier
                             .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
                             .focusable()
@@ -109,10 +109,9 @@ object SelectRowView {
                                 tint = HmrcTheme.colors.hmrcBlack
                             )
                             Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
-                            Text(
+                            BodyText(
                                 text = stringResource(id = rowItem.label),
                                 modifier = Modifier.fillMaxWidth(),
-                                style = HmrcTheme.typography.body
                             )
                         }
                         if (showDivider && index < selectRowViewItems.size - 1) {

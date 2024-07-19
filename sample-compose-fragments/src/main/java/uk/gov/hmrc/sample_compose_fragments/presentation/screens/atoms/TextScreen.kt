@@ -16,7 +16,6 @@
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.atoms
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -25,8 +24,15 @@ import uk.gov.hmrc.components.compose.atom.bullet.BulletedTextView
 import uk.gov.hmrc.components.compose.atom.heading.Heading3
 import uk.gov.hmrc.components.compose.atom.heading.Heading4
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
+import uk.gov.hmrc.components.compose.atom.text.BodyText
+import uk.gov.hmrc.components.compose.atom.text.BoldText
+import uk.gov.hmrc.components.compose.atom.text.ErrorText
+import uk.gov.hmrc.components.compose.atom.text.H3Text
+import uk.gov.hmrc.components.compose.atom.text.H4Text
+import uk.gov.hmrc.components.compose.atom.text.H5Text
+import uk.gov.hmrc.components.compose.atom.text.InfoText
+import uk.gov.hmrc.components.compose.atom.text.LinkText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -34,46 +40,38 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.
 fun TextScreen() {
     ScreenScrollViewColumn {
         Heading3(text = stringResource(id = R.string.text_heading3))
-        Text(
+        H3Text(
             text = stringResource(id = R.string.text_h3),
-            style = typography.h3,
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
         Heading4(text = stringResource(id = R.string.text_heading4), modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16))
-        Text(
+        H4Text(
             text = stringResource(id = R.string.text_h4),
-            style = typography.h4,
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
         Heading5(text = stringResource(id = R.string.text_heading5), modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16))
-        Text(
+        H5Text(
             text = stringResource(id = R.string.text_h5),
-            style = typography.h5,
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
-        Text(
+        BoldText(
             text = stringResource(id = R.string.text_bold),
-            style = typography.h6,
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
-        Text(
+        BodyText(
             text = stringResource(id = R.string.text_body),
-            style = typography.body,
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
-        Text(
+        InfoText(
             text = stringResource(id = R.string.text_info),
-            style = typography.info,
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
-        Text(
+        LinkText(
             text = stringResource(id = R.string.text_link),
-            style = typography.link,
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
-        Text(
+        ErrorText(
             text = stringResource(id = R.string.text_error),
-            style = typography.errorText,
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
         BulletedTextView(
