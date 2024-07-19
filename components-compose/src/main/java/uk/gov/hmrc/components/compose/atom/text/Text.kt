@@ -70,5 +70,3 @@ fun ErrorText(text: String, modifier: Modifier = Modifier) {
 fun TabBarText(text: String, modifier: Modifier = Modifier) {
     Text(text = text, style = typography.tabBarText, modifier = modifier)
 }
-
-
