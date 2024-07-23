@@ -29,7 +29,10 @@
 
     <string name="accessibility_button_activate">button. Double tap to activate</string>
     <string name="accessibility_button_open_in_browser">button. Double tap to open in a web browser</string>
-    <string name="accessibility_warning">warning; %s</string>
+    <string name="accessibility_warning">Warning; %s</string>
+    <string name="accessibility_info">Info; %s</string>
+    <string name="accessibility_urgent">Urgent; %s</string>
+    <string name="accessibility_notice">Notice; %s</string>
     <string name="accessibility_ticked">ticked</string>
     <string name="accessibility_not_ticked">not ticked</string>
     <string name="accessibility_radio_button">radio button</string>
