@@ -21,28 +21,28 @@ class ComposeDependencies {
         const val targetSdk = 34
         const val compileSdk = 34
         const val kotlinCompilerExtensionVersion = "1.4.8"
-        const val jetpackNavigation = "2.7.6"
-        const val lifecycleVersion = "2.6.2"
+        const val jetpackNavigation = "2.7.7"
+        const val lifecycleVersion = "2.7.0"
     }
 
     object Libs {
-        const val compose_bom = "androidx.compose:compose-bom:2024.02.01"
-        const val compose_foundation = "androidx.compose.foundation:foundation"
-        const val compose_material3 = "androidx.compose.material3:material3"
-        const val compose_material = "androidx.compose.material:material:"
-        const val compose_tooling = "androidx.compose.ui:ui-tooling"
-        const val compose_tooling_preview = "androidx.compose.ui:ui-tooling-preview"
-        const val compose_ui = "androidx.compose.ui:ui"
-        const val compose_uiTest = "androidx.compose.ui:ui-test-junit4"
-        const val compose_uiTestManifest = "androidx.compose.ui:ui-test-manifest"
-        const val compose_androidX_runtimeLiveData = "androidx.compose.runtime:runtime-livedata"
+        const val compose_bom = "androidx.compose:compose-bom:2024.06.00"
+        const val compose_foundation = "androidx.compose.foundation:foundation:1.6.8"
+        const val compose_material3 = "androidx.compose.material3:material3:1.2.1"
+        const val compose_material = "androidx.compose.material:material:1.6.8"
+        const val compose_tooling = "androidx.compose.ui:ui-tooling:1.6.8"
+        const val compose_tooling_preview = "androidx.compose.ui:ui-tooling-preview:1.6.8"
+        const val compose_ui = "androidx.compose.ui:ui:1.6.8"
+        const val compose_uiTest = "androidx.compose.ui:ui-test-junit4:1.6.8"
+        const val compose_uiTestManifest = "androidx.compose.ui:ui-test-manifest:1.6.8"
+        const val compose_androidX_runtimeLiveData = "androidx.compose.runtime:runtime-livedata:1.6.8"
 
         const val hilt = "com.google.dagger:hilt-android:2.44"
         const val hilt_compiler = "com.google.dagger:hilt-compiler:2.44.2"
-        const val material = "com.google.android.material:material:1.11.0"
-        const val androidX_activity_activityCompose = "androidx.activity:activity-compose:1.8.2"
+        const val material = "com.google.android.material:material:1.12.0"
+        const val androidX_activity_activityCompose = "androidx.activity:activity-compose:1.9.0"
         const val androidX_appCompat = "androidx.appcompat:appcompat:1.6.1"
-        const val androidX_coreKtx = "androidx.core:core-ktx:1.12.0"
+        const val androidX_coreKtx = "androidx.core:core-ktx:1.13.1"
         const val androidX_lifecycle_runtimeKtx =
             "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleVersion}"
         const val androidX_navigation_fragment =
@@ -61,9 +61,9 @@ class ComposeDependencies {
             "androidx.lifecycle:lifecycle-livedata-core-ktx:${Versions.lifecycleVersion}"
         const val androidx_lifecycle_runtimeCompose =
             "androidx.lifecycle:lifecycle-runtime-compose:${Versions.lifecycleVersion}"
-        const val androidX_test_ext_junit = "androidx.test.ext:junit:1.1.5"
-        const val androidX_test_ext_junit_ktx = "androidx.test.ext:junit-ktx:1.1.5"
-        const val androidX_test_espressoCore = "androidx.test.espresso:espresso-core:3.5.1"
+        const val androidX_test_ext_junit = "androidx.test.ext:junit:1.2.1"
+        const val androidX_test_ext_junit_ktx = "androidx.test.ext:junit-ktx:1.2.1"
+        const val androidX_test_espressoCore = "androidx.test.espresso:espresso-core:3.6.1"
 
         const val junit = "junit:junit:4.13.2"
     }
