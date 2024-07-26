@@ -17,12 +17,12 @@ package uk.gov.hmrc.components.compose.molecule.input
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
+import uk.gov.hmrc.components.compose.atom.text.BodyText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
@@ -62,9 +62,8 @@ fun CurrencyInputView(
         hintText = hintText,
         hintContentDescription = hintContentDescription,
         prefix = {
-            Text(
+            BodyText(
                 text = "£",
-                style = HmrcTheme.typography.body,
                 modifier = Modifier.padding(end = HmrcTheme.dimensions.hmrcSpacing8)
             )
         },

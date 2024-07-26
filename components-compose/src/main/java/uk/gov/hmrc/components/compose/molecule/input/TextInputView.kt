@@ -41,6 +41,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.R
+import uk.gov.hmrc.components.compose.atom.text.BodyText
+import uk.gov.hmrc.components.compose.atom.text.BoldText
+import uk.gov.hmrc.components.compose.atom.text.ErrorText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
@@ -76,9 +79,8 @@ object TextInputView {
 
         val error: @Composable (() -> Unit)? = errorText?.let {
             @Composable {
-                Text(
+                ErrorText(
                     text = it,
-                    style = typography.errorText,
                     modifier = Modifier.semantics { errorContentDescription?.let { contentDescription = it } }
                 )
             }
@@ -91,9 +93,8 @@ object TextInputView {
                     modifier = Modifier.fillMaxWidth(ERROR_TEXT_WITH_CHAR_COUNT_WIDTH)
                 ) {
                     if (errorText != null) {
-                        Text(
+                        ErrorText(
                             text = errorText,
-                            style = typography.errorText,
                             modifier = Modifier.semantics {
                                 errorContentDescription?.let {
                                     contentDescription = it
@@ -159,9 +160,8 @@ object TextInputView {
     @Composable
     private fun Label(labelText: String?, labelContentDescription: String?,) {
         labelText?.let { label ->
-            Text(
+            BoldText(
                 text = label,
-                style = typography.h6,
                 modifier = Modifier
                     .semantics { labelContentDescription?.let { contentDescription = it } }
                     .padding(bottom = HmrcTheme.dimensions.hmrcSpacing8)
@@ -172,9 +172,8 @@ object TextInputView {
     @Composable
     private fun Hint(hintText: String?, hintContentDescription: String?) {
         hintText?.let { hint ->
-            Text(
+            BodyText(
                 text = hint,
-                style = typography.body,
                 modifier = Modifier
                     .semantics { hintContentDescription?.let { contentDescription = it } }
                     .padding(bottom = HmrcTheme.dimensions.hmrcSpacing8)

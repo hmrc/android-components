@@ -16,12 +16,10 @@
 package uk.gov.hmrc.components.compose.molecule.inset
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
+import uk.gov.hmrc.components.compose.atom.text.BodyText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
 @Composable
 fun InsetTextView(
@@ -31,11 +29,9 @@ fun InsetTextView(
     InsetView(
         modifier = modifier,
         childView = {
-            Text(
+            BodyText(
                 modifier = Modifier.padding(vertical = HmrcTheme.dimensions.hmrcSpacing8),
-                text = text,
-                style = typography.body,
-                textAlign = TextAlign.Start,
+                text = text
             )
         }
     )
