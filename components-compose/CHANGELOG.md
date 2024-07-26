@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [0.1.0] - 2024-07-26Z
+
 ### Added
 
 * `Text` text styles for all common text usages.
