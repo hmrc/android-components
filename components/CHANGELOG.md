@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Fixed
+
+* Fixed accessibility content descriptions in `InformationMessageView`
+
 ## [4.11.2] - 2024-05-20Z
 
 ### Added
