@@ -20,6 +20,12 @@ Allowed headings:
 
 * Dependency updates
 
+## [0.1.0] - 2024-07-26Z
+
+### Added
+
+* `Text` text styles for all common text usages.
+
 ## [0.0.7] - 2024-07-10Z
 
 ### Added

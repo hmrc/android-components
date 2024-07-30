@@ -34,10 +34,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.sp
 import uk.gov.hmrc.components.compose.atom.button.PrimaryButton
 import uk.gov.hmrc.components.compose.atom.button.SecondaryButton
 import uk.gov.hmrc.components.compose.atom.heading.Heading
+import uk.gov.hmrc.components.compose.atom.text.InfoText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 object StatusView {
@@ -128,9 +128,8 @@ object StatusView {
             //region Info Text
             if (infoText.isNotEmpty()) {
                 Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-                Text(
+                InfoText(
                     text = infoText,
-                    style = HmrcTheme.typography.info.copy(fontSize = 12.sp),
                     modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
                 )
             }

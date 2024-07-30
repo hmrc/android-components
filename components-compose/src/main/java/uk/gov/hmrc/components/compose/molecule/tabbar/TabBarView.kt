@@ -24,7 +24,6 @@ import androidx.compose.material3.SecondaryTabRow
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRowDefaults
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -35,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import uk.gov.hmrc.components.compose.atom.text.TabBarText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
 import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey1
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
@@ -157,9 +157,8 @@ private fun HmrcTabItems(
                 },
                 unselectedContentColor = HmrcGrey1
             ) {
-                Text(
+                TabBarText(
                     text = tabText,
-                    style = HmrcTheme.typography.tabBarText,
                     modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
                 )
             }
