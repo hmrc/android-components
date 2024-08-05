@@ -376,6 +376,7 @@
     <string name="bottom_sheet_example_8">Scrollable bottom sheet, extended</string>
     <string name="bottom_sheet_example_9">Short bottom sheet</string>
     <string name="bottom_sheet_example_10">Short bottom sheet, extended</string>
+    <string name="bottom_sheet_example_11">Custom padding, text input</string>
     <string name="bottom_sheet_example_yes">Yes</string>
     <string name="bottom_sheet_example_no">No</string>
     <string name="bottom_sheet_example_maybe">Maybe</string>
