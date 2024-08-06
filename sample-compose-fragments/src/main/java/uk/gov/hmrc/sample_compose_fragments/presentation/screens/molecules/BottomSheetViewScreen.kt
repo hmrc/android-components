@@ -12,10 +12,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.atom.button.IconButton
 import uk.gov.hmrc.components.compose.atom.button.PrimaryButton
-import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.atom.text.BodyText
 import uk.gov.hmrc.components.compose.molecule.bottomsheet.BottomSheetView
 import uk.gov.hmrc.components.compose.molecule.input.TextInputView
