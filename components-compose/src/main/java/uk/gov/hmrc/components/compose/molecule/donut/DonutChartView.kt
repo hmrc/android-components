@@ -48,7 +48,13 @@ class DonutChartViewSegmentStyle(
     val strokeType: DonutChartViewStrokeType = DonutChartViewStrokeType.SOLID,
 )
 enum class DonutChartViewStrokeType { SOLID, STRIPE }
-class DonutChartViewOutput(val color: Color, val label: String, val sweep: Float, val stroke: DonutChartViewStrokeType)
+class DonutChartViewOutput(
+    val color: Color,
+    val label: String,
+    val value: Double,
+    val sweep: Float,
+    val stroke: DonutChartViewStrokeType
+)
 
 object DonutChartView {
     private const val FIRST_SEGMENT_POSITION = 0
@@ -79,7 +85,8 @@ object DonutChartView {
         ),
         shouldAnimate: Boolean = true,
         strokeWidth: Dp = HmrcTheme.dimensions.hmrcSpacing16,
-    ): List<DonutChartViewOutput> {
+        onDonutCharViewOutputReady:  @Composable (List<DonutChartViewOutput>) -> Unit
+    ) {
         require(styles.size >= input.size) { "There are not enough styles defined for all input values." }
 
         val canvasModifier = modifier.aspectRatio(1f)
@@ -88,6 +95,7 @@ object DonutChartView {
         val stripedStroke = with(LocalDensity.current) {
             Stroke(width = strokeWidth.toPx(), pathEffect = stripedPathEffect(HmrcTheme.dimensions.hmrcSpacing4.toPx()))
         }
+
         fun DonutChartViewStrokeType.toStroke() = when (this) {
             DonutChartViewStrokeType.SOLID -> solidStroke
             DonutChartViewStrokeType.STRIPE -> stripedStroke
@@ -142,7 +150,7 @@ object DonutChartView {
                 }
             }
         }
-        return segments
+        onDonutCharViewOutputReady(segments)
     }
 
     private fun processSegments(
@@ -165,8 +173,15 @@ object DonutChartView {
                 Pair(style.solidColor, DonutChartViewStrokeType.SOLID)
             } else Pair(style.stripeColor, DonutChartViewStrokeType.STRIPE)
 
-            processedSegments.add(DonutChartViewOutput(strokeColor, inputItem.label, sweepStartPoint, strokeType))
-
+            processedSegments.add(
+                DonutChartViewOutput(
+                    strokeColor,
+                    inputItem.label,
+                    inputItem.value,
+                    sweepStartPoint,
+                    strokeType
+                )
+            )
             sweepStartPoint -= sweepSpread
         }
         return processedSegments
@@ -226,7 +241,7 @@ fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier 
             }
         }
         Spacer(modifier = modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
-        Text(donutOutput.label, style = HmrcTheme.typography.body)
+        Text("${donutOutput.label}: ${donutOutput.value}", style = HmrcTheme.typography.body)
     }
 }
 
