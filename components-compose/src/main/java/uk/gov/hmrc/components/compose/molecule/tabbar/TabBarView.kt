@@ -36,7 +36,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.atom.text.TabBarText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
-import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey1
 import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey1Dark
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
