@@ -219,35 +219,4 @@ object DonutChartView {
     }
 }
 
-@Composable
-fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier = Modifier) {
-    val stripes = with(LocalDensity.current) { stripedPathEffect(HmrcTheme.dimensions.hmrcSpacing4.toPx()) }
-    val keyIndicatorSize = HmrcTheme.dimensions.hmrcIconSize24
-    val baseColor = HmrcTheme.colors.hmrcWhite
-
-    Row(modifier, verticalAlignment = Alignment.CenterVertically) {
-        Canvas(modifier = Modifier.size(keyIndicatorSize)) {
-            when (donutOutput.stroke) {
-                DonutChartViewStrokeType.SOLID -> drawRect(donutOutput.color)
-                DonutChartViewStrokeType.STRIPE -> {
-                    drawRect(baseColor, style = Fill)
-                    drawRect(donutOutput.color, style = Stroke())
-                    drawLine(
-                        color = donutOutput.color,
-                        start = Offset(0f, size.height / 2),
-                        end = Offset(size.width, size.height / 2),
-                        strokeWidth = keyIndicatorSize.toPx(),
-                        pathEffect = stripes
-                    )
-                }
-            }
-        }
-        Spacer(modifier = modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
-        Row {
-            BodyText(text = donutOutput.label)
-            BodyText(text = donutOutput.value.toString())
-        }
-    }
-}
-
-private fun stripedPathEffect(dashSize: Float) = PathEffect.dashPathEffect(floatArrayOf(dashSize, dashSize))
+fun stripedPathEffect(dashSize: Float) = PathEffect.dashPathEffect(floatArrayOf(dashSize, dashSize))

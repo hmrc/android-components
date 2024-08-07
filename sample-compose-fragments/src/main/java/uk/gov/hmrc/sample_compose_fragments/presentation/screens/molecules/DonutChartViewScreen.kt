@@ -15,6 +15,7 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,24 +23,30 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.drawscope.Fill
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
+import uk.gov.hmrc.components.compose.atom.text.BodyText
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartView
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewInput
-import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewKeyItem
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewOutput
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewSegmentStyle
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewStrokeType
+import uk.gov.hmrc.components.compose.molecule.donut.stripedPathEffect
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
 fun DonutChartViewScreen() {
@@ -160,6 +167,37 @@ fun DonutChartViewScreen() {
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier = Modifier) {
+    val stripes = with(LocalDensity.current) { stripedPathEffect(HmrcTheme.dimensions.hmrcSpacing4.toPx()) }
+    val keyIndicatorSize = HmrcTheme.dimensions.hmrcIconSize24
+    val baseColor = HmrcTheme.colors.hmrcWhite
+
+    Row(modifier, verticalAlignment = Alignment.CenterVertically) {
+        Canvas(modifier = Modifier.size(keyIndicatorSize)) {
+            when (donutOutput.stroke) {
+                DonutChartViewStrokeType.SOLID -> drawRect(donutOutput.color)
+                DonutChartViewStrokeType.STRIPE -> {
+                    drawRect(baseColor, style = Fill)
+                    drawRect(donutOutput.color, style = Stroke())
+                    drawLine(
+                        color = donutOutput.color,
+                        start = Offset(0f, size.height / 2),
+                        end = Offset(size.width, size.height / 2),
+                        strokeWidth = keyIndicatorSize.toPx(),
+                        pathEffect = stripes
+                    )
+                }
+            }
+        }
+        Spacer(modifier = modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
+        Row {
+            BodyText(text = donutOutput.label)
+            BodyText(text = donutOutput.value.toString())
         }
     }
 }
