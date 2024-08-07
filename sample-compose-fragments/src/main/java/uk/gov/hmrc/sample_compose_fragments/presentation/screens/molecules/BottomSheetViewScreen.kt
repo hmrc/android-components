@@ -11,11 +11,16 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import uk.gov.hmrc.components.compose.atom.button.IconButton
 import uk.gov.hmrc.components.compose.atom.button.PrimaryButton
+import uk.gov.hmrc.components.compose.atom.text.BodyText
 import uk.gov.hmrc.components.compose.molecule.bottomsheet.BottomSheetView
+import uk.gov.hmrc.components.compose.molecule.input.TextInputView
 import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView
 import uk.gov.hmrc.components.compose.molecule.titleBody.H5TitleBodyView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
@@ -32,6 +37,7 @@ fun BottomSheetViewScreen() {
     var openBottomSheetExample8: Boolean by rememberSaveable { mutableStateOf(false) }
     var openBottomSheetExample9: Boolean by rememberSaveable { mutableStateOf(false) }
     var openBottomSheetExample10: Boolean by rememberSaveable { mutableStateOf(false) }
+    var openBottomSheetExample11: Boolean by rememberSaveable { mutableStateOf(false) }
 
     ScreenScrollViewColumn {
         ExamplesSlot {
@@ -122,6 +128,15 @@ fun BottomSheetViewScreen() {
             }
             SmallExampleBottomSheet(openBottomSheet = openBottomSheetExample10, enableFullScreenExpansion = true) {
                 openBottomSheetExample10 = !openBottomSheetExample10
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+
+            // Example 11
+            PrimaryButton(text = stringResource(id = R.string.bottom_sheet_example_11)) {
+                openBottomSheetExample11 = true
+            }
+            CustomPaddingBottomSheet(openBottomSheet = openBottomSheetExample11) {
+                openBottomSheetExample11 = !openBottomSheetExample11
             }
         }
     }
@@ -282,5 +297,52 @@ fun SmallExampleBottomSheet(
         onDismissRequest = onDismissRequest
     ) {
         Text(text = stringResource(R.string.bottom_sheet_example_hello), style = HmrcTheme.typography.body)
+    }
+}
+
+@Composable
+fun CustomPaddingBottomSheet(
+    openBottomSheet: Boolean,
+    onDismissRequest: () -> Unit
+) {
+    BottomSheetView(
+        showBottomSheet = openBottomSheet,
+        skipPartiallyExpanded = false,
+        enableFullScreenExpansion = true,
+        onDismissRequest = onDismissRequest,
+        contentHorizontalPadding = 0.dp
+    ) {
+        H5TitleBodyView(
+            titleText = stringResource(R.string.long_text),
+            bodyText = stringResource(R.string.longest_text),
+            modifier = Modifier.padding(
+                start = dimensions.hmrcSpacing16,
+                end = dimensions.hmrcSpacing16,
+                bottom = dimensions.hmrcSpacing16
+            )
+        )
+        BodyText(
+            text = stringResource(R.string.longest_text),
+            modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16)
+        )
+        Spacer(modifier = Modifier.height(dimensions.hmrcSpacing16))
+        TextInputView(
+            onInputValueChange = {  },
+            errorText = "",
+            labelText = stringResource(id = R.string.text_input_placeholder_label),
+            hintText = stringResource(id = R.string.text_input_placeholder_hint),
+            placeholderText = stringResource(id = R.string.text_input_placeholder_placeholder),
+            modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16)
+        )
+        PrimaryButton(
+            modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16),
+            text = stringResource(id = R.string.long_text),
+            onClick = { }
+        )
+        IconButton(
+            text = stringResource(id = R.string.button_icon_example),
+            iconResId = R.drawable.ic_info,
+            onClick = {}
+        )
     }
 }
