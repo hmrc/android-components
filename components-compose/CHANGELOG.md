@@ -19,6 +19,7 @@ Allowed headings:
 ### Changed
 
 * New parameter `contentHorizontalPadding` on BottomSheetView
+* `DonutChartView` return type modified
 
 ## [0.1.0] - 2024-07-26Z
 
