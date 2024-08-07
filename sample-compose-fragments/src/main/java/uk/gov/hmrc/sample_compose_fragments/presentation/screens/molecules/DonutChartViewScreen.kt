@@ -16,19 +16,26 @@
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartView
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewInput
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewKeyItem
+import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewOutput
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewSegmentStyle
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewStrokeType
+import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
@@ -40,63 +47,70 @@ fun DonutChartViewScreen() {
         PlaceholderSlot {
             Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                 val input = listOf(
-                    DonutChartViewInput(34.0, "Item: 34"),
-                    DonutChartViewInput(33.0, "Item: 33"),
-                    DonutChartViewInput(33.0, "Item: 33")
+                    DonutChartViewInput(34.0, "Item"),
+                    DonutChartViewInput(33.0, "Item"),
+                    DonutChartViewInput(33.0, "Item")
                 )
-                val values = DonutChartView(input, Modifier.size(200.dp))
-                values.forEach { output ->
-                    Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
-                    DonutChartViewKeyItem(donutOutput = output)
+                DonutChartView(input, Modifier.size(200.dp)) { values ->
+                    values.forEach { output ->
+                        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
+                        DonutChartViewKeyItem(donutOutput = output)
+                    }
                 }
             }
         }
         ExamplesSlot {
             DonutChartView(
                 listOf(
-                    DonutChartViewInput(34.0, "Item: 34"),
-                    DonutChartViewInput(33.0, "Item: 33"),
-                    DonutChartViewInput(33.0, "Item: 33")
+                    DonutChartViewInput(34.0, "Item"),
+                    DonutChartViewInput(33.0, "Item"),
+                    DonutChartViewInput(33.0, "Item")
                 ),
                 Modifier.size(100.dp),
                 shouldAnimate = false
-            ).forEach { output ->
-                Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
-                DonutChartViewKeyItem(donutOutput = output)
+            ) { values ->
+                values.forEach { output ->
+                    Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
+                    DonutChartViewKeyItem(donutOutput = output)
+                }
             }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             DonutChartView(
                 listOf(
-                    DonutChartViewInput(75.0, "Item: 75"),
-                    DonutChartViewInput(20.0, "Item: 20"),
-                    DonutChartViewInput(2.0, "Item: 2")
+                    DonutChartViewInput(75.0, "Item"),
+                    DonutChartViewInput(20.0, "Item"),
+                    DonutChartViewInput(2.0, "Item")
                 ),
                 Modifier.fillMaxWidth(0.75f)
-            ).forEach { output ->
-                Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
-                DonutChartViewKeyItem(donutOutput = output)
+            ) { values ->
+                values.forEach { output ->
+                    Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
+                    DonutChartViewKeyItem(donutOutput = output)
+                }
             }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             DonutChartView(
                 listOf(
-                    DonutChartViewInput(100.0, "Item: 100"),
-                    DonutChartViewInput(100.0, "Item: 100"),
+                    DonutChartViewInput(100.0, "Item"),
+                    DonutChartViewInput(100.0, "Item"),
                 ),
                 Modifier.fillMaxWidth(1f),
                 styles = listOf(
                     DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
                     DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcYellow)
                 )
-            ).forEach { output ->
-                Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
-                DonutChartViewKeyItem(donutOutput = output)
+            ) { values ->
+                values.forEach { output ->
+                    Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
+                    DonutChartViewKeyItem(donutOutput = output)
+                }
             }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             DonutChartView(
                 listOf(
-                    DonutChartViewInput(50.0, "Item: 50"),
-                    DonutChartViewInput(200.0, "Item: 200"),
-                    DonutChartViewInput(50.0, "Item: 50")
+                    DonutChartViewInput(50.0, "Item"),
+                    DonutChartViewInput(200.0, "Item"),
+                    DonutChartViewInput(50.0, "Item")
                 ),
                 styles = listOf(
                     DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
@@ -106,9 +120,45 @@ fun DonutChartViewScreen() {
                         strokeType = DonutChartViewStrokeType.STRIPE
                     )
                 )
-            ).forEach { output ->
-                Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
-                DonutChartViewKeyItem(donutOutput = output)
+            ) { values ->
+                values.forEach { output ->
+                    DonutChartViewKeyItem(donutOutput = output)
+                }
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            HmrcCardView {
+                val outputValues = remember { mutableStateOf(listOf<DonutChartViewOutput>()) }
+                Row(
+                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(modifier = Modifier.weight(1f)) {
+                        outputValues.value.forEach {
+                            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
+                            DonutChartViewKeyItem(donutOutput = it)
+                        }
+                    }
+                    DonutChartView(
+                        listOf(
+                            DonutChartViewInput(50.0, "Item"),
+                            DonutChartViewInput(200.0, "Item"),
+                            DonutChartViewInput(50.0, "Item")
+                        ),
+                        styles = listOf(
+                            DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
+                            DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcYellow),
+                            DonutChartViewSegmentStyle(
+                                HmrcTheme.colors.hmrcGreen1,
+                                strokeType = DonutChartViewStrokeType.STRIPE
+                            )
+                        ),
+                        modifier = Modifier.size(200.dp)
+                    ) { values ->
+                        LaunchedEffect(Unit) {
+                            outputValues.value = values
+                        }
+                    }
+                }
             }
         }
     }
