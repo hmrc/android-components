@@ -16,7 +16,11 @@ Allowed headings:
 
 ## [Unreleased]
 
-### Changed
+### Fixed
+
+* TabBarView unselected content dark mode colors
+
+## Changed
 
 * New parameter `contentHorizontalPadding` on BottomSheetView
 
