@@ -39,6 +39,7 @@ import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
+import uk.gov.hmrc.components.compose.atom.text.BodyText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 class DonutChartViewInput(val value: Double, val label: String)
@@ -47,6 +48,7 @@ class DonutChartViewSegmentStyle(
     val stripeColor: Color = solidColor,
     val strokeType: DonutChartViewStrokeType = DonutChartViewStrokeType.SOLID,
 )
+
 enum class DonutChartViewStrokeType { SOLID, STRIPE }
 class DonutChartViewOutput(
     val color: Color,
@@ -85,7 +87,7 @@ object DonutChartView {
         ),
         shouldAnimate: Boolean = true,
         strokeWidth: Dp = HmrcTheme.dimensions.hmrcSpacing16,
-        onDonutCharViewOutputReady:  @Composable (List<DonutChartViewOutput>) -> Unit
+        onDonutChartViewOutputReady: @Composable (List<DonutChartViewOutput>) -> Unit
     ) {
         require(styles.size >= input.size) { "There are not enough styles defined for all input values." }
 
@@ -150,7 +152,7 @@ object DonutChartView {
                 }
             }
         }
-        onDonutCharViewOutputReady(segments)
+        onDonutChartViewOutputReady(segments)
     }
 
     private fun processSegments(
@@ -241,7 +243,10 @@ fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier 
             }
         }
         Spacer(modifier = modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
-        Text("${donutOutput.label}: ${donutOutput.value}", style = HmrcTheme.typography.body)
+        Row {
+            BodyText(text = donutOutput.label)
+            BodyText(text = donutOutput.value.toString())
+        }
     }
 }
 

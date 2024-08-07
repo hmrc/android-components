@@ -47,9 +47,9 @@ fun DonutChartViewScreen() {
         PlaceholderSlot {
             Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                 val input = listOf(
-                    DonutChartViewInput(34.0, "Item"),
-                    DonutChartViewInput(33.0, "Item"),
-                    DonutChartViewInput(33.0, "Item")
+                    DonutChartViewInput(34.0, "Item: "),
+                    DonutChartViewInput(33.0, "Item: "),
+                    DonutChartViewInput(33.0, "Item: ")
                 )
                 DonutChartView(input, Modifier.size(200.dp)) { values ->
                     values.forEach { output ->
@@ -62,9 +62,9 @@ fun DonutChartViewScreen() {
         ExamplesSlot {
             DonutChartView(
                 listOf(
-                    DonutChartViewInput(34.0, "Item"),
-                    DonutChartViewInput(33.0, "Item"),
-                    DonutChartViewInput(33.0, "Item")
+                    DonutChartViewInput(34.0, "Item: "),
+                    DonutChartViewInput(33.0, "Item: "),
+                    DonutChartViewInput(33.0, "Item: ")
                 ),
                 Modifier.size(100.dp),
                 shouldAnimate = false
@@ -77,9 +77,9 @@ fun DonutChartViewScreen() {
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             DonutChartView(
                 listOf(
-                    DonutChartViewInput(75.0, "Item"),
-                    DonutChartViewInput(20.0, "Item"),
-                    DonutChartViewInput(2.0, "Item")
+                    DonutChartViewInput(75.0, "Item: "),
+                    DonutChartViewInput(20.0, "Item: "),
+                    DonutChartViewInput(2.0, "Item: ")
                 ),
                 Modifier.fillMaxWidth(0.75f)
             ) { values ->
@@ -91,8 +91,8 @@ fun DonutChartViewScreen() {
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             DonutChartView(
                 listOf(
-                    DonutChartViewInput(100.0, "Item"),
-                    DonutChartViewInput(100.0, "Item"),
+                    DonutChartViewInput(100.0, "Item: "),
+                    DonutChartViewInput(100.0, "Item: "),
                 ),
                 Modifier.fillMaxWidth(1f),
                 styles = listOf(
@@ -108,9 +108,9 @@ fun DonutChartViewScreen() {
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             DonutChartView(
                 listOf(
-                    DonutChartViewInput(50.0, "Item"),
-                    DonutChartViewInput(200.0, "Item"),
-                    DonutChartViewInput(50.0, "Item")
+                    DonutChartViewInput(50.0, "Item: "),
+                    DonutChartViewInput(200.0, "Item: "),
+                    DonutChartViewInput(50.0, "Item: ")
                 ),
                 styles = listOf(
                     DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
@@ -140,9 +140,9 @@ fun DonutChartViewScreen() {
                     }
                     DonutChartView(
                         listOf(
-                            DonutChartViewInput(50.0, "Item"),
-                            DonutChartViewInput(200.0, "Item"),
-                            DonutChartViewInput(50.0, "Item")
+                            DonutChartViewInput(50.0, "Item: "),
+                            DonutChartViewInput(200.0, "Item: "),
+                            DonutChartViewInput(50.0, "Item: ")
                         ),
                         styles = listOf(
                             DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
