@@ -73,10 +73,14 @@ class InformationMessageCardView @JvmOverloads constructor(
 
     fun setHeadline(headline: CharSequence?) {
         binding.warningView.setText(headline)
+        binding.warningView.contentDescription =
+            type?.let { context.getString(it.contentDesc, headline) } ?: headline
     }
 
     fun setHeadlineContentDescription(contentDesc: String) {
-        binding.warningView.updateContentDescription(contentDesc)
+        val typedContentDesc = type?.let { context.getString(it.contentDesc, contentDesc) } ?: contentDesc
+
+        binding.warningView.updateContentDescription(typedContentDesc)
     }
 
     fun setHeadlineIcon(resId: Int) {
@@ -118,11 +122,31 @@ class InformationMessageCardView @JvmOverloads constructor(
         }
     }
 
-    enum class Type(val headlineBackgroundColor: Int, val headlineTint: Int) {
-        WARNING(R.color.hmrc_information_message_warning_headline_background, R.color.hmrc_always_black),
-        INFO(R.color.hmrc_information_message_info_headline_background, R.color.hmrc_white),
-        URGENT(R.color.hmrc_information_message_urgent_headline_background, R.color.hmrc_white),
-        NOTICE(R.color.hmrc_information_message_notice_headline_background, R.color.hmrc_white)
+    enum class Type(
+        val headlineBackgroundColor: Int,
+        val headlineTint: Int,
+        val contentDesc: Int
+    ) {
+        WARNING(
+            R.color.hmrc_information_message_warning_headline_background,
+            R.color.hmrc_always_black,
+            R.string.accessibility_warning
+        ),
+        INFO(
+            R.color.hmrc_information_message_info_headline_background,
+            R.color.hmrc_white,
+            R.string.accessibility_info
+        ),
+        URGENT(
+            R.color.hmrc_information_message_urgent_headline_background,
+            R.color.hmrc_white,
+            R.string.accessibility_urgent
+        ),
+        NOTICE(
+            R.color.hmrc_information_message_notice_headline_background,
+            R.color.hmrc_white,
+            R.string.accessibility_notice
+        )
     }
 
     companion object {
