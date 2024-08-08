@@ -51,15 +51,14 @@ data class KeyContent(
     val label: String,
     val contentDescription: String = ""
 )
-class DonutChartViewInput(val value: Double, val keyContent: KeyContent)
-class DonutChartViewSegmentStyle(
+data class DonutChartViewInput(val value: Double, val keyContent: KeyContent)
+data class DonutChartViewSegmentStyle(
     val solidColor: Color,
     val stripeColor: Color = solidColor,
     val strokeType: DonutChartViewStrokeType = DonutChartViewStrokeType.SOLID,
 )
-
 enum class DonutChartViewStrokeType { SOLID, STRIPE }
-class DonutChartViewOutput(
+data class DonutChartViewOutput(
     val color: Color,
     val sweep: Float,
     val stroke: DonutChartViewStrokeType,
