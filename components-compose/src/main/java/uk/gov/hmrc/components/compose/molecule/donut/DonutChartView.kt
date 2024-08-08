@@ -22,9 +22,10 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -39,10 +40,11 @@ import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
-import uk.gov.hmrc.components.compose.atom.text.BodyText
+import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowItem
+import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
-class DonutChartViewInput(val value: Double, val label: String)
+class DonutChartViewInput(val value: Double, val formattedValue: String, val label: String)
 class DonutChartViewSegmentStyle(
     val solidColor: Color,
     val stripeColor: Color = solidColor,
@@ -54,6 +56,7 @@ class DonutChartViewOutput(
     val color: Color,
     val label: String,
     val value: Double,
+    val formattedValue: String,
     val sweep: Float,
     val stroke: DonutChartViewStrokeType
 )
@@ -177,11 +180,12 @@ object DonutChartView {
 
             processedSegments.add(
                 DonutChartViewOutput(
-                    strokeColor,
-                    inputItem.label,
-                    inputItem.value,
-                    sweepStartPoint,
-                    strokeType
+                    color = strokeColor,
+                    label = inputItem.label,
+                    value = inputItem.value,
+                    formattedValue = inputItem.formattedValue,
+                    sweep = sweepStartPoint,
+                    stroke = strokeType
                 )
             )
             sweepStartPoint -= sweepSpread
@@ -219,4 +223,40 @@ object DonutChartView {
     }
 }
 
-fun stripedPathEffect(dashSize: Float) = PathEffect.dashPathEffect(floatArrayOf(dashSize, dashSize))
+private fun stripedPathEffect(dashSize: Float) = PathEffect.dashPathEffect(floatArrayOf(dashSize, dashSize))
+
+@Composable
+fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier = Modifier) {
+    val stripes = with(LocalDensity.current) { stripedPathEffect(HmrcTheme.dimensions.hmrcSpacing4.toPx()) }
+    val keyIndicatorSize = HmrcTheme.dimensions.hmrcIconSize24
+    val baseColor = HmrcTheme.colors.hmrcWhite
+
+    Row(modifier, verticalAlignment = Alignment.CenterVertically) {
+        Canvas(modifier = Modifier.size(keyIndicatorSize)) {
+            when (donutOutput.stroke) {
+                DonutChartViewStrokeType.SOLID -> drawRect(donutOutput.color)
+                DonutChartViewStrokeType.STRIPE -> {
+                    drawRect(baseColor, style = Fill)
+                    drawRect(donutOutput.color, style = Stroke())
+                    drawLine(
+                        color = donutOutput.color,
+                        start = Offset(0f, size.height / 2),
+                        end = Offset(size.width, size.height / 2),
+                        strokeWidth = keyIndicatorSize.toPx(),
+                        pathEffect = stripes
+                    )
+                }
+            }
+        }
+        Spacer(modifier = modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
+        MultiColumnRowView(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = HmrcTheme.dimensions.hmrcSpacing16),
+            columnList = listOf(
+                MultiColumnRowItem(text = donutOutput.label),
+                MultiColumnRowItem(text = donutOutput.formattedValue)
+            )
+        )
+    }
+}

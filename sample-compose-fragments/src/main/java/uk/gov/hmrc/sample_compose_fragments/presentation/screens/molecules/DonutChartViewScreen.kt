@@ -15,7 +15,6 @@
  */
 package uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules
 
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -23,27 +22,24 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.drawscope.Fill
-import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
-import uk.gov.hmrc.components.compose.atom.text.BodyText
+import uk.gov.hmrc.components.compose.atom.divider.HmrcDivider
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartView
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewInput
+import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewKeyItem
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewOutput
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewSegmentStyle
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewStrokeType
-import uk.gov.hmrc.components.compose.molecule.donut.stripedPathEffect
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.LocalOrientationMode
+import uk.gov.hmrc.components.compose.ui.theme.Orientation
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
@@ -54,9 +50,9 @@ fun DonutChartViewScreen() {
         PlaceholderSlot {
             Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                 val input = listOf(
-                    DonutChartViewInput(34.0, "Item: "),
-                    DonutChartViewInput(33.0, "Item: "),
-                    DonutChartViewInput(33.0, "Item: ")
+                    DonutChartViewInput(34.0, "£34", "Item"),
+                    DonutChartViewInput(33.0, "£33", "Item"),
+                    DonutChartViewInput(33.0, "£33", "Item")
                 )
                 DonutChartView(input, Modifier.size(200.dp)) { values ->
                     values.forEach { output ->
@@ -67,137 +63,135 @@ fun DonutChartViewScreen() {
             }
         }
         ExamplesSlot {
-            DonutChartView(
-                listOf(
-                    DonutChartViewInput(34.0, "Item: "),
-                    DonutChartViewInput(33.0, "Item: "),
-                    DonutChartViewInput(33.0, "Item: ")
-                ),
-                Modifier.size(100.dp),
-                shouldAnimate = false
-            ) { values ->
-                values.forEach { output ->
-                    Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
-                    DonutChartViewKeyItem(donutOutput = output)
-                }
-            }
-            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-            DonutChartView(
-                listOf(
-                    DonutChartViewInput(75.0, "Item: "),
-                    DonutChartViewInput(20.0, "Item: "),
-                    DonutChartViewInput(2.0, "Item: ")
-                ),
-                Modifier.fillMaxWidth(0.75f)
-            ) { values ->
-                values.forEach { output ->
-                    Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
-                    DonutChartViewKeyItem(donutOutput = output)
-                }
-            }
-            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-            DonutChartView(
-                listOf(
-                    DonutChartViewInput(100.0, "Item: "),
-                    DonutChartViewInput(100.0, "Item: "),
-                ),
-                Modifier.fillMaxWidth(1f),
-                styles = listOf(
-                    DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
-                    DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcYellow)
+            /**
+             * This example is contains Donut chart and Donut Items view and the UI is changed based on the orientation
+             */
+            HmrcCardView {
+                val outputValues = remember { mutableStateOf(listOf<DonutChartViewOutput>()) }
+                val input = listOf(
+                    DonutChartViewInput(50.0, "£50", "Item"),
+                    DonutChartViewInput(200.0, "£200", "Item"),
+                    DonutChartViewInput(50.0, "£50", "Item")
                 )
-            ) { values ->
-                values.forEach { output ->
-                    Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
-                    DonutChartViewKeyItem(donutOutput = output)
-                }
-            }
-            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
-            DonutChartView(
-                listOf(
-                    DonutChartViewInput(50.0, "Item: "),
-                    DonutChartViewInput(200.0, "Item: "),
-                    DonutChartViewInput(50.0, "Item: ")
-                ),
-                styles = listOf(
-                    DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
-                    DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcYellow),
-                    DonutChartViewSegmentStyle(
-                        HmrcTheme.colors.hmrcGreen1,
-                        strokeType = DonutChartViewStrokeType.STRIPE
-                    )
-                )
-            ) { values ->
-                values.forEach { output ->
-                    DonutChartViewKeyItem(donutOutput = output)
+                if (LocalOrientationMode.current == Orientation.Landscape) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            outputValues.value.forEachIndexed { index, donutChartViewOutput ->
+                                DonutChartViewKeyItem(donutOutput = donutChartViewOutput)
+                                if (index < outputValues.value.size - 1) HmrcDivider()
+                            }
+                        }
+                        DonutChartView(
+                            input = input,
+                            modifier = Modifier
+                                .size(200.dp)
+                                .padding(HmrcTheme.dimensions.hmrcSpacing16)
+                        ) { values ->
+                            LaunchedEffect(Unit) { outputValues.value = values }
+                        }
+                    }
+                } else {
+                    Column(
+                        modifier = Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        DonutChartView(
+                            input = input,
+                            modifier = Modifier
+                                .size(200.dp)
+                                .padding(HmrcTheme.dimensions.hmrcSpacing16)
+                        ) { values ->
+                            LaunchedEffect(Unit) { outputValues.value = values }
+                        }
+
+                        Column {
+                            outputValues.value.forEachIndexed { index, donutChartViewOutput ->
+                                DonutChartViewKeyItem(donutOutput = donutChartViewOutput)
+                                if (index < outputValues.value.size - 1) HmrcDivider()
+                            }
+                        }
+                    }
                 }
             }
             Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
             HmrcCardView {
-                val outputValues = remember { mutableStateOf(listOf<DonutChartViewOutput>()) }
-                Row(
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column(modifier = Modifier.weight(1f)) {
-                        outputValues.value.forEach {
-                            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
-                            DonutChartViewKeyItem(donutOutput = it)
-                        }
-                    }
-                    DonutChartView(
-                        listOf(
-                            DonutChartViewInput(50.0, "Item: "),
-                            DonutChartViewInput(200.0, "Item: "),
-                            DonutChartViewInput(50.0, "Item: ")
-                        ),
-                        styles = listOf(
-                            DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
-                            DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcYellow),
-                            DonutChartViewSegmentStyle(
-                                HmrcTheme.colors.hmrcGreen1,
-                                strokeType = DonutChartViewStrokeType.STRIPE
-                            )
-                        ),
-                        modifier = Modifier.size(200.dp)
-                    ) { values ->
-                        LaunchedEffect(Unit) {
-                            outputValues.value = values
-                        }
+                DonutChartView(
+                    listOf(
+                        DonutChartViewInput(34.0, "£34", "Item"),
+                        DonutChartViewInput(33.0, "£33", "Item"),
+                        DonutChartViewInput(33.0, "£33", "Item")
+                    ),
+                    Modifier.size(100.dp),
+                    shouldAnimate = false
+                ) { values ->
+                    values.forEach { output ->
+                        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
+                        DonutChartViewKeyItem(donutOutput = output)
                     }
                 }
             }
-        }
-    }
-}
-
-@Composable
-fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier = Modifier) {
-    val stripes = with(LocalDensity.current) { stripedPathEffect(HmrcTheme.dimensions.hmrcSpacing4.toPx()) }
-    val keyIndicatorSize = HmrcTheme.dimensions.hmrcIconSize24
-    val baseColor = HmrcTheme.colors.hmrcWhite
-
-    Row(modifier, verticalAlignment = Alignment.CenterVertically) {
-        Canvas(modifier = Modifier.size(keyIndicatorSize)) {
-            when (donutOutput.stroke) {
-                DonutChartViewStrokeType.SOLID -> drawRect(donutOutput.color)
-                DonutChartViewStrokeType.STRIPE -> {
-                    drawRect(baseColor, style = Fill)
-                    drawRect(donutOutput.color, style = Stroke())
-                    drawLine(
-                        color = donutOutput.color,
-                        start = Offset(0f, size.height / 2),
-                        end = Offset(size.width, size.height / 2),
-                        strokeWidth = keyIndicatorSize.toPx(),
-                        pathEffect = stripes
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            HmrcCardView {
+                DonutChartView(
+                    listOf(
+                        DonutChartViewInput(75.0, "£75", "Item"),
+                        DonutChartViewInput(20.0, "£20", "Item"),
+                        DonutChartViewInput(2.0, "£2", "Item")
+                    ),
+                    Modifier.fillMaxWidth(0.75f)
+                ) { values ->
+                    values.forEach { output ->
+                        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
+                        DonutChartViewKeyItem(donutOutput = output)
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            HmrcCardView {
+                DonutChartView(
+                    listOf(
+                        DonutChartViewInput(100.0, "£100", "Item"),
+                        DonutChartViewInput(100.0, "£100", "Item"),
+                    ),
+                    Modifier.fillMaxWidth(1f),
+                    styles = listOf(
+                        DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
+                        DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcYellow)
                     )
+                ) { values ->
+                    values.forEach { output ->
+                        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
+                        DonutChartViewKeyItem(donutOutput = output)
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            HmrcCardView {
+                DonutChartView(
+                    listOf(
+                        DonutChartViewInput(50.0, "£50", "Item"),
+                        DonutChartViewInput(200.0, "£200", "Item"),
+                        DonutChartViewInput(50.0, "£50", "Item")
+                    ),
+                    styles = listOf(
+                        DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
+                        DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcYellow),
+                        DonutChartViewSegmentStyle(
+                            HmrcTheme.colors.hmrcGreen1,
+                            strokeType = DonutChartViewStrokeType.STRIPE
+                        )
+                    )
+                ) { values ->
+                    values.forEach { output ->
+                        DonutChartViewKeyItem(donutOutput = output)
+                    }
                 }
             }
         }
-        Spacer(modifier = modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
-        Row {
-            BodyText(text = donutOutput.label)
-            BodyText(text = donutOutput.value.toString())
-        }
     }
 }
+
+
