@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [0.1.1] - 2024-08-08Z
+
 ### Fixed
 
 * TabBarView unselected content dark mode colors
