@@ -27,6 +27,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.molecule.item.SwitchRowView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer
+import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer2
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.sample_compose_components.R
@@ -240,6 +241,34 @@ object SeparatedViewContainerScreen {
                                 style = typography.h5,
                             )
                         }
+                    )
+                }
+
+                HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
+                    val itemLists = listOf(
+                        R.string.separated_view_container_placeholder_text_1,
+                        R.string.separated_view_container_placeholder_text_2,
+                        R.string.separated_view_container_placeholder_text_3
+                    )
+
+                    val composableList = mutableListOf<@Composable () -> Unit>()
+
+                    itemLists.forEach { item ->
+                        composableList.add @Composable {
+                            Text(
+                                text = stringResource(id = item),
+                                modifier = Modifier
+                                    .padding(dimensions.hmrcSpacing8)
+                                    .fillMaxSize(),
+                                style = typography.h5,
+                            )
+                        }
+                    }
+                    SeparatedViewContainer2(
+                        modifier = Modifier,
+                        showDivider = SeparatedViewContainer2.DividerMode.SHOW_DIVIDER_MIDDLE,
+                        dividerHorizontalPadding = dimensions.hmrcSpacing8,
+                        views = composableList
                     )
                 }
             }
