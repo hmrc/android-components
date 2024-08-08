@@ -30,7 +30,7 @@ object SeparatedViewContainer {
         modifier: Modifier = Modifier,
         showDivider: DividerMode = DividerMode.SHOW_DIVIDER_NONE,
         dividerHorizontalPadding: Dp = 0.dp,
-        vararg views: @Composable () -> Unit,
+        views: List<@Composable () -> Unit>,
     ) {
         Column(modifier = modifier) {
             // Show divider in the beginning

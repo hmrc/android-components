@@ -23,6 +23,8 @@ Allowed headings:
 ## Changed
 
 * New parameter `contentHorizontalPadding` on BottomSheetView
+* `DonutChartView` return type modified
+* `SeparatedViewContainer` views parameter changed to list
 
 ## [0.1.0] - 2024-07-26Z
 

@@ -22,9 +22,9 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -38,17 +38,33 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
+import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowItem
+import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
-class DonutChartViewInput(val value: Double, val label: String)
-class DonutChartViewSegmentStyle(
+data class KeyContent(
+    val formattedValue: String,
+    val label: String,
+    val rowContentDescription: String = ""
+)
+
+data class DonutChartViewInput(val value: Double, val keyContent: KeyContent)
+data class DonutChartViewSegmentStyle(
     val solidColor: Color,
     val stripeColor: Color = solidColor,
     val strokeType: DonutChartViewStrokeType = DonutChartViewStrokeType.SOLID,
 )
+
 enum class DonutChartViewStrokeType { SOLID, STRIPE }
-class DonutChartViewOutput(val color: Color, val label: String, val sweep: Float, val stroke: DonutChartViewStrokeType)
+data class DonutChartViewOutput(
+    val color: Color,
+    val sweep: Float,
+    val stroke: DonutChartViewStrokeType,
+    val keyContent: KeyContent,
+)
 
 object DonutChartView {
     private const val FIRST_SEGMENT_POSITION = 0
@@ -79,7 +95,8 @@ object DonutChartView {
         ),
         shouldAnimate: Boolean = true,
         strokeWidth: Dp = HmrcTheme.dimensions.hmrcSpacing16,
-    ): List<DonutChartViewOutput> {
+        onDonutChartViewOutputReady: @Composable (List<DonutChartViewOutput>) -> Unit
+    ) {
         require(styles.size >= input.size) { "There are not enough styles defined for all input values." }
 
         val canvasModifier = modifier.aspectRatio(1f)
@@ -88,6 +105,7 @@ object DonutChartView {
         val stripedStroke = with(LocalDensity.current) {
             Stroke(width = strokeWidth.toPx(), pathEffect = stripedPathEffect(HmrcTheme.dimensions.hmrcSpacing4.toPx()))
         }
+
         fun DonutChartViewStrokeType.toStroke() = when (this) {
             DonutChartViewStrokeType.SOLID -> solidStroke
             DonutChartViewStrokeType.STRIPE -> stripedStroke
@@ -142,7 +160,7 @@ object DonutChartView {
                 }
             }
         }
-        return segments
+        onDonutChartViewOutputReady(segments)
     }
 
     private fun processSegments(
@@ -165,8 +183,14 @@ object DonutChartView {
                 Pair(style.solidColor, DonutChartViewStrokeType.SOLID)
             } else Pair(style.stripeColor, DonutChartViewStrokeType.STRIPE)
 
-            processedSegments.add(DonutChartViewOutput(strokeColor, inputItem.label, sweepStartPoint, strokeType))
-
+            processedSegments.add(
+                DonutChartViewOutput(
+                    color = strokeColor,
+                    keyContent = inputItem.keyContent,
+                    sweep = sweepStartPoint,
+                    stroke = strokeType
+                )
+            )
             sweepStartPoint -= sweepSpread
         }
         return processedSegments
@@ -202,6 +226,8 @@ object DonutChartView {
     }
 }
 
+private fun stripedPathEffect(dashSize: Float) = PathEffect.dashPathEffect(floatArrayOf(dashSize, dashSize))
+
 @Composable
 fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier = Modifier) {
     val stripes = with(LocalDensity.current) { stripedPathEffect(HmrcTheme.dimensions.hmrcSpacing4.toPx()) }
@@ -225,9 +251,17 @@ fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier 
                 }
             }
         }
-        Spacer(modifier = modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
-        Text(donutOutput.label, style = HmrcTheme.typography.body)
+        Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
+        MultiColumnRowView(
+            modifier = Modifier
+                .fillMaxWidth()
+                .semantics(mergeDescendants = true) {
+                    contentDescription = donutOutput.keyContent.rowContentDescription
+                },
+            columnList = listOf(
+                MultiColumnRowItem(text = donutOutput.keyContent.label),
+                MultiColumnRowItem(text = donutOutput.keyContent.formattedValue)
+            )
+        )
     }
 }
-
-private fun stripedPathEffect(dashSize: Float) = PathEffect.dashPathEffect(floatArrayOf(dashSize, dashSize))
