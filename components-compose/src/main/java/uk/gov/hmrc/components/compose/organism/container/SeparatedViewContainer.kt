@@ -30,40 +30,6 @@ object SeparatedViewContainer {
         modifier: Modifier = Modifier,
         showDivider: DividerMode = DividerMode.SHOW_DIVIDER_NONE,
         dividerHorizontalPadding: Dp = 0.dp,
-        vararg views: @Composable () -> Unit,
-    ) {
-        Column(modifier = modifier) {
-            // Show divider in the beginning
-            if (showDivider == DividerMode.SHOW_DIVIDER_ALL || showDivider == DividerMode.SHOW_DIVIDER_BEGINNING) {
-                HmrcDivider(modifier = Modifier.padding(horizontal = dividerHorizontalPadding))
-            }
-            views.forEachIndexed { index, view ->
-                view()
-                if ((showDivider == DividerMode.SHOW_DIVIDER_ALL || showDivider == DividerMode.SHOW_DIVIDER_MIDDLE) &&
-                    index < views.size - 1
-                ) {
-                    HmrcDivider(modifier = Modifier.padding(horizontal = dividerHorizontalPadding))
-                }
-            }
-            // Show Divider at the end
-            if (showDivider == DividerMode.SHOW_DIVIDER_END || showDivider == DividerMode.SHOW_DIVIDER_ALL) {
-                HmrcDivider(modifier = Modifier.padding(horizontal = dividerHorizontalPadding))
-            }
-        }
-    }
-
-    enum class DividerMode {
-        SHOW_DIVIDER_NONE, SHOW_DIVIDER_ALL, SHOW_DIVIDER_BEGINNING, SHOW_DIVIDER_MIDDLE, SHOW_DIVIDER_END
-    }
-}
-
-object SeparatedViewContainer2 {
-
-    @Composable
-    operator fun invoke(
-        modifier: Modifier = Modifier,
-        showDivider: DividerMode = DividerMode.SHOW_DIVIDER_NONE,
-        dividerHorizontalPadding: Dp = 0.dp,
         views: List<@Composable () -> Unit>,
     ) {
         Column(modifier = modifier) {

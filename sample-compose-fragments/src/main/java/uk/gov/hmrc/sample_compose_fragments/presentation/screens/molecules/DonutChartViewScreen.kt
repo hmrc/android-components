@@ -36,7 +36,7 @@ import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewOutput
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewSegmentStyle
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewStrokeType
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
-import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer2
+import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.LocalOrientationMode
@@ -75,10 +75,7 @@ fun DonutChartViewScreen() {
                     DonutChartViewInput(50.0, "£50", "Item")
                 )
                 if (LocalOrientationMode.current == Orientation.Landscape) {
-                    Row(
-                        modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
                         Column(modifier = Modifier.weight(1f)) {
                             val donutChartViewKeyItemList = mutableListOf<@Composable () -> Unit>()
                             outputValues.value.forEach { donutChartViewOutput ->
@@ -89,10 +86,10 @@ fun DonutChartViewScreen() {
                                     )
                                 }
                             }
-                            SeparatedViewContainer2(
+                            SeparatedViewContainer(
                                 modifier = Modifier,
-                                showDivider = SeparatedViewContainer2.DividerMode.SHOW_DIVIDER_MIDDLE,
-                                dividerHorizontalPadding = dimensions.hmrcSpacing8,
+                                showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_MIDDLE,
+                                dividerHorizontalPadding = dimensions.hmrcSpacing16,
                                 views = donutChartViewKeyItemList
                             )
                         }
@@ -106,10 +103,7 @@ fun DonutChartViewScreen() {
                         }
                     }
                 } else {
-                    Column(
-                        modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         DonutChartView(
                             input = input,
                             modifier = Modifier
@@ -129,10 +123,10 @@ fun DonutChartViewScreen() {
                                     )
                                 }
                             }
-                            SeparatedViewContainer2(
+                            SeparatedViewContainer(
                                 modifier = Modifier,
-                                showDivider = SeparatedViewContainer2.DividerMode.SHOW_DIVIDER_MIDDLE,
-                                dividerHorizontalPadding = dimensions.hmrcSpacing8,
+                                showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_MIDDLE,
+                                dividerHorizontalPadding = dimensions.hmrcSpacing16,
                                 views = donutChartViewKeyItemList
                             )
                         }
