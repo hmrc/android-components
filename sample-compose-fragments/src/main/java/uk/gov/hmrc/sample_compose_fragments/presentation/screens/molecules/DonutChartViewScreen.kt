@@ -29,7 +29,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import uk.gov.hmrc.components.compose.atom.divider.HmrcDivider
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartView
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewInput
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewKeyItem
@@ -38,7 +37,9 @@ import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewSegmentStyle
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewStrokeType
 import uk.gov.hmrc.components.compose.molecule.donut.KeyContent
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
+import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.LocalOrientationMode
 import uk.gov.hmrc.components.compose.ui.theme.Orientation
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
@@ -75,49 +76,65 @@ fun DonutChartViewScreen() {
                     DonutChartViewInput(50.0, KeyContent("£50", "Item"))
                 )
                 if (LocalOrientationMode.current == Orientation.Landscape) {
-                    Row(
-                        modifier = Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
                         Column(modifier = Modifier.weight(1f)) {
-                            outputValues.value.forEachIndexed { index, donutChartViewOutput ->
-                                DonutChartViewKeyItem(donutOutput = donutChartViewOutput)
-                                if (index < outputValues.value.size - 1) HmrcDivider()
+                            val donutChartViewKeyItemList = mutableListOf<@Composable () -> Unit>()
+                            outputValues.value.forEach { donutChartViewOutput ->
+                                donutChartViewKeyItemList.add @Composable {
+                                    DonutChartViewKeyItem(
+                                        modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16),
+                                        donutOutput = donutChartViewOutput
+                                    )
+                                }
                             }
+                            SeparatedViewContainer(
+                                modifier = Modifier,
+                                showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_MIDDLE,
+                                dividerHorizontalPadding = dimensions.hmrcSpacing16,
+                                views = donutChartViewKeyItemList
+                            )
                         }
                         DonutChartView(
                             input = input,
                             modifier = Modifier
                                 .size(200.dp)
-                                .padding(HmrcTheme.dimensions.hmrcSpacing16)
+                                .padding(dimensions.hmrcSpacing16)
                         ) { values ->
                             LaunchedEffect(Unit) { outputValues.value = values }
                         }
                     }
                 } else {
-                    Column(
-                        modifier = Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         DonutChartView(
                             input = input,
                             modifier = Modifier
                                 .size(200.dp)
-                                .padding(HmrcTheme.dimensions.hmrcSpacing16)
+                                .padding(dimensions.hmrcSpacing16)
                         ) { values ->
                             LaunchedEffect(Unit) { outputValues.value = values }
                         }
 
                         Column {
-                            outputValues.value.forEachIndexed { index, donutChartViewOutput ->
-                                DonutChartViewKeyItem(donutOutput = donutChartViewOutput)
-                                if (index < outputValues.value.size - 1) HmrcDivider()
+                            val donutChartViewKeyItemList = mutableListOf<@Composable () -> Unit>()
+                            outputValues.value.forEach { donutChartViewOutput ->
+                                donutChartViewKeyItemList.add @Composable {
+                                    DonutChartViewKeyItem(
+                                        modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16),
+                                        donutOutput = donutChartViewOutput
+                                    )
+                                }
                             }
+                            SeparatedViewContainer(
+                                modifier = Modifier,
+                                showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_MIDDLE,
+                                dividerHorizontalPadding = dimensions.hmrcSpacing16,
+                                views = donutChartViewKeyItemList
+                            )
                         }
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            Spacer(modifier = Modifier.height(dimensions.hmrcSpacing16))
             HmrcCardView {
                 DonutChartView(
                     listOf(
@@ -134,7 +151,7 @@ fun DonutChartViewScreen() {
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            Spacer(modifier = Modifier.height(dimensions.hmrcSpacing16))
             HmrcCardView {
                 DonutChartView(
                     listOf(
@@ -150,7 +167,7 @@ fun DonutChartViewScreen() {
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            Spacer(modifier = Modifier.height(dimensions.hmrcSpacing16))
             HmrcCardView {
                 DonutChartView(
                     listOf(
@@ -169,7 +186,7 @@ fun DonutChartViewScreen() {
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing16))
+            Spacer(modifier = Modifier.height(dimensions.hmrcSpacing16))
             HmrcCardView {
                 DonutChartView(
                     listOf(
