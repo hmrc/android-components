@@ -39,12 +39,19 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
 import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowItem
 import uk.gov.hmrc.components.compose.molecule.multiColumnRowView.MultiColumnRowView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
-class DonutChartViewInput(val value: Double, val formattedValue: String, val label: String)
+data class KeyContent(
+    val formattedValue: String,
+    val label: String,
+    val contentDescription: String = ""
+)
+class DonutChartViewInput(val value: Double, val keyContent: KeyContent)
 class DonutChartViewSegmentStyle(
     val solidColor: Color,
     val stripeColor: Color = solidColor,
@@ -54,11 +61,9 @@ class DonutChartViewSegmentStyle(
 enum class DonutChartViewStrokeType { SOLID, STRIPE }
 class DonutChartViewOutput(
     val color: Color,
-    val label: String,
-    val value: Double,
-    val formattedValue: String,
     val sweep: Float,
-    val stroke: DonutChartViewStrokeType
+    val stroke: DonutChartViewStrokeType,
+    val keyContent: KeyContent,
 )
 
 object DonutChartView {
@@ -181,9 +186,7 @@ object DonutChartView {
             processedSegments.add(
                 DonutChartViewOutput(
                     color = strokeColor,
-                    label = inputItem.label,
-                    value = inputItem.value,
-                    formattedValue = inputItem.formattedValue,
+                    keyContent = inputItem.keyContent,
                     sweep = sweepStartPoint,
                     stroke = strokeType
                 )
@@ -254,8 +257,12 @@ fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier 
                 .fillMaxWidth()
                 .padding(vertical = HmrcTheme.dimensions.hmrcSpacing16),
             columnList = listOf(
-                MultiColumnRowItem(text = donutOutput.label),
-                MultiColumnRowItem(text = donutOutput.formattedValue)
+                MultiColumnRowItem(
+                    text = donutOutput.keyContent.label,
+                    modifier = Modifier.semantics { contentDescription = donutOutput.keyContent.contentDescription }),
+                MultiColumnRowItem(
+                    text = donutOutput.keyContent.formattedValue,
+                    modifier = Modifier.semantics { contentDescription = donutOutput.keyContent.contentDescription })
             )
         )
     }

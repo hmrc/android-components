@@ -36,6 +36,7 @@ import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewKeyItem
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewOutput
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewSegmentStyle
 import uk.gov.hmrc.components.compose.molecule.donut.DonutChartViewStrokeType
+import uk.gov.hmrc.components.compose.molecule.donut.KeyContent
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.LocalOrientationMode
@@ -50,9 +51,9 @@ fun DonutChartViewScreen() {
         PlaceholderSlot {
             Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                 val input = listOf(
-                    DonutChartViewInput(34.0, "£34", "Item"),
-                    DonutChartViewInput(33.0, "£33", "Item"),
-                    DonutChartViewInput(33.0, "£33", "Item")
+                    DonutChartViewInput(34.0, KeyContent("£34", "Item")),
+                    DonutChartViewInput(33.0, KeyContent("£33", "Item")),
+                    DonutChartViewInput(33.0, KeyContent("£33", "Item"))
                 )
                 DonutChartView(input, Modifier.size(200.dp)) { values ->
                     values.forEach { output ->
@@ -69,9 +70,9 @@ fun DonutChartViewScreen() {
             HmrcCardView {
                 val outputValues = remember { mutableStateOf(listOf<DonutChartViewOutput>()) }
                 val input = listOf(
-                    DonutChartViewInput(50.0, "£50", "Item"),
-                    DonutChartViewInput(200.0, "£200", "Item"),
-                    DonutChartViewInput(50.0, "£50", "Item")
+                    DonutChartViewInput(50.0, KeyContent("£50", "Item")),
+                    DonutChartViewInput(200.0, KeyContent("£200", "Item")),
+                    DonutChartViewInput(50.0, KeyContent("£50", "Item"))
                 )
                 if (LocalOrientationMode.current == Orientation.Landscape) {
                     Row(
@@ -120,9 +121,9 @@ fun DonutChartViewScreen() {
             HmrcCardView {
                 DonutChartView(
                     listOf(
-                        DonutChartViewInput(34.0, "£34", "Item"),
-                        DonutChartViewInput(33.0, "£33", "Item"),
-                        DonutChartViewInput(33.0, "£33", "Item")
+                        DonutChartViewInput(34.0, KeyContent("£34", "Item")),
+                        DonutChartViewInput(33.0, KeyContent("£33", "Item")),
+                        DonutChartViewInput(33.0, KeyContent("£33", "Item"))
                     ),
                     Modifier.size(100.dp),
                     shouldAnimate = false
@@ -137,9 +138,9 @@ fun DonutChartViewScreen() {
             HmrcCardView {
                 DonutChartView(
                     listOf(
-                        DonutChartViewInput(75.0, "£75", "Item"),
-                        DonutChartViewInput(20.0, "£20", "Item"),
-                        DonutChartViewInput(2.0, "£2", "Item")
+                        DonutChartViewInput(75.0, KeyContent("£75", "Item")),
+                        DonutChartViewInput(20.0, KeyContent("£20", "Item")),
+                        DonutChartViewInput(2.0, KeyContent("£2", "Item"))
                     ),
                     Modifier.fillMaxWidth(0.75f)
                 ) { values ->
@@ -153,8 +154,8 @@ fun DonutChartViewScreen() {
             HmrcCardView {
                 DonutChartView(
                     listOf(
-                        DonutChartViewInput(100.0, "£100", "Item"),
-                        DonutChartViewInput(100.0, "£100", "Item"),
+                        DonutChartViewInput(100.0, KeyContent("£100", "Item")),
+                        DonutChartViewInput(100.0, KeyContent("£100", "Item")),
                     ),
                     Modifier.fillMaxWidth(1f),
                     styles = listOf(
@@ -172,9 +173,9 @@ fun DonutChartViewScreen() {
             HmrcCardView {
                 DonutChartView(
                     listOf(
-                        DonutChartViewInput(50.0, "£50", "Item"),
-                        DonutChartViewInput(200.0, "£200", "Item"),
-                        DonutChartViewInput(50.0, "£50", "Item")
+                        DonutChartViewInput(50.0, KeyContent("£50", "Item")),
+                        DonutChartViewInput(200.0, KeyContent("£200", "Item")),
+                        DonutChartViewInput(50.0, KeyContent("£50", "Item"))
                     ),
                     styles = listOf(
                         DonutChartViewSegmentStyle(HmrcTheme.colors.hmrcPink),
