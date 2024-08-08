@@ -258,10 +258,12 @@ fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier 
             columnList = listOf(
                 MultiColumnRowItem(
                     text = donutOutput.keyContent.label,
-                    modifier = Modifier.semantics { contentDescription = donutOutput.keyContent.contentDescription }),
+                    modifier = Modifier.semantics { contentDescription = donutOutput.keyContent.contentDescription }
+                ),
                 MultiColumnRowItem(
                     text = donutOutput.keyContent.formattedValue,
-                    modifier = Modifier.semantics { contentDescription = donutOutput.keyContent.contentDescription })
+                    modifier = Modifier.semantics { contentDescription = donutOutput.keyContent.contentDescription }
+                )
             )
         )
     }
