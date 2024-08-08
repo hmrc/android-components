@@ -58,8 +58,11 @@ fun DonutChartViewScreen() {
                 )
                 DonutChartView(input, Modifier.size(200.dp)) { values ->
                     values.forEach { output ->
-                        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
-                        DonutChartViewKeyItem(donutOutput = output)
+                        Spacer(modifier = Modifier.height(dimensions.hmrcSpacing4))
+                        DonutChartViewKeyItem(
+                            modifier = Modifier.padding(dimensions.hmrcSpacing16),
+                            donutOutput = output
+                        )
                     }
                 }
             }
@@ -82,7 +85,7 @@ fun DonutChartViewScreen() {
                             outputValues.value.forEach { donutChartViewOutput ->
                                 donutChartViewKeyItemList.add @Composable {
                                     DonutChartViewKeyItem(
-                                        modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16),
+                                        modifier = Modifier.padding(dimensions.hmrcSpacing16),
                                         donutOutput = donutChartViewOutput
                                     )
                                 }
@@ -119,7 +122,7 @@ fun DonutChartViewScreen() {
                             outputValues.value.forEach { donutChartViewOutput ->
                                 donutChartViewKeyItemList.add @Composable {
                                     DonutChartViewKeyItem(
-                                        modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16),
+                                        modifier = Modifier.padding(dimensions.hmrcSpacing16),
                                         donutOutput = donutChartViewOutput
                                     )
                                 }
@@ -146,7 +149,7 @@ fun DonutChartViewScreen() {
                     shouldAnimate = false
                 ) { values ->
                     values.forEach { output ->
-                        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
+                        Spacer(modifier = Modifier.height(dimensions.hmrcSpacing4))
                         DonutChartViewKeyItem(donutOutput = output)
                     }
                 }
@@ -162,8 +165,11 @@ fun DonutChartViewScreen() {
                     Modifier.fillMaxWidth(0.75f)
                 ) { values ->
                     values.forEach { output ->
-                        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
-                        DonutChartViewKeyItem(donutOutput = output)
+                        Spacer(modifier = Modifier.height(dimensions.hmrcSpacing4))
+                        DonutChartViewKeyItem(
+                            modifier = Modifier.padding(dimensions.hmrcSpacing16),
+                            donutOutput = output
+                        )
                     }
                 }
             }
@@ -181,8 +187,11 @@ fun DonutChartViewScreen() {
                     )
                 ) { values ->
                     values.forEach { output ->
-                        Spacer(modifier = Modifier.height(HmrcTheme.dimensions.hmrcSpacing4))
-                        DonutChartViewKeyItem(donutOutput = output)
+                        Spacer(modifier = Modifier.height(dimensions.hmrcSpacing4))
+                        DonutChartViewKeyItem(
+                            modifier = Modifier.padding(dimensions.hmrcSpacing16),
+                            donutOutput = output
+                        )
                     }
                 }
             }
@@ -204,7 +213,10 @@ fun DonutChartViewScreen() {
                     )
                 ) { values ->
                     values.forEach { output ->
-                        DonutChartViewKeyItem(donutOutput = output)
+                        DonutChartViewKeyItem(
+                            modifier = Modifier.padding(dimensions.hmrcSpacing16),
+                            donutOutput = output
+                        )
                     }
                 }
             }

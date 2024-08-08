@@ -23,7 +23,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
@@ -49,14 +48,16 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 data class KeyContent(
     val formattedValue: String,
     val label: String,
-    val contentDescription: String = ""
+    val rowContentDescription: String = ""
 )
+
 data class DonutChartViewInput(val value: Double, val keyContent: KeyContent)
 data class DonutChartViewSegmentStyle(
     val solidColor: Color,
     val stripeColor: Color = solidColor,
     val strokeType: DonutChartViewStrokeType = DonutChartViewStrokeType.SOLID,
 )
+
 enum class DonutChartViewStrokeType { SOLID, STRIPE }
 data class DonutChartViewOutput(
     val color: Color,
@@ -250,20 +251,16 @@ fun DonutChartViewKeyItem(donutOutput: DonutChartViewOutput, modifier: Modifier 
                 }
             }
         }
-        Spacer(modifier = modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
+        Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
         MultiColumnRowView(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = HmrcTheme.dimensions.hmrcSpacing16),
+                .semantics(mergeDescendants = true) {
+                    contentDescription = donutOutput.keyContent.rowContentDescription
+                },
             columnList = listOf(
-                MultiColumnRowItem(
-                    text = donutOutput.keyContent.label,
-                    modifier = Modifier.semantics { contentDescription = donutOutput.keyContent.contentDescription }
-                ),
-                MultiColumnRowItem(
-                    text = donutOutput.keyContent.formattedValue,
-                    modifier = Modifier.semantics { contentDescription = donutOutput.keyContent.contentDescription }
-                )
+                MultiColumnRowItem(text = donutOutput.keyContent.label),
+                MultiColumnRowItem(text = donutOutput.keyContent.formattedValue)
             )
         )
     }
