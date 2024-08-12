@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* Dependency updates
+
 ## [4.11.3] - 2024-08-07Z
 
 ### Fixed

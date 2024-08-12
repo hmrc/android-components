@@ -24,20 +24,20 @@ class Dependencies {
     }
 
     object Libs {
-        const val androidX_annotation = "androidx.annotation:annotation:1.7.1"
+        const val androidX_annotation = "androidx.annotation:annotation:1.8.0"
         const val androidX_appcompat = "androidx.appcompat:appcompat:1.6.1"
         const val androidX_recyclerview = "androidx.recyclerview:recyclerview:1.3.2"
         const val androidX_constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
-        const val androidX_lifecycle = "androidx.lifecycle:lifecycle-compiler:2.6.2"
-        const val androidX_core_ktx = "androidx.core:core-ktx:1.12.0"
-        const val androidX_test_core_ktx = "androidx.test:core-ktx:1.5.0"
-        const val androidX_test_ext_junit = "androidx.test.ext:junit-ktx:1.1.5"
-        const val androidX_test_espressoCore = "androidx.test.espresso:espresso-core:3.5.1"
-        const val androidX_test_espressoContrib = "androidx.test.espresso:espresso-contrib:3.5.1"
-        const val androidX_test_runner = "androidx.test:runner:1.5.2"
-        const val androidX_test_uiautomator = "androidx.test.uiautomator:uiautomator:2.2.0"
+        const val androidX_lifecycle = "androidx.lifecycle:lifecycle-compiler:2.7.0"
+        const val androidX_core_ktx = "androidx.core:core-ktx:1.13.1"
+        const val androidX_test_core_ktx = "androidx.test:core-ktx:1.6.1"
+        const val androidX_test_ext_junit = "androidx.test.ext:junit-ktx:1.2.1"
+        const val androidX_test_espressoCore = "androidx.test.espresso:espresso-core:3.6.1"
+        const val androidX_test_espressoContrib = "androidx.test.espresso:espresso-contrib:3.6.1"
+        const val androidX_test_runner = "androidx.test:runner:1.6.1"
+        const val androidX_test_uiautomator = "androidx.test.uiautomator:uiautomator:2.3.0"
 
-        const val material = "com.google.android.material:material:1.11.0"
+        const val material = "com.google.android.material:material:1.12.0"
 
         const val junit = "junit:junit:4.13.2"
     }
