@@ -49,7 +49,7 @@ object SeparatedViewContainerScreen {
                     modifier = Modifier,
                     showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_ALL,
                     dividerHorizontalPadding = 0.dp,
-                    {
+                    views = listOf {
                         Text(
                             text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
                             modifier = Modifier
@@ -66,33 +66,35 @@ object SeparatedViewContainerScreen {
                     modifier = Modifier,
                     showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_MIDDLE,
                     dividerHorizontalPadding = 0.dp,
-                    {
-                        Text(
-                            text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
-                            modifier = Modifier
-                                .padding(dimensions.hmrcSpacing8)
-                                .fillMaxSize(),
-                            style = typography.h5,
-                        )
-                    },
-                    {
-                        Text(
-                            text = stringResource(id = R.string.separated_view_container_placeholder_text_2),
-                            modifier = Modifier
-                                .padding(dimensions.hmrcSpacing8)
-                                .fillMaxSize(),
-                            style = typography.h5,
-                        )
-                    },
-                    {
-                        Text(
-                            text = stringResource(id = R.string.separated_view_container_placeholder_text_3),
-                            modifier = Modifier
-                                .padding(dimensions.hmrcSpacing8)
-                                .fillMaxSize(),
-                            style = typography.h5,
-                        )
-                    }
+                    views = listOf(
+                        {
+                            Text(
+                                text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
+                                modifier = Modifier
+                                    .padding(dimensions.hmrcSpacing8)
+                                    .fillMaxSize(),
+                                style = typography.h5,
+                            )
+                        },
+                        {
+                            Text(
+                                text = stringResource(id = R.string.separated_view_container_placeholder_text_2),
+                                modifier = Modifier
+                                    .padding(dimensions.hmrcSpacing8)
+                                    .fillMaxSize(),
+                                style = typography.h5,
+                            )
+                        },
+                        {
+                            Text(
+                                text = stringResource(id = R.string.separated_view_container_placeholder_text_3),
+                                modifier = Modifier
+                                    .padding(dimensions.hmrcSpacing8)
+                                    .fillMaxSize(),
+                                style = typography.h5,
+                            )
+                        }
+                    )
                 )
             }
 
@@ -102,117 +104,51 @@ object SeparatedViewContainerScreen {
                         modifier = Modifier.padding(vertical = dimensions.hmrcSpacing16),
                         showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_ALL,
                         dividerHorizontalPadding = dimensions.hmrcSpacing16,
-                        {
-                            with(examplesUiState.exampleOne) {
-                                SwitchRowView(
-                                    modifier = Modifier.padding(dimensions.hmrcSpacing16),
-                                    title = title?.let { stringResource(it) },
-                                    body = body?.let { stringResource(it) },
-                                    checkedStateContentDesc = enabledContentDesc?.let { stringResource(it) },
-                                    checkedState = enabled,
-                                    onCheckedChangeListener = { enabled ->
-                                        viewModel.onExampleSwitchChanged(
-                                            enabled,
-                                            SeparatedViewContainerViewModel.SwitchRowExample.ONE
-                                        )
-                                    }
-                                )
+                        views = listOf(
+                            {
+                                with(examplesUiState.exampleOne) {
+                                    SwitchRowView(
+                                        modifier = Modifier.padding(dimensions.hmrcSpacing16),
+                                        title = title?.let { stringResource(it) },
+                                        body = body?.let { stringResource(it) },
+                                        checkedStateContentDesc = enabledContentDesc?.let { stringResource(it) },
+                                        checkedState = enabled,
+                                        onCheckedChangeListener = { enabled ->
+                                            viewModel.onExampleSwitchChanged(
+                                                enabled,
+                                                SeparatedViewContainerViewModel.SwitchRowExample.ONE
+                                            )
+                                        }
+                                    )
+                                }
+                            },
+                            {
+                                with(examplesUiState.exampleTwo) {
+                                    SwitchRowView(
+                                        modifier = Modifier.padding(dimensions.hmrcSpacing16),
+                                        title = title?.let { stringResource(it) },
+                                        body = body?.let { stringResource(it) },
+                                        checkedState = enabled,
+                                        onCheckedChangeListener = { enabled ->
+                                            viewModel.onExampleSwitchChanged(
+                                                enabled,
+                                                SeparatedViewContainerViewModel.SwitchRowExample.TWO
+                                            )
+                                        }
+                                    )
+                                }
                             }
-                        },
-                        {
-                            with(examplesUiState.exampleTwo) {
-                                SwitchRowView(
-                                    modifier = Modifier.padding(dimensions.hmrcSpacing16),
-                                    title = title?.let { stringResource(it) },
-                                    body = body?.let { stringResource(it) },
-                                    checkedState = enabled,
-                                    onCheckedChangeListener = { enabled ->
-                                        viewModel.onExampleSwitchChanged(
-                                            enabled,
-                                            SeparatedViewContainerViewModel.SwitchRowExample.TWO
-                                        )
-                                    }
-                                )
-                            }
-                        },
+                        )
                     )
                 }
+            }
 
-                HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
-                    SeparatedViewContainer(
-                        modifier = Modifier.padding(dimensions.hmrcSpacing16),
-                        showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_BEGINNING,
-                        dividerHorizontalPadding = 0.dp,
-                        {
-                            Text(
-                                text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
-                                modifier = Modifier
-                                    .padding(dimensions.hmrcSpacing8)
-                                    .fillMaxSize(),
-                                style = typography.h5,
-                            )
-                        },
-                        {
-                            Text(
-                                text = stringResource(id = R.string.separated_view_container_placeholder_text_2),
-                                modifier = Modifier
-                                    .padding(dimensions.hmrcSpacing8)
-                                    .fillMaxSize(),
-                                style = typography.h5,
-                            )
-                        },
-                        {
-                            Text(
-                                text = stringResource(id = R.string.separated_view_container_placeholder_text_3),
-                                modifier = Modifier
-                                    .padding(dimensions.hmrcSpacing8)
-                                    .fillMaxSize(),
-                                style = typography.h5,
-                            )
-                        },
-                    )
-                }
-
-                HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
-                    SeparatedViewContainer(
-                        modifier = Modifier,
-                        showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_MIDDLE,
-                        dividerHorizontalPadding = dimensions.hmrcSpacing16,
-                        {
-                            Text(
-                                text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
-                                modifier = Modifier
-                                    .padding(dimensions.hmrcSpacing16)
-                                    .fillMaxSize(),
-                                style = typography.h5,
-                            )
-                        },
-                        {
-                            Text(
-                                text = stringResource(id = R.string.separated_view_container_placeholder_text_2),
-                                modifier = Modifier
-                                    .padding(dimensions.hmrcSpacing16)
-                                    .fillMaxSize(),
-                                style = typography.h5,
-                            )
-                        },
-                        {
-                            Text(
-                                text = stringResource(id = R.string.separated_view_container_placeholder_text_3),
-                                modifier = Modifier
-                                    .padding(dimensions.hmrcSpacing16)
-                                    .fillMaxSize(),
-                                style = typography.h5,
-                            )
-                        }
-                    )
-                }
-
-                HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
-                    SeparatedViewContainer(
-                        modifier = Modifier,
-                        showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_END,
-                        dividerHorizontalPadding = dimensions.hmrcSpacing8,
+            HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
+                SeparatedViewContainer(
+                    modifier = Modifier.padding(dimensions.hmrcSpacing16),
+                    showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_BEGINNING,
+                    dividerHorizontalPadding = 0.dp,
+                    views = listOf(
                         {
                             Text(
                                 text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
@@ -241,8 +177,109 @@ object SeparatedViewContainerScreen {
                             )
                         }
                     )
+                )
+            }
+
+            HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
+                SeparatedViewContainer(
+                    modifier = Modifier,
+                    showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_MIDDLE,
+                    dividerHorizontalPadding = dimensions.hmrcSpacing16,
+                    views = listOf(
+                        {
+                            Text(
+                                text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
+                                modifier = Modifier
+                                    .padding(dimensions.hmrcSpacing16)
+                                    .fillMaxSize(),
+                                style = typography.h5,
+                            )
+                        },
+                        {
+                            Text(
+                                text = stringResource(id = R.string.separated_view_container_placeholder_text_2),
+                                modifier = Modifier
+                                    .padding(dimensions.hmrcSpacing16)
+                                    .fillMaxSize(),
+                                style = typography.h5,
+                            )
+                        },
+                        {
+                            Text(
+                                text = stringResource(id = R.string.separated_view_container_placeholder_text_3),
+                                modifier = Modifier
+                                    .padding(dimensions.hmrcSpacing16)
+                                    .fillMaxSize(),
+                                style = typography.h5,
+                            )
+                        }
+                    )
+                )
+            }
+
+            HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
+                SeparatedViewContainer(
+                    modifier = Modifier,
+                    showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_END,
+                    dividerHorizontalPadding = dimensions.hmrcSpacing8,
+                    views = listOf(
+                        {
+                            Text(
+                                text = stringResource(id = R.string.separated_view_container_placeholder_text_1),
+                                modifier = Modifier
+                                    .padding(dimensions.hmrcSpacing8)
+                                    .fillMaxSize(),
+                                style = typography.h5,
+                            )
+                        },
+                        {
+                            Text(
+                                text = stringResource(id = R.string.separated_view_container_placeholder_text_2),
+                                modifier = Modifier
+                                    .padding(dimensions.hmrcSpacing8)
+                                    .fillMaxSize(),
+                                style = typography.h5,
+                            )
+                        },
+                        {
+                            Text(
+                                text = stringResource(id = R.string.separated_view_container_placeholder_text_3),
+                                modifier = Modifier
+                                    .padding(dimensions.hmrcSpacing8)
+                                    .fillMaxSize(),
+                                style = typography.h5,
+                            )
+                        }
+                    )
+                )
+            }
+
+            HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
+                val itemLists = listOf(
+                    R.string.separated_view_container_placeholder_text_1,
+                    R.string.separated_view_container_placeholder_text_2,
+                    R.string.separated_view_container_placeholder_text_3
+                )
+                val composableList = mutableListOf<@Composable () -> Unit>()
+                itemLists.forEach { item ->
+                    composableList.add @Composable {
+                        Text(
+                            text = stringResource(id = item),
+                            modifier = Modifier
+                                .padding(dimensions.hmrcSpacing8)
+                                .fillMaxSize(),
+                            style = typography.h5,
+                        )
+                    }
                 }
+                SeparatedViewContainer(
+                    modifier = Modifier,
+                    showDivider = SeparatedViewContainer.DividerMode.SHOW_DIVIDER_MIDDLE,
+                    dividerHorizontalPadding = dimensions.hmrcSpacing8,
+                    views = composableList
+                )
             }
         }
     }
 }
+

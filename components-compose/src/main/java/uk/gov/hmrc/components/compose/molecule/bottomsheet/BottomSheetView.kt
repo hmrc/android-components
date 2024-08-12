@@ -72,6 +72,7 @@ object BottomSheetView {
         enableFullScreenExpansion: Boolean = false,
         topWindowInset: Dp = HmrcTheme.dimensions.hmrcSpacing48,
         onDismissRequest: () -> Unit,
+        contentHorizontalPadding: Dp = HmrcTheme.dimensions.hmrcSpacing16,
         sheetContent: @Composable ColumnScope.() -> Unit,
     ) {
         val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = skipPartiallyExpanded)
@@ -114,7 +115,7 @@ object BottomSheetView {
                 }
                 Column(
                     Modifier
-                        .padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16)
+                        .padding(horizontal = contentHorizontalPadding)
                         .then(if (enableFullScreenExpansion) Modifier.fillMaxHeight() else Modifier)
                         .verticalScroll(rememberScrollState())
                 ) {

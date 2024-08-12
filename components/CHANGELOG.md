@@ -20,6 +20,12 @@ Allowed headings:
 
 * Dependency updates
 
+## [4.11.3] - 2024-08-07Z
+
+### Fixed
+
+* Fixed accessibility content descriptions in `InformationMessageView`
+
 ## [4.11.2] - 2024-05-20Z
 
 ### Added
