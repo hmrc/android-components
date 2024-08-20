@@ -19,6 +19,15 @@ Allowed headings:
 ### Changed
 
 * Dependency updates
+* The `initialInputValue` parameter of `TextInputView` and `CurrencyInputView` has been renamed to `value`
+
+### Added
+
+* `TextInputView` and `CurrencyInputView` now support `maxChars`
+
+### Fixed
+
+* `TextInputView` and `CurrencyInputView` input can now be cleared by setting the `value` parameter
 
 ## [0.1.1] - 2024-08-08Z
 
