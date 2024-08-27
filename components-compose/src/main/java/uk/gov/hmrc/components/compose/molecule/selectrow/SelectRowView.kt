@@ -89,7 +89,7 @@ object SelectRowView {
                     } else 0.dp
                     selectRowViewItems.forEachIndexed { index, rowItem ->
                         Row(
-                            verticalAlignment = Alignment.CenterVertically,
+                            verticalAlignment = Alignment.Top,
                             modifier = modifier
                                 .selectable(
                                     selected = selectedRowItem == rowItem,
