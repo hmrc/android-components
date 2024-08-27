@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Fixed
+
+* `TextInputView` now works again without a filter set, and you can delete the full input using backspace.
+
 ### Changed
 
 * `SelectRowView` aligned to top of radio button rather than centered
@@ -36,7 +40,7 @@ Allowed headings:
 
 * TabBarView unselected content dark mode colors
 
-## Changed
+### Changed
 
 * New parameter `contentHorizontalPadding` on BottomSheetView
 * `DonutChartView` return type modified
