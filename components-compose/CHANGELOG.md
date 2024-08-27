@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [0.1.2] - 2024-08-27Z
+
 ### Changed
 
 * `SelectRowView` aligned to top of radio button rather than centered
