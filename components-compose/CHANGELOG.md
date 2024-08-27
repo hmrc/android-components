@@ -20,6 +20,8 @@ Allowed headings:
 
 * `TextInputView` now works again without a filter set, and you can delete the full input using backspace.
 
+## [0.1.2] - 2024-08-27Z
+
 ### Changed
 
 * `SelectRowView` aligned to top of radio button rather than centered
