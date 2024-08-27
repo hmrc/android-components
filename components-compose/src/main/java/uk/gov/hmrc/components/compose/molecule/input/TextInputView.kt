@@ -56,7 +56,7 @@ object TextInputView {
     @Composable
     operator fun invoke(
         modifier: Modifier = Modifier,
-        initialInputValue: String = "",
+        value: String? = null,
         onInputValueChange: ((String) -> Unit)? = null,
         inputFilter: ((String, String) -> String)? = null,
         labelText: String? = null,
@@ -68,10 +68,13 @@ object TextInputView {
         errorText: String? = null,
         errorContentDescription: String? = null,
         characterCount: Int? = null,
+        maxChars: Int? = null,
         singleLine: Boolean = false,
         keyboardOptions: KeyboardOptions = KeyboardOptions.Default
     ) {
-        var localValue: String by rememberSaveable { mutableStateOf(initialInputValue) }
+        var localValue: String by rememberSaveable { mutableStateOf(value.orEmpty()) }
+        localValue = value.orEmpty()
+
         var localError: String? by rememberSaveable { mutableStateOf(null) }
         localError = errorText
 
@@ -142,10 +145,13 @@ object TextInputView {
                 isError = !localError.isNullOrEmpty() || (localValue.length > (characterCount ?: Int.MAX_VALUE)),
                 value = localValue,
                 onInputValueChange = { newValue ->
-                    if (onInputValueChange != null) { onInputValueChange(newValue) }
-                    localValue = if (inputFilter != null && newValue.isNotEmpty()) {
-                        inputFilter(newValue, localValue)
-                    } else newValue
+                    if (maxChars?.let { newValue.length <= it } != false) {
+                        localValue = if (inputFilter != null && newValue.isNotEmpty()) {
+                            val filteredValue = inputFilter(newValue, localValue)
+                            if (onInputValueChange != null) { onInputValueChange(filteredValue) }
+                            filteredValue
+                        } else newValue
+                    }
                 },
                 prefix = prefix,
                 placeholderText = { placeholderText?.let { Text(text = it) } },
