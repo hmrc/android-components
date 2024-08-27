@@ -28,7 +28,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 @Composable
 fun CurrencyInputView(
     modifier: Modifier = Modifier,
-    initialInputValue: String = "",
+    value: String? = null,
     onInputValueChange: ((String) -> Unit)? = null,
     labelText: String? = null,
     labelContentDescription: String? = null,
@@ -39,6 +39,7 @@ fun CurrencyInputView(
     errorContentDescription: String? = null,
     singleLine: Boolean = true,
     enableDecimal: Boolean = true,
+    maxChars: Int? = null,
 ) {
 
     // pattern matches a decimal number
@@ -54,7 +55,7 @@ fun CurrencyInputView(
 
     TextInputView(
         modifier = modifier,
-        initialInputValue = initialInputValue,
+        value = value,
         onInputValueChange = onInputValueChange,
         inputFilter = { it: String, localValue: String -> decimalPatternChecker(it, localValue) },
         labelText = labelText,
@@ -73,7 +74,8 @@ fun CurrencyInputView(
         singleLine = singleLine,
         keyboardOptions = KeyboardOptions(
             keyboardType = if (enableDecimal) KeyboardType.Decimal else KeyboardType.Number
-        )
+        ),
+        maxChars = maxChars
     )
 }
 
