@@ -20,7 +20,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.text.BodyText
+import uk.gov.hmrc.components.compose.ui.extensions.enableTalkBackMergeAccessibility
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 
 @Composable
@@ -28,15 +33,16 @@ fun BulletedTextView(
     text: String,
     modifier: Modifier = Modifier,
 ) {
-    Column {
-        Row(modifier = modifier) {
-            BodyText(
-                modifier = Modifier.padding(end = dimensions.hmrcSpacing16),
-                text = "\u25CF",
-            )
-            BodyText(
-                text = text,
-            )
-        }
+    Row(modifier = modifier.enableTalkBackMergeAccessibility()) {
+        val bulletedContentDesc = stringResource(R.string.bulleted_point_content_desc)
+        BodyText(
+            modifier = Modifier
+                .padding(end = dimensions.hmrcSpacing16)
+                .semantics { contentDescription = bulletedContentDesc },
+            text = "\u25CF",
+        )
+        BodyText(
+            text = text,
+        )
     }
 }
