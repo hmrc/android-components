@@ -20,6 +20,7 @@ Allowed headings:
 
 * `SelectRowView` aligned to top of radio button rather than centered
 * Dependency updates
+* `BulletedTextView` content description added
 
 ## [0.1.1] - 2024-08-08Z
 
