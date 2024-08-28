@@ -15,12 +15,13 @@
  */
 package uk.gov.hmrc.components.compose.atom.bullet
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import uk.gov.hmrc.components.compose.atom.text.BodyText
+import uk.gov.hmrc.components.compose.ui.extensions.enableTalkBackMergeAccessibility
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 
 @Composable
@@ -28,15 +29,15 @@ fun BulletedTextView(
     text: String,
     modifier: Modifier = Modifier,
 ) {
-    Column {
-        Row(modifier = modifier) {
-            BodyText(
-                modifier = Modifier.padding(end = dimensions.hmrcSpacing16),
-                text = "\u25CF",
-            )
-            BodyText(
-                text = text,
-            )
-        }
+    Row(modifier = modifier.enableTalkBackMergeAccessibility()) {
+        BodyText(
+            modifier = Modifier
+                .padding(end = dimensions.hmrcSpacing16)
+                .clearAndSetSemantics {},
+            text = "\u25CF",
+        )
+        BodyText(
+            text = text,
+        )
     }
 }

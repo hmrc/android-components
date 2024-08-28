@@ -20,6 +20,10 @@ Allowed headings:
 
 * `TextInputView` now works again without a filter set, and you can delete the full input using backspace.
 
+### Changed
+
+* `BulletedTextView` content description suppressed for black circle
+
 ## [0.1.2] - 2024-08-27Z
 
 ### Changed
