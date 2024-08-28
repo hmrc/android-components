@@ -15,16 +15,11 @@
  */
 package uk.gov.hmrc.components.compose.atom.bullet
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
-import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.text.BodyText
 import uk.gov.hmrc.components.compose.ui.extensions.enableTalkBackMergeAccessibility
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
