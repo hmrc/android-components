@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [0.1.3] - 2024-08-28Z
+
 ### Fixed
 
 * `TextInputView` now works again without a filter set, and you can delete the full input using backspace.
