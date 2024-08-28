@@ -19,5 +19,4 @@
     <string name="accessibility_warning">warning; %s</string>
     <string name="bottomSheetView_drag_handle_content_desc">Drag handle</string>
     <string name="bottomSheetView_close_content_desc">Dismiss bottom sheet</string>
-    <string name="bulleted_point_content_desc">bulleted point;</string>
 </resources>
