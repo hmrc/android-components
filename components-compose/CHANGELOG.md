@@ -16,7 +16,7 @@ Allowed headings:
 
 ## [Unreleased]
 
-* `BulletedTextView` content description added
+* `BulletedTextView` content description suppressed for black circle
 
 ### Changed
 
