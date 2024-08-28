@@ -147,10 +147,9 @@ object TextInputView {
                 onInputValueChange = { newValue ->
                     if (maxChars?.let { newValue.length <= it } != false) {
                         localValue = if (inputFilter != null && newValue.isNotEmpty()) {
-                            val filteredValue = inputFilter(newValue, localValue)
-                            if (onInputValueChange != null) { onInputValueChange(filteredValue) }
-                            filteredValue
+                            inputFilter(newValue, localValue)
                         } else newValue
+                        if (onInputValueChange != null) { onInputValueChange(localValue) }
                     }
                 },
                 prefix = prefix,
