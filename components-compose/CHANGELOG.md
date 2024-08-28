@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Fixed
+
+* `TextInputView` now works again without a filter set, and you can delete the full input using backspace.
+
 ## [0.1.2] - 2024-08-27Z
 
 ### Changed
@@ -38,7 +42,7 @@ Allowed headings:
 
 * TabBarView unselected content dark mode colors
 
-## Changed
+### Changed
 
 * New parameter `contentHorizontalPadding` on BottomSheetView
 * `DonutChartView` return type modified
