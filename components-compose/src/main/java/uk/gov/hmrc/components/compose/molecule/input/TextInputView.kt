@@ -37,6 +37,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -64,13 +65,15 @@ object TextInputView {
         hintText: String? = null,
         hintContentDescription: String? = null,
         prefix: @Composable (() -> Unit)? = null,
+        trailingIcon: @Composable (() -> Unit)? = null,
         placeholderText: String? = null,
         errorText: String? = null,
         errorContentDescription: String? = null,
         characterCount: Int? = null,
         maxChars: Int? = null,
         singleLine: Boolean = false,
-        keyboardOptions: KeyboardOptions = KeyboardOptions.Default
+        keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+        visualTransformation: VisualTransformation = VisualTransformation.None
     ) {
         var localValue: String by rememberSaveable { mutableStateOf(value.orEmpty()) }
         localValue = value.orEmpty()
@@ -119,7 +122,7 @@ object TextInputView {
             }
         }
 
-        val trailingIcon: @Composable (() -> Unit) = @Composable {
+        val clearTrailingIcon: @Composable (() -> Unit) = @Composable {
             if (localValue.isNotEmpty()) {
                 Icon(
                     Icons.Rounded.Close,
@@ -155,9 +158,10 @@ object TextInputView {
                 prefix = prefix,
                 placeholderText = { placeholderText?.let { Text(text = it) } },
                 supportingText = if (counterEnabled) errorTextCounterCombo else error,
-                trailingIcon = trailingIcon,
+                trailingIcon = trailingIcon ?: clearTrailingIcon,
                 singleLine = singleLine,
                 keyboardOptions = keyboardOptions,
+                visualTransformation = visualTransformation
             )
         }
     }
@@ -199,6 +203,7 @@ object TextInputView {
         trailingIcon: @Composable (() -> Unit),
         singleLine: Boolean,
         keyboardOptions: KeyboardOptions,
+        visualTransformation: VisualTransformation
     ) {
         OutlinedTextField(
             modifier = modifier,
@@ -213,7 +218,8 @@ object TextInputView {
             keyboardOptions = keyboardOptions,
             textStyle = typography.body,
             colors = HmrcTheme.textFieldColors,
-            shape = RoundedCornerShape(0)
+            shape = RoundedCornerShape(0),
+            visualTransformation = visualTransformation
         )
     }
 }

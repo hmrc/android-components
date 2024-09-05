@@ -83,6 +83,7 @@
     <string name="molecules_select_row">Select Row View</string>
     <string name="molecules_bottom_sheet">Bottom Sheet View</string>
     <string name="molecules_donut_chart">Donut Chart View</string>
+    <string name="molecules_password_input_view">Password Input View</string>
 
     <!-- Organisms navigation -->
     <string name="organisms_text_input">Text Input View</string>
@@ -290,6 +291,18 @@
     <string name="currency_input_example_3_text">123.45</string>
     <string name="currency_input_example_4_label">Gross amount, in pounds</string>
     <string name="currency_input_example_4_hint">This is the amount you are paid before any deductions are made.</string>
+
+    <!-- Password input -->
+    <string name="password_input_placeholder_label">Label</string>
+    <string name="password_input_placeholder_hint">Hint</string>
+    <string name="password_input_placeholder_placeholder">Placeholder</string>
+    <string name="password_input_example_1_label">PIN</string>
+    <string name="password_input_example_1_hint">Enter a 4 digit pin</string>
+    <string name="password_input_example_2_label">Password:</string>
+    <string name="password_input_example_2_hint">Alphanumeric characters</string>
+    <string name="password_input_example_3_label">Password:</string>
+    <string name="password_input_example_3_hint">This value is pre-filled</string>
+    <string name="password_input_example_error">Enter a password</string>
 
     <!-- Placeholder/Example headings -->
     <string name="heading_placeholder_singular">Placeholder:</string>
