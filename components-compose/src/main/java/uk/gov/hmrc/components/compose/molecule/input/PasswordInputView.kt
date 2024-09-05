@@ -51,7 +51,8 @@ fun PasswordInputView(
     // pattern matches a non decimal number
     val nonDecimalPattern = remember { Regex("^([0-9]*)$") }
 
-    var passwordVisualTransformation: VisualTransformation by remember { mutableStateOf(PasswordVisualTransformation()) }
+    var passwordVisualTransformation: VisualTransformation
+        by remember { mutableStateOf(PasswordVisualTransformation()) }
 
     var passwordBool: Boolean by rememberSaveable { mutableStateOf(false) }
 
@@ -62,12 +63,11 @@ fun PasswordInputView(
     }
 
     val passwordTrailingIcon: @Composable (() -> Unit) = @Composable {
-        if(passwordBool) {
-           LinkText("Hide", modifier = Modifier.clickable {passwordBool = false})
+        if (passwordBool) {
+            LinkText("Hide", modifier = Modifier.clickable { passwordBool = false })
             passwordVisualTransformation = VisualTransformation.None
-        }
-        else {
-            LinkText("Show", modifier = Modifier.clickable {passwordBool = true})
+        } else {
+            LinkText("Show", modifier = Modifier.clickable { passwordBool = true })
             passwordVisualTransformation = PasswordVisualTransformation()
         }
     }
