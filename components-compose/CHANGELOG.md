@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Added
+
+* `PasswordInputView` component added with show/hide feature
+
 ## [0.1.3] - 2024-08-28Z
 
 ### Fixed
