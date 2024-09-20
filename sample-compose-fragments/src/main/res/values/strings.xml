@@ -300,6 +300,7 @@
     <string name="password_input_example_1_hint">Enter a 4 digit pin</string>
     <string name="password_input_example_2_label">Password:</string>
     <string name="password_input_example_2_hint">Alphanumeric characters</string>
+    <string name="password_input_example_2_error_content_description">Cannot be empty</string>
     <string name="password_input_example_3_label">Password:</string>
     <string name="password_input_example_3_hint">This value is pre-filled</string>
     <string name="password_input_example_error">Enter a password</string>

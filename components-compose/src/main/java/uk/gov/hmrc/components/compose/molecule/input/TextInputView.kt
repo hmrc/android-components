@@ -60,6 +60,7 @@ object TextInputView {
         keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
         visualTransformation: VisualTransformation = VisualTransformation.None,
         interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+        requiredSequencesSpacing: Boolean = false
 
     ) {
         var localValue: String by rememberSaveable { mutableStateOf(value.orEmpty()) }
@@ -108,10 +109,10 @@ object TextInputView {
                     errorText,
                     errorContentDescription
                 ),
-                trailingIcon = trailingIcon ?: clearTrailingIcon,
                 singleLine = singleLine,
                 keyboardOptions = keyboardOptions,
                 visualTransformation = visualTransformation,
+                trailingIcon = trailingIcon ?: clearTrailingIcon,
                 colors = HmrcTheme.textFieldColors,
                 interactionSource = interactionSource
             )

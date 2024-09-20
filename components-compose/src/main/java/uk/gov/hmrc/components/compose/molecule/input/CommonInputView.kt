@@ -31,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -56,6 +57,7 @@ fun TextField(
     keyboardOptions: KeyboardOptions,
     visualTransformation: VisualTransformation,
     trailingIcon: @Composable() (() -> Unit)? = null,
+    textStyle: TextStyle = typography.body,
     colors: TextFieldColors,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
@@ -70,11 +72,11 @@ fun TextField(
         trailingIcon = trailingIcon,
         singleLine = singleLine,
         keyboardOptions = keyboardOptions,
-        textStyle = typography.body,
+        textStyle = textStyle,
         colors = colors,
         shape = RoundedCornerShape(0),
         visualTransformation = visualTransformation,
-        interactionSource = interactionSource
+        interactionSource = interactionSource,
     )
 }
 

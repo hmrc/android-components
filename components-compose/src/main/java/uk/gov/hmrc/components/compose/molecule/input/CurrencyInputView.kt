@@ -42,7 +42,6 @@ fun CurrencyInputView(
     enableDecimal: Boolean = true,
     maxChars: Int? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-
 ) {
 
     // pattern matches a decimal number

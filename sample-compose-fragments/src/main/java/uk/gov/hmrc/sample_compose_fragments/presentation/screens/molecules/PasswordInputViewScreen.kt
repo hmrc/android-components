@@ -74,7 +74,8 @@ fun PasswordInputViewScreen() {
                     hintText = stringResource(id = R.string.password_input_example_1_hint),
                     maxChars = 4,
                     numericOnly = true,
-                    errorContentDescription = "Cannot be empty"
+                    errorContentDescription = stringResource(R.string.password_input_example_2_error_content_description),
+                    requiredSequencesSpacing = true
                 )
 
                 PasswordInputView(
@@ -90,6 +91,7 @@ fun PasswordInputViewScreen() {
                     errorText = viewModel.textInputErrorEmptyValidation1.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.password_input_example_2_label),
                     hintText = stringResource(id = R.string.password_input_example_2_hint),
+                    requiredSequencesSpacing = true
                 )
 
                 PasswordInputView(

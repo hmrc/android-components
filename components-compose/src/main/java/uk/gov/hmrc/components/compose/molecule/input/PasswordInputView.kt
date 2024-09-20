@@ -54,6 +54,7 @@ import androidx.compose.ui.semantics.error
 import androidx.compose.ui.semantics.password
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -85,7 +86,8 @@ fun PasswordInputView(
     numericOnly: Boolean = false,
     maxChars: Int? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-
+    requiredSequencesSpacing: Boolean = false,
+    textStyle: TextStyle = HmrcTheme.typography.body
 ) {
     // pattern matches a non decimal number
     val nonDecimalPattern = remember { Regex("^([0-9]*)$") }
@@ -122,7 +124,9 @@ fun PasswordInputView(
         keyboardOptions = KeyboardOptions(
             keyboardType = if (numericOnly) KeyboardType.NumberPassword else KeyboardType.Password
         ),
-        interactionSource = interactionSource
+        interactionSource = interactionSource,
+        requiredSequencesSpacing = requiredSequencesSpacing,
+        textStyle = textStyle
     )
 }
 
@@ -217,7 +221,9 @@ fun PasswordTextInputView(
     maxChars: Int? = null,
     singleLine: Boolean = false,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    interactionSource: MutableInteractionSource
+    interactionSource: MutableInteractionSource,
+    requiredSequencesSpacing: Boolean,
+    textStyle: TextStyle
 ) {
     var hideButtonShown: Boolean by rememberSaveable { mutableStateOf(false) }
 
@@ -311,6 +317,12 @@ fun PasswordTextInputView(
                     } else {
                         PasswordVisualTransformation()
                     },
+                    textStyle =
+                    if (requiredSequencesSpacing && hideButtonShown) {
+                        HmrcTheme.typography.sequencesBody
+                    } else {
+                        textStyle
+                    },
                     colors = OutlinedTextFieldDefaults.colors(
                         errorBorderColor = Color.Transparent,
                         unfocusedBorderColor = Color.Transparent,
@@ -358,7 +370,7 @@ fun PasswordInputViewPreview() {
             onInputValueChange = { },
             labelText = "Label",
             hintText = "Hint",
-            placeholderText = "Text",
+            placeholderText = "Text"
         )
     }
 }
