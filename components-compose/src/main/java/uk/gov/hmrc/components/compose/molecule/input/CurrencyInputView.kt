@@ -15,6 +15,7 @@
  */
 package uk.gov.hmrc.components.compose.molecule.input
 
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
@@ -40,6 +41,8 @@ fun CurrencyInputView(
     singleLine: Boolean = true,
     enableDecimal: Boolean = true,
     maxChars: Int? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+
 ) {
 
     // pattern matches a decimal number
@@ -75,7 +78,8 @@ fun CurrencyInputView(
         keyboardOptions = KeyboardOptions(
             keyboardType = if (enableDecimal) KeyboardType.Decimal else KeyboardType.Number
         ),
-        maxChars = maxChars
+        maxChars = maxChars,
+        interactionSource = interactionSource
     )
 }
 
@@ -87,7 +91,7 @@ fun CurrencyInputViewPreview() {
             onInputValueChange = { },
             labelText = "Label",
             hintText = "Hint",
-            placeholderText = "Text"
+            placeholderText = "Text",
         )
     }
 }

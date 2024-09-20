@@ -73,7 +73,8 @@ fun PasswordInputViewScreen() {
                     labelText = stringResource(id = R.string.password_input_example_1_label),
                     hintText = stringResource(id = R.string.password_input_example_1_hint),
                     maxChars = 4,
-                    numericOnly = true
+                    numericOnly = true,
+                    errorContentDescription = "Cannot be empty"
                 )
 
                 PasswordInputView(
