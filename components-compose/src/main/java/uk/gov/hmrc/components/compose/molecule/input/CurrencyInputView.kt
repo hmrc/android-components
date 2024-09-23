@@ -43,7 +43,6 @@ fun CurrencyInputView(
     maxChars: Int? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-
     // pattern matches a decimal number
     val decimalPattern = remember { Regex("^([0-9]*)(\\.?)([0-9]*)$") }
     // pattern matches a non decimal number
