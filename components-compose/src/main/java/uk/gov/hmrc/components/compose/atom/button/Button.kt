@@ -72,7 +72,7 @@ fun HmrcButton(
             fontSize = 16.sp,
             fontWeight = FontWeight.Normal,
             textAlign = textAlign,
-            modifier = modifier.weight(1f)
+            modifier = Modifier.weight(1f)
         )
     }
 }
@@ -134,12 +134,12 @@ fun IconButton(
     textAlign: TextAlign = TextAlign.Start,
     onClick: () -> Unit,
 ) {
-    SecondaryButton(text = text, modifier = Modifier, textAlign = textAlign, onClick = onClick) {
+    SecondaryButton(text = text, modifier = modifier, textAlign = textAlign, onClick = onClick) {
         Icon(
             painter = painterResource(id = iconResId),
             contentDescription = null,
-            modifier = modifier.size(HmrcTheme.dimensions.hmrcIconSize24)
+            modifier = Modifier.size(HmrcTheme.dimensions.hmrcIconSize24)
         )
-        Spacer(modifier = modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
+        Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing16))
     }
 }
