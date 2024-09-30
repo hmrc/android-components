@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Fixed
+
+* Fixed Modifier usage on all `HmrcButton` types
+
 ## [0.1.3] - 2024-08-28Z
 
 ### Fixed
