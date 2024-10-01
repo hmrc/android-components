@@ -20,6 +20,12 @@ Allowed headings:
 
 * `PasswordInputView` component added with show/hide feature and requiresSequenceSpacing parameter to enable additional character spacing for use during sequences
 
+## [0.1.4] - 2024-09-30Z
+
+### Fixed
+
+* Fixed Modifier usage on all `HmrcButton` types
+
 ## [0.1.3] - 2024-08-28Z
 
 ### Fixed
