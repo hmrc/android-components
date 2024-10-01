@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,14 +51,14 @@ fun TextField(
     value: String,
     onInputValueChange: (String) -> Unit,
     prefix: @Composable() (() -> Unit)?,
-    placeholderText: @Composable () -> Unit,
+    placeholderText: @Composable (() -> Unit)?,
     supportingText: @Composable() (() -> Unit)?,
     singleLine: Boolean,
     keyboardOptions: KeyboardOptions,
     visualTransformation: VisualTransformation,
+    colors: TextFieldColors,
     trailingIcon: @Composable() (() -> Unit)? = null,
     textStyle: TextStyle = typography.body,
-    colors: TextFieldColors,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     OutlinedTextField(

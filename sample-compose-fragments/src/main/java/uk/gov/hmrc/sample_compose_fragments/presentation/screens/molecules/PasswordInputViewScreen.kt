@@ -26,6 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import uk.gov.hmrc.components.compose.molecule.input.PasswordInputView
+import uk.gov.hmrc.components.compose.molecule.input.PasswordTrailingButton
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.sample_compose_components.R
@@ -40,6 +41,9 @@ fun PasswordInputViewScreen() {
     val viewModel = viewModel<PasswordInputViewModel>()
 
     val errorText = stringResource(id = R.string.password_input_example_error)
+    val error1Text = stringResource(id = R.string.password_input_example_1_error)
+    val showText = stringResource(R.string.password_input_show)
+    val hideText = stringResource(R.string.password_input_hide)
 
     var placeholderValue: String by rememberSaveable { mutableStateOf("") }
     var example1Value: String by rememberSaveable { mutableStateOf("") }
@@ -53,45 +57,59 @@ fun PasswordInputViewScreen() {
                 onInputValueChange = { placeholderValue = it },
                 labelText = stringResource(id = R.string.password_input_placeholder_label),
                 hintText = stringResource(id = R.string.password_input_placeholder_hint),
-                placeholderText = stringResource(id = R.string.password_input_placeholder_placeholder),
+                passwordTrailingButton = PasswordTrailingButton(
+                    showButtonText = showText,
+                    hideButtonText = hideText
+                )
             )
         }
 
         ExamplesSlot {
             HmrcCardView {
                 PasswordInputView(
-                    value = example1Value,
                     modifier = Modifier.padding(
                         horizontal = HmrcTheme.dimensions.hmrcSpacing16,
                         vertical = HmrcTheme.dimensions.hmrcSpacing24,
                     ),
+                    value = example1Value,
                     onInputValueChange = {
-                        viewModel.isEmptyValidation(it, errorText, 0)
+                        viewModel.isEmptyValidation(it, error1Text, 0)
                         example1Value = it
                     },
-                    errorText = viewModel.textInputErrorEmptyValidation.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.password_input_example_1_label),
                     hintText = stringResource(id = R.string.password_input_example_1_hint),
-                    maxChars = 4,
+                    errorText = viewModel.textInputErrorEmptyValidation.collectAsStateWithLifecycle().value,
+                    errorContentDescription = stringResource(R.string.password_input_example_1_error_content_description),
                     numericOnly = true,
-                    errorContentDescription = stringResource(R.string.password_input_example_2_error_content_description),
-                    requiredSequencesSpacing = true
+                    maxChars = 4,
+                    passwordTrailingButton = PasswordTrailingButton(
+                        showButtonText = stringResource(id = R.string.password_input_example_1_show_text),
+                        hideButtonText = stringResource(id = R.string.password_input_example_1_hide_text),
+                        showButtonContentDescription = stringResource(id = R.string.password_input_example_1_show_content_description),
+                        showButtonStateDescription = stringResource(id = R.string.password_input_example_1_show_state_description),
+                        hideButtonContentDescription = stringResource(id = R.string.password_input_example_1_hide_content_description),
+                        hideButtonStateDescription = stringResource(id = R.string.password_input_example_1_hide_state_description),
+                    )
                 )
 
                 PasswordInputView(
-                    value = example2Value,
                     modifier = Modifier.padding(
                         horizontal = HmrcTheme.dimensions.hmrcSpacing16,
                         vertical = HmrcTheme.dimensions.hmrcSpacing24,
                     ),
+                    value = example2Value,
                     onInputValueChange = {
                         viewModel.isEmptyValidation(it, errorText, 1)
                         example2Value = it
                     },
-                    errorText = viewModel.textInputErrorEmptyValidation1.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.password_input_example_2_label),
                     hintText = stringResource(id = R.string.password_input_example_2_hint),
-                    requiredSequencesSpacing = true
+                    errorText = viewModel.textInputErrorEmptyValidation1.collectAsStateWithLifecycle().value,
+                    passwordTrailingButton = PasswordTrailingButton(
+                        showButtonText = showText,
+                        hideButtonText = hideText,
+                    ),
+                    numericOnly = false
                 )
 
                 PasswordInputView(
@@ -104,9 +122,15 @@ fun PasswordInputViewScreen() {
                         viewModel.isEmptyValidation(it, errorText, 2)
                         example3Value = it
                     },
-                    errorText = viewModel.textInputErrorEmptyValidation2.collectAsStateWithLifecycle().value,
                     labelText = stringResource(id = R.string.password_input_example_3_label),
                     hintText = stringResource(id = R.string.password_input_example_3_hint),
+                    errorText = viewModel.textInputErrorEmptyValidation2.collectAsStateWithLifecycle().value,
+                    passwordTrailingButton = PasswordTrailingButton(
+                        showButtonText = showText,
+                        hideButtonText = hideText
+                    ),
+                    requiredSequencesSpacing = false,
+                    numericOnly = false
                 )
             }
         }

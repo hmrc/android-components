@@ -46,7 +46,7 @@ private val LightColorPalette = HmrcColors(
     hmrcDonutChartColor2 = HmrcDonutBlue,
     hmrcDonutChartColor3 = HmrcDonutBlue,
     isDark = false,
-    hmrcTransparent = hmrcTransparent
+    hmrcTransparent = HmrcTransparent
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -67,7 +67,7 @@ private val DarkColorPalette = HmrcColors(
     hmrcDonutChartColor2 = HmrcTeal,
     hmrcDonutChartColor3 = HmrcTeal,
     isDark = true,
-    hmrcTransparent = hmrcTransparent
+    hmrcTransparent = HmrcTransparent
 )
 
 @Composable

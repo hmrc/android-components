@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.OutlinedTextFieldDefaults.FocusedBorderThickness
 import androidx.compose.material3.OutlinedTextFieldDefaults.UnfocusedBorderThickness
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
@@ -48,18 +47,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.error
+import androidx.compose.ui.semantics.onClick
 import androidx.compose.ui.semantics.password
+import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.button.SecondaryButton
 import uk.gov.hmrc.components.compose.atom.text.ErrorText
@@ -69,25 +69,18 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 @Composable
 fun PasswordInputView(
     modifier: Modifier = Modifier,
+    passwordTrailingButton: PasswordTrailingButton,
     value: String? = null,
     onInputValueChange: ((String) -> Unit)? = null,
     labelText: String? = null,
     labelContentDescription: String? = null,
     hintText: String? = null,
     hintContentDescription: String? = null,
-    placeholderText: String? = null,
     errorText: String? = null,
     errorContentDescription: String? = null,
-    showButtonContentDescription: String? = null,
-    hideButtonContentDescription: String? = null,
-    showButtonStateDescription: String? = null,
-    hideButtonStateDescription: String? = null,
-    singleLine: Boolean = true,
-    numericOnly: Boolean = false,
+    numericOnly: Boolean = true,
     maxChars: Int? = null,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    requiredSequencesSpacing: Boolean = false,
-    textStyle: TextStyle = HmrcTheme.typography.body
+    requiredSequencesSpacing: Boolean = true,
 ) {
     // pattern matches a non decimal number
     val nonDecimalPattern = remember { Regex("^([0-9]*)$") }
@@ -112,67 +105,39 @@ fun PasswordInputView(
         labelContentDescription = labelContentDescription,
         hintText = hintText,
         hintContentDescription = hintContentDescription,
-        placeholderText = placeholderText,
         errorText = errorText,
         errorContentDescription = errorContentDescription,
-        showButtonContentDescription = showButtonContentDescription,
-        hideButtonContentDescription = hideButtonContentDescription,
-        showButtonStateDescription = showButtonStateDescription,
-        hideButtonStateDescription = hideButtonStateDescription,
-        maxChars = maxChars,
-        singleLine = singleLine,
-        keyboardOptions = KeyboardOptions(
-            keyboardType = if (numericOnly) KeyboardType.NumberPassword else KeyboardType.Password
+        passwordTrailingButton = PasswordTrailingButton(
+            showButtonText = passwordTrailingButton.showButtonText,
+            showButtonContentDescription = passwordTrailingButton.showButtonContentDescription,
+            showButtonStateDescription = passwordTrailingButton.showButtonStateDescription,
+            hideButtonText = passwordTrailingButton.hideButtonText,
+            hideButtonContentDescription = passwordTrailingButton.hideButtonContentDescription,
+            hideButtonStateDescription = passwordTrailingButton.hideButtonStateDescription
         ),
-        interactionSource = interactionSource,
-        requiredSequencesSpacing = requiredSequencesSpacing,
-        textStyle = textStyle
+        maxChars = maxChars,
+        numericOnly = numericOnly,
+        requiredSequencesSpacing = requiredSequencesSpacing
     )
 }
 
 @Composable
-fun animateBorderStrokeAsState(
-    enabled: Boolean,
+private fun animateBorderStrokeAsState(
     isError: Boolean,
     interactionSource: InteractionSource,
-    focusedBorderThickness: Dp,
-    unfocusedBorderThickness: Dp
 ): State<BorderStroke> {
     val focused by interactionSource.collectIsFocusedAsState()
-    val indicatorColor = indicatorColor(enabled, isError, interactionSource)
-    val targetThickness = if (focused) focusedBorderThickness else unfocusedBorderThickness
-    val animatedThickness = if (enabled) {
+    val indicatorColor = indicatorColor(isError, interactionSource)
+    val targetThickness = if (focused) FocusedBorderThickness else UnfocusedBorderThickness
+    val animatedThickness =
         animateDpAsState(targetThickness, tween(durationMillis = ANIMATION_DURATION))
-    } else {
-        rememberUpdatedState(unfocusedBorderThickness)
-    }
     return rememberUpdatedState(
         BorderStroke(animatedThickness.value, SolidColor(indicatorColor.value))
     )
 }
 
-var borderStroke: State<BorderStroke>? = null
-
 @Composable
-fun CalculateBorder(
-    enabled: Boolean = true,
-    isError: Boolean,
-    interactionSource: InteractionSource,
-    focusedBorderThickness: Dp = FocusedBorderThickness,
-    unfocusedBorderThickness: Dp = UnfocusedBorderThickness
-) {
-    borderStroke = animateBorderStrokeAsState(
-        enabled,
-        isError,
-        interactionSource,
-        focusedBorderThickness,
-        unfocusedBorderThickness
-    )
-}
-
-@Composable
-fun indicatorColor(
-    enabled: Boolean,
+private fun indicatorColor(
     isError: Boolean,
     interactionSource: InteractionSource
 ): State<Color> {
@@ -189,11 +154,7 @@ fun indicatorColor(
         focused -> focusedBorderColor
         else -> unfocusedBorderColor
     }
-    return if (enabled) {
-        animateColorAsState(targetValue, tween(durationMillis = ANIMATION_DURATION))
-    } else {
-        rememberUpdatedState(targetValue)
-    }
+    return animateColorAsState(targetValue, tween(durationMillis = ANIMATION_DURATION))
 }
 
 @SuppressWarnings("LongMethod", "ComplexMethod")
@@ -207,23 +168,14 @@ fun PasswordTextInputView(
     labelContentDescription: String? = null,
     hintText: String? = null,
     hintContentDescription: String? = null,
-    prefix: @Composable() (() -> Unit)? = null,
-    placeholderText: String? = null,
     errorText: String? = null,
     errorContentDescription: String? = null,
-    showButtonText: String? = stringResource(R.string.passwordTextInputView_show),
-    hideButtonText: String? = stringResource(R.string.passwordTextInputView_hide),
-    showButtonContentDescription: String? = null,
-    hideButtonContentDescription: String? = null,
-    showButtonStateDescription: String? = null,
-    hideButtonStateDescription: String? = null,
+    passwordTrailingButton: PasswordTrailingButton,
+    numericOnly: Boolean,
     characterCount: Int? = null,
     maxChars: Int? = null,
-    singleLine: Boolean = false,
-    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    interactionSource: MutableInteractionSource,
-    requiredSequencesSpacing: Boolean,
-    textStyle: TextStyle
+    requiredSequencesSpacing: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     var hideButtonShown: Boolean by rememberSaveable { mutableStateOf(false) }
 
@@ -239,7 +191,6 @@ fun PasswordTextInputView(
 
     @Composable
     fun ShowHideButton(
-        modifier: Modifier,
         hideButtonContentDescription: String?,
         hideButtonStateDescription: String?,
         showButtonContentDescription: String?,
@@ -247,43 +198,46 @@ fun PasswordTextInputView(
         showButtonText: String,
         hideButtonText: String
     ) {
+        val activate = stringResource(R.string.accessibility_activate)
+
         if (hideButtonShown) {
             SecondaryButton(
                 hideButtonText, onClick = { hideButtonShown = false },
-                modifier = modifier
-                    .semantics {
-                        hideButtonContentDescription?.let { contentDescription = it }
+                modifier = Modifier
+                    .clearAndSetSemantics {
+                        contentDescription = hideButtonContentDescription ?: hideButtonText
                         hideButtonStateDescription?.let { stateDescription = it }
+                        role = Role.Button
+                        onClick(activate, action = { hideButtonShown = false; true })
                     }
             )
         } else {
             SecondaryButton(
                 showButtonText, onClick = { hideButtonShown = true },
-                modifier = modifier
-                    .semantics {
-                        showButtonContentDescription?.let { contentDescription = it }
+                modifier = Modifier
+                    .clearAndSetSemantics {
+                        contentDescription = showButtonContentDescription ?: showButtonText
                         showButtonStateDescription?.let { stateDescription = it }
+                        role = Role.Button
+                        onClick(activate, action = { hideButtonShown = true; true })
                     }
             )
         }
     }
 
-    CalculateBorder(
-        true,
+    val borderStroke: State<BorderStroke> = animateBorderStrokeAsState(
         isError,
         interactionSource,
-        focusedBorderThickness = FocusedBorderThickness,
-        unfocusedBorderThickness = UnfocusedBorderThickness
     )
     Column(modifier = modifier) {
         Label(labelText = labelText, labelContentDescription = labelContentDescription)
         Hint(hintText = hintText, hintContentDescription = hintContentDescription)
         Row(
-            borderStroke?.let {
+            borderStroke.let {
                 Modifier
                     .fillMaxWidth()
                     .border(it.value, RectangleShape)
-            } ?: Modifier,
+            },
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(Modifier.weight(1f)) {
@@ -307,11 +261,13 @@ fun PasswordTextInputView(
                             }
                         }
                     },
-                    prefix = prefix,
-                    placeholderText = { placeholderText?.let { Text(text = it) } },
+                    prefix = null,
+                    placeholderText = null,
                     supportingText = null,
-                    singleLine = singleLine,
-                    keyboardOptions = keyboardOptions,
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = if (numericOnly) KeyboardType.NumberPassword else KeyboardType.Password
+                    ),
                     visualTransformation = if (hideButtonShown) {
                         VisualTransformation.None
                     } else {
@@ -321,12 +277,12 @@ fun PasswordTextInputView(
                     if (requiredSequencesSpacing && hideButtonShown) {
                         HmrcTheme.typography.sequencesBody
                     } else {
-                        textStyle
+                        HmrcTheme.typography.body
                     },
                     colors = OutlinedTextFieldDefaults.colors(
-                        errorBorderColor = Color.Transparent,
-                        unfocusedBorderColor = Color.Transparent,
-                        focusedBorderColor = Color.Transparent
+                        errorBorderColor = HmrcTheme.colors.hmrcTransparent,
+                        unfocusedBorderColor = HmrcTheme.colors.hmrcTransparent,
+                        focusedBorderColor = HmrcTheme.colors.hmrcTransparent
                     ),
                     interactionSource = interactionSource
                 )
@@ -334,13 +290,12 @@ fun PasswordTextInputView(
 
             Column(Modifier.width(IntrinsicSize.Max)) {
                 ShowHideButton(
-                    Modifier,
-                    hideButtonContentDescription,
-                    hideButtonStateDescription,
-                    showButtonContentDescription,
-                    showButtonStateDescription,
-                    showButtonText ?: stringResource(R.string.passwordTextInputView_show),
-                    hideButtonText ?: stringResource(R.string.passwordTextInputView_hide)
+                    hideButtonContentDescription = passwordTrailingButton.hideButtonContentDescription,
+                    hideButtonStateDescription = passwordTrailingButton.hideButtonStateDescription,
+                    showButtonContentDescription = passwordTrailingButton.showButtonContentDescription,
+                    showButtonStateDescription = passwordTrailingButton.showButtonStateDescription,
+                    showButtonText = passwordTrailingButton.showButtonText,
+                    hideButtonText = passwordTrailingButton.hideButtonText
                 )
             }
         }
@@ -358,6 +313,15 @@ fun PasswordTextInputView(
     }
 }
 
+data class PasswordTrailingButton(
+    val showButtonText: String,
+    val showButtonContentDescription: String? = null,
+    val showButtonStateDescription: String? = null,
+    val hideButtonText: String,
+    val hideButtonContentDescription: String? = null,
+    val hideButtonStateDescription: String? = null
+)
+
 object PasswordInput {
     const val ANIMATION_DURATION = 150
 }
@@ -370,7 +334,10 @@ fun PasswordInputViewPreview() {
             onInputValueChange = { },
             labelText = "Label",
             hintText = "Hint",
-            placeholderText = "Text"
+            passwordTrailingButton = PasswordTrailingButton(
+                showButtonText = "Show",
+                hideButtonText = "Hide"
+            )
         )
     }
 }

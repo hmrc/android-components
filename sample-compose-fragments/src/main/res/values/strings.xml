@@ -293,14 +293,22 @@
     <string name="currency_input_example_4_hint">This is the amount you are paid before any deductions are made.</string>
 
     <!-- Password input -->
+    <string name="password_input_show">Show</string>
+    <string name="password_input_hide">Hide</string>
     <string name="password_input_placeholder_label">Label</string>
     <string name="password_input_placeholder_hint">Hint</string>
-    <string name="password_input_placeholder_placeholder">Placeholder</string>
     <string name="password_input_example_1_label">PIN</string>
     <string name="password_input_example_1_hint">Enter a 4 digit pin</string>
+    <string name="password_input_example_1_error">Enter a pin</string>
+    <string name="password_input_example_1_error_content_description">Cannot be empty</string>
+    <string name="password_input_example_1_show_content_description">Reveal the pin</string>
+    <string name="password_input_example_1_hide_content_description">Hide the pin</string>
+    <string name="password_input_example_1_show_state_description">Pin is now hidden</string>
+    <string name="password_input_example_1_hide_state_description">Pin is now shown</string>
+    <string name="password_input_example_1_show_text">Reveal</string>
+    <string name="password_input_example_1_hide_text">Obscure</string>
     <string name="password_input_example_2_label">Password:</string>
     <string name="password_input_example_2_hint">Alphanumeric characters</string>
-    <string name="password_input_example_2_error_content_description">Cannot be empty</string>
     <string name="password_input_example_3_label">Password:</string>
     <string name="password_input_example_3_hint">This value is pre-filled</string>
     <string name="password_input_example_error">Enter a password</string>
