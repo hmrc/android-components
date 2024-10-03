@@ -16,7 +16,6 @@
 package uk.gov.hmrc.components.compose.molecule.input
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -26,7 +25,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -49,8 +47,7 @@ object TextInputView {
         labelContentDescription: String? = null,
         hintText: String? = null,
         hintContentDescription: String? = null,
-        prefix: @Composable (() -> Unit)? = null,
-        trailingIcon: @Composable (() -> Unit)? = null,
+        prefix: @Composable() (() -> Unit)? = null,
         placeholderText: String? = null,
         errorText: String? = null,
         errorContentDescription: String? = null,
@@ -59,7 +56,6 @@ object TextInputView {
         singleLine: Boolean = false,
         keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
         visualTransformation: VisualTransformation = VisualTransformation.None,
-        interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
         requiredSequencesSpacing: Boolean = false
 
     ) {
@@ -72,7 +68,7 @@ object TextInputView {
         val counterEnabled: Boolean = characterCount != null
 
         val clearTrailingIcon: @Composable (() -> Unit) = @Composable {
-            if (false) {
+            if (localValue.isNotEmpty()) {
                 Icon(
                     Icons.Rounded.Close,
                     contentDescription = stringResource(id = R.string.textInputView_clear),
@@ -112,9 +108,8 @@ object TextInputView {
                 singleLine = singleLine,
                 keyboardOptions = keyboardOptions,
                 visualTransformation = visualTransformation,
-                trailingIcon = trailingIcon ?: clearTrailingIcon,
+                trailingIcon = clearTrailingIcon,
                 colors = HmrcTheme.textFieldColors,
-                interactionSource = interactionSource
             )
         }
     }
@@ -151,8 +146,8 @@ fun TextInputViewWithErrorPreview() {
     HmrcTheme {
         TextInputView(
             onInputValueChange = { },
-            errorText = "Error",
-            labelText = "Label"
+            labelText = "Label",
+            errorText = "Error"
         )
     }
 }

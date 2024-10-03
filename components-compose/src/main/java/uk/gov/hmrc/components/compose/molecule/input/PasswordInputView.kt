@@ -198,7 +198,7 @@ fun PasswordTextInputView(
         showButtonText: String,
         hideButtonText: String
     ) {
-        val activate = stringResource(R.string.accessibility_activate)
+        val actionString = stringResource(R.string.accessibility_activate)
 
         if (hideButtonShown) {
             SecondaryButton(
@@ -208,7 +208,7 @@ fun PasswordTextInputView(
                         contentDescription = hideButtonContentDescription ?: hideButtonText
                         hideButtonStateDescription?.let { stateDescription = it }
                         role = Role.Button
-                        onClick(activate, action = { hideButtonShown = false; true })
+                        onClick(actionString, action = { hideButtonShown = false; true })
                     }
             )
         } else {
@@ -219,7 +219,7 @@ fun PasswordTextInputView(
                         contentDescription = showButtonContentDescription ?: showButtonText
                         showButtonStateDescription?.let { stateDescription = it }
                         role = Role.Button
-                        onClick(activate, action = { hideButtonShown = true; true })
+                        onClick(actionString, action = { hideButtonShown = true; true })
                     }
             )
         }
