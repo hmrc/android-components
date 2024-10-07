@@ -87,7 +87,8 @@ fun TextInputViewScreen() {
                     labelContentDescription = stringResource(R.string.text_input_example_1_content_description),
                     errorText = viewModel.textInputErrorCharCount1.collectAsStateWithLifecycle().value,
                     characterCount = 5,
-                    maxChars = 5
+                    maxChars = 5,
+                    requiredSequencesSpacing = true
                 )
 
                 TextInputView(

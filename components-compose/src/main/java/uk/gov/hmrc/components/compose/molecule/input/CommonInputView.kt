@@ -45,7 +45,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
 @Suppress("LongParameterList")
 @Composable
-fun TextField(
+internal fun TextField(
     modifier: Modifier,
     isError: Boolean,
     value: String,
@@ -81,7 +81,7 @@ fun TextField(
 }
 
 @Composable
-fun Label(labelText: String?, labelContentDescription: String?,) {
+internal fun Label(labelText: String?, labelContentDescription: String?,) {
     labelText?.let { label ->
         BoldText(
             text = label,
@@ -93,7 +93,7 @@ fun Label(labelText: String?, labelContentDescription: String?,) {
 }
 
 @Composable
-fun Hint(hintText: String?, hintContentDescription: String?) {
+internal fun Hint(hintText: String?, hintContentDescription: String?) {
     hintText?.let { hint ->
         BodyText(
             text = hint,
@@ -104,7 +104,7 @@ fun Hint(hintText: String?, hintContentDescription: String?) {
     }
 }
 
-fun error(errorText: String?, errorContentDescription: String?):
+internal fun error(errorText: String?, errorContentDescription: String?):
     @Composable (() -> Unit)? = errorText?.let {
     @Composable {
         ErrorText(
@@ -118,7 +118,7 @@ fun error(errorText: String?, errorContentDescription: String?):
     }
 }
 
-fun errorTextCounterCombo(
+internal fun errorTextCounterCombo(
     errorText: String?,
     errorContentDescription: String?,
     characterCount: Int?,

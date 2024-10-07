@@ -18,7 +18,8 @@ Allowed headings:
 
 ### Added
 
-* `PasswordInputView` component added with show/hide feature and requiresSequenceSpacing parameter to enable additional character spacing for use during sequences
+* `PasswordInputView` component added with show/hide feature
+* `requiresSequenceSpacing` parameter added to `TextInputView` to enable additional character spacing for use during sequences
 
 ## [0.1.4] - 2024-09-30Z
 

@@ -107,14 +107,7 @@ fun PasswordInputView(
         hintContentDescription = hintContentDescription,
         errorText = errorText,
         errorContentDescription = errorContentDescription,
-        passwordTrailingButton = PasswordTrailingButton(
-            showButtonText = passwordTrailingButton.showButtonText,
-            showButtonContentDescription = passwordTrailingButton.showButtonContentDescription,
-            showButtonStateDescription = passwordTrailingButton.showButtonStateDescription,
-            hideButtonText = passwordTrailingButton.hideButtonText,
-            hideButtonContentDescription = passwordTrailingButton.hideButtonContentDescription,
-            hideButtonStateDescription = passwordTrailingButton.hideButtonStateDescription
-        ),
+        passwordTrailingButton = passwordTrailingButton,
         maxChars = maxChars,
         numericOnly = numericOnly,
         requiredSequencesSpacing = requiredSequencesSpacing
@@ -159,7 +152,7 @@ private fun indicatorColor(
 
 @SuppressWarnings("LongMethod", "ComplexMethod")
 @Composable
-fun PasswordTextInputView(
+private fun PasswordTextInputView(
     modifier: Modifier = Modifier,
     value: String? = null,
     onInputValueChange: ((String) -> Unit)? = null,
@@ -236,7 +229,7 @@ fun PasswordTextInputView(
             borderStroke.let {
                 Modifier
                     .fillMaxWidth()
-                    .border(it.value, RectangleShape)
+                    .border(borderStroke.value, RectangleShape)
             },
             verticalAlignment = Alignment.CenterVertically
         ) {
