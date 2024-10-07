@@ -86,6 +86,10 @@ class AppNavigator @Inject constructor() : Navigator{
         navigate(MoleculesFragmentDirections.actionMoleculesFragmentToDonutChartViewFragment())
     }
 
+    override fun Fragment.goToPasswordInputView() {
+        navigate(MoleculesFragmentDirections.actionMoleculesFragmentToPasswordInputViewFragment())
+    }
+
     override fun Fragment.goToSeparatedViewContainer() {
         navigate(OrganismsFragmentDirections.actionOrganismsFragmentToSeparateViewContainerFragment())
     }

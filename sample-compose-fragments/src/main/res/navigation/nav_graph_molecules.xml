@@ -70,6 +70,9 @@
         <action
             android:id="@+id/action_moleculesFragment_to_donutChartViewFragment"
             app:destination="@+id/donutChartViewFragment" />
+        <action
+            android:id="@+id/action_moleculesFragment_to_passwordInputViewFragment"
+            app:destination="@+id/passwordInputViewFragment" />
     </fragment>
 
     <fragment
@@ -155,5 +158,10 @@
         android:id="@+id/donutChartViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.DonutChartViewFragment"
         android:label="@string/molecules_donut_chart" />
+
+    <fragment
+        android:id="@+id/passwordInputViewFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.molecules.PasswordInputViewFragment"
+        android:label="@string/molecules_password_input_view" />
 
 </navigation>

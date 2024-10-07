@@ -20,7 +20,6 @@ import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -46,7 +45,8 @@ private val LightColorPalette = HmrcColors(
     hmrcDonutChartColor1 = HmrcTeal,
     hmrcDonutChartColor2 = HmrcDonutBlue,
     hmrcDonutChartColor3 = HmrcDonutBlue,
-    isDark = false
+    isDark = false,
+    hmrcTransparent = HmrcTransparent
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -66,7 +66,8 @@ private val DarkColorPalette = HmrcColors(
     hmrcDonutChartColor1 = HmrcWhite,
     hmrcDonutChartColor2 = HmrcTeal,
     hmrcDonutChartColor3 = HmrcTeal,
-    isDark = true
+    isDark = true,
+    hmrcTransparent = HmrcTransparent
 )
 
 @Composable
@@ -110,7 +111,7 @@ fun HmrcTheme(
         else -> hmrcTypography
     }
 
-    val textInputViewColors = TextInputViewColors(colors = colors)
+    val textInputViewColors = textInputViewColors(colors = colors)
 
     ProvideHmrcTheme(
         dimensions = dimensions,
@@ -127,7 +128,7 @@ fun HmrcTheme(
 }
 
 @Composable
-fun TextInputViewColors(colors: HmrcColors): TextFieldColors = OutlinedTextFieldDefaults.colors(
+fun textInputViewColors(colors: HmrcColors) = OutlinedTextFieldDefaults.colors(
     focusedTextColor = colors.hmrcBlack,
     unfocusedTextColor = colors.hmrcBlack,
     errorTextColor = colors.hmrcRed,
@@ -155,7 +156,7 @@ object HmrcTheme {
         @Composable
         get() = LocalHmrcColors.current
 
-    val textFieldColors: TextFieldColors
+    val textFieldColors
         @Composable
         get() = LocalTextFieldColors.current
 
@@ -223,7 +224,8 @@ class HmrcColors(
     hmrcDonutChartColor1: Color,
     hmrcDonutChartColor2: Color,
     hmrcDonutChartColor3: Color,
-    isDark: Boolean
+    isDark: Boolean,
+    hmrcTransparent: Color
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
@@ -287,6 +289,9 @@ class HmrcColors(
     val hmrcAlwaysBlack: Color = HmrcBlack
     val hmrcAlwaysWhite: Color = HmrcWhite
 
+    var hmrcTransparent by mutableStateOf(hmrcTransparent)
+        private set
+
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -349,5 +354,6 @@ class HmrcColors(
         hmrcDonutChartColor2 = hmrcDonutChartColor2,
         hmrcDonutChartColor3 = hmrcDonutChartColor3,
         isDark = isDark,
+        hmrcTransparent = hmrcTransparent
     )
 }
