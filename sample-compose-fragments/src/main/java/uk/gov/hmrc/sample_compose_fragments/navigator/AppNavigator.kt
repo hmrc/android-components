@@ -102,6 +102,10 @@ class AppNavigator @Inject constructor() : Navigator{
         navigate(OrganismsFragmentDirections.actionOrganismsFragmentToInformationMessageCardViewFragment())
     }
 
+    override fun Fragment.goToSummaryRowView() {
+        navigate(OrganismsFragmentDirections.actionOrganismsFragmentToSummaryRowFragment())
+    }
+
     override fun Fragment.goBack() {
         findNavController().popBackStack()
     }

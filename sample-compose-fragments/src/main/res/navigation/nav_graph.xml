@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_organismsFragment_to_informationMessageCardViewFragment"
             app:destination="@id/informationMessageCardViewFragment" />
+        <action
+            android:id="@+id/action_organismsFragment_to_summaryRowFragment"
+            app:destination="@id/summaryRowFragment" />
 
     </fragment>
 
@@ -49,7 +52,7 @@
         android:id="@+id/iconButtonCardViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.organisms.IconButtonCardViewFragment"
         android:label="@string/organisms_icon_button_card"
-        tools:layout="@layout/fragment_compose_example"/>
+        tools:layout="@layout/fragment_compose_example" />
 
     <fragment
         android:id="@+id/colorsFragment"
@@ -65,15 +68,20 @@
         android:id="@+id/headlineCardFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.organisms.HeadlineCardFragment"
         android:label="@string/organisms_headline_card"
-        tools:layout="@layout/fragment_compose_example"/>
+        tools:layout="@layout/fragment_compose_example" />
     <fragment
         android:id="@+id/primaryCardViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.organisms.PrimaryCardViewFragment"
         android:label="@string/organisms_primary_card"
-        tools:layout="@layout/fragment_compose_example"/>
+        tools:layout="@layout/fragment_compose_example" />
     <fragment
         android:id="@+id/informationMessageCardViewFragment"
         android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.organisms.InformationMessageCardViewFragment"
         android:label="@string/organisms_info_message_card"
-        tools:layout="@layout/fragment_compose_example"/>
+        tools:layout="@layout/fragment_compose_example" />
+    <fragment
+        android:id="@+id/summaryRowFragment"
+        android:name="uk.gov.hmrc.sample_compose_fragments.presentation.fragment.organisms.SummaryRowFragment"
+        android:label="@string/organisms_summary_row"
+        tools:layout="@layout/fragment_compose_example" />
 </navigation>
