@@ -15,13 +15,20 @@
  */
 package uk.gov.hmrc.components.compose.organism.summaryrow
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import uk.gov.hmrc.components.compose.R
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
 object SummaryRowView {
@@ -33,14 +40,27 @@ object SummaryRowView {
         isBoldTitleTextAppearance: Boolean = true,
         titleMaxLines: Int = -1,
         icon: Painter = painterResource(id = R.drawable.components_ic_chevron_right),
-        accessibilityMessage: String? = null
+        accessibilityMessage: String? = null,
+        rows: List<@Composable () -> Unit>,
+        onItemClick: (() -> Unit)? = null
     ) {
-        Column(modifier = modifier) {
-            Title(
-                titleText = titleText,
-                isBoldTitleTextAppearance = isBoldTitleTextAppearance,
-                titleMaxLines = titleMaxLines
-            )
+        Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
+            Column(modifier = Modifier.weight(1f)) {
+                Title(
+                    titleText = titleText,
+                    isBoldTitleTextAppearance = isBoldTitleTextAppearance,
+                    titleMaxLines = titleMaxLines
+                )
+                rows.forEach { rowItem ->
+                    Spacer(modifier = Modifier.height(dimensions.hmrcSpacing8))
+                    rowItem()
+                }
+            }
+
+            if (onItemClick != null) {
+                Spacer(modifier = Modifier.width(dimensions.hmrcSpacing8))
+                Image(painter = icon, contentDescription = "")
+            }
         }
     }
 
