@@ -16,18 +16,23 @@
 package uk.gov.hmrc.components.compose.organism.summaryrow
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import uk.gov.hmrc.components.compose.R
+import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
@@ -42,38 +47,63 @@ object SummaryRowView {
         icon: Painter = painterResource(id = R.drawable.components_ic_chevron_right),
         accessibilityMessage: String? = null,
         rows: List<@Composable () -> Unit>,
-        onItemClick: (() -> Unit)? = null
+        onSummaryRowClicked: (() -> Unit)? = null
     ) {
-        Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
-            Column(modifier = Modifier.weight(1f)) {
-                Title(
-                    titleText = titleText,
-                    isBoldTitleTextAppearance = isBoldTitleTextAppearance,
-                    titleMaxLines = titleMaxLines
-                )
-                rows.forEach { rowItem ->
-                    Spacer(modifier = Modifier.height(dimensions.hmrcSpacing8))
-                    rowItem()
+        if (onSummaryRowClicked != null) {
+            CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+                Row(
+                    modifier = Modifier.clickable { onSummaryRowClicked.invoke() },
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    SummaryRow(
+                        modifier = modifier.then(
+                            Modifier
+                                .padding(
+                                    top = dimensions.hmrcSpacing16,
+                                    bottom = dimensions.hmrcSpacing16,
+                                    start = dimensions.hmrcSpacing16
+                                )
+                                .weight(1f)
+                        ),
+                        titleText = titleText,
+                        titleMaxLines = titleMaxLines,
+                        isBoldTitleTextAppearance = isBoldTitleTextAppearance,
+                        rows = rows
+                    )
+                    Spacer(modifier = Modifier.width(dimensions.hmrcSpacing8))
+                    Image(painter = icon, contentDescription = "")
+                    Spacer(modifier = Modifier.width(dimensions.hmrcSpacing16))
                 }
             }
-
-            if (onItemClick != null) {
-                Spacer(modifier = Modifier.width(dimensions.hmrcSpacing8))
-                Image(painter = icon, contentDescription = "")
-            }
+        } else {
+            SummaryRow(
+                modifier = modifier.padding(dimensions.hmrcSpacing16),
+                titleText = titleText,
+                titleMaxLines = titleMaxLines,
+                isBoldTitleTextAppearance = isBoldTitleTextAppearance,
+                rows = rows
+            )
         }
     }
 
     @Composable
-    private fun Title(
+    private fun SummaryRow(
+        modifier: Modifier = Modifier,
         titleText: String,
-        isBoldTitleTextAppearance: Boolean = true,
+        isBoldTitleTextAppearance: Boolean,
         titleMaxLines: Int = -1,
+        rows: List<@Composable () -> Unit>
     ) {
-        Text(
-            text = titleText,
-            style = if (isBoldTitleTextAppearance) typography.h6 else typography.body,
-            maxLines = if (titleMaxLines == -1) Int.MAX_VALUE else titleMaxLines
-        )
+        Column(modifier = modifier) {
+            Text(
+                text = titleText,
+                style = if (isBoldTitleTextAppearance) typography.h6 else typography.body,
+                maxLines = if (titleMaxLines == -1) Int.MAX_VALUE else titleMaxLines
+            )
+            rows.forEach { rowItem ->
+                Spacer(modifier = Modifier.height(dimensions.hmrcSpacing8))
+                rowItem()
+            }
+        }
     }
 }
