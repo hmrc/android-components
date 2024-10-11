@@ -29,9 +29,15 @@ object SummaryRowViewScreen {
                         MultiColumnRowView(
                             modifier = Modifier,
                             columnList = listOf(
-                                MultiColumnRowItem(text = stringResource(id = R.string.multi_column_row_placeholder_text1)),
-                                MultiColumnRowItem(text = stringResource(id = R.string.multi_column_row_placeholder_text2)),
-                                MultiColumnRowItem(text = stringResource(id = R.string.multi_column_row_placeholder_text3))
+                                MultiColumnRowItem(
+                                    text = stringResource(id = R.string.multi_column_row_placeholder_text1)
+                                ),
+                                MultiColumnRowItem(
+                                    text = stringResource(id = R.string.multi_column_row_placeholder_text2)
+                                ),
+                                MultiColumnRowItem(
+                                    text = stringResource(id = R.string.multi_column_row_placeholder_text3)
+                                )
                             )
                         )
                     }
@@ -51,29 +57,56 @@ object SummaryRowViewScreen {
                                 SummaryRowView(
                                     titleText = stringResource(id = R.string.summary_row_example_1a_title),
                                     isBoldTitleTextAppearance = false,
+                                    chevronContentDescription = stringResource(
+                                        id = R.string.summary_row_example_1a_accessibility_message
+                                    ),
                                     rows = listOf(
 
                                         {
                                             MultiColumnRowView(
                                                 columnList = listOf(
-                                                    MultiColumnRowItem(text = stringResource(id = R.string.summary_row_example_1a_row1_text1)),
-                                                    MultiColumnRowItem(text = stringResource(id = R.string.summary_row_example_1a_row1_text2)),
+                                                    MultiColumnRowItem(
+                                                        text = stringResource(
+                                                            id = R.string.summary_row_example_1a_row1_text1
+                                                        )
+                                                    ),
+                                                    MultiColumnRowItem(
+                                                        text = stringResource(
+                                                            id = R.string.summary_row_example_1a_row1_text2
+                                                        )
+                                                    ),
                                                 )
                                             )
                                         },
                                         {
                                             MultiColumnRowView(
                                                 columnList = listOf(
-                                                    MultiColumnRowItem(text = stringResource(id = R.string.summary_row_example_1a_row2_text1)),
-                                                    MultiColumnRowItem(text = stringResource(id = R.string.summary_row_example_1a_row2_text2)),
+                                                    MultiColumnRowItem(
+                                                        text = stringResource(
+                                                            id = R.string.summary_row_example_1a_row2_text1
+                                                        )
+                                                    ),
+                                                    MultiColumnRowItem(
+                                                        text = stringResource(
+                                                            id = R.string.summary_row_example_1a_row2_text2
+                                                        )
+                                                    ),
                                                 )
                                             )
                                         },
                                         {
                                             MultiColumnRowView(
                                                 columnList = listOf(
-                                                    MultiColumnRowItem(text = stringResource(id = R.string.summary_row_example_1a_row3_text1)),
-                                                    MultiColumnRowItem(text = stringResource(id = R.string.summary_row_example_1a_row3_text2)),
+                                                    MultiColumnRowItem(
+                                                        text = stringResource(
+                                                            id = R.string.summary_row_example_1a_row3_text1
+                                                        )
+                                                    ),
+                                                    MultiColumnRowItem(
+                                                        text = stringResource(
+                                                            id = R.string.summary_row_example_1a_row3_text2
+                                                        )
+                                                    ),
                                                 )
                                             )
                                         }
@@ -93,16 +126,32 @@ object SummaryRowViewScreen {
                                         {
                                             MultiColumnRowView(
                                                 columnList = listOf(
-                                                    MultiColumnRowItem(text = stringResource(id = R.string.summary_row_example_1b_row1_text1)),
-                                                    MultiColumnRowItem(text = stringResource(id = R.string.summary_row_example_1b_row1_text2)),
+                                                    MultiColumnRowItem(
+                                                        text = stringResource(
+                                                            id = R.string.summary_row_example_1b_row1_text1
+                                                        )
+                                                    ),
+                                                    MultiColumnRowItem(
+                                                        text = stringResource(
+                                                            id = R.string.summary_row_example_1b_row1_text2
+                                                        )
+                                                    ),
                                                 )
                                             )
                                         },
                                         {
                                             MultiColumnRowView(
                                                 columnList = listOf(
-                                                    MultiColumnRowItem(text = stringResource(id = R.string.summary_row_example_1b_row2_text1)),
-                                                    MultiColumnRowItem(text = stringResource(id = R.string.summary_row_example_1b_row2_text2)),
+                                                    MultiColumnRowItem(
+                                                        text = stringResource(
+                                                            id = R.string.summary_row_example_1b_row2_text1
+                                                        )
+                                                    ),
+                                                    MultiColumnRowItem(
+                                                        text = stringResource(
+                                                            id = R.string.summary_row_example_1b_row2_text2
+                                                        )
+                                                    ),
                                                 )
                                             )
                                         }
@@ -120,10 +169,13 @@ object SummaryRowViewScreen {
                 HmrcCardView(modifier = Modifier.padding(bottom = dimensions.hmrcSpacing16)) {
                     SummaryRowView(
                         titleText = stringResource(id = R.string.summary_row_example_2_title),
+                        readerTrait = SummaryRowView.ReaderTrait.READER_TRAIT_SIMPLE,
                         rows = listOf {
                             MultiColumnRowView(
                                 columnList = listOf(
-                                    MultiColumnRowItem(text = stringResource(id = R.string.summary_row_example_2_row1_text1))
+                                    MultiColumnRowItem(
+                                        text = stringResource(id = R.string.summary_row_example_2_row1_text1)
+                                    )
                                 )
                             )
                         }
@@ -203,6 +255,7 @@ object SummaryRowViewScreen {
                     SummaryRowView(
                         titleText = stringResource(id = R.string.summary_row_example_2_title),
                         icon = painterResource(id = R.drawable.ic_calendar),
+                        readerTrait = SummaryRowView.ReaderTrait.READER_TRAIT_SIMPLE,
                         rows = listOf {
                             MultiColumnRowView(
                                 columnList = listOf(
@@ -217,5 +270,4 @@ object SummaryRowViewScreen {
             }
         }
     }
-
 }
