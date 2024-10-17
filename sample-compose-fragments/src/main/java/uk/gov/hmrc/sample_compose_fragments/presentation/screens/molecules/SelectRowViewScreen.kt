@@ -21,15 +21,23 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import kotlinx.coroutines.flow.MutableStateFlow
 import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView
+import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView.SelectRowViewItem
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms.SeparatedViewContainerScreen.SeparatedViewContainerView
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SelectRowViewModel
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SelectRowViewModel.ExampleUiState
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SelectRowViewModel.SelectRowViewState
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SeparatedViewContainerViewModel.ExamplesUiState
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SeparatedViewContainerViewModel.SwitchUiState
 
 object SelectRowViewScreen {
 
@@ -38,6 +46,24 @@ object SelectRowViewScreen {
         val exampleUiState by viewModel.exampleUiState.collectAsStateWithLifecycle()
         val placeholderUiState by viewModel.placeholderUiState.collectAsStateWithLifecycle()
 
+        SelectRowViewScreen(
+            exampleUiState, placeholderUiState,
+            setPlaceholderSelectedRow = viewModel::setPlaceholderSelectedRow,
+            setExampleOneSelectedItem = viewModel::setExampleOneSelectedItem,
+            setExampleTwoSelectedItem = viewModel::setExampleTwoSelectedItem,
+            setExampleThreeSelectedItem = viewModel::setExampleThreeSelectedItem,
+        )
+    }
+
+    @Composable
+    fun SelectRowViewScreen(
+        exampleUiState: ExampleUiState,
+        placeholderUiState: SelectRowViewState,
+        setPlaceholderSelectedRow: (SelectRowViewItem) -> Unit,
+        setExampleOneSelectedItem: (SelectRowViewItem) -> Unit,
+        setExampleTwoSelectedItem: (SelectRowViewItem) -> Unit,
+        setExampleThreeSelectedItem: (SelectRowViewItem) -> Unit,
+    ) {
         ScreenScrollViewColumn {
             //region Place Holder
             PlaceholderSlot {
@@ -46,7 +72,7 @@ object SelectRowViewScreen {
                     errorText = placeholderUiState.errorText,
                     selectedRowItem = placeholderUiState.selectedItem
                 ) { selectedItem ->  // Handle the SelectRowView item click listener
-                    viewModel.setPlaceholderSelectedRow(selectedItem)
+                    setPlaceholderSelectedRow(selectedItem)
                 }
             }
             //endregion
@@ -59,7 +85,7 @@ object SelectRowViewScreen {
                         errorText = exampleUiState.exampleOne.errorText,
                         selectedRowItem = exampleUiState.exampleOne.selectedItem
                     ) { selectedItem ->
-                        viewModel.setExampleOneSelectedItem(selectedItem)
+                        setExampleOneSelectedItem(selectedItem)
                     }
                 }
                 //endregion
@@ -70,7 +96,7 @@ object SelectRowViewScreen {
                         selectRowViewItems = exampleUiState.exampleTwo.items,
                         selectedRowItem = exampleUiState.exampleTwo.selectedItem,
                         checkedIcon = R.drawable.components_select_row_tick_checked
-                    ) { selectedItem -> viewModel.setExampleTwoSelectedItem(selectedItem) }
+                    ) { selectedItem -> setExampleTwoSelectedItem(selectedItem) }
                 }
                 //endregion
 
@@ -80,10 +106,56 @@ object SelectRowViewScreen {
                         selectRowViewItems = exampleUiState.exampleThree.items,
                         selectedRowItem = exampleUiState.exampleThree.selectedItem,
                         showDivider = true
-                    ) { selectedItem -> viewModel.setExampleThreeSelectedItem(selectedItem) }
+                    ) { selectedItem -> setExampleThreeSelectedItem(selectedItem) }
                 }
                 //endregion
             }
+        }
+    }
+}
+
+@HmrcAllDevicePreview
+@Composable
+internal fun SeparatedViewContainerScreenPreview() {
+    HmrcTheme {
+        HmrcSurface {
+
+            val placeholderState = SelectRowViewState(
+                listOf(SelectRowViewItem(R.string.select_row_body_description)),
+                errorText = R.string.select_row_error_message
+            )
+
+            val exampleOneItemOne = SelectRowViewItem(R.string.select_row_view_first_row)
+            val exampleOneItemTwo = SelectRowViewItem(R.string.select_row_view_second_row)
+            val exampleOneItemThree = SelectRowViewItem(R.string.select_row_view_error_row)
+            val exampleOneItemFour = SelectRowViewItem(R.string.longer_text)
+            val exampleOneItems = listOf(exampleOneItemOne, exampleOneItemTwo, exampleOneItemThree, exampleOneItemFour)
+            val exampleOne = SelectRowViewState(exampleOneItems, exampleOneItemOne)
+
+            val exampleTwoItemOne = SelectRowViewItem(R.string.select_row_view_first_row)
+            val exampleTwoItemTwo = SelectRowViewItem(R.string.select_row_view_second_row)
+            val exampleTwoItemThree = SelectRowViewItem(R.string.select_row_view_third_row)
+            val exampleTwoItemFour = SelectRowViewItem(R.string.select_row_view_fourth_row)
+            val exampleTwoItems = listOf(exampleTwoItemOne, exampleTwoItemTwo, exampleTwoItemThree, exampleTwoItemFour)
+            val exampleTwo = SelectRowViewState(exampleTwoItems, exampleTwoItemTwo)
+
+            val exampleThreeItemOne = SelectRowViewItem(R.string.select_row_view_first_row)
+            val exampleThreeItemTwo = SelectRowViewItem(R.string.select_row_view_second_row)
+            val exampleThreeItemThree = SelectRowViewItem(R.string.select_row_view_third_row)
+            val exampleThreeItemFour = SelectRowViewItem(R.string.select_row_view_fourth_row)
+            val exampleThreeItems =
+                listOf(exampleThreeItemOne, exampleThreeItemTwo, exampleThreeItemThree, exampleThreeItemFour)
+            val exampleThree = SelectRowViewState(exampleThreeItems, exampleThreeItemOne)
+
+            SelectRowViewScreen.SelectRowViewScreen(
+                exampleUiState = ExampleUiState(exampleOne, exampleTwo, exampleThree),
+                placeholderUiState = placeholderState,
+                setPlaceholderSelectedRow = {},
+                setExampleOneSelectedItem = {},
+                setExampleTwoSelectedItem = {},
+                setExampleThreeSelectedItem = {}
+
+            )
         }
     }
 }
