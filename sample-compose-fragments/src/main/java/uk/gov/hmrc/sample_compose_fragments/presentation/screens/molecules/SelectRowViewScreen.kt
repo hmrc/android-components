@@ -116,7 +116,7 @@ object SelectRowViewScreen {
 
 @HmrcAllDevicePreview
 @Composable
-internal fun SeparatedViewContainerScreenPreview() {
+internal fun SelectRowViewScreenPreview() {
     HmrcTheme {
         HmrcSurface {
 

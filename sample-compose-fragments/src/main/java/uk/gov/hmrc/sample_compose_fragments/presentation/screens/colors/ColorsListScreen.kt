@@ -26,6 +26,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Text
@@ -41,18 +42,29 @@ import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
+import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
 @Composable
 fun ColorsListScreen(viewModel: ColorsViewModel) {
     val listItems by viewModel.colorItems.collectAsStateWithLifecycle()
-    val listState = rememberLazyListState()
+    ColorsListScreen(listItems)
+}
 
+@Composable
+fun ColorsListScreen(
+    listItems: List<ColorItem>,
+    listState: LazyListState = rememberLazyListState()
+) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(1F),
         state = listState,
-        contentPadding = PaddingValues(top = HmrcTheme.dimensions.hmrcSpacing8, bottom = HmrcTheme.dimensions.hmrcSpacing8)
+        contentPadding = PaddingValues(
+            top = HmrcTheme.dimensions.hmrcSpacing8,
+            bottom = HmrcTheme.dimensions.hmrcSpacing8
+        )
     ) {
         items(listItems) { item ->
             ListItem(item = item)
@@ -73,7 +85,9 @@ fun ListItem(item: ColorItem) {
                     .align(alignment = Alignment.CenterVertically),
             )
             Text(
-                modifier = Modifier.padding(start = HmrcTheme.dimensions.hmrcSpacing16).align(alignment = Alignment.CenterVertically),
+                modifier = Modifier
+                    .padding(start = HmrcTheme.dimensions.hmrcSpacing16)
+                    .align(alignment = Alignment.CenterVertically),
                 text = "${item.colorName} (${item.color.hexToString()})",
                 style = typography.h5
             )
@@ -82,3 +96,13 @@ fun ListItem(item: ColorItem) {
 }
 
 private fun Color.hexToString(): String = String.format("#%08X", toArgb())
+
+@HmrcAllDevicePreview
+@Composable
+fun ColorsListScreenPreview() {
+    HmrcTheme {
+        HmrcSurface {
+            ColorsListScreen(listItems = ColorItem.values().asList())
+        }
+    }
+}
