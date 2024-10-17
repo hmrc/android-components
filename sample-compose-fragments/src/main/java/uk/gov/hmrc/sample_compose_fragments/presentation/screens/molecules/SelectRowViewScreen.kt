@@ -46,7 +46,7 @@ object SelectRowViewScreen {
         val exampleUiState by viewModel.exampleUiState.collectAsStateWithLifecycle()
         val placeholderUiState by viewModel.placeholderUiState.collectAsStateWithLifecycle()
 
-        SelectRowViewScreen(
+        SelectRowViewContainer(
             exampleUiState, placeholderUiState,
             setPlaceholderSelectedRow = viewModel::setPlaceholderSelectedRow,
             setExampleOneSelectedItem = viewModel::setExampleOneSelectedItem,
@@ -56,7 +56,7 @@ object SelectRowViewScreen {
     }
 
     @Composable
-    fun SelectRowViewScreen(
+    fun SelectRowViewContainer(
         exampleUiState: ExampleUiState,
         placeholderUiState: SelectRowViewState,
         setPlaceholderSelectedRow: (SelectRowViewItem) -> Unit,
@@ -147,7 +147,7 @@ internal fun SeparatedViewContainerScreenPreview() {
                 listOf(exampleThreeItemOne, exampleThreeItemTwo, exampleThreeItemThree, exampleThreeItemFour)
             val exampleThree = SelectRowViewState(exampleThreeItems, exampleThreeItemOne)
 
-            SelectRowViewScreen.SelectRowViewScreen(
+            SelectRowViewScreen.SelectRowViewContainer(
                 exampleUiState = ExampleUiState(exampleOne, exampleTwo, exampleThree),
                 placeholderUiState = placeholderState,
                 setPlaceholderSelectedRow = {},
