@@ -19,7 +19,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import uk.gov.hmrc.components.compose.atom.bullet.BulletedTextView
 import uk.gov.hmrc.components.compose.atom.heading.Heading3
 import uk.gov.hmrc.components.compose.atom.heading.Heading4
@@ -33,7 +32,9 @@ import uk.gov.hmrc.components.compose.atom.text.H5Text
 import uk.gov.hmrc.components.compose.atom.text.InfoText
 import uk.gov.hmrc.components.compose.atom.text.LinkText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
@@ -85,10 +86,12 @@ fun TextScreen() {
     }
 }
 
-@Preview
+@HmrcAllDevicePreview
 @Composable
 fun TextScreenPreview() {
     HmrcTheme {
-        TextScreen()
+        HmrcSurface {
+            TextScreen()
+        }
     }
 }

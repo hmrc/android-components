@@ -26,28 +26,30 @@ import androidx.compose.ui.tooling.preview.Preview
     name = "Phone - Light",
     device = Devices.PIXEL_4,
     uiMode = Configuration.UI_MODE_NIGHT_NO,
-    backgroundColor = 0xFFFFFFFF,
     showBackground = true,
 )
 @Preview(
     name = "Phone - Dark",
     device = Devices.PIXEL_4,
     uiMode = Configuration.UI_MODE_NIGHT_YES,
-    backgroundColor = 0xFF000000,
     showBackground = true,
 )
 @Preview(
     name = "Tablet - Light",
     device = Devices.PIXEL_C,
     uiMode = Configuration.UI_MODE_NIGHT_NO,
-    backgroundColor = 0xFFFFFFFF,
     showBackground = true,
 )
 @Preview(
     name = "Tablet - Dark",
     device = Devices.PIXEL_C,
     uiMode = Configuration.UI_MODE_NIGHT_YES,
-    backgroundColor = 0xFF000000,
+    showBackground = true,
+)
+@Preview(
+    name = "Large Font mode",
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    fontScale = 1.5f,
     showBackground = true,
 )
 annotation class HmrcAllDevicePreview
@@ -59,21 +61,18 @@ annotation class HmrcAllDevicePreview
     name = "Phone - Light",
     device = Devices.PIXEL_4,
     uiMode = Configuration.UI_MODE_NIGHT_NO,
-    backgroundColor = 0xFFFFFFFF,
     showBackground = true,
 )
 @Preview(
     name = "Phone - Dark",
     device = Devices.PIXEL_4,
     uiMode = Configuration.UI_MODE_NIGHT_YES,
-    backgroundColor = 0xFF000000,
     showBackground = true,
 )
 @Preview(
     name = "Phone - Dark",
     device = Devices.AUTOMOTIVE_1024p, widthDp = 720, heightDp = 360,
     uiMode = Configuration.UI_MODE_NIGHT_YES,
-    backgroundColor = 0xFF000000,
     showBackground = true,
 )
 annotation class HmrcPhonePreview
@@ -85,14 +84,12 @@ annotation class HmrcPhonePreview
     name = "Tablet - Light",
     device = Devices.PIXEL_C,
     uiMode = Configuration.UI_MODE_NIGHT_NO,
-    backgroundColor = 0xFFFFFFFF,
     showBackground = true,
 )
 @Preview(
     name = "Tablet - Dark",
     device = Devices.PIXEL_C,
     uiMode = Configuration.UI_MODE_NIGHT_YES,
-    backgroundColor = 0xFF000000,
     showBackground = true,
 )
 annotation class HmrcTabPreview
@@ -100,15 +97,21 @@ annotation class HmrcTabPreview
 @Preview(
     name = "Light mode",
     uiMode = Configuration.UI_MODE_NIGHT_NO,
-    backgroundColor = 0xFFFFFFFF,
     showBackground = true,
 )
 annotation class LightModePreview
 
 @Preview(
+    name = "Light mode",
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    fontScale = 1.5f,
+    showBackground = true,
+)
+annotation class LargeFontModePreview
+
+@Preview(
     name = "Dark mode",
     uiMode = Configuration.UI_MODE_NIGHT_YES,
-    backgroundColor = 0xFF000000,
     showBackground = true,
 )
 annotation class DarkModePreview

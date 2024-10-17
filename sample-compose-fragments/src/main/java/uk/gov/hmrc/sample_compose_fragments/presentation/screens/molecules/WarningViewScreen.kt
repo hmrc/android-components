@@ -25,8 +25,10 @@ import uk.gov.hmrc.components.compose.R as componentR
 import uk.gov.hmrc.components.compose.molecule.warningview.WarningView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -81,3 +83,14 @@ object WarningViewScreen {
         }
     }
 }
+
+@HmrcAllDevicePreview
+@Composable
+internal fun WarningViewScreenPreview() {
+    HmrcTheme {
+        HmrcSurface {
+            WarningViewScreen()
+        }
+    }
+}
+

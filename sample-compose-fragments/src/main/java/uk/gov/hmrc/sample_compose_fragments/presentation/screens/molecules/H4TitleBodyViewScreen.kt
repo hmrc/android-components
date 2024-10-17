@@ -22,8 +22,10 @@ import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.molecule.titleBody.H4TitleBodyView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -56,3 +58,15 @@ fun H4TitleBodyViewScreen() {
         }
     }
 }
+
+@HmrcAllDevicePreview
+@Composable
+internal fun H4TitleBodyViewScreenPreview() {
+    HmrcTheme {
+        HmrcSurface {
+            H4TitleBodyViewScreen()
+        }
+    }
+}
+
+

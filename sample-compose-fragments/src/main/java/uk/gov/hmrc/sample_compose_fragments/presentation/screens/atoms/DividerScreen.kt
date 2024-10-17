@@ -24,7 +24,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.atom.divider.HmrcDivider
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 object DividerScreen {
@@ -61,4 +63,14 @@ object DividerScreen {
         }
     }
 
+}
+
+@HmrcAllDevicePreview()
+@Composable
+fun DividerScreenPreview() {
+    HmrcTheme {
+        HmrcSurface {
+            DividerScreen()
+        }
+    }
 }

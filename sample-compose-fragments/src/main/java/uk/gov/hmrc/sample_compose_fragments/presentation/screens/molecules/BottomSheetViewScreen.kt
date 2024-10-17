@@ -21,8 +21,10 @@ import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView
 import uk.gov.hmrc.components.compose.molecule.titleBody.H5TitleBodyView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
+import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
@@ -344,5 +346,15 @@ fun CustomPaddingBottomSheet(
             iconResId = R.drawable.ic_info,
             onClick = {}
         )
+    }
+}
+
+@HmrcAllDevicePreview
+@Composable
+internal fun BottomSheetViewScreenPreview() {
+    HmrcTheme {
+        HmrcSurface {
+            BottomSheetViewScreen()
+        }
     }
 }
