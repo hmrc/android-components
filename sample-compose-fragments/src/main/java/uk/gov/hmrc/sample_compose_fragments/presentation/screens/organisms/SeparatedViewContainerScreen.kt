@@ -32,11 +32,15 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms.SeparatedViewContainerScreen.SeparatedViewContainerView
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SeparatedViewContainerViewModel
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SeparatedViewContainerViewModel.ExamplesUiState
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SeparatedViewContainerViewModel.SwitchRowExample
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SeparatedViewContainerViewModel.SwitchUiState
 
 object SeparatedViewContainerScreen {
 
@@ -46,6 +50,16 @@ object SeparatedViewContainerScreen {
     ) {
         val examplesUiState by viewModel.examplesUiState.collectAsStateWithLifecycle()
 
+        SeparatedViewContainerView(examplesUiState) { enabled, switchRowExample ->
+            viewModel.onExampleSwitchChanged(enabled, switchRowExample)
+        }
+    }
+
+    @Composable
+    fun SeparatedViewContainerView(
+        examplesUiState: ExamplesUiState,
+        onExampleSwitchChanged: (enabled: Boolean, switchRowExample: SwitchRowExample) -> Unit
+    ) {
         ScreenScrollViewColumn {
             PlaceholderSlot {
                 SeparatedViewContainer(
@@ -117,9 +131,9 @@ object SeparatedViewContainerScreen {
                                         checkedStateContentDesc = enabledContentDesc?.let { stringResource(it) },
                                         checkedState = enabled,
                                         onCheckedChangeListener = { enabled ->
-                                            viewModel.onExampleSwitchChanged(
+                                            onExampleSwitchChanged(
                                                 enabled,
-                                                SeparatedViewContainerViewModel.SwitchRowExample.ONE
+                                                SwitchRowExample.ONE
                                             )
                                         }
                                     )
@@ -133,9 +147,9 @@ object SeparatedViewContainerScreen {
                                         body = body?.let { stringResource(it) },
                                         checkedState = enabled,
                                         onCheckedChangeListener = { enabled ->
-                                            viewModel.onExampleSwitchChanged(
+                                            onExampleSwitchChanged(
                                                 enabled,
-                                                SeparatedViewContainerViewModel.SwitchRowExample.TWO
+                                                SwitchRowExample.TWO
                                             )
                                         }
                                     )
@@ -291,8 +305,26 @@ object SeparatedViewContainerScreen {
 internal fun SeparatedViewContainerScreenPreview() {
     HmrcTheme {
         HmrcSurface {
-            // TODO: Will add preview later
+            SeparatedViewContainerView(
+                ExamplesUiState(
+                    exampleOne = SwitchUiState(
+                        title = R.string.switch_row_example_1_title,
+                        body = R.string.switch_row_example_1_body,
+                        enabled = false,
+                        enabledContentDesc = R.string.switch_row_example_1_disabled_content_desc,
+                    ),
+                    exampleTwo = SwitchUiState(
+                        title = R.string.switch_row_example_2_title,
+                        body = R.string.switch_row_example_2_body,
+                        enabled = true,
+                    )
+                )
+            ){ _, _ ->
+
+            }
         }
     }
 }
+
+
 
