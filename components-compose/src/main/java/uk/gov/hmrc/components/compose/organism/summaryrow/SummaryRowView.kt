@@ -43,100 +43,96 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
-object SummaryRowView {
-
-    @Composable
-    operator fun invoke(
-        modifier: Modifier = Modifier,
-        titleText: String,
-        isBoldTitleTextAppearance: Boolean = true,
-        titleMaxLines: Int = -1,
-        icon: Painter = painterResource(id = R.drawable.components_ic_chevron_right),
-        chevronContentDescription: String = "",
-        accessibilityMessage: String? = null,
-        rows: List<@Composable () -> Unit>,
-        readerTrait: ReaderTrait = ReaderTrait.READER_TRAIT_INFO,
-        onSummaryRowClicked: (() -> Unit)? = null
-    ) {
-        if (onSummaryRowClicked != null) {
-            CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
-                Row(
-                    modifier = Modifier.clickable { onSummaryRowClicked.invoke() },
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    SummaryRow(
-                        modifier = modifier.then(
-                            Modifier
-                                .padding(
-                                    top = dimensions.hmrcSpacing16,
-                                    bottom = dimensions.hmrcSpacing16,
-                                    start = dimensions.hmrcSpacing16
-                                )
-                                .weight(1f)
-                        ),
-                        titleText = titleText,
-                        titleMaxLines = titleMaxLines,
-                        isBoldTitleTextAppearance = isBoldTitleTextAppearance,
-                        readerTrait = readerTrait,
-                        rows = rows
-                    )
-                    Spacer(modifier = Modifier.width(dimensions.hmrcSpacing8))
-                    Image(
-                        painter = icon,
-                        modifier = Modifier
-                            .semantics { role = Role.Button }
-                            .clickable { onSummaryRowClicked() },
-                        contentDescription = chevronContentDescription
-                    )
-                    Spacer(modifier = Modifier.width(dimensions.hmrcSpacing16))
-                }
-            }
-        } else {
-            SummaryRow(
-                modifier = modifier.padding(dimensions.hmrcSpacing16),
-                titleText = titleText,
-                titleMaxLines = titleMaxLines,
-                isBoldTitleTextAppearance = isBoldTitleTextAppearance,
-                readerTrait = readerTrait,
-                rows = rows
-            )
-        }
-    }
-
-    @Composable
-    private fun SummaryRow(
-        modifier: Modifier = Modifier,
-        titleText: String,
-        isBoldTitleTextAppearance: Boolean,
-        titleMaxLines: Int,
-        readerTrait: ReaderTrait,
-        rows: List<@Composable () -> Unit>
-    ) {
-        Column(modifier = modifier) {
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .semantics { if (readerTrait == ReaderTrait.READER_TRAIT_INFO) focused = true },
-                text = titleText,
-                style = if (isBoldTitleTextAppearance) typography.h6 else typography.body,
-                maxLines = if (titleMaxLines == -1) Int.MAX_VALUE else titleMaxLines,
-                overflow = TextOverflow.Ellipsis
-            )
-            rows.forEach { rowItem ->
-                Spacer(modifier = Modifier.height(dimensions.hmrcSpacing8))
-                Box(
+@Composable
+fun SummaryRowView(
+    titleText: String,
+    modifier: Modifier = Modifier,
+    isBoldTitleTextAppearance: Boolean = true,
+    titleMaxLines: Int = -1,
+    icon: Painter = painterResource(id = R.drawable.components_ic_chevron_right),
+    chevronContentDescription: String = "",
+    accessibilityMessage: String? = null,
+    readerTrait: ReaderTrait = ReaderTrait.READER_TRAIT_INFO,
+    rows: List<@Composable () -> Unit>,
+    onSummaryRowClicked: (() -> Unit)? = null
+) {
+    if (onSummaryRowClicked != null) {
+        CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+            Row(
+                modifier = modifier.clickable { onSummaryRowClicked.invoke() },
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                SummaryRow(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .semantics { if (readerTrait == ReaderTrait.READER_TRAIT_INFO) focused = true }
-                ) {
-                    rowItem()
-                }
+                        .padding(
+                            top = dimensions.hmrcSpacing16,
+                            bottom = dimensions.hmrcSpacing16,
+                            start = dimensions.hmrcSpacing16
+                        )
+                        .weight(1f),
+                    titleText = titleText,
+                    titleMaxLines = titleMaxLines,
+                    isBoldTitleTextAppearance = isBoldTitleTextAppearance,
+                    readerTrait = readerTrait,
+                    rows = rows
+                )
+                Spacer(modifier = Modifier.width(dimensions.hmrcSpacing8))
+                Image(
+                    painter = icon,
+                    modifier = Modifier
+                        .semantics { role = Role.Button }
+                        .clickable { onSummaryRowClicked() },
+                    contentDescription = chevronContentDescription
+                )
+                Spacer(modifier = Modifier.width(dimensions.hmrcSpacing16))
             }
         }
-    }
-
-    enum class ReaderTrait {
-        READER_TRAIT_INFO,
-        READER_TRAIT_SIMPLE
+    } else {
+        SummaryRow(
+            modifier = modifier.padding(dimensions.hmrcSpacing16),
+            titleText = titleText,
+            titleMaxLines = titleMaxLines,
+            isBoldTitleTextAppearance = isBoldTitleTextAppearance,
+            readerTrait = readerTrait,
+            rows = rows
+        )
     }
 }
+
+@Composable
+private fun SummaryRow(
+    modifier: Modifier = Modifier,
+    titleText: String,
+    isBoldTitleTextAppearance: Boolean,
+    titleMaxLines: Int,
+    readerTrait: ReaderTrait,
+    rows: List<@Composable () -> Unit>
+) {
+    Column(modifier = modifier) {
+        Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .semantics { if (readerTrait == ReaderTrait.READER_TRAIT_INFO) focused = true },
+            text = titleText,
+            style = if (isBoldTitleTextAppearance) typography.h6 else typography.body,
+            maxLines = if (titleMaxLines == -1) Int.MAX_VALUE else titleMaxLines,
+            overflow = TextOverflow.Ellipsis
+        )
+        rows.forEach { rowItem ->
+            Spacer(modifier = Modifier.height(dimensions.hmrcSpacing8))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .semantics { if (readerTrait == ReaderTrait.READER_TRAIT_INFO) focused = true }
+            ) {
+                rowItem()
+            }
+        }
+    }
+}
+
+enum class ReaderTrait {
+    READER_TRAIT_INFO,
+    READER_TRAIT_SIMPLE
+}
+

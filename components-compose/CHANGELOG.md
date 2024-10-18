@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Added
+
 * `SummaryRowView` added in Organism.
 
 ## [0.1.4] - 2024-09-30Z
