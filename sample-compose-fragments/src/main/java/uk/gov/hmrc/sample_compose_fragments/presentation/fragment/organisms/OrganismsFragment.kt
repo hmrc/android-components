@@ -31,6 +31,7 @@ import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Compa
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_INFORMATION_MESSAGE_CARD_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_PRIMARY_CARD_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_SEPARATED_VIEW_CONTAINER
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_SUMMARY_ROW_VIEW
 import uk.gov.hmrc.sample_compose_fragments.navigator.Navigator
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.ComponentListScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
@@ -75,6 +76,10 @@ class OrganismsFragment : Fragment(R.layout.fragment_compose_example) {
 
                                 ORGANISM_INFORMATION_MESSAGE_CARD_VIEW -> {
                                     with(navigator) { goToInformationMessageCardView() }
+                                }
+
+                                ORGANISM_SUMMARY_ROW_VIEW -> {
+                                    with(navigator) { goToSummaryRowView() }
                                 }
                             }
                         })
