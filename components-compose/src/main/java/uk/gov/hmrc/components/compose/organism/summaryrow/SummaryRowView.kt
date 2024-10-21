@@ -46,13 +46,13 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 @Composable
 fun SummaryRowView(
     titleText: String,
+    rows: List<@Composable () -> Unit>,
     modifier: Modifier = Modifier,
     isBoldTitleTextAppearance: Boolean = true,
     titleMaxLines: Int = -1,
     icon: Painter = painterResource(id = R.drawable.components_ic_chevron_right),
     chevronContentDescription: String = "",
     readerTrait: ReaderTrait = ReaderTrait.READER_TRAIT_INFO,
-    rows: List<@Composable () -> Unit>,
     onSummaryRowClicked: (() -> Unit)? = null
 ) {
     if (onSummaryRowClicked != null) {
@@ -100,12 +100,12 @@ fun SummaryRowView(
 
 @Composable
 private fun SummaryRow(
-    modifier: Modifier = Modifier,
     titleText: String,
     isBoldTitleTextAppearance: Boolean,
     titleMaxLines: Int,
     readerTrait: ReaderTrait,
-    rows: List<@Composable () -> Unit>
+    rows: List<@Composable () -> Unit>,
+    modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier) {
         Text(

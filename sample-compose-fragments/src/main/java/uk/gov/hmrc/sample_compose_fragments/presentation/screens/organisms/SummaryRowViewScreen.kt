@@ -23,7 +23,6 @@ fun SummaryRowViewScreen(onClickAction: () -> Unit) {
         PlaceholderSlot {
             SummaryRowView(
                 titleText = stringResource(id = R.string.summary_row_placeholder_title),
-                modifier = Modifier,
                 rows = listOf {
                     MultiColumnRowView(
                         modifier = Modifier,
