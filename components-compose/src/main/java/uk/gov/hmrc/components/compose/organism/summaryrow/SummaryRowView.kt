@@ -51,7 +51,6 @@ fun SummaryRowView(
     titleMaxLines: Int = -1,
     icon: Painter = painterResource(id = R.drawable.components_ic_chevron_right),
     chevronContentDescription: String = "",
-    accessibilityMessage: String? = null,
     readerTrait: ReaderTrait = ReaderTrait.READER_TRAIT_INFO,
     rows: List<@Composable () -> Unit>,
     onSummaryRowClicked: (() -> Unit)? = null
@@ -135,4 +134,3 @@ enum class ReaderTrait {
     READER_TRAIT_INFO,
     READER_TRAIT_SIMPLE
 }
-

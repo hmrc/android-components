@@ -22,8 +22,8 @@ fun SummaryRowViewScreen(onClickAction: () -> Unit) {
     ScreenScrollViewColumn {
         PlaceholderSlot {
             SummaryRowView(
-                modifier = Modifier,
                 titleText = stringResource(id = R.string.summary_row_placeholder_title),
+                modifier = Modifier,
                 rows = listOf {
                     MultiColumnRowView(
                         modifier = Modifier,
