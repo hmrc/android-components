@@ -24,9 +24,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.molecule.item.SwitchRowView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HMRCPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
@@ -144,45 +145,43 @@ fun SwitchRowViewScreen(
 @HmrcAllDevicePreview
 @Composable
 internal fun SwitchRowViewScreenPreview() {
-    HmrcTheme {
-        HmrcSurface {
-            SwitchRowViewScreen(
-                placeholderUiState = SwitchUiState(
-                    title = R.string.switch_row_placeholder_title,
-                    body = R.string.switch_row_placeholder_body_off,
+    HMRCPreview {
+        SwitchRowViewScreen(
+            placeholderUiState = SwitchUiState(
+                title = R.string.switch_row_placeholder_title,
+                body = R.string.switch_row_placeholder_body_off,
+                enabled = false,
+            ),
+            examplesUiState = ExamplesUiState(
+                exampleOne = SwitchUiState(
+                    title = R.string.switch_row_example_1_title,
+                    body = R.string.switch_row_example_1_body,
+                    enabled = false,
+                    enabledContentDesc = R.string.switch_row_example_1_disabled_content_desc,
+                ),
+                exampleTwo = SwitchUiState(
+                    title = R.string.switch_row_example_2_title,
+                    body = R.string.switch_row_example_2_body,
+                    enabled = true,
+                ),
+                exampleThree = SwitchUiState(
+                    title = null,
+                    body = R.string.switch_row_example_3_title,
                     enabled = false,
                 ),
-                examplesUiState = ExamplesUiState(
-                    exampleOne = SwitchUiState(
-                        title = R.string.switch_row_example_1_title,
-                        body = R.string.switch_row_example_1_body,
-                        enabled = false,
-                        enabledContentDesc = R.string.switch_row_example_1_disabled_content_desc,
-                    ),
-                    exampleTwo = SwitchUiState(
-                        title = R.string.switch_row_example_2_title,
-                        body = R.string.switch_row_example_2_body,
-                        enabled = true,
-                    ),
-                    exampleThree = SwitchUiState(
-                        title = null,
-                        body = R.string.switch_row_example_3_title,
-                        enabled = false,
-                    ),
-                    exampleFour = SwitchUiState(
-                        title = R.string.switch_row_example_4_title,
-                        body = null,
-                        enabled = false,
-                    ),
-                    exampleFive = SwitchUiState(
-                        title = R.string.switch_row_example_5_title,
-                        body = R.string.switch_row_example_5_body,
-                        enabled = false,
-                    )
+                exampleFour = SwitchUiState(
+                    title = R.string.switch_row_example_4_title,
+                    body = null,
+                    enabled = false,
                 ),
-                onExampleSwitchChanged = { _, _ -> },
-                onPlaceholderSwitchChanged = {}
-            )
-        }
+                exampleFive = SwitchUiState(
+                    title = R.string.switch_row_example_5_title,
+                    body = R.string.switch_row_example_5_body,
+                    enabled = false,
+                )
+            ),
+            onExampleSwitchChanged = { _, _ -> },
+            onPlaceholderSwitchChanged = {}
+        )
     }
 }

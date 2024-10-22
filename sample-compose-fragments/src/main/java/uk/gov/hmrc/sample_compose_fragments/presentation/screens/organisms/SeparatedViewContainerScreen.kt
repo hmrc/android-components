@@ -30,10 +30,11 @@ import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
-import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms.SeparatedViewContainerScreen.SeparatedViewContainerView
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HMRCPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
@@ -303,28 +304,23 @@ object SeparatedViewContainerScreen {
 @HmrcAllDevicePreview
 @Composable
 internal fun SeparatedViewContainerScreenPreview() {
-    HmrcTheme {
-        HmrcSurface {
-            SeparatedViewContainerView(
-                ExamplesUiState(
-                    exampleOne = SwitchUiState(
-                        title = R.string.switch_row_example_1_title,
-                        body = R.string.switch_row_example_1_body,
-                        enabled = false,
-                        enabledContentDesc = R.string.switch_row_example_1_disabled_content_desc,
-                    ),
-                    exampleTwo = SwitchUiState(
-                        title = R.string.switch_row_example_2_title,
-                        body = R.string.switch_row_example_2_body,
-                        enabled = true,
-                    )
+    HMRCPreview {
+        SeparatedViewContainerView(
+            ExamplesUiState(
+                exampleOne = SwitchUiState(
+                    title = R.string.switch_row_example_1_title,
+                    body = R.string.switch_row_example_1_body,
+                    enabled = false,
+                    enabledContentDesc = R.string.switch_row_example_1_disabled_content_desc,
+                ),
+                exampleTwo = SwitchUiState(
+                    title = R.string.switch_row_example_2_title,
+                    body = R.string.switch_row_example_2_body,
+                    enabled = true,
                 )
-            ){ _, _ ->
+            )
+        ) { _, _ ->
 
-            }
         }
     }
 }
-
-
-

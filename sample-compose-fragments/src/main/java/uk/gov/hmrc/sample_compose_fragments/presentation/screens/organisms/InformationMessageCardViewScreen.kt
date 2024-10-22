@@ -25,10 +25,10 @@ import uk.gov.hmrc.components.compose.organism.information.InformationMessageBut
 import uk.gov.hmrc.components.compose.organism.information.InformationMessageCardView
 import uk.gov.hmrc.components.compose.organism.information.InformationMessageType
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.molecules.DonutChartViewScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HMRCPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
@@ -93,9 +93,7 @@ fun InformationMessageCardViewScreen() {
 @HmrcAllDevicePreview
 @Composable
 internal fun InformationMessageCardViewScreenPreview() {
-    HmrcTheme {
-        HmrcSurface {
-            InformationMessageCardViewScreen()
-        }
+    HMRCPreview {
+        InformationMessageCardViewScreen()
     }
 }

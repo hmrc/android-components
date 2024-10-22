@@ -32,9 +32,9 @@ import uk.gov.hmrc.components.compose.atom.text.H5Text
 import uk.gov.hmrc.components.compose.atom.text.InfoText
 import uk.gov.hmrc.components.compose.atom.text.LinkText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HMRCPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
@@ -45,12 +45,18 @@ fun TextScreen() {
             text = stringResource(id = R.string.text_h3),
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
-        Heading4(text = stringResource(id = R.string.text_heading4), modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16))
+        Heading4(
+            text = stringResource(id = R.string.text_heading4),
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
+        )
         H4Text(
             text = stringResource(id = R.string.text_h4),
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
-        Heading5(text = stringResource(id = R.string.text_heading5), modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16))
+        Heading5(
+            text = stringResource(id = R.string.text_heading5),
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
+        )
         H5Text(
             text = stringResource(id = R.string.text_h5),
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
@@ -89,9 +95,7 @@ fun TextScreen() {
 @HmrcAllDevicePreview
 @Composable
 fun TextScreenPreview() {
-    HmrcTheme {
-        HmrcSurface {
-            TextScreen()
-        }
+    HMRCPreview {
+        TextScreen()
     }
 }

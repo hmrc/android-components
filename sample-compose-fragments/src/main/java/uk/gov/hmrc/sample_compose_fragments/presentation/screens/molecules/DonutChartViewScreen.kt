@@ -42,9 +42,9 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.LocalOrientationMode
 import uk.gov.hmrc.components.compose.ui.theme.Orientation
-import uk.gov.hmrc.ptcalc.common.compose.core.HmrcAllDevicePreview
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HMRCPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -229,10 +229,7 @@ fun DonutChartViewScreen() {
 @HmrcAllDevicePreview
 @Composable
 internal fun DonutChartViewScreenPreview() {
-    HmrcTheme {
-        HmrcSurface {
-            DonutChartViewScreen()
-        }
+    HMRCPreview {
+        DonutChartViewScreen()
     }
 }
-
