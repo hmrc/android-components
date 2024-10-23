@@ -81,7 +81,7 @@ fun ExamplesSlot(content: @Composable () -> Unit) {
 }
 
 @Composable
-fun HMRCPreview(content: @Composable () -> Unit) {
+fun HmrcPreview(content: @Composable () -> Unit) {
     HmrcTheme {
         HmrcSurface(
             content = content

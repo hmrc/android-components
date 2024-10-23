@@ -44,7 +44,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_fragments.data.model.ColorItem
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HMRCPreview
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
 @Composable
@@ -100,7 +100,7 @@ private fun Color.hexToString(): String = String.format("#%08X", toArgb())
 @HmrcAllDevicePreview
 @Composable
 fun ColorsListScreenPreview() {
-    HMRCPreview {
+    HmrcPreview {
         ColorsListScreen(listItems = ColorItem.values().asList())
     }
 }

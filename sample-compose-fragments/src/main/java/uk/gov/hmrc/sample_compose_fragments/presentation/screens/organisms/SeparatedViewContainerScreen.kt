@@ -27,15 +27,13 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.molecule.item.SwitchRowView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.organism.container.SeparatedViewContainer
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms.SeparatedViewContainerScreen.SeparatedViewContainerView
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HMRCPreview
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SeparatedViewContainerViewModel
@@ -304,7 +302,7 @@ object SeparatedViewContainerScreen {
 @HmrcAllDevicePreview
 @Composable
 internal fun SeparatedViewContainerScreenPreview() {
-    HMRCPreview {
+    HmrcPreview {
         SeparatedViewContainerView(
             ExamplesUiState(
                 exampleOne = SwitchUiState(
