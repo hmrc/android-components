@@ -24,11 +24,16 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.gov.hmrc.components.compose.molecule.item.SwitchRowView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
+import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SwitchRowViewModel
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SwitchRowViewModel.ExamplesUiState
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SwitchRowViewModel.SwitchRowExample
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.SwitchRowViewModel.SwitchUiState
 
 @Composable
 fun SwitchRowViewScreen(viewModel: SwitchRowViewModel) {
@@ -84,7 +89,7 @@ fun SwitchRowViewScreen(
                         title = title?.let { stringResource(it) },
                         body = body?.let { stringResource(it) },
                         checkedState = enabled,
-                        onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.TWO)},
+                        onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.TWO) },
                     )
                 }
             }
@@ -97,7 +102,12 @@ fun SwitchRowViewScreen(
                         title = title?.let { stringResource(it) },
                         body = body?.let { stringResource(it) },
                         checkedState = enabled,
-                        onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.THREE)},
+                        onCheckedChangeListener = { enabled ->
+                            onExampleSwitchChanged(
+                                enabled,
+                                SwitchRowExample.THREE
+                            )
+                        },
                     )
                 }
             }
@@ -110,7 +120,7 @@ fun SwitchRowViewScreen(
                         title = title?.let { stringResource(it) },
                         body = body?.let { stringResource(it) },
                         checkedState = enabled,
-                        onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.FOUR)}
+                        onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.FOUR) }
                     )
                 }
             }
@@ -123,10 +133,54 @@ fun SwitchRowViewScreen(
                         title = title?.let { stringResource(it) },
                         body = body?.let { stringResource(it) },
                         checkedState = enabled,
-                        onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.FIVE)}
+                        onCheckedChangeListener = { enabled -> onExampleSwitchChanged(enabled, SwitchRowExample.FIVE) }
                     )
                 }
             }
         }
+    }
+}
+
+@HmrcAllDevicePreview
+@Composable
+internal fun SwitchRowViewScreenPreview() {
+    HmrcPreview {
+        SwitchRowViewScreen(
+            placeholderUiState = SwitchUiState(
+                title = R.string.switch_row_placeholder_title,
+                body = R.string.switch_row_placeholder_body_off,
+                enabled = false,
+            ),
+            examplesUiState = ExamplesUiState(
+                exampleOne = SwitchUiState(
+                    title = R.string.switch_row_example_1_title,
+                    body = R.string.switch_row_example_1_body,
+                    enabled = false,
+                    enabledContentDesc = R.string.switch_row_example_1_disabled_content_desc,
+                ),
+                exampleTwo = SwitchUiState(
+                    title = R.string.switch_row_example_2_title,
+                    body = R.string.switch_row_example_2_body,
+                    enabled = true,
+                ),
+                exampleThree = SwitchUiState(
+                    title = null,
+                    body = R.string.switch_row_example_3_title,
+                    enabled = false,
+                ),
+                exampleFour = SwitchUiState(
+                    title = R.string.switch_row_example_4_title,
+                    body = null,
+                    enabled = false,
+                ),
+                exampleFive = SwitchUiState(
+                    title = R.string.switch_row_example_5_title,
+                    body = R.string.switch_row_example_5_body,
+                    enabled = false,
+                )
+            ),
+            onExampleSwitchChanged = { _, _ -> },
+            onPlaceholderSwitchChanged = {}
+        )
     }
 }

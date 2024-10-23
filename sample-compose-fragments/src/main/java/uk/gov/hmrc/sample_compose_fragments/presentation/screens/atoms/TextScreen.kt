@@ -19,7 +19,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import uk.gov.hmrc.components.compose.atom.bullet.BulletedTextView
 import uk.gov.hmrc.components.compose.atom.heading.Heading3
 import uk.gov.hmrc.components.compose.atom.heading.Heading4
@@ -33,7 +32,9 @@ import uk.gov.hmrc.components.compose.atom.text.H5Text
 import uk.gov.hmrc.components.compose.atom.text.InfoText
 import uk.gov.hmrc.components.compose.atom.text.LinkText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
@@ -44,12 +45,18 @@ fun TextScreen() {
             text = stringResource(id = R.string.text_h3),
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
-        Heading4(text = stringResource(id = R.string.text_heading4), modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16))
+        Heading4(
+            text = stringResource(id = R.string.text_heading4),
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
+        )
         H4Text(
             text = stringResource(id = R.string.text_h4),
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
         )
-        Heading5(text = stringResource(id = R.string.text_heading5), modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16))
+        Heading5(
+            text = stringResource(id = R.string.text_heading5),
+            modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
+        )
         H5Text(
             text = stringResource(id = R.string.text_h5),
             modifier = Modifier.padding(top = HmrcTheme.dimensions.hmrcSpacing16)
@@ -85,10 +92,10 @@ fun TextScreen() {
     }
 }
 
-@Preview
+@HmrcAllDevicePreview
 @Composable
 fun TextScreenPreview() {
-    HmrcTheme {
+    HmrcPreview {
         TextScreen()
     }
 }
