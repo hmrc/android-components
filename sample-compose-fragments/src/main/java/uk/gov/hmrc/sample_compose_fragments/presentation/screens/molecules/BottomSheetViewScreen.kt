@@ -334,7 +334,6 @@ fun CustomPaddingBottomSheet(
             labelText = stringResource(id = R.string.text_input_placeholder_label),
             hintText = stringResource(id = R.string.text_input_placeholder_hint),
             placeholderText = stringResource(id = R.string.text_input_placeholder_placeholder),
-            errorText = ""
         )
         PrimaryButton(
             modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16),
