@@ -34,8 +34,8 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
 fun PrimaryCardView(
-    modifier: Modifier = Modifier,
     title: String,
+    modifier: Modifier = Modifier,
     titleContentDescription: String = "",
     childPadding: Boolean = true,
     content: @Composable (ColumnScope.() -> Unit)? = null

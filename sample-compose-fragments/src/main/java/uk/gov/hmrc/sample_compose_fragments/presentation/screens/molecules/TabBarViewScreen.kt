@@ -31,7 +31,9 @@ import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.molecule.tabbar.TabBarView
 import uk.gov.hmrc.components.compose.molecule.tabbar.TabBarViewStyle
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcPreview
 
 @Composable
 fun TabBarViewScreen() {
@@ -101,4 +103,12 @@ fun TabBarViewScreen() {
             )
         }
     )
+}
+
+@HmrcAllDevicePreview
+@Composable
+internal fun TabBarViewScreenPreview() {
+    HmrcPreview {
+        TabBarViewScreen()
+    }
 }
