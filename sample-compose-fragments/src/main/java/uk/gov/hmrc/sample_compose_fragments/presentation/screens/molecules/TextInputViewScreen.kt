@@ -65,10 +65,10 @@ fun TextInputViewScreen() {
                     )
                     placeholderValue = it
                 },
-                errorText = viewModel.textInputErrorCharCount.collectAsStateWithLifecycle().value,
                 labelText = stringResource(id = R.string.text_input_placeholder_label),
                 hintText = stringResource(id = R.string.text_input_placeholder_hint),
                 placeholderText = stringResource(id = R.string.text_input_placeholder_placeholder),
+                errorText = viewModel.textInputErrorCharCount.collectAsStateWithLifecycle().value,
                 characterCount = characterCount,
             )
         }
@@ -76,48 +76,49 @@ fun TextInputViewScreen() {
         ExamplesSlot {
             HmrcCardView {
                 TextInputView(
-                    value = example1Value,
                     modifier = Modifier.padding(
                         horizontal = HmrcTheme.dimensions.hmrcSpacing16,
                         vertical = HmrcTheme.dimensions.hmrcSpacing24,
                     ),
+                    value = example1Value,
                     onInputValueChange = {
                         viewModel.validateCharCount(5, it, errorTextEx1, 1)
                         example1Value = it
                     },
-                    errorText = viewModel.textInputErrorCharCount1.collectAsStateWithLifecycle().value,
                     labelText = stringResource(R.string.text_input_example_1_hint),
                     labelContentDescription = stringResource(R.string.text_input_example_1_content_description),
+                    errorText = viewModel.textInputErrorCharCount1.collectAsStateWithLifecycle().value,
                     characterCount = 5,
-                    maxChars = 5
+                    maxChars = 5,
+                    requiredSequencesSpacing = true
                 )
 
                 TextInputView(
-                    value = example2Value,
                     modifier = Modifier.padding(
                         horizontal = HmrcTheme.dimensions.hmrcSpacing16,
                         vertical = HmrcTheme.dimensions.hmrcSpacing24,
                     ),
+                    value = example2Value,
                     onInputValueChange = {
                         viewModel.isEmptyValidation(it, errorTextEx2, 0)
                         example2Value = it
                     },
-                    errorText = viewModel.textInputError.collectAsStateWithLifecycle().value,
-                    hintText = stringResource(id = R.string.text_input_example_2_hint)
+                    hintText = stringResource(id = R.string.text_input_example_2_hint),
+                    errorText = viewModel.textInputError.collectAsStateWithLifecycle().value
                 )
 
                 TextInputView(
-                    value = example3Value,
                     modifier = Modifier.padding(
                         horizontal = HmrcTheme.dimensions.hmrcSpacing16,
                         vertical = HmrcTheme.dimensions.hmrcSpacing24,
                     ),
+                    value = example3Value,
                     onInputValueChange = {
                         viewModel.isEmptyValidation(it, errorTextEx3, 1)
                         example3Value = it
                     },
-                    errorText = viewModel.textInputErrorEmptyValidation.collectAsStateWithLifecycle().value,
                     labelText = stringResource(R.string.text_input_example_3_hint),
+                    errorText = viewModel.textInputErrorEmptyValidation.collectAsStateWithLifecycle().value,
                     singleLine = true
                 )
             }

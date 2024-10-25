@@ -329,12 +329,12 @@ fun CustomPaddingBottomSheet(
         )
         Spacer(modifier = Modifier.height(dimensions.hmrcSpacing16))
         TextInputView(
+            modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16),
             onInputValueChange = { },
             errorText = "",
             labelText = stringResource(id = R.string.text_input_placeholder_label),
             hintText = stringResource(id = R.string.text_input_placeholder_hint),
             placeholderText = stringResource(id = R.string.text_input_placeholder_placeholder),
-            modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16)
         )
         PrimaryButton(
             modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16),

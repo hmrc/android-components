@@ -17,40 +17,24 @@ package uk.gov.hmrc.components.compose.molecule.input
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.R
-import uk.gov.hmrc.components.compose.atom.text.BodyText
-import uk.gov.hmrc.components.compose.atom.text.BoldText
-import uk.gov.hmrc.components.compose.atom.text.ErrorText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
 object TextInputView {
-
-    private const val ERROR_TEXT_WITH_CHAR_COUNT_WIDTH = 0.8f
-    private const val CHAR_COUNT_WIDTH = 0.95f
 
     @SuppressWarnings("LongMethod", "ComplexMethod")
     @Composable
@@ -63,14 +47,15 @@ object TextInputView {
         labelContentDescription: String? = null,
         hintText: String? = null,
         hintContentDescription: String? = null,
-        prefix: @Composable (() -> Unit)? = null,
+        prefix: @Composable() (() -> Unit)? = null,
         placeholderText: String? = null,
         errorText: String? = null,
         errorContentDescription: String? = null,
         characterCount: Int? = null,
         maxChars: Int? = null,
         singleLine: Boolean = false,
-        keyboardOptions: KeyboardOptions = KeyboardOptions.Default
+        keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+        requiredSequencesSpacing: Boolean = false
     ) {
         var localValue: String by rememberSaveable { mutableStateOf(value.orEmpty()) }
         localValue = value.orEmpty()
@@ -80,68 +65,26 @@ object TextInputView {
 
         val counterEnabled: Boolean = characterCount != null
 
-        val error: @Composable (() -> Unit)? = errorText?.let {
-            @Composable {
-                ErrorText(
-                    text = it,
-                    modifier = Modifier.semantics { errorContentDescription?.let { contentDescription = it } }
-                )
-            }
-        }
-
-        val errorTextCounterCombo: @Composable (() -> Unit) = @Composable {
-            Row {
-                Column(
-                    horizontalAlignment = Alignment.Start,
-                    modifier = Modifier.fillMaxWidth(ERROR_TEXT_WITH_CHAR_COUNT_WIDTH)
-                ) {
-                    if (errorText != null) {
-                        ErrorText(
-                            text = errorText,
-                            modifier = Modifier.semantics {
-                                errorContentDescription?.let {
-                                    contentDescription = it
-                                }
-                            }
-                        )
-                    }
-                }
-                Column(horizontalAlignment = Alignment.End, modifier = Modifier.fillMaxWidth(CHAR_COUNT_WIDTH)) {
-                    val textStyle = characterCount?.let { limit ->
-                        if (localValue.length > limit) typography.errorText else typography.body
-                    } ?: typography.body
-                    Text(
-                        text = "${localValue.length}/$characterCount",
-                        style = textStyle,
-                        textAlign = TextAlign.End,
-                    )
-                }
-            }
-        }
-
-        val trailingIcon: @Composable (() -> Unit) = @Composable {
+        val clearTrailingIcon: @Composable (() -> Unit) = @Composable {
             if (localValue.isNotEmpty()) {
                 Icon(
                     Icons.Rounded.Close,
                     contentDescription = stringResource(id = R.string.textInputView_clear),
                     modifier = Modifier.clickable {
                         localValue = ""
-                        if (onInputValueChange != null) { onInputValueChange(localValue) }
+                        if (onInputValueChange != null) {
+                            onInputValueChange(localValue)
+                        }
                     }
                 )
             }
         }
 
-        @Composable
-        fun Modifier.adjustPaddingForCounter() = this.padding(
-            bottom = if (counterEnabled || !localError.isNullOrEmpty()) 0.dp else HmrcTheme.dimensions.hmrcIconSize24
-        )
-
         Column(modifier = modifier) {
             Label(labelText = labelText, labelContentDescription = labelContentDescription)
             Hint(hintText = hintText, hintContentDescription = hintContentDescription)
             TextField(
-                modifier = Modifier.fillMaxWidth().adjustPaddingForCounter(),
+                modifier = Modifier.adjustPaddingForCounter(counterEnabled, localError),
                 isError = !localError.isNullOrEmpty() || (localValue.length > (characterCount ?: Int.MAX_VALUE)),
                 value = localValue,
                 onInputValueChange = { newValue ->
@@ -154,67 +97,21 @@ object TextInputView {
                 },
                 prefix = prefix,
                 placeholderText = { placeholderText?.let { Text(text = it) } },
-                supportingText = if (counterEnabled) errorTextCounterCombo else error,
-                trailingIcon = trailingIcon,
+                supportingText = if (counterEnabled)
+                    errorTextCounterCombo(errorText, errorContentDescription, characterCount, localValue)
+                else error(
+                    errorText,
+                    errorContentDescription
+                ),
                 singleLine = singleLine,
                 keyboardOptions = keyboardOptions,
+                visualTransformation = VisualTransformation.None,
+                trailingIcon = clearTrailingIcon,
+                colors = HmrcTheme.textFieldColors,
+                textStyle =
+                if (requiredSequencesSpacing) { HmrcTheme.typography.sequencesBody } else { HmrcTheme.typography.body }
             )
         }
-    }
-
-    @Composable
-    private fun Label(labelText: String?, labelContentDescription: String?,) {
-        labelText?.let { label ->
-            BoldText(
-                text = label,
-                modifier = Modifier
-                    .semantics { labelContentDescription?.let { contentDescription = it } }
-                    .padding(bottom = HmrcTheme.dimensions.hmrcSpacing8)
-            )
-        }
-    }
-
-    @Composable
-    private fun Hint(hintText: String?, hintContentDescription: String?) {
-        hintText?.let { hint ->
-            BodyText(
-                text = hint,
-                modifier = Modifier
-                    .semantics { hintContentDescription?.let { contentDescription = it } }
-                    .padding(bottom = HmrcTheme.dimensions.hmrcSpacing8)
-            )
-        }
-    }
-
-    @Suppress("LongParameterList")
-    @Composable
-    private fun TextField(
-        modifier: Modifier,
-        isError: Boolean,
-        value: String,
-        onInputValueChange: ((String) -> Unit),
-        prefix: @Composable (() -> Unit)?,
-        placeholderText: @Composable (() -> Unit),
-        supportingText: @Composable (() -> Unit)?,
-        trailingIcon: @Composable (() -> Unit),
-        singleLine: Boolean,
-        keyboardOptions: KeyboardOptions,
-    ) {
-        OutlinedTextField(
-            modifier = modifier,
-            isError = isError,
-            value = value,
-            onValueChange = onInputValueChange,
-            prefix = prefix,
-            placeholder = placeholderText,
-            supportingText = supportingText,
-            trailingIcon = trailingIcon,
-            singleLine = singleLine,
-            keyboardOptions = keyboardOptions,
-            textStyle = typography.body,
-            colors = HmrcTheme.textFieldColors,
-            shape = RoundedCornerShape(0)
-        )
     }
 }
 
@@ -249,8 +146,8 @@ fun TextInputViewWithErrorPreview() {
     HmrcTheme {
         TextInputView(
             onInputValueChange = { },
-            errorText = "Error",
             labelText = "Label",
+            errorText = "Error"
         )
     }
 }
@@ -262,7 +159,7 @@ fun TextInputViewWithCounterPreview() {
         TextInputView(
             onInputValueChange = { },
             labelText = "Label",
-            characterCount = 20,
+            characterCount = 20
         )
     }
 }
@@ -275,7 +172,7 @@ fun TextInputViewWithErrorAndCounterPreview() {
             onInputValueChange = { },
             labelText = "Label",
             errorText = "Error",
-            characterCount = 20,
+            characterCount = 20
         )
     }
 }
