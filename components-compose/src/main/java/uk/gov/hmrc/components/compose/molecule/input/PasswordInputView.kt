@@ -281,7 +281,7 @@ private fun PasswordTextInputView(
                 )
             }
 
-            Column(Modifier.width(IntrinsicSize.Max)) {
+            Column(Modifier.width(IntrinsicSize.Min)) {
                 ShowHideButton(
                     hideButtonContentDescription = passwordTrailingButton.hideButtonContentDescription,
                     hideButtonStateDescription = passwordTrailingButton.hideButtonStateDescription,
