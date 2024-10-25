@@ -40,15 +40,12 @@ import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.
 fun PrimaryCardViewScreen(onClickAction: () -> Unit) {
     ScreenScrollViewColumn {
         PlaceholderSlot {
-            PrimaryCardView(
-                title = stringResource(id = R.string.primary_card_placeholder_title),
-                content = {
-                    Text(
-                        text = stringResource(id = R.string.primary_card_placeholder_body),
-                        style = HmrcTheme.typography.body
-                    )
-                }
-            )
+            PrimaryCardView(stringResource(id = R.string.primary_card_placeholder_title)) {
+                Text(
+                    text = stringResource(id = R.string.primary_card_placeholder_body),
+                    style = HmrcTheme.typography.body
+                )
+            }
         }
 
         ExamplesSlot {

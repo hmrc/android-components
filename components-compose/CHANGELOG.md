@@ -16,6 +16,10 @@ Allowed headings:
 
 ## [Unreleased]
 
+### Changed
+
+* Updated the parameter order for `PrimaryCardView`
+
 ## [0.1.4] - 2024-09-30Z
 
 ### Fixed
