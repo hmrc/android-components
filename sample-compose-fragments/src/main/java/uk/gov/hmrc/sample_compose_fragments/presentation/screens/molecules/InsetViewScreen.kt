@@ -27,8 +27,10 @@ import uk.gov.hmrc.components.compose.molecule.inset.InsetView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -96,5 +98,13 @@ fun InsetViewScreen() {
                 )
             }
         }
+    }
+}
+
+@HmrcAllDevicePreview
+@Composable
+internal fun InsetViewScreenPreview() {
+    HmrcPreview {
+        InsetViewScreen()
     }
 }

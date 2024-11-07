@@ -25,81 +25,94 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import uk.gov.hmrc.components.compose.atom.text.BodyText
-import uk.gov.hmrc.components.compose.molecule.input.CurrencyInputView
+import uk.gov.hmrc.components.compose.molecule.input.PasswordInputView
+import uk.gov.hmrc.components.compose.molecule.input.PasswordTrailingButton
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
-import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.CurrencyInputViewModel
+import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.PasswordInputViewModel
 
 @Composable
-fun CurrencyInputViewScreen() {
+fun PasswordInputViewScreen() {
 
-    val viewModel = viewModel<CurrencyInputViewModel>()
+    val viewModel = viewModel<PasswordInputViewModel>()
 
-    val errorText = stringResource(id = R.string.currency_input_example_error)
+    val errorText = stringResource(id = R.string.password_input_example_error)
+    val error1Text = stringResource(id = R.string.password_input_example_1_error)
+    val showText = stringResource(R.string.password_input_show)
+    val hideText = stringResource(R.string.password_input_hide)
 
     var placeholderValue: String by rememberSaveable { mutableStateOf("") }
     var example1Value: String by rememberSaveable { mutableStateOf("") }
     var example2Value: String by rememberSaveable { mutableStateOf("") }
-    var example3Value: String by rememberSaveable { mutableStateOf("123.45") }
-    var example4Value: String by rememberSaveable { mutableStateOf("123.45") }
+    var example3Value: String by rememberSaveable { mutableStateOf("Password123") }
 
     ScreenScrollViewColumn {
         PlaceholderSlot {
-            CurrencyInputView(
+            PasswordInputView(
                 value = placeholderValue,
                 onInputValueChange = { placeholderValue = it },
-                labelText = stringResource(id = R.string.currency_input_placeholder_label),
-                hintText = stringResource(id = R.string.currency_input_placeholder_hint),
-                placeholderText = stringResource(id = R.string.currency_input_placeholder_placeholder),
-                enableDecimal = true,
+                labelText = stringResource(id = R.string.password_input_placeholder_label),
+                hintText = stringResource(id = R.string.password_input_placeholder_hint),
+                passwordTrailingButton = PasswordTrailingButton(
+                    showButtonText = showText,
+                    hideButtonText = hideText
+                )
             )
         }
 
         ExamplesSlot {
             HmrcCardView {
-                CurrencyInputView(
-                    value = example1Value,
+                PasswordInputView(
                     modifier = Modifier.padding(
                         horizontal = HmrcTheme.dimensions.hmrcSpacing16,
                         vertical = HmrcTheme.dimensions.hmrcSpacing24,
                     ),
+                    value = example1Value,
                     onInputValueChange = {
-                        viewModel.isEmptyValidation(it, errorText, 0)
+                        viewModel.isEmptyValidation(it, error1Text, 0)
                         example1Value = it
                     },
+                    labelText = stringResource(id = R.string.password_input_example_1_label),
+                    hintText = stringResource(id = R.string.password_input_example_1_hint),
                     errorText = viewModel.textInputErrorEmptyValidation.collectAsStateWithLifecycle().value,
-                    labelText = stringResource(id = R.string.currency_input_example_1_label),
-                    hintText = stringResource(id = R.string.currency_input_example_1_hint),
-                    enableDecimal = true,
-                    maxChars = 4
+                    errorContentDescription = stringResource(R.string.password_input_example_1_error_content_description),
+                    numericOnly = true,
+                    maxChars = 4,
+                    passwordTrailingButton = PasswordTrailingButton(
+                        showButtonText = stringResource(id = R.string.password_input_example_1_show_text),
+                        hideButtonText = stringResource(id = R.string.password_input_example_1_hide_text),
+                        showButtonContentDescription = stringResource(id = R.string.password_input_example_1_show_content_description),
+                        showButtonStateDescription = stringResource(id = R.string.password_input_example_1_show_state_description),
+                        hideButtonContentDescription = stringResource(id = R.string.password_input_example_1_hide_content_description),
+                        hideButtonStateDescription = stringResource(id = R.string.password_input_example_1_hide_state_description),
+                    )
                 )
-                BodyText(text = example1Value)
 
-                CurrencyInputView(
-                    value = example2Value,
+                PasswordInputView(
                     modifier = Modifier.padding(
                         horizontal = HmrcTheme.dimensions.hmrcSpacing16,
                         vertical = HmrcTheme.dimensions.hmrcSpacing24,
                     ),
+                    value = example2Value,
                     onInputValueChange = {
                         viewModel.isEmptyValidation(it, errorText, 1)
                         example2Value = it
                     },
+                    labelText = stringResource(id = R.string.password_input_example_2_label),
+                    hintText = stringResource(id = R.string.password_input_example_2_hint),
                     errorText = viewModel.textInputErrorEmptyValidation1.collectAsStateWithLifecycle().value,
-                    labelText = stringResource(id = R.string.currency_input_example_2_label),
-                    hintText = stringResource(id = R.string.currency_input_example_2_hint),
-                    enableDecimal = false
+                    passwordTrailingButton = PasswordTrailingButton(
+                        showButtonText = showText,
+                        hideButtonText = hideText,
+                    ),
+                    numericOnly = false
                 )
-                BodyText(text = example2Value)
 
-                CurrencyInputView(
+                PasswordInputView(
                     modifier = Modifier.padding(
                         horizontal = HmrcTheme.dimensions.hmrcSpacing16,
                         vertical = HmrcTheme.dimensions.hmrcSpacing24,
@@ -109,36 +122,17 @@ fun CurrencyInputViewScreen() {
                         viewModel.isEmptyValidation(it, errorText, 2)
                         example3Value = it
                     },
+                    labelText = stringResource(id = R.string.password_input_example_3_label),
+                    hintText = stringResource(id = R.string.password_input_example_3_hint),
                     errorText = viewModel.textInputErrorEmptyValidation2.collectAsStateWithLifecycle().value,
-                    labelText = stringResource(id = R.string.currency_input_example_3_label),
-                    hintText = stringResource(id = R.string.currency_input_example_3_hint),
-                    enableDecimal = true
-                )
-
-                CurrencyInputView(
-                    modifier = Modifier.padding(
-                        horizontal = HmrcTheme.dimensions.hmrcSpacing16,
-                        vertical = HmrcTheme.dimensions.hmrcSpacing24,
+                    passwordTrailingButton = PasswordTrailingButton(
+                        showButtonText = showText,
+                        hideButtonText = hideText
                     ),
-                    value = example4Value,
-                    onInputValueChange = {
-                        viewModel.isEmptyValidation(it, errorText, 3)
-                        example4Value = it
-                    },
-                    errorText = viewModel.textInputErrorEmptyValidation3.collectAsStateWithLifecycle().value,
-                    labelText = stringResource(id = R.string.currency_input_example_4_label),
-                    hintText = stringResource(id = R.string.currency_input_example_4_hint),
-                    enableDecimal = true
+                    requiredSequencesSpacing = false,
+                    numericOnly = false
                 )
             }
         }
-    }
-}
-
-@HmrcAllDevicePreview
-@Composable
-private fun CurrencyInputViewScreenPreview() {
-    HmrcPreview {
-        CurrencyInputViewScreen()
     }
 }

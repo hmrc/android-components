@@ -21,8 +21,10 @@ import uk.gov.hmrc.components.compose.molecule.selectrow.SelectRowView
 import uk.gov.hmrc.components.compose.molecule.titleBody.H5TitleBodyView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
 @Composable
@@ -327,12 +329,12 @@ fun CustomPaddingBottomSheet(
         )
         Spacer(modifier = Modifier.height(dimensions.hmrcSpacing16))
         TextInputView(
-            onInputValueChange = {  },
+            modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16),
+            onInputValueChange = { },
             errorText = "",
             labelText = stringResource(id = R.string.text_input_placeholder_label),
             hintText = stringResource(id = R.string.text_input_placeholder_hint),
             placeholderText = stringResource(id = R.string.text_input_placeholder_placeholder),
-            modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16)
         )
         PrimaryButton(
             modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing16),
@@ -344,5 +346,13 @@ fun CustomPaddingBottomSheet(
             iconResId = R.drawable.ic_info,
             onClick = {}
         )
+    }
+}
+
+@HmrcAllDevicePreview
+@Composable
+internal fun BottomSheetViewScreenPreview() {
+    HmrcPreview {
+        BottomSheetViewScreen()
     }
 }

@@ -57,6 +57,8 @@ interface Navigator {
 
     fun Fragment.goToDonutChartView()
 
+    fun Fragment.goToPasswordInputView()
+
     fun Fragment.goToSeparatedViewContainer()
 
     fun Fragment.goToHeadlineCardView()

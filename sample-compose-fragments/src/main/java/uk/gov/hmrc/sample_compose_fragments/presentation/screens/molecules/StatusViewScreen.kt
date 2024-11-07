@@ -22,8 +22,10 @@ import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.molecule.statusview.StatusView
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcPreview
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.PlaceholderSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ScreenScrollViewColumn
 
@@ -99,5 +101,13 @@ object StatusViewScreen {
                 //endregion
             }
         }
+    }
+}
+
+@HmrcAllDevicePreview
+@Composable
+internal fun StatusViewScreenPreview() {
+    HmrcPreview {
+        StatusViewScreen()
     }
 }

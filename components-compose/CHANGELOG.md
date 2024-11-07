@@ -18,7 +18,17 @@ Allowed headings:
 
 ### Added
 
+feature/HMA-5091-Android-Jetpack-Compose-Components-SummaryRowView
 * `SummaryRowView` added in Organism.
+* `PasswordInputView` component added with show/hide feature
+* `requiresSequenceSpacing` parameter added to `TextInputView` to enable additional character spacing for use during sequences
+
+## [0.1.5] - 2024-10-25Z
+
+### Changed
+
+* Updated the parameter order for `PrimaryCardView`
+main
 
 ## [0.1.4] - 2024-09-30Z
 
