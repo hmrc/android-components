@@ -28,7 +28,6 @@ feature/HMA-5091-Android-Jetpack-Compose-Components-SummaryRowView
 ### Changed
 
 * Updated the parameter order for `PrimaryCardView`
-main
 
 ## [0.1.4] - 2024-09-30Z
 
