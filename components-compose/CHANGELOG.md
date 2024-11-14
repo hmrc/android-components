@@ -18,6 +18,8 @@ Allowed headings:
 
 ### Added
 
+feature/HMA-5091-Android-Jetpack-Compose-Components-SummaryRowView
+* `SummaryRowView` added in Organism.
 * `PasswordInputView` component added with show/hide feature
 * `requiresSequenceSpacing` parameter added to `TextInputView` to enable additional character spacing for use during sequences
 
