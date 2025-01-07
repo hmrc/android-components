@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [0.1.6] - 2024-11-18Z
+
 ### Added
 
 feature/HMA-5091-Android-Jetpack-Compose-Components-SummaryRowView
