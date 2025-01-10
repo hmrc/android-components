@@ -117,11 +117,11 @@ private fun SummaryRow(
                 .fillMaxWidth()
                 .semantics { if (readerTrait == ReaderTrait.READER_TRAIT_INFO) focused = true },
             text = titleText,
-            style = if (isBoldTitleTextAppearance){
+            style = if (isBoldTitleTextAppearance) {
                 typography.h6
-            } else if (islinkTitleTextAppearance){
+            } else if (islinkTitleTextAppearance) {
                 typography.link
-            } else{
+            } else {
                 typography.body
             },
             maxLines = if (titleMaxLines == -1) Int.MAX_VALUE else titleMaxLines,
