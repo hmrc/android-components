@@ -49,6 +49,7 @@ fun SummaryRowView(
     rows: List<@Composable () -> Unit>,
     modifier: Modifier = Modifier,
     isBoldTitleTextAppearance: Boolean = true,
+    islinkTitleTextAppearance: Boolean = false,
     titleMaxLines: Int = -1,
     icon: Painter = painterResource(id = R.drawable.components_ic_chevron_right),
     chevronContentDescription: String = "",
@@ -72,6 +73,7 @@ fun SummaryRowView(
                     titleText = titleText,
                     titleMaxLines = titleMaxLines,
                     isBoldTitleTextAppearance = isBoldTitleTextAppearance,
+                    islinkTitleTextAppearance = islinkTitleTextAppearance,
                     readerTrait = readerTrait,
                     rows = rows
                 )
@@ -92,6 +94,7 @@ fun SummaryRowView(
             titleText = titleText,
             titleMaxLines = titleMaxLines,
             isBoldTitleTextAppearance = isBoldTitleTextAppearance,
+            islinkTitleTextAppearance = islinkTitleTextAppearance,
             readerTrait = readerTrait,
             rows = rows
         )
@@ -102,6 +105,7 @@ fun SummaryRowView(
 private fun SummaryRow(
     titleText: String,
     isBoldTitleTextAppearance: Boolean,
+    islinkTitleTextAppearance: Boolean,
     titleMaxLines: Int,
     readerTrait: ReaderTrait,
     rows: List<@Composable () -> Unit>,
@@ -113,7 +117,13 @@ private fun SummaryRow(
                 .fillMaxWidth()
                 .semantics { if (readerTrait == ReaderTrait.READER_TRAIT_INFO) focused = true },
             text = titleText,
-            style = if (isBoldTitleTextAppearance) typography.h6 else typography.body,
+            style = if (isBoldTitleTextAppearance) {
+                typography.h6
+            } else if (islinkTitleTextAppearance) {
+                typography.link
+            } else {
+                typography.body
+            },
             maxLines = if (titleMaxLines == -1) Int.MAX_VALUE else titleMaxLines,
             overflow = TextOverflow.Ellipsis
         )
