@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [0.1.7] - 2025-01-10Z
+
 ### Changed
 
 * Updated the component with link text style for `SummaryRowView`
