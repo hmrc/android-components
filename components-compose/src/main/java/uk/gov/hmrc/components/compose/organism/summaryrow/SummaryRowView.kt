@@ -85,9 +85,9 @@ fun SummaryRowView(
                 Image(
                     painter = icon,
                     colorFilter = ColorFilter.tint(
-                        if (isSystemInDarkTheme()){
+                        if (isSystemInDarkTheme()) {
                             HmrcBlackDark
-                        }else{
+                        } else {
                             HmrcBlack
                         }
                     ),
