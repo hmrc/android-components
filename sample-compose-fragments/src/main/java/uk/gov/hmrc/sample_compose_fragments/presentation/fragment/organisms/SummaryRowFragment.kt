@@ -9,7 +9,6 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.rememberWindowSizeClass
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms.InformationMessageCardViewScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.organisms.SummaryRowViewScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 
@@ -31,6 +30,7 @@ class SummaryRowFragment : Fragment(R.layout.fragment_compose_example) {
                         }
                     }
                 }
+                //Bitrise build test
             }
         }
     }
