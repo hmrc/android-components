@@ -20,6 +20,8 @@ Allowed headings:
 
 * Updated the component with dark mode navigation icon for `SummaryRowView`
 
+## [0.1.7] - 2025-01-10Z
+
 ### Changed
 
 * Updated the component with link text style for `SummaryRowView`
@@ -107,7 +109,7 @@ feature/HMA-5091-Android-Jetpack-Compose-Components-SummaryRowView
 ### Changed
 
 * Changed how SelectRowGroup works. It now takes a list of `SelectRowViewItem` to populate the rows, and requires a
-selected item rather than relying on position.
+  selected item rather than relying on position.
 
 ## [0.0.4] - 2024-04-12Z
 
