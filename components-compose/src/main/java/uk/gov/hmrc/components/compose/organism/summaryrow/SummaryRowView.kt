@@ -17,6 +17,7 @@ package uk.gov.hmrc.components.compose.organism.summaryrow
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -31,6 +32,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
@@ -39,6 +41,8 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
 import uk.gov.hmrc.components.compose.R
+import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
+import uk.gov.hmrc.components.compose.ui.theme.HmrcBlackDark
 import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
@@ -80,6 +84,13 @@ fun SummaryRowView(
                 Spacer(modifier = Modifier.width(dimensions.hmrcSpacing8))
                 Image(
                     painter = icon,
+                    colorFilter = ColorFilter.tint(
+                        if (isSystemInDarkTheme()) {
+                            HmrcBlackDark
+                        } else {
+                            HmrcBlack
+                        }
+                    ),
                     modifier = Modifier
                         .semantics { role = Role.Button }
                         .clickable { onSummaryRowClicked() },
