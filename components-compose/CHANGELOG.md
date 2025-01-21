@@ -16,6 +16,8 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [0.1.8] - 2025-01-21Z
+
 ### Changed
 
 * Updated the component with dark mode navigation icon for `SummaryRowView`
