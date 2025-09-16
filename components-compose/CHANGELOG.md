@@ -13,8 +13,13 @@ Allowed headings:
 - "Fixed" for any bug fixes.
 - "Security" in case of vulnerabilities.
 -->
-
 ## [Unreleased]
+
+## [0.1.9] - 2025-09-16Z
+
+*Fix for TextView Compose Component for Accessibility talk back issue - HMA-9778
+
+### Changed
 
 ## [0.1.8] - 2025-01-21Z
 
