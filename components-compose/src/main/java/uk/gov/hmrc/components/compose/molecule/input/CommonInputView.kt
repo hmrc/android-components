@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
@@ -41,6 +42,7 @@ import uk.gov.hmrc.components.compose.atom.text.ErrorText
 import uk.gov.hmrc.components.compose.molecule.input.CommonInputView.CHAR_COUNT_WIDTH
 import uk.gov.hmrc.components.compose.molecule.input.CommonInputView.ERROR_TEXT_WITH_CHAR_COUNT_WIDTH
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
 @Suppress("LongParameterList")
@@ -59,11 +61,19 @@ internal fun TextField(
     colors: TextFieldColors,
     trailingIcon: @Composable() (() -> Unit)? = null,
     textStyle: TextStyle = typography.body,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    isCustomErrorInputHandle: Boolean
 ) {
+    var customIsError = isError
+    val customColors = if (isCustomErrorInputHandle && isError) {
+        customIsError = false
+        customTextInputViewColors(colors, isError)
+    } else {
+        colors
+    }
     OutlinedTextField(
         modifier = modifier.fillMaxWidth(),
-        isError = isError,
+        isError = customIsError,
         value = value,
         onValueChange = onInputValueChange,
         prefix = prefix,
@@ -73,7 +83,7 @@ internal fun TextField(
         singleLine = singleLine,
         keyboardOptions = keyboardOptions,
         textStyle = textStyle,
-        colors = colors,
+        colors = customColors,
         shape = RoundedCornerShape(0),
         visualTransformation = visualTransformation,
         interactionSource = interactionSource,
@@ -155,6 +165,36 @@ internal fun errorTextCounterCombo(
             )
         }
     }
+}
+
+@Composable
+internal fun customTextInputViewColors(textFieldColors: TextFieldColors, isError: Boolean): TextFieldColors {
+    return OutlinedTextFieldDefaults.colors(
+        focusedTextColor = textFieldColors.focusedTextColor,
+        unfocusedTextColor = textFieldColors.unfocusedTextColor,
+        errorTextColor = textFieldColors.errorTextColor,
+        errorLeadingIconColor = textFieldColors.errorLeadingIconColor,
+        focusedTrailingIconColor = textFieldColors.focusedTrailingIconColor,
+        unfocusedTrailingIconColor = textFieldColors.unfocusedTrailingIconColor,
+        errorTrailingIconColor = textFieldColors.errorTrailingIconColor,
+        focusedLabelColor = textFieldColors.focusedLabelColor,
+        unfocusedLabelColor = textFieldColors.unfocusedLabelColor,
+        errorLabelColor = textFieldColors.errorLabelColor,
+        focusedBorderColor = if (isError) {
+            colors.hmrcBlack
+        } else {
+            colors.hmrcBlue
+        },
+        errorBorderColor = colors.hmrcBlack,
+        unfocusedBorderColor = colors.hmrcBlack,
+        focusedPlaceholderColor = textFieldColors.focusedPlaceholderColor,
+        unfocusedPlaceholderColor = textFieldColors.unfocusedPlaceholderColor,
+        errorPlaceholderColor = textFieldColors.errorPlaceholderColor,
+        errorSupportingTextColor = textFieldColors.errorSupportingTextColor,
+        focusedSupportingTextColor = textFieldColors.focusedSupportingTextColor,
+        cursorColor = textFieldColors.cursorColor,
+        errorCursorColor = textFieldColors.errorCursorColor,
+    )
 }
 
 object CommonInputView {

@@ -81,6 +81,7 @@ fun PasswordInputView(
     numericOnly: Boolean = true,
     maxChars: Int? = null,
     requiredSequencesSpacing: Boolean = true,
+    isCustomErrorInputHandle: Boolean = false
 ) {
     // pattern matches a non decimal number
     val nonDecimalPattern = remember { Regex("^([0-9]*)$") }
@@ -110,7 +111,8 @@ fun PasswordInputView(
         passwordTrailingButton = passwordTrailingButton,
         maxChars = maxChars,
         numericOnly = numericOnly,
-        requiredSequencesSpacing = requiredSequencesSpacing
+        requiredSequencesSpacing = requiredSequencesSpacing,
+        isCustomErrorInputHandle = isCustomErrorInputHandle
     )
 }
 
@@ -169,6 +171,7 @@ private fun PasswordTextInputView(
     maxChars: Int? = null,
     requiredSequencesSpacing: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    isCustomErrorInputHandle: Boolean
 ) {
     var hideButtonShown: Boolean by rememberSaveable { mutableStateOf(false) }
 
@@ -277,7 +280,8 @@ private fun PasswordTextInputView(
                         unfocusedBorderColor = HmrcTheme.colors.hmrcTransparent,
                         focusedBorderColor = HmrcTheme.colors.hmrcTransparent
                     ),
-                    interactionSource = interactionSource
+                    interactionSource = interactionSource,
+                    isCustomErrorInputHandle = isCustomErrorInputHandle
                 )
             }
 

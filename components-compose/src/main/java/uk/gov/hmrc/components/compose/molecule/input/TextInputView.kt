@@ -55,7 +55,8 @@ object TextInputView {
         maxChars: Int? = null,
         singleLine: Boolean = false,
         keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-        requiredSequencesSpacing: Boolean = false
+        requiredSequencesSpacing: Boolean = false,
+        isCustomErrorInputHandle: Boolean = false
     ) {
         var localValue: String by rememberSaveable { mutableStateOf(value.orEmpty()) }
         localValue = value.orEmpty()
@@ -109,7 +110,8 @@ object TextInputView {
                 trailingIcon = clearTrailingIcon,
                 colors = HmrcTheme.textFieldColors,
                 textStyle =
-                if (requiredSequencesSpacing) { HmrcTheme.typography.sequencesBody } else { HmrcTheme.typography.body }
+                if (requiredSequencesSpacing) { HmrcTheme.typography.sequencesBody } else { HmrcTheme.typography.body },
+                isCustomErrorInputHandle = isCustomErrorInputHandle
             )
         }
     }
