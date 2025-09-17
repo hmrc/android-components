@@ -39,7 +39,8 @@ fun CurrencyInputView(
     errorContentDescription: String? = null,
     singleLine: Boolean = true,
     enableDecimal: Boolean = true,
-    maxChars: Int? = null
+    maxChars: Int? = null,
+    isCustomErrorInputHandle: Boolean = false
 ) {
     // pattern matches a decimal number
     val decimalPattern = remember { Regex("^([0-9]*)(\\.?)([0-9]*)$") }
@@ -74,7 +75,8 @@ fun CurrencyInputView(
         singleLine = singleLine,
         keyboardOptions = KeyboardOptions(
             keyboardType = if (enableDecimal) KeyboardType.Decimal else KeyboardType.Number
-        )
+        ),
+        isCustomErrorInputHandle = isCustomErrorInputHandle
     )
 }
 
@@ -86,7 +88,7 @@ fun CurrencyInputViewPreview() {
             onInputValueChange = { },
             labelText = "Label",
             hintText = "Hint",
-            placeholderText = "Text",
+            placeholderText = "Text"
         )
     }
 }
