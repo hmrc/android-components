@@ -15,9 +15,17 @@ Allowed headings:
 -->
 ## [Unreleased]
 
+## [0.1.10] - 2025-09-17Z
+
+### Changed
+
+* Fix for TextView Compose Component for Accessibility talk back issue - HMA-9778
+
+### Changed
+
 ## [0.1.9] - 2025-09-16Z
 
-*Fix for TextView Compose Component for Accessibility talk back issue - HMA-9778
+* Fix for TextView Compose Component for Accessibility talk back issue - HMA-9778
 
 ### Changed
 
