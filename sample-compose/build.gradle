@@ -38,12 +38,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_18
+        targetCompatibility JavaVersion.VERSION_18
     }
 
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '18'
     }
 
     buildFeatures {
@@ -60,6 +60,7 @@ android {
         }
     }
     namespace 'uk.gov.hmrc.components.sample.compose'
+    buildToolsVersion '33.0.1'
 }
 
 dependencies {
@@ -67,33 +68,33 @@ dependencies {
     implementation platform(Libs.compose_bom)
     androidTestImplementation platform(Libs.compose_bom)
 
-    implementation Libs.androidX_coreKtx
-    implementation Libs.androidX_appCompat
-    implementation Libs.compose_ui
-    implementation Libs.compose_material3
-    implementation Libs.compose_tooling
-    implementation Libs.androidX_lifecycle_runtimeKtx
-    implementation Libs.androidX_lifecycle_viewModelKtx
-    implementation Libs.compose_androidX_runtimeLiveData
-    implementation Libs.androidX_lifecycle_viewModelCompose
-    implementation Libs.androidx_lifecycle_runtimeCompose
+    implementation(Libs.androidX_coreKtx)
+    implementation(Libs.androidX_appCompat)
+    implementation(Libs.compose_ui)
+    implementation(Libs.compose_material3)
+    implementation(Libs.compose_tooling)
+    implementation(Libs.androidX_lifecycle_runtimeKtx)
+    implementation(Libs.androidX_lifecycle_viewModelKtx)
+    implementation(Libs.compose_androidX_runtimeLiveData)
+    implementation(Libs.androidX_lifecycle_viewModelCompose)
+    implementation(Libs.androidx_lifecycle_runtimeCompose)
 
-    implementation Libs.androidX_activity_activityCompose
-    implementation Libs.material
-    implementation Libs.compose_material
+    implementation(Libs.androidX_activity_activityCompose)
+    implementation(Libs.material)
+    implementation(Libs.compose_material)
 
     //Navigation
-    implementation Libs.androidX_navigation_navigationCompose
-    implementation Libs.androidX_navigation_ui_ktx
-    implementation Libs.androidX_navigation_fragment
+    implementation(Libs.androidX_navigation_navigationCompose)
+    implementation(Libs.androidX_navigation_ui_ktx)
+    implementation(Libs.androidX_navigation_fragment)
 
-    testImplementation Libs.junit
+    testImplementation(Libs.junit)
 
-    androidTestImplementation Libs.androidX_test_ext_junit_ktx
-    androidTestImplementation Libs.androidX_test_espressoCore
-    androidTestImplementation Libs.compose_uiTest
+    androidTestImplementation(Libs.androidX_test_ext_junit_ktx)
+    androidTestImplementation(Libs.androidX_test_espressoCore)
+    androidTestImplementation(Libs.compose_uiTest)
 
-    debugImplementation Libs.compose_tooling
+    debugImplementation(Libs.compose_tooling)
 
     constraints {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.10") {

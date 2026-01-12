@@ -1,6 +1,6 @@
 task androidSourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
-    classifier 'source'
+    archiveClassifier.set('source')
 }
 
 publishing {

@@ -38,8 +38,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_18
+        targetCompatibility JavaVersion.VERSION_18
     }
     lint {
         abortOnError true
@@ -52,12 +52,12 @@ android {
 
 
 dependencies {
-    implementation Libs.material
-    implementation Libs.androidX_annotation
-    implementation Libs.androidX_constraintlayout
-    implementation Libs.androidX_core_ktx
+    implementation(Libs.material)
+    implementation(Libs.androidX_annotation)
+    implementation(Libs.androidX_constraintlayout)
+    implementation(Libs.androidX_core_ktx)
 
-    testImplementation Libs.junit
+    testImplementation(Libs.junit)
 }
 
 

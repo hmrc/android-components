@@ -49,14 +49,14 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation(fileTree(dir: 'libs', include: ['*.jar']))
     implementation project(':components')
 
-    implementation Libs.material
-    implementation Libs.androidX_appcompat
-    implementation Libs.androidX_core_ktx
-    implementation Libs.androidX_constraintlayout
-    implementation Libs.androidX_test_espressoCore
+    implementation(Libs.material)
+    implementation(Libs.androidX_appcompat)
+    implementation(Libs.androidX_core_ktx)
+    implementation(Libs.androidX_constraintlayout)
+    implementation(Libs.androidX_test_espressoCore)
 }
 
 apply from: '../publishing.gradle'
