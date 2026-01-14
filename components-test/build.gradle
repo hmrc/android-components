@@ -22,7 +22,6 @@ android {
     compileSdkVersion Versions.compileSdk
     buildToolsVersion Versions.buildTools
 
-
     defaultConfig {
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
@@ -37,6 +36,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    kotlin {
+        jvmToolchain(17)
+    }
+
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
+    }
+
     lint {
         abortOnError true
         baseline file('lint/baseline.xml')
@@ -44,8 +54,6 @@ android {
         warningsAsErrors true
     }
     namespace 'uk.gov.hmrc.components.test'
-
-
 }
 
 dependencies {
