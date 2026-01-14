@@ -64,6 +64,7 @@ interface Navigator {
     fun Fragment.goToHeadlineCardView()
 
     fun Fragment.goToPrimaryCardView()
+    fun Fragment.goToMenuPanelRowCardView()
 
     fun Fragment.goToInformationMessageCardView()
 

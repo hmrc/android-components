@@ -102,6 +102,10 @@ class AppNavigator @Inject constructor() : Navigator{
         navigate(OrganismsFragmentDirections.actionOrganismsFragmentToPrimaryCardViewFragment())
     }
 
+    override fun Fragment.goToMenuPanelRowCardView() {
+        navigate(OrganismsFragmentDirections.actionOrganismsFragmentToMenuPanelRowViewFragment())
+    }
+
     override fun Fragment.goToInformationMessageCardView() {
         navigate(OrganismsFragmentDirections.actionOrganismsFragmentToInformationMessageCardViewFragment())
     }

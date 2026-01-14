@@ -377,6 +377,8 @@
     <string name="menu_panel_example_3_body">A savings account with bonuses designed to help you start saving</string>
     <string name="menu_panel_example_4_title">News</string>
     <string name="menu_panel_example_4_body">News and current tax related information from HMRC</string>
+    <string name="menu_panel_example_5_title">State Pension</string>
+    <string name="menu_panel_example_5_body">Your State Pension and National Insurance contributions</string>
 
     <!--  Select Row View  -->
     <string name="select_row_body_description">(Body) Description</string>

@@ -98,6 +98,7 @@ fun HmrcTheme(
 
     val hmrcTypography = HmrcTypography(
         hmrcBlack = colors.hmrcBlack,
+        hmrcWhite = colors.hmrcWhite,
         hmrcGrey1 = colors.hmrcGrey1,
         hmrcBlue = colors.hmrcBlue,
         hmrcRed = colors.hmrcRed,
