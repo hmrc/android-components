@@ -23,7 +23,7 @@ import uk.gov.hmrc.components.R
 abstract class Button @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = R.attr.materialButtonStyle
+    defStyleAttr: Int = com.google.android.material.R.attr.materialButtonStyle,
 ) : MaterialButton(context, attrs, defStyleAttr) {
 
     init {
