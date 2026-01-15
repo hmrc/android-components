@@ -22,12 +22,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import uk.gov.hmrc.components.molecule.item.MultiColumnRowView
 import uk.gov.hmrc.components.organism.summary.SummaryRowView
-import uk.gov.hmrc.components.R as commonR
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.autoCleared
 import uk.gov.hmrc.components.sample.base.BaseComponentsFragment
 import uk.gov.hmrc.components.sample.base.ToolbarState
 import uk.gov.hmrc.components.sample.databinding.FragmentSummaryRowBinding
+import uk.gov.hmrc.components.R as commonR
 
 class SummaryRowFragment : BaseComponentsFragment() {
 

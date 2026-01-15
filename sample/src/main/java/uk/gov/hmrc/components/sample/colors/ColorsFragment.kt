@@ -15,9 +15,9 @@
  */
 package uk.gov.hmrc.components.sample.colors
 
-import uk.gov.hmrc.components.R as commonR
 import uk.gov.hmrc.components.sample.R
 import uk.gov.hmrc.components.sample.base.ToolbarState
+import uk.gov.hmrc.components.R as commonR
 
 class ColorsFragment : ColorListFragment() {
 
