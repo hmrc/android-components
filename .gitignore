@@ -106,3 +106,13 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/.env
 .bundle/
+
+# snapshot generated screenshots
+fastlane/metadata/**/images/**/*.png
+fastlane/metadata/**/screenshots.html
+/Artifacts
+
+#fastlane screenshot-diff
+fastlane/screenshot_diff/screenshots/*.png
+fastlane/screenshot_diff/mismatches/*.png
+fastlane/screenshot_diff/node_modules/*

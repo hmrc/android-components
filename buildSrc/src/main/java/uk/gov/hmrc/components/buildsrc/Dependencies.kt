@@ -20,7 +20,7 @@ class Dependencies {
         const val minSdk = 23
         const val targetSdk = 33
         const val compileSdk = 34
-        const val buildTools = "33.0.1"
+        const val buildTools = "34.0.0"
     }
 
     object Libs {

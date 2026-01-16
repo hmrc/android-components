@@ -63,6 +63,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion Versions.kotlinCompilerExtensionVersion
     }
+
     namespace 'uk.gov.hmrc.components.compose'
 }
 
