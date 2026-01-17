@@ -184,8 +184,7 @@ platform :android do
   desc "Runs the screenshot comparison"
   lane :screenshot_diff do |options|
     gradle(task: "copyVerificationFiles")
-    gradle(task: "unzipBundle")
-    gradle(task: "executeScreenshotTests", properties: {"runInstrumentation" => "false"})
+    gradle(task: "debugExecuteScreenshotTests", properties: {"runInstrumentation" => "false"})
   end
 
   desc "Takes a release tag and updates changelog for the components-compose package"
