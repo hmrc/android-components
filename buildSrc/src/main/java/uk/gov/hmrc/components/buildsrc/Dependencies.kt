@@ -39,6 +39,8 @@ class Dependencies {
 
         const val material = "com.google.android.material:material:1.12.0"
 
+        const val facebook_screenshot = "com.facebook.testing.screenshot:core:0.15.0"
+
         const val junit = "junit:junit:4.13.2"
     }
 }

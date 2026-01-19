@@ -96,4 +96,5 @@ dependencies {
     androidTestImplementation(Libs.androidX_test_core_ktx)
     androidTestImplementation(Libs.androidX_test_espressoCore)
     androidTestImplementation(Libs.androidX_test_uiautomator)
+    androidTestImplementation(Libs.facebook_screenshot)
 }
