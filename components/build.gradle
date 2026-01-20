@@ -38,9 +38,20 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+
+    kotlin {
+        jvmToolchain(17)
+    }
+
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
+    }
+
     lint {
         abortOnError true
         baseline file('lint/baseline.xml')
@@ -50,14 +61,13 @@ android {
     namespace 'uk.gov.hmrc.components'
 }
 
-
 dependencies {
-    implementation Libs.material
-    implementation Libs.androidX_annotation
-    implementation Libs.androidX_constraintlayout
-    implementation Libs.androidX_core_ktx
+    implementation(Libs.material)
+    implementation(Libs.androidX_annotation)
+    implementation(Libs.androidX_constraintlayout)
+    implementation(Libs.androidX_core_ktx)
 
-    testImplementation Libs.junit
+    testImplementation(Libs.junit)
 }
 
 

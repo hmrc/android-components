@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.sp
 data class HmrcTypography(
     val hmrcBlack: Color,
     val hmrcGrey1: Color,
+    val hmrcWhite: Color,
     val hmrcBlue: Color,
     val hmrcRed: Color,
 
@@ -87,5 +88,11 @@ data class HmrcTypography(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
+    ),
+    val notificationText: TextStyle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp,
+        color = hmrcWhite,
     )
 )

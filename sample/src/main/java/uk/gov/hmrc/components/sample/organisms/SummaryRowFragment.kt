@@ -27,6 +27,7 @@ import uk.gov.hmrc.components.sample.autoCleared
 import uk.gov.hmrc.components.sample.base.BaseComponentsFragment
 import uk.gov.hmrc.components.sample.base.ToolbarState
 import uk.gov.hmrc.components.sample.databinding.FragmentSummaryRowBinding
+import uk.gov.hmrc.components.R as commonR
 
 class SummaryRowFragment : BaseComponentsFragment() {
 
@@ -86,7 +87,7 @@ class SummaryRowFragment : BaseComponentsFragment() {
             setRows(arrayListOf(example1aRow1, example1aRow2, example1aRow3))
             setOnClickListener { onCtaPressed() }
             setChevronContentDescription(getString(R.string.summary_row_example_1a_accessibility_message))
-            setTitleTextAppearance(R.style.Text_Info)
+            setTitleTextAppearance(commonR.style.Text_Info)
         }
 
         val example1bRow1 = MultiColumnRowView(requireContext())
@@ -141,7 +142,7 @@ class SummaryRowFragment : BaseComponentsFragment() {
         binding.summaryRowExample6.apply {
             setRows(arrayListOf(example6Row1))
             setOnClickListener { onCtaPressed() }
-            setIconTintColor(R.color.hmrc_blue)
+            setIconTintColor(commonR.color.hmrc_blue)
         }
 
         // Example: SummaryRowView that is dynamically added

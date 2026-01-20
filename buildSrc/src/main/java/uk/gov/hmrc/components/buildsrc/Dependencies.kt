@@ -24,8 +24,8 @@ class Dependencies {
     }
 
     object Libs {
-        const val androidX_annotation = "androidx.annotation:annotation:1.8.0"
-        const val androidX_appcompat = "androidx.appcompat:appcompat:1.6.1"
+        const val androidX_annotation = "androidx.annotation:annotation:1.9.1"
+        const val androidX_appcompat = "androidx.appcompat:appcompat:1.7.1"
         const val androidX_recyclerview = "androidx.recyclerview:recyclerview:1.3.2"
         const val androidX_constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
         const val androidX_lifecycle = "androidx.lifecycle:lifecycle-compiler:2.7.0"
@@ -38,6 +38,8 @@ class Dependencies {
         const val androidX_test_uiautomator = "androidx.test.uiautomator:uiautomator:2.3.0"
 
         const val material = "com.google.android.material:material:1.12.0"
+
+        const val facebook_screenshot = "com.facebook.testing.screenshot:core:0.15.0"
 
         const val junit = "junit:junit:4.13.2"
     }

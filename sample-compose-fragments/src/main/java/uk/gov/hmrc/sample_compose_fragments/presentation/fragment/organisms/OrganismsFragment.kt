@@ -29,6 +29,7 @@ import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleB
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_HEADLINE_CARD_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_ICON_BUTTON_CARD_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_INFORMATION_MESSAGE_CARD_VIEW
+import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_MENU_PANEL_ROW_CARD_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_PRIMARY_CARD_VIEW
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_SEPARATED_VIEW_CONTAINER
 import uk.gov.hmrc.sample_compose_fragments.data.repository.RepositoryImpl.Companion.ORGANISM_SUMMARY_ROW_VIEW
@@ -73,7 +74,9 @@ class OrganismsFragment : Fragment(R.layout.fragment_compose_example) {
                                 ORGANISM_PRIMARY_CARD_VIEW -> {
                                     with(navigator) { goToPrimaryCardView() }
                                 }
-
+                                ORGANISM_MENU_PANEL_ROW_CARD_VIEW -> {
+                                    with(navigator) { goToMenuPanelRowCardView() }
+                                }
                                 ORGANISM_INFORMATION_MESSAGE_CARD_VIEW -> {
                                     with(navigator) { goToInformationMessageCardView() }
                                 }

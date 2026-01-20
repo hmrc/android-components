@@ -40,13 +40,20 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = '11'
+    kotlin {
+        jvmToolchain(17)
     }
+
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
+    }
+
     packagingOptions {
         jniLibs {
             excludes += ['META-INF/*']
@@ -74,19 +81,20 @@ dependencies {
     implementation project(":components")
 
     // AndroidX
-    implementation Libs.androidX_appcompat
-    implementation Libs.androidX_recyclerview
-    implementation Libs.androidX_constraintlayout
-    implementation Libs.androidX_lifecycle
-    implementation Libs.androidX_core_ktx
+    implementation(Libs.androidX_appcompat)
+    implementation(Libs.androidX_recyclerview)
+    implementation(Libs.androidX_constraintlayout)
+    implementation(Libs.androidX_lifecycle)
+    implementation(Libs.androidX_core_ktx)
 
     // Material
-    implementation Libs.material
+    implementation(Libs.material)
 
-    androidTestImplementation Libs.androidX_test_espressoContrib
-    androidTestImplementation Libs.androidX_test_ext_junit
-    androidTestImplementation Libs.androidX_test_runner
-    androidTestImplementation Libs.androidX_test_core_ktx
-    androidTestImplementation Libs.androidX_test_espressoCore
-    androidTestImplementation Libs.androidX_test_uiautomator
+    androidTestImplementation(Libs.androidX_test_espressoContrib)
+    androidTestImplementation(Libs.androidX_test_ext_junit)
+    androidTestImplementation(Libs.androidX_test_runner)
+    androidTestImplementation(Libs.androidX_test_core_ktx)
+    androidTestImplementation(Libs.androidX_test_espressoCore)
+    androidTestImplementation(Libs.androidX_test_uiautomator)
+    androidTestImplementation(Libs.facebook_screenshot)
 }
