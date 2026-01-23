@@ -15,6 +15,15 @@ Allowed headings:
 -->
 ## [Unreleased]
 
+## [0.1.11] - 2026-01-23Z
+
+### Changed
+
+* Java version is upgraded from 11 to 17
+* Android gradle plugin version upgraded from 7.4.1 to 8.5.1
+* Updated kolin version to 1.9.22
+* Added new compose component MenuPanelRow - HMA-11141
+
 ## [0.1.10] - 2025-09-17Z
 
 ### Changed
