@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.heading.Heading5Blue
@@ -52,7 +53,13 @@ fun MenuPanelRowView(
     notification: String? = null,
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
+    icon: String? = "components_ic_chevron_right"
 ) {
+    val iconDrawable = when(icon) {
+        "components_ic_chevron_right"-> R.drawable.components_ic_chevron_right
+        "ic_open_in_external_browser"-> R.drawable.ic_open_in_external_browser
+        else-> R.drawable.components_ic_chevron_right
+    }
     HmrcCardView(
         customBackgroundColor = HmrcTheme.colors.hmrcGrey3,
         modifier = modifier
@@ -111,7 +118,7 @@ fun MenuPanelRowView(
             }
             Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing8))
             Image(
-                painter = painterResource(id = R.drawable.components_ic_chevron_right),
+                painter = painterResource(id = iconDrawable),
                 colorFilter = ColorFilter.tint(
                     if (isSystemInDarkTheme()) {
                         HmrcBlackDark
@@ -122,5 +129,69 @@ fun MenuPanelRowView(
                 contentDescription = "",
             )
         }
+    }
+}
+
+@Preview
+@Composable
+fun MenuPanelRowViewPreview() {
+    HmrcTheme() {
+        MenuPanelRowView(
+            heading = "Heading",
+            onClick = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+fun MenuPanelRowViewExternalPreview() {
+    HmrcTheme() {
+        MenuPanelRowView(
+            heading = "Heading",
+            onClick = {},
+            icon = "ic_open_in_external_browser"
+
+        )
+    }
+}
+
+@Preview
+@Composable
+fun MenuPanelRowViewBodyPreview() {
+    HmrcTheme() {
+        MenuPanelRowView(
+            heading = "Heading",
+            onClick = {},
+            body = "Body"
+
+        )
+    }
+}
+
+@Preview
+@Composable
+fun MenuPanelRowViewNotificationPreview() {
+    HmrcTheme() {
+        MenuPanelRowView(
+            heading = "Heading",
+            onClick = {},
+            hasNotification = true
+
+        )
+    }
+}
+
+@Preview
+@Composable
+fun MenuPanelRowViewNotificationsPreview() {
+    HmrcTheme() {
+        MenuPanelRowView(
+            heading = "Heading",
+            onClick = {},
+            hasNotification = true,
+            notification = "2"
+
+        )
     }
 }

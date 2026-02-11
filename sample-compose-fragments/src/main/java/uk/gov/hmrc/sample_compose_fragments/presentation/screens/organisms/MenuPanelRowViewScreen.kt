@@ -96,6 +96,12 @@ fun MenuPanelRowViewScreen(onClickAction: () -> Unit) {
                     notification = "NEW",
                     onClick = onClickAction,
                 )
+                MenuPanelRowView(
+                    heading = stringResource(id = R.string.menu_panel_example_6_title),
+                    body = stringResource(id = R.string.menu_panel_example_6_body),
+                    onClick = onClickAction,
+                    icon = "ic_open_in_external_browser"
+                )
             }
         }
     }
