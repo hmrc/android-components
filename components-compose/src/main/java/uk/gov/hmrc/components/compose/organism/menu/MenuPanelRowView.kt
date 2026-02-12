@@ -111,7 +111,7 @@ fun MenuPanelRowView(
                 }
 
                 if (body != null) {
-                    Spacer(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16))
+                    Spacer(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing8))
 
                     BodyText(
                         text = body,
