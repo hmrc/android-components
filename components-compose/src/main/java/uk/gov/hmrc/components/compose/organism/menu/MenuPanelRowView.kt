@@ -34,6 +34,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.R
@@ -53,7 +55,8 @@ fun MenuPanelRowView(
     notification: String? = null,
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
-    icon: Int = R.drawable.components_ic_chevron_right
+    icon: Int = R.drawable.components_ic_chevron_right,
+    accessibilityButton: String? = "Button"
 ) {
     HmrcCardView(
         customBackgroundColor = HmrcTheme.colors.hmrcGrey3,
@@ -76,6 +79,10 @@ fun MenuPanelRowView(
                 ) {
                     Heading5Blue(
                         text = heading,
+                        modifier = Modifier.semantics {
+                            contentDescription =
+                                if (body.isNullOrBlank()) heading + accessibilityButton else ""
+                        }
                     )
 
                     Spacer(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing4))
@@ -108,6 +115,9 @@ fun MenuPanelRowView(
 
                     BodyText(
                         text = body,
+                        modifier = Modifier.semantics {
+                            contentDescription = body + accessibilityButton
+                        }
                     )
                 }
             }
