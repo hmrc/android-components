@@ -53,13 +53,8 @@ fun MenuPanelRowView(
     notification: String? = null,
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
-    icon: String? = "components_ic_chevron_right"
+    icon: Int = R.drawable.components_ic_chevron_right
 ) {
-    val iconDrawable = when(icon) {
-        "components_ic_chevron_right"-> R.drawable.components_ic_chevron_right
-        "ic_open_in_external_browser"-> R.drawable.ic_open_in_external_browser
-        else-> R.drawable.components_ic_chevron_right
-    }
     HmrcCardView(
         customBackgroundColor = HmrcTheme.colors.hmrcGrey3,
         modifier = modifier
@@ -118,7 +113,7 @@ fun MenuPanelRowView(
             }
             Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing8))
             Image(
-                painter = painterResource(id = iconDrawable),
+                painter = painterResource(id = icon),
                 colorFilter = ColorFilter.tint(
                     if (isSystemInDarkTheme()) {
                         HmrcBlackDark
@@ -150,7 +145,7 @@ fun MenuPanelRowViewExternalPreview() {
         MenuPanelRowView(
             heading = "Heading",
             onClick = {},
-            icon = "ic_open_in_external_browser"
+            icon = R.drawable.ic_open_in_external_browser
 
         )
     }
