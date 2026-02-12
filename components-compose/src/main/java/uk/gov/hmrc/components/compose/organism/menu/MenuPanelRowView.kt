@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
@@ -57,6 +58,9 @@ fun MenuPanelRowView(
     onClick: () -> Unit,
     icon: Int = R.drawable.components_ic_chevron_right,
 ) {
+    val accessibilityButton = stringResource(
+        R.string.accessibility_button
+    )
     HmrcCardView(
         customBackgroundColor = HmrcTheme.colors.hmrcGrey3,
         modifier = modifier
@@ -80,7 +84,7 @@ fun MenuPanelRowView(
                         text = heading,
                         modifier = Modifier.semantics {
                             contentDescription =
-                                if (body.isNullOrBlank()) heading + R.string.accessibility_button else ""
+                                if (body.isNullOrBlank()) heading + accessibilityButton else ""
                         }
                     )
 
@@ -115,7 +119,7 @@ fun MenuPanelRowView(
                     BodyText(
                         text = body,
                         modifier = Modifier.semantics {
-                            contentDescription = body + R.string.accessibility_button
+                            contentDescription = body + accessibilityButton
                         }
                     )
                 }
