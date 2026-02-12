@@ -56,7 +56,7 @@ fun MenuPanelRowView(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     icon: Int = R.drawable.components_ic_chevron_right,
-    accessibilityButton: String? = "Button"
+    accessibilityButton: Int = R.string.accessibility_button
 ) {
     HmrcCardView(
         customBackgroundColor = HmrcTheme.colors.hmrcGrey3,
