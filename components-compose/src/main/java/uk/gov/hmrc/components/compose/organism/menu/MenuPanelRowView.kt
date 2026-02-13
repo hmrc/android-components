@@ -57,7 +57,7 @@ fun MenuPanelRowView(
     notification: String? = null,
     icon: Int = R.drawable.components_ic_chevron_right,
     accessibilityDescription: Int = R.string.accessibility_button_activate,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val cardAccessibility = stringResource(accessibilityDescription)
     val buttonAccessibility = stringResource(R.string.accessibility_button)
