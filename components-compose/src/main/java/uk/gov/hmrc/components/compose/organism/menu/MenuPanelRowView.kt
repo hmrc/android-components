@@ -23,7 +23,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -51,25 +51,27 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 @Composable
 fun MenuPanelRowView(
     heading: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
     body: String? = null,
     hasNotification: Boolean = false,
     notification: String? = null,
-    modifier: Modifier = Modifier,
-    onClick: () -> Unit,
     icon: Int = R.drawable.components_ic_chevron_right,
-    accessibilityButton: Int = R.string.accessibility_button
+    accessibilityDescription: Int = R.string.accessibility_button_activate
 ) {
-    val accessibilityButton = stringResource(accessibilityButton)
+    val accessibility = stringResource(accessibilityDescription)
+    val accessibilityButton = stringResource(R.string.accessibility_button)
+
     HmrcCardView(
         customBackgroundColor = HmrcTheme.colors.hmrcGrey3,
         modifier = modifier
-            .clickable(
-                onClick = onClick,
-            )
+            .clickable(onClickLabel = accessibility) {
+                onClick()
+            }
     ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .padding(HmrcTheme.dimensions.hmrcSpacing16),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -142,7 +144,7 @@ fun MenuPanelRowView(
 @Preview
 @Composable
 fun MenuPanelRowViewPreview() {
-    HmrcTheme() {
+    HmrcTheme {
         MenuPanelRowView(
             heading = "Heading",
             onClick = {}
@@ -153,13 +155,12 @@ fun MenuPanelRowViewPreview() {
 @Preview
 @Composable
 fun MenuPanelRowViewExternalPreview() {
-    HmrcTheme() {
+    HmrcTheme {
         MenuPanelRowView(
             heading = "Heading",
             onClick = {},
             icon = R.drawable.ic_open_in_external_browser,
-            accessibilityButton = R.string.accessibility_double_tap_open_in_browser
-
+            accessibilityDescription = R.string.accessibility_button_open_in_browser
         )
     }
 }
@@ -167,12 +168,11 @@ fun MenuPanelRowViewExternalPreview() {
 @Preview
 @Composable
 fun MenuPanelRowViewBodyPreview() {
-    HmrcTheme() {
+    HmrcTheme {
         MenuPanelRowView(
             heading = "Heading",
             onClick = {},
             body = "Body"
-
         )
     }
 }
@@ -180,12 +180,11 @@ fun MenuPanelRowViewBodyPreview() {
 @Preview
 @Composable
 fun MenuPanelRowViewNotificationPreview() {
-    HmrcTheme() {
+    HmrcTheme {
         MenuPanelRowView(
             heading = "Heading",
             onClick = {},
             hasNotification = true
-
         )
     }
 }
@@ -193,13 +192,12 @@ fun MenuPanelRowViewNotificationPreview() {
 @Preview
 @Composable
 fun MenuPanelRowViewNotificationsPreview() {
-    HmrcTheme() {
+    HmrcTheme {
         MenuPanelRowView(
             heading = "Heading",
             onClick = {},
             hasNotification = true,
             notification = "2"
-
         )
     }
 }

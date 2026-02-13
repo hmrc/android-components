@@ -100,7 +100,8 @@ fun MenuPanelRowViewScreen(onClickAction: () -> Unit) {
                     heading = stringResource(id = R.string.menu_panel_example_6_title),
                     body = stringResource(id = R.string.menu_panel_example_6_body),
                     onClick = onClickAction,
-                    icon = uk.gov.hmrc.components.compose.R.drawable.ic_open_in_external_browser
+                    icon = uk.gov.hmrc.components.compose.R.drawable.ic_open_in_external_browser,
+                    accessibilityDescription = uk.gov.hmrc.components.compose.R.string.accessibility_button_open_in_browser,
                 )
             }
         }
