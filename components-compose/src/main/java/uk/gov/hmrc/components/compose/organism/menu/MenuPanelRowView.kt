@@ -57,10 +57,9 @@ fun MenuPanelRowView(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     icon: Int = R.drawable.components_ic_chevron_right,
+    accessibilityButton: Int = R.string.accessibility_button
 ) {
-    val accessibilityButton = stringResource(
-        R.string.accessibility_button
-    )
+    val accessibilityButton = stringResource(accessibilityButton)
     HmrcCardView(
         customBackgroundColor = HmrcTheme.colors.hmrcGrey3,
         modifier = modifier
@@ -158,7 +157,8 @@ fun MenuPanelRowViewExternalPreview() {
         MenuPanelRowView(
             heading = "Heading",
             onClick = {},
-            icon = R.drawable.ic_open_in_external_browser
+            icon = R.drawable.ic_open_in_external_browser,
+            accessibilityButton = R.string.accessibility_double_tap_open_in_browser
 
         )
     }
