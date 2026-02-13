@@ -23,7 +23,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -34,6 +34,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.heading.Heading5Blue
@@ -47,22 +51,27 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 @Composable
 fun MenuPanelRowView(
     heading: String,
+    onClick: () -> Unit,
     body: String? = null,
     hasNotification: Boolean = false,
     notification: String? = null,
+    icon: Int = R.drawable.components_ic_chevron_right,
+    accessibilityDescription: Int = R.string.accessibility_button_activate,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit,
 ) {
+    val cardAccessibility = stringResource(accessibilityDescription)
+    val buttonAccessibility = stringResource(R.string.accessibility_button)
+
     HmrcCardView(
         customBackgroundColor = HmrcTheme.colors.hmrcGrey3,
         modifier = modifier
-            .clickable(
-                onClick = onClick,
-            )
+            .clickable(onClickLabel = cardAccessibility) {
+                onClick()
+            }
     ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .padding(HmrcTheme.dimensions.hmrcSpacing16),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -74,6 +83,10 @@ fun MenuPanelRowView(
                 ) {
                     Heading5Blue(
                         text = heading,
+                        modifier = Modifier.semantics {
+                            contentDescription =
+                                if (body.isNullOrBlank()) heading + buttonAccessibility else ""
+                        }
                     )
 
                     Spacer(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing4))
@@ -102,16 +115,19 @@ fun MenuPanelRowView(
                 }
 
                 if (body != null) {
-                    Spacer(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16))
+                    Spacer(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing8))
 
                     BodyText(
                         text = body,
+                        modifier = Modifier.semantics {
+                            contentDescription = body + buttonAccessibility
+                        }
                     )
                 }
             }
             Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing8))
             Image(
-                painter = painterResource(id = R.drawable.components_ic_chevron_right),
+                painter = painterResource(id = icon),
                 colorFilter = ColorFilter.tint(
                     if (isSystemInDarkTheme()) {
                         HmrcBlackDark
@@ -122,5 +138,66 @@ fun MenuPanelRowView(
                 contentDescription = "",
             )
         }
+    }
+}
+
+@Preview
+@Composable
+fun MenuPanelRowViewPreview() {
+    HmrcTheme {
+        MenuPanelRowView(
+            heading = "Heading",
+            onClick = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+fun MenuPanelRowViewExternalPreview() {
+    HmrcTheme {
+        MenuPanelRowView(
+            heading = "Heading",
+            onClick = {},
+            icon = R.drawable.ic_open_in_external_browser,
+            accessibilityDescription = R.string.accessibility_button_open_in_browser
+        )
+    }
+}
+
+@Preview
+@Composable
+fun MenuPanelRowViewBodyPreview() {
+    HmrcTheme {
+        MenuPanelRowView(
+            heading = "Heading",
+            onClick = {},
+            body = "Body"
+        )
+    }
+}
+
+@Preview
+@Composable
+fun MenuPanelRowViewNotificationPreview() {
+    HmrcTheme {
+        MenuPanelRowView(
+            heading = "Heading",
+            onClick = {},
+            hasNotification = true
+        )
+    }
+}
+
+@Preview
+@Composable
+fun MenuPanelRowViewNotificationsPreview() {
+    HmrcTheme {
+        MenuPanelRowView(
+            heading = "Heading",
+            onClick = {},
+            hasNotification = true,
+            notification = "2"
+        )
     }
 }

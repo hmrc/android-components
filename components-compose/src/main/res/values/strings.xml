@@ -20,5 +20,8 @@
     <string name="accessibility_activate">activate</string>
     <string name="bottomSheetView_drag_handle_content_desc">Drag handle</string>
     <string name="bottomSheetView_close_content_desc">Dismiss bottom sheet</string>
+    <string name="accessibility_button">Button</string>
+    <string name="accessibility_button_activate">activate</string>
+    <string name="accessibility_button_open_in_browser">open in a web browser</string>
 
 </resources>

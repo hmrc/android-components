@@ -27,6 +27,7 @@ import uk.gov.hmrc.components.compose.organism.menu.MenuPanelRowView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
+import uk.gov.hmrc.components.compose.R as composeR
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.ExamplesSlot
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcPreview
@@ -95,6 +96,13 @@ fun MenuPanelRowViewScreen(onClickAction: () -> Unit) {
                     hasNotification = true,
                     notification = "NEW",
                     onClick = onClickAction,
+                )
+                MenuPanelRowView(
+                    heading = stringResource(id = R.string.menu_panel_example_6_title),
+                    body = stringResource(id = R.string.menu_panel_example_6_body),
+                    onClick = onClickAction,
+                    icon = composeR.drawable.ic_open_in_external_browser,
+                    accessibilityDescription = composeR.string.accessibility_button_open_in_browser,
                 )
             }
         }
