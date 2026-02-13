@@ -52,20 +52,20 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 fun MenuPanelRowView(
     heading: String,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier,
     body: String? = null,
     hasNotification: Boolean = false,
     notification: String? = null,
     icon: Int = R.drawable.components_ic_chevron_right,
-    accessibilityDescription: Int = R.string.accessibility_button_activate
+    accessibilityDescription: Int = R.string.accessibility_button_activate,
+    modifier: Modifier = Modifier
 ) {
-    val accessibility = stringResource(accessibilityDescription)
-    val accessibilityButton = stringResource(R.string.accessibility_button)
+    val cardAccessibility = stringResource(accessibilityDescription)
+    val buttonAccessibility = stringResource(R.string.accessibility_button)
 
     HmrcCardView(
         customBackgroundColor = HmrcTheme.colors.hmrcGrey3,
         modifier = modifier
-            .clickable(onClickLabel = accessibility) {
+            .clickable(onClickLabel = cardAccessibility) {
                 onClick()
             }
     ) {
@@ -85,7 +85,7 @@ fun MenuPanelRowView(
                         text = heading,
                         modifier = Modifier.semantics {
                             contentDescription =
-                                if (body.isNullOrBlank()) heading + accessibilityButton else ""
+                                if (body.isNullOrBlank()) heading + buttonAccessibility else ""
                         }
                     )
 
@@ -120,7 +120,7 @@ fun MenuPanelRowView(
                     BodyText(
                         text = body,
                         modifier = Modifier.semantics {
-                            contentDescription = body + accessibilityButton
+                            contentDescription = body + buttonAccessibility
                         }
                     )
                 }
