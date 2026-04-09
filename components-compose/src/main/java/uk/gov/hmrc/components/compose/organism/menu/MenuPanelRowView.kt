@@ -19,11 +19,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -71,7 +73,7 @@ fun MenuPanelRowView(
     ) {
         Row(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
                 .padding(HmrcTheme.dimensions.hmrcSpacing16),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -86,7 +88,7 @@ fun MenuPanelRowView(
                         modifier = Modifier.semantics {
                             contentDescription =
                                 if (body.isNullOrBlank()) heading + buttonAccessibility else ""
-                        }
+                        }.weight(weight = 0.8f, fill = false)
                     )
 
                     Spacer(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing4))
@@ -101,7 +103,7 @@ fun MenuPanelRowView(
                                 .background(
                                     color = HmrcTheme.colors.hmrcRed,
                                     shape = RoundedCornerShape(size = HmrcTheme.dimensions.hmrcSpacing32)
-                                ),
+                                ).weight(weight = 0.2f, fill = false),
                             contentAlignment = Alignment.Center
                         ) {
                             if (notification != null) {
@@ -145,59 +147,44 @@ fun MenuPanelRowView(
 @Composable
 fun MenuPanelRowViewPreview() {
     HmrcTheme {
-        MenuPanelRowView(
-            heading = "Heading",
-            onClick = {}
-        )
-    }
-}
+        Column(verticalArrangement = Arrangement.spacedBy(HmrcTheme.dimensions.hmrcSpacing8)) {
+            MenuPanelRowView(
+                heading = "Heading",
+                onClick = {}
+            )
 
-@Preview
-@Composable
-fun MenuPanelRowViewExternalPreview() {
-    HmrcTheme {
-        MenuPanelRowView(
-            heading = "Heading",
-            onClick = {},
-            icon = R.drawable.ic_open_in_external_browser,
-            accessibilityDescription = R.string.accessibility_button_open_in_browser
-        )
-    }
-}
+            MenuPanelRowView(
+                heading = "Heading",
+                onClick = {},
+                icon = R.drawable.ic_open_in_external_browser,
+                accessibilityDescription = R.string.accessibility_button_open_in_browser
+            )
 
-@Preview
-@Composable
-fun MenuPanelRowViewBodyPreview() {
-    HmrcTheme {
-        MenuPanelRowView(
-            heading = "Heading",
-            onClick = {},
-            body = "Body"
-        )
-    }
-}
+            MenuPanelRowView(
+                heading = "Heading",
+                onClick = {},
+                body = "Body"
+            )
 
-@Preview
-@Composable
-fun MenuPanelRowViewNotificationPreview() {
-    HmrcTheme {
-        MenuPanelRowView(
-            heading = "Heading",
-            onClick = {},
-            hasNotification = true
-        )
-    }
-}
+            MenuPanelRowView(
+                heading = "Heading",
+                onClick = {},
+                hasNotification = true
+            )
 
-@Preview
-@Composable
-fun MenuPanelRowViewNotificationsPreview() {
-    HmrcTheme {
-        MenuPanelRowView(
-            heading = "Heading",
-            onClick = {},
-            hasNotification = true,
-            notification = "2"
-        )
+            MenuPanelRowView(
+                heading = "Heading Heading Heading",
+                onClick = {},
+                hasNotification = true,
+                notification = "9"
+            )
+
+            MenuPanelRowView(
+                heading = "Heading Heading Heading Heading Heading Heading",
+                onClick = {},
+                hasNotification = true,
+                notification = "999"
+            )
+        }
     }
 }
