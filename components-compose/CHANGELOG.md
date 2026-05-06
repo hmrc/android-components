@@ -15,6 +15,12 @@ Allowed headings:
 -->
 ## [Unreleased]
 
+## [0.1.13] - 2026-05-06Z
+
+### Changed
+
+* Updated the notification icon in the Menu item panel- HMA-11620
+
 ## [0.1.12] - 2026-02-13Z
 
 ### Changed
