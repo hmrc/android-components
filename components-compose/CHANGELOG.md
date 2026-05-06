@@ -15,6 +15,12 @@ Allowed headings:
 -->
 ## [Unreleased]
 
+## [0.1.12] - 2026-02-13Z
+
+### Changed
+
+* Updated compose component MenuPanelRow to support external webpage navigation with icon- HMA-112673
+
 ## [0.1.11] - 2026-01-23Z
 
 ### Changed
