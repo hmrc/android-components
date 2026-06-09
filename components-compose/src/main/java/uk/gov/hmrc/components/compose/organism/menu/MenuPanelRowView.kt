@@ -47,6 +47,8 @@ import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlackDark
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 
 @Suppress("LongMethod")
 @Composable
@@ -64,7 +66,8 @@ fun MenuPanelRowView(
     val buttonAccessibility = stringResource(R.string.accessibility_button)
 
     HmrcCardView(
-        customBackgroundColor = HmrcTheme.colors.hmrcGrey3,
+        customBackgroundColor = HmrcTheme.colors.hmrcWhiteBackground,
+        shape = RoundedCornerShape(8.dp),
         modifier = modifier
             .clickable(onClickLabel = cardAccessibility) {
                 onClick()
@@ -146,15 +149,21 @@ fun MenuPanelRowView(
 @Composable
 fun MenuPanelRowViewPreview() {
     HmrcTheme {
-        Column(verticalArrangement = Arrangement.spacedBy(HmrcTheme.dimensions.hmrcSpacing8)) {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(dimensions.hmrcSpacing8),
+            modifier = Modifier.background(HmrcTheme.colors.hmrcGrey3)
+        ) {
+
             MenuPanelRowView(
                 heading = "Heading",
-                onClick = {}
+                onClick = {},
+                modifier = Modifier.padding(8.dp)
             )
 
             MenuPanelRowView(
                 heading = "Heading",
                 onClick = {},
+                modifier = Modifier.padding(8.dp),
                 icon = R.drawable.ic_open_in_external_browser,
                 accessibilityDescription = R.string.accessibility_button_open_in_browser
             )
@@ -162,12 +171,14 @@ fun MenuPanelRowViewPreview() {
             MenuPanelRowView(
                 heading = "Heading",
                 onClick = {},
+                modifier = Modifier.padding(8.dp),
                 body = "Body"
             )
 
             MenuPanelRowView(
                 heading = "Heading",
                 onClick = {},
+                modifier = Modifier.padding(8.dp),
                 hasNotification = true
             )
 
@@ -175,6 +186,7 @@ fun MenuPanelRowViewPreview() {
                 heading = "Heading Heading Heading",
                 onClick = {},
                 hasNotification = true,
+                modifier = Modifier.padding(8.dp),
                 notification = "9"
             )
 
@@ -182,6 +194,7 @@ fun MenuPanelRowViewPreview() {
                 heading = "Heading Heading Heading Heading Heading Heading",
                 onClick = {},
                 hasNotification = true,
+                modifier = Modifier.padding(8.dp),
                 notification = "999"
             )
         }
