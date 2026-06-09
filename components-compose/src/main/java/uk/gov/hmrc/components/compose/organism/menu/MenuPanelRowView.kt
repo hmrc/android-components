@@ -64,7 +64,8 @@ fun MenuPanelRowView(
     val buttonAccessibility = stringResource(R.string.accessibility_button)
 
     HmrcCardView(
-        customBackgroundColor = HmrcTheme.colors.hmrcGrey3,
+        customBackgroundColor = HmrcTheme.colors.hmrcWhiteBackground,
+        shape = RoundedCornerShape(8.dp),
         modifier = modifier
             .clickable(onClickLabel = cardAccessibility) {
                 onClick()
