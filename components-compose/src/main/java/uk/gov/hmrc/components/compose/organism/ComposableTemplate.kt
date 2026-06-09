@@ -30,12 +30,12 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 fun HmrcCardView(
     modifier: Modifier = Modifier,
     customBackgroundColor: Color = HmrcTheme.colors.hmrcWhiteBackground,
-    shape: Shape = CardDefaults.shape,
+    shape: Shape = RectangleShape,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Card(
         modifier = modifier.fillMaxWidth(),
-        shape = RectangleShape,
+        shape = shape,
         content = content,
         colors = CardDefaults.cardColors(containerColor = customBackgroundColor),
         elevation = CardDefaults.cardElevation()

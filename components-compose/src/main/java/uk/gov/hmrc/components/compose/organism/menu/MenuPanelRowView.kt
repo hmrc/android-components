@@ -18,6 +18,7 @@ package uk.gov.hmrc.components.compose.organism.menu
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.draggable2D
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -33,7 +34,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
@@ -47,6 +50,8 @@ import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlackDark
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 
 @Suppress("LongMethod")
 @Composable
@@ -147,15 +152,19 @@ fun MenuPanelRowView(
 @Composable
 fun MenuPanelRowViewPreview() {
     HmrcTheme {
-        Column(verticalArrangement = Arrangement.spacedBy(HmrcTheme.dimensions.hmrcSpacing8)) {
+        Column(verticalArrangement = Arrangement.spacedBy(dimensions.hmrcSpacing8),
+            modifier = Modifier.background(HmrcTheme.colors.hmrcGrey3)) {
+
             MenuPanelRowView(
                 heading = "Heading",
-                onClick = {}
+                onClick = {},
+                modifier = Modifier.padding(8.dp)
             )
 
             MenuPanelRowView(
                 heading = "Heading",
                 onClick = {},
+                modifier = Modifier.padding(8.dp),
                 icon = R.drawable.ic_open_in_external_browser,
                 accessibilityDescription = R.string.accessibility_button_open_in_browser
             )
@@ -163,12 +172,14 @@ fun MenuPanelRowViewPreview() {
             MenuPanelRowView(
                 heading = "Heading",
                 onClick = {},
+                modifier = Modifier.padding(8.dp),
                 body = "Body"
             )
 
             MenuPanelRowView(
                 heading = "Heading",
                 onClick = {},
+                modifier = Modifier.padding(8.dp),
                 hasNotification = true
             )
 
@@ -176,6 +187,7 @@ fun MenuPanelRowViewPreview() {
                 heading = "Heading Heading Heading",
                 onClick = {},
                 hasNotification = true,
+                modifier = Modifier.padding(8.dp),
                 notification = "9"
             )
 
@@ -183,6 +195,7 @@ fun MenuPanelRowViewPreview() {
                 heading = "Heading Heading Heading Heading Heading Heading",
                 onClick = {},
                 hasNotification = true,
+                modifier = Modifier.padding(8.dp),
                 notification = "999"
             )
         }
