@@ -15,6 +15,12 @@ Allowed headings:
 -->
 ## [Unreleased]
 
+## [0.1.14] - 2026-06-11Z
+
+### Changed
+
+* Updated compose component MenuPanelRow with the white background and rounded corners- HMA-11677
+
 ## [0.1.13] - 2026-05-06Z
 
 ### Changed
