@@ -105,6 +105,21 @@ class SummaryRowFragment : BaseComponentsFragment() {
             setOnClickListener { onCtaPressed() }
         }
 
+        val example1cRow1 = MultiColumnRowView(requireContext())
+        example1cRow1.setText(
+            getString(R.string.summary_row_example_1b_row1_text1),
+            getString(R.string.summary_row_example_1b_row1_text2)
+        )
+        val example1cRow2 = MultiColumnRowView(requireContext())
+        example1cRow2.setText(
+            getString(R.string.summary_row_example_1b_row2_text1),
+            getString(R.string.summary_row_example_1b_row2_text2)
+        )
+        binding.summaryRowExample1c.apply {
+            setRows(arrayListOf(example1cRow1, example1cRow2))
+            setOnClickListener { onCtaPressed() }
+        }
+
         val example2Row1 = MultiColumnRowView(requireContext())
         example2Row1.setText(getString(R.string.summary_row_example_2_row1_text1))
         binding.summaryRowExample2.apply {
