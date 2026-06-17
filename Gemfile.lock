@@ -3,6 +3,7 @@ GEM
   specs:
     CFPropertyList (3.0.6)
       rexml
+    abbrev (0.1.2)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     artifactory (3.0.15)
@@ -24,6 +25,7 @@ GEM
     aws-sigv4 (1.8.0)
       aws-eventstream (~> 1, >= 1.0.2)
     babosa (1.0.4)
+    base64 (0.3.0)
     claide (1.1.0)
     colored (1.2)
     colored2 (3.1.2)
@@ -152,14 +154,18 @@ GEM
     jmespath (1.6.2)
     json (2.7.1)
     jwt (2.7.1)
+    logger (1.7.0)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     multi_json (1.15.0)
     multipart-post (2.3.0)
+    mutex_m (0.3.0)
     nanaimo (0.3.0)
     naturally (2.2.1)
+    nkf (0.3.0)
     optparse (0.4.0)
     os (1.1.4)
+    ostruct (0.6.3)
     plist (3.7.1)
     public_suffix (5.0.4)
     rake (13.1.0)
@@ -209,9 +215,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  abbrev (~> 0.1.2)
+  base64 (~> 0.3.0)
   fastlane
   fastlane-plugin-automated_test_emulator_run
   fastlane-plugin-changelog
+  logger (~> 1.7)
+  mutex_m (~> 0.3.0)
+  nkf (~> 0.3.0)
+  ostruct (~> 0.6.3)
   semantic
 
 BUNDLED WITH
