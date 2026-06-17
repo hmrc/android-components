@@ -16,6 +16,12 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.11.4] - 2026-06-17Z
+
+### Changed
+
+* Updated XML summary row component to remove padding when title is not visible - HMA-8834
+
 ### Changed
 
 * Dependency updates
