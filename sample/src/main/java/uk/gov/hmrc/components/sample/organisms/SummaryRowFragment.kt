@@ -118,6 +118,7 @@ class SummaryRowFragment : BaseComponentsFragment() {
         binding.summaryRowExample1c.apply {
             setRows(arrayListOf(example1cRow1, example1cRow2))
             setOnClickListener { onCtaPressed() }
+            setTitleVisibility(View.GONE)
         }
 
         val example2Row1 = MultiColumnRowView(requireContext())

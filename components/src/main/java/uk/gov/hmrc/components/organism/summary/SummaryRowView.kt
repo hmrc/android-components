@@ -88,8 +88,6 @@ class SummaryRowView @JvmOverloads constructor(
                 accessibilityMessage?.let { message ->
                     setAccessibilityMessage(message)
                 }
-            } else {
-                binding.textTitle.visibility = View.GONE
             }
             this.readerTrait = readerTrait
 
@@ -122,6 +120,14 @@ class SummaryRowView @JvmOverloads constructor(
             this.maxLines = maxLines
             ellipsize = TextUtils.TruncateAt.END
         }
+    }
+
+    fun setTitleVisibility(visibleStatus: Int) {
+        binding.textTitle.apply { visibility = visibleStatus }
+    }
+
+    fun setTitleContentDescription(contentDesc: String) {
+        binding.textTitle.apply { contentDescription = contentDesc }
     }
 
     fun setRows(rows: MutableList<MultiColumnRowView>) {
