@@ -81,14 +81,13 @@ class SummaryRowView @JvmOverloads constructor(
             val readerTrait = typedArray.getInt(R.styleable.SummaryRowView_readerTrait, READER_TRAIT_INFO)
             rowStyle = typedArray.getInt(R.styleable.SummaryRowView_rowStyle, R.style.Text_Info)
 
-            if (titleText?.isNotEmpty() == true) {
-                setTitle(titleText)
-                setTitleTextAppearance(titleTextAppearance)
-                setTitleMaxLines(titleMaxLines)
-                accessibilityMessage?.let { message ->
-                    setAccessibilityMessage(message)
-                }
+            setTitle(titleText)
+            setTitleTextAppearance(titleTextAppearance)
+            setTitleMaxLines(titleMaxLines)
+            accessibilityMessage?.let { message ->
+                setAccessibilityMessage(message)
             }
+
             this.readerTrait = readerTrait
 
             typedArray.recycle()
