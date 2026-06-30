@@ -33,7 +33,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
@@ -47,7 +50,6 @@ import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlackDark
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 
 @Suppress("LongMethod")
@@ -60,87 +62,92 @@ fun MenuPanelRowView(
     notification: String? = null,
     icon: Int = R.drawable.components_ic_chevron_right,
     accessibilityDescription: Int = R.string.accessibility_button_activate,
+    shape: Shape = RectangleShape,
     modifier: Modifier = Modifier,
 ) {
     val cardAccessibility = stringResource(accessibilityDescription)
     val buttonAccessibility = stringResource(R.string.accessibility_button)
 
-    HmrcCardView(
-        customBackgroundColor = HmrcTheme.colors.hmrcWhiteBackground,
-        shape = RoundedCornerShape(8.dp),
-        modifier = modifier
-            .clickable(onClickLabel = cardAccessibility) {
-                onClick()
-            }
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(HmrcTheme.dimensions.hmrcSpacing16),
-            verticalAlignment = Alignment.CenterVertically,
+    Box(modifier = Modifier.clip(shape)) {
+        HmrcCardView(
+            customBackgroundColor = HmrcTheme.colors.hmrcWhiteBackground,
+            modifier = modifier
+                .clickable(onClickLabel = cardAccessibility) {
+                    onClick()
+                }
         ) {
-            Column(
-                modifier = Modifier.weight(1f)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(HmrcTheme.dimensions.hmrcSpacing16),
+                verticalAlignment = Alignment.CenterVertically,
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
+                Column(
+                    modifier = Modifier.weight(1f)
                 ) {
-                    Heading5Blue(
-                        text = heading,
-                        modifier = Modifier.semantics {
-                            contentDescription =
-                                if (body.isNullOrBlank()) heading + buttonAccessibility else ""
-                        }.weight(weight = 0.8f, fill = false)
-                    )
-
-                    Spacer(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing4))
-
-                    if (hasNotification) {
-                        Box(
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Heading5Blue(
+                            text = heading,
                             modifier = Modifier
-                                .size(
-                                    width = if (notification != null) 48.dp else 24.dp, // Just to show a red dot
-                                    height = 24.dp,
-                                )
-                                .background(
-                                    color = HmrcTheme.colors.hmrcRed,
-                                    shape = RoundedCornerShape(size = HmrcTheme.dimensions.hmrcSpacing32)
-                                ).weight(weight = 0.2f, fill = false),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            if (notification != null) {
-                                Text(
-                                    text = notification,
-                                    style = HmrcTheme.typography.notificationText,
-                                )
+                                .semantics {
+                                    contentDescription =
+                                        if (body.isNullOrBlank()) heading + buttonAccessibility else ""
+                                }
+                                .weight(weight = 0.8f, fill = false)
+                        )
+
+                        Spacer(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing4))
+
+                        if (hasNotification) {
+                            Box(
+                                modifier = Modifier
+                                    .size(
+                                        width = if (notification != null) 48.dp else 24.dp, // Just to show a red dot
+                                        height = 24.dp,
+                                    )
+                                    .background(
+                                        color = HmrcTheme.colors.hmrcRed,
+                                        shape = RoundedCornerShape(size = HmrcTheme.dimensions.hmrcSpacing32)
+                                    )
+                                    .weight(weight = 0.2f, fill = false),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                if (notification != null) {
+                                    Text(
+                                        text = notification,
+                                        style = HmrcTheme.typography.notificationText,
+                                    )
+                                }
                             }
                         }
                     }
-                }
 
-                if (body != null) {
-                    Spacer(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing8))
+                    if (body != null) {
+                        Spacer(modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing8))
 
-                    BodyText(
-                        text = body,
-                        modifier = Modifier.semantics {
-                            contentDescription = body + buttonAccessibility
-                        }
-                    )
-                }
-            }
-            Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing8))
-            Image(
-                painter = painterResource(id = icon),
-                colorFilter = ColorFilter.tint(
-                    if (isSystemInDarkTheme()) {
-                        HmrcBlackDark
-                    } else {
-                        HmrcBlack
+                        BodyText(
+                            text = body,
+                            modifier = Modifier.semantics {
+                                contentDescription = body + buttonAccessibility
+                            }
+                        )
                     }
-                ),
-                contentDescription = "",
-            )
+                }
+                Spacer(modifier = Modifier.width(HmrcTheme.dimensions.hmrcSpacing8))
+                Image(
+                    painter = painterResource(id = icon),
+                    colorFilter = ColorFilter.tint(
+                        if (isSystemInDarkTheme()) {
+                            HmrcBlackDark
+                        } else {
+                            HmrcBlack
+                        }
+                    ),
+                    contentDescription = "",
+                )
+            }
         }
     }
 }
