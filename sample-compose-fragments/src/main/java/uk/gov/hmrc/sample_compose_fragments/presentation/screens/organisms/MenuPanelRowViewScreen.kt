@@ -20,9 +20,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.organism.menu.MenuPanelRowView
 import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
@@ -47,6 +49,7 @@ fun MenuPanelRowViewScreen(onClickAction: () -> Unit) {
                 heading = stringResource(id = R.string.primary_card_placeholder_title),
                 body = stringResource(id = R.string.primary_card_placeholder_body),
                 onClick = onClickAction,
+                shape = RoundedCornerShape(8.dp),
             )
         }
 
@@ -55,11 +58,13 @@ fun MenuPanelRowViewScreen(onClickAction: () -> Unit) {
                 modifier = Modifier.padding(horizontal = dimensions.hmrcSpacing8),
                 verticalArrangement = Arrangement.spacedBy(dimensions.hmrcSpacing8)
             ) {
+
                 MenuPanelRowView(
                     heading = stringResource(id = R.string.menu_panel_example_1_title),
                     body = stringResource(id = R.string.primary_card_example_1_body),
                     onClick = onClickAction,
-                )
+                    shape = RoundedCornerShape(8.dp)
+                    )
 
                 MenuPanelRowView(
                     heading = stringResource(id = R.string.menu_panel_example_3_title),
