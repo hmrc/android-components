@@ -7,8 +7,8 @@
         android:strokeWidth="1"
         android:pathData="M20,0.5L20,0.5A19.5,19.5 0,0 1,39.5 20L39.5,20A19.5,19.5 0,0 1,20 39.5L20,39.5A19.5,19.5 0,0 1,0.5 20L0.5,20A19.5,19.5 0,0 1,20 0.5z"
         android:fillColor="#00000000"
-        android:strokeColor="#0B0C0C"/>
+        android:strokeColor="#0B0C0C" />
     <path
         android:pathData="M20,10L20,10A10,10 0,0 1,30 20L30,20A10,10 0,0 1,20 30L20,30A10,10 0,0 1,10 20L10,20A10,10 0,0 1,20 10z"
-        android:fillColor="#0B0C0C"/>
+        android:fillColor="#0B0C0C" />
 </vector>
