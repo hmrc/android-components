@@ -15,6 +15,13 @@ Allowed headings:
 -->
 ## [Unreleased]
 
+## [0.1.15] - 2026-07-06Z
+
+### Changed
+
+* Increased select row view icon size to improve accessibility
+* Updated corner radius in menu panel row view for long press
+
 ## [0.1.14] - 2026-06-11Z
 
 ### Changed
