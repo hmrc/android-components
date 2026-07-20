@@ -90,8 +90,8 @@ object TextInputView {
             Label(labelText = labelText, labelContentDescription = labelContentDescription)
             Hint(hintText = hintText, hintContentDescription = hintContentDescription)
 
-            Box(modifier = modifier) {
-                Row(modifier = modifier.height(IntrinsicSize.Min)) {
+            Box() {
+                Row(modifier = Modifier.height(IntrinsicSize.Min)) {
 
                     leadingContent?.invoke()
 
