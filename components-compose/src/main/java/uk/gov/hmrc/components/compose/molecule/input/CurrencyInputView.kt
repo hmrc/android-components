@@ -31,11 +31,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import uk.gov.hmrc.components.compose.atom.text.Text
-import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
-import uk.gov.hmrc.components.compose.ui.theme.HmrcBlackDark
-import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey3
-import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey3Dark
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
