@@ -75,12 +75,12 @@ fun CurrencyInputView(
         leadingContent = {
             Box(
                 modifier = Modifier.fillMaxHeight()
-                                    .width(52.dp)
-                                    .padding(bottom = 24.dp)
-                                    .background(HmrcGrey3)
-                                    .border(1.dp, HmrcBlack),
-                contentAlignment = Alignment.Center)
-            { Text(text = "£", style = MaterialTheme.typography.titleLarge) }
+                    .width(52.dp)
+                    .padding(bottom = 24.dp)
+                    .background(HmrcGrey3)
+                    .border(1.dp, HmrcBlack),
+                contentAlignment = Alignment.Center
+            ) { Text(text = "£", style = MaterialTheme.typography.titleLarge) }
         },
         placeholderText = placeholderText,
         errorText = errorText,
