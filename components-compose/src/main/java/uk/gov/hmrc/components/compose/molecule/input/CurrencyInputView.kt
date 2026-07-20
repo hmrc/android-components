@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -32,7 +33,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.atom.text.Text
 import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
+import uk.gov.hmrc.components.compose.ui.theme.HmrcBlackDark
 import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey3
+import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey3Dark
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
@@ -77,10 +80,10 @@ fun CurrencyInputView(
                 modifier = Modifier.fillMaxHeight()
                     .width(52.dp)
                     .padding(bottom = 24.dp)
-                    .background(HmrcGrey3)
-                    .border(1.dp, HmrcBlack),
+                    .background(HmrcTheme.colors.hmrcGrey3)
+                    .border(1.dp, HmrcTheme.colors.hmrcBlack),
                 contentAlignment = Alignment.Center
-            ) { Text(text = "£", style = MaterialTheme.typography.titleLarge) }
+            ) { Text(text = "£", style = MaterialTheme.typography.titleLarge, color = HmrcTheme.colors.hmrcBlack) }
         },
         placeholderText = placeholderText,
         errorText = errorText,
