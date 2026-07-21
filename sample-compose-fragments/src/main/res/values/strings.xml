@@ -337,7 +337,8 @@
     <!-- Buttons -->
     <string name="button_primary_example">Primary button</string>
     <string name="button_primary_example_disabled">Disabled primary button</string>
-    <string name="button_secondary_example">Secondary button</string>
+    <string name="button_secondary_example">Secondary button </string>
+    <string name="button_secondary_underlined_example">Secondary button underlined</string>
     <string name="button_icon_example">Icon button</string>
     <string name="button_accessibility_message">do something</string>
 
