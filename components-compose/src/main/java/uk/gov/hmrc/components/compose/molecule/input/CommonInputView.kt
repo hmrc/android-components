@@ -15,13 +15,21 @@
  */
 package uk.gov.hmrc.components.compose.molecule.input
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -62,7 +70,10 @@ internal fun TextField(
     trailingIcon: @Composable() (() -> Unit)? = null,
     textStyle: TextStyle = typography.body,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    isCustomErrorInputHandle: Boolean
+    isCustomErrorInputHandle: Boolean,
+    leadingContent: String? = null,
+    leadingIcon: @Composable (() -> Unit)? = null,
+
 ) {
     var customIsError = isError
     val customColors = if (isCustomErrorInputHandle && isError) {
@@ -71,23 +82,52 @@ internal fun TextField(
     } else {
         colors
     }
-    OutlinedTextField(
-        modifier = modifier.fillMaxWidth(),
-        isError = customIsError,
-        value = value,
-        onValueChange = onInputValueChange,
-        prefix = prefix,
-        placeholder = placeholderText,
-        supportingText = supportingText,
-        trailingIcon = trailingIcon,
-        singleLine = singleLine,
-        keyboardOptions = keyboardOptions,
-        textStyle = textStyle,
-        colors = customColors,
-        shape = RoundedCornerShape(0),
-        visualTransformation = visualTransformation,
-        interactionSource = interactionSource,
-    )
+
+
+
+
+        Row(modifier = Modifier.fillMaxWidth()) {
+
+            Column {
+            if (leadingContent != null) {
+                Box(
+                    modifier = Modifier.fillMaxHeight()
+                        .width(52.dp)
+                        .background(HmrcTheme.colors.hmrcGrey3)
+                        .border(1.dp, HmrcTheme.colors.hmrcBlack),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = leadingContent,
+                        style = MaterialTheme.typography.titleLarge,
+                        color = HmrcTheme.colors.hmrcBlack
+                    )
+                }
+            }
+            }
+
+        Column(modifier = Modifier.weight(1f)) {
+            OutlinedTextField(
+                modifier = modifier.fillMaxWidth(),
+                isError = customIsError,
+                value = value,
+                onValueChange = onInputValueChange,
+                prefix = prefix,
+                placeholder = placeholderText,
+                supportingText = supportingText,
+                trailingIcon = trailingIcon,
+                singleLine = singleLine,
+                keyboardOptions = keyboardOptions,
+                textStyle = textStyle,
+                colors = customColors,
+                shape = RoundedCornerShape(0),
+                visualTransformation = visualTransformation,
+                interactionSource = interactionSource,
+                leadingIcon = leadingIcon
+            )
+        }
+
+    }
 }
 
 @Composable
