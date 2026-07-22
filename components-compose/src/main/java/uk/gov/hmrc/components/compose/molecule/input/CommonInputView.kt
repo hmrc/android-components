@@ -73,6 +73,11 @@ internal fun TextField(
     isCustomErrorInputHandle: Boolean,
     leadingContent: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
+    errorText: String? = null,
+    errorContentDescription: String? = null,
+    currencyErrorText: String? = null,
+    localError: String? = null,
+    counterEnabled: Boolean = false
 
 ) {
     var customIsError = isError
@@ -82,17 +87,23 @@ internal fun TextField(
     } else {
         colors
     }
-
-
-
-
+// still need to work on how to make this display well
+    if (leadingContent != null) {
         Row(modifier = Modifier.fillMaxWidth()) {
+//                error(errorText, errorContentDescription)
+            Text(currencyErrorText ?: "")
+        }
+    }
 
-            Column {
+    Row(modifier = Modifier.height(IntrinsicSize.Min).adjustPaddingForCounter(!counterEnabled, localError)) {
+
+        Column {
             if (leadingContent != null) {
                 Box(
-                    modifier = Modifier.fillMaxHeight()
+                    modifier = Modifier
+                        .fillMaxHeight()
                         .width(52.dp)
+                        .adjustPaddingForCounter(counterEnabled, localError)
                         .background(HmrcTheme.colors.hmrcGrey3)
                         .border(1.dp, HmrcTheme.colors.hmrcBlack),
                     contentAlignment = Alignment.Center
@@ -104,7 +115,7 @@ internal fun TextField(
                     )
                 }
             }
-            }
+        }
 
         Column(modifier = Modifier.weight(1f)) {
             OutlinedTextField(
@@ -114,7 +125,12 @@ internal fun TextField(
                 onValueChange = onInputValueChange,
                 prefix = prefix,
                 placeholder = placeholderText,
-                supportingText = supportingText,
+                supportingText =
+                if (leadingContent != null) {
+                    null
+                } else {
+                    supportingText
+                },
                 trailingIcon = trailingIcon,
                 singleLine = singleLine,
                 keyboardOptions = keyboardOptions,
@@ -126,7 +142,6 @@ internal fun TextField(
                 leadingIcon = leadingIcon
             )
         }
-
     }
 }
 

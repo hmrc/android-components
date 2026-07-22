@@ -90,6 +90,8 @@ object TextInputView {
             TextField(
                 leadingIcon = leadingIcon,
                 modifier = Modifier.adjustPaddingForCounter(counterEnabled, localError),
+                counterEnabled = counterEnabled,
+                localError = localError,
                 isError = !localError.isNullOrEmpty() || (localValue.length > (characterCount ?: Int.MAX_VALUE)),
                 value = localValue,
                 onInputValueChange = { newValue ->
@@ -114,9 +116,12 @@ object TextInputView {
                 trailingIcon = clearTrailingIcon,
                 colors = HmrcTheme.textFieldColors,
                 textStyle =
-                    if (requiredSequencesSpacing) { HmrcTheme.typography.sequencesBody } else { HmrcTheme.typography.body },
+                if (requiredSequencesSpacing) { HmrcTheme.typography.sequencesBody } else { HmrcTheme.typography.body },
                 isCustomErrorInputHandle = isCustomErrorInputHandle,
-                leadingContent = leadingContent
+                leadingContent = leadingContent,
+                errorText = if (leadingContent != null) null else errorText,
+                currencyErrorText = errorText,
+                errorContentDescription = errorContentDescription
             )
         }
     }
