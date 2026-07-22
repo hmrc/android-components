@@ -63,8 +63,8 @@ object SelectRowView {
     operator fun invoke(
         modifier: Modifier = Modifier,
         selectRowViewItems: List<SelectRowViewItem>,
-        checkedIcon: Int = R.drawable.components_select_row_circle_checked,
-        uncheckedIcon: Int = R.drawable.components_select_row_circle_unchecked,
+        checkedIcon: Int = R.drawable.compose_select_row_circle_checked,
+        uncheckedIcon: Int = R.drawable.compose_select_row_circle_unchecked,
         showDivider: Boolean = false,
         defaultRowHorizontalPadding: Boolean = true,
         selectedRowItem: SelectRowViewItem? = null,
