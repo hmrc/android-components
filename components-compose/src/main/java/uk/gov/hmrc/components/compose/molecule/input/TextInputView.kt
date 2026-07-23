@@ -87,42 +87,111 @@ object TextInputView {
         Column(modifier = modifier) {
             Label(labelText = labelText, labelContentDescription = labelContentDescription)
             Hint(hintText = hintText, hintContentDescription = hintContentDescription)
-            TextField(
-                leadingIcon = leadingIcon,
-                modifier = Modifier.adjustPaddingForCounter(counterEnabled, localError),
-                counterEnabled = counterEnabled,
-                localError = localError,
-                isError = !localError.isNullOrEmpty() || (localValue.length > (characterCount ?: Int.MAX_VALUE)),
-                value = localValue,
-                onInputValueChange = { newValue ->
-                    if (maxChars?.let { newValue.length <= it } != false) {
-                        localValue = if (inputFilter != null && newValue.isNotEmpty()) {
-                            inputFilter(newValue, localValue)
-                        } else newValue
-                        if (onInputValueChange != null) { onInputValueChange(localValue) }
-                    }
-                },
-                prefix = prefix,
-                placeholderText = { placeholderText?.let { Text(text = it) } },
-                supportingText = if (counterEnabled)
-                    errorTextCounterCombo(errorText, errorContentDescription, characterCount, localValue)
-                else error(
-                    errorText,
-                    errorContentDescription
-                ),
-                singleLine = singleLine,
-                keyboardOptions = keyboardOptions,
-                visualTransformation = VisualTransformation.None,
-                trailingIcon = clearTrailingIcon,
-                colors = HmrcTheme.textFieldColors,
-                textStyle =
-                if (requiredSequencesSpacing) { HmrcTheme.typography.sequencesBody } else { HmrcTheme.typography.body },
-                isCustomErrorInputHandle = isCustomErrorInputHandle,
-                leadingContent = leadingContent,
-                errorText = if (leadingContent != null) null else errorText,
-                currencyErrorText = errorText,
-                errorContentDescription = errorContentDescription
-            )
+            when {
+                leadingContent != null -> {
+
+                    CurrencyTextField(
+                        leadingIcon = leadingIcon,
+                        modifier = Modifier.adjustPaddingForCounter(counterEnabled, localError),
+                        counterEnabled = counterEnabled,
+                        localError = localError,
+                        isError = !localError.isNullOrEmpty() || (localValue.length > (characterCount
+                            ?: Int.MAX_VALUE)),
+                        value = localValue,
+                        onInputValueChange = { newValue ->
+                            if (maxChars?.let { newValue.length <= it } != false) {
+                                localValue = if (inputFilter != null && newValue.isNotEmpty()) {
+                                    inputFilter(newValue, localValue)
+                                } else newValue
+                                if (onInputValueChange != null) {
+                                    onInputValueChange(localValue)
+                                }
+                            }
+                        },
+                        prefix = prefix,
+                        placeholderText = { placeholderText?.let { Text(text = it) } },
+                        supportingText = if (counterEnabled)
+                            errorTextCounterCombo(
+                                errorText,
+                                errorContentDescription,
+                                characterCount,
+                                localValue
+                            )
+                        else error(
+                            errorText,
+                            errorContentDescription
+                        ),
+                        singleLine = singleLine,
+                        keyboardOptions = keyboardOptions,
+                        visualTransformation = VisualTransformation.None,
+                        trailingIcon = clearTrailingIcon,
+                        colors = HmrcTheme.textFieldColors,
+                        textStyle =
+                            if (requiredSequencesSpacing) {
+                                HmrcTheme.typography.sequencesBody
+                            } else {
+                                HmrcTheme.typography.body
+                            },
+                        isCustomErrorInputHandle = isCustomErrorInputHandle,
+                        leadingContent = leadingContent,
+                        errorText = if (leadingContent != null) null else errorText,
+                        currencyErrorText = errorText,
+                        errorContentDescription = errorContentDescription
+                    )
+
+                }
+            else -> {
+//                change back to original
+                TextField(
+                    leadingIcon = leadingIcon,
+                    modifier = Modifier.adjustPaddingForCounter(counterEnabled, localError),
+                    counterEnabled = counterEnabled,
+                    localError = localError,
+                    isError = !localError.isNullOrEmpty() || (localValue.length > (characterCount
+                        ?: Int.MAX_VALUE)),
+                    value = localValue,
+                    onInputValueChange = { newValue ->
+                        if (maxChars?.let { newValue.length <= it } != false) {
+                            localValue = if (inputFilter != null && newValue.isNotEmpty()) {
+                                inputFilter(newValue, localValue)
+                            } else newValue
+                            if (onInputValueChange != null) {
+                                onInputValueChange(localValue)
+                            }
+                        }
+                    },
+                    prefix = prefix,
+                    placeholderText = { placeholderText?.let { Text(text = it) } },
+                    supportingText = if (counterEnabled)
+                        errorTextCounterCombo(
+                            errorText,
+                            errorContentDescription,
+                            characterCount,
+                            localValue
+                        )
+                    else error(
+                        errorText,
+                        errorContentDescription
+                    ),
+                    singleLine = singleLine,
+                    keyboardOptions = keyboardOptions,
+                    visualTransformation = VisualTransformation.None,
+                    trailingIcon = clearTrailingIcon,
+                    colors = HmrcTheme.textFieldColors,
+                    textStyle =
+                        if (requiredSequencesSpacing) {
+                            HmrcTheme.typography.sequencesBody
+                        } else {
+                            HmrcTheme.typography.body
+                        },
+                    isCustomErrorInputHandle = isCustomErrorInputHandle,
+                    leadingContent = leadingContent,
+                    errorText = if (leadingContent != null) null else errorText,
+                    currencyErrorText = errorText,
+                    errorContentDescription = errorContentDescription
+                )
+            }
+            }
         }
     }
 }
