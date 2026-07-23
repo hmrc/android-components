@@ -25,10 +25,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -51,8 +54,10 @@ import uk.gov.hmrc.components.compose.molecule.input.CommonInputView.CHAR_COUNT_
 import uk.gov.hmrc.components.compose.molecule.input.CommonInputView.ERROR_TEXT_WITH_CHAR_COUNT_WIDTH
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Suppress("LongParameterList")
 @Composable
 internal fun TextField(
@@ -86,13 +91,6 @@ internal fun TextField(
         customTextInputViewColors(colors, isError)
     } else {
         colors
-    }
-// still need to work on how to make this display well
-    if (leadingContent != null) {
-        Row(modifier = Modifier.fillMaxWidth()) {
-//                error(errorText, errorContentDescription)
-            Text(currencyErrorText ?: "")
-        }
     }
 
     Row(modifier = Modifier.height(IntrinsicSize.Min).adjustPaddingForCounter(!counterEnabled, localError)) {
@@ -141,6 +139,15 @@ internal fun TextField(
                 interactionSource = interactionSource,
                 leadingIcon = leadingIcon
             )
+        }
+    }
+
+    // still need to work on how to make this display well
+    if (leadingContent != null) {
+        Row(modifier = Modifier.fillMaxWidth().heightIn(min = dimensions.hmrcSpacing16).wrapContentHeight().padding(top = dimensions.hmrcSpacing4)) {
+//                error(errorText, errorContentDescription)
+            ErrorText(currencyErrorText ?: "")
+//            Text(currencyErrorText ?: "")
         }
     }
 }
