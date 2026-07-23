@@ -20,7 +20,7 @@ class ComposeDependencies {
         const val minSdk = 23
         const val targetSdk = 34
         const val compileSdk = 34
-        const val kotlinCompilerExtensionVersion = "1.4.8"
+        const val kotlinCompilerExtensionVersion = "1.5.6"
         const val jetpackNavigation = "2.7.7"
         const val lifecycleVersion = "2.7.0"
     }
@@ -37,8 +37,8 @@ class ComposeDependencies {
         const val compose_uiTestManifest = "androidx.compose.ui:ui-test-manifest"
         const val compose_androidX_runtimeLiveData = "androidx.compose.runtime:runtime-livedata"
 
-        const val hilt = "com.google.dagger:hilt-android:2.44"
-        const val hilt_compiler = "com.google.dagger:hilt-compiler:2.44.2"
+        const val hilt = "com.google.dagger:hilt-android:2.51.1"
+        const val hilt_compiler = "com.google.dagger:hilt-compiler:2.51.1"
         const val material = "com.google.android.material:material:1.12.0"
         const val androidX_activity_activityCompose = "androidx.activity:activity-compose:1.9.0"
         const val androidX_appCompat = "androidx.appcompat:appcompat:1.6.1"
