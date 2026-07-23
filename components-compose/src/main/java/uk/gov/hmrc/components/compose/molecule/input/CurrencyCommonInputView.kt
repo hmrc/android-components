@@ -93,25 +93,18 @@ internal fun CurrencyTextField(
         colors
     }
 
-    Row(modifier = Modifier.height(IntrinsicSize.Min).adjustPaddingForCounter(!counterEnabled, localError)) {
+    Row(
+        modifier = Modifier.height(IntrinsicSize.Min)
+            .adjustPaddingForCounter(!counterEnabled, localError)
+    ) {
 
         Column {
             if (leadingContent != null) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .width(52.dp)
-                        .adjustPaddingForCounter(counterEnabled, localError)
-                        .background(HmrcTheme.colors.hmrcGrey3)
-                        .border(1.dp, HmrcTheme.colors.hmrcBlack),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = leadingContent,
-                        style = MaterialTheme.typography.titleLarge,
-                        color = HmrcTheme.colors.hmrcBlack
-                    )
-                }
+                PreOrPostBox(
+                leadingContent = leadingContent,
+                counterEnabled = counterEnabled,
+                localError = localError
+                )
             }
         }
 
@@ -144,11 +137,39 @@ internal fun CurrencyTextField(
 
     // still need to work on how to make this display well
     if (leadingContent != null) {
-        Row(modifier = Modifier.fillMaxWidth().heightIn(min = dimensions.hmrcSpacing16).wrapContentHeight().padding(top = dimensions.hmrcSpacing4)) {
+        Row(
+            modifier = Modifier.fillMaxWidth().heightIn(min = dimensions.hmrcSpacing16)
+                .wrapContentHeight().padding(top = dimensions.hmrcSpacing4)
+        ) {
 //                error(errorText, errorContentDescription)
             ErrorText(currencyErrorText ?: "")
 //            Text(currencyErrorText ?: "")
         }
     }
+
 }
+@Composable
+fun PreOrPostBox(
+    modifier: Modifier = Modifier,
+    leadingContent: String,
+    counterEnabled: Boolean,
+    localError: String?
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxHeight()
+            .width(52.dp)
+            .adjustPaddingForCounter(counterEnabled, localError)
+            .background(HmrcTheme.colors.hmrcGrey3)
+            .border(1.dp, HmrcTheme.colors.hmrcBlack),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = leadingContent,
+            style = MaterialTheme.typography.titleLarge,
+            color = HmrcTheme.colors.hmrcBlack
+        )
+    }
+}
+
 

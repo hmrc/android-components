@@ -15,24 +15,13 @@
  */
 package uk.gov.hmrc.components.compose.molecule.input
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -54,10 +43,8 @@ import uk.gov.hmrc.components.compose.molecule.input.CommonInputView.CHAR_COUNT_
 import uk.gov.hmrc.components.compose.molecule.input.CommonInputView.ERROR_TEXT_WITH_CHAR_COUNT_WIDTH
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Suppress("LongParameterList")
 @Composable
 internal fun TextField(
@@ -75,15 +62,7 @@ internal fun TextField(
     trailingIcon: @Composable() (() -> Unit)? = null,
     textStyle: TextStyle = typography.body,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    isCustomErrorInputHandle: Boolean,
-    leadingContent: String? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
-    errorText: String? = null,
-    errorContentDescription: String? = null,
-    currencyErrorText: String? = null,
-    localError: String? = null,
-    counterEnabled: Boolean = false
-
+    isCustomErrorInputHandle: Boolean
 ) {
     var customIsError = isError
     val customColors = if (isCustomErrorInputHandle && isError) {
@@ -92,64 +71,23 @@ internal fun TextField(
     } else {
         colors
     }
-
-    Row(modifier = Modifier.height(IntrinsicSize.Min).adjustPaddingForCounter(!counterEnabled, localError)) {
-
-        Column {
-            if (leadingContent != null) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .width(52.dp)
-                        .adjustPaddingForCounter(counterEnabled, localError)
-                        .background(HmrcTheme.colors.hmrcGrey3)
-                        .border(1.dp, HmrcTheme.colors.hmrcBlack),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = leadingContent,
-                        style = MaterialTheme.typography.titleLarge,
-                        color = HmrcTheme.colors.hmrcBlack
-                    )
-                }
-            }
-        }
-
-        Column(modifier = Modifier.weight(1f)) {
-            OutlinedTextField(
-                modifier = modifier.fillMaxWidth(),
-                isError = customIsError,
-                value = value,
-                onValueChange = onInputValueChange,
-                prefix = prefix,
-                placeholder = placeholderText,
-                supportingText =
-                if (leadingContent != null) {
-                    null
-                } else {
-                    supportingText
-                },
-                trailingIcon = trailingIcon,
-                singleLine = singleLine,
-                keyboardOptions = keyboardOptions,
-                textStyle = textStyle,
-                colors = customColors,
-                shape = RoundedCornerShape(0),
-                visualTransformation = visualTransformation,
-                interactionSource = interactionSource,
-                leadingIcon = leadingIcon
-            )
-        }
-    }
-
-    // still need to work on how to make this display well
-    if (leadingContent != null) {
-        Row(modifier = Modifier.fillMaxWidth().heightIn(min = dimensions.hmrcSpacing16).wrapContentHeight().padding(top = dimensions.hmrcSpacing4)) {
-//                error(errorText, errorContentDescription)
-            ErrorText(currencyErrorText ?: "")
-//            Text(currencyErrorText ?: "")
-        }
-    }
+    OutlinedTextField(
+        modifier = modifier.fillMaxWidth(),
+        isError = customIsError,
+        value = value,
+        onValueChange = onInputValueChange,
+        prefix = prefix,
+        placeholder = placeholderText,
+        supportingText = supportingText,
+        trailingIcon = trailingIcon,
+        singleLine = singleLine,
+        keyboardOptions = keyboardOptions,
+        textStyle = textStyle,
+        colors = customColors,
+        shape = RoundedCornerShape(0),
+        visualTransformation = visualTransformation,
+        interactionSource = interactionSource,
+    )
 }
 
 @Composable
@@ -177,7 +115,7 @@ internal fun Hint(hintText: String?, hintContentDescription: String?) {
 }
 
 internal fun error(errorText: String?, errorContentDescription: String?):
-    @Composable (() -> Unit)? = errorText?.let {
+        @Composable (() -> Unit)? = errorText?.let {
     @Composable {
         ErrorText(
             text = it,
@@ -196,7 +134,7 @@ internal fun errorTextCounterCombo(
     characterCount: Int?,
     localValue: String
 ):
-    @Composable (() -> Unit) = @Composable {
+        @Composable (() -> Unit) = @Composable {
     Row {
         Column(
             horizontalAlignment = Alignment.Start,
