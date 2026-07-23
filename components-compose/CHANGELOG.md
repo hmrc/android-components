@@ -15,6 +15,13 @@ Allowed headings:
 -->
 ## [Unreleased]
 
+## [0.1.16] - 2026-07-23Z
+
+### Changed
+
+* Added SecondaryButtonWithUnderLine
+* Updated builds settings
+
 ## [0.1.15] - 2026-07-06Z
 
 ### Changed
