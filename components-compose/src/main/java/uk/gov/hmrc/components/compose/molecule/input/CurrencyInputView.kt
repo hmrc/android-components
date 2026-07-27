@@ -39,6 +39,7 @@ fun CurrencyInputView(
     enableDecimal: Boolean = true,
     maxChars: Int? = null,
     isCustomErrorInputHandle: Boolean = false,
+    leadingContent: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
 ) {
     // pattern matches a decimal number
@@ -63,7 +64,7 @@ fun CurrencyInputView(
         hintContentDescription = hintContentDescription,
 //        leadingIcon = { Icon(painter = painterResource(uk.gov.hmrc.components.compose.R.drawable.components_ic_pound_sign),
 //            contentDescription = null) },
-        leadingContent = "£",
+        leadingContent = leadingContent,
         placeholderText = placeholderText,
         errorText = errorText,
         errorContentDescription = errorContentDescription,

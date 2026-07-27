@@ -46,6 +46,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.atom.text.BodyText
 import uk.gov.hmrc.components.compose.atom.text.BoldText
@@ -95,11 +96,11 @@ internal fun CurrencyTextField(
 
     Row(
         modifier = Modifier.height(IntrinsicSize.Min)
-            .adjustPaddingForCounter(!counterEnabled, localError)
+//            .adjustPaddingForCounter(!counterEnabled, localError)
     ) {
 
         Column {
-            if (leadingContent != null) {
+            if (leadingContent != null && leadingContent == "£") {
                 PreOrPostBox(
                 leadingContent = leadingContent,
                 counterEnabled = counterEnabled,
@@ -133,13 +134,23 @@ internal fun CurrencyTextField(
                 leadingIcon = leadingIcon
             )
         }
+
+        Column {
+            if (leadingContent != null && leadingContent == "%") {
+                PreOrPostBox(
+                    leadingContent = leadingContent,
+                    counterEnabled = counterEnabled,
+                    localError = localError
+                )
+            }
+        }
     }
 
     // still need to work on how to make this display well
     if (leadingContent != null) {
         Row(
             modifier = Modifier.fillMaxWidth().heightIn(min = dimensions.hmrcSpacing16)
-                .wrapContentHeight().padding(top = dimensions.hmrcSpacing4)
+                .wrapContentHeight().padding(top = dimensions.hmrcSpacing8, bottom = dimensions.hmrcSpacing8)
         ) {
 //                error(errorText, errorContentDescription)
             ErrorText(currencyErrorText ?: "")
@@ -171,5 +182,4 @@ fun PreOrPostBox(
         )
     }
 }
-
 
