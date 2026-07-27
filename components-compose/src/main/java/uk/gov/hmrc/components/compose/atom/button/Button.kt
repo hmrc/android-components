@@ -37,8 +37,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
 import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
@@ -49,6 +51,7 @@ fun HmrcButton(
     text: String,
     modifier: Modifier = Modifier,
     textAlign: TextAlign = TextAlign.Center,
+    textStyle: TextStyle = TextStyle.Default,
     enabled: Boolean = true,
     shape: Shape = RectangleShape,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(),
@@ -72,6 +75,7 @@ fun HmrcButton(
             fontSize = 16.sp,
             fontWeight = FontWeight.Normal,
             textAlign = textAlign,
+            style = textStyle,
             modifier = Modifier.weight(1f)
         )
     }
@@ -115,6 +119,36 @@ fun SecondaryButton(
     CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
         HmrcButton(
             text = text,
+            modifier = modifier,
+            contentPadding = PaddingValues(all = HmrcTheme.dimensions.hmrcSpacing16),
+            textAlign = textAlign,
+            buttonColors = buttonColors,
+            onClick = onClick,
+        ) {
+            content()
+        }
+    }
+}
+
+@Composable
+fun SecondaryButtonWithUnderLine(
+    text: String,
+    modifier: Modifier = Modifier,
+    textAlign: TextAlign = TextAlign.Center,
+    textColor: Color = colors.hmrcBlue,
+    buttonColors: ButtonColors = ButtonDefaults.buttonColors(
+        containerColor = Color.Transparent, contentColor = colors.hmrcBlue
+    ),
+    onClick: () -> Unit,
+    content: @Composable RowScope.() -> Unit = {},
+) {
+    CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+        HmrcButton(
+            text = text,
+            textStyle = HmrcTheme.typography.body.copy(
+                textDecoration = TextDecoration.Underline,
+                color = textColor
+            ),
             modifier = modifier,
             contentPadding = PaddingValues(all = HmrcTheme.dimensions.hmrcSpacing16),
             textAlign = textAlign,
