@@ -15,6 +15,12 @@ Allowed headings:
 -->
 ## [Unreleased]
 
+## [0.1.17] - 2026-07-28Z
+
+### Changed
+
+* Updated SDK version from 34 to 36
+
 ## [0.1.16] - 2026-07-23Z
 
 ### Changed
