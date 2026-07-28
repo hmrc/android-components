@@ -16,7 +16,6 @@
 package uk.gov.hmrc.components.compose.molecule.input
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -34,34 +33,26 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import uk.gov.hmrc.components.compose.atom.text.BodyText
-import uk.gov.hmrc.components.compose.atom.text.BoldText
 import uk.gov.hmrc.components.compose.atom.text.ErrorText
-import uk.gov.hmrc.components.compose.molecule.input.CommonInputView.CHAR_COUNT_WIDTH
-import uk.gov.hmrc.components.compose.molecule.input.CommonInputView.ERROR_TEXT_WITH_CHAR_COUNT_WIDTH
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Suppress("LongParameterList")
 @Composable
-internal fun CurrencyTextField(
+internal fun PrePostContentTextField(
     modifier: Modifier,
     isError: Boolean,
     value: String,
@@ -79,12 +70,9 @@ internal fun CurrencyTextField(
     isCustomErrorInputHandle: Boolean,
     leadingContent: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
-    errorText: String? = null,
-    errorContentDescription: String? = null,
     currencyErrorText: String? = null,
     localError: String? = null,
     counterEnabled: Boolean = false
-
 ) {
     var customIsError = isError
     val customColors = if (isCustomErrorInputHandle && isError) {
@@ -93,22 +81,18 @@ internal fun CurrencyTextField(
     } else {
         colors
     }
-
     Row(
         modifier = Modifier.height(IntrinsicSize.Min)
-//            .adjustPaddingForCounter(!counterEnabled, localError)
     ) {
-
         Column {
             if (leadingContent != null && leadingContent == "£") {
                 PreOrPostBox(
-                leadingContent = leadingContent,
-                counterEnabled = counterEnabled,
-                localError = localError
+                    leadingContent = leadingContent,
+                    counterEnabled = counterEnabled,
+                    localError = localError
                 )
             }
         }
-
         Column(modifier = Modifier.weight(1f)) {
             OutlinedTextField(
                 modifier = modifier.fillMaxWidth(),
@@ -118,11 +102,11 @@ internal fun CurrencyTextField(
                 prefix = prefix,
                 placeholder = placeholderText,
                 supportingText =
-                    if (leadingContent != null) {
-                        null
-                    } else {
-                        supportingText
-                    },
+                if (leadingContent != null) {
+                    null
+                } else {
+                    supportingText
+                },
                 trailingIcon = trailingIcon,
                 singleLine = singleLine,
                 keyboardOptions = keyboardOptions,
@@ -134,7 +118,6 @@ internal fun CurrencyTextField(
                 leadingIcon = leadingIcon
             )
         }
-
         Column {
             if (leadingContent != null && leadingContent == "%") {
                 PreOrPostBox(
@@ -145,19 +128,19 @@ internal fun CurrencyTextField(
             }
         }
     }
-
-    // still need to work on how to make this display well
     if (leadingContent != null) {
-        Row(
-            modifier = Modifier.fillMaxWidth().heightIn(min = dimensions.hmrcSpacing16)
-                .wrapContentHeight().padding(top = dimensions.hmrcSpacing8, bottom = dimensions.hmrcSpacing8)
-        ) {
-//                error(errorText, errorContentDescription)
-            ErrorText(currencyErrorText ?: "")
-//            Text(currencyErrorText ?: "")
-        }
+        SeperateErrorBar(currencyErrorText ?: "")
     }
+}
 
+@Composable
+fun SeperateErrorBar(errorText: String) {
+    Row(
+        modifier = Modifier.fillMaxWidth().heightIn(min = dimensions.hmrcSpacing16)
+            .wrapContentHeight().padding(top = dimensions.hmrcSpacing8, bottom = dimensions.hmrcSpacing8)
+    ) {
+        ErrorText(errorText)
+    }
 }
 @Composable
 fun PreOrPostBox(
@@ -166,13 +149,39 @@ fun PreOrPostBox(
     counterEnabled: Boolean,
     localError: String?
 ) {
+    val color = HmrcTheme.colors.hmrcBlack
     Box(
         modifier = Modifier
             .fillMaxHeight()
             .width(52.dp)
             .adjustPaddingForCounter(counterEnabled, localError)
             .background(HmrcTheme.colors.hmrcGrey3)
-            .border(1.dp, HmrcTheme.colors.hmrcBlack),
+            .drawBehind {
+                val strokeWidth = 1.dp.toPx()
+                val halfStroke = strokeWidth / 2
+                // Top
+                drawLine(color = color, start = Offset(halfStroke, halfStroke),
+                    end = Offset(size.width - halfStroke, halfStroke), strokeWidth = strokeWidth)
+                // Middle section - border on left or right
+                if (leadingContent == "£") {
+                    drawLine(
+                        color = color,
+                        start = Offset(halfStroke, halfStroke),
+                        end = Offset(halfStroke, size.height - halfStroke),
+                        strokeWidth = strokeWidth
+                    )
+                } else if (leadingContent == "%") {
+                    drawLine(
+                        color = color,
+                        start = Offset(size.width - halfStroke, halfStroke),
+                        end = Offset(size.width - halfStroke, size.height - halfStroke),
+                        strokeWidth = strokeWidth
+                    )
+                }
+                // Bottom
+                drawLine(color = color, start = Offset(halfStroke, size.height - halfStroke),
+                    end = Offset(size.width - halfStroke, size.height - halfStroke), strokeWidth = strokeWidth)
+            },
         contentAlignment = Alignment.Center
     ) {
         Text(
@@ -182,4 +191,3 @@ fun PreOrPostBox(
         )
     }
 }
-

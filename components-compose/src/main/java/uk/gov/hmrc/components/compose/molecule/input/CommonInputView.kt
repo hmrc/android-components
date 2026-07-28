@@ -115,7 +115,7 @@ internal fun Hint(hintText: String?, hintContentDescription: String?) {
 }
 
 internal fun error(errorText: String?, errorContentDescription: String?):
-        @Composable (() -> Unit)? = errorText?.let {
+    @Composable (() -> Unit)? = errorText?.let {
     @Composable {
         ErrorText(
             text = it,
@@ -134,7 +134,7 @@ internal fun errorTextCounterCombo(
     characterCount: Int?,
     localValue: String
 ):
-        @Composable (() -> Unit) = @Composable {
+    @Composable (() -> Unit) = @Composable {
     Row {
         Column(
             horizontalAlignment = Alignment.Start,

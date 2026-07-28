@@ -40,7 +40,6 @@ fun CurrencyInputView(
     maxChars: Int? = null,
     isCustomErrorInputHandle: Boolean = false,
     leadingContent: String? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
 ) {
     // pattern matches a decimal number
     val decimalPattern = remember { Regex("^([0-9]*)(\\.?)([0-9]*)$") }
@@ -62,8 +61,6 @@ fun CurrencyInputView(
         labelContentDescription = labelContentDescription,
         hintText = hintText,
         hintContentDescription = hintContentDescription,
-//        leadingIcon = { Icon(painter = painterResource(uk.gov.hmrc.components.compose.R.drawable.components_ic_pound_sign),
-//            contentDescription = null) },
         leadingContent = leadingContent,
         placeholderText = placeholderText,
         errorText = errorText,
@@ -74,7 +71,6 @@ fun CurrencyInputView(
             keyboardType = if (enableDecimal) KeyboardType.Decimal else KeyboardType.Number
         ),
         isCustomErrorInputHandle = isCustomErrorInputHandle,
-
     )
 }
 
