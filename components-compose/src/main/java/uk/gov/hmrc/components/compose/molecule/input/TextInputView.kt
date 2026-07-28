@@ -135,9 +135,9 @@ object TextInputView {
                         colors = HmrcTheme.textFieldColors,
                         textStyle =
                         if (requiredSequencesSpacing) {
-                            HmrcTheme.typography.sequencesBody
+                            sequencesBody
                         } else {
-                            HmrcTheme.typography.body
+                            body
                         },
                         isCustomErrorInputHandle = isCustomErrorInputHandle,
                         leadingContent = leadingContent,

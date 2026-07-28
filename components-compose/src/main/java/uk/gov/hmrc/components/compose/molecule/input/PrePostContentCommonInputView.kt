@@ -137,14 +137,14 @@ internal fun PrePostContentTextField(
 fun SeperateErrorBar(errorText: String) {
     Row(
         modifier = Modifier.fillMaxWidth().heightIn(min = dimensions.hmrcSpacing16)
-            .wrapContentHeight().padding(top = dimensions.hmrcSpacing8, bottom = dimensions.hmrcSpacing8)
+            .wrapContentHeight()
+            .padding(top = dimensions.hmrcSpacing8, bottom = dimensions.hmrcSpacing8)
     ) {
         ErrorText(errorText)
     }
 }
 @Composable
 fun PreOrPostBox(
-    modifier: Modifier = Modifier,
     leadingContent: String,
     counterEnabled: Boolean,
     localError: String?
@@ -158,32 +158,32 @@ fun PreOrPostBox(
             .background(HmrcTheme.colors.hmrcGrey3)
             .drawBehind {
                 val strokeWidth = 1.dp.toPx()
-                val halfStroke = strokeWidth / 2
+                val half = strokeWidth / 2
                 // Top
                 drawLine(
-                    color = color, start = Offset(halfStroke, halfStroke),
-                    end = Offset(size.width - halfStroke, halfStroke), strokeWidth = strokeWidth
+                    color = color, start = Offset(half, half),
+                    end = Offset(size.width - half, half), strokeWidth = strokeWidth
                 )
                 // Middle section - border on left or right
                 if (leadingContent == "£") {
                     drawLine(
                         color = color,
-                        start = Offset(halfStroke, halfStroke),
-                        end = Offset(halfStroke, size.height - halfStroke),
+                        start = Offset(half, half),
+                        end = Offset(half, size.height - half),
                         strokeWidth = strokeWidth
                     )
                 } else if (leadingContent == "%") {
                     drawLine(
                         color = color,
-                        start = Offset(size.width - halfStroke, halfStroke),
-                        end = Offset(size.width - halfStroke, size.height - halfStroke),
+                        start = Offset(size.width - half, half),
+                        end = Offset(size.width - half, size.height - half),
                         strokeWidth = strokeWidth
                     )
                 }
                 // Bottom
                 drawLine(
-                    color = color, start = Offset(halfStroke, size.height - halfStroke),
-                    end = Offset(size.width - halfStroke, size.height - halfStroke), strokeWidth = strokeWidth
+                    color = color, start = Offset(half, size.height - half),
+                    end = Offset(size.width - half, size.height - half), strokeWidth = strokeWidth
                 )
             },
         contentAlignment = Alignment.Center
