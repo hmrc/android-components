@@ -160,8 +160,10 @@ fun PreOrPostBox(
                 val strokeWidth = 1.dp.toPx()
                 val halfStroke = strokeWidth / 2
                 // Top
-                drawLine(color = color, start = Offset(halfStroke, halfStroke),
-                    end = Offset(size.width - halfStroke, halfStroke), strokeWidth = strokeWidth)
+                drawLine(
+                    color = color, start = Offset(halfStroke, halfStroke),
+                    end = Offset(size.width - halfStroke, halfStroke), strokeWidth = strokeWidth
+                )
                 // Middle section - border on left or right
                 if (leadingContent == "£") {
                     drawLine(
@@ -179,8 +181,10 @@ fun PreOrPostBox(
                     )
                 }
                 // Bottom
-                drawLine(color = color, start = Offset(halfStroke, size.height - halfStroke),
-                    end = Offset(size.width - halfStroke, size.height - halfStroke), strokeWidth = strokeWidth)
+                drawLine(
+                    color = color, start = Offset(halfStroke, size.height - halfStroke),
+                    end = Offset(size.width - halfStroke, size.height - halfStroke), strokeWidth = strokeWidth
+                )
             },
         contentAlignment = Alignment.Center
     ) {

@@ -69,6 +69,10 @@ object TextInputView {
 
         val counterEnabled: Boolean = characterCount != null
 
+        val sequencesBody = HmrcTheme.typography.sequencesBody
+
+        val body = HmrcTheme.typography.body
+
         val clearTrailingIcon: @Composable (() -> Unit) = @Composable {
             if (localValue.isNotEmpty()) {
                 Icon(
@@ -169,8 +173,7 @@ object TextInputView {
                         visualTransformation = VisualTransformation.None,
                         trailingIcon = clearTrailingIcon,
                         colors = HmrcTheme.textFieldColors,
-                        textStyle = if (requiredSequencesSpacing) { HmrcTheme.typography.sequencesBody }
-                        else { HmrcTheme.typography.body },
+                        textStyle = if (requiredSequencesSpacing) { sequencesBody } else { body },
                         isCustomErrorInputHandle = isCustomErrorInputHandle
                     )
                 }
