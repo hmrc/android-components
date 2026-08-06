@@ -25,8 +25,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
-import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material.ripple.RippleAlpha
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalRippleConfiguration
+import androidx.compose.material3.RippleConfiguration
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -42,7 +45,6 @@ import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.divider.HmrcDivider
 import uk.gov.hmrc.components.compose.atom.text.BodyText
 import uk.gov.hmrc.components.compose.atom.text.ErrorText
-import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 object SelectRowView {
@@ -59,6 +61,7 @@ object SelectRowView {
      * @param errorText Error text to be displayed, if any.
      * @param onRowSelected Callback function triggered when an item is clicked.
      */
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     operator fun invoke(
         modifier: Modifier = Modifier,
@@ -71,7 +74,17 @@ object SelectRowView {
         @StringRes errorText: Int? = null,
         onRowSelected: (SelectRowViewItem) -> Unit
     ) {
-        CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+        CompositionLocalProvider(
+            LocalRippleConfiguration provides RippleConfiguration(
+                color = HmrcTheme.colors.hmrcBlue,
+                rippleAlpha = RippleAlpha(
+                    draggedAlpha = 0.24f,
+                    focusedAlpha = 0.40f,
+                    hoveredAlpha = 0.40f,
+                    pressedAlpha = 0.24f
+                )
+            )
+        ) {
             Column(modifier = modifier) {
                 errorText?.let {
                     ErrorText(

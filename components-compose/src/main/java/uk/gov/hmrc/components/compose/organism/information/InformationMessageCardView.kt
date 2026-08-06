@@ -27,8 +27,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalRippleConfiguration
+import androidx.compose.material3.RippleConfiguration
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -44,7 +47,6 @@ import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.button.HmrcButton
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.extensions.enableTalkBackMergeAccessibility
-import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 
@@ -129,6 +131,7 @@ class InformationMessageButton(
     val buttonType: ButtonType = ButtonType.ACTION,
     val onClick: () -> Unit
 ) {
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     operator fun invoke(headlineTint: Color) {
         val (colors, border) = when (buttonType) {
@@ -145,7 +148,17 @@ class InformationMessageButton(
                 )
             }
         }
-        CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+        CompositionLocalProvider(
+            LocalRippleConfiguration provides RippleConfiguration(
+                color = HmrcTheme.colors.hmrcBlue,
+                rippleAlpha = RippleAlpha(
+                    draggedAlpha = 0.24f,
+                    focusedAlpha = 0.40f,
+                    hoveredAlpha = 0.40f,
+                    pressedAlpha = 0.24f
+                )
+            )
+        ) {
             HmrcButton(
                 text = text,
                 modifier = Modifier.padding(horizontal = HmrcTheme.dimensions.hmrcSpacing16),
