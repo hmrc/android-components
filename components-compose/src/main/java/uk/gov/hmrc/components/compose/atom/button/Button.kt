@@ -25,10 +25,14 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalRippleConfiguration
+import androidx.compose.material3.RippleConfiguration
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -42,7 +46,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
-import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 
@@ -105,6 +108,7 @@ fun PrimaryButton(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SecondaryButton(
     text: String,
@@ -116,7 +120,17 @@ fun SecondaryButton(
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit = {},
 ) {
-    CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+    CompositionLocalProvider(
+        LocalRippleConfiguration provides RippleConfiguration(
+            color = HmrcTheme.colors.hmrcBlue,
+            rippleAlpha = RippleAlpha(
+                draggedAlpha = 0.24f,
+                focusedAlpha = 0.40f,
+                hoveredAlpha = 0.40f,
+                pressedAlpha = 0.24f
+            )
+        )
+    ) {
         HmrcButton(
             text = text,
             modifier = modifier,
@@ -130,6 +144,7 @@ fun SecondaryButton(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SecondaryButtonWithUnderLine(
     text: String,
@@ -142,7 +157,17 @@ fun SecondaryButtonWithUnderLine(
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit = {},
 ) {
-    CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+    CompositionLocalProvider(
+        LocalRippleConfiguration provides RippleConfiguration(
+            color = HmrcTheme.colors.hmrcBlue,
+            rippleAlpha = RippleAlpha(
+                draggedAlpha = 0.24f,
+                focusedAlpha = 0.40f,
+                hoveredAlpha = 0.40f,
+                pressedAlpha = 0.24f
+            )
+        )
+    ) {
         HmrcButton(
             text = text,
             textStyle = HmrcTheme.typography.body.copy(

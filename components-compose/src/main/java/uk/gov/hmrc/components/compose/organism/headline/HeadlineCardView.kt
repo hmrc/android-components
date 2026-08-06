@@ -25,7 +25,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material.ripple.RippleAlpha
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalRippleConfiguration
+import androidx.compose.material3.RippleConfiguration
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -45,7 +48,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.atom.text.H3Text
-import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 object HeadlineCardView {
@@ -55,6 +57,7 @@ object HeadlineCardView {
     private const val TRAVERSE_INDEX_3RD = 3F
     private const val TRAVERSE_INDEX_4TH = 4F
 
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     operator fun invoke(
         modifier: Modifier = Modifier,
@@ -68,7 +71,17 @@ object HeadlineCardView {
         content: @Composable (ColumnScope.() -> Unit)? = null
     ) {
         if (onHeadlineCardClick != null) {
-            CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+            CompositionLocalProvider(
+                LocalRippleConfiguration provides RippleConfiguration(
+                    color = HmrcTheme.colors.hmrcBlue,
+                    rippleAlpha = RippleAlpha(
+                        draggedAlpha = 0.24f,
+                        focusedAlpha = 0.40f,
+                        hoveredAlpha = 0.40f,
+                        pressedAlpha = 0.24f
+                    )
+                )
+            ) {
                 Row(
                     modifier = Modifier
                         .background(HmrcTheme.colors.hmrcWhiteBackground)
