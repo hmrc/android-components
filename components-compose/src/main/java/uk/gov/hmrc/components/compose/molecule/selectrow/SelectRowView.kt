@@ -25,11 +25,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
-import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalRippleConfiguration
-import androidx.compose.material3.RippleConfiguration
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -45,6 +43,7 @@ import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.divider.HmrcDivider
 import uk.gov.hmrc.components.compose.atom.text.BodyText
 import uk.gov.hmrc.components.compose.atom.text.ErrorText
+import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 object SelectRowView {
@@ -75,15 +74,7 @@ object SelectRowView {
         onRowSelected: (SelectRowViewItem) -> Unit
     ) {
         CompositionLocalProvider(
-            LocalRippleConfiguration provides RippleConfiguration(
-                color = HmrcTheme.colors.hmrcBlue,
-                rippleAlpha = RippleAlpha(
-                    draggedAlpha = 0.24f,
-                    focusedAlpha = 0.40f,
-                    hoveredAlpha = 0.40f,
-                    pressedAlpha = 0.24f
-                )
-            )
+            LocalRippleConfiguration provides HmrcRippleTheme()
         ) {
             Column(modifier = modifier) {
                 errorText?.let {

@@ -48,6 +48,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.heading.Heading5
 import uk.gov.hmrc.components.compose.atom.text.H3Text
+import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 object HeadlineCardView {
@@ -72,15 +73,7 @@ object HeadlineCardView {
     ) {
         if (onHeadlineCardClick != null) {
             CompositionLocalProvider(
-                LocalRippleConfiguration provides RippleConfiguration(
-                    color = HmrcTheme.colors.hmrcBlue,
-                    rippleAlpha = RippleAlpha(
-                        draggedAlpha = 0.24f,
-                        focusedAlpha = 0.40f,
-                        hoveredAlpha = 0.40f,
-                        pressedAlpha = 0.24f
-                    )
-                )
+                LocalRippleConfiguration provides HmrcRippleTheme()
             ) {
                 Row(
                     modifier = Modifier

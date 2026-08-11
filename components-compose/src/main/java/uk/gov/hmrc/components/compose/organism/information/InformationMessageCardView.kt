@@ -47,6 +47,7 @@ import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.atom.button.HmrcButton
 import uk.gov.hmrc.components.compose.organism.HmrcCardView
 import uk.gov.hmrc.components.compose.ui.extensions.enableTalkBackMergeAccessibility
+import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 
@@ -149,15 +150,7 @@ class InformationMessageButton(
             }
         }
         CompositionLocalProvider(
-            LocalRippleConfiguration provides RippleConfiguration(
-                color = HmrcTheme.colors.hmrcBlue,
-                rippleAlpha = RippleAlpha(
-                    draggedAlpha = 0.24f,
-                    focusedAlpha = 0.40f,
-                    hoveredAlpha = 0.40f,
-                    pressedAlpha = 0.24f
-                )
-            )
+            LocalRippleConfiguration provides HmrcRippleTheme()
         ) {
             HmrcButton(
                 text = text,

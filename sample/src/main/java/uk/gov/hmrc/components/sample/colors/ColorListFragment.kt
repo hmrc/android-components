@@ -43,12 +43,13 @@ class ColorAdapter(val items: List<ColorListItem>) : RecyclerView.Adapter<ColorA
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.binding.apply {
-            colorSwatch.setBackgroundColor(ContextCompat.getColor(root.context, item.color))
+            val itemColor = ContextCompat.getColor(root.context, item.color)
+            colorSwatch.setBackgroundColor(itemColor)
 
             val colorNameWithHex = root.context.getString(
                 R.string.color_name_with_hex,
                 item.title,
-                item.color.toString().uppercase()
+                itemColor.toString().uppercase()
             )
             colorName.text = colorNameWithHex
         }
