@@ -67,6 +67,7 @@ android {
         lintConfig file('lint/config.xml')
         warningsAsErrors true
         disable += "SuspiciousModifierThen"
+        checkDependencies = false
     }
 
     composeOptions {
