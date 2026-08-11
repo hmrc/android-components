@@ -48,7 +48,7 @@ class ColorAdapter(val items: List<ColorListItem>) : RecyclerView.Adapter<ColorA
             val colorNameWithHex = root.context.getString(
                 R.string.color_name_with_hex,
                 item.title,
-                root.context.getString(item.color).toUpperCase()
+                item.color.toString().uppercase()
             )
             colorName.text = colorNameWithHex
         }
