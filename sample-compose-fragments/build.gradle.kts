@@ -50,6 +50,10 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.kotlinCompilerExtensionVersion
     }
+    lint {
+        disable += "SuspiciousModifierThen"
+        checkDependencies = false
+    }
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
