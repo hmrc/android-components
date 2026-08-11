@@ -17,5 +17,4 @@ package uk.gov.hmrc.components.buildsrc
  */
 object Kotlin {
     const val version = "2.1.10"
-    const val jvmVersion = "1.8"
 }

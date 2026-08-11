@@ -61,6 +61,14 @@ android {
         }
     }
 
+    lint {
+        abortOnError true
+        baseline file('lint/baseline.xml')
+        lintConfig file('lint/config.xml')
+        warningsAsErrors true
+        disable += "SuspiciousModifierThen"
+    }
+
     composeOptions {
         kotlinCompilerExtensionVersion Versions.kotlinCompilerExtensionVersion
     }

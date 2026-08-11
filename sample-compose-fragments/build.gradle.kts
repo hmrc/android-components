@@ -89,10 +89,10 @@ dependencies {
     debugImplementation(Libs.compose_tooling)
     debugImplementation(Libs.compose_uiTestManifest)
     constraints {
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.10") {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.1.10") {
             because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
         }
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.10") {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.10") {
             because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
         }
     }

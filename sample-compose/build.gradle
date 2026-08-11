@@ -98,6 +98,7 @@ dependencies {
     implementation(Libs.androidX_navigation_navigationCompose)
     implementation(Libs.androidX_navigation_ui_ktx)
     implementation(Libs.androidX_navigation_fragment)
+    implementation(Libs.hilt)
 
     testImplementation(Libs.junit)
 
@@ -108,10 +109,10 @@ dependencies {
     debugImplementation(Libs.compose_tooling)
 
     constraints {
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.2.21") {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.1.10") {
             because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
         }
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.21") {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.10") {
             because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
         }
     }
