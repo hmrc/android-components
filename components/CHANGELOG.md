@@ -16,6 +16,12 @@ Allowed headings:
 
 ## [Unreleased]
 
+## [4.11.8] - 2026-08-13Z
+
+### Changed
+
+* Updated Java, AGP, Kotlin & 3rd Party Library versions
+
 ## [4.11.7] - 2026-07-28Z
 
 ### Changed
