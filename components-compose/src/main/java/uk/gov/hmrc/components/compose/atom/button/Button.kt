@@ -24,11 +24,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -105,6 +106,7 @@ fun PrimaryButton(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SecondaryButton(
     text: String,
@@ -116,7 +118,9 @@ fun SecondaryButton(
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit = {},
 ) {
-    CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+    CompositionLocalProvider(
+        LocalRippleConfiguration provides HmrcRippleTheme()
+    ) {
         HmrcButton(
             text = text,
             modifier = modifier,
@@ -130,6 +134,7 @@ fun SecondaryButton(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SecondaryButtonWithUnderLine(
     text: String,
@@ -142,7 +147,9 @@ fun SecondaryButtonWithUnderLine(
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit = {},
 ) {
-    CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+    CompositionLocalProvider(
+        LocalRippleConfiguration provides HmrcRippleTheme()
+    ) {
         HmrcButton(
             text = text,
             textStyle = HmrcTheme.typography.body.copy(

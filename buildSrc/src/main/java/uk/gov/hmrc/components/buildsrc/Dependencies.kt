@@ -42,6 +42,8 @@ class Dependencies {
         const val facebook_screenshot = "com.facebook.testing.screenshot:core:0.15.0"
 
         const val junit = "junit:junit:4.13.2"
+
+        const val hilt = "com.google.dagger:hilt-android:2.57.2"
     }
 }
 

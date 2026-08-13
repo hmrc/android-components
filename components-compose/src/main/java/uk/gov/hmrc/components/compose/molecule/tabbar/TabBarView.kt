@@ -126,12 +126,15 @@ private fun HmrcScrollableTabRow(
         containerColor = if (tabBarStyle == TabBarViewStyle.LIGHT) HmrcTheme.colors.hmrcWhite else HmrcBlack,
         divider = {}, // Empty divider, we don't want the grey divider at the bottom of the Tab.
         edgePadding = 0.dp,
-        indicator = { tabPositions ->
+        indicator = {
             TabRowDefaults.SecondaryIndicator(
-                Modifier
-                    .tabIndicatorOffset(tabPositions[selectedIndex])
+                modifier = Modifier
+                    .tabIndicatorOffset(selectedTabIndex = selectedIndex)
                     .height(HmrcTheme.dimensions.hmrcSpacing4),
-                color = if (tabBarStyle == TabBarViewStyle.LIGHT) HmrcTheme.colors.hmrcBlue else HmrcWhite,
+                color = if (tabBarStyle == TabBarViewStyle.LIGHT)
+                    HmrcTheme.colors.hmrcBlue
+                else
+                    HmrcWhite,
             )
         },
         tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected, tabBarStyle) }
