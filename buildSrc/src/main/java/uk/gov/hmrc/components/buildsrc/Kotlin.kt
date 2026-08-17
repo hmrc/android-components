@@ -16,6 +16,5 @@ package uk.gov.hmrc.components.buildsrc
  * limitations under the License.
  */
 object Kotlin {
-    const val version = "1.8.22"
-    const val jvmVersion = "1.8"
+    const val version = "2.1.10"
 }

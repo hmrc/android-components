@@ -18,8 +18,8 @@ package uk.gov.hmrc.components.buildsrc
 class Dependencies {
     object Versions {
         const val minSdk = 23
-        const val targetSdk = 33
-        const val compileSdk = 34
+        const val targetSdk = 36
+        const val compileSdk = 36
         const val buildTools = "33.0.1"
     }
 
@@ -42,6 +42,8 @@ class Dependencies {
         const val facebook_screenshot = "com.facebook.testing.screenshot:core:0.15.0"
 
         const val junit = "junit:junit:4.13.2"
+
+        const val hilt = "com.google.dagger:hilt-android:2.57.2"
     }
 }
 

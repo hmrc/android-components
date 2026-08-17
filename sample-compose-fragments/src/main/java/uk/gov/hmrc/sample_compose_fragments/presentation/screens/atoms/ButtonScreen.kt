@@ -23,6 +23,7 @@ import androidx.compose.ui.res.stringResource
 import uk.gov.hmrc.components.compose.atom.button.IconButton
 import uk.gov.hmrc.components.compose.atom.button.PrimaryButton
 import uk.gov.hmrc.components.compose.atom.button.SecondaryButton
+import uk.gov.hmrc.components.compose.atom.button.SecondaryButtonWithUnderLine
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcAllDevicePreview
 import uk.gov.hmrc.sample_compose_components.R
@@ -38,6 +39,10 @@ fun ButtonScreen() {
         Spacer(modifier = Modifier.height(dimensions.hmrcSpacing16))
         SecondaryButton(text = stringResource(id = R.string.button_secondary_example), onClick = {})
         Spacer(modifier = Modifier.height(dimensions.hmrcSpacing16))
+        SecondaryButtonWithUnderLine(
+            text = stringResource(id = R.string.button_secondary_underlined_example),
+            onClick = {}
+        )
         IconButton(
             text = stringResource(id = R.string.button_icon_example),
             iconResId = R.drawable.ic_info,

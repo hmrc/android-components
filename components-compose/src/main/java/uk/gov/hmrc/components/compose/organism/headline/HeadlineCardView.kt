@@ -25,7 +25,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -55,6 +56,7 @@ object HeadlineCardView {
     private const val TRAVERSE_INDEX_3RD = 3F
     private const val TRAVERSE_INDEX_4TH = 4F
 
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     operator fun invoke(
         modifier: Modifier = Modifier,
@@ -68,7 +70,9 @@ object HeadlineCardView {
         content: @Composable (ColumnScope.() -> Unit)? = null
     ) {
         if (onHeadlineCardClick != null) {
-            CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+            CompositionLocalProvider(
+                LocalRippleConfiguration provides HmrcRippleTheme()
+            ) {
                 Row(
                     modifier = Modifier
                         .background(HmrcTheme.colors.hmrcWhiteBackground)

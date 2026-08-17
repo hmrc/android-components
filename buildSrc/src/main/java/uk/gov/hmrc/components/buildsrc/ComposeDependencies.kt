@@ -18,15 +18,15 @@ package uk.gov.hmrc.components.buildsrc
 class ComposeDependencies {
     object Versions {
         const val minSdk = 23
-        const val targetSdk = 34
-        const val compileSdk = 34
-        const val kotlinCompilerExtensionVersion = "1.4.8"
-        const val jetpackNavigation = "2.7.7"
-        const val lifecycleVersion = "2.7.0"
+        const val targetSdk = 36
+        const val compileSdk = 36
+        const val kotlinCompilerExtensionVersion = "2.1.10"
+        const val jetpackNavigation = "2.8.8"
+        const val lifecycleVersion = "2.8.7"
     }
 
     object Libs {
-        const val compose_bom = "androidx.compose:compose-bom:2024.06.00"
+        const val compose_bom = "androidx.compose:compose-bom:2025.01.01"
         const val compose_foundation = "androidx.compose.foundation:foundation"
         const val compose_material3 = "androidx.compose.material3:material3"
         const val compose_material = "androidx.compose.material:material:"
@@ -37,10 +37,10 @@ class ComposeDependencies {
         const val compose_uiTestManifest = "androidx.compose.ui:ui-test-manifest"
         const val compose_androidX_runtimeLiveData = "androidx.compose.runtime:runtime-livedata"
 
-        const val hilt = "com.google.dagger:hilt-android:2.44"
-        const val hilt_compiler = "com.google.dagger:hilt-compiler:2.44.2"
+        const val hilt = "com.google.dagger:hilt-android:2.57.2"
+        const val hilt_compiler = "com.google.dagger:hilt-compiler:2.57.2"
         const val material = "com.google.android.material:material:1.12.0"
-        const val androidX_activity_activityCompose = "androidx.activity:activity-compose:1.9.0"
+        const val androidX_activity_activityCompose = "androidx.activity:activity-compose:1.10.1"
         const val androidX_appCompat = "androidx.appcompat:appcompat:1.6.1"
         const val androidX_coreKtx = "androidx.core:core-ktx:1.13.1"
         const val androidX_lifecycle_runtimeKtx =

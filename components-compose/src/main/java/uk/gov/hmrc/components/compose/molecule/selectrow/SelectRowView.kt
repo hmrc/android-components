@@ -25,8 +25,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
-import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -59,19 +60,22 @@ object SelectRowView {
      * @param errorText Error text to be displayed, if any.
      * @param onRowSelected Callback function triggered when an item is clicked.
      */
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     operator fun invoke(
         modifier: Modifier = Modifier,
         selectRowViewItems: List<SelectRowViewItem>,
-        checkedIcon: Int = R.drawable.components_select_row_circle_checked,
-        uncheckedIcon: Int = R.drawable.components_select_row_circle_unchecked,
+        checkedIcon: Int = R.drawable.compose_select_row_circle_checked,
+        uncheckedIcon: Int = R.drawable.compose_select_row_circle_unchecked,
         showDivider: Boolean = false,
         defaultRowHorizontalPadding: Boolean = true,
         selectedRowItem: SelectRowViewItem? = null,
         @StringRes errorText: Int? = null,
         onRowSelected: (SelectRowViewItem) -> Unit
     ) {
-        CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+        CompositionLocalProvider(
+            LocalRippleConfiguration provides HmrcRippleTheme()
+        ) {
             Column(modifier = modifier) {
                 errorText?.let {
                     ErrorText(

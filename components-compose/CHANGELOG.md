@@ -15,6 +15,25 @@ Allowed headings:
 -->
 ## [Unreleased]
 
+## [0.1.18] - 2026-08-13Z
+
+### Changed
+
+* Updated Java, AGP, Kotlin & 3rd Party Library versions
+
+## [0.1.17] - 2026-07-28Z
+
+### Changed
+
+* Updated SDK version from 34 to 36
+
+## [0.1.16] - 2026-07-23Z
+
+### Changed
+
+* Added SecondaryButtonWithUnderLine
+* Updated builds settings
+
 ## [0.1.15] - 2026-07-06Z
 
 ### Changed

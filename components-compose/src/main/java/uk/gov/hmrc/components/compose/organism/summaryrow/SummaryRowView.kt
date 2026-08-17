@@ -26,7 +26,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -47,6 +48,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.typography
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SummaryRowView(
     titleText: String,
@@ -61,7 +63,9 @@ fun SummaryRowView(
     onSummaryRowClicked: (() -> Unit)? = null
 ) {
     if (onSummaryRowClicked != null) {
-        CompositionLocalProvider(LocalRippleTheme provides HmrcRippleTheme) {
+        CompositionLocalProvider(
+            LocalRippleConfiguration provides HmrcRippleTheme()
+        ) {
             Row(
                 modifier = modifier.clickable { onSummaryRowClicked.invoke() },
                 verticalAlignment = Alignment.CenterVertically
