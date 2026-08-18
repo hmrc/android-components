@@ -72,7 +72,8 @@ internal fun PrePostContentTextField(
     leadingIcon: @Composable (() -> Unit)? = null,
     currencyErrorText: String? = null,
     localError: String? = null,
-    counterEnabled: Boolean = false
+    counterEnabled: Boolean = false,
+    isContentPre: Boolean = true
 ) {
     var customIsError = isError
     val customColors = if (isCustomErrorInputHandle && isError) {
@@ -81,15 +82,17 @@ internal fun PrePostContentTextField(
     } else {
         colors
     }
+    val width = if (leadingContent == "%") 0.5f else 1f
     Row(
-        modifier = Modifier.height(IntrinsicSize.Min)
+        modifier = Modifier.height(IntrinsicSize.Min).fillMaxWidth(width)
     ) {
         Column {
-            if (leadingContent != null && leadingContent == "£") {
+            if (leadingContent != null && isContentPre) {
                 PreOrPostBox(
                     leadingContent = leadingContent,
                     counterEnabled = counterEnabled,
-                    localError = localError
+                    localError = localError,
+                    isContentPre = isContentPre
                 )
             }
         }
@@ -119,11 +122,12 @@ internal fun PrePostContentTextField(
             )
         }
         Column {
-            if (leadingContent != null && leadingContent == "%") {
+            if (leadingContent != null && !isContentPre) {
                 PreOrPostBox(
                     leadingContent = leadingContent,
                     counterEnabled = counterEnabled,
-                    localError = localError
+                    localError = localError,
+                    isContentPre = isContentPre
                 )
             }
         }
@@ -147,7 +151,8 @@ fun SeperateErrorBar(errorText: String) {
 fun PreOrPostBox(
     leadingContent: String,
     counterEnabled: Boolean,
-    localError: String?
+    localError: String?,
+    isContentPre: Boolean
 ) {
     val color = HmrcTheme.colors.hmrcBlack
     Box(
@@ -165,14 +170,14 @@ fun PreOrPostBox(
                     end = Offset(size.width - half, half), strokeWidth = strokeWidth
                 )
                 // Middle section - border on left or right
-                if (leadingContent == "£") {
+                if (isContentPre) {
                     drawLine(
                         color = color,
                         start = Offset(half, half),
                         end = Offset(half, size.height - half),
                         strokeWidth = strokeWidth
                     )
-                } else if (leadingContent == "%") {
+                } else {
                     drawLine(
                         color = color,
                         start = Offset(size.width - half, half),
