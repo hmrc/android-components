@@ -110,7 +110,7 @@ object TextInputView {
                 trailingIcon = clearTrailingIcon,
                 colors = HmrcTheme.textFieldColors,
                 textStyle =
-                    if (requiredSequencesSpacing) { HmrcTheme.typography.sequencesBody } else { HmrcTheme.typography.body },
+                if (requiredSequencesSpacing) { HmrcTheme.typography.sequencesBody } else { HmrcTheme.typography.body },
                 isCustomErrorInputHandle = isCustomErrorInputHandle
             )
         }

@@ -30,7 +30,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import uk.gov.hmrc.components.compose.R
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
@@ -93,63 +92,58 @@ object PrePostTextInputView {
             Label(labelText = labelText, labelContentDescription = labelContentDescription)
             Hint(hintText = hintText, hintContentDescription = hintContentDescription)
 
-
-                PrePostContentTextField(
-                    leadingIcon = leadingIcon,
-                    modifier = Modifier.adjustPaddingForCounter(counterEnabled, localError),
-                    counterEnabled = counterEnabled,
-                    localError = localError,
-                    isError = !localError.isNullOrEmpty() || (
-                        localValue.length > (
-                            characterCount
-                                ?: Int.MAX_VALUE
-                            )
-                        ),
-                    value = localValue,
-                    onInputValueChange = { newValue ->
-                        if (maxChars?.let { newValue.length <= it } != false) {
-                            localValue = if (inputFilter != null && newValue.isNotEmpty()) {
-                                inputFilter(newValue, localValue)
-                            } else newValue
-                            if (onInputValueChange != null) {
-                                onInputValueChange(localValue)
-                            }
-                        }
-                    },
-                    prefix = prefix,
-                    placeholderText = { placeholderText?.let { Text(text = it) } },
-                    supportingText = if (counterEnabled)
-                        errorTextCounterCombo(
-                            errorText,
-                            errorContentDescription,
-                            characterCount,
-                            localValue
+            PrePostContentTextField(
+                leadingIcon = leadingIcon,
+                modifier = Modifier.adjustPaddingForCounter(counterEnabled, localError),
+                counterEnabled = counterEnabled,
+                localError = localError,
+                isError = !localError.isNullOrEmpty() || (
+                    localValue.length > (
+                        characterCount
+                            ?: Int.MAX_VALUE
                         )
-                    else error(
-                        errorText,
-                        errorContentDescription
                     ),
-                    singleLine = singleLine,
-                    keyboardOptions = keyboardOptions,
-                    visualTransformation = VisualTransformation.None,
-                    trailingIcon = clearTrailingIcon,
-                    colors = HmrcTheme.textFieldColors,
-                    textStyle =
-                    if (requiredSequencesSpacing) {
-                        sequencesBody
-                    } else {
-                        body
-                    },
-                    isCustomErrorInputHandle = isCustomErrorInputHandle,
-                    leadingContent = leadingContent,
-                    currencyErrorText = errorText,
-                    isContentPre = isContentPre
+                value = localValue,
+                onInputValueChange = { newValue ->
+                    if (maxChars?.let { newValue.length <= it } != false) {
+                        localValue = if (inputFilter != null && newValue.isNotEmpty()) {
+                            inputFilter(newValue, localValue)
+                        } else newValue
+                        if (onInputValueChange != null) {
+                            onInputValueChange(localValue)
+                        }
+                    }
+                },
+                prefix = prefix,
+                placeholderText = { placeholderText?.let { Text(text = it) } },
+                supportingText = if (counterEnabled)
+                    errorTextCounterCombo(
+                        errorText,
+                        errorContentDescription,
+                        characterCount,
+                        localValue
+                    )
+                else error(
+                    errorText,
+                    errorContentDescription
+                ),
+                singleLine = singleLine,
+                keyboardOptions = keyboardOptions,
+                visualTransformation = VisualTransformation.None,
+                trailingIcon = clearTrailingIcon,
+                colors = HmrcTheme.textFieldColors,
+                textStyle =
+                if (requiredSequencesSpacing) {
+                    sequencesBody
+                } else {
+                    body
+                },
+                isCustomErrorInputHandle = isCustomErrorInputHandle,
+                leadingContent = leadingContent,
+                currencyErrorText = errorText,
+                isContentPre = isContentPre
 
-                )
-            }
-
-
-
+            )
+        }
     }
 }
-
