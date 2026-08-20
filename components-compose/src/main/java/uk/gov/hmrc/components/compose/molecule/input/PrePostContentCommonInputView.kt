@@ -107,7 +107,7 @@ internal fun PrePostContentTextField(
                 supportingText =
                 if (leadingContent != null) { null } else { supportingText },
                 trailingIcon = trailingIcon,
-                singleLine = singleLine,
+                singleLine = true,
                 keyboardOptions = keyboardOptions,
                 textStyle = textStyle,
                 colors = customColors,
