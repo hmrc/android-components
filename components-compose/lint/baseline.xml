@@ -74,7 +74,7 @@
         <location
             file="src/main/res/drawable/components_ic_pound_sign.xml"
             line="10"
-            column="27"/>
+            column="27" />
     </issue>
 
 </issues>
