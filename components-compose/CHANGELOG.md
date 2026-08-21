@@ -15,6 +15,12 @@ Allowed headings:
 -->
 ## [Unreleased]
 
+## [0.1.19] - 2026-08-21Z
+
+### Changed
+
+* Updated tax calculator £ and % textviews- HMA-11966, HMA-11991
+
 ## [0.1.18] - 2026-08-13Z
 
 ### Changed
