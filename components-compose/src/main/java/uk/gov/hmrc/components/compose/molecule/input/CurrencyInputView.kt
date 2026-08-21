@@ -15,14 +15,12 @@
  */
 package uk.gov.hmrc.components.compose.molecule.input
 
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
-import uk.gov.hmrc.components.compose.atom.text.BodyText
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 
 @Composable
@@ -40,7 +38,9 @@ fun CurrencyInputView(
     singleLine: Boolean = true,
     enableDecimal: Boolean = true,
     maxChars: Int? = null,
-    isCustomErrorInputHandle: Boolean = false
+    isCustomErrorInputHandle: Boolean = false,
+    leadingContent: String? = null,
+    isContentPre: Boolean = true
 ) {
     // pattern matches a decimal number
     val decimalPattern = remember { Regex("^([0-9]*)(\\.?)([0-9]*)$") }
@@ -53,7 +53,7 @@ fun CurrencyInputView(
         else -> localValue
     }
 
-    TextInputView(
+    PrePostTextInputView(
         modifier = modifier,
         value = value,
         onInputValueChange = onInputValueChange,
@@ -62,12 +62,7 @@ fun CurrencyInputView(
         labelContentDescription = labelContentDescription,
         hintText = hintText,
         hintContentDescription = hintContentDescription,
-        prefix = {
-            BodyText(
-                text = "£",
-                modifier = Modifier.padding(end = HmrcTheme.dimensions.hmrcSpacing8)
-            )
-        },
+        leadingContent = leadingContent,
         placeholderText = placeholderText,
         errorText = errorText,
         errorContentDescription = errorContentDescription,
@@ -76,7 +71,8 @@ fun CurrencyInputView(
         keyboardOptions = KeyboardOptions(
             keyboardType = if (enableDecimal) KeyboardType.Decimal else KeyboardType.Number
         ),
-        isCustomErrorInputHandle = isCustomErrorInputHandle
+        isCustomErrorInputHandle = isCustomErrorInputHandle,
+        isContentPre = isContentPre
     )
 }
 
@@ -88,7 +84,8 @@ fun CurrencyInputViewPreview() {
             onInputValueChange = { },
             labelText = "Label",
             hintText = "Hint",
-            placeholderText = "Text"
+            placeholderText = "Text",
+            leadingContent = "£"
         )
     }
 }

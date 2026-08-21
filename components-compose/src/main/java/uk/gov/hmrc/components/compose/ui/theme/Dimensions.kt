@@ -30,6 +30,8 @@ data class Dimensions(
     val hmrcIconSize36: Dp,
     val hmrcIconSize100: Dp,
     val hmrcButtonSize48: Dp,
+    val halfWidth: Float = 0.5f,
+    val fullWidth: Float = 1f
 )
 
 val smallDimensions = Dimensions(
