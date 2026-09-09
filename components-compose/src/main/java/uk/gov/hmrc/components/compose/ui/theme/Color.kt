@@ -48,3 +48,7 @@ val HmrcGrey2Dark = Color(0xFF6F777B)
 val HmrcGrey3Dark = Color(0xFF0B0C0C)
 val HmrcPinkDark = Color(0xFFBB94FF)
 val HmrcYellowDark = Color(0xFFFEFF4F)
+val HmrcDarkNavy = Color(0xFF0D1C29)
+val HmrcDarkNavy2 = Color(0xFF061625)
+val HmrcDarkNavy3 = Color(0xFF092537)
+

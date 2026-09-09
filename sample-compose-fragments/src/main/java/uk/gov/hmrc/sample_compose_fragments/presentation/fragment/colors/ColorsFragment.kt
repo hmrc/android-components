@@ -22,10 +22,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.rememberWindowSizeClass
 import uk.gov.hmrc.sample_compose_components.R
 import uk.gov.hmrc.sample_compose_components.databinding.FragmentComposeExampleBinding
-import uk.gov.hmrc.sample_compose_fragments.presentation.screens.colors.ColorsListScreen
+import uk.gov.hmrc.sample_compose_fragments.presentation.screens.colors.CatalogDesignScreen
 import uk.gov.hmrc.sample_compose_fragments.presentation.screens.sampletemplate.HmrcSurface
 import uk.gov.hmrc.sample_compose_fragments.presentation.viewModel.ColorsViewModel
 
@@ -43,7 +42,7 @@ class ColorsFragment : Fragment(R.layout.fragment_compose_example) {
             setContent {
                 HmrcTheme {
                     HmrcSurface {
-                        ColorsListScreen(viewModel = viewModel)
+                        CatalogDesignScreen()
                     }
                 }
             }

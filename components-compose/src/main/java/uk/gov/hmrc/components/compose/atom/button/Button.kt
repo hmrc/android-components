@@ -90,7 +90,7 @@ fun PrimaryButton(
     onClick: () -> Unit,
 ) {
     val primaryButtonColors: ButtonColors = ButtonDefaults.buttonColors(
-        containerColor = colors.hmrcGreen1, contentColor = colors.hmrcWhite
+        containerColor = colors.hmrcPrimaryButtonBackground, contentColor = colors.hmrcWhite
     )
     val disabledPrimaryButtonColors: ButtonColors = ButtonDefaults.buttonColors(
         disabledContainerColor = colors.hmrcGrey2, disabledContentColor = colors.hmrcGrey1
