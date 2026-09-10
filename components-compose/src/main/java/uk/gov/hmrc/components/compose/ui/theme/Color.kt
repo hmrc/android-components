@@ -37,14 +37,25 @@ val HmrcTransparent = Color.Transparent
 
 // Dark theme colors
 val HmrcBlackDark = Color(0xFFFFFFFF)
-val HmrcWhiteDark = Color(0xFF0B0C0C)
-val HmrcWhiteBackgroundDark = Color(0xFF262626)
-val HmrcGreen1Dark = Color(0xFF69B134)
 val HmrcGreen2Dark = Color(0xFF28A197)
-val HmrcBlueDark = Color(0xFF5BC0C6)
 val HmrcRedDark = Color(0xFFEB66CA)
 val HmrcGrey1Dark = Color(0xFFB1B4B6)
 val HmrcGrey2Dark = Color(0xFF6F777B)
-val HmrcGrey3Dark = Color(0xFF0B0C0C)
 val HmrcPinkDark = Color(0xFFBB94FF)
 val HmrcYellowDark = Color(0xFFFEFF4F)
+
+//old dark mode colors (to be removed once all changes are made)
+val HmrcWhiteDark = Color(0xFF0B0C0C)
+val HmrcWhiteBackgroundDark = Color(0xFF262626)
+val HmrcBlueDark = Color(0xFF5BC0C6)
+val HmrcGreen1Dark = Color(0xFF69B134)
+val HmrcGrey3Dark = Color(0xFF0B0C0C)
+
+
+//new dark mode colors
+val HmrcPrimaryGreen = Color(0xFF188659)
+val HmrcPrimaryRed = Color(0xFFF26954)
+val HmrcDarkNavy = Color(0xFF0D1C29)
+val HmrcDarkNavy2 = Color(0xFF061625)
+val HmrcDarkNavy3 = Color(0xFF092537)
+val HmrcNavy = Color(0xFF0A2740)

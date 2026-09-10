@@ -18,19 +18,30 @@
 
     <!-- Color palette -->
     <color name="hmrc_black">#FFFFFFFF</color>
-    <color name="hmrc_white">#FF0B0C0C</color>
-    <color name="hmrc_white_background">#FF262626</color>
-    <color name="hmrc_green_1">#FF69B134</color>
     <color name="hmrc_green_2">#FF28A197</color>
-    <color name="hmrc_blue">#FF5BC0C6</color>
     <color name="hmrc_red">#FFEB66CA</color>
     <color name="hmrc_grey_1">#FFB1B4B6</color>
     <color name="hmrc_grey_2">#FF6F777B</color>
-    <color name="hmrc_grey_3">#FF0B0C0C</color>
     <color name="hmrc_yellow">#FFFEFF4F</color>
     <color name="hmrc_pink">#FFBB94FF</color>
     <color name="hmrc_donut_chart_color_1">@color/hmrc_always_white</color>
     <color name="hmrc_donut_chart_color_2">@color/hmrc_teal</color>
     <color name="hmrc_donut_chart_color_3">@color/hmrc_teal</color>
+
+<!--    old dark mode colors to be removed once all work is completed-->
+    <color name="hmrc_white">#FF0B0C0C</color>
+    <color name="hmrc_white_background">#FF262626</color>
+    <color name="hmrc_blue">#FF5BC0C6</color>
+    <color name="hmrc_green_1">#FF69B134</color>
+    <color name="hmrc_grey_3">#FF0B0C0C</color>
+
+<!--    new dark mode colors-->
+    <color name="hmrc_primary_green">#FF188659</color>
+    <color name="hmrc_primary_red">#FFF26954</color>
+    <color name="hmrc_dark_navy">#FF0D1C29</color>
+    <color name="hmrc_dark_navy_2">#FF061625</color>
+    <color name="hmrc_dark_navy_3">#FF092537</color>
+    <color name="hmrc_navy">#FF0A2740</color>
+
 
 </resources>
