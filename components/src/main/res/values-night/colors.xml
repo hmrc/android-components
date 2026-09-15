@@ -44,4 +44,37 @@
     <color name="hmrc_navy">#FF0A2740</color>
 <!--mid-navy still to be added to excel spreadsheet-->
 
+
+    <!--    light mode semantic token colors for xml-->
+    <!--    text-->
+    <color name="hmrc_text">@color/hmrc_white</color>
+
+    <!--    background-->
+    <color name="hmrc_interface">@color/hmrc_dark_navy_2</color>
+
+    <!--    cards-->
+    <color name="hmrc_card_background">@color/hmrc_dark_navy_3</color>
+    <color name="hmrc_card_title">@color/hmrc_white</color>
+    <color name="hmrc_card_text_color">@color/hmrc_white</color>
+
+    <!--    header-->
+    <color name="hmrc_header_background">@color/hmrc_navy</color>
+
+    <!--    onboarding-->
+    <color name="hmrc_onboarding_background">@color/hmrc_dark_navy_2</color>
+    <color name="hmrc_onboarding_pager_view">@color/hmrc_dark_navy_3</color>
+
+    <!--    buttons-->
+    <color name="hmrc_primary_button_color">@color/hmrc_primary_green</color>
+    <color name="hmrc_primary_button_text_color">@color/hmrc_white</color>
+    <color name="hmrc_secondary_button_color">@color/hmrc_transparent</color>
+    <color name="hmrc_secondary_button_text_color">@color/hmrc_white</color>
+
+    <!--    NavBar-->
+    <color name="hmrc_nav_bar_background">@color/hmrc_dark_navy_3</color>
+
+    <!--    confirmation-->
+    <color name="hmrc_confirmation_background">@color/hmrc_primary_green</color>
+
+
 </resources>
