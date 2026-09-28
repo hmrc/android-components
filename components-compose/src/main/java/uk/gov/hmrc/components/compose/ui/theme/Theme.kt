@@ -45,7 +45,7 @@ private val LightColorPalette = HmrcColors(
     hmrcDonutChartColor3 = HmrcDonutBlue,
     isDark = false,
     hmrcTransparent = HmrcTransparent,
-    //App Background
+    // App Background
     hmrcInterface = HmrcLightGrey
 )
 
@@ -68,7 +68,7 @@ private val DarkColorPalette = HmrcColors(
     hmrcDonutChartColor3 = HmrcTeal,
     isDark = true,
     hmrcTransparent = HmrcTransparent,
-    //App Background
+    // App Background
     hmrcInterface = HmrcDarkNavy2
 )
 
