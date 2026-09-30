@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val window = rememberWindowSizeClass()
             HmrcTheme(window) {
-                Surface(color = HmrcTheme.colors.hmrcWhiteBackground) {
+                Surface(color = HmrcTheme.colors.hmrcCardBackground) {
                     MainScreen()
                 }
             }

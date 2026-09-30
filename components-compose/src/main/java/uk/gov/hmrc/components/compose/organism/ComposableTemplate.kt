@@ -29,7 +29,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 @Composable
 fun HmrcCardView(
     modifier: Modifier = Modifier,
-    customBackgroundColor: Color = HmrcTheme.colors.hmrcWhiteBackground,
+    customBackgroundColor: Color = HmrcTheme.colors.hmrcCardBackground,
     shape: Shape = RectangleShape,
     content: @Composable ColumnScope.() -> Unit
 ) {

@@ -168,7 +168,7 @@ class DonutChartView @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas) {
-        val white = stripesOrPlain(false, ContextCompat.getColor(context, R.color.hmrc_white_background))
+        val white = stripesOrPlain(false, ContextCompat.getColor(context, R.color.hmrc_card_background))
 
         canvas?.apply {
             if (value1Percent < PERCENT_FOR_NO_STRIPES) {

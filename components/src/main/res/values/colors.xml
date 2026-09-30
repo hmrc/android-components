@@ -81,7 +81,9 @@
     <color name="hmrc_interface">@color/hmrc_light_grey</color>
 
 <!--    cards-->
-    <color name="hmrc_card_background">@color/hmrc_white</color>
+<!--    <color name="hmrc_card_background">@color/hmrc_white</color>-->
+<!--    for testing make diff color-->
+    <color name="hmrc_card_background">@color/hmrc_pink</color>
     <color name="hmrc_card_title">@color/hmrc_blue</color>
     <color name="hmrc_card_text_color">@color/hmrc_black</color>
 
