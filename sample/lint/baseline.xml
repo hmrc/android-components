@@ -1,70 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 7.0.1" type="baseline" client="gradle" name="AGP (7.0.1)" variant="all" version="7.0.1">
+<issues format="6" by="lint 8.7.2" type="baseline" client="gradle" dependencies="false" name="AGP (8.7.2)" variant="all" version="8.7.2">
 
     <issue
-        id="ResourceType"
-        message="Expected resource of type string"
-        errorLine1="                    root.context.getString(item.color).toUpperCase())"
-        errorLine2="                                           ~~~~~~~~~~">
+        id="ObsoleteSdkInt"
+        message="This folder configuration (`v26`) is unnecessary; `minSdkVersion` is 29. Merge all the resources in this folder into `mipmap-anydpi`.">
         <location
-            file="src/main/java/uk/gov/hmrc/components/sample/colors/ColorListFragment.kt"
-            line="50"
-            column="44" />
-    </issue>
-
-    <issue
-        id="DefaultLocale"
-        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
-        errorLine1="                    root.context.getString(item.color).toUpperCase())"
-        errorLine2="                                                       ~~~~~~~~~~~">
-        <location
-            file="src/main/java/uk/gov/hmrc/components/sample/colors/ColorListFragment.kt"
-            line="50"
-            column="56" />
-    </issue>
-
-    <issue
-        id="VectorRaster"
-        message="This attribute is not supported in images generated from this vector icon for API &lt; 24; check generated icon to make sure it looks acceptable"
-        errorLine1=" android:autoMirrored=&quot;true&quot;"
-        errorLine2=" ~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/res/drawable/ic_coins.xml"
-            line="4"
-            column="2" />
-    </issue>
-
-    <issue
-        id="VectorRaster"
-        message="This attribute is not supported in images generated from this vector icon for API &lt; 24; check generated icon to make sure it looks acceptable"
-        errorLine1=" android:autoMirrored=&quot;true&quot;"
-        errorLine2=" ~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/res/drawable/ic_maintenance.xml"
-            line="19"
-            column="2" />
-    </issue>
-
-    <issue
-        id="IntentFilterExportedReceiver"
-        message="When using intent filters, please specify `android:exported` as well"
-        errorLine1="  &lt;activity"
-        errorLine2="   ~~~~~~~~">
-        <location
-            file="src/main/AndroidManifest.xml"
-            line="27"
-            column="4" />
-    </issue>
-
-    <issue
-        id="AllowBackup"
-        message="On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute `android:fullBackupContent` to specify an `@xml` resource which configures which files to backup, or just set `android:fullBackupOnly=true`. More info: https://developer.android.com/guide/topics/data/autobackup"
-        errorLine1="  android:allowBackup=&quot;true&quot;"
-        errorLine2="  ~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/AndroidManifest.xml"
-            line="21"
-            column="3" />
+            file="src/main/res/mipmap-anydpi-v26"/>
     </issue>
 
     <issue
@@ -75,7 +16,7 @@
         <location
             file="src/main/res/layout/activity_main.xml"
             line="23"
-            column="5" />
+            column="5"/>
     </issue>
 
     <issue
@@ -86,7 +27,7 @@
         <location
             file="src/main/res/layout/fragment_menu_panel_row.xml"
             line="21"
-            column="5" />
+            column="5"/>
     </issue>
 
     <issue
@@ -97,7 +38,7 @@
         <location
             file="src/main/res/values/dimens.xml"
             line="19"
-            column="9" />
+            column="9"/>
     </issue>
 
     <issue
@@ -108,7 +49,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="36"
-            column="13" />
+            column="13"/>
     </issue>
 
     <issue
@@ -119,7 +60,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="37"
-            column="13" />
+            column="13"/>
     </issue>
 
     <issue
@@ -130,7 +71,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="40"
-            column="13" />
+            column="13"/>
     </issue>
 
     <issue
@@ -141,7 +82,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="41"
-            column="13" />
+            column="13"/>
     </issue>
 
     <issue
@@ -152,7 +93,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="44"
-            column="13" />
+            column="13"/>
     </issue>
 
     <issue
@@ -163,7 +104,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="45"
-            column="13" />
+            column="13"/>
     </issue>
 
     <issue
@@ -174,18 +115,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="70"
-            column="13" />
-    </issue>
-
-    <issue
-        id="UnusedResources"
-        message="The resource `R.string.title_body_cta_placeholder_button` appears to be unused"
-        errorLine1="    &lt;string name=&quot;title_body_cta_placeholder_button&quot;>Button&lt;/string>"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/res/values/strings.xml"
-            line="107"
-            column="13" />
+            column="13"/>
     </issue>
 
     <issue
@@ -195,8 +125,8 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="213"
-            column="13" />
+            line="221"
+            column="13"/>
     </issue>
 
     <issue
@@ -206,8 +136,8 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="216"
-            column="13" />
+            line="224"
+            column="13"/>
     </issue>
 
     <issue
@@ -217,8 +147,8 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="222"
-            column="13" />
+            line="230"
+            column="13"/>
     </issue>
 
     <issue
@@ -228,8 +158,8 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="261"
-            column="13" />
+            line="273"
+            column="13"/>
     </issue>
 
     <issue
@@ -239,8 +169,8 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="278"
-            column="13" />
+            line="290"
+            column="13"/>
     </issue>
 
     <issue
@@ -250,8 +180,8 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="280"
-            column="13" />
+            line="292"
+            column="13"/>
     </issue>
 
     <issue
@@ -261,8 +191,8 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="314"
-            column="13" />
+            line="327"
+            column="13"/>
     </issue>
 
     <issue
@@ -272,8 +202,8 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="318"
-            column="13" />
+            line="331"
+            column="13"/>
     </issue>
 
     <issue
@@ -283,15 +213,15 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="319"
-            column="13" />
+            line="332"
+            column="13"/>
     </issue>
 
     <issue
         id="IconLocation"
         message="Found bitmap drawable `res/drawable/checked_tile.png` in densityless folder">
         <location
-            file="src/main/res/drawable/checked_tile.png" />
+            file="src/main/res/drawable/checked_tile.png"/>
     </issue>
 
     <issue
@@ -301,8 +231,8 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_multi_column_row.xml"
-            line="189"
-            column="13" />
+            line="191"
+            column="13"/>
     </issue>
 
 </issues>
