@@ -16,7 +16,6 @@
 package uk.gov.hmrc.components.atom.bullet
 
 import android.content.Context
-import android.os.Build
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.BulletSpan
