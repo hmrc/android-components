@@ -5,7 +5,7 @@
         id="ObsoleteSdkInt"
         message="This folder configuration (`v26`) is unnecessary; `minSdkVersion` is 29. Merge all the resources in this folder into `mipmap-anydpi`.">
         <location
-            file="src/main/res/mipmap-anydpi-v26"/>
+            file="src/main/res/mipmap-anydpi-v26" />
     </issue>
 
     <issue
@@ -16,7 +16,7 @@
         <location
             file="src/main/res/layout/activity_main.xml"
             line="23"
-            column="5"/>
+            column="5" />
     </issue>
 
     <issue
@@ -27,7 +27,7 @@
         <location
             file="src/main/res/layout/fragment_menu_panel_row.xml"
             line="21"
-            column="5"/>
+            column="5" />
     </issue>
 
     <issue
@@ -38,7 +38,7 @@
         <location
             file="src/main/res/values/dimens.xml"
             line="19"
-            column="9"/>
+            column="9" />
     </issue>
 
     <issue
@@ -49,7 +49,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="36"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -60,7 +60,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="37"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -71,7 +71,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="40"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -82,7 +82,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="41"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -93,7 +93,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="44"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -104,7 +104,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="45"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -115,7 +115,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="70"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -126,7 +126,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="221"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -137,7 +137,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="224"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -148,7 +148,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="230"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -159,7 +159,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="273"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -170,7 +170,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="290"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -181,7 +181,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="292"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -192,7 +192,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="327"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -203,7 +203,7 @@
         <location
             file="src/main/res/values/strings.xml"
             line="331"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
@@ -214,14 +214,14 @@
         <location
             file="src/main/res/values/strings.xml"
             line="332"
-            column="13"/>
+            column="13" />
     </issue>
 
     <issue
         id="IconLocation"
         message="Found bitmap drawable `res/drawable/checked_tile.png` in densityless folder">
         <location
-            file="src/main/res/drawable/checked_tile.png"/>
+            file="src/main/res/drawable/checked_tile.png" />
     </issue>
 
     <issue
@@ -232,7 +232,7 @@
         <location
             file="src/main/res/layout/fragment_multi_column_row.xml"
             line="191"
-            column="13"/>
+            column="13" />
     </issue>
 
 </issues>
