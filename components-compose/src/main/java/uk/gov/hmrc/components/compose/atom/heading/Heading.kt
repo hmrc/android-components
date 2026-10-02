@@ -53,7 +53,7 @@ fun Heading5Blue(
         text = text,
         modifier = modifier,
         style = typography.h5.copy(
-            color = HmrcTheme.colors.hmrcBlue
+            color = HmrcTheme.colors.hmrcCardTitle
         )
     )
 }

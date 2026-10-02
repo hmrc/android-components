@@ -75,7 +75,7 @@ object HeadlineCardView {
             ) {
                 Row(
                     modifier = Modifier
-                        .background(HmrcTheme.colors.hmrcWhiteBackground)
+                        .background(HmrcTheme.colors.hmrcCardBackground)
                         .clickable { onHeadlineCardClick() }
                 ) {
                     HeadlineCard(
@@ -129,7 +129,7 @@ object HeadlineCardView {
 
         Column(
             modifier = modifier
-                .background(HmrcTheme.colors.hmrcWhiteBackground)
+                .background(HmrcTheme.colors.hmrcCardBackground)
                 .fillMaxWidth()
         ) {
             Heading5(

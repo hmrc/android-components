@@ -44,7 +44,12 @@ private val LightColorPalette = HmrcColors(
     hmrcDonutChartColor2 = HmrcDonutBlue,
     hmrcDonutChartColor3 = HmrcDonutBlue,
     isDark = false,
-    hmrcTransparent = HmrcTransparent
+    hmrcTransparent = HmrcTransparent,
+
+//    cards
+    hmrcCardBackground = HmrcWhite,
+    hmrcCardTitle = HmrcBlue,
+    hmrcCardTextColor = HmrcBlack,
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -65,7 +70,12 @@ private val DarkColorPalette = HmrcColors(
     hmrcDonutChartColor2 = HmrcTeal,
     hmrcDonutChartColor3 = HmrcTeal,
     isDark = true,
-    hmrcTransparent = HmrcTransparent
+    hmrcTransparent = HmrcTransparent,
+
+//    cards
+    hmrcCardBackground = HmrcDarkNavy3,
+    hmrcCardTitle = HmrcWhite,
+    hmrcCardTextColor = HmrcWhite,
 )
 
 @Composable
@@ -211,7 +221,10 @@ class HmrcColors(
     hmrcDonutChartColor2: Color,
     hmrcDonutChartColor3: Color,
     isDark: Boolean,
-    hmrcTransparent: Color
+    hmrcTransparent: Color,
+    hmrcCardBackground: Color,
+    hmrcCardTitle: Color,
+    hmrcCardTextColor: Color,
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
@@ -271,6 +284,12 @@ class HmrcColors(
         private set
     var isDark by mutableStateOf(isDark)
         private set
+    var hmrcCardBackground by mutableStateOf(hmrcCardBackground)
+        private set
+    var hmrcCardTitle by mutableStateOf(hmrcCardTitle)
+        private set
+    var hmrcCardTextColor by mutableStateOf(hmrcCardTextColor)
+        private set
 
     val hmrcAlwaysBlack: Color = HmrcBlack
     val hmrcAlwaysWhite: Color = HmrcWhite
@@ -308,6 +327,9 @@ class HmrcColors(
         hmrcDonutChartColor2 = other.hmrcDonutChartColor2
         hmrcDonutChartColor3 = other.hmrcDonutChartColor3
         isDark = other.isDark
+        hmrcCardBackground = other.hmrcCardBackground
+        hmrcCardTitle = other.hmrcCardTitle
+        hmrcCardTextColor = other.hmrcCardTextColor
     }
 
     fun copy(): HmrcColors = HmrcColors(
@@ -340,6 +362,9 @@ class HmrcColors(
         hmrcDonutChartColor2 = hmrcDonutChartColor2,
         hmrcDonutChartColor3 = hmrcDonutChartColor3,
         isDark = isDark,
-        hmrcTransparent = hmrcTransparent
+        hmrcTransparent = hmrcTransparent,
+        hmrcCardBackground = hmrcCardBackground,
+        hmrcCardTitle = hmrcCardTitle,
+        hmrcCardTextColor = hmrcCardTextColor
     )
 }

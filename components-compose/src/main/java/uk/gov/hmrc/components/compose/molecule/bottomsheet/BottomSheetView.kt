@@ -83,7 +83,7 @@ object BottomSheetView {
             ModalBottomSheet(
                 onDismissRequest = onDismissRequest,
                 sheetState = sheetState,
-                containerColor = colors.hmrcWhiteBackground,
+                containerColor = colors.hmrcCardBackground,
                 contentWindowInsets = { WindowInsets(top = topWindowInset) },
                 dragHandle = { HmrcDragHandle() },
                 modifier = modifier,

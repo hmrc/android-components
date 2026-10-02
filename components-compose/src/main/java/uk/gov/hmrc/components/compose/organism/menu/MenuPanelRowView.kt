@@ -55,6 +55,7 @@ import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 @Suppress("LongMethod")
 @Composable
 fun MenuPanelRowView(
+    modifier: Modifier = Modifier,
     heading: String,
     onClick: () -> Unit,
     body: String? = null,
@@ -63,14 +64,13 @@ fun MenuPanelRowView(
     icon: Int = R.drawable.components_ic_chevron_right,
     accessibilityDescription: Int = R.string.accessibility_button_activate,
     shape: Shape = RectangleShape,
-    modifier: Modifier = Modifier,
 ) {
     val cardAccessibility = stringResource(accessibilityDescription)
     val buttonAccessibility = stringResource(R.string.accessibility_button)
 
     Box(modifier = Modifier.clip(shape)) {
         HmrcCardView(
-            customBackgroundColor = HmrcTheme.colors.hmrcWhiteBackground,
+            customBackgroundColor = HmrcTheme.colors.hmrcCardBackground,
             modifier = modifier
                 .clickable(onClickLabel = cardAccessibility) {
                     onClick()
