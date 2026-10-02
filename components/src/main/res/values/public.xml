@@ -33,7 +33,7 @@
 <!--    new colors-->
     <public name="hmrc_card_background" type="color" />
     <public name="hmrc_card_title" type="color" />
-    <color name="hmrc_card_text_color">@color/hmrc_black</color>
+    <public name="hmrc_card_text_color" type="color" />
 
 
     <!-- Styles -->
