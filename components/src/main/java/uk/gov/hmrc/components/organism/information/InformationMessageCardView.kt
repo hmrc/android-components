@@ -134,17 +134,17 @@ class InformationMessageCardView @JvmOverloads constructor(
         ),
         INFO(
             R.color.hmrc_information_message_info_headline_background,
-            R.color.hmrc_white,
+            R.color.hmrc_card_background,
             R.string.accessibility_info
         ),
         URGENT(
             R.color.hmrc_information_message_urgent_headline_background,
-            R.color.hmrc_white,
+            R.color.hmrc_card_background,
             R.string.accessibility_urgent
         ),
         NOTICE(
             R.color.hmrc_information_message_notice_headline_background,
-            R.color.hmrc_white,
+            R.color.hmrc_card_background,
             R.string.accessibility_notice
         )
     }
