@@ -46,8 +46,7 @@ private val LightColorPalette = HmrcColors(
     isDark = false,
     hmrcTransparent = HmrcTransparent,
     // App Background
-    hmrcInterface = HmrcLightGrey
-    hmrcTransparent = HmrcTransparent,
+    hmrcInterface = HmrcLightGrey,
 
 //    cards
     hmrcCardBackground = HmrcWhite,
@@ -75,8 +74,7 @@ private val DarkColorPalette = HmrcColors(
     isDark = true,
     hmrcTransparent = HmrcTransparent,
     // App Background
-    hmrcInterface = HmrcDarkNavy2
-    hmrcTransparent = HmrcTransparent,
+    hmrcInterface = HmrcDarkNavy2,
 
 //    cards
     hmrcCardBackground = HmrcDarkNavy3,
@@ -227,7 +225,11 @@ class HmrcColors(
     hmrcDonutChartColor2: Color,
     hmrcDonutChartColor3: Color,
     isDark: Boolean,
-    hmrcTransparent: Color
+    hmrcTransparent: Color,
+    hmrcCardBackground: Color,
+    hmrcCardTitle: Color,
+    hmrcCardTextColor: Color,
+    hmrcInterface: Color,
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
@@ -372,8 +374,7 @@ class HmrcColors(
         hmrcTransparent = hmrcTransparent,
         hmrcCardBackground = hmrcCardBackground,
         hmrcCardTitle = hmrcCardTitle,
-        hmrcCardTextColor = hmrcCardTextColor
-        hmrcTransparent = hmrcTransparent,
+        hmrcCardTextColor = hmrcCardTextColor,
         hmrcInterface = hmrcInterface
     )
 }
