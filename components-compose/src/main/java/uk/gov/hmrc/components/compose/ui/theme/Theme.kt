@@ -45,6 +45,9 @@ private val LightColorPalette = HmrcColors(
     hmrcDonutChartColor3 = HmrcDonutBlue,
     isDark = false,
     hmrcTransparent = HmrcTransparent,
+    // App Background
+    hmrcInterface = HmrcLightGrey
+    hmrcTransparent = HmrcTransparent,
 
 //    cards
     hmrcCardBackground = HmrcWhite,
@@ -70,6 +73,9 @@ private val DarkColorPalette = HmrcColors(
     hmrcDonutChartColor2 = HmrcTeal,
     hmrcDonutChartColor3 = HmrcTeal,
     isDark = true,
+    hmrcTransparent = HmrcTransparent,
+    // App Background
+    hmrcInterface = HmrcDarkNavy2
     hmrcTransparent = HmrcTransparent,
 
 //    cards
@@ -221,10 +227,7 @@ class HmrcColors(
     hmrcDonutChartColor2: Color,
     hmrcDonutChartColor3: Color,
     isDark: Boolean,
-    hmrcTransparent: Color,
-    hmrcCardBackground: Color,
-    hmrcCardTitle: Color,
-    hmrcCardTextColor: Color,
+    hmrcTransparent: Color
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
@@ -297,6 +300,9 @@ class HmrcColors(
     var hmrcTransparent by mutableStateOf(hmrcTransparent)
         private set
 
+    var hmrcInterface by mutableStateOf(hmrcInterface)
+        private set
+
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -330,6 +336,7 @@ class HmrcColors(
         hmrcCardBackground = other.hmrcCardBackground
         hmrcCardTitle = other.hmrcCardTitle
         hmrcCardTextColor = other.hmrcCardTextColor
+        hmrcInterface = hmrcInterface
     }
 
     fun copy(): HmrcColors = HmrcColors(
@@ -366,5 +373,7 @@ class HmrcColors(
         hmrcCardBackground = hmrcCardBackground,
         hmrcCardTitle = hmrcCardTitle,
         hmrcCardTextColor = hmrcCardTextColor
+        hmrcTransparent = hmrcTransparent,
+        hmrcInterface = hmrcInterface
     )
 }
