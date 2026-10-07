@@ -51,7 +51,7 @@ sealed class NavigationScreen(val route: String, @StringRes val resourceId: Int,
 
 @Composable
 fun ComponentsBottomNavigation(navController: NavHostController) {
-    NavigationBar(containerColor = HmrcTheme.colors.hmrcWhiteBackground) {
+    NavigationBar(containerColor = HmrcTheme.colors.hmrcCardBackground) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
 

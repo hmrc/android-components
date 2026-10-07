@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/hmrc_blue"
                 app:icon="@drawable/ic_info"
-                app:iconTintColor="@color/hmrc_white"
+                app:iconTintColor="@color/hmrc_card_background"
                 app:text="@string/longest_text"
                 app:textColor="@color/hmrc_white" />
 
@@ -88,7 +88,7 @@
                 android:id="@+id/warning_example_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/hmrc_white"
+                android:background="@color/hmrc_card_background"
                 app:icon="@drawable/components_ic_warning"
                 app:iconTintColor="@color/hmrc_red"
                 app:text="@string/warning_example_3_text"

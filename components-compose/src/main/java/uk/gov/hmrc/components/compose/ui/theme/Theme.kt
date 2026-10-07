@@ -46,7 +46,12 @@ private val LightColorPalette = HmrcColors(
     isDark = false,
     hmrcTransparent = HmrcTransparent,
     // App Background
-    hmrcInterface = HmrcLightGrey
+    hmrcInterface = HmrcLightGrey,
+
+//    cards
+    hmrcCardBackground = HmrcWhite,
+    hmrcCardTitle = HmrcBlue,
+    hmrcCardTextColor = HmrcBlack,
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -69,7 +74,12 @@ private val DarkColorPalette = HmrcColors(
     isDark = true,
     hmrcTransparent = HmrcTransparent,
     // App Background
-    hmrcInterface = HmrcDarkNavy2
+    hmrcInterface = HmrcDarkNavy2,
+
+//    cards
+    hmrcCardBackground = HmrcDarkNavy3,
+    hmrcCardTitle = HmrcWhite,
+    hmrcCardTextColor = HmrcWhite,
 )
 
 @Composable
@@ -216,8 +226,10 @@ class HmrcColors(
     hmrcDonutChartColor3: Color,
     isDark: Boolean,
     hmrcTransparent: Color,
-    hmrcInterface: Color
-
+    hmrcCardBackground: Color,
+    hmrcCardTitle: Color,
+    hmrcCardTextColor: Color,
+    hmrcInterface: Color,
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
@@ -277,6 +289,12 @@ class HmrcColors(
         private set
     var isDark by mutableStateOf(isDark)
         private set
+    var hmrcCardBackground by mutableStateOf(hmrcCardBackground)
+        private set
+    var hmrcCardTitle by mutableStateOf(hmrcCardTitle)
+        private set
+    var hmrcCardTextColor by mutableStateOf(hmrcCardTextColor)
+        private set
 
     val hmrcAlwaysBlack: Color = HmrcBlack
     val hmrcAlwaysWhite: Color = HmrcWhite
@@ -317,6 +335,9 @@ class HmrcColors(
         hmrcDonutChartColor2 = other.hmrcDonutChartColor2
         hmrcDonutChartColor3 = other.hmrcDonutChartColor3
         isDark = other.isDark
+        hmrcCardBackground = other.hmrcCardBackground
+        hmrcCardTitle = other.hmrcCardTitle
+        hmrcCardTextColor = other.hmrcCardTextColor
         hmrcInterface = hmrcInterface
     }
 
@@ -351,6 +372,9 @@ class HmrcColors(
         hmrcDonutChartColor3 = hmrcDonutChartColor3,
         isDark = isDark,
         hmrcTransparent = hmrcTransparent,
+        hmrcCardBackground = hmrcCardBackground,
+        hmrcCardTitle = hmrcCardTitle,
+        hmrcCardTextColor = hmrcCardTextColor,
         hmrcInterface = hmrcInterface
     )
 }

@@ -84,6 +84,6 @@ val DarkSemanticColors = SemanticColors(
     hmrcPrimaryButtonTextColor = HmrcWhite,
     hmrcSecondaryButtonColor = HmrcTransparent,
     hmrcSecondaryButtonTextColor = HmrcWhite,
-    hmrcNavBarBackground = HmrcDarkNavy3,
+    hmrcNavBarBackground = HmrcDarkNavy,
     hmrcConfirmationBackground = HmrcPrimaryGreen,
 )
