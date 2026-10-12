@@ -61,6 +61,13 @@ android {
         kotlinCompilerExtensionVersion Versions.kotlinCompilerExtensionVersion
     }
 
+    lint {
+        disable += "SuspiciousModifierThen"
+        // This Lifecycle detector crashes with the lint API bundled in AGP 8.7.2.
+        disable += "NullSafeMutableLiveData"
+        checkDependencies = false
+    }
+
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
