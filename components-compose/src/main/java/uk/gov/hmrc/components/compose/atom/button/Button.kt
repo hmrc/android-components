@@ -91,10 +91,11 @@ fun PrimaryButton(
     onClick: () -> Unit,
 ) {
     val primaryButtonColors: ButtonColors = ButtonDefaults.buttonColors(
-        containerColor = colors.hmrcGreen1, contentColor = colors.hmrcWhite
+        containerColor = colors.hmrcPrimaryButtonColor, contentColor = colors.hmrcPrimaryButtonTextColor
     )
     val disabledPrimaryButtonColors: ButtonColors = ButtonDefaults.buttonColors(
-        disabledContainerColor = colors.hmrcGrey2, disabledContentColor = colors.hmrcGrey1
+        disabledContainerColor = colors.hmrcPrimaryButtonDisabledColor,
+        disabledContentColor = colors.hmrcPrimaryButtonDisabledTextColor
     )
     HmrcButton(
         text = text,
@@ -113,7 +114,7 @@ fun SecondaryButton(
     modifier: Modifier = Modifier,
     textAlign: TextAlign = TextAlign.Center,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(
-        containerColor = Color.Transparent, contentColor = colors.hmrcBlue
+        containerColor = colors.hmrcSecondaryButtonColor, contentColor = colors.hmrcSecondaryButtonTextColor
     ),
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit = {},
@@ -140,9 +141,9 @@ fun SecondaryButtonWithUnderLine(
     text: String,
     modifier: Modifier = Modifier,
     textAlign: TextAlign = TextAlign.Center,
-    textColor: Color = colors.hmrcBlue,
+    textColor: Color = colors.hmrcSecondaryButtonTextColor,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(
-        containerColor = Color.Transparent, contentColor = colors.hmrcBlue
+        containerColor = colors.hmrcSecondaryButtonColor, contentColor = colors.hmrcSecondaryButtonTextColor
     ),
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit = {},

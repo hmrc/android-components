@@ -25,6 +25,7 @@
     <color name="hmrc_red">#FFD4351C</color>
     <color name="hmrc_grey_1">#FF505A5F</color>
     <color name="hmrc_grey_2">#FFB1B4B6</color>
+    <color name="hmrc_grey_4">#FF6F777B</color>
     <color name="hmrc_pink">#FFCA2B75</color>
     <color name="hmrc_yellow">#FFFFBF47</color>
 
@@ -71,6 +72,8 @@
     <color name="hmrc_dark_navy_2">#FF061625</color>
     <color name="hmrc_dark_navy_3">#FF092537</color>
     <color name="hmrc_navy">#FF0A2740</color>
+    <color name="hmrc_new_white">#FFFFFFFF</color>
+    <color name="hmrc_new_black">#FF0B0C0C</color>
 
 
 <!--    light mode semantic token colors for xml-->
@@ -94,9 +97,12 @@
 
 <!--    buttons-->
     <color name="hmrc_primary_button_color">@color/hmrc_green_1</color>
-    <color name="hmrc_primary_button_text_color">@color/hmrc_white</color>
+    <color name="hmrc_primary_button_text_color">@color/hmrc_new_white</color>
     <color name="hmrc_secondary_button_color">@color/hmrc_transparent</color>
-    <color name="hmrc_secondary_button_text_color">@color/hmrc_white</color>
+    <color name="hmrc_secondary_button_text_color">@color/hmrc_blue</color>
+    <color name="hmrc_secondary_button_ripple_background">@color/hmrc_blue</color>
+    <color name="hmrc_primary_button_disabled_color">@color/hmrc_grey_2</color>
+    <color name="hmrc_primary_button_disabled_text_color">@color/hmrc_grey_1</color>
 
 <!--    NavBar-->
     <color name="hmrc_nav_bar_background">@color/hmrc_white</color>

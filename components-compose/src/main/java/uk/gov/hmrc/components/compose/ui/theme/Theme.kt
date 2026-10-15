@@ -52,6 +52,15 @@ private val LightColorPalette = HmrcColors(
     hmrcCardBackground = HmrcWhite,
     hmrcCardTitle = HmrcBlue,
     hmrcCardTextColor = HmrcBlack,
+
+//    CTA
+    hmrcPrimaryButtonColor = HmrcGreen1,
+    hmrcPrimaryButtonTextColor = HmrcWhite,
+    hmrcSecondaryButtonColor = HmrcTransparent,
+    hmrcSecondaryButtonTextColor = HmrcBlue,
+    hmrcSecondaryButtonRippleBackground = HmrcBlue,
+    hmrcPrimaryButtonDisabledColor = HmrcGrey2,
+    hmrcPrimaryButtonDisabledTextColor = HmrcGrey1,
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -80,6 +89,15 @@ private val DarkColorPalette = HmrcColors(
     hmrcCardBackground = HmrcDarkNavy3,
     hmrcCardTitle = HmrcWhite,
     hmrcCardTextColor = HmrcWhite,
+
+//    CTA
+    hmrcPrimaryButtonColor = HmrcPrimaryGreen,
+    hmrcPrimaryButtonTextColor = HmrcWhite,
+    hmrcSecondaryButtonColor = HmrcTransparent,
+    hmrcSecondaryButtonTextColor = HmrcPrimaryTeal,
+    hmrcSecondaryButtonRippleBackground = HmrcPrimaryTeal,
+    hmrcPrimaryButtonDisabledColor = HmrcGrey4,
+    hmrcPrimaryButtonDisabledTextColor = HmrcGrey2,
 )
 
 @Composable
@@ -230,6 +248,13 @@ class HmrcColors(
     hmrcCardTitle: Color,
     hmrcCardTextColor: Color,
     hmrcInterface: Color,
+    hmrcPrimaryButtonColor: Color,
+    hmrcPrimaryButtonTextColor: Color,
+    hmrcSecondaryButtonColor: Color,
+    hmrcSecondaryButtonTextColor: Color,
+    hmrcSecondaryButtonRippleBackground: Color,
+    hmrcPrimaryButtonDisabledColor: Color,
+    hmrcPrimaryButtonDisabledTextColor: Color,
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
@@ -295,16 +320,26 @@ class HmrcColors(
         private set
     var hmrcCardTextColor by mutableStateOf(hmrcCardTextColor)
         private set
-
     val hmrcAlwaysBlack: Color = HmrcBlack
     val hmrcAlwaysWhite: Color = HmrcWhite
-
     var hmrcTransparent by mutableStateOf(hmrcTransparent)
         private set
-
     var hmrcInterface by mutableStateOf(hmrcInterface)
         private set
-
+    var hmrcPrimaryButtonColor by mutableStateOf(hmrcPrimaryButtonColor)
+        private set
+    var hmrcPrimaryButtonTextColor by mutableStateOf(hmrcPrimaryButtonTextColor)
+        private set
+    var hmrcSecondaryButtonColor by mutableStateOf(hmrcSecondaryButtonColor)
+        private set
+    var hmrcSecondaryButtonTextColor by mutableStateOf(hmrcSecondaryButtonTextColor)
+        private set
+    var hmrcSecondaryButtonRippleBackground by mutableStateOf(hmrcSecondaryButtonRippleBackground)
+        private set
+    var hmrcPrimaryButtonDisabledColor by mutableStateOf(hmrcPrimaryButtonDisabledColor)
+        private set
+    var hmrcPrimaryButtonDisabledTextColor by mutableStateOf(hmrcPrimaryButtonDisabledTextColor)
+        private set
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -338,7 +373,14 @@ class HmrcColors(
         hmrcCardBackground = other.hmrcCardBackground
         hmrcCardTitle = other.hmrcCardTitle
         hmrcCardTextColor = other.hmrcCardTextColor
-        hmrcInterface = hmrcInterface
+        hmrcInterface = other.hmrcInterface
+        hmrcPrimaryButtonColor = other.hmrcPrimaryButtonColor
+        hmrcPrimaryButtonTextColor = other.hmrcPrimaryButtonTextColor
+        hmrcSecondaryButtonColor = other.hmrcSecondaryButtonColor
+        hmrcSecondaryButtonTextColor = other.hmrcSecondaryButtonTextColor
+        hmrcSecondaryButtonRippleBackground = other.hmrcSecondaryButtonRippleBackground
+        hmrcPrimaryButtonDisabledColor = other.hmrcPrimaryButtonDisabledColor
+        hmrcPrimaryButtonDisabledTextColor = other.hmrcPrimaryButtonDisabledTextColor
     }
 
     fun copy(): HmrcColors = HmrcColors(
@@ -375,6 +417,13 @@ class HmrcColors(
         hmrcCardBackground = hmrcCardBackground,
         hmrcCardTitle = hmrcCardTitle,
         hmrcCardTextColor = hmrcCardTextColor,
-        hmrcInterface = hmrcInterface
+        hmrcInterface = hmrcInterface,
+        hmrcPrimaryButtonColor = hmrcPrimaryButtonColor,
+        hmrcPrimaryButtonTextColor = hmrcPrimaryButtonTextColor,
+        hmrcSecondaryButtonColor = hmrcSecondaryButtonColor,
+        hmrcSecondaryButtonTextColor = hmrcSecondaryButtonTextColor,
+        hmrcSecondaryButtonRippleBackground = hmrcSecondaryButtonRippleBackground,
+        hmrcPrimaryButtonDisabledColor = hmrcPrimaryButtonDisabledColor,
+        hmrcPrimaryButtonDisabledTextColor = hmrcPrimaryButtonDisabledTextColor,
     )
 }

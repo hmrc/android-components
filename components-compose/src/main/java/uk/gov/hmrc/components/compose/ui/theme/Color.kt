@@ -71,4 +71,6 @@ val HmrcDarkNavy = Color(0xFF0D1C29)
 val HmrcDarkNavy2 = Color(0xFF061625)
 val HmrcDarkNavy3 = Color(0xFF092537)
 val HmrcNavy = Color(0xFF0A2740)
+// renaming HmrcGrey2Dark to HmrcGrey4
+val HmrcGrey4 = Color(0xFF6F777B)
 // mid-navy still to be added to excel spreadsheet

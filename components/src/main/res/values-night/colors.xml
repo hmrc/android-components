@@ -22,6 +22,7 @@
     <color name="hmrc_red">#FFEB66CA</color>
     <color name="hmrc_grey_1">#FFB1B4B6</color>
     <color name="hmrc_grey_2">#FF6F777B</color>
+    <color name="hmrc_grey_4">#FF6F777B</color>
     <color name="hmrc_yellow">#FFFEFF4F</color>
     <color name="hmrc_pink">#FFBB94FF</color>
     <color name="hmrc_donut_chart_color_1">@color/hmrc_always_white</color>
@@ -42,6 +43,8 @@
     <color name="hmrc_dark_navy_2">#FF061625</color>
     <color name="hmrc_dark_navy_3">#FF092537</color>
     <color name="hmrc_navy">#FF0A2740</color>
+    <color name="hmrc_new_white">#FFFFFFFF</color>
+    <color name="hmrc_new_black">#FF0B0C0C</color>
 <!--mid-navy still to be added to excel spreadsheet-->
 
 
@@ -66,9 +69,12 @@
 
     <!--    buttons-->
     <color name="hmrc_primary_button_color">@color/hmrc_primary_green</color>
-    <color name="hmrc_primary_button_text_color">@color/hmrc_white</color>
+    <color name="hmrc_primary_button_text_color">@color/hmrc_new_white</color>
     <color name="hmrc_secondary_button_color">@color/hmrc_transparent</color>
-    <color name="hmrc_secondary_button_text_color">@color/hmrc_white</color>
+    <color name="hmrc_secondary_button_text_color">@color/hmrc_primary_teal</color>
+    <color name="hmrc_secondary_button_ripple_background">@color/hmrc_primary_teal</color>
+    <color name="hmrc_primary_button_disabled_color">@color/hmrc_grey_4</color>
+    <color name="hmrc_primary_button_disabled_text_color">@color/hmrc_grey_2</color>
 
     <!--    NavBar-->
     <color name="hmrc_nav_bar_background">@color/hmrc_dark_navy_3</color>

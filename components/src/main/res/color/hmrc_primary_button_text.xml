@@ -15,6 +15,6 @@
      limitations under the License.
 -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/hmrc_grey_1" android:state_enabled="false" />
-    <item android:color="@color/hmrc_light_text" />
+    <item android:color="@color/hmrc_primary_button_disabled_text_color" android:state_enabled="false" />
+    <item android:color="@color/hmrc_primary_button_text_color" />
 </selector>
