@@ -35,8 +35,13 @@
     <public name="hmrc_new_black" type="color" />
     <public name="hmrc_card_title" type="color" />
     <public name="hmrc_card_text_color" type="color" />
+    <public name="hmrc_card_background" type="color" />
     <public name="hmrc_confirmation_background" type="color" />
     <public name="hmrc_interface" type="color" />
+    <public name="hmrc_header_background" type="color" />
+
+    <public name="hmrc_onboarding_background" type="color" />
+    <public name="hmrc_onboarding_pager_view" type="color" />
 
     <public name="hmrc_primary_button_color" type="color" />
     <public name="hmrc_primary_button_text_color" type="color" />
@@ -45,6 +50,8 @@
     <public name="hmrc_secondary_button_ripple_background" type="color" />
     <public name="hmrc_primary_button_disabled_color" type="color" />
     <public name="hmrc_primary_button_disabled_text_color" type="color" />
+    <public name="hmrc_nav_bar_background" type="color" />
+
 
 
     <!-- Styles -->
