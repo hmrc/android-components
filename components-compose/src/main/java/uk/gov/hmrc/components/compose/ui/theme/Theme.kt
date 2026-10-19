@@ -48,10 +48,13 @@ private val LightColorPalette = HmrcColors(
     // App Background
     hmrcInterface = HmrcLightGrey,
 
-//    cards
+    // cards
     hmrcCardBackground = HmrcWhite,
     hmrcCardTitle = HmrcBlue,
     hmrcCardTextColor = HmrcBlack,
+
+    // Header
+    hmrcHeaderBackground = HmrcBlue,
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -76,10 +79,13 @@ private val DarkColorPalette = HmrcColors(
     // App Background
     hmrcInterface = HmrcDarkNavy2,
 
-//    cards
+    // cards
     hmrcCardBackground = HmrcDarkNavy3,
     hmrcCardTitle = HmrcWhite,
     hmrcCardTextColor = HmrcWhite,
+
+    // Header
+    hmrcHeaderBackground = HmrcNavy,
 )
 
 @Composable
@@ -230,6 +236,7 @@ class HmrcColors(
     hmrcCardTitle: Color,
     hmrcCardTextColor: Color,
     hmrcInterface: Color,
+    hmrcHeaderBackground: Color,
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
@@ -305,6 +312,9 @@ class HmrcColors(
     var hmrcInterface by mutableStateOf(hmrcInterface)
         private set
 
+    var hmrcHeaderBackground by mutableStateOf(hmrcHeaderBackground)
+        private set
+
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -338,7 +348,8 @@ class HmrcColors(
         hmrcCardBackground = other.hmrcCardBackground
         hmrcCardTitle = other.hmrcCardTitle
         hmrcCardTextColor = other.hmrcCardTextColor
-        hmrcInterface = hmrcInterface
+        hmrcInterface = other.hmrcInterface
+        hmrcHeaderBackground = other.hmrcHeaderBackground
     }
 
     fun copy(): HmrcColors = HmrcColors(
@@ -375,6 +386,7 @@ class HmrcColors(
         hmrcCardBackground = hmrcCardBackground,
         hmrcCardTitle = hmrcCardTitle,
         hmrcCardTextColor = hmrcCardTextColor,
-        hmrcInterface = hmrcInterface
+        hmrcInterface = hmrcInterface,
+        hmrcHeaderBackground = hmrcHeaderBackground
     )
 }
