@@ -47,6 +47,7 @@ private val LightColorPalette = HmrcColors(
     hmrcTransparent = HmrcTransparent,
     // App Background
     hmrcInterface = HmrcLightGrey,
+    hmrcConfirmationBackground = HmrcGreen1,
 
 //    cards
     hmrcCardBackground = HmrcWhite,
@@ -84,6 +85,7 @@ private val DarkColorPalette = HmrcColors(
     hmrcTransparent = HmrcTransparent,
     // App Background
     hmrcInterface = HmrcDarkNavy2,
+    hmrcConfirmationBackground = HmrcPrimaryGreen,
 
 //    cards
     hmrcCardBackground = HmrcDarkNavy3,
@@ -255,6 +257,8 @@ class HmrcColors(
     hmrcSecondaryButtonRippleBackground: Color,
     hmrcPrimaryButtonDisabledColor: Color,
     hmrcPrimaryButtonDisabledTextColor: Color,
+    hmrcConfirmationBackground: Color,
+
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
@@ -326,6 +330,8 @@ class HmrcColors(
         private set
     var hmrcInterface by mutableStateOf(hmrcInterface)
         private set
+    var hmrcConfirmationBackground by mutableStateOf(hmrcConfirmationBackground)
+        private set
     var hmrcPrimaryButtonColor by mutableStateOf(hmrcPrimaryButtonColor)
         private set
     var hmrcPrimaryButtonTextColor by mutableStateOf(hmrcPrimaryButtonTextColor)
@@ -374,6 +380,7 @@ class HmrcColors(
         hmrcCardTitle = other.hmrcCardTitle
         hmrcCardTextColor = other.hmrcCardTextColor
         hmrcInterface = other.hmrcInterface
+        hmrcConfirmationBackground = other.hmrcConfirmationBackground
         hmrcPrimaryButtonColor = other.hmrcPrimaryButtonColor
         hmrcPrimaryButtonTextColor = other.hmrcPrimaryButtonTextColor
         hmrcSecondaryButtonColor = other.hmrcSecondaryButtonColor
@@ -418,6 +425,7 @@ class HmrcColors(
         hmrcCardTitle = hmrcCardTitle,
         hmrcCardTextColor = hmrcCardTextColor,
         hmrcInterface = hmrcInterface,
+        hmrcConfirmationBackground = hmrcConfirmationBackground,
         hmrcPrimaryButtonColor = hmrcPrimaryButtonColor,
         hmrcPrimaryButtonTextColor = hmrcPrimaryButtonTextColor,
         hmrcSecondaryButtonColor = hmrcSecondaryButtonColor,
