@@ -62,6 +62,9 @@ private val LightColorPalette = HmrcColors(
     hmrcSecondaryButtonRippleBackground = HmrcBlue,
     hmrcPrimaryButtonDisabledColor = HmrcGrey2,
     hmrcPrimaryButtonDisabledTextColor = HmrcGrey1,
+
+//    Icon
+    hmrcIconTint = HmrcBlack,
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -100,6 +103,9 @@ private val DarkColorPalette = HmrcColors(
     hmrcSecondaryButtonRippleBackground = HmrcPrimaryTeal,
     hmrcPrimaryButtonDisabledColor = HmrcGrey4,
     hmrcPrimaryButtonDisabledTextColor = HmrcGrey2,
+
+    //    Icon
+    hmrcIconTint = HmrcMidGrey,
 )
 
 @Composable
@@ -258,6 +264,7 @@ class HmrcColors(
     hmrcPrimaryButtonDisabledColor: Color,
     hmrcPrimaryButtonDisabledTextColor: Color,
     hmrcConfirmationBackground: Color,
+    hmrcIconTint: Color,
 
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
@@ -346,6 +353,8 @@ class HmrcColors(
         private set
     var hmrcPrimaryButtonDisabledTextColor by mutableStateOf(hmrcPrimaryButtonDisabledTextColor)
         private set
+    var hmrcIconTint by mutableStateOf(hmrcIconTint)
+        private set
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -388,6 +397,7 @@ class HmrcColors(
         hmrcSecondaryButtonRippleBackground = other.hmrcSecondaryButtonRippleBackground
         hmrcPrimaryButtonDisabledColor = other.hmrcPrimaryButtonDisabledColor
         hmrcPrimaryButtonDisabledTextColor = other.hmrcPrimaryButtonDisabledTextColor
+        hmrcIconTint = other.hmrcIconTint
     }
 
     fun copy(): HmrcColors = HmrcColors(
@@ -433,5 +443,6 @@ class HmrcColors(
         hmrcSecondaryButtonRippleBackground = hmrcSecondaryButtonRippleBackground,
         hmrcPrimaryButtonDisabledColor = hmrcPrimaryButtonDisabledColor,
         hmrcPrimaryButtonDisabledTextColor = hmrcPrimaryButtonDisabledTextColor,
+        hmrcIconTint = hmrcIconTint,
     )
 }

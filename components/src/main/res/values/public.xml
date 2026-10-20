@@ -51,6 +51,9 @@
     <public name="hmrc_primary_button_disabled_color" type="color" />
     <public name="hmrc_primary_button_disabled_text_color" type="color" />
     <public name="hmrc_nav_bar_background" type="color" />
+    <public name="hmrc_icon_tint" type="color" />
+
+
 
 
 

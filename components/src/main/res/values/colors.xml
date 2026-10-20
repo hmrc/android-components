@@ -110,6 +110,9 @@
 <!--    confirmation-->
     <color name="hmrc_confirmation_background">@color/hmrc_green_1</color>
 
+<!--    Icons-->
+    <color name="hmrc_icon_tint">@color/hmrc_black</color>
+
 
 
 

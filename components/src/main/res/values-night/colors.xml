@@ -82,5 +82,7 @@
     <!--    confirmation-->
     <color name="hmrc_confirmation_background">@color/hmrc_primary_green</color>
 
+    <!--    Icons-->
+    <color name="hmrc_icon_tint">@color/hmrc_mid_grey</color>
 
 </resources>
