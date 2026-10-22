@@ -57,7 +57,7 @@ private val LightColorPalette = HmrcColors(
     // Header
     hmrcHeaderBackground = HmrcBlue,
     hmrcHeaderTitleTextColor = HmrcWhite,
-    hmrcHeaderNavigationIconColor = HmrcWhite
+    hmrcHeaderNavigationIconColor = HmrcWhite,
 
 //    CTA
     hmrcPrimaryButtonColor = HmrcGreen1,
@@ -103,7 +103,7 @@ private val DarkColorPalette = HmrcColors(
     // Header
     hmrcHeaderBackground = HmrcNavy,
     hmrcHeaderTitleTextColor = HmrcWhite,
-    hmrcHeaderNavigationIconColor = HmrcWhite
+    hmrcHeaderNavigationIconColor = HmrcWhite,
 
 //    CTA
     hmrcPrimaryButtonColor = HmrcPrimaryGreen,
@@ -268,7 +268,7 @@ class HmrcColors(
     hmrcInterface: Color,
     hmrcHeaderBackground: Color,
     hmrcHeaderTitleTextColor: Color,
-    hmrcHeaderNavigationIconColor: Color
+    hmrcHeaderNavigationIconColor: Color,
     hmrcPrimaryButtonColor: Color,
     hmrcPrimaryButtonTextColor: Color,
     hmrcSecondaryButtonColor: Color,
@@ -467,8 +467,7 @@ class HmrcColors(
         hmrcInterface = hmrcInterface,
         hmrcHeaderBackground = hmrcHeaderBackground,
         hmrcHeaderTitleTextColor = hmrcHeaderTitleTextColor,
-        hmrcHeaderNavigationIconColor = hmrcHeaderNavigationIconColor
-        hmrcInterface = hmrcInterface,
+        hmrcHeaderNavigationIconColor = hmrcHeaderNavigationIconColor,
         hmrcConfirmationBackground = hmrcConfirmationBackground,
         hmrcPrimaryButtonColor = hmrcPrimaryButtonColor,
         hmrcPrimaryButtonTextColor = hmrcPrimaryButtonTextColor,

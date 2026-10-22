@@ -42,7 +42,6 @@
     <public name="hmrc_card_background" type="color" />
     <public name="hmrc_confirmation_background" type="color" />
     <public name="hmrc_interface" type="color" />
-    <public name="hmrc_header_background" type="color" />
 
     <public name="hmrc_onboarding_background" type="color" />
     <public name="hmrc_onboarding_pager_view" type="color" />
