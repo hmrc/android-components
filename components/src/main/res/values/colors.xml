@@ -87,7 +87,7 @@
     <color name="hmrc_card_text_color">@color/hmrc_black</color>
 
 <!--    header-->
-    <color name="hmrc_header_background">@color/hmrc_pink</color>
+    <color name="hmrc_header_background">@color/hmrc_blue</color>
     <color name="hmrc_header_title_text_color">@color/hmrc_white_new</color>
     <color name="hmrc_header_navigation_icon_color">@color/hmrc_white_new</color>
 

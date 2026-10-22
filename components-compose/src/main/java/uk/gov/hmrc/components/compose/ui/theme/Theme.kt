@@ -54,7 +54,7 @@ private val LightColorPalette = HmrcColors(
     hmrcCardTextColor = HmrcBlack,
 
     // Header
-    hmrcHeaderBackground = HmrcPink,
+    hmrcHeaderBackground = HmrcBlue,
     hmrcHeaderTitleTextColor = HmrcWhite,
     hmrcHeaderNavigationIconColor = HmrcWhite
 )
