@@ -43,8 +43,8 @@
     <color name="hmrc_dark_navy_2">#FF061625</color>
     <color name="hmrc_dark_navy_3">#FF092537</color>
     <color name="hmrc_navy">#FF0A2740</color>
-    <color name="hmrc_new_white">#FFFFFFFF</color>
-    <color name="hmrc_new_black">#FF0B0C0C</color>
+    <color name="hmrc_white_new">#FFFFFFFF</color>
+    <color name="hmrc_black_new">#FF0B0C0C</color>
 <!--mid-navy still to be added to excel spreadsheet-->
 
 
@@ -69,7 +69,7 @@
 
     <!--    buttons-->
     <color name="hmrc_primary_button_color">@color/hmrc_primary_green</color>
-    <color name="hmrc_primary_button_text_color">@color/hmrc_new_white</color>
+    <color name="hmrc_primary_button_text_color">@color/hmrc_white_new</color>
     <color name="hmrc_secondary_button_color">@color/hmrc_transparent</color>
     <color name="hmrc_secondary_button_text_color">@color/hmrc_primary_teal</color>
     <color name="hmrc_secondary_button_ripple_background">@color/hmrc_primary_teal</color>

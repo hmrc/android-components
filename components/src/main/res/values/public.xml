@@ -31,8 +31,8 @@
 
 
 <!--    new colors-->
-    <public name="hmrc_new_white" type="color" />
-    <public name="hmrc_new_black" type="color" />
+    <public name="hmrc_white_new" type="color" />
+    <public name="hmrc_black_new" type="color" />
     <public name="hmrc_card_title" type="color" />
     <public name="hmrc_card_text_color" type="color" />
     <public name="hmrc_card_background" type="color" />
