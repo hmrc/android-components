@@ -42,6 +42,7 @@
     <color name="hmrc_dark_navy_2">#FF061625</color>
     <color name="hmrc_dark_navy_3">#FF092537</color>
     <color name="hmrc_navy">#FF0A2740</color>
+
 <!--mid-navy still to be added to excel spreadsheet-->
 
 
@@ -59,6 +60,8 @@
 
     <!--    header-->
     <color name="hmrc_header_background">@color/hmrc_navy</color>
+    <color name="hmrc_header_title_text_color">@color/hmrc_white_new</color>
+    <color name="hmrc_header_navigation_icon_color">@color/hmrc_white_new</color>
 
     <!--    onboarding-->
     <color name="hmrc_onboarding_background">@color/hmrc_dark_navy_2</color>

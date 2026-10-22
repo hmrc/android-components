@@ -54,7 +54,9 @@ private val LightColorPalette = HmrcColors(
     hmrcCardTextColor = HmrcBlack,
 
     // Header
-    hmrcHeaderBackground = HmrcBlue,
+    hmrcHeaderBackground = HmrcPink,
+    hmrcHeaderTitleTextColor = HmrcWhite,
+    hmrcHeaderNavigationIconColor = HmrcWhite
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -86,6 +88,8 @@ private val DarkColorPalette = HmrcColors(
 
     // Header
     hmrcHeaderBackground = HmrcNavy,
+    hmrcHeaderTitleTextColor = HmrcWhite,
+    hmrcHeaderNavigationIconColor = HmrcWhite
 )
 
 @Composable
@@ -237,6 +241,8 @@ class HmrcColors(
     hmrcCardTextColor: Color,
     hmrcInterface: Color,
     hmrcHeaderBackground: Color,
+    hmrcHeaderTitleTextColor: Color,
+    hmrcHeaderNavigationIconColor: Color
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
@@ -315,6 +321,12 @@ class HmrcColors(
     var hmrcHeaderBackground by mutableStateOf(hmrcHeaderBackground)
         private set
 
+    var hmrcHeaderTitleTextColor by mutableStateOf(hmrcHeaderTitleTextColor)
+        private set
+
+    var hmrcHeaderNavigationIconColor by mutableStateOf(hmrcHeaderNavigationIconColor)
+        private set
+
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -350,6 +362,8 @@ class HmrcColors(
         hmrcCardTextColor = other.hmrcCardTextColor
         hmrcInterface = other.hmrcInterface
         hmrcHeaderBackground = other.hmrcHeaderBackground
+        hmrcHeaderTitleTextColor = other.hmrcHeaderTitleTextColor
+        hmrcHeaderNavigationIconColor = other.hmrcHeaderNavigationIconColor
     }
 
     fun copy(): HmrcColors = HmrcColors(
@@ -387,6 +401,8 @@ class HmrcColors(
         hmrcCardTitle = hmrcCardTitle,
         hmrcCardTextColor = hmrcCardTextColor,
         hmrcInterface = hmrcInterface,
-        hmrcHeaderBackground = hmrcHeaderBackground
+        hmrcHeaderBackground = hmrcHeaderBackground,
+        hmrcHeaderTitleTextColor = hmrcHeaderTitleTextColor,
+        hmrcHeaderNavigationIconColor = hmrcHeaderNavigationIconColor
     )
 }
