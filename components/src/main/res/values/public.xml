@@ -35,6 +35,10 @@
     <public name="hmrc_black_new" type="color" />
     <public name="hmrc_card_title" type="color" />
     <public name="hmrc_card_text_color" type="color" />
+    <public name="hmrc_blue_new" type="color" />
+    <public name="hmrc_header_background" type="color" />
+    <public name="hmrc_header_navigation_icon_color" type="color" />
+    <public name="hmrc_header_title_text_color" type="color" />
     <public name="hmrc_card_background" type="color" />
     <public name="hmrc_confirmation_background" type="color" />
     <public name="hmrc_interface" type="color" />

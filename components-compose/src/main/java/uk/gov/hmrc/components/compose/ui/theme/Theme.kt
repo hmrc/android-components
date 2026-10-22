@@ -49,10 +49,15 @@ private val LightColorPalette = HmrcColors(
     hmrcInterface = HmrcLightGrey,
     hmrcConfirmationBackground = HmrcGreen1,
 
-//    cards
+    // cards
     hmrcCardBackground = HmrcWhite,
     hmrcCardTitle = HmrcBlue,
     hmrcCardTextColor = HmrcBlack,
+
+    // Header
+    hmrcHeaderBackground = HmrcBlue,
+    hmrcHeaderTitleTextColor = HmrcWhite,
+    hmrcHeaderNavigationIconColor = HmrcWhite
 
 //    CTA
     hmrcPrimaryButtonColor = HmrcGreen1,
@@ -90,10 +95,15 @@ private val DarkColorPalette = HmrcColors(
     hmrcInterface = HmrcDarkNavy2,
     hmrcConfirmationBackground = HmrcPrimaryGreen,
 
-//    cards
+    // cards
     hmrcCardBackground = HmrcDarkNavy3,
     hmrcCardTitle = HmrcWhite,
     hmrcCardTextColor = HmrcWhite,
+
+    // Header
+    hmrcHeaderBackground = HmrcNavy,
+    hmrcHeaderTitleTextColor = HmrcWhite,
+    hmrcHeaderNavigationIconColor = HmrcWhite
 
 //    CTA
     hmrcPrimaryButtonColor = HmrcPrimaryGreen,
@@ -256,6 +266,9 @@ class HmrcColors(
     hmrcCardTitle: Color,
     hmrcCardTextColor: Color,
     hmrcInterface: Color,
+    hmrcHeaderBackground: Color,
+    hmrcHeaderTitleTextColor: Color,
+    hmrcHeaderNavigationIconColor: Color
     hmrcPrimaryButtonColor: Color,
     hmrcPrimaryButtonTextColor: Color,
     hmrcSecondaryButtonColor: Color,
@@ -331,12 +344,25 @@ class HmrcColors(
         private set
     var hmrcCardTextColor by mutableStateOf(hmrcCardTextColor)
         private set
+
     val hmrcAlwaysBlack: Color = HmrcBlack
     val hmrcAlwaysWhite: Color = HmrcWhite
+
     var hmrcTransparent by mutableStateOf(hmrcTransparent)
         private set
+
     var hmrcInterface by mutableStateOf(hmrcInterface)
         private set
+
+    var hmrcHeaderBackground by mutableStateOf(hmrcHeaderBackground)
+        private set
+
+    var hmrcHeaderTitleTextColor by mutableStateOf(hmrcHeaderTitleTextColor)
+        private set
+
+    var hmrcHeaderNavigationIconColor by mutableStateOf(hmrcHeaderNavigationIconColor)
+        private set
+
     var hmrcConfirmationBackground by mutableStateOf(hmrcConfirmationBackground)
         private set
     var hmrcPrimaryButtonColor by mutableStateOf(hmrcPrimaryButtonColor)
@@ -389,6 +415,10 @@ class HmrcColors(
         hmrcCardTitle = other.hmrcCardTitle
         hmrcCardTextColor = other.hmrcCardTextColor
         hmrcInterface = other.hmrcInterface
+        hmrcHeaderBackground = other.hmrcHeaderBackground
+        hmrcHeaderTitleTextColor = other.hmrcHeaderTitleTextColor
+        hmrcHeaderNavigationIconColor = other.hmrcHeaderNavigationIconColor
+        hmrcInterface = other.hmrcInterface
         hmrcConfirmationBackground = other.hmrcConfirmationBackground
         hmrcPrimaryButtonColor = other.hmrcPrimaryButtonColor
         hmrcPrimaryButtonTextColor = other.hmrcPrimaryButtonTextColor
@@ -434,6 +464,10 @@ class HmrcColors(
         hmrcCardBackground = hmrcCardBackground,
         hmrcCardTitle = hmrcCardTitle,
         hmrcCardTextColor = hmrcCardTextColor,
+        hmrcInterface = hmrcInterface,
+        hmrcHeaderBackground = hmrcHeaderBackground,
+        hmrcHeaderTitleTextColor = hmrcHeaderTitleTextColor,
+        hmrcHeaderNavigationIconColor = hmrcHeaderNavigationIconColor
         hmrcInterface = hmrcInterface,
         hmrcConfirmationBackground = hmrcConfirmationBackground,
         hmrcPrimaryButtonColor = hmrcPrimaryButtonColor,
