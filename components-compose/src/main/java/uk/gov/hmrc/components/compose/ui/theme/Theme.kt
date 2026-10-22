@@ -47,11 +47,29 @@ private val LightColorPalette = HmrcColors(
     hmrcTransparent = HmrcTransparent,
     // App Background
     hmrcInterface = HmrcLightGrey,
+    hmrcConfirmationBackground = HmrcGreen1,
 
-//    cards
+    // cards
     hmrcCardBackground = HmrcWhite,
     hmrcCardTitle = HmrcBlue,
     hmrcCardTextColor = HmrcBlack,
+
+    // Header
+    hmrcHeaderBackground = HmrcBlue,
+    hmrcHeaderTitleTextColor = HmrcWhite,
+    hmrcHeaderNavigationIconColor = HmrcWhite,
+
+//    CTA
+    hmrcPrimaryButtonColor = HmrcGreen1,
+    hmrcPrimaryButtonTextColor = HmrcWhite,
+    hmrcSecondaryButtonColor = HmrcTransparent,
+    hmrcSecondaryButtonTextColor = HmrcBlue,
+    hmrcSecondaryButtonRippleBackground = HmrcBlue,
+    hmrcPrimaryButtonDisabledColor = HmrcGrey2,
+    hmrcPrimaryButtonDisabledTextColor = HmrcGrey1,
+
+//    Icon
+    hmrcIconTint = HmrcBlack,
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -75,11 +93,29 @@ private val DarkColorPalette = HmrcColors(
     hmrcTransparent = HmrcTransparent,
     // App Background
     hmrcInterface = HmrcDarkNavy2,
+    hmrcConfirmationBackground = HmrcPrimaryGreen,
 
-//    cards
+    // cards
     hmrcCardBackground = HmrcDarkNavy3,
     hmrcCardTitle = HmrcWhite,
     hmrcCardTextColor = HmrcWhite,
+
+    // Header
+    hmrcHeaderBackground = HmrcNavy,
+    hmrcHeaderTitleTextColor = HmrcWhite,
+    hmrcHeaderNavigationIconColor = HmrcWhite,
+
+//    CTA
+    hmrcPrimaryButtonColor = HmrcPrimaryGreen,
+    hmrcPrimaryButtonTextColor = HmrcWhite,
+    hmrcSecondaryButtonColor = HmrcTransparent,
+    hmrcSecondaryButtonTextColor = HmrcPrimaryTeal,
+    hmrcSecondaryButtonRippleBackground = HmrcPrimaryTeal,
+    hmrcPrimaryButtonDisabledColor = HmrcGrey4,
+    hmrcPrimaryButtonDisabledTextColor = HmrcGrey2,
+
+    //    Icon
+    hmrcIconTint = HmrcMidGrey,
 )
 
 @Composable
@@ -230,6 +266,19 @@ class HmrcColors(
     hmrcCardTitle: Color,
     hmrcCardTextColor: Color,
     hmrcInterface: Color,
+    hmrcHeaderBackground: Color,
+    hmrcHeaderTitleTextColor: Color,
+    hmrcHeaderNavigationIconColor: Color,
+    hmrcPrimaryButtonColor: Color,
+    hmrcPrimaryButtonTextColor: Color,
+    hmrcSecondaryButtonColor: Color,
+    hmrcSecondaryButtonTextColor: Color,
+    hmrcSecondaryButtonRippleBackground: Color,
+    hmrcPrimaryButtonDisabledColor: Color,
+    hmrcPrimaryButtonDisabledTextColor: Color,
+    hmrcConfirmationBackground: Color,
+    hmrcIconTint: Color,
+
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
@@ -305,6 +354,33 @@ class HmrcColors(
     var hmrcInterface by mutableStateOf(hmrcInterface)
         private set
 
+    var hmrcHeaderBackground by mutableStateOf(hmrcHeaderBackground)
+        private set
+
+    var hmrcHeaderTitleTextColor by mutableStateOf(hmrcHeaderTitleTextColor)
+        private set
+
+    var hmrcHeaderNavigationIconColor by mutableStateOf(hmrcHeaderNavigationIconColor)
+        private set
+
+    var hmrcConfirmationBackground by mutableStateOf(hmrcConfirmationBackground)
+        private set
+    var hmrcPrimaryButtonColor by mutableStateOf(hmrcPrimaryButtonColor)
+        private set
+    var hmrcPrimaryButtonTextColor by mutableStateOf(hmrcPrimaryButtonTextColor)
+        private set
+    var hmrcSecondaryButtonColor by mutableStateOf(hmrcSecondaryButtonColor)
+        private set
+    var hmrcSecondaryButtonTextColor by mutableStateOf(hmrcSecondaryButtonTextColor)
+        private set
+    var hmrcSecondaryButtonRippleBackground by mutableStateOf(hmrcSecondaryButtonRippleBackground)
+        private set
+    var hmrcPrimaryButtonDisabledColor by mutableStateOf(hmrcPrimaryButtonDisabledColor)
+        private set
+    var hmrcPrimaryButtonDisabledTextColor by mutableStateOf(hmrcPrimaryButtonDisabledTextColor)
+        private set
+    var hmrcIconTint by mutableStateOf(hmrcIconTint)
+        private set
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -338,7 +414,20 @@ class HmrcColors(
         hmrcCardBackground = other.hmrcCardBackground
         hmrcCardTitle = other.hmrcCardTitle
         hmrcCardTextColor = other.hmrcCardTextColor
-        hmrcInterface = hmrcInterface
+        hmrcInterface = other.hmrcInterface
+        hmrcHeaderBackground = other.hmrcHeaderBackground
+        hmrcHeaderTitleTextColor = other.hmrcHeaderTitleTextColor
+        hmrcHeaderNavigationIconColor = other.hmrcHeaderNavigationIconColor
+        hmrcInterface = other.hmrcInterface
+        hmrcConfirmationBackground = other.hmrcConfirmationBackground
+        hmrcPrimaryButtonColor = other.hmrcPrimaryButtonColor
+        hmrcPrimaryButtonTextColor = other.hmrcPrimaryButtonTextColor
+        hmrcSecondaryButtonColor = other.hmrcSecondaryButtonColor
+        hmrcSecondaryButtonTextColor = other.hmrcSecondaryButtonTextColor
+        hmrcSecondaryButtonRippleBackground = other.hmrcSecondaryButtonRippleBackground
+        hmrcPrimaryButtonDisabledColor = other.hmrcPrimaryButtonDisabledColor
+        hmrcPrimaryButtonDisabledTextColor = other.hmrcPrimaryButtonDisabledTextColor
+        hmrcIconTint = other.hmrcIconTint
     }
 
     fun copy(): HmrcColors = HmrcColors(
@@ -375,6 +464,18 @@ class HmrcColors(
         hmrcCardBackground = hmrcCardBackground,
         hmrcCardTitle = hmrcCardTitle,
         hmrcCardTextColor = hmrcCardTextColor,
-        hmrcInterface = hmrcInterface
+        hmrcInterface = hmrcInterface,
+        hmrcHeaderBackground = hmrcHeaderBackground,
+        hmrcHeaderTitleTextColor = hmrcHeaderTitleTextColor,
+        hmrcHeaderNavigationIconColor = hmrcHeaderNavigationIconColor,
+        hmrcConfirmationBackground = hmrcConfirmationBackground,
+        hmrcPrimaryButtonColor = hmrcPrimaryButtonColor,
+        hmrcPrimaryButtonTextColor = hmrcPrimaryButtonTextColor,
+        hmrcSecondaryButtonColor = hmrcSecondaryButtonColor,
+        hmrcSecondaryButtonTextColor = hmrcSecondaryButtonTextColor,
+        hmrcSecondaryButtonRippleBackground = hmrcSecondaryButtonRippleBackground,
+        hmrcPrimaryButtonDisabledColor = hmrcPrimaryButtonDisabledColor,
+        hmrcPrimaryButtonDisabledTextColor = hmrcPrimaryButtonDisabledTextColor,
+        hmrcIconTint = hmrcIconTint,
     )
 }

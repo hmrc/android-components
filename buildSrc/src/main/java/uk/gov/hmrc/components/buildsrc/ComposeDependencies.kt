@@ -17,11 +17,11 @@ package uk.gov.hmrc.components.buildsrc
 
 class ComposeDependencies {
     object Versions {
-        const val minSdk = 23
+        const val minSdk = 29
         const val targetSdk = 36
         const val compileSdk = 36
         const val kotlinCompilerExtensionVersion = "2.1.10"
-        const val jetpackNavigation = "2.8.8"
+        const val jetpackNavigation = "2.9.8"
         const val lifecycleVersion = "2.8.7"
     }
 

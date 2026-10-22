@@ -16,8 +16,6 @@
 package uk.gov.hmrc.components.molecule.input
 
 import android.content.Context
-import android.os.Build.VERSION
-import android.os.Build.VERSION_CODES.O
 import android.os.Bundle
 import android.os.Parcelable
 import android.text.InputFilter
@@ -238,18 +236,10 @@ open class TextInputView @JvmOverloads constructor(
                     val newContentDescription = "$customHint$error$counter"
 
                     val showingText = !getText().isNullOrEmpty()
-                    if (VERSION.SDK_INT >= O) {
-                        if (showingText) {
-                            info.hintText = newContentDescription
-                        } else {
-                            info.text = newContentDescription
-                        }
+                    if (showingText) {
+                        info.hintText = newContentDescription
                     } else {
-                        // Due to a TalkBack bug, setHintText has no effect in APIs < 26 so we append the hint to
-                        // the text announcement. The resulting announcement is the same as in APIs >= 26.
-                        info.text = if (showingText) {
-                            getText() + ", " + newContentDescription
-                        } else newContentDescription
+                        info.text = newContentDescription
                     }
 
                     info.error = if (currentChars > (counterMaxLength + 1) || wasAlreadyShowingError) {

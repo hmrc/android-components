@@ -25,6 +25,7 @@
     <color name="hmrc_red">#FFD4351C</color>
     <color name="hmrc_grey_1">#FF505A5F</color>
     <color name="hmrc_grey_2">#FFB1B4B6</color>
+    <color name="hmrc_grey_4">#FF6F777B</color>
     <color name="hmrc_pink">#FFCA2B75</color>
     <color name="hmrc_yellow">#FFFFBF47</color>
 
@@ -61,6 +62,7 @@
     <color name="hmrc_primary_teal">#FF5BC0C6</color>
     <color name="hmrc_primary_yellow">#FFFFDD00</color>
     <color name="hmrc_primary_light_blue">#FFD7E4F2</color>
+    <color name="hmrc_blue_new">#FF1D70B8</color>
     <!-- Fully transparent -->
     <color name="hmrc_transparent">#00000000</color>
 
@@ -71,6 +73,8 @@
     <color name="hmrc_dark_navy_2">#FF061625</color>
     <color name="hmrc_dark_navy_3">#FF092537</color>
     <color name="hmrc_navy">#FF0A2740</color>
+    <color name="hmrc_white_new">#FFFFFFFF</color>
+    <color name="hmrc_black_new">#FF0B0C0C</color>
 
 
 <!--    light mode semantic token colors for xml-->
@@ -87,6 +91,8 @@
 
 <!--    header-->
     <color name="hmrc_header_background">@color/hmrc_blue</color>
+    <color name="hmrc_header_title_text_color">@color/hmrc_white_new</color>
+    <color name="hmrc_header_navigation_icon_color">@color/hmrc_white_new</color>
 
 <!--    onboarding-->
     <color name="hmrc_onboarding_background">@color/hmrc_grey_3</color>
@@ -94,15 +100,21 @@
 
 <!--    buttons-->
     <color name="hmrc_primary_button_color">@color/hmrc_green_1</color>
-    <color name="hmrc_primary_button_text_color">@color/hmrc_white</color>
+    <color name="hmrc_primary_button_text_color">@color/hmrc_white_new</color>
     <color name="hmrc_secondary_button_color">@color/hmrc_transparent</color>
-    <color name="hmrc_secondary_button_text_color">@color/hmrc_white</color>
+    <color name="hmrc_secondary_button_text_color">@color/hmrc_blue</color>
+    <color name="hmrc_secondary_button_ripple_background">@color/hmrc_blue</color>
+    <color name="hmrc_primary_button_disabled_color">@color/hmrc_grey_2</color>
+    <color name="hmrc_primary_button_disabled_text_color">@color/hmrc_grey_1</color>
 
 <!--    NavBar-->
     <color name="hmrc_nav_bar_background">@color/hmrc_white</color>
 
 <!--    confirmation-->
     <color name="hmrc_confirmation_background">@color/hmrc_green_1</color>
+
+<!--    Icons-->
+    <color name="hmrc_icon_tint">@color/hmrc_black</color>
 
 
 

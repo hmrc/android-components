@@ -17,7 +17,7 @@ package uk.gov.hmrc.components.buildsrc
 
 class Dependencies {
     object Versions {
-        const val minSdk = 23
+        const val minSdk = 29
         const val targetSdk = 36
         const val compileSdk = 36
         const val buildTools = "33.0.1"

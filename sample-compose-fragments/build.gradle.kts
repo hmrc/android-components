@@ -52,6 +52,8 @@ android {
     }
     lint {
         disable += "SuspiciousModifierThen"
+        // This Lifecycle detector crashes with the lint API bundled in AGP 8.7.2.
+        disable += "NullSafeMutableLiveData"
         checkDependencies = false
     }
     packagingOptions {
