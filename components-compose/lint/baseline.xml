@@ -9,7 +9,7 @@
         <location
             file="src/main/java/uk/gov/hmrc/components/compose/ui/theme/HmrcRippleTheme.kt"
             line="25"
-            column="5"/>
+            column="5" />
     </issue>
 
     <issue
@@ -20,7 +20,7 @@
         <location
             file="src/main/java/uk/gov/hmrc/components/compose/organism/menu/MenuPanelRowView.kt"
             line="66"
-            column="5"/>
+            column="5" />
     </issue>
 
     <issue
@@ -31,7 +31,7 @@
         <location
             file="src/main/res/drawable/components_ic_pound_sign.xml"
             line="10"
-            column="27"/>
+            column="27" />
     </issue>
 
     <issue
@@ -42,7 +42,7 @@
         <location
             file="src/main/java/uk/gov/hmrc/components/compose/ui/theme/WindowSizeClass.kt"
             line="47"
-            column="9"/>
+            column="9" />
     </issue>
 
     <issue
@@ -53,7 +53,7 @@
         <location
             file="src/main/java/uk/gov/hmrc/components/compose/ui/theme/WindowSizeClass.kt"
             line="51"
-            column="9"/>
+            column="9" />
     </issue>
 
 </issues>
