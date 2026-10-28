@@ -29,7 +29,6 @@
     <color name="hmrc_pink">#FFCA2B75</color>
     <color name="hmrc_yellow">#FFFFBF47</color>
 
-    <color name="hmrc_error_text">@color/hmrc_red</color>
     <color name="hmrc_dark_text">@color/hmrc_black</color>
     <color name="hmrc_light_text">@color/hmrc_white</color>
     <color name="hmrc_link_text">@color/hmrc_blue</color>
@@ -116,6 +115,8 @@
 <!--    Icons-->
     <color name="hmrc_icon_tint">@color/hmrc_black</color>
 
+    <!--   Errors-->
+    <color name="hmrc_error_text_color">@color/hmrc_red</color>
 
 
 

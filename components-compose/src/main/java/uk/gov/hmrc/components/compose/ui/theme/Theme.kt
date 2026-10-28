@@ -70,6 +70,9 @@ private val LightColorPalette = HmrcColors(
 
 //    Icon
     hmrcIconTint = HmrcBlack,
+
+//    Errors
+    hmrcErrorTextColor = HmrcRed,
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -116,6 +119,9 @@ private val DarkColorPalette = HmrcColors(
 
     //    Icon
     hmrcIconTint = HmrcMidGrey,
+
+    //    Errors
+    hmrcErrorTextColor = HmrcPrimaryRed,
 )
 
 @Composable
@@ -149,7 +155,7 @@ fun HmrcTheme(
         hmrcWhite = colors.hmrcWhite,
         hmrcGrey1 = colors.hmrcGrey1,
         hmrcBlue = colors.hmrcBlue,
-        hmrcRed = colors.hmrcRed,
+        hmrcErrorTextColor = colors.hmrcErrorTextColor,
     )
 
     // We can define the different typography of different sizes screen
@@ -180,24 +186,24 @@ fun HmrcTheme(
 fun textInputViewColors(colors: HmrcColors) = OutlinedTextFieldDefaults.colors(
     focusedTextColor = colors.hmrcBlack,
     unfocusedTextColor = colors.hmrcBlack,
-    errorTextColor = colors.hmrcRed,
+    errorTextColor = colors.hmrcErrorTextColor,
     errorLeadingIconColor = colors.hmrcBlack,
     focusedTrailingIconColor = colors.hmrcBlack,
     unfocusedTrailingIconColor = colors.hmrcBlack,
     errorTrailingIconColor = colors.hmrcBlack,
     focusedLabelColor = colors.hmrcBlue,
     unfocusedLabelColor = colors.hmrcBlack,
-    errorLabelColor = colors.hmrcRed,
+    errorLabelColor = colors.hmrcErrorTextColor,
     focusedBorderColor = colors.hmrcBlue,
     errorBorderColor = colors.hmrcBlack,
     unfocusedBorderColor = colors.hmrcBlack,
     focusedPlaceholderColor = colors.hmrcGrey1,
     unfocusedPlaceholderColor = colors.hmrcGrey1,
     errorPlaceholderColor = colors.hmrcGrey1,
-    errorSupportingTextColor = colors.hmrcRed,
+    errorSupportingTextColor = colors.hmrcErrorTextColor,
     focusedSupportingTextColor = colors.hmrcBlack,
     cursorColor = colors.hmrcBlue,
-    errorCursorColor = colors.hmrcRed,
+    errorCursorColor = colors.hmrcErrorTextColor,
 )
 
 object HmrcTheme {
@@ -245,7 +251,6 @@ class HmrcColors(
     hmrcGrey3: Color,
     hmrcPink: Color,
     hmrcYellow: Color,
-    hmrcErrorText: Color = hmrcRed,
     hmrcDarkText: Color = hmrcBlack,
     hmrcLightText: Color = hmrcWhite,
     hmrcLinkText: Color = hmrcBlue,
@@ -278,6 +283,7 @@ class HmrcColors(
     hmrcPrimaryButtonDisabledTextColor: Color,
     hmrcConfirmationBackground: Color,
     hmrcIconTint: Color,
+    hmrcErrorTextColor: Color,
 
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
@@ -305,8 +311,6 @@ class HmrcColors(
     var hmrcPink by mutableStateOf(hmrcPink)
         private set
     var hmrcYellow by mutableStateOf(hmrcYellow)
-        private set
-    var hmrcErrorText by mutableStateOf(hmrcErrorText)
         private set
     var hmrcDarkText by mutableStateOf(hmrcDarkText)
         private set
@@ -381,6 +385,8 @@ class HmrcColors(
         private set
     var hmrcIconTint by mutableStateOf(hmrcIconTint)
         private set
+    var hmrcErrorTextColor by mutableStateOf(hmrcErrorTextColor)
+        private set
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -395,7 +401,6 @@ class HmrcColors(
         hmrcGrey3 = other.hmrcGrey3
         hmrcPink = other.hmrcPink
         hmrcYellow = other.hmrcYellow
-        hmrcErrorText = other.hmrcErrorText
         hmrcDarkText = other.hmrcDarkText
         hmrcLightText = other.hmrcLightText
         hmrcLinkText = other.hmrcLinkText
@@ -428,6 +433,7 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledColor = other.hmrcPrimaryButtonDisabledColor
         hmrcPrimaryButtonDisabledTextColor = other.hmrcPrimaryButtonDisabledTextColor
         hmrcIconTint = other.hmrcIconTint
+        hmrcErrorTextColor = other.hmrcErrorTextColor
     }
 
     fun copy(): HmrcColors = HmrcColors(
@@ -444,7 +450,6 @@ class HmrcColors(
         hmrcGrey3 = hmrcGrey3,
         hmrcPink = hmrcPink,
         hmrcYellow = hmrcYellow,
-        hmrcErrorText = hmrcErrorText,
         hmrcDarkText = hmrcDarkText,
         hmrcLightText = hmrcLightText,
         hmrcLinkText = hmrcLinkText,
@@ -477,5 +482,6 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledColor = hmrcPrimaryButtonDisabledColor,
         hmrcPrimaryButtonDisabledTextColor = hmrcPrimaryButtonDisabledTextColor,
         hmrcIconTint = hmrcIconTint,
+        hmrcErrorTextColor = hmrcErrorTextColor,
     )
 }
