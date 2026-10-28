@@ -108,7 +108,7 @@ fun MenuPanelRowView(
                                         height = 24.dp,
                                     )
                                     .background(
-                                        color = HmrcTheme.colors.hmrcRed,
+                                        color = HmrcTheme.colors.hmrcErrorTextColor,
                                         shape = RoundedCornerShape(size = HmrcTheme.dimensions.hmrcSpacing32)
                                     )
                                     .weight(weight = 0.2f, fill = false),

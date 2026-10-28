@@ -87,4 +87,7 @@
     <!--    Icons-->
     <color name="hmrc_icon_tint">@color/hmrc_mid_grey</color>
 
+    <!--   Errors-->
+    <color name="hmrc_error_text_color">@color/hmrc_primary_red</color>
+
 </resources>

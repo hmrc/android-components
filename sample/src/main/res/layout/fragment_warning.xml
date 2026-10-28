@@ -90,9 +90,9 @@
                 android:layout_height="wrap_content"
                 android:background="@color/hmrc_card_background"
                 app:icon="@drawable/components_ic_warning"
-                app:iconTintColor="@color/hmrc_red"
+                app:iconTintColor="@color/hmrc_error_text_color"
                 app:text="@string/warning_example_3_text"
-                app:textColor="@color/hmrc_red"
+                app:textColor="@color/hmrc_error_text_color"
                 app:defaultPadding="false" />
 
         </com.google.android.material.card.MaterialCardView>
