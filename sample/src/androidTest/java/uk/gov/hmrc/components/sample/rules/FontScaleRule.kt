@@ -61,11 +61,13 @@ class FontScaleRule : TestRule {
             val newScale = description.getAnnotation(FontScale::class.java)?.scale ?: 1.0F
 
             if (currentScale != newScale) {
-                Settings.System.putFloat(
-                    contentResolver,
-                    Settings.System.FONT_SCALE,
-                    newScale
-                )
+                instrumentation.runOnMainSync {
+                    Settings.System.putFloat(
+                        contentResolver,
+                        Settings.System.FONT_SCALE,
+                        newScale
+                    )
+                }
             }
 
             base.evaluate()

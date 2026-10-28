@@ -16,6 +16,7 @@
 package uk.gov.hmrc.components.sample.rules
 
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.rules.TestRule
 import org.junit.runner.Description
 import org.junit.runners.model.Statement
@@ -31,7 +32,9 @@ class NightModeRule : TestRule {
             } else {
                 AppCompatDelegate.MODE_NIGHT_NO
             }
-            AppCompatDelegate.setDefaultNightMode(mode)
+            InstrumentationRegistry.getInstrumentation().runOnMainSync {
+                AppCompatDelegate.setDefaultNightMode(mode)
+            }
 
             base.evaluate()
         }
