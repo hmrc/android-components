@@ -59,7 +59,7 @@ private val LightColorPalette = HmrcColors(
     hmrcHeaderTitleTextColor = HmrcWhite,
     hmrcHeaderNavigationIconColor = HmrcWhite,
 
-//    CTA
+    // CTA
     hmrcPrimaryButtonColor = HmrcGreen1,
     hmrcPrimaryButtonTextColor = HmrcWhite,
     hmrcSecondaryButtonColor = HmrcTransparent,
@@ -68,8 +68,14 @@ private val LightColorPalette = HmrcColors(
     hmrcPrimaryButtonDisabledColor = HmrcGrey2,
     hmrcPrimaryButtonDisabledTextColor = HmrcGrey1,
 
-//    Icon
+    // Icon
     hmrcIconTint = HmrcBlack,
+
+    // Segmented Button
+    selectedSegmentedTab = HmrcLightBlue,
+    pressedSegmentedTab = HmrcLightPressedBlue,
+    inactiveSegmentedTab = HmrcTransparent,
+    textColorSegmentedTab = HmrcBlack,
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -105,7 +111,7 @@ private val DarkColorPalette = HmrcColors(
     hmrcHeaderTitleTextColor = HmrcWhite,
     hmrcHeaderNavigationIconColor = HmrcWhite,
 
-//    CTA
+    // CTA
     hmrcPrimaryButtonColor = HmrcPrimaryGreen,
     hmrcPrimaryButtonTextColor = HmrcWhite,
     hmrcSecondaryButtonColor = HmrcTransparent,
@@ -114,8 +120,14 @@ private val DarkColorPalette = HmrcColors(
     hmrcPrimaryButtonDisabledColor = HmrcGrey4,
     hmrcPrimaryButtonDisabledTextColor = HmrcGrey2,
 
-    //    Icon
+    // Icon
     hmrcIconTint = HmrcMidGrey,
+
+    // Segmented Button
+    selectedSegmentedTab = HmrcNavyBlue,
+    pressedSegmentedTab = HmrcCyanBlue,
+    inactiveSegmentedTab = HmrcTransparent,
+    textColorSegmentedTab = HmrcWhite,
 )
 
 @Composable
@@ -278,6 +290,10 @@ class HmrcColors(
     hmrcPrimaryButtonDisabledTextColor: Color,
     hmrcConfirmationBackground: Color,
     hmrcIconTint: Color,
+    selectedSegmentedTab: Color,
+    pressedSegmentedTab: Color,
+    inactiveSegmentedTab: Color,
+    textColorSegmentedTab: Color,
 
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
@@ -381,6 +397,14 @@ class HmrcColors(
         private set
     var hmrcIconTint by mutableStateOf(hmrcIconTint)
         private set
+    var selectedSegmentedTab by mutableStateOf(selectedSegmentedTab)
+        private set
+    var pressedSegmentedTab by mutableStateOf(pressedSegmentedTab)
+        private set
+    var inactiveSegmentedTab by mutableStateOf(inactiveSegmentedTab)
+        private set
+    var textColorSegmentedTab by mutableStateOf(textColorSegmentedTab)
+        private set
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -428,6 +452,10 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledColor = other.hmrcPrimaryButtonDisabledColor
         hmrcPrimaryButtonDisabledTextColor = other.hmrcPrimaryButtonDisabledTextColor
         hmrcIconTint = other.hmrcIconTint
+        selectedSegmentedTab = other.selectedSegmentedTab
+        pressedSegmentedTab = other.pressedSegmentedTab
+        inactiveSegmentedTab = other.inactiveSegmentedTab
+        textColorSegmentedTab = other.textColorSegmentedTab
     }
 
     fun copy(): HmrcColors = HmrcColors(
@@ -477,5 +505,9 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledColor = hmrcPrimaryButtonDisabledColor,
         hmrcPrimaryButtonDisabledTextColor = hmrcPrimaryButtonDisabledTextColor,
         hmrcIconTint = hmrcIconTint,
+        selectedSegmentedTab = selectedSegmentedTab,
+        pressedSegmentedTab = pressedSegmentedTab,
+        inactiveSegmentedTab = inactiveSegmentedTab,
+        textColorSegmentedTab = textColorSegmentedTab,
     )
 }
