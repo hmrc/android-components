@@ -114,7 +114,7 @@ fun SecondaryButton(
     modifier: Modifier = Modifier,
     textAlign: TextAlign = TextAlign.Center,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(
-        containerColor = colors.hmrcSecondaryButtonColor, contentColor = colors.hmrcSecondaryButtonTextColor
+        containerColor = colors.hmrcSecondaryButtonColor, contentColor = colors.hmrcSecondaryButtonTextColor,
     ),
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit = {},

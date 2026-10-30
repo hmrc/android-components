@@ -57,8 +57,8 @@
 
     <!--    cards-->
     <color name="hmrc_card_background">@color/hmrc_dark_navy_3</color>
-    <color name="hmrc_card_title">@color/hmrc_white</color>
-    <color name="hmrc_card_text_color">@color/hmrc_white</color>
+    <color name="hmrc_card_title">@color/hmrc_white_new</color>
+    <color name="hmrc_card_text_color">@color/hmrc_white_new</color>
 
     <!--    header-->
     <color name="hmrc_header_background">@color/hmrc_navy</color>
@@ -74,7 +74,7 @@
     <color name="hmrc_primary_button_text_color">@color/hmrc_white_new</color>
     <color name="hmrc_secondary_button_color">@color/hmrc_transparent</color>
     <color name="hmrc_secondary_button_text_color">@color/hmrc_primary_teal</color>
-    <color name="hmrc_secondary_button_ripple_background">@color/hmrc_primary_teal</color>
+    <color name="hmrc_secondary_button_ripple_background">@color/hmrc_black_new</color>
     <color name="hmrc_primary_button_disabled_color">@color/hmrc_grey_4</color>
     <color name="hmrc_primary_button_disabled_text_color">@color/hmrc_grey_2</color>
 

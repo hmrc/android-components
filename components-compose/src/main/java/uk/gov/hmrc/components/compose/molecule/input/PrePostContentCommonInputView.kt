@@ -162,7 +162,7 @@ fun PreOrPostBox(
             .fillMaxHeight()
             .width(52.dp)
             .adjustPaddingForCounter(counterEnabled, localError)
-            .background(HmrcTheme.colors.hmrcGrey3)
+            .background(HmrcTheme.colors.hmrcPrePostBox)
             .drawBehind {
                 val strokeWidth = 1.dp.toPx()
                 val half = strokeWidth / 2

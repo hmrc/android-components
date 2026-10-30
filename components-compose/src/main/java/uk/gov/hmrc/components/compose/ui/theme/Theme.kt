@@ -53,6 +53,7 @@ private val LightColorPalette = HmrcColors(
     hmrcCardBackground = HmrcWhite,
     hmrcCardTitle = HmrcBlue,
     hmrcCardTextColor = HmrcBlack,
+    hmrcCardPressedColor = HmrcBlue,
 
     // Header
     hmrcHeaderBackground = HmrcBlue,
@@ -70,6 +71,7 @@ private val LightColorPalette = HmrcColors(
 
 //    Icon
     hmrcIconTint = HmrcBlack,
+    hmrcPrePostBox = HmrcGrey3,
 
 //    Errors
     hmrcErrorTextColor = HmrcRed,
@@ -102,6 +104,7 @@ private val DarkColorPalette = HmrcColors(
     hmrcCardBackground = HmrcDarkNavy3,
     hmrcCardTitle = HmrcWhite,
     hmrcCardTextColor = HmrcWhite,
+    hmrcCardPressedColor = HmrcLavender,
 
     // Header
     hmrcHeaderBackground = HmrcNavy,
@@ -113,12 +116,13 @@ private val DarkColorPalette = HmrcColors(
     hmrcPrimaryButtonTextColor = HmrcWhite,
     hmrcSecondaryButtonColor = HmrcTransparent,
     hmrcSecondaryButtonTextColor = HmrcPrimaryTeal,
-    hmrcSecondaryButtonRippleBackground = HmrcPrimaryTeal,
+    hmrcSecondaryButtonRippleBackground = HmrcBlack,
     hmrcPrimaryButtonDisabledColor = HmrcGrey4,
     hmrcPrimaryButtonDisabledTextColor = HmrcGrey2,
 
     //    Icon
     hmrcIconTint = HmrcMidGrey,
+    hmrcPrePostBox = HmrcDarkBlue,
 
     //    Errors
     hmrcErrorTextColor = HmrcPrimaryRed,
@@ -270,6 +274,7 @@ class HmrcColors(
     hmrcCardBackground: Color,
     hmrcCardTitle: Color,
     hmrcCardTextColor: Color,
+    hmrcCardPressedColor: Color,
     hmrcInterface: Color,
     hmrcHeaderBackground: Color,
     hmrcHeaderTitleTextColor: Color,
@@ -284,6 +289,7 @@ class HmrcColors(
     hmrcConfirmationBackground: Color,
     hmrcIconTint: Color,
     hmrcErrorTextColor: Color,
+    hmrcPrePostBox: Color,
 
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
@@ -348,6 +354,8 @@ class HmrcColors(
         private set
     var hmrcCardTextColor by mutableStateOf(hmrcCardTextColor)
         private set
+    var hmrcCardPressedColor by mutableStateOf(hmrcCardPressedColor)
+        private set
 
     val hmrcAlwaysBlack: Color = HmrcBlack
     val hmrcAlwaysWhite: Color = HmrcWhite
@@ -387,6 +395,8 @@ class HmrcColors(
         private set
     var hmrcErrorTextColor by mutableStateOf(hmrcErrorTextColor)
         private set
+    var hmrcPrePostBox by mutableStateOf(hmrcPrePostBox)
+        private set
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -419,6 +429,7 @@ class HmrcColors(
         hmrcCardBackground = other.hmrcCardBackground
         hmrcCardTitle = other.hmrcCardTitle
         hmrcCardTextColor = other.hmrcCardTextColor
+        hmrcCardPressedColor = other.hmrcCardPressedColor
         hmrcInterface = other.hmrcInterface
         hmrcHeaderBackground = other.hmrcHeaderBackground
         hmrcHeaderTitleTextColor = other.hmrcHeaderTitleTextColor
@@ -434,6 +445,7 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledTextColor = other.hmrcPrimaryButtonDisabledTextColor
         hmrcIconTint = other.hmrcIconTint
         hmrcErrorTextColor = other.hmrcErrorTextColor
+        hmrcPrePostBox = other.hmrcPrePostBox
     }
 
     fun copy(): HmrcColors = HmrcColors(
@@ -469,6 +481,7 @@ class HmrcColors(
         hmrcCardBackground = hmrcCardBackground,
         hmrcCardTitle = hmrcCardTitle,
         hmrcCardTextColor = hmrcCardTextColor,
+        hmrcCardPressedColor = hmrcCardPressedColor,
         hmrcInterface = hmrcInterface,
         hmrcHeaderBackground = hmrcHeaderBackground,
         hmrcHeaderTitleTextColor = hmrcHeaderTitleTextColor,
@@ -483,5 +496,6 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledTextColor = hmrcPrimaryButtonDisabledTextColor,
         hmrcIconTint = hmrcIconTint,
         hmrcErrorTextColor = hmrcErrorTextColor,
+        hmrcPrePostBox = hmrcPrePostBox,
     )
 }
