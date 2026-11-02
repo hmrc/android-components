@@ -105,6 +105,8 @@
     <color name="hmrc_secondary_button_ripple_background">@color/hmrc_blue</color>
     <color name="hmrc_primary_button_disabled_color">@color/hmrc_grey_2</color>
     <color name="hmrc_primary_button_disabled_text_color">@color/hmrc_grey_1</color>
+    <color name="hmrc_pin_pressed_color">@color/hmrc_blue</color>
+
 
 <!--    NavBar-->
     <color name="hmrc_nav_bar_background">@color/hmrc_white</color>
