@@ -34,6 +34,17 @@
     </issue>
 
     <issue
+        id="ComposableNaming"
+        message="Composable functions with a return type should start with a lowercase letter"
+        errorLine1="fun HmrcSecondaryButtonRippleTheme(): RippleConfiguration {"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/uk/gov/hmrc/components/compose/ui/theme/HmrcSecondaryButtonRippleTheme.kt"
+            line="25"
+            column="5"/>
+    </issue>
+
+    <issue
         id="ModifierParameter"
         message="Modifier parameter should be the first optional parameter"
         errorLine1="    modifier: Modifier = Modifier,"
