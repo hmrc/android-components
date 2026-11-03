@@ -15,6 +15,7 @@
  */
 package uk.gov.hmrc.components.compose.molecule.tabbar
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -153,13 +154,15 @@ private fun HmrcTabItems(
             Tab(
                 selected = index == selectedIndex,
                 onClick = { onTabSelected(index) },
+                modifier = Modifier.background(HmrcTheme.colors.hmrcCardBackground),
                 selectedContentColor = if (tabBarStyle == TabBarViewStyle.LIGHT) {
+//                    create new semantic tokens, remove LIGht/DARK stuff, does nothing
                     HmrcTheme.colors.hmrcBlue
                 } else {
                     HmrcWhite
                 },
                 unselectedContentColor = if (tabBarStyle == TabBarViewStyle.LIGHT) {
-                    HmrcTheme.colors.hmrcGrey1
+                    HmrcTheme.colors.hmrcBlue
                 } else {
                     HmrcGrey1Dark
                 }
