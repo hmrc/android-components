@@ -143,8 +143,8 @@ private val DarkColorPalette = HmrcColors(
     // Onboarding Screens
     hmrcOnBoardingInterface = HmrcDarkNavy2,
     hmrcOnBoardingCardBackground = HmrcDarkNavy3,
-    hmrcViewPagerIconSelected = HmrcBlueDark,
-    hmrcViewPagerIconNotSelected = HmrcGrey2Dark,
+    hmrcViewPagerIconSelected = HmrcPrimaryTeal,
+    hmrcViewPagerIconNotSelected = HmrcGrey4,
     hmrcOnBoardingTextColor = HmrcWhite,
 
     // Segmented Button
