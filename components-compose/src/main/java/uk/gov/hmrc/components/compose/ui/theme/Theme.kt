@@ -73,8 +73,15 @@ private val LightColorPalette = HmrcColors(
     hmrcIconTint = HmrcBlack,
     hmrcPrePostBox = HmrcGrey3,
 
-//    Errors
+    // Errors
     hmrcErrorTextColor = HmrcRed,
+
+    // Onboarding Screens
+    hmrcOnBoardingInterface = HmrcLightGrey,
+    hmrcOnBoardingCardBackground = HmrcWhite,
+    hmrcViewPagerIconSelected = HmrcBlue,
+    hmrcViewPagerIconNotSelected = HmrcGrey2,
+    hmrcOnBoardingTextColor = HmrcBlack,
 
     // Segmented Button
     selectedSegmentedTab = HmrcLightBlue,
@@ -132,6 +139,13 @@ private val DarkColorPalette = HmrcColors(
 
     //    Errors
     hmrcErrorTextColor = HmrcPrimaryRed,
+
+    // Onboarding Screens
+    hmrcOnBoardingInterface = HmrcDarkNavy2,
+    hmrcOnBoardingCardBackground = HmrcDarkNavy3,
+    hmrcViewPagerIconSelected = HmrcBlueDark,
+    hmrcViewPagerIconNotSelected = HmrcGrey2Dark,
+    hmrcOnBoardingTextColor = HmrcWhite,
 
     // Segmented Button
     selectedSegmentedTab = HmrcNavyBlue,
@@ -302,6 +316,11 @@ class HmrcColors(
     hmrcIconTint: Color,
     hmrcErrorTextColor: Color,
     hmrcPrePostBox: Color,
+    hmrcOnBoardingInterface: Color,
+    hmrcOnBoardingCardBackground: Color,
+    hmrcViewPagerIconSelected: Color,
+    hmrcViewPagerIconNotSelected: Color,
+    hmrcOnBoardingTextColor: Color,
     selectedSegmentedTab: Color,
     pressedSegmentedTab: Color,
     inactiveSegmentedTab: Color,
@@ -413,6 +432,22 @@ class HmrcColors(
         private set
     var hmrcPrePostBox by mutableStateOf(hmrcPrePostBox)
         private set
+
+    var hmrcOnBoardingInterface by mutableStateOf(hmrcOnBoardingInterface)
+        private set
+
+    var hmrcOnBoardingCardBackground by mutableStateOf(hmrcOnBoardingCardBackground)
+        private set
+
+    var hmrcViewPagerIconSelected by mutableStateOf(hmrcViewPagerIconSelected)
+        private set
+
+    var hmrcViewPagerIconNotSelected by mutableStateOf(hmrcViewPagerIconNotSelected)
+        private set
+
+    var hmrcOnBoardingTextColor by mutableStateOf(hmrcOnBoardingTextColor)
+        private set
+
     var selectedSegmentedTab by mutableStateOf(selectedSegmentedTab)
         private set
     var pressedSegmentedTab by mutableStateOf(pressedSegmentedTab)
@@ -470,6 +505,11 @@ class HmrcColors(
         hmrcIconTint = other.hmrcIconTint
         hmrcErrorTextColor = other.hmrcErrorTextColor
         hmrcPrePostBox = other.hmrcPrePostBox
+        hmrcOnBoardingInterface = other.hmrcOnBoardingInterface
+        hmrcOnBoardingCardBackground = other.hmrcOnBoardingCardBackground
+        hmrcViewPagerIconSelected = other.hmrcViewPagerIconSelected
+        hmrcViewPagerIconNotSelected = hmrcViewPagerIconNotSelected
+        hmrcOnBoardingTextColor = other.hmrcOnBoardingTextColor
         selectedSegmentedTab = other.selectedSegmentedTab
         pressedSegmentedTab = other.pressedSegmentedTab
         inactiveSegmentedTab = other.inactiveSegmentedTab
@@ -525,6 +565,11 @@ class HmrcColors(
         hmrcIconTint = hmrcIconTint,
         hmrcErrorTextColor = hmrcErrorTextColor,
         hmrcPrePostBox = hmrcPrePostBox,
+        hmrcOnBoardingInterface = hmrcOnBoardingInterface,
+        hmrcOnBoardingCardBackground = hmrcOnBoardingCardBackground,
+        hmrcViewPagerIconSelected = hmrcViewPagerIconSelected,
+        hmrcViewPagerIconNotSelected = hmrcViewPagerIconNotSelected,
+        hmrcOnBoardingTextColor = hmrcOnBoardingTextColor,
         selectedSegmentedTab = selectedSegmentedTab,
         pressedSegmentedTab = pressedSegmentedTab,
         inactiveSegmentedTab = inactiveSegmentedTab,

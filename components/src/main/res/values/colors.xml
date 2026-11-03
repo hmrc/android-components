@@ -93,10 +93,6 @@
     <color name="hmrc_header_title_text_color">@color/hmrc_white_new</color>
     <color name="hmrc_header_navigation_icon_color">@color/hmrc_white_new</color>
 
-<!--    onboarding-->
-    <color name="hmrc_onboarding_background">@color/hmrc_grey_3</color>
-    <color name="hmrc_onboarding_pager_view">@color/hmrc_white</color>
-
 <!--    buttons-->
     <color name="hmrc_primary_button_color">@color/hmrc_green_1</color>
     <color name="hmrc_primary_button_text_color">@color/hmrc_white_new</color>
