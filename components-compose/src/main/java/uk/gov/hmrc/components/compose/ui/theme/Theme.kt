@@ -60,7 +60,7 @@ private val LightColorPalette = HmrcColors(
     hmrcHeaderTitleTextColor = HmrcWhite,
     hmrcHeaderNavigationIconColor = HmrcWhite,
 
-//    CTA
+    // CTA
     hmrcPrimaryButtonColor = HmrcGreen1,
     hmrcPrimaryButtonTextColor = HmrcWhite,
     hmrcSecondaryButtonColor = HmrcTransparent,
@@ -69,12 +69,18 @@ private val LightColorPalette = HmrcColors(
     hmrcPrimaryButtonDisabledColor = HmrcGrey2,
     hmrcPrimaryButtonDisabledTextColor = HmrcGrey1,
 
-//    Icon
+    // Icon
     hmrcIconTint = HmrcBlack,
     hmrcPrePostBox = HmrcGrey3,
 
 //    Errors
     hmrcErrorTextColor = HmrcRed,
+
+    // Segmented Button
+    selectedSegmentedTab = HmrcLightBlue,
+    pressedSegmentedTab = HmrcLightPressedBlue,
+    inactiveSegmentedTab = HmrcTransparent,
+    textColorSegmentedTab = HmrcBlack,
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -111,7 +117,7 @@ private val DarkColorPalette = HmrcColors(
     hmrcHeaderTitleTextColor = HmrcWhite,
     hmrcHeaderNavigationIconColor = HmrcWhite,
 
-//    CTA
+    // CTA
     hmrcPrimaryButtonColor = HmrcPrimaryGreen,
     hmrcPrimaryButtonTextColor = HmrcWhite,
     hmrcSecondaryButtonColor = HmrcTransparent,
@@ -120,12 +126,18 @@ private val DarkColorPalette = HmrcColors(
     hmrcPrimaryButtonDisabledColor = HmrcGrey4,
     hmrcPrimaryButtonDisabledTextColor = HmrcGrey2,
 
-    //    Icon
+    // Icon
     hmrcIconTint = HmrcMidGrey,
     hmrcPrePostBox = HmrcDarkBlue,
 
     //    Errors
     hmrcErrorTextColor = HmrcPrimaryRed,
+
+    // Segmented Button
+    selectedSegmentedTab = HmrcNavyBlue,
+    pressedSegmentedTab = HmrcCyanBlue,
+    inactiveSegmentedTab = HmrcTransparent,
+    textColorSegmentedTab = HmrcWhite,
 )
 
 @Composable
@@ -290,6 +302,10 @@ class HmrcColors(
     hmrcIconTint: Color,
     hmrcErrorTextColor: Color,
     hmrcPrePostBox: Color,
+    selectedSegmentedTab: Color,
+    pressedSegmentedTab: Color,
+    inactiveSegmentedTab: Color,
+    textColorSegmentedTab: Color,
 
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
@@ -397,6 +413,14 @@ class HmrcColors(
         private set
     var hmrcPrePostBox by mutableStateOf(hmrcPrePostBox)
         private set
+    var selectedSegmentedTab by mutableStateOf(selectedSegmentedTab)
+        private set
+    var pressedSegmentedTab by mutableStateOf(pressedSegmentedTab)
+        private set
+    var inactiveSegmentedTab by mutableStateOf(inactiveSegmentedTab)
+        private set
+    var textColorSegmentedTab by mutableStateOf(textColorSegmentedTab)
+        private set
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -446,6 +470,10 @@ class HmrcColors(
         hmrcIconTint = other.hmrcIconTint
         hmrcErrorTextColor = other.hmrcErrorTextColor
         hmrcPrePostBox = other.hmrcPrePostBox
+        selectedSegmentedTab = other.selectedSegmentedTab
+        pressedSegmentedTab = other.pressedSegmentedTab
+        inactiveSegmentedTab = other.inactiveSegmentedTab
+        textColorSegmentedTab = other.textColorSegmentedTab
     }
 
     fun copy(): HmrcColors = HmrcColors(
@@ -497,5 +525,9 @@ class HmrcColors(
         hmrcIconTint = hmrcIconTint,
         hmrcErrorTextColor = hmrcErrorTextColor,
         hmrcPrePostBox = hmrcPrePostBox,
+        selectedSegmentedTab = selectedSegmentedTab,
+        pressedSegmentedTab = pressedSegmentedTab,
+        inactiveSegmentedTab = inactiveSegmentedTab,
+        textColorSegmentedTab = textColorSegmentedTab,
     )
 }
