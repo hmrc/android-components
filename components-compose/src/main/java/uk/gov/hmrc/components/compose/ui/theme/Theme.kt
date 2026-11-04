@@ -53,13 +53,14 @@ private val LightColorPalette = HmrcColors(
     hmrcCardBackground = HmrcWhite,
     hmrcCardTitle = HmrcBlue,
     hmrcCardTextColor = HmrcBlack,
+    hmrcCardPressedColor = HmrcBlue,
 
     // Header
     hmrcHeaderBackground = HmrcBlue,
     hmrcHeaderTitleTextColor = HmrcWhite,
     hmrcHeaderNavigationIconColor = HmrcWhite,
 
-//    CTA
+    // CTA
     hmrcPrimaryButtonColor = HmrcGreen1,
     hmrcPrimaryButtonTextColor = HmrcWhite,
     hmrcSecondaryButtonColor = HmrcTransparent,
@@ -68,8 +69,25 @@ private val LightColorPalette = HmrcColors(
     hmrcPrimaryButtonDisabledColor = HmrcGrey2,
     hmrcPrimaryButtonDisabledTextColor = HmrcGrey1,
 
-//    Icon
+    // Icon
     hmrcIconTint = HmrcBlack,
+    hmrcPrePostBox = HmrcGrey3,
+
+    // Errors
+    hmrcErrorTextColor = HmrcRed,
+
+    // Onboarding Screens
+    hmrcOnBoardingInterface = HmrcLightGrey,
+    hmrcOnBoardingCardBackground = HmrcWhite,
+    hmrcViewPagerIconSelected = HmrcBlue,
+    hmrcViewPagerIconNotSelected = HmrcGrey2,
+    hmrcOnBoardingTextColor = HmrcBlack,
+
+    // Segmented Button
+    selectedSegmentedTab = HmrcLightBlue,
+    pressedSegmentedTab = HmrcLightPressedBlue,
+    inactiveSegmentedTab = HmrcTransparent,
+    textColorSegmentedTab = HmrcBlack,
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -99,23 +117,41 @@ private val DarkColorPalette = HmrcColors(
     hmrcCardBackground = HmrcDarkNavy3,
     hmrcCardTitle = HmrcWhite,
     hmrcCardTextColor = HmrcWhite,
+    hmrcCardPressedColor = HmrcLavender,
 
     // Header
     hmrcHeaderBackground = HmrcNavy,
     hmrcHeaderTitleTextColor = HmrcWhite,
     hmrcHeaderNavigationIconColor = HmrcWhite,
 
-//    CTA
+    // CTA
     hmrcPrimaryButtonColor = HmrcPrimaryGreen,
     hmrcPrimaryButtonTextColor = HmrcWhite,
     hmrcSecondaryButtonColor = HmrcTransparent,
     hmrcSecondaryButtonTextColor = HmrcPrimaryTeal,
-    hmrcSecondaryButtonRippleBackground = HmrcPrimaryTeal,
+    hmrcSecondaryButtonRippleBackground = HmrcBlack,
     hmrcPrimaryButtonDisabledColor = HmrcGrey4,
     hmrcPrimaryButtonDisabledTextColor = HmrcGrey2,
 
-    //    Icon
+    // Icon
     hmrcIconTint = HmrcMidGrey,
+    hmrcPrePostBox = HmrcDarkBlue,
+
+    //    Errors
+    hmrcErrorTextColor = HmrcPrimaryRed,
+
+    // Onboarding Screens
+    hmrcOnBoardingInterface = HmrcDarkNavy2,
+    hmrcOnBoardingCardBackground = HmrcDarkNavy3,
+    hmrcViewPagerIconSelected = HmrcPrimaryTeal,
+    hmrcViewPagerIconNotSelected = HmrcGrey4,
+    hmrcOnBoardingTextColor = HmrcWhite,
+
+    // Segmented Button
+    selectedSegmentedTab = HmrcNavyBlue,
+    pressedSegmentedTab = HmrcCyanBlue,
+    inactiveSegmentedTab = HmrcTransparent,
+    textColorSegmentedTab = HmrcWhite,
 )
 
 @Composable
@@ -149,7 +185,7 @@ fun HmrcTheme(
         hmrcWhite = colors.hmrcWhite,
         hmrcGrey1 = colors.hmrcGrey1,
         hmrcBlue = colors.hmrcBlue,
-        hmrcRed = colors.hmrcRed,
+        hmrcErrorTextColor = colors.hmrcErrorTextColor,
     )
 
     // We can define the different typography of different sizes screen
@@ -180,24 +216,24 @@ fun HmrcTheme(
 fun textInputViewColors(colors: HmrcColors) = OutlinedTextFieldDefaults.colors(
     focusedTextColor = colors.hmrcBlack,
     unfocusedTextColor = colors.hmrcBlack,
-    errorTextColor = colors.hmrcRed,
+    errorTextColor = colors.hmrcErrorTextColor,
     errorLeadingIconColor = colors.hmrcBlack,
     focusedTrailingIconColor = colors.hmrcBlack,
     unfocusedTrailingIconColor = colors.hmrcBlack,
     errorTrailingIconColor = colors.hmrcBlack,
     focusedLabelColor = colors.hmrcBlue,
     unfocusedLabelColor = colors.hmrcBlack,
-    errorLabelColor = colors.hmrcRed,
+    errorLabelColor = colors.hmrcErrorTextColor,
     focusedBorderColor = colors.hmrcBlue,
     errorBorderColor = colors.hmrcBlack,
     unfocusedBorderColor = colors.hmrcBlack,
     focusedPlaceholderColor = colors.hmrcGrey1,
     unfocusedPlaceholderColor = colors.hmrcGrey1,
     errorPlaceholderColor = colors.hmrcGrey1,
-    errorSupportingTextColor = colors.hmrcRed,
+    errorSupportingTextColor = colors.hmrcErrorTextColor,
     focusedSupportingTextColor = colors.hmrcBlack,
     cursorColor = colors.hmrcBlue,
-    errorCursorColor = colors.hmrcRed,
+    errorCursorColor = colors.hmrcErrorTextColor,
 )
 
 object HmrcTheme {
@@ -245,7 +281,6 @@ class HmrcColors(
     hmrcGrey3: Color,
     hmrcPink: Color,
     hmrcYellow: Color,
-    hmrcErrorText: Color = hmrcRed,
     hmrcDarkText: Color = hmrcBlack,
     hmrcLightText: Color = hmrcWhite,
     hmrcLinkText: Color = hmrcBlue,
@@ -265,6 +300,7 @@ class HmrcColors(
     hmrcCardBackground: Color,
     hmrcCardTitle: Color,
     hmrcCardTextColor: Color,
+    hmrcCardPressedColor: Color,
     hmrcInterface: Color,
     hmrcHeaderBackground: Color,
     hmrcHeaderTitleTextColor: Color,
@@ -278,6 +314,17 @@ class HmrcColors(
     hmrcPrimaryButtonDisabledTextColor: Color,
     hmrcConfirmationBackground: Color,
     hmrcIconTint: Color,
+    hmrcErrorTextColor: Color,
+    hmrcPrePostBox: Color,
+    hmrcOnBoardingInterface: Color,
+    hmrcOnBoardingCardBackground: Color,
+    hmrcViewPagerIconSelected: Color,
+    hmrcViewPagerIconNotSelected: Color,
+    hmrcOnBoardingTextColor: Color,
+    selectedSegmentedTab: Color,
+    pressedSegmentedTab: Color,
+    inactiveSegmentedTab: Color,
+    textColorSegmentedTab: Color,
 
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
@@ -305,8 +352,6 @@ class HmrcColors(
     var hmrcPink by mutableStateOf(hmrcPink)
         private set
     var hmrcYellow by mutableStateOf(hmrcYellow)
-        private set
-    var hmrcErrorText by mutableStateOf(hmrcErrorText)
         private set
     var hmrcDarkText by mutableStateOf(hmrcDarkText)
         private set
@@ -343,6 +388,8 @@ class HmrcColors(
     var hmrcCardTitle by mutableStateOf(hmrcCardTitle)
         private set
     var hmrcCardTextColor by mutableStateOf(hmrcCardTextColor)
+        private set
+    var hmrcCardPressedColor by mutableStateOf(hmrcCardPressedColor)
         private set
 
     val hmrcAlwaysBlack: Color = HmrcBlack
@@ -381,6 +428,34 @@ class HmrcColors(
         private set
     var hmrcIconTint by mutableStateOf(hmrcIconTint)
         private set
+    var hmrcErrorTextColor by mutableStateOf(hmrcErrorTextColor)
+        private set
+    var hmrcPrePostBox by mutableStateOf(hmrcPrePostBox)
+        private set
+
+    var hmrcOnBoardingInterface by mutableStateOf(hmrcOnBoardingInterface)
+        private set
+
+    var hmrcOnBoardingCardBackground by mutableStateOf(hmrcOnBoardingCardBackground)
+        private set
+
+    var hmrcViewPagerIconSelected by mutableStateOf(hmrcViewPagerIconSelected)
+        private set
+
+    var hmrcViewPagerIconNotSelected by mutableStateOf(hmrcViewPagerIconNotSelected)
+        private set
+
+    var hmrcOnBoardingTextColor by mutableStateOf(hmrcOnBoardingTextColor)
+        private set
+
+    var selectedSegmentedTab by mutableStateOf(selectedSegmentedTab)
+        private set
+    var pressedSegmentedTab by mutableStateOf(pressedSegmentedTab)
+        private set
+    var inactiveSegmentedTab by mutableStateOf(inactiveSegmentedTab)
+        private set
+    var textColorSegmentedTab by mutableStateOf(textColorSegmentedTab)
+        private set
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -395,7 +470,6 @@ class HmrcColors(
         hmrcGrey3 = other.hmrcGrey3
         hmrcPink = other.hmrcPink
         hmrcYellow = other.hmrcYellow
-        hmrcErrorText = other.hmrcErrorText
         hmrcDarkText = other.hmrcDarkText
         hmrcLightText = other.hmrcLightText
         hmrcLinkText = other.hmrcLinkText
@@ -414,6 +488,7 @@ class HmrcColors(
         hmrcCardBackground = other.hmrcCardBackground
         hmrcCardTitle = other.hmrcCardTitle
         hmrcCardTextColor = other.hmrcCardTextColor
+        hmrcCardPressedColor = other.hmrcCardPressedColor
         hmrcInterface = other.hmrcInterface
         hmrcHeaderBackground = other.hmrcHeaderBackground
         hmrcHeaderTitleTextColor = other.hmrcHeaderTitleTextColor
@@ -428,6 +503,17 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledColor = other.hmrcPrimaryButtonDisabledColor
         hmrcPrimaryButtonDisabledTextColor = other.hmrcPrimaryButtonDisabledTextColor
         hmrcIconTint = other.hmrcIconTint
+        hmrcErrorTextColor = other.hmrcErrorTextColor
+        hmrcPrePostBox = other.hmrcPrePostBox
+        hmrcOnBoardingInterface = other.hmrcOnBoardingInterface
+        hmrcOnBoardingCardBackground = other.hmrcOnBoardingCardBackground
+        hmrcViewPagerIconSelected = other.hmrcViewPagerIconSelected
+        hmrcViewPagerIconNotSelected = hmrcViewPagerIconNotSelected
+        hmrcOnBoardingTextColor = other.hmrcOnBoardingTextColor
+        selectedSegmentedTab = other.selectedSegmentedTab
+        pressedSegmentedTab = other.pressedSegmentedTab
+        inactiveSegmentedTab = other.inactiveSegmentedTab
+        textColorSegmentedTab = other.textColorSegmentedTab
     }
 
     fun copy(): HmrcColors = HmrcColors(
@@ -444,7 +530,6 @@ class HmrcColors(
         hmrcGrey3 = hmrcGrey3,
         hmrcPink = hmrcPink,
         hmrcYellow = hmrcYellow,
-        hmrcErrorText = hmrcErrorText,
         hmrcDarkText = hmrcDarkText,
         hmrcLightText = hmrcLightText,
         hmrcLinkText = hmrcLinkText,
@@ -464,6 +549,7 @@ class HmrcColors(
         hmrcCardBackground = hmrcCardBackground,
         hmrcCardTitle = hmrcCardTitle,
         hmrcCardTextColor = hmrcCardTextColor,
+        hmrcCardPressedColor = hmrcCardPressedColor,
         hmrcInterface = hmrcInterface,
         hmrcHeaderBackground = hmrcHeaderBackground,
         hmrcHeaderTitleTextColor = hmrcHeaderTitleTextColor,
@@ -477,5 +563,16 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledColor = hmrcPrimaryButtonDisabledColor,
         hmrcPrimaryButtonDisabledTextColor = hmrcPrimaryButtonDisabledTextColor,
         hmrcIconTint = hmrcIconTint,
+        hmrcErrorTextColor = hmrcErrorTextColor,
+        hmrcPrePostBox = hmrcPrePostBox,
+        hmrcOnBoardingInterface = hmrcOnBoardingInterface,
+        hmrcOnBoardingCardBackground = hmrcOnBoardingCardBackground,
+        hmrcViewPagerIconSelected = hmrcViewPagerIconSelected,
+        hmrcViewPagerIconNotSelected = hmrcViewPagerIconNotSelected,
+        hmrcOnBoardingTextColor = hmrcOnBoardingTextColor,
+        selectedSegmentedTab = selectedSegmentedTab,
+        pressedSegmentedTab = pressedSegmentedTab,
+        inactiveSegmentedTab = inactiveSegmentedTab,
+        textColorSegmentedTab = textColorSegmentedTab,
     )
 }

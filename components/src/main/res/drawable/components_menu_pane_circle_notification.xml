@@ -1,7 +1,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
 
-    <solid android:color="@color/hmrc_red" />
+    <solid android:color="@color/hmrc_error_text_color" />
 
     <size
         android:width="@dimen/hmrc_spacing_24"

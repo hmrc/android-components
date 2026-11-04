@@ -68,7 +68,7 @@ fun InformationMessageCardView(
     val (backgroundColor, headlineTint, iconColor) = when (messageType) {
         InformationMessageType.WARNING -> Triple(colors.hmrcYellow, colors.hmrcAlwaysBlack, colors.hmrcAlwaysBlack)
         InformationMessageType.INFO -> Triple(colors.hmrcBlue, colors.hmrcWhite, colors.hmrcWhite)
-        InformationMessageType.URGENT -> Triple(colors.hmrcRed, colors.hmrcWhite, colors.hmrcWhite)
+        InformationMessageType.URGENT -> Triple(colors.hmrcErrorTextColor, colors.hmrcWhite, colors.hmrcWhite)
         InformationMessageType.NOTICE -> Triple(colors.hmrcBlack, colors.hmrcWhite, colors.hmrcWhite)
     }
 

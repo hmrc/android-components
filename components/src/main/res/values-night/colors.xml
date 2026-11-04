@@ -57,26 +57,23 @@
 
     <!--    cards-->
     <color name="hmrc_card_background">@color/hmrc_dark_navy_3</color>
-    <color name="hmrc_card_title">@color/hmrc_white</color>
-    <color name="hmrc_card_text_color">@color/hmrc_white</color>
+    <color name="hmrc_card_title">@color/hmrc_white_new</color>
+    <color name="hmrc_card_text_color">@color/hmrc_white_new</color>
 
     <!--    header-->
     <color name="hmrc_header_background">@color/hmrc_navy</color>
     <color name="hmrc_header_title_text_color">@color/hmrc_white_new</color>
     <color name="hmrc_header_navigation_icon_color">@color/hmrc_white_new</color>
 
-    <!--    onboarding-->
-    <color name="hmrc_onboarding_background">@color/hmrc_dark_navy_2</color>
-    <color name="hmrc_onboarding_pager_view">@color/hmrc_dark_navy_3</color>
-
     <!--    buttons-->
     <color name="hmrc_primary_button_color">@color/hmrc_primary_green</color>
     <color name="hmrc_primary_button_text_color">@color/hmrc_white_new</color>
     <color name="hmrc_secondary_button_color">@color/hmrc_transparent</color>
     <color name="hmrc_secondary_button_text_color">@color/hmrc_primary_teal</color>
-    <color name="hmrc_secondary_button_ripple_background">@color/hmrc_primary_teal</color>
+    <color name="hmrc_secondary_button_ripple_background">@color/hmrc_black_new</color>
     <color name="hmrc_primary_button_disabled_color">@color/hmrc_grey_4</color>
     <color name="hmrc_primary_button_disabled_text_color">@color/hmrc_grey_2</color>
+    <color name="hmrc_pin_pressed_color">@color/hmrc_white_new</color>
 
     <!--    NavBar-->
     <color name="hmrc_nav_bar_background">@color/hmrc_dark_navy_3</color>
@@ -86,5 +83,8 @@
 
     <!--    Icons-->
     <color name="hmrc_icon_tint">@color/hmrc_mid_grey</color>
+
+    <!--   Errors-->
+    <color name="hmrc_error_text_color">@color/hmrc_primary_red</color>
 
 </resources>
