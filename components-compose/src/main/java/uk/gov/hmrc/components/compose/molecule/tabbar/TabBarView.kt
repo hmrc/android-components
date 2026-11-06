@@ -15,7 +15,6 @@
  */
 package uk.gov.hmrc.components.compose.molecule.tabbar
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -92,14 +91,14 @@ private fun HmrcTabRow(
                 totalTabWidth = layoutCoordinates.size.height.dp
                 onMeasured(totalTabWidth)
             },
-        containerColor = if (tabBarStyle == TabBarViewStyle.LIGHT) HmrcTheme.colors.hmrcWhite else HmrcBlack,
+        containerColor = HmrcTheme.colors.tabBarBackground,
         divider = {}, // Empty divider, we don't want the grey divider at the bottom of the Tab.
         indicator = {
             TabRowDefaults.SecondaryIndicator(
                 Modifier
                     .tabIndicatorOffset(selectedIndex)
                     .height(HmrcTheme.dimensions.hmrcSpacing4),
-                color = if (tabBarStyle == TabBarViewStyle.LIGHT) HmrcTheme.colors.hmrcBlue else HmrcWhite,
+                color = HmrcTheme.colors.tabBarBorderSelected,
             )
         },
         tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected, tabBarStyle) }
@@ -124,7 +123,7 @@ private fun HmrcScrollableTabRow(
                 totalTabWidth = layoutCoordinates.size.height.dp
                 onMeasured(totalTabWidth)
             },
-        containerColor = if (tabBarStyle == TabBarViewStyle.LIGHT) HmrcTheme.colors.hmrcWhite else HmrcBlack,
+        containerColor = HmrcTheme.colors.tabBarBackground,
         divider = {}, // Empty divider, we don't want the grey divider at the bottom of the Tab.
         edgePadding = 0.dp,
         indicator = {
@@ -132,10 +131,7 @@ private fun HmrcScrollableTabRow(
                 modifier = Modifier
                     .tabIndicatorOffset(selectedTabIndex = selectedIndex)
                     .height(HmrcTheme.dimensions.hmrcSpacing4),
-                color = if (tabBarStyle == TabBarViewStyle.LIGHT)
-                    HmrcTheme.colors.hmrcBlue
-                else
-                    HmrcWhite,
+                color = HmrcTheme.colors.tabBarBorderSelected,
             )
         },
         tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected, tabBarStyle) }
@@ -154,18 +150,8 @@ private fun HmrcTabItems(
             Tab(
                 selected = index == selectedIndex,
                 onClick = { onTabSelected(index) },
-                modifier = Modifier.background(HmrcTheme.colors.hmrcCardBackground),
-                selectedContentColor = if (tabBarStyle == TabBarViewStyle.LIGHT) {
-//                    create new semantic tokens, remove LIGht/DARK stuff, does nothing
-                    HmrcTheme.colors.hmrcBlue
-                } else {
-                    HmrcWhite
-                },
-                unselectedContentColor = if (tabBarStyle == TabBarViewStyle.LIGHT) {
-                    HmrcTheme.colors.hmrcBlue
-                } else {
-                    HmrcGrey1Dark
-                }
+                selectedContentColor = HmrcTheme.colors.tabBarSelectedText,
+                unselectedContentColor = HmrcTheme.colors.tabBarUnselectedText,
             ) {
                 TabBarText(
                     text = tabText,

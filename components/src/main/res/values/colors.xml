@@ -29,6 +29,7 @@
     <color name="hmrc_pink">#FFCA2B75</color>
     <color name="hmrc_yellow">#FFFFBF47</color>
 
+    <color name="hmrc_error_text">@color/hmrc_red</color>
     <color name="hmrc_dark_text">@color/hmrc_black</color>
     <color name="hmrc_light_text">@color/hmrc_white</color>
     <color name="hmrc_link_text">@color/hmrc_blue</color>
@@ -93,6 +94,10 @@
     <color name="hmrc_header_title_text_color">@color/hmrc_white_new</color>
     <color name="hmrc_header_navigation_icon_color">@color/hmrc_white_new</color>
 
+<!--    onboarding-->
+    <color name="hmrc_onboarding_background">@color/hmrc_grey_3</color>
+    <color name="hmrc_onboarding_pager_view">@color/hmrc_white</color>
+
 <!--    buttons-->
     <color name="hmrc_primary_button_color">@color/hmrc_green_1</color>
     <color name="hmrc_primary_button_text_color">@color/hmrc_white_new</color>
@@ -104,19 +109,22 @@
     <color name="hmrc_pin_pressed_color">@color/hmrc_blue</color>
 
 
-<!--    NavBar-->
+    <!--    NavBar-->
     <color name="hmrc_nav_bar_background">@color/hmrc_white</color>
 
-<!--    confirmation-->
+    <!--    confirmation-->
     <color name="hmrc_confirmation_background">@color/hmrc_green_1</color>
 
-<!--    Icons-->
+    <!--    Icons-->
     <color name="hmrc_icon_tint">@color/hmrc_black</color>
 
     <!--   Errors-->
     <color name="hmrc_error_text_color">@color/hmrc_red</color>
 
-
-
+    <!--    Tab Bar-->
+    <color name="hmrc_tab_bar_background">@color/hmrc_white</color>
+    <color name="hmrc_tab_bar_selected_text">@color/hmrc_blue</color>
+    <color name="hmrc_tab_bar_unselected_text">@color/hmrc_grey_1</color>
+    <color name="hmrc_tab_bar_border_selected">@color/hmrc_blue</color>
 
 </resources>
