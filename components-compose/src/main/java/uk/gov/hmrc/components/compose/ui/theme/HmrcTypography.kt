@@ -27,7 +27,7 @@ data class HmrcTypography(
     val hmrcGrey1: Color,
     val hmrcWhite: Color,
     val hmrcBlue: Color,
-    val hmrcRed: Color,
+    val hmrcErrorTextColor: Color,
 
     val h3: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
@@ -82,7 +82,7 @@ data class HmrcTypography(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
-        color = hmrcRed
+        color = hmrcErrorTextColor,
     ),
     val tabBarText: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,

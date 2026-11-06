@@ -43,7 +43,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
-import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcSecondaryButtonRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 
@@ -114,13 +114,13 @@ fun SecondaryButton(
     modifier: Modifier = Modifier,
     textAlign: TextAlign = TextAlign.Center,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(
-        containerColor = colors.hmrcSecondaryButtonColor, contentColor = colors.hmrcSecondaryButtonTextColor
+        containerColor = colors.hmrcSecondaryButtonColor, contentColor = colors.hmrcSecondaryButtonTextColor,
     ),
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit = {},
 ) {
     CompositionLocalProvider(
-        LocalRippleConfiguration provides HmrcRippleTheme()
+        LocalRippleConfiguration provides HmrcSecondaryButtonRippleTheme()
     ) {
         HmrcButton(
             text = text,
@@ -149,7 +149,7 @@ fun SecondaryButtonWithUnderLine(
     content: @Composable RowScope.() -> Unit = {},
 ) {
     CompositionLocalProvider(
-        LocalRippleConfiguration provides HmrcRippleTheme()
+        LocalRippleConfiguration provides HmrcSecondaryButtonRippleTheme()
     ) {
         HmrcButton(
             text = text,

@@ -17,7 +17,7 @@
 <resources>
 
     <style name="Theme.Components" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorError">@color/hmrc_red</item>
+        <item name="colorError">@color/hmrc_error_text_color</item>
         <item name="textAppearanceButton">@style/Text.Button</item>
         <item name="materialTextButtonStyle">@style/MaterialTextButtonNoInset</item>
         <item name="materialIconButtonStyle">@style/MaterialTextIconButtonNoInset</item>
@@ -25,7 +25,7 @@
     </style>
 
     <style name="Theme.Components.ActionBar" parent="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorError">@color/hmrc_red</item>
+        <item name="colorError">@color/hmrc_error_text_color</item>
         <item name="textAppearanceButton">@style/Text.Button</item>
         <item name="materialTextButtonStyle">@style/MaterialTextButtonNoInset</item>
         <item name="materialIconButtonStyle">@style/MaterialTextIconButtonNoInset</item>
@@ -100,7 +100,7 @@
     </style>
 
     <style name="Text.Error" parent="Text.Body">
-        <item name="android:textColor">@color/hmrc_error_text</item>
+        <item name="android:textColor">@color/hmrc_error_text_color</item>
     </style>
 
     <style name="Text.Menu" parent="Text.H5">
@@ -138,7 +138,7 @@
 
     <style name="TextInputErrorTextAppearance" parent="@style/TextAppearance.Design.Error">
         <item name="android:textSize">@dimen/text_body</item>
-        <item name="android:textColor">@color/hmrc_error_text</item>
+        <item name="android:textColor">@color/hmrc_error_text_color</item>
     </style>
 
     <style name="SwitchRowView" parent="Widget.MaterialComponents.CompoundButton.Switch">

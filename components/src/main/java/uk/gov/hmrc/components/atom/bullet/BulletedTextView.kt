@@ -16,6 +16,7 @@
 package uk.gov.hmrc.components.atom.bullet
 
 import android.content.Context
+import android.os.Build
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.BulletSpan
@@ -34,11 +35,11 @@ class BulletedTextView @JvmOverloads constructor(
         val newText = text ?: ""
         if (newText.toSpannable().getSpans<BulletSpan>().isEmpty()) {
             val gapWidth = resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16)
-            val bulletSpan = BulletSpan(
-                gapWidth,
-                currentTextColor,
-                resources.getDimensionPixelSize(R.dimen.text_bullet_point)
-            )
+            val bulletSpan = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                BulletSpan(gapWidth, currentTextColor, resources.getDimensionPixelSize(R.dimen.text_bullet_point))
+            } else {
+                BulletSpan(gapWidth)
+            }
             val spannable = SpannableString(newText).apply {
                 setSpan(bulletSpan, 0, newText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
             }

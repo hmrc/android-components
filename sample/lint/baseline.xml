@@ -1,11 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 8.7.2" type="baseline" client="gradle" dependencies="false" name="AGP (8.7.2)" variant="all" version="8.7.2">
+<issues format="6" by="lint 7.0.1" type="baseline" client="gradle" name="AGP (7.0.1)" variant="all" version="7.0.1">
 
     <issue
-        id="ObsoleteSdkInt"
-        message="This folder configuration (`v26`) is unnecessary; `minSdkVersion` is 29. Merge all the resources in this folder into `mipmap-anydpi`.">
+        id="ResourceType"
+        message="Expected resource of type string"
+        errorLine1="                    root.context.getString(item.color).toUpperCase())"
+        errorLine2="                                           ~~~~~~~~~~">
         <location
-            file="src/main/res/mipmap-anydpi-v26" />
+            file="src/main/java/uk/gov/hmrc/components/sample/colors/ColorListFragment.kt"
+            line="50"
+            column="44" />
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="                    root.context.getString(item.color).toUpperCase())"
+        errorLine2="                                                       ~~~~~~~~~~~">
+        <location
+            file="src/main/java/uk/gov/hmrc/components/sample/colors/ColorListFragment.kt"
+            line="50"
+            column="56" />
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="This attribute is not supported in images generated from this vector icon for API &lt; 24; check generated icon to make sure it looks acceptable"
+        errorLine1=" android:autoMirrored=&quot;true&quot;"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/ic_coins.xml"
+            line="4"
+            column="2" />
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="This attribute is not supported in images generated from this vector icon for API &lt; 24; check generated icon to make sure it looks acceptable"
+        errorLine1=" android:autoMirrored=&quot;true&quot;"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/ic_maintenance.xml"
+            line="19"
+            column="2" />
+    </issue>
+
+    <issue
+        id="IntentFilterExportedReceiver"
+        message="When using intent filters, please specify `android:exported` as well"
+        errorLine1="  &lt;activity"
+        errorLine2="   ~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="27"
+            column="4" />
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        message="On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute `android:fullBackupContent` to specify an `@xml` resource which configures which files to backup, or just set `android:fullBackupOnly=true`. More info: https://developer.android.com/guide/topics/data/autobackup"
+        errorLine1="  android:allowBackup=&quot;true&quot;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="21"
+            column="3" />
     </issue>
 
     <issue
@@ -120,12 +179,23 @@
 
     <issue
         id="UnusedResources"
+        message="The resource `R.string.title_body_cta_placeholder_button` appears to be unused"
+        errorLine1="    &lt;string name=&quot;title_body_cta_placeholder_button&quot;>Button&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="107"
+            column="13" />
+    </issue>
+
+    <issue
+        id="UnusedResources"
         message="The resource `R.string.icon_button_example_2_title` appears to be unused"
         errorLine1="    &lt;string name=&quot;icon_button_example_2_title&quot;>How has my gross pay been calculated?&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="221"
+            line="213"
             column="13" />
     </issue>
 
@@ -136,7 +206,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="224"
+            line="216"
             column="13" />
     </issue>
 
@@ -147,7 +217,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="230"
+            line="222"
             column="13" />
     </issue>
 
@@ -158,7 +228,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="273"
+            line="261"
             column="13" />
     </issue>
 
@@ -169,7 +239,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="290"
+            line="278"
             column="13" />
     </issue>
 
@@ -180,7 +250,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="292"
+            line="280"
             column="13" />
     </issue>
 
@@ -191,7 +261,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="327"
+            line="314"
             column="13" />
     </issue>
 
@@ -202,7 +272,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="331"
+            line="318"
             column="13" />
     </issue>
 
@@ -213,7 +283,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
-            line="332"
+            line="319"
             column="13" />
     </issue>
 
@@ -231,7 +301,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_multi_column_row.xml"
-            line="191"
+            line="189"
             column="13" />
     </issue>
 
