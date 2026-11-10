@@ -87,4 +87,10 @@
     <!--   Errors-->
     <color name="hmrc_error_text_color">@color/hmrc_primary_red</color>
 
+    <!--    Tab Bar-->
+    <color name="hmrc_tab_bar_background">@color/hmrc_dark_navy_3</color>
+    <color name="hmrc_tab_bar_selected_text">@color/hmrc_primary_teal</color>
+    <color name="hmrc_tab_bar_unselected_text">@color/hmrc_primary_teal</color>
+    <color name="hmrc_tab_bar_border_selected">@color/hmrc_primary_teal</color>
+
 </resources>
