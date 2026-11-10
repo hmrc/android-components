@@ -474,6 +474,7 @@ class HmrcColors(
     var tabBarBorderSelected by mutableStateOf(tabBarBorderSelected)
         private set
 
+    @Suppress("LongMethod")
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -538,6 +539,7 @@ class HmrcColors(
         tabBarBorderSelected = other.tabBarBorderSelected
     }
 
+    @Suppress("LongMethod")
     fun copy(): HmrcColors = HmrcColors(
         hmrcBlack = hmrcBlack,
         hmrcWhite = hmrcWhite,

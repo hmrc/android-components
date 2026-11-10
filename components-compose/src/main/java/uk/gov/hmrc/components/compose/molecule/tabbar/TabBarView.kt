@@ -35,10 +35,7 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.atom.text.TabBarText
-import uk.gov.hmrc.components.compose.ui.theme.HmrcBlack
-import uk.gov.hmrc.components.compose.ui.theme.HmrcGrey1Dark
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
-import uk.gov.hmrc.components.compose.ui.theme.HmrcWhite
 
 @Composable
 fun TabBarView(
@@ -46,7 +43,6 @@ fun TabBarView(
     selectedIndex: Int,
     onTabSelected: (Int) -> Unit,
     modifier: Modifier = Modifier,
-    tabBarStyle: TabBarViewStyle = TabBarViewStyle.LIGHT,
 ) {
     var useScrollableTabRow: Boolean by rememberSaveable { mutableStateOf(true) }
 
@@ -54,7 +50,7 @@ fun TabBarView(
 
     Column(modifier = modifier) {
         if (useScrollableTabRow) {
-            HmrcScrollableTabRow(tabItems, selectedIndex, onTabSelected, tabBarStyle) { scrollableTabRowHeight ->
+            HmrcScrollableTabRow(tabItems, selectedIndex, onTabSelected,) { scrollableTabRowHeight ->
                 // If there's no baseline height, this will build the scrollable Tab Row and measure the height
                 // of the row as the baseline. Once we have the baseline for scrollable Tab Row, we can compare it
                 // to the non-scrollable Tab Row's height.
@@ -64,7 +60,7 @@ fun TabBarView(
                 }
             }
         } else {
-            HmrcTabRow(tabItems, selectedIndex, onTabSelected, tabBarStyle) { tabRowHeight ->
+            HmrcTabRow(tabItems, selectedIndex, onTabSelected,) { tabRowHeight ->
                 // If the non-scrollable Tab Row's height exceeded the baseline, this means the text in the tab has
                 // wrapped to create that extra height, therefore, meaning we should use the scrollable Tab Row.
                 useScrollableTabRow = tabRowHeight > baselineHeight
@@ -79,7 +75,6 @@ private fun HmrcTabRow(
     tabItems: List<String>,
     selectedIndex: Int,
     onTabSelected: (Int) -> Unit,
-    tabBarStyle: TabBarViewStyle,
     onMeasured: (Dp) -> Unit
 ) {
     var totalTabWidth by remember { mutableStateOf(0.dp) }
@@ -101,7 +96,7 @@ private fun HmrcTabRow(
                 color = HmrcTheme.colors.tabBarBorderSelected,
             )
         },
-        tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected, tabBarStyle) }
+        tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected) }
     )
 }
 
@@ -111,7 +106,6 @@ private fun HmrcScrollableTabRow(
     tabItems: List<String>,
     selectedIndex: Int,
     onTabSelected: (Int) -> Unit,
-    tabBarStyle: TabBarViewStyle,
     onMeasured: (Dp) -> Unit
 ) {
     var totalTabWidth by remember { mutableStateOf(0.dp) }
@@ -134,7 +128,7 @@ private fun HmrcScrollableTabRow(
                 color = HmrcTheme.colors.tabBarBorderSelected,
             )
         },
-        tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected, tabBarStyle) }
+        tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected) }
     )
 }
 
@@ -143,7 +137,6 @@ private fun HmrcTabItems(
     tabItems: List<String>,
     selectedIndex: Int,
     onTabSelected: (Int) -> Unit,
-    tabBarStyle: TabBarViewStyle,
 ) {
     run {
         tabItems.forEachIndexed { index, tabText ->
