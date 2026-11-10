@@ -35,7 +35,8 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import uk.gov.hmrc.components.compose.atom.text.TabBarText
-import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
+import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.dimensions
 
 @Composable
 fun TabBarView(
@@ -86,14 +87,14 @@ private fun HmrcTabRow(
                 totalTabWidth = layoutCoordinates.size.height.dp
                 onMeasured(totalTabWidth)
             },
-        containerColor = HmrcTheme.colors.tabBarBackground,
+        containerColor = colors.tabBarBackground,
         divider = {}, // Empty divider, we don't want the grey divider at the bottom of the Tab.
         indicator = {
             TabRowDefaults.SecondaryIndicator(
                 Modifier
                     .tabIndicatorOffset(selectedIndex)
-                    .height(HmrcTheme.dimensions.hmrcSpacing4),
-                color = HmrcTheme.colors.tabBarBorderSelected,
+                    .height(dimensions.hmrcSpacing4),
+                color = colors.tabBarBorderSelected,
             )
         },
         tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected) }
@@ -117,15 +118,15 @@ private fun HmrcScrollableTabRow(
                 totalTabWidth = layoutCoordinates.size.height.dp
                 onMeasured(totalTabWidth)
             },
-        containerColor = HmrcTheme.colors.tabBarBackground,
+        containerColor = colors.tabBarBackground,
         divider = {}, // Empty divider, we don't want the grey divider at the bottom of the Tab.
         edgePadding = 0.dp,
         indicator = {
             TabRowDefaults.SecondaryIndicator(
                 modifier = Modifier
                     .tabIndicatorOffset(selectedTabIndex = selectedIndex)
-                    .height(HmrcTheme.dimensions.hmrcSpacing4),
-                color = HmrcTheme.colors.tabBarBorderSelected,
+                    .height(dimensions.hmrcSpacing4),
+                color = colors.tabBarBorderSelected,
             )
         },
         tabs = { HmrcTabItems(tabItems, selectedIndex, onTabSelected) }
@@ -143,12 +144,12 @@ private fun HmrcTabItems(
             Tab(
                 selected = index == selectedIndex,
                 onClick = { onTabSelected(index) },
-                selectedContentColor = HmrcTheme.colors.tabBarSelectedText,
-                unselectedContentColor = HmrcTheme.colors.tabBarUnselectedText,
+                selectedContentColor = colors.tabBarSelectedText,
+                unselectedContentColor = colors.tabBarUnselectedText,
             ) {
                 TabBarText(
                     text = tabText,
-                    modifier = Modifier.padding(HmrcTheme.dimensions.hmrcSpacing16),
+                    modifier = Modifier.padding(dimensions.hmrcSpacing16),
                 )
             }
         }
