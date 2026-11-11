@@ -27,42 +27,32 @@ val HmrcGrey1 = Color(0xFF505A5F)
 val HmrcGrey2 = Color(0xFFB1B4B6)
 val HmrcPink = Color(0xFFCA2B75)
 val HmrcYellow = Color(0xFFFFBF47)
-val HmrcAlwaysBlack = Color(0xFF0B0C0C)
+val HmrcWhite = Color(0xFFFFFFFF)
+
 val HmrcDonutBlue = Color(0xFF003078)
 val HmrcTransparent = Color.Transparent
 
 // Dark theme colors
-val HmrcBlackDark = Color(0xFFFFFFFF)
-val HmrcGreen2Dark = Color(0xFF28A197)
-val HmrcRedDark = Color(0xFFEB66CA)
-val HmrcGrey1Dark = Color(0xFFB1B4B6)
+
 val HmrcGrey2Dark = Color(0xFF6F777B)
 val HmrcPinkDark = Color(0xFFBB94FF)
 val HmrcYellowDark = Color(0xFFFEFF4F)
 
 // light mode colours that pair with the changing dark mode colors
-val HmrcWhite = Color(0xFFFFFFFF)
-val HmrcWhiteBackground = Color(0xFFFFFFFF)
+
 val HmrcBlue = Color(0xFF1D70B8)
 val HmrcGreen1 = Color(0xFF00703C)
-val HmrcGrey3 = Color(0xFFF3F2F1)
 
 // old dark mode colors (to be removed once all changes are made)
-val HmrcWhiteDark = Color(0xFF0B0C0C)
+
 val HmrcWhiteBackgroundDark = Color(0xFF262626)
-val HmrcBlueDark = Color(0xFF5BC0C6)
+
 val HmrcGreen1Dark = Color(0xFF69B134)
-val HmrcGrey3Dark = Color(0xFF0B0C0C)
 
 // new light mode colors (name changes)
 
-val HmrcPrimaryGrey = Color(0xFF282D30)
-val HmrcDarkGrey = Color(0xFF505A5F)
-val HmrcMidGrey = Color(0xFFB1B4B6)
 val HmrcLightGrey = Color(0xFFF3F2F1)
 val HmrcPrimaryTeal = Color(0xFF5BC0C6)
-val HmrcPrimaryYellow = Color(0xFFFFDD00)
-val HmrcPrimaryLightBlue = Color(0xFFD7E4F2)
 
 // new dark mode colors
 val HmrcPrimaryGreen = Color(0xFF188659)
@@ -81,3 +71,12 @@ val HmrcLightBlue = Color(0xFFD2E2F1)
 val HmrcLightPressedBlue = Color(0xFFBBD4E9)
 val HmrcCyanBlue = Color(0xFF062947)
 val HmrcNavyBlue = Color(0xFF113A5E)
+val HmrcGrey3 = HmrcLightGrey
+val HmrcWhiteDark = HmrcBlack
+val HmrcGrey3Dark = HmrcBlack
+val HmrcGreen2Dark = HmrcTeal
+val HmrcMidGrey = HmrcGrey2
+val HmrcGrey1Dark = HmrcGrey2
+val HmrcBlackDark = HmrcWhite
+val HmrcWhiteBackground = HmrcWhite
+val HmrcBlueDark = HmrcPrimaryTeal

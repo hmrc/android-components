@@ -34,15 +34,11 @@ private val LightColorPalette = HmrcColors(
     hmrcGreen2 = HmrcGreen2,
     hmrcBlue = HmrcBlue,
     hmrcTeal = HmrcTeal,
-    hmrcRed = HmrcRed,
     hmrcGrey1 = HmrcGrey1,
     hmrcGrey2 = HmrcGrey2,
     hmrcGrey3 = HmrcGrey3,
     hmrcPink = HmrcPink,
     hmrcYellow = HmrcYellow,
-    hmrcDonutChartColor1 = HmrcTeal,
-    hmrcDonutChartColor2 = HmrcDonutBlue,
-    hmrcDonutChartColor3 = HmrcDonutBlue,
     isDark = false,
     hmrcTransparent = HmrcTransparent,
     // App Background
@@ -59,6 +55,9 @@ private val LightColorPalette = HmrcColors(
     hmrcHeaderBackground = HmrcBlue,
     hmrcHeaderTitleTextColor = HmrcWhite,
     hmrcHeaderNavigationIconColor = HmrcWhite,
+
+    // Text
+    hmrcStandardTextColor = HmrcBlack,
 
     // CTA
     hmrcPrimaryButtonColor = HmrcGreen1,
@@ -98,17 +97,14 @@ private val DarkColorPalette = HmrcColors(
     hmrcGreen2 = HmrcGreen2Dark,
     hmrcBlue = HmrcBlueDark,
     hmrcTeal = HmrcTeal,
-    hmrcRed = HmrcRedDark,
     hmrcGrey1 = HmrcGrey1Dark,
     hmrcGrey2 = HmrcGrey2Dark,
     hmrcGrey3 = HmrcGrey3Dark,
     hmrcPink = HmrcPinkDark,
     hmrcYellow = HmrcYellowDark,
-    hmrcDonutChartColor1 = HmrcWhite,
-    hmrcDonutChartColor2 = HmrcTeal,
-    hmrcDonutChartColor3 = HmrcTeal,
     isDark = true,
     hmrcTransparent = HmrcTransparent,
+
     // App Background
     hmrcInterface = HmrcDarkNavy2,
     hmrcConfirmationBackground = HmrcPrimaryGreen,
@@ -124,6 +120,9 @@ private val DarkColorPalette = HmrcColors(
     hmrcHeaderTitleTextColor = HmrcWhite,
     hmrcHeaderNavigationIconColor = HmrcWhite,
 
+    // Text
+    hmrcStandardTextColor = HmrcWhite,
+
     // CTA
     hmrcPrimaryButtonColor = HmrcPrimaryGreen,
     hmrcPrimaryButtonTextColor = HmrcWhite,
@@ -137,7 +136,7 @@ private val DarkColorPalette = HmrcColors(
     hmrcIconTint = HmrcMidGrey,
     hmrcPrePostBox = HmrcDarkBlue,
 
-    //    Errors
+    // Errors
     hmrcErrorTextColor = HmrcPrimaryRed,
 
     // Onboarding Screens
@@ -181,7 +180,7 @@ fun HmrcTheme(
     }
 
     val hmrcTypography = HmrcTypography(
-        hmrcBlack = colors.hmrcBlack,
+        hmrcStandardTextColor = colors.hmrcStandardTextColor,
         hmrcWhite = colors.hmrcWhite,
         hmrcGrey1 = colors.hmrcGrey1,
         hmrcBlue = colors.hmrcBlue,
@@ -275,7 +274,6 @@ class HmrcColors(
     hmrcGreen2: Color,
     hmrcBlue: Color,
     hmrcTeal: Color,
-    hmrcRed: Color,
     hmrcGrey1: Color,
     hmrcGrey2: Color,
     hmrcGrey3: Color,
@@ -288,13 +286,6 @@ class HmrcColors(
     hmrcPageBackground: Color = hmrcGrey3,
     hmrcDivider: Color = hmrcGrey2,
     hmrcInsetBar: Color = hmrcGrey2,
-    hmrcInfoMessageWarningHeadlineBackground: Color = hmrcYellow,
-    hmrcInfoMessageInfoHeadlineBackground: Color = hmrcBlue,
-    hmrcInfoMessageUrgentHeadlineBackground: Color = hmrcRed,
-    hmrcInfoMessageNoticeHeadlineBackground: Color = hmrcBlack,
-    hmrcDonutChartColor1: Color,
-    hmrcDonutChartColor2: Color,
-    hmrcDonutChartColor3: Color,
     isDark: Boolean,
     hmrcTransparent: Color,
     hmrcCardBackground: Color,
@@ -315,6 +306,7 @@ class HmrcColors(
     hmrcConfirmationBackground: Color,
     hmrcIconTint: Color,
     hmrcErrorTextColor: Color,
+    hmrcStandardTextColor: Color,
     hmrcPrePostBox: Color,
     hmrcOnBoardingInterface: Color,
     hmrcOnBoardingCardBackground: Color,
@@ -341,8 +333,6 @@ class HmrcColors(
         private set
     var hmrcTeal by mutableStateOf(hmrcTeal)
         private set
-    var hmrcRed by mutableStateOf(hmrcRed)
-        private set
     var hmrcGrey1 by mutableStateOf(hmrcGrey1)
         private set
     var hmrcGrey2 by mutableStateOf(hmrcGrey2)
@@ -366,20 +356,6 @@ class HmrcColors(
     var hmrcDivider by mutableStateOf(hmrcDivider)
         private set
     var hmrcInsetBar by mutableStateOf(hmrcInsetBar)
-        private set
-    var hmrcInfoMessageWarningHeadlineBackground by mutableStateOf(hmrcInfoMessageWarningHeadlineBackground)
-        private set
-    var hmrcInfoMessageInfoHeadlineBackground by mutableStateOf(hmrcInfoMessageInfoHeadlineBackground)
-        private set
-    var hmrcInfoMessageUrgentHeadlineBackground by mutableStateOf(hmrcInfoMessageUrgentHeadlineBackground)
-        private set
-    var hmrcInfoMessageNoticeHeadlineBackground by mutableStateOf(hmrcInfoMessageNoticeHeadlineBackground)
-        private set
-    var hmrcDonutChartColor1 by mutableStateOf(hmrcDonutChartColor1)
-        private set
-    var hmrcDonutChartColor2 by mutableStateOf(hmrcDonutChartColor2)
-        private set
-    var hmrcDonutChartColor3 by mutableStateOf(hmrcDonutChartColor3)
         private set
     var isDark by mutableStateOf(isDark)
         private set
@@ -430,6 +406,9 @@ class HmrcColors(
         private set
     var hmrcErrorTextColor by mutableStateOf(hmrcErrorTextColor)
         private set
+
+    var hmrcStandardTextColor by mutableStateOf(hmrcStandardTextColor)
+        private set
     var hmrcPrePostBox by mutableStateOf(hmrcPrePostBox)
         private set
 
@@ -464,7 +443,6 @@ class HmrcColors(
         hmrcGreen2 = other.hmrcGreen2
         hmrcBlue = other.hmrcBlue
         hmrcTeal = other.hmrcTeal
-        hmrcRed = other.hmrcRed
         hmrcGrey1 = other.hmrcGrey1
         hmrcGrey2 = other.hmrcGrey2
         hmrcGrey3 = other.hmrcGrey3
@@ -477,13 +455,6 @@ class HmrcColors(
         hmrcPageBackground = other.hmrcPageBackground
         hmrcDivider = other.hmrcDivider
         hmrcInsetBar = other.hmrcInsetBar
-        hmrcInfoMessageWarningHeadlineBackground = other.hmrcInfoMessageWarningHeadlineBackground
-        hmrcInfoMessageInfoHeadlineBackground = other.hmrcInfoMessageInfoHeadlineBackground
-        hmrcInfoMessageUrgentHeadlineBackground = other.hmrcInfoMessageUrgentHeadlineBackground
-        hmrcInfoMessageNoticeHeadlineBackground = other.hmrcInfoMessageNoticeHeadlineBackground
-        hmrcDonutChartColor1 = other.hmrcDonutChartColor1
-        hmrcDonutChartColor2 = other.hmrcDonutChartColor2
-        hmrcDonutChartColor3 = other.hmrcDonutChartColor3
         isDark = other.isDark
         hmrcCardBackground = other.hmrcCardBackground
         hmrcCardTitle = other.hmrcCardTitle
@@ -504,6 +475,7 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledTextColor = other.hmrcPrimaryButtonDisabledTextColor
         hmrcIconTint = other.hmrcIconTint
         hmrcErrorTextColor = other.hmrcErrorTextColor
+        hmrcStandardTextColor = other.hmrcStandardTextColor
         hmrcPrePostBox = other.hmrcPrePostBox
         hmrcOnBoardingInterface = other.hmrcOnBoardingInterface
         hmrcOnBoardingCardBackground = other.hmrcOnBoardingCardBackground
@@ -524,7 +496,6 @@ class HmrcColors(
         hmrcGreen2 = hmrcGreen2,
         hmrcBlue = hmrcBlue,
         hmrcTeal = hmrcTeal,
-        hmrcRed = hmrcRed,
         hmrcGrey1 = hmrcGrey1,
         hmrcGrey2 = hmrcGrey2,
         hmrcGrey3 = hmrcGrey3,
@@ -537,13 +508,6 @@ class HmrcColors(
         hmrcPageBackground = hmrcPageBackground,
         hmrcDivider = hmrcDivider,
         hmrcInsetBar = hmrcInsetBar,
-        hmrcInfoMessageWarningHeadlineBackground = hmrcInfoMessageWarningHeadlineBackground,
-        hmrcInfoMessageInfoHeadlineBackground = hmrcInfoMessageInfoHeadlineBackground,
-        hmrcInfoMessageUrgentHeadlineBackground = hmrcInfoMessageUrgentHeadlineBackground,
-        hmrcInfoMessageNoticeHeadlineBackground = hmrcInfoMessageNoticeHeadlineBackground,
-        hmrcDonutChartColor1 = hmrcDonutChartColor1,
-        hmrcDonutChartColor2 = hmrcDonutChartColor2,
-        hmrcDonutChartColor3 = hmrcDonutChartColor3,
         isDark = isDark,
         hmrcTransparent = hmrcTransparent,
         hmrcCardBackground = hmrcCardBackground,
@@ -564,6 +528,7 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledTextColor = hmrcPrimaryButtonDisabledTextColor,
         hmrcIconTint = hmrcIconTint,
         hmrcErrorTextColor = hmrcErrorTextColor,
+        hmrcStandardTextColor = hmrcStandardTextColor,
         hmrcPrePostBox = hmrcPrePostBox,
         hmrcOnBoardingInterface = hmrcOnBoardingInterface,
         hmrcOnBoardingCardBackground = hmrcOnBoardingCardBackground,

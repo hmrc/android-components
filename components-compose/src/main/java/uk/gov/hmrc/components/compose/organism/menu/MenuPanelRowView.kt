@@ -158,7 +158,7 @@ fun MenuPanelRowViewPreview() {
     HmrcTheme {
         Column(
             verticalArrangement = Arrangement.spacedBy(dimensions.hmrcSpacing8),
-            modifier = Modifier.background(HmrcTheme.colors.hmrcGrey3)
+            modifier = Modifier.background(HmrcTheme.colors.hmrcCardBackground)
         ) {
 
             MenuPanelRowView(
