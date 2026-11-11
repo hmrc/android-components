@@ -58,6 +58,10 @@
     <public name="hmrc_error_text_color" type="color" />
     <public name="hmrc_pin_ripple" type="color" />
     <public name="hmrc_pin_pressed_color" type="color" />
+    <public name="hmrc_tab_bar_background" type="color" />
+    <public name="hmrc_tab_bar_selected_text" type="color" />
+    <public name="hmrc_tab_bar_unselected_text" type="color" />
+    <public name="hmrc_tab_bar_border_selected" type="color" />
 
 
 

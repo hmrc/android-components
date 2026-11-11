@@ -87,6 +87,12 @@ private val LightColorPalette = HmrcColors(
     pressedSegmentedTab = HmrcLightPressedBlue,
     inactiveSegmentedTab = HmrcTransparent,
     textColorSegmentedTab = HmrcBlack,
+
+    // Tab Bar
+    tabBarBackground = HmrcWhite,
+    tabBarSelectedText = HmrcBlue,
+    tabBarUnselectedText = HmrcGrey1,
+    tabBarBorderSelected = HmrcBlue,
 )
 
 private val DarkColorPalette = HmrcColors(
@@ -151,6 +157,12 @@ private val DarkColorPalette = HmrcColors(
     pressedSegmentedTab = HmrcCyanBlue,
     inactiveSegmentedTab = HmrcTransparent,
     textColorSegmentedTab = HmrcWhite,
+
+    // Tab Bar
+    tabBarBackground = HmrcDarkNavy3,
+    tabBarSelectedText = HmrcPrimaryTeal,
+    tabBarUnselectedText = HmrcPrimaryTeal,
+    tabBarBorderSelected = HmrcPrimaryTeal,
 )
 
 @Composable
@@ -317,7 +329,10 @@ class HmrcColors(
     pressedSegmentedTab: Color,
     inactiveSegmentedTab: Color,
     textColorSegmentedTab: Color,
-
+    tabBarBackground: Color,
+    tabBarSelectedText: Color,
+    tabBarUnselectedText: Color,
+    tabBarBorderSelected: Color,
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
@@ -411,22 +426,16 @@ class HmrcColors(
         private set
     var hmrcPrePostBox by mutableStateOf(hmrcPrePostBox)
         private set
-
     var hmrcOnBoardingInterface by mutableStateOf(hmrcOnBoardingInterface)
         private set
-
     var hmrcOnBoardingCardBackground by mutableStateOf(hmrcOnBoardingCardBackground)
         private set
-
     var hmrcViewPagerIconSelected by mutableStateOf(hmrcViewPagerIconSelected)
         private set
-
     var hmrcViewPagerIconNotSelected by mutableStateOf(hmrcViewPagerIconNotSelected)
         private set
-
     var hmrcOnBoardingTextColor by mutableStateOf(hmrcOnBoardingTextColor)
         private set
-
     var selectedSegmentedTab by mutableStateOf(selectedSegmentedTab)
         private set
     var pressedSegmentedTab by mutableStateOf(pressedSegmentedTab)
@@ -435,6 +444,16 @@ class HmrcColors(
         private set
     var textColorSegmentedTab by mutableStateOf(textColorSegmentedTab)
         private set
+    var tabBarBackground by mutableStateOf(tabBarBackground)
+        private set
+    var tabBarSelectedText by mutableStateOf(tabBarSelectedText)
+        private set
+    var tabBarUnselectedText by mutableStateOf(tabBarUnselectedText)
+        private set
+    var tabBarBorderSelected by mutableStateOf(tabBarBorderSelected)
+        private set
+
+    @Suppress("LongMethod")
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
@@ -486,8 +505,13 @@ class HmrcColors(
         pressedSegmentedTab = other.pressedSegmentedTab
         inactiveSegmentedTab = other.inactiveSegmentedTab
         textColorSegmentedTab = other.textColorSegmentedTab
+        tabBarBackground = other.tabBarBackground
+        tabBarSelectedText = other.tabBarSelectedText
+        tabBarUnselectedText = other.tabBarUnselectedText
+        tabBarBorderSelected = other.tabBarBorderSelected
     }
 
+    @Suppress("LongMethod")
     fun copy(): HmrcColors = HmrcColors(
         hmrcBlack = hmrcBlack,
         hmrcWhite = hmrcWhite,
@@ -539,5 +563,9 @@ class HmrcColors(
         pressedSegmentedTab = pressedSegmentedTab,
         inactiveSegmentedTab = inactiveSegmentedTab,
         textColorSegmentedTab = textColorSegmentedTab,
+        tabBarBackground = tabBarBackground,
+        tabBarSelectedText = tabBarSelectedText,
+        tabBarUnselectedText = tabBarUnselectedText,
+        tabBarBorderSelected = tabBarBorderSelected,
     )
 }

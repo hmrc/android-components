@@ -32,7 +32,6 @@ class NightModeRule : TestRule {
             } else {
                 AppCompatDelegate.MODE_NIGHT_NO
             }
-
             InstrumentationRegistry.getInstrumentation().runOnMainSync {
                 AppCompatDelegate.setDefaultNightMode(mode)
             }
