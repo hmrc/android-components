@@ -19,7 +19,6 @@ import androidx.compose.ui.graphics.Color
 
 // Light theme colors
 val HmrcBlack = Color(0xFF0B0C0C)
-val HmrcGreen2 = Color(0xFF85994B)
 val HmrcTeal = Color(0xFF28A197)
 val HmrcRed = Color(0xFFD4351C)
 //
@@ -44,8 +43,6 @@ val HmrcBlue = Color(0xFF1D70B8)
 val HmrcGreen1 = Color(0xFF00703C)
 
 // old dark mode colors (to be removed once all changes are made)
-
-val HmrcWhiteBackgroundDark = Color(0xFF262626)
 
 val HmrcGreen1Dark = Color(0xFF69B134)
 
@@ -74,9 +71,7 @@ val HmrcNavyBlue = Color(0xFF113A5E)
 val HmrcGrey3 = HmrcLightGrey
 val HmrcWhiteDark = HmrcBlack
 val HmrcGrey3Dark = HmrcBlack
-val HmrcGreen2Dark = HmrcTeal
 val HmrcMidGrey = HmrcGrey2
 val HmrcGrey1Dark = HmrcGrey2
 val HmrcBlackDark = HmrcWhite
-val HmrcWhiteBackground = HmrcWhite
 val HmrcBlueDark = HmrcPrimaryTeal

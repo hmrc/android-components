@@ -23,16 +23,13 @@ enum class ColorItem(val colorName: String) {
     HmrcBlack("Black"),
     HmrcWhite("White"),
     HmrcGreen1("Green 1"),
-    HmrcGreen2("Green 2"),
     HmrcBlue("Blue"),
     HmrcTeal("Teal"),
-    HmrcRed("Red"),
     HmrcGrey1("Grey 1"),
     HmrcGrey2("Grey 2"),
     HmrcGrey3("Grey 3"),
     HmrcPink("Pink"),
     HmrcYellow("Yellow"),
-    HmrcWhiteBackground("White background"),
     HmrcAlwaysBlack("Always black"),
     HmrcAlwaysWhite("Always white");
 
@@ -43,16 +40,13 @@ enum class ColorItem(val colorName: String) {
                 HmrcBlack -> colors.hmrcBlack
                 HmrcWhite -> colors.hmrcWhite
                 HmrcGreen1 -> colors.hmrcGreen1
-                HmrcGreen2 -> colors.hmrcGreen2
                 HmrcBlue -> colors.hmrcBlue
                 HmrcTeal -> colors.hmrcTeal
-                HmrcRed -> colors.hmrcRed
                 HmrcGrey1 -> colors.hmrcGrey1
                 HmrcGrey2 -> colors.hmrcGrey2
                 HmrcGrey3 -> colors.hmrcGrey3
                 HmrcPink -> colors.hmrcPink
                 HmrcYellow -> colors.hmrcYellow
-                HmrcWhiteBackground -> colors.hmrcWhiteBackground
                 HmrcAlwaysBlack -> colors.hmrcAlwaysBlack
                 HmrcAlwaysWhite -> colors.hmrcAlwaysWhite
             }

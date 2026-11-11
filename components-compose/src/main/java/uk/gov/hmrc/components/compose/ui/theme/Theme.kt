@@ -29,9 +29,7 @@ import androidx.compose.ui.platform.LocalDensity
 private val LightColorPalette = HmrcColors(
     hmrcBlack = HmrcBlack,
     hmrcWhite = HmrcWhite,
-    hmrcWhiteBackground = HmrcWhiteBackground,
     hmrcGreen1 = HmrcGreen1,
-    hmrcGreen2 = HmrcGreen2,
     hmrcBlue = HmrcBlue,
     hmrcTeal = HmrcTeal,
     hmrcGrey1 = HmrcGrey1,
@@ -93,14 +91,17 @@ private val LightColorPalette = HmrcColors(
     tabBarSelectedText = HmrcBlue,
     tabBarUnselectedText = HmrcGrey1,
     tabBarBorderSelected = HmrcBlue,
+
+    // Donuts
+    hmrcDonutChartColor1 = HmrcTeal,
+    hmrcDonutChartColor2 = HmrcDonutBlue,
+    hmrcDonutChartColor3 = HmrcDonutBlue,
 )
 
 private val DarkColorPalette = HmrcColors(
     hmrcBlack = HmrcBlackDark,
     hmrcWhite = HmrcWhiteDark,
-    hmrcWhiteBackground = HmrcWhiteBackgroundDark,
     hmrcGreen1 = HmrcGreen1Dark,
-    hmrcGreen2 = HmrcGreen2Dark,
     hmrcBlue = HmrcBlueDark,
     hmrcTeal = HmrcTeal,
     hmrcGrey1 = HmrcGrey1Dark,
@@ -163,6 +164,11 @@ private val DarkColorPalette = HmrcColors(
     tabBarSelectedText = HmrcPrimaryTeal,
     tabBarUnselectedText = HmrcPrimaryTeal,
     tabBarBorderSelected = HmrcPrimaryTeal,
+
+    // Donuts
+    hmrcDonutChartColor1 = HmrcWhite,
+    hmrcDonutChartColor2 = HmrcTeal,
+    hmrcDonutChartColor3 = HmrcTeal,
 )
 
 @Composable
@@ -281,9 +287,7 @@ object HmrcTheme {
 class HmrcColors(
     hmrcBlack: Color,
     hmrcWhite: Color,
-    hmrcWhiteBackground: Color,
     hmrcGreen1: Color,
-    hmrcGreen2: Color,
     hmrcBlue: Color,
     hmrcTeal: Color,
     hmrcGrey1: Color,
@@ -298,6 +302,9 @@ class HmrcColors(
     hmrcPageBackground: Color = hmrcGrey3,
     hmrcDivider: Color = hmrcGrey2,
     hmrcInsetBar: Color = hmrcGrey2,
+    hmrcDonutChartColor1: Color,
+    hmrcDonutChartColor2: Color,
+    hmrcDonutChartColor3: Color,
     isDark: Boolean,
     hmrcTransparent: Color,
     hmrcCardBackground: Color,
@@ -338,11 +345,7 @@ class HmrcColors(
         private set
     var hmrcWhite by mutableStateOf(hmrcWhite)
         private set
-    var hmrcWhiteBackground by mutableStateOf(hmrcWhiteBackground)
-        private set
     var hmrcGreen1 by mutableStateOf(hmrcGreen1)
-        private set
-    var hmrcGreen2 by mutableStateOf(hmrcGreen2)
         private set
     var hmrcBlue by mutableStateOf(hmrcBlue)
         private set
@@ -371,6 +374,12 @@ class HmrcColors(
     var hmrcDivider by mutableStateOf(hmrcDivider)
         private set
     var hmrcInsetBar by mutableStateOf(hmrcInsetBar)
+        private set
+    var hmrcDonutChartColor1 by mutableStateOf(hmrcDonutChartColor1)
+        private set
+    var hmrcDonutChartColor2 by mutableStateOf(hmrcDonutChartColor2)
+        private set
+    var hmrcDonutChartColor3 by mutableStateOf(hmrcDonutChartColor3)
         private set
     var isDark by mutableStateOf(isDark)
         private set
@@ -457,9 +466,7 @@ class HmrcColors(
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
-        hmrcWhiteBackground = other.hmrcWhiteBackground
         hmrcGreen1 = other.hmrcGreen1
-        hmrcGreen2 = other.hmrcGreen2
         hmrcBlue = other.hmrcBlue
         hmrcTeal = other.hmrcTeal
         hmrcGrey1 = other.hmrcGrey1
@@ -474,6 +481,9 @@ class HmrcColors(
         hmrcPageBackground = other.hmrcPageBackground
         hmrcDivider = other.hmrcDivider
         hmrcInsetBar = other.hmrcInsetBar
+        hmrcDonutChartColor1 = other.hmrcDonutChartColor1
+        hmrcDonutChartColor2 = other.hmrcDonutChartColor2
+        hmrcDonutChartColor3 = other.hmrcDonutChartColor3
         isDark = other.isDark
         hmrcCardBackground = other.hmrcCardBackground
         hmrcCardTitle = other.hmrcCardTitle
@@ -515,9 +525,7 @@ class HmrcColors(
     fun copy(): HmrcColors = HmrcColors(
         hmrcBlack = hmrcBlack,
         hmrcWhite = hmrcWhite,
-        hmrcWhiteBackground = hmrcWhiteBackground,
         hmrcGreen1 = hmrcGreen1,
-        hmrcGreen2 = hmrcGreen2,
         hmrcBlue = hmrcBlue,
         hmrcTeal = hmrcTeal,
         hmrcGrey1 = hmrcGrey1,
@@ -532,6 +540,9 @@ class HmrcColors(
         hmrcPageBackground = hmrcPageBackground,
         hmrcDivider = hmrcDivider,
         hmrcInsetBar = hmrcInsetBar,
+        hmrcDonutChartColor1 = hmrcDonutChartColor1,
+        hmrcDonutChartColor2 = hmrcDonutChartColor2,
+        hmrcDonutChartColor3 = hmrcDonutChartColor3,
         isDark = isDark,
         hmrcTransparent = hmrcTransparent,
         hmrcCardBackground = hmrcCardBackground,
