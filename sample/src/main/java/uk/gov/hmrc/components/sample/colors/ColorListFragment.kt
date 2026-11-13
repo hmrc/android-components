@@ -46,7 +46,7 @@ class ColorAdapter(val items: List<ColorListItem>) : RecyclerView.Adapter<ColorA
             val itemColor = ContextCompat.getColor(root.context, item.color)
             colorSwatch.setBackgroundColor(itemColor)
 
-            val colorHex = String.format("#%06X", 0xFFFFFF and itemColor)
+            val colorHex = java.lang.String.format("#%06X", (colorHex and itemColor))
 
             colorName.text = root.context.getString(
                 R.string.color_name_with_hex,
@@ -57,4 +57,9 @@ class ColorAdapter(val items: List<ColorListItem>) : RecyclerView.Adapter<ColorA
     }
 
     class ViewHolder(val binding: ItemColorBinding) : RecyclerView.ViewHolder(binding.root)
+    companion object {
+        private const val COLOR_HEX = 0xFFFFFF
+    }
+
+    val colorHex = COLOR_HEX
 }
