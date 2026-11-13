@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 
 data class HmrcTypography(
-    val hmrcBlack: Color,
+    val hmrcStandardTextColor: Color,
     val hmrcGrey1: Color,
     val hmrcWhite: Color,
     val hmrcBlue: Color,
@@ -33,37 +33,37 @@ data class HmrcTypography(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 48.sp,
-        color = hmrcBlack
+        color = hmrcStandardTextColor
     ),
     val h4: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 30.sp,
-        color = hmrcBlack
+        color = hmrcStandardTextColor
     ),
     val h5: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 20.sp,
-        color = hmrcBlack
+        color = hmrcStandardTextColor
     ),
     val h6: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
-        color = hmrcBlack
+        color = hmrcStandardTextColor
     ),
     val body: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
-        color = hmrcBlack
+        color = hmrcStandardTextColor
     ),
     val sequencesBody: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
-        color = hmrcBlack,
+        color = hmrcStandardTextColor,
         letterSpacing = 0.5.em
     ),
     val info: TextStyle = TextStyle(

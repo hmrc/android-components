@@ -28,7 +28,6 @@ class ColorsFragment : ColorListFragment() {
             ColorListItem(getString(R.string.colors_black), commonR.color.hmrc_black),
             ColorListItem(getString(R.string.colors_white), commonR.color.hmrc_white),
             ColorListItem(getString(R.string.colors_green_1), commonR.color.hmrc_green_1),
-            ColorListItem(getString(R.string.colors_green_2), commonR.color.hmrc_green_2),
             ColorListItem(getString(R.string.colors_blue), commonR.color.hmrc_blue),
             ColorListItem(getString(R.string.colors_teal), commonR.color.hmrc_teal),
             ColorListItem(getString(R.string.colors_red), commonR.color.hmrc_red),
@@ -37,7 +36,6 @@ class ColorsFragment : ColorListFragment() {
             ColorListItem(getString(R.string.colors_grey_3), commonR.color.hmrc_grey_3),
             ColorListItem(getString(R.string.colors_pink), commonR.color.hmrc_pink),
             ColorListItem(getString(R.string.colors_yellow), commonR.color.hmrc_yellow),
-            ColorListItem(getString(R.string.colors_white_background), commonR.color.hmrc_white_background),
             ColorListItem(getString(R.string.colors_always_black), commonR.color.hmrc_always_black),
             ColorListItem(getString(R.string.colors_always_white), commonR.color.hmrc_always_white)
         )
