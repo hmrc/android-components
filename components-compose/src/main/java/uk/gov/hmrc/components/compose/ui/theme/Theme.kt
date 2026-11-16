@@ -56,6 +56,7 @@ private val LightColorPalette = HmrcColors(
 
     // Text
     hmrcStandardTextColor = HmrcBlack,
+    hmrcInfoText = HmrcGrey1,
 
     // CTA
     hmrcPrimaryButtonColor = HmrcGreen1,
@@ -99,14 +100,14 @@ private val LightColorPalette = HmrcColors(
 )
 
 private val DarkColorPalette = HmrcColors(
-    hmrcBlack = HmrcBlackDark,
-    hmrcWhite = HmrcWhiteDark,
+    hmrcBlack = HmrcWhite,
+    hmrcWhite = HmrcBlack,
     hmrcGreen1 = HmrcGreen1Dark,
-    hmrcBlue = HmrcBlueDark,
+    hmrcBlue = HmrcPrimaryTeal,
     hmrcTeal = HmrcTeal,
-    hmrcGrey1 = HmrcGrey1Dark,
+    hmrcGrey1 = HmrcGrey2,
     hmrcGrey2 = HmrcGrey2Dark,
-    hmrcGrey3 = HmrcGrey3Dark,
+    hmrcGrey3 = HmrcBlack,
     hmrcPink = HmrcPinkDark,
     hmrcYellow = HmrcYellowDark,
     isDark = true,
@@ -129,6 +130,7 @@ private val DarkColorPalette = HmrcColors(
 
     // Text
     hmrcStandardTextColor = HmrcWhite,
+    hmrcInfoText = HmrcGrey2,
 
     // CTA
     hmrcPrimaryButtonColor = HmrcPrimaryGreen,
@@ -200,7 +202,7 @@ fun HmrcTheme(
     val hmrcTypography = HmrcTypography(
         hmrcStandardTextColor = colors.hmrcStandardTextColor,
         hmrcWhite = colors.hmrcWhite,
-        hmrcGrey1 = colors.hmrcGrey1,
+        hmrcInfoText = colors.hmrcInfoText,
         hmrcBlue = colors.hmrcBlue,
         hmrcErrorTextColor = colors.hmrcErrorTextColor,
     )
@@ -298,7 +300,7 @@ class HmrcColors(
     hmrcDarkText: Color = hmrcBlack,
     hmrcLightText: Color = hmrcWhite,
     hmrcLinkText: Color = hmrcBlue,
-    hmrcInfoText: Color = hmrcGrey1,
+    hmrcInfoText: Color,
     hmrcPageBackground: Color = hmrcGrey3,
     hmrcDivider: Color = hmrcGrey2,
     hmrcInsetBar: Color = hmrcGrey2,

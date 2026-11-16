@@ -69,9 +69,7 @@ val HmrcLightPressedBlue = Color(0xFFBBD4E9)
 val HmrcCyanBlue = Color(0xFF062947)
 val HmrcNavyBlue = Color(0xFF113A5E)
 val HmrcGrey3 = HmrcLightGrey
-val HmrcWhiteDark = HmrcBlack
-val HmrcGrey3Dark = HmrcBlack
+
 val HmrcMidGrey = HmrcGrey2
-val HmrcGrey1Dark = HmrcGrey2
+
 val HmrcBlackDark = HmrcWhite
-val HmrcBlueDark = HmrcPrimaryTeal
