@@ -51,7 +51,6 @@
     <string name="colors_black">Black</string>
     <string name="colors_white">White</string>
     <string name="colors_green_1">Green 1</string>
-    <string name="colors_green_2">Green 2</string>
     <string name="colors_blue">Blue</string>
     <string name="colors_teal">Teal</string>
     <string name="colors_red">Red</string>
@@ -60,7 +59,6 @@
     <string name="colors_grey_3">Grey 3</string>
     <string name="colors_pink">Pink</string>
     <string name="colors_yellow">Yellow</string>
-    <string name="colors_white_background">White background</string>
     <string name="colors_always_black">Always black</string>
     <string name="colors_always_white">Always white</string>
 
