@@ -7,7 +7,6 @@
     <public name="hmrc_always_black" type="color" />
     <public name="hmrc_always_white" type="color" />
     <public name="hmrc_green_1" type="color" />
-    <public name="hmrc_green_2" type="color" />
     <public name="hmrc_blue" type="color" />
     <public name="hmrc_teal" type="color" />
     <public name="hmrc_red" type="color" />
@@ -16,18 +15,54 @@
     <public name="hmrc_grey_3" type="color" />
     <public name="hmrc_pink" type="color" />
     <public name="hmrc_yellow" type="color" />
-    <public name="hmrc_white_background" type="color" />
     <public name="hmrc_page_background" type="color" />
     <public name="hmrc_divider" type="color" />
     <public name="hmrc_dark_text" type="color" />
-    <public name="hmrc_information_message_warning_headline_background" />
-    <public name="hmrc_information_message_info_headline_background" />
-    <public name="hmrc_information_message_urgent_headline_background" />
-    <public name="hmrc_information_message_notice_headline_background" />
+    <public name="hmrc_information_message_warning_headline_background" type="color" />
+    <public name="hmrc_information_message_info_headline_background" type="color" />
+    <public name="hmrc_information_message_urgent_headline_background" type="color" />
+    <public name="hmrc_information_message_notice_headline_background" type="color" />
     <public name="hmrc_secondary_button_ripple" type="color" />
     <public name="hmrc_donut_chart_color_1" type="color" />
     <public name="hmrc_donut_chart_color_2" type="color" />
     <public name="hmrc_donut_chart_color_3" type="color" />
+
+
+<!--    new colors-->
+    <public name="hmrc_white_new" type="color" />
+    <public name="hmrc_black_new" type="color" />
+    <public name="hmrc_card_title" type="color" />
+    <public name="hmrc_card_text_color" type="color" />
+    <public name="hmrc_header_background" type="color" />
+    <public name="hmrc_header_navigation_icon_color" type="color" />
+    <public name="hmrc_header_title_text_color" type="color" />
+    <public name="hmrc_card_background" type="color" />
+    <public name="hmrc_confirmation_background" type="color" />
+    <public name="hmrc_interface" type="color" />
+
+    <public name="hmrc_onboarding_background" type="color" />
+    <public name="hmrc_onboarding_pager_view" type="color" />
+
+    <public name="hmrc_primary_button_color" type="color" />
+    <public name="hmrc_primary_button_text_color" type="color" />
+    <public name="hmrc_secondary_button_color" type="color" />
+    <public name="hmrc_secondary_button_text_color" type="color" />
+    <public name="hmrc_secondary_button_ripple_background" type="color" />
+    <public name="hmrc_primary_button_disabled_color" type="color" />
+    <public name="hmrc_primary_button_disabled_text_color" type="color" />
+    <public name="hmrc_nav_bar_background" type="color" />
+    <public name="hmrc_icon_tint" type="color" />
+    <public name="hmrc_error_text_color" type="color" />
+    <public name="hmrc_pin_ripple" type="color" />
+    <public name="hmrc_pin_pressed_color" type="color" />
+    <public name="hmrc_tab_bar_background" type="color" />
+    <public name="hmrc_tab_bar_selected_text" type="color" />
+    <public name="hmrc_tab_bar_unselected_text" type="color" />
+    <public name="hmrc_tab_bar_border_selected" type="color" />
+
+
+
+
 
     <!-- Styles -->
     <public name="MaterialTextButtonNoInset" type="style" />

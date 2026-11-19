@@ -27,7 +27,7 @@ open class SecondaryButton @JvmOverloads constructor(
 ) : Button(context, attrs, defStyleAttr) {
 
     init {
-        this.setTextColor(ContextCompat.getColor(context, R.color.hmrc_blue))
+        this.setTextColor(ContextCompat.getColor(context, R.color.hmrc_secondary_button_text_color))
         this.setRippleColorResource(R.color.hmrc_secondary_button_ripple)
         this.setPadding(
             resources.getDimensionPixelSize(R.dimen.hmrc_spacing_16),

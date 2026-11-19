@@ -43,7 +43,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
-import uk.gov.hmrc.components.compose.ui.theme.HmrcRippleTheme
+import uk.gov.hmrc.components.compose.ui.theme.HmrcSecondaryButtonRippleTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme
 import uk.gov.hmrc.components.compose.ui.theme.HmrcTheme.colors
 
@@ -91,10 +91,11 @@ fun PrimaryButton(
     onClick: () -> Unit,
 ) {
     val primaryButtonColors: ButtonColors = ButtonDefaults.buttonColors(
-        containerColor = colors.hmrcGreen1, contentColor = colors.hmrcWhite
+        containerColor = colors.hmrcPrimaryButtonColor, contentColor = colors.hmrcPrimaryButtonTextColor
     )
     val disabledPrimaryButtonColors: ButtonColors = ButtonDefaults.buttonColors(
-        disabledContainerColor = colors.hmrcGrey2, disabledContentColor = colors.hmrcGrey1
+        disabledContainerColor = colors.hmrcPrimaryButtonDisabledColor,
+        disabledContentColor = colors.hmrcPrimaryButtonDisabledTextColor
     )
     HmrcButton(
         text = text,
@@ -113,13 +114,13 @@ fun SecondaryButton(
     modifier: Modifier = Modifier,
     textAlign: TextAlign = TextAlign.Center,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(
-        containerColor = Color.Transparent, contentColor = colors.hmrcBlue
+        containerColor = colors.hmrcSecondaryButtonColor, contentColor = colors.hmrcSecondaryButtonTextColor,
     ),
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit = {},
 ) {
     CompositionLocalProvider(
-        LocalRippleConfiguration provides HmrcRippleTheme()
+        LocalRippleConfiguration provides HmrcSecondaryButtonRippleTheme()
     ) {
         HmrcButton(
             text = text,
@@ -140,15 +141,15 @@ fun SecondaryButtonWithUnderLine(
     text: String,
     modifier: Modifier = Modifier,
     textAlign: TextAlign = TextAlign.Center,
-    textColor: Color = colors.hmrcBlue,
+    textColor: Color = colors.hmrcSecondaryButtonTextColor,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(
-        containerColor = Color.Transparent, contentColor = colors.hmrcBlue
+        containerColor = colors.hmrcSecondaryButtonColor, contentColor = colors.hmrcSecondaryButtonTextColor
     ),
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit = {},
 ) {
     CompositionLocalProvider(
-        LocalRippleConfiguration provides HmrcRippleTheme()
+        LocalRippleConfiguration provides HmrcSecondaryButtonRippleTheme()
     ) {
         HmrcButton(
             text = text,

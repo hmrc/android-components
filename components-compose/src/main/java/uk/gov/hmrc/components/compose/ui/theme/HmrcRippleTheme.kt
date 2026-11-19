@@ -23,8 +23,10 @@ import androidx.compose.runtime.Composable
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HmrcRippleTheme(): RippleConfiguration {
+
     return RippleConfiguration(
-        color = HmrcTheme.colors.hmrcBlue,
+//        change for cards when pressed , make new colour
+        color = HmrcTheme.colors.hmrcCardPressedColor,
         rippleAlpha = RippleAlpha(
             draggedAlpha = 0.24f,
             focusedAlpha = 0.40f,

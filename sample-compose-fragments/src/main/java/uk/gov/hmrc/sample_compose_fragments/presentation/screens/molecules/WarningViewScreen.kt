@@ -75,8 +75,8 @@ object WarningViewScreen {
                         modifier = Modifier.background(HmrcTheme.colors.hmrcWhite),
                         padding = 0.dp,
                         text = stringResource(id = R.string.warning_example_3_text),
-                        iconTintColor = HmrcTheme.colors.hmrcRed,
-                        textColor = HmrcTheme.colors.hmrcRed,
+                        iconTintColor = HmrcTheme.colors.hmrcErrorTextColor,
+                        textColor = HmrcTheme.colors.hmrcErrorTextColor,
                     )
                 }
             }

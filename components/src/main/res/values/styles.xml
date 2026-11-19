@@ -17,7 +17,7 @@
 <resources>
 
     <style name="Theme.Components" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorError">@color/hmrc_red</item>
+        <item name="colorError">@color/hmrc_error_text_color</item>
         <item name="textAppearanceButton">@style/Text.Button</item>
         <item name="materialTextButtonStyle">@style/MaterialTextButtonNoInset</item>
         <item name="materialIconButtonStyle">@style/MaterialTextIconButtonNoInset</item>
@@ -25,7 +25,7 @@
     </style>
 
     <style name="Theme.Components.ActionBar" parent="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorError">@color/hmrc_red</item>
+        <item name="colorError">@color/hmrc_error_text_color</item>
         <item name="textAppearanceButton">@style/Text.Button</item>
         <item name="materialTextButtonStyle">@style/MaterialTextButtonNoInset</item>
         <item name="materialIconButtonStyle">@style/MaterialTextIconButtonNoInset</item>
@@ -55,7 +55,7 @@
 
     <style name="Widget.Components.CardView" parent="Widget.MaterialComponents.CardView">
         <item name="shapeAppearance">@style/ShapeAppearance.Components.CardView</item>
-        <item name="cardBackgroundColor">@color/hmrc_white_background</item>
+        <item name="cardBackgroundColor">@color/hmrc_card_background</item>
     </style>
 
     <style name="ShapeAppearance.Components.CardView" parent="ShapeAppearance.MaterialComponents.MediumComponent">
@@ -100,7 +100,7 @@
     </style>
 
     <style name="Text.Error" parent="Text.Body">
-        <item name="android:textColor">@color/hmrc_error_text</item>
+        <item name="android:textColor">@color/hmrc_error_text_color</item>
     </style>
 
     <style name="Text.Menu" parent="Text.H5">
@@ -138,7 +138,7 @@
 
     <style name="TextInputErrorTextAppearance" parent="@style/TextAppearance.Design.Error">
         <item name="android:textSize">@dimen/text_body</item>
-        <item name="android:textColor">@color/hmrc_error_text</item>
+        <item name="android:textColor">@color/hmrc_error_text_color</item>
     </style>
 
     <style name="SwitchRowView" parent="Widget.MaterialComponents.CompoundButton.Switch">
@@ -153,22 +153,14 @@
 
     <style name="TabBar">
         <item name="tabMode">scrollable</item>
-        <item name="android:background">@color/hmrc_white</item>
+        <item name="android:background">@color/hmrc_tab_bar_background</item>
         <item name="tabRippleColor">@color/hmrc_secondary_button_ripple</item>
         <item name="tabTextAppearance">@style/TabTextAppearance</item>
-        <item name="tabTextColor">@color/hmrc_grey_1</item>
-        <item name="tabSelectedTextColor">@color/hmrc_blue</item>
-        <item name="tabIndicatorColor">@color/hmrc_blue</item>
+        <item name="tabTextColor">@color/hmrc_tab_bar_unselected_text</item>
+        <item name="tabSelectedTextColor">@color/hmrc_tab_bar_selected_text</item>
+        <item name="tabIndicatorColor">@color/hmrc_tab_bar_border_selected</item>
         <item name="tabIndicatorHeight">4dp</item>
         <item name="tabMaxWidth">20000dp</item>
-    </style>
-
-    <style name="TabBar.Dark">
-        <item name="android:background">@color/hmrc_always_black</item>
-        <item name="tabRippleColor">@color/hmrc_always_black</item>
-        <item name="tabTextColor">@color/hmrc_grey_2</item>
-        <item name="tabSelectedTextColor">@color/hmrc_always_white</item>
-        <item name="tabIndicatorColor">@color/hmrc_always_white</item>
     </style>
 
     <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
