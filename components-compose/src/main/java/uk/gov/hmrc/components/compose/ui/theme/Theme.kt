@@ -29,20 +29,14 @@ import androidx.compose.ui.platform.LocalDensity
 private val LightColorPalette = HmrcColors(
     hmrcBlack = HmrcBlack,
     hmrcWhite = HmrcWhite,
-    hmrcWhiteBackground = HmrcWhiteBackground,
     hmrcGreen1 = HmrcGreen1,
-    hmrcGreen2 = HmrcGreen2,
     hmrcBlue = HmrcBlue,
     hmrcTeal = HmrcTeal,
-    hmrcRed = HmrcRed,
     hmrcGrey1 = HmrcGrey1,
     hmrcGrey2 = HmrcGrey2,
     hmrcGrey3 = HmrcGrey3,
     hmrcPink = HmrcPink,
     hmrcYellow = HmrcYellow,
-    hmrcDonutChartColor1 = HmrcTeal,
-    hmrcDonutChartColor2 = HmrcDonutBlue,
-    hmrcDonutChartColor3 = HmrcDonutBlue,
     isDark = false,
     hmrcTransparent = HmrcTransparent,
     // App Background
@@ -59,6 +53,10 @@ private val LightColorPalette = HmrcColors(
     hmrcHeaderBackground = HmrcBlue,
     hmrcHeaderTitleTextColor = HmrcWhite,
     hmrcHeaderNavigationIconColor = HmrcWhite,
+
+    // Text
+    hmrcStandardTextColor = HmrcBlack,
+    hmrcInfoText = HmrcGrey1,
 
     // CTA
     hmrcPrimaryButtonColor = HmrcGreen1,
@@ -88,27 +86,33 @@ private val LightColorPalette = HmrcColors(
     pressedSegmentedTab = HmrcLightPressedBlue,
     inactiveSegmentedTab = HmrcTransparent,
     textColorSegmentedTab = HmrcBlack,
+
+    // Tab Bar
+    tabBarBackground = HmrcWhite,
+    tabBarSelectedText = HmrcBlue,
+    tabBarUnselectedText = HmrcGrey1,
+    tabBarBorderSelected = HmrcBlue,
+
+    // Donuts
+    hmrcDonutChartColor1 = HmrcTeal,
+    hmrcDonutChartColor2 = HmrcDonutBlue,
+    hmrcDonutChartColor3 = HmrcDonutBlue,
 )
 
 private val DarkColorPalette = HmrcColors(
-    hmrcBlack = HmrcBlackDark,
-    hmrcWhite = HmrcWhiteDark,
-    hmrcWhiteBackground = HmrcWhiteBackgroundDark,
+    hmrcBlack = HmrcWhite,
+    hmrcWhite = HmrcBlack,
     hmrcGreen1 = HmrcGreen1Dark,
-    hmrcGreen2 = HmrcGreen2Dark,
-    hmrcBlue = HmrcBlueDark,
+    hmrcBlue = HmrcPrimaryTeal,
     hmrcTeal = HmrcTeal,
-    hmrcRed = HmrcRedDark,
-    hmrcGrey1 = HmrcGrey1Dark,
+    hmrcGrey1 = HmrcGrey2,
     hmrcGrey2 = HmrcGrey2Dark,
-    hmrcGrey3 = HmrcGrey3Dark,
+    hmrcGrey3 = HmrcBlack,
     hmrcPink = HmrcPinkDark,
     hmrcYellow = HmrcYellowDark,
-    hmrcDonutChartColor1 = HmrcWhite,
-    hmrcDonutChartColor2 = HmrcTeal,
-    hmrcDonutChartColor3 = HmrcTeal,
     isDark = true,
     hmrcTransparent = HmrcTransparent,
+
     // App Background
     hmrcInterface = HmrcDarkNavy2,
     hmrcConfirmationBackground = HmrcPrimaryGreen,
@@ -124,6 +128,10 @@ private val DarkColorPalette = HmrcColors(
     hmrcHeaderTitleTextColor = HmrcWhite,
     hmrcHeaderNavigationIconColor = HmrcWhite,
 
+    // Text
+    hmrcStandardTextColor = HmrcWhite,
+    hmrcInfoText = HmrcGrey2,
+
     // CTA
     hmrcPrimaryButtonColor = HmrcPrimaryGreen,
     hmrcPrimaryButtonTextColor = HmrcWhite,
@@ -137,7 +145,7 @@ private val DarkColorPalette = HmrcColors(
     hmrcIconTint = HmrcMidGrey,
     hmrcPrePostBox = HmrcDarkBlue,
 
-    //    Errors
+    // Errors
     hmrcErrorTextColor = HmrcPrimaryRed,
 
     // Onboarding Screens
@@ -152,6 +160,17 @@ private val DarkColorPalette = HmrcColors(
     pressedSegmentedTab = HmrcCyanBlue,
     inactiveSegmentedTab = HmrcTransparent,
     textColorSegmentedTab = HmrcWhite,
+
+    // Tab Bar
+    tabBarBackground = HmrcDarkNavy3,
+    tabBarSelectedText = HmrcPrimaryTeal,
+    tabBarUnselectedText = HmrcPrimaryTeal,
+    tabBarBorderSelected = HmrcPrimaryTeal,
+
+    // Donuts
+    hmrcDonutChartColor1 = HmrcWhite,
+    hmrcDonutChartColor2 = HmrcTeal,
+    hmrcDonutChartColor3 = HmrcTeal,
 )
 
 @Composable
@@ -181,9 +200,9 @@ fun HmrcTheme(
     }
 
     val hmrcTypography = HmrcTypography(
-        hmrcBlack = colors.hmrcBlack,
+        hmrcStandardTextColor = colors.hmrcStandardTextColor,
         hmrcWhite = colors.hmrcWhite,
-        hmrcGrey1 = colors.hmrcGrey1,
+        hmrcInfoText = colors.hmrcInfoText,
         hmrcBlue = colors.hmrcBlue,
         hmrcErrorTextColor = colors.hmrcErrorTextColor,
     )
@@ -270,12 +289,9 @@ object HmrcTheme {
 class HmrcColors(
     hmrcBlack: Color,
     hmrcWhite: Color,
-    hmrcWhiteBackground: Color,
     hmrcGreen1: Color,
-    hmrcGreen2: Color,
     hmrcBlue: Color,
     hmrcTeal: Color,
-    hmrcRed: Color,
     hmrcGrey1: Color,
     hmrcGrey2: Color,
     hmrcGrey3: Color,
@@ -284,14 +300,10 @@ class HmrcColors(
     hmrcDarkText: Color = hmrcBlack,
     hmrcLightText: Color = hmrcWhite,
     hmrcLinkText: Color = hmrcBlue,
-    hmrcInfoText: Color = hmrcGrey1,
+    hmrcInfoText: Color,
     hmrcPageBackground: Color = hmrcGrey3,
     hmrcDivider: Color = hmrcGrey2,
     hmrcInsetBar: Color = hmrcGrey2,
-    hmrcInfoMessageWarningHeadlineBackground: Color = hmrcYellow,
-    hmrcInfoMessageInfoHeadlineBackground: Color = hmrcBlue,
-    hmrcInfoMessageUrgentHeadlineBackground: Color = hmrcRed,
-    hmrcInfoMessageNoticeHeadlineBackground: Color = hmrcBlack,
     hmrcDonutChartColor1: Color,
     hmrcDonutChartColor2: Color,
     hmrcDonutChartColor3: Color,
@@ -315,6 +327,7 @@ class HmrcColors(
     hmrcConfirmationBackground: Color,
     hmrcIconTint: Color,
     hmrcErrorTextColor: Color,
+    hmrcStandardTextColor: Color,
     hmrcPrePostBox: Color,
     hmrcOnBoardingInterface: Color,
     hmrcOnBoardingCardBackground: Color,
@@ -325,23 +338,20 @@ class HmrcColors(
     pressedSegmentedTab: Color,
     inactiveSegmentedTab: Color,
     textColorSegmentedTab: Color,
-
+    tabBarBackground: Color,
+    tabBarSelectedText: Color,
+    tabBarUnselectedText: Color,
+    tabBarBorderSelected: Color,
 ) {
     var hmrcBlack by mutableStateOf(hmrcBlack)
         private set
     var hmrcWhite by mutableStateOf(hmrcWhite)
         private set
-    var hmrcWhiteBackground by mutableStateOf(hmrcWhiteBackground)
-        private set
     var hmrcGreen1 by mutableStateOf(hmrcGreen1)
-        private set
-    var hmrcGreen2 by mutableStateOf(hmrcGreen2)
         private set
     var hmrcBlue by mutableStateOf(hmrcBlue)
         private set
     var hmrcTeal by mutableStateOf(hmrcTeal)
-        private set
-    var hmrcRed by mutableStateOf(hmrcRed)
         private set
     var hmrcGrey1 by mutableStateOf(hmrcGrey1)
         private set
@@ -366,14 +376,6 @@ class HmrcColors(
     var hmrcDivider by mutableStateOf(hmrcDivider)
         private set
     var hmrcInsetBar by mutableStateOf(hmrcInsetBar)
-        private set
-    var hmrcInfoMessageWarningHeadlineBackground by mutableStateOf(hmrcInfoMessageWarningHeadlineBackground)
-        private set
-    var hmrcInfoMessageInfoHeadlineBackground by mutableStateOf(hmrcInfoMessageInfoHeadlineBackground)
-        private set
-    var hmrcInfoMessageUrgentHeadlineBackground by mutableStateOf(hmrcInfoMessageUrgentHeadlineBackground)
-        private set
-    var hmrcInfoMessageNoticeHeadlineBackground by mutableStateOf(hmrcInfoMessageNoticeHeadlineBackground)
         private set
     var hmrcDonutChartColor1 by mutableStateOf(hmrcDonutChartColor1)
         private set
@@ -430,24 +432,21 @@ class HmrcColors(
         private set
     var hmrcErrorTextColor by mutableStateOf(hmrcErrorTextColor)
         private set
+
+    var hmrcStandardTextColor by mutableStateOf(hmrcStandardTextColor)
+        private set
     var hmrcPrePostBox by mutableStateOf(hmrcPrePostBox)
         private set
-
     var hmrcOnBoardingInterface by mutableStateOf(hmrcOnBoardingInterface)
         private set
-
     var hmrcOnBoardingCardBackground by mutableStateOf(hmrcOnBoardingCardBackground)
         private set
-
     var hmrcViewPagerIconSelected by mutableStateOf(hmrcViewPagerIconSelected)
         private set
-
     var hmrcViewPagerIconNotSelected by mutableStateOf(hmrcViewPagerIconNotSelected)
         private set
-
     var hmrcOnBoardingTextColor by mutableStateOf(hmrcOnBoardingTextColor)
         private set
-
     var selectedSegmentedTab by mutableStateOf(selectedSegmentedTab)
         private set
     var pressedSegmentedTab by mutableStateOf(pressedSegmentedTab)
@@ -456,15 +455,22 @@ class HmrcColors(
         private set
     var textColorSegmentedTab by mutableStateOf(textColorSegmentedTab)
         private set
+    var tabBarBackground by mutableStateOf(tabBarBackground)
+        private set
+    var tabBarSelectedText by mutableStateOf(tabBarSelectedText)
+        private set
+    var tabBarUnselectedText by mutableStateOf(tabBarUnselectedText)
+        private set
+    var tabBarBorderSelected by mutableStateOf(tabBarBorderSelected)
+        private set
+
+    @Suppress("LongMethod")
     fun update(other: HmrcColors) {
         hmrcBlack = other.hmrcBlack
         hmrcWhite = other.hmrcWhite
-        hmrcWhiteBackground = other.hmrcWhiteBackground
         hmrcGreen1 = other.hmrcGreen1
-        hmrcGreen2 = other.hmrcGreen2
         hmrcBlue = other.hmrcBlue
         hmrcTeal = other.hmrcTeal
-        hmrcRed = other.hmrcRed
         hmrcGrey1 = other.hmrcGrey1
         hmrcGrey2 = other.hmrcGrey2
         hmrcGrey3 = other.hmrcGrey3
@@ -477,10 +483,6 @@ class HmrcColors(
         hmrcPageBackground = other.hmrcPageBackground
         hmrcDivider = other.hmrcDivider
         hmrcInsetBar = other.hmrcInsetBar
-        hmrcInfoMessageWarningHeadlineBackground = other.hmrcInfoMessageWarningHeadlineBackground
-        hmrcInfoMessageInfoHeadlineBackground = other.hmrcInfoMessageInfoHeadlineBackground
-        hmrcInfoMessageUrgentHeadlineBackground = other.hmrcInfoMessageUrgentHeadlineBackground
-        hmrcInfoMessageNoticeHeadlineBackground = other.hmrcInfoMessageNoticeHeadlineBackground
         hmrcDonutChartColor1 = other.hmrcDonutChartColor1
         hmrcDonutChartColor2 = other.hmrcDonutChartColor2
         hmrcDonutChartColor3 = other.hmrcDonutChartColor3
@@ -504,6 +506,7 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledTextColor = other.hmrcPrimaryButtonDisabledTextColor
         hmrcIconTint = other.hmrcIconTint
         hmrcErrorTextColor = other.hmrcErrorTextColor
+        hmrcStandardTextColor = other.hmrcStandardTextColor
         hmrcPrePostBox = other.hmrcPrePostBox
         hmrcOnBoardingInterface = other.hmrcOnBoardingInterface
         hmrcOnBoardingCardBackground = other.hmrcOnBoardingCardBackground
@@ -514,17 +517,19 @@ class HmrcColors(
         pressedSegmentedTab = other.pressedSegmentedTab
         inactiveSegmentedTab = other.inactiveSegmentedTab
         textColorSegmentedTab = other.textColorSegmentedTab
+        tabBarBackground = other.tabBarBackground
+        tabBarSelectedText = other.tabBarSelectedText
+        tabBarUnselectedText = other.tabBarUnselectedText
+        tabBarBorderSelected = other.tabBarBorderSelected
     }
 
+    @Suppress("LongMethod")
     fun copy(): HmrcColors = HmrcColors(
         hmrcBlack = hmrcBlack,
         hmrcWhite = hmrcWhite,
-        hmrcWhiteBackground = hmrcWhiteBackground,
         hmrcGreen1 = hmrcGreen1,
-        hmrcGreen2 = hmrcGreen2,
         hmrcBlue = hmrcBlue,
         hmrcTeal = hmrcTeal,
-        hmrcRed = hmrcRed,
         hmrcGrey1 = hmrcGrey1,
         hmrcGrey2 = hmrcGrey2,
         hmrcGrey3 = hmrcGrey3,
@@ -537,10 +542,6 @@ class HmrcColors(
         hmrcPageBackground = hmrcPageBackground,
         hmrcDivider = hmrcDivider,
         hmrcInsetBar = hmrcInsetBar,
-        hmrcInfoMessageWarningHeadlineBackground = hmrcInfoMessageWarningHeadlineBackground,
-        hmrcInfoMessageInfoHeadlineBackground = hmrcInfoMessageInfoHeadlineBackground,
-        hmrcInfoMessageUrgentHeadlineBackground = hmrcInfoMessageUrgentHeadlineBackground,
-        hmrcInfoMessageNoticeHeadlineBackground = hmrcInfoMessageNoticeHeadlineBackground,
         hmrcDonutChartColor1 = hmrcDonutChartColor1,
         hmrcDonutChartColor2 = hmrcDonutChartColor2,
         hmrcDonutChartColor3 = hmrcDonutChartColor3,
@@ -564,6 +565,7 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledTextColor = hmrcPrimaryButtonDisabledTextColor,
         hmrcIconTint = hmrcIconTint,
         hmrcErrorTextColor = hmrcErrorTextColor,
+        hmrcStandardTextColor = hmrcStandardTextColor,
         hmrcPrePostBox = hmrcPrePostBox,
         hmrcOnBoardingInterface = hmrcOnBoardingInterface,
         hmrcOnBoardingCardBackground = hmrcOnBoardingCardBackground,
@@ -574,5 +576,9 @@ class HmrcColors(
         pressedSegmentedTab = pressedSegmentedTab,
         inactiveSegmentedTab = inactiveSegmentedTab,
         textColorSegmentedTab = textColorSegmentedTab,
+        tabBarBackground = tabBarBackground,
+        tabBarSelectedText = tabBarSelectedText,
+        tabBarUnselectedText = tabBarUnselectedText,
+        tabBarBorderSelected = tabBarBorderSelected,
     )
 }

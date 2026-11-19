@@ -153,22 +153,14 @@
 
     <style name="TabBar">
         <item name="tabMode">scrollable</item>
-        <item name="android:background">@color/hmrc_white</item>
+        <item name="android:background">@color/hmrc_tab_bar_background</item>
         <item name="tabRippleColor">@color/hmrc_secondary_button_ripple</item>
         <item name="tabTextAppearance">@style/TabTextAppearance</item>
-        <item name="tabTextColor">@color/hmrc_grey_1</item>
-        <item name="tabSelectedTextColor">@color/hmrc_blue</item>
-        <item name="tabIndicatorColor">@color/hmrc_blue</item>
+        <item name="tabTextColor">@color/hmrc_tab_bar_unselected_text</item>
+        <item name="tabSelectedTextColor">@color/hmrc_tab_bar_selected_text</item>
+        <item name="tabIndicatorColor">@color/hmrc_tab_bar_border_selected</item>
         <item name="tabIndicatorHeight">4dp</item>
         <item name="tabMaxWidth">20000dp</item>
-    </style>
-
-    <style name="TabBar.Dark">
-        <item name="android:background">@color/hmrc_always_black</item>
-        <item name="tabRippleColor">@color/hmrc_always_black</item>
-        <item name="tabTextColor">@color/hmrc_grey_2</item>
-        <item name="tabSelectedTextColor">@color/hmrc_always_white</item>
-        <item name="tabIndicatorColor">@color/hmrc_always_white</item>
     </style>
 
     <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">

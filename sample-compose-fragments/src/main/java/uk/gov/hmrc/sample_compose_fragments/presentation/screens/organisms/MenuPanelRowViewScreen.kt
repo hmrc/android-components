@@ -41,7 +41,7 @@ fun MenuPanelRowViewScreen(onClickAction: () -> Unit) {
     ScreenScrollViewColumn {
         Column(
             modifier = Modifier
-                .background(color = HmrcTheme.colors.hmrcWhiteBackground)
+                .background(color = HmrcTheme.colors.hmrcCardBackground)
                 .fillMaxWidth()
         ) {
         PlaceholderSlot{

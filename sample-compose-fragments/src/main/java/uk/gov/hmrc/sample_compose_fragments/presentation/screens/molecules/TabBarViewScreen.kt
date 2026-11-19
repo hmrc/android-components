@@ -89,7 +89,6 @@ fun TabBarViewScreen() {
                     // Handle onTabSelected here
                 },
                 modifier = Modifier.padding(bottom = HmrcTheme.dimensions.hmrcSpacing16),
-                tabBarStyle = TabBarViewStyle.DARK
             )
 
             TabBarView(
