@@ -15,6 +15,12 @@ Allowed headings:
 -->
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-23Z
+
+### Changed
+
+* Dark Mode Changes HMA-12074
+
 ## [0.1.19] - 2026-08-21Z
 
 ### Changed
