@@ -1,3 +1,3 @@
 # HMRC Components Library for Android [![Build Status](https://app.bitrise.io/app/08593f02ad3e13fe/status.svg?token=BYIJbA6f__HFQ0q3B85V4w&branch=master)](https://app.bitrise.io/app/08593f02ad3e13fe) ![Latest release](https://img.shields.io/github/v/tag/hmrc/android-components)
 
-Feast your eyes on the [wiki](https://github.com/hmrc/android-components/wiki) for setup instructions, useful links and more.
+Feast your eyes on the [wiki](https://github.com/hmrc/android-components/wiki) setup instructions,useful links and more.
