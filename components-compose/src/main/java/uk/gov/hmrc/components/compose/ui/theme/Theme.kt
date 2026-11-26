@@ -70,6 +70,8 @@ private val LightColorPalette = HmrcColors(
     // Icon
     hmrcIconTint = HmrcBlack,
     hmrcPrePostBox = HmrcGrey3,
+    crossIconBackground = HmrcGrey3,
+    crossIconTint = HmrcGrey2,
 
     // Errors
     hmrcErrorTextColor = HmrcRed,
@@ -144,6 +146,8 @@ private val DarkColorPalette = HmrcColors(
     // Icon
     hmrcIconTint = HmrcMidGrey,
     hmrcPrePostBox = HmrcDarkBlue,
+    crossIconBackground = HmrcBlack,
+    crossIconTint = HmrcWhite,
 
     // Errors
     hmrcErrorTextColor = HmrcPrimaryRed,
@@ -326,6 +330,8 @@ class HmrcColors(
     hmrcPrimaryButtonDisabledTextColor: Color,
     hmrcConfirmationBackground: Color,
     hmrcIconTint: Color,
+    crossIconBackground: Color,
+    crossIconTint: Color,
     hmrcErrorTextColor: Color,
     hmrcStandardTextColor: Color,
     hmrcPrePostBox: Color,
@@ -430,6 +436,10 @@ class HmrcColors(
         private set
     var hmrcIconTint by mutableStateOf(hmrcIconTint)
         private set
+    var crossIconBackground by mutableStateOf(crossIconBackground)
+        private set
+    var crossIconTint by mutableStateOf(crossIconTint)
+        private set
     var hmrcErrorTextColor by mutableStateOf(hmrcErrorTextColor)
         private set
 
@@ -505,6 +515,8 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledColor = other.hmrcPrimaryButtonDisabledColor
         hmrcPrimaryButtonDisabledTextColor = other.hmrcPrimaryButtonDisabledTextColor
         hmrcIconTint = other.hmrcIconTint
+        crossIconBackground = other.crossIconBackground
+        crossIconTint = other.crossIconTint
         hmrcErrorTextColor = other.hmrcErrorTextColor
         hmrcStandardTextColor = other.hmrcStandardTextColor
         hmrcPrePostBox = other.hmrcPrePostBox
@@ -564,6 +576,8 @@ class HmrcColors(
         hmrcPrimaryButtonDisabledColor = hmrcPrimaryButtonDisabledColor,
         hmrcPrimaryButtonDisabledTextColor = hmrcPrimaryButtonDisabledTextColor,
         hmrcIconTint = hmrcIconTint,
+        crossIconBackground = crossIconBackground,
+        crossIconTint = crossIconTint,
         hmrcErrorTextColor = hmrcErrorTextColor,
         hmrcStandardTextColor = hmrcStandardTextColor,
         hmrcPrePostBox = hmrcPrePostBox,
