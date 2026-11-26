@@ -95,7 +95,7 @@ object BottomSheetView {
                     horizontalArrangement = Arrangement.End
                 ) {
                     FilledIconButton(
-                        colors = IconButtonDefaults.filledIconButtonColors(containerColor = colors.hmrcGrey3),
+                        colors = IconButtonDefaults.filledIconButtonColors(containerColor = colors.crossIconBackground),
                         onClick = {
                             scope
                                 .launch { sheetState.hide() }
@@ -109,7 +109,7 @@ object BottomSheetView {
                         Icon(
                             imageVector = Icons.Default.Close,
                             contentDescription = closeSheetContentDescription,
-                            tint = colors.hmrcGrey2
+                            tint = colors.crossIconTint
                         )
                     }
                 }
